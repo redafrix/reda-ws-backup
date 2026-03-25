@@ -1,0 +1,1692 @@
+gana@pop-os:~$ mkdir research
+gana@pop-os:~$ cd research/
+gana@pop-os:~/research$ git clone https://github.com/Weizhena/Deep-Research-skills.git
+Cloning into 'Deep-Research-skills'...
+remote: Enumerating objects: 306, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 306 (delta 1), reused 1 (delta 1), pack-reused 302 (from 1)
+Receiving objects: 100% (306/306), 6.79 MiB | 1.96 MiB/s, done.
+Resolving deltas: 100% (125/125), done.
+gana@pop-os:~/research$ codex
+
+╭────────────────────────────────────────────╮
+│ >_ OpenAI Codex (v0.116.0)                 │
+│                                            │
+│ model:     gpt-5.4 high   /model to change │
+│ directory: ~/research                      │
+╰────────────────────────────────────────────╯
+
+  Tip: New 2x rate limits until April 2nd.
+gana@pop-os:~/research$ codex
+╭────────────────────────────────────────────╮
+│ >_ OpenAI Codex (v0.116.0)                 │
+│                                            │
+│ model:     gpt-5.4 high   /model to change │
+│ directory: ~/research                      │
+╰────────────────────────────────────────────╯
+
+  Tip: New Use /fast to enable our fastest inference at 2X plan usage.
+
+• Permissions updated to Full Access
+
+
+› please install the skills and shenanigans for codex from @Deep-research-skills
+
+
+• Using skill-installer because this is a Codex skill installation request. I’m checking its workflow first, then I’ll resolve what @Deep-research-skills refers to and install it into your Codex skills directory.
+
+• Exploring
+  └ Read SKILL.md
+    List research
+    Search Deep-research-skills|deep research skills|Deep research skills in gana
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found a local repository at /home/gana/research/Deep-Research-skills. Next I’m checking its layout to see whether it already contains Codex skill folders or an installer script, then I’ll copy the relevant pieces into
+  ~/.codex/skills.
+
+• Explored
+  └ Search Deep-research-skills|deep research skills|Deep research skills in gana
+    List Deep-Research-skills
+    List skills
+    List Deep-Research-skills
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The repo already has Codex-specific assets: skills/research-codex-en, skills/research-codex-zh, plus agents-codex/web-researcher.toml. I’m reading the project’s install script and README before I run anything, so I can
+  apply the intended layout without guessing.
+
+• Explored
+  └ Read README.md, test_install_codex.sh, install-codex.sh
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I have the intended Codex install path now: copy the Codex English skills, copy the web-researcher agent plus search modules, ensure pyyaml is present, and update ~/.codex/config.toml idempotently. I’m checking your
+  current Codex config first so I can preserve existing settings and only add the required blocks.
+
+• Explored
+  └ List research-codex-en
+
+• Ran if [ -f /home/gana/.codex/config.toml ]; then sed -n '1,240p' /home/gana/.codex/config.toml; else echo '__MISSING__'; fi
+  └ model = "gpt-5.4"
+    model_reasoning_effort = "high"
+    … +27 lines
+    [notice.model_migrations]
+    "gpt-5.3-codex" = "gpt-5.4"
+
+• Ran python3 - <<'PY'
+  │ import importlib.util
+  │ print('yes' if importlib.util.find_spec('yaml') else 'no')
+  │ … +1 lines
+  └ yes
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I’m applying the Codex-side install now. I’m choosing the English Codex skill set because your request was in English, and installing both language variants would collide on the same skill names.
+
+• Ran mkdir -p /home/gana/.codex/skills /home/gana/.codex/agents && cp -r /home/gana/research/Deep-Research-skills/skills/research-codex-en/* /home/gana/.codex/skills/ && cp /home/gana/research/Deep-Research-skills/
+  │ agents-codex/web-researcher.toml /home/gana/.codex/agents/ && cp -r /home/gana/research/Deep-Research-skills/agents-codex/web-search-modules /home/gana/.codex/agents/
+  └ (no output)
+
+• Ran bash /home/gana/research/Deep-Research-skills/scripts/install-codex.sh
+  └ Updated Codex config at /home/gana/.codex/config.toml
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The install step completed. I’m verifying the resulting skill directories, agent files, and the exact config blocks that were added so I can confirm nothing important was overwritten.
+
+• Explored
+
+• Explored
+  └ Read config.toml
+    List agents
+    List skills
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The upstream install script replaced your entire [features] block and dropped prevent_idle_sleep = true.
+  I’m restoring that setting now so the install doesn’t regress your existing Codex config.
+
+• Edited ~/.codex/config.toml (+1 -0)
+    27  default_mode_request_user_input = true
+    28 +prevent_idle_sleep = true
+    29  [notice]
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I restored the lost feature flag and I’m doing one last readback on ~/.codex/config.toml to confirm the
+  install is clean and your previous setting is still present.
+
+• Explored
+  └ Read config.toml
+
+• Ran python3 - <<'PY'
+  │ from pathlib import Path
+  │ skills = sorted(p.name for p in Path('/home/gana/.codex/skills').iterdir() if p.is_dir() and not
+  │ … +5 lines
+  └ skills=research,research-add-fields,research-add-items,research-deep,research-report
+    agents=web-researcher.toml,web-search-modules
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Installed the Codex assets from Deep-Research-skills into /home/gana/.codex/skills, /home/gana/.codex/
+  agents, and updated /home/gana/.codex/config.toml. I installed the English Codex variant: research,
+  research-add-items, research-add-fields, research-deep, and research-report, plus the web-researcher agent
+  and its web search modules.
+
+  pyyaml was already available, so no extra dependency install was needed. One caveat: the repo’s install-
+  codex.sh overwrote your existing [features] block and removed prevent_idle_sleep = true; I restored that
+  in /home/gana/.codex/config.toml.
+
+  Restart Codex to pick up new skills.
+
+
+› after that, install the obsidian skills and shenanigans for codex
+
+
+• Using skill-installer again. I’m resolving what “obsidian skills and shenanigans” maps to in your
+  workspace or on GitHub, then I’ll install the Codex-specific pieces without clobbering your current setup.
+
+• Explored
+  └ Read SKILL.md
+    List research
+    List research
+    Search obsidian|shenanigans
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found a local repo at /home/gana/research/obsidian-skills. I’m checking whether it includes Codex-
+  specific skill folders or install instructions; if it only targets another client, I’ll adapt the install
+  cautiously rather than forcing an incompatible layout.
+
+• Explored
+  └ List obsidian-skills
+    List obsidian-skills
+    Read README.md
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• This repo is already in the standard agent-skills format and explicitly documents Codex installation as
+  copying its skills/ contents into ~/.codex/skills. I’m checking for any extra Codex-only pieces beyond
+  skills/, then I’ll install them.
+
+• Explored
+  └ List obsidian-skills
+    List .claude-plugin
+    List .claude-plugin
+    List skills
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• There are no extra Codex config or agent files in this repo. For Codex, the “shenanigans” are just the
+  five skill directories and their bundled reference files, so I’m copying those into ~/.codex/skills now.
+
+• Ran cp -r /home/gana/research/obsidian-skills/skills/* /home/gana/.codex/skills/
+  └ (no output)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The copy finished. I’m verifying the installed skill set and checking that the reference docs came across,
+  since some of these skills rely on those subfolders.
+
+• Explored
+  └ List skills
+
+• Ran python3 - <<'PY'
+  │ from pathlib import Path
+  │ skills = sorted(p.name for p in Path('/home/gana/.codex/skills').iterdir() if p.is_dir() and not
+  │ … +3 lines
+  └ defuddle
+    json-canvas
+    … +6 lines
+    research-deep
+    research-report
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Installed the Obsidian Codex skills from /home/gana/research/obsidian-skills into /home/gana/.codex/
+  skills. Added obsidian-markdown, obsidian-bases, json-canvas, obsidian-cli, and defuddle, including their
+  bundled reference files.
+
+  This repo did not include any extra Codex agent/config setup, so no changes were needed outside /home/
+  gana/.codex/skills. Restart Codex to pick up the new skills.
+
+
+› install the obsidian appimage in Downloads
+
+
+• I’m fetching the current official Obsidian Linux AppImage source and checking your machine architecture
+  first, then I’ll download the correct AppImage into ~/Downloads and make it executable.
+
+• Searched official Obsidian Linux AppImage download latest release
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found the current official release source. Now I’m resolving the exact AppImage asset for your CPU
+  architecture, then I’ll place it in ~/Downloads and mark it executable.
+
+• Ran uname -m
+  └ x86_64
+
+• Ran mkdir -p /home/gana/Downloads && ls -la /home/gana/Downloads
+  └ total 757356
+    drwxr-xr-x  5 gana gana      4096 Mar 23 10:31 .
+    … +83 lines
+    drwxrwxr-x  3 gana gana      4096 Mar  9 15:43 TD_Etudiants
+    -rw-rw-r--  1 gana gana    124046 Mar  9 08:50 TD_Etudiants.zip
+
+• Ran python3 - <<'PY'
+  │ import json, urllib.request
+  │ url='https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest'
+  │ … +6 lines
+  └ v1.12.4
+    Obsidian-1.12.4-arm64.AppImage
+    … +15 lines
+    obsidian_1.12.4_amd64.deb
+    https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/obsidian_1.12.4_amd64.deb
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The latest official Linux x86_64 AppImage is Obsidian-1.12.4.AppImage, and it’s already present in ~/
+  Downloads. I’m verifying the file and making it runnable so you can launch it directly.
+
+• Ran /home/gana/Downloads/Obsidian-1.12.4.AppImage --appimage-version
+  └ Version: effcebc
+
+• Ran chmod +x /home/gana/Downloads/Obsidian-1.12.4.AppImage && stat -c '%A %s %n' /home/gana/Downloads/
+  │ Obsidian-1.12.4.AppImage
+  └ -rwxrwxr-x 124009781 /home/gana/Downloads/Obsidian-1.12.4.AppImage
+
+• Ran file /home/gana/Downloads/Obsidian-1.12.4.AppImage
+  └ /home/gana/Downloads/Obsidian-1.12.4.AppImage: ELF 64-bit LSB executable, x86-64, version 1 (SYSV),
+    dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.18, stripped
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• As of March 23, 2026, the latest official Obsidian Linux x86_64 AppImage I found is v1.12.4 from the offi
+  cial release source: https://github.com/obsidianmd/obsidian-releases/releases/latest
+
+  The AppImage was already present at /home/gana/Downloads/Obsidian-1.12.4.AppImage, so I finished the
+  install by making it executable and verifying it’s a valid x86_64 AppImage. You can launch it with:
+
+  /home/gana/Downloads/Obsidian-1.12.4.AppImage
+
+
+› add it to the apps so we can start it in terminal by "obsidian" or obsidian cli or something
+
+
+• I’m wiring the AppImage into your user environment as a normal command. First I’m checking whether
+  ~/.local/bin is already on your PATH and whether an obsidian command or desktop entry already exists, so I
+  can add this cleanly without colliding with anything.
+
+• Ran printf '%s
+  │ ' "$PATH"
+  └ /home/gana/.local/bin:/home/gana/.codex/tmp/arg0/codex-arg0PPIZuT:/home/gana/.nvm/versions/node/
+    v22.22.1/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/
+    x86_64-unknown-linux-musl/path:/home/gana/.nvm/versions/node/v22.22.1/bin:/home/gana/.local/bin:/home/
+    gana/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/
+    games:/snap/bin
+
+• Ran command -v obsidian || true
+  └ (no output)
+
+• Ran find /home/gana/.local/share/applications -maxdepth 1 -type f 2>/dev/null | rg 'obsidian|Obsidian' ||
+  │ true
+  └ (no output)
+
+• Ran ls -la /home/gana/.local/bin 2>/dev/null || true
+  └ total 96
+    drwxrwxr-x 2 gana gana 4096 Mar 10 11:10 .
+    … +22 lines
+    -rwxrwxr-x 1 gana gana  212 Mar  8 20:43 ulog_params
+    lrwxrwxrwx 1 gana gana   33 Mar 10 11:10 zed -> /home/gana/.local/zed.app/bin/zed
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• ~/.local/bin is already on your PATH and there’s no existing obsidian command, so I can add this cleanly.
+  I’m creating a small launcher at ~/.local/bin/obsidian that forwards arguments to the AppImage, and a
+  desktop entry under ~/.local/share/applications so it also shows up in your app launcher.
+
+• Edited 2 files (+21 -0)
+  └ ~/.local/bin/obsidian (+12 -0)
+     1 +#!/usr/bin/env bash
+     2 +
+     3 +set -euo pipefail
+     4 +
+     5 +APPIMAGE="/home/gana/Downloads/Obsidian-1.12.4.AppImage"
+     6 +
+     7 +if [[ ! -x "$APPIMAGE" ]]; then
+     8 +  echo "Obsidian AppImage not found or not executable: $APPIMAGE" >&2
+     9 +  exit 1
+    10 +fi
+    11 +
+    12 +exec "$APPIMAGE" "$@"
+
+  └ ~/.local/share/applications/obsidian.desktop (+9 -0)
+    1 +[Desktop Entry]
+    2 +Version=1.0
+    3 +Type=Application
+    4 +Name=Obsidian
+    5 +Comment=Knowledge base
+    6 +Exec=/home/gana/.local/bin/obsidian %U
+    7 +Terminal=false
+    8 +Categories=Office;Utility;
+    9 +StartupNotify=true
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The launcher files are in place. I’m setting the executable bit, refreshing the desktop database if
+  available, and verifying that obsidian now resolves from the shell.
+
+• Ran command -v obsidian && head -n 20 /home/gana/.local/bin/obsidian
+  └ /home/gana/.local/bin/obsidian
+    #!/usr/bin/env bash
+    … +9 lines
+
+    exec "$APPIMAGE" "$@"
+
+• Ran chmod +x /home/gana/.local/bin/obsidian && stat -c '%A %n' /home/gana/.local/bin/obsidian
+  └ -rwxrwxr-x /home/gana/.local/bin/obsidian
+
+• Ran command -v update-desktop-database >/dev/null 2>&1 && update-desktop-database /home/gana/.local/share/
+  │ applications || true
+  └ (no output)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The command is now on your PATH. I’m doing one quick wrapper-level check with obsidian --appimage-version
+  so we know the terminal command actually reaches the AppImage.
+
+• Ran obsidian --appimage-version
+  └ Version: effcebc
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• obsidian is now available as a terminal command via /home/gana/.local/bin/obsidian, and I added a desktop
+  entry at /home/gana/.local/share/applications/obsidian.desktop so it can show up in your app launcher.
+
+  The wrapper points to /home/gana/Downloads/Obsidian-1.12.4.AppImage, passes through any arguments, and I
+  verified it works with obsidian --appimage-version.
+
+  You can start it with:
+
+  obsidian
+Token usage: total=56,876 input=48,145 (+ 513,280 cached) output=8,731 (reasoning 3,419)
+To continue this session, run codex resume 019d1a04-4e47-7071-a4f7-9b07d41bf749
+gana@pop-os:~/research$ codex
+╭────────────────────────────────────────────╮
+│ >_ OpenAI Codex (v0.116.0)                 │
+│                                            │
+│ model:     gpt-5.4 high   /model to change │
+│ directory: ~/research                      │
+╰────────────────────────────────────────────╯
+
+  Tip: New 2x rate limits until April 2nd.
+
+
+› write something in obsidian (just to test it works and that the skills are fully installed)
+
+
+• I’m using the obsidian-cli skill for this because the request is to write into an Obsidian vault and
+  verify the toolchain is wired up. I’ll inspect the skill instructions first, then create a small test note
+  in the available vault.
+
+• Explored
+  └ Read SKILL.md
+
+• Ran pwd
+  └ /home/gana/research
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The skill is present and points to the obsidian CLI, which talks to a running Obsidian instance. I’m
+  checking the CLI and available vault context next, then I’ll write a small test note rather than guessing
+  paths blindly.
+
+• Ran obsidian vaults
+  └ fuse: device not found, try 'modprobe fuse' first
+
+    … +4 lines
+    for more information
+    open dir error: No such file or directory
+
+• Ran obsidian help
+  └ fuse: device not found, try 'modprobe fuse' first
+
+    … +4 lines
+    for more information
+    open dir error: No such file or directory
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The skill is installed, but invoking obsidian is failing before it reaches the CLI because the AppImage
+  wrapper can’t mount in this environment: fuse: device not found. I’m checking how the binary is installed
+  so I can see whether there’s a non-FUSE path available.
+
+• Ran which obsidian
+  └ /home/gana/.local/bin/obsidian
+
+• Ran ls -l $(which obsidian)
+  └ -rwxrwxr-x 1 gana gana 235 Mar 23 10:35 /home/gana/.local/bin/obsidian
+
+• Ran type -a obsidian
+  └ obsidian is /home/gana/.local/bin/obsidian
+    obsidian is /home/gana/.local/bin/obsidian
+    obsidian is /home/gana/.local/bin/obsidian
+
+• Explored
+  └ Read obsidian
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found the issue: /home/gana/.local/bin/obsidian is just a wrapper around an AppImage. I’m testing
+  whether the AppImage supports --appimage-extract-and-run, which usually avoids the FUSE requirement
+  cleanly in headless environments.
+
+• Ran '/home/gana/Downloads/Obsidian-1.12.4.AppImage' --appimage-version
+  └ Version: effcebc
+
+• Ran '/home/gana/Downloads/Obsidian-1.12.4.AppImage' --appimage-extract-and-run --help
+  └ /tmp/appimage_extracted_09694a149a1effdd91534e0d0e0ab058/.DirIcon
+    /tmp/appimage_extracted_09694a149a1effdd91534e0d0e0ab058/AppRun
+    … +121 lines
+    /tmp/appimage_extracted_09694a149a1effdd91534e0d0e0ab058/v8_context_snapshot.bin
+    /tmp/appimage_extracted_09694a149a1effdd91534e0d0e0ab058/vk_swiftshader_icd.json
+
+• Waited for background terminal
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The AppImage can be extracted, but Electron then hits its own Linux sandbox constraints in this terminal
+  session. I’m checking the local Obsidian config to find the vault and see whether I can either invoke the
+  extracted binary with the right flags or fall back to writing directly into the vault for a minimal end-
+  to-end test.
+
+• Ran sed -n '1,220p' ~/.config/obsidian/obsidian.json 2>/dev/null
+  └ (no output)
+
+• Ran sed -n '1,220p' ~/.config/obsidian/obsidian-cli.json 2>/dev/null
+  └ (no output)
+
+• Ran rg --files ~/.config/obsidian ~/.var/app 2>/dev/null
+  └ (no output)
+
+• Explored
+  └ List ~
+
+• Ran find ~ -maxdepth 3 \( -name '.obsidian' -o -name 'obsidian.json' -o -name 'workspace.json' \) 2>/dev/
+  │ null | head -n 200
+  └ (no output)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• There’s no existing Obsidian config or vault metadata under the usual paths, so this machine doesn’t look
+  like it has a configured vault yet. I’m checking for likely note locations next; if none exist, the clean
+  fallback is to create a minimal test vault and drop a note into it.
+
+• Ran find ~/Documents ~/Desktop ~/research -maxdepth 3 -type d -name '.obsidian' 2>/dev/null | head -n 50
+  └ (no output)
+
+• Ran find ~/Documents ~/Desktop ~/research -maxdepth 3 -type f -name '*.md' 2>/dev/null | head -n 200
+  └ /home/gana/research/Deep-Research-skills/README.md
+    /home/gana/research/Deep-Research-skills/agents/web-search-agent.md
+    /home/gana/research/Deep-Research-skills/agents/web-search-opencode.md
+    /home/gana/research/Deep-Research-skills/README.zh.md
+    /home/gana/research/obsidian-skills/README.md
+
+• Ran test -d squashfs-root && echo extracted || echo missing
+  └ missing
+
+• Ran '/home/gana/Downloads/Obsidian-1.12.4.AppImage' --appimage-extract >/tmp/obsidian-appimage-extract.log
+  │ 2>&1; tail -n 5 /tmp/obsidian-appimage-extract.log
+  └ squashfs-root/usr/share/icons/hicolor/64x64
+    squashfs-root/usr/share/icons/hicolor/64x64/apps
+    squashfs-root/usr/share/icons/hicolor/64x64/apps/obsidian.png
+    squashfs-root/v8_context_snapshot.bin
+    squashfs-root/vk_swiftshader_icd.json
+
+• Waited for background terminal
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I have a clean extracted copy of the AppImage in the workspace now, which avoids FUSE. I’m trying the
+  binary directly with sandbox disabled; if that still can’t talk to Obsidian, I’ll proceed by creating a
+  minimal vault and note so you at least have a concrete write artifact from the Obsidian skills path.
+
+• Ran ./squashfs-root/obsidian --no-sandbox --help
+  └ (no output)
+
+• Ran ./squashfs-root/obsidian --no-sandbox --version
+  └ (no output)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The remaining blocker is the sandbox itself: the extracted Electron binary is being denied by the
+  container, not by the skill setup. I’m requesting one escalated run to verify whether the Obsidian CLI can
+  actually start outside the sandbox; if that still fails, I’ll stop at a manual vault write and report the
+  exact limitation.
+
+✔ You approved codex to run ./squashfs-root/obsidian --no-sandbox --version this time
+
+• Ran echo "$DISPLAY"
+  └ :1
+
+
+  Would you like to run the following command?
+
+  Reason: Do you want to allow me to inspect the Obsidian process list so I can tell whether the app
+  actually started and is available for CLI commands?
+
+  $ pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian'
+✔ You approved codex to run pgrep -af '/home/gana/
+  research/squashfs-root/obsidian|Obsidian' this
+  time
+
+• Ran pgrep -af '/home/gana/research/squashfs-root/
+  │ obsidian|Obsidian'
+  └ 17497 /home/gana/research/squashfs-root/obsidian
+    --type=zygote --no-zygote-sandbox --no-sandbox
+    … +2 lines
+    17833 /home/gana/research/squashfs-root/obsidian
+    --type=zygote --no-zygote-sandbox --no-sandbox
+
+• Waited for background terminal · ./squashfs-root/
+obsidian --no-sandbox --version
+
+────────────────────────────────────────────────────
+
+• The extracted Obsidian process is starting outside
+  the sandbox and there is a display available, so
+  this is now a normal runtime issue rather than a
+  broken install. I’m trying the actual CLI command
+  path against the extracted binary next, then I’ll
+  create a vault and note if the CLI accepts it.
+
+• Ran ls -la ~/.config/obsidian 2>/dev/null
+  └ total 188
+    drwx------ 15 gana gana  4096 Mar 23 10:43 .
+    … +33 lines
+    drwx------  2 gana gana  4096 Mar 23 10:42
+    WebStorage
+
+✔ You approved codex to run ./squashfs-root/obsidian
+  help this time
+
+• Ran ./squashfs-root/obsidian help
+  └ Command line interface is not enabled. Please
+    turn it on in Settings > General > Advanced.
+
+• Explored
+  └ Read obsidian.json
+
+• Ran find /home/gana/research_internship -maxdepth
+  │ 2 \( -path '*/.obsidian/*' -o -name
+  │ '.obsidian' \) 2>/dev/null | head -n 200
+  └ /home/gana/research_internship/.obsidian
+    /home/gana/research_internship/.obsidian/
+    … +7 lines
+    /home/gana/research_internship/.obsidian/
+    appearance.json
+
+• Ran rg -n "Command line interface is not enabled|
+  │ cli" ~/.config/obsidian /home/gana/research/
+  │ squashfs-root/resources 2>/dev/null | head -n
+  │ … +1 lines
+  └ (no output)
+
+────────────────────────────────────────────────────
+
+• I now have the vault location: /home/gana/
+  research_internship. The last missing piece is
+  that Obsidian’s CLI is disabled in the app
+  settings, so I’m inspecting the vault config to
+  see whether that flag is stored on disk and can be
+  enabled safely.
+
+• Explored
+  └ Read app.json
+    List obsidian
+    Read core-plugins.json
+
+• Ran python - <<'PY'
+  │ import json, pathlib
+  │ p=pathlib.Path('/home/gana/.config/obsidian/
+  │ … +7 lines
+  └ /bin/bash: line 1: python: command not found
+
+• Ran python3 - <<'PY'
+  │ import json, pathlib
+  │ p=pathlib.Path('/home/gana/.config/obsidian/
+  │ … +7 lines
+  └ (no output)
+
+• Explored
+  └ Read Preferences
+    Search cli|command line|advanced in Preferences
+
+• Ran strings /home/gana/research/squashfs-root/
+  │ resources/obsidian.asar | rg -n 'cli' | head
+  │ -n 200
+  └ (no output)
+
+• Ran strings /home/gana/research/squashfs-root/
+  │ resources/obsidian.asar | rg -n 'Command line
+  │ interface is not enabled|Settings > General >
+  │ … +1 lines
+  └ 185821:                                `)}},
+    {id:"developer-section",type:"separator"},
+    … +353 lines
+    es(u)?{success:!0,message:"Already registered in
+    PATH"}:(b.appendFileSync(h,`
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found the underlying switch in the app bundle: the CLI gate is a global cli setting in Obsidian’s app
+  config, not a missing skill file. Before I touch anything outside the workspace, I’m checking whether
+  Obsidian’s URI handler can create a note without enabling the CLI, which would give us a real write test
+  without changing app settings.
+
+• Ran strings /home/gana/research/squashfs-root/resources/obsidian.asar | rg -n 'uri-action|new\?' | head -n
+  │ 200
+  └ .options=i.sent()||f9,[2]}}))}))},e.prototype.onExternalSettingsChange=function(){return y(this,void
+    0,void 0,(function(){var e;return b(this,(function(t){switch(t.label){case 0:return e=this,
+    … +8 lines
+    command:"
+    75960:interface.msg-invalid-uri-action
+
+• Ran strings /home/gana/research/squashfs-root/resources/obsidian.asar | rg -n
+  │ 'obsidian://new|obsidian://open|obsidian://advanced-uri|vault=' | head -n 200
+  └ unction(){return this.win.document})),UIEvent.prototype.instanceOf=function(t){if(this instanceof
+    t)return!0;var e=this.view;if(!e)return!1;var n=e[t.name];return!(!n||n===t)&&this instanceof n};var
+    … +265 lines
+    212767:[Link to note](obsidian://open?vault=MainVault&file=MyNote.md)
+    212768:[Link to note](obsidian://open?vault=MainVault&file=MyNote.md)
+
+• Ran strings /home/gana/research/squashfs-root/resources/obsidian.asar | rg -n 'invalid-uri-action|
+  │ uri-action|actionCreate|actionNew' | head -n 200
+  └ EnterUrl:"Enter URL",labelEmptyEmbed:"
+    19439: could not be found.",promptAddText:"Add text...",promptStartSearch:"Type to
+    … +46 lines
+    results",labelSortAZ:"A
+    75960:interface.msg-invalid-uri-action
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I have a safer path than editing settings: use Obsidian’s URI handler to create a note in the existing
+  vault. I’m writing a one-off test note that way now, then I’ll verify the file exists on disk.
+
+• Explored
+  └ Search Codex Obsidian Skill Test* in research_internship
+
+• Ran python3 - <<'PY'
+  │ import urllib.parse
+  │ vault='research_internship'
+  │ … +5 lines
+  └ obsidian://new?vault=research_internship&name=Codex+Obsidian+Skill+Test+2026-03-23+10-44&content=%23+Obsidian+skill+test%0A%0AThis+note+was+created+by+Codex+on+2026-03-23+to+verify+the+Obsidian+integration+path.%0A
+
+✔ You approved codex to run ./squashfs-root/obsidian 'obsidian://new?vault=research_internship&name=Codex...
+  this time
+
+• Ran ./squashfs-root/obsidian
+  │ 'obsidian://new?vault=research_internship&name=Codex+Obsidian+Skill+Test+2026-03-23+10-44&content=%23+Obsidian+skill+test%0A%0AThis+note+was+created+by+Codex+on+2026-03-23+to+verify+the+Obsidian+integration+path.%0A'
+  └ Processed URI
+    obsidian://new?vault=research_internship&name=Codex+Obsidian+Skill+Test+2026-03-23+10-44&content=%23+Obsidian+skill+test%0A%0AThis+note+was+created+by+Codex+on+2026-03-23+to+verify+the+Obsidian+integration+path.%0A
+
+• Explored
+  └ Read Codex Obsidian Skill Test 2026-03-23 10-44.md
+    Search Codex Obsidian Skill Test 2026-03-23 10-44.md in research_internship
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The URI write was accepted by Obsidian, but the note didn’t land at the vault root under that exact
+  filename. I’m checking the vault for the newest file so I can confirm where Obsidian wrote it and whether
+  it normalized the name or location.
+
+• Explored
+  └ List research_internship
+    Search Codex|Skill Test|Obsidian
+    List research_internship
+    Read Codex+Obsidian+Skill+Test+2026-03-23+10-44.md
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The first URI call proved the write path works, but it also exposed a detail of Obsidian’s URI parser
+  here: + is being taken literally instead of as a space. I’m writing one cleanly percent-encoded note so
+  the result in the vault is readable.
+
+✔ You approved codex to run ./squashfs-root/obsidian 'obsidian://new?vault=research_internship&name=Codex...
+  this time
+
+• Ran ./squashfs-root/obsidian
+  │ 'obsidian://new?vault=research_internship&name=Codex%20Obsidian%20Skill%20Test%202026-03-23%2010-46&content=%23%20Obsidian%20skill%20test%0A%0AThis%20note%20was%20created%20by%20Codex%20on%202026-03-23%20to%20verify%20the%20Obsidian%20integration%20path.%0A'
+  └ Processed URI
+    obsidian://new?vault=research_internship&name=Codex%20Obsidian%20Skill%20Test%202026-03-23%2010-46&content=%23%20Obsidian%20skill%20test%0A%0AThis%20note%20was%20created%20by%20Codex%20on%202026-03-23%20to%20verify%20the%20Obsidian%20integration%20path.%0A
+
+• Explored
+  └ Read Codex Obsidian Skill Test 2026-03-23 10-46.md
+    Search Codex Obsidian Skill Test 2026-03-23 10-46.md in research_internship
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I wrote a test note into the existing vault at /home/gana/research_internship/
+  Codex%20Obsidian%20Skill%20Test%202026-03-23%2010-46.md. Its contents are:
+
+  # Obsidian skill test
+
+  This note was created by Codex on 2026-03-23 to verify the Obsidian integration path.
+
+  The Obsidian integration path is working via the app’s URI handler. One limitation remains: direct
+  obsidian create/read/search CLI commands are currently disabled in Obsidian itself and return Command line
+  interface is not enabled. Please turn it on in Settings > General > Advanced. There is also one extra test
+  artifact from the first URI encoding attempt at /home/gana/research_internship/
+  Codex+Obsidian+Skill+Test+2026-03-23+10-44.md.
+
+
+› okay delete all the notes in that vault
+
+
+• You asked to delete all notes in the Obsidian vault at /home/gana/research_internship. I’m confirming
+  which Markdown files are present, then I’ll remove those files and leave the vault config in .obsidian
+  intact.
+
+• Explored
+  └ List research_internship
+    Search *.md in research_internship
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found three note files in the vault: Welcome.md and the two test notes. I’m deleting those Markdown
+  files only; .obsidian and the vault folder itself will remain.
+
+✔ You approved codex to run rm -f '/home/gana/research_internship/Welcome.md' '/home/gana/research_intern...
+  this time
+
+• Ran rm -f '/home/gana/research_internship/Welcome.md' '/home/gana/research_internship/
+  │ Codex+Obsidian+Skill+Test+2026-03-23+10-44.md' '/home/gana/research_internship/Codex Obsidian Skill
+  │ Test 2026-03-23 10-46.md'
+  └ (no output)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The delete completed. I’m verifying that no Markdown notes remain in the vault and that .obsidian is still
+  present.
+
+• Explored
+  └ List research_internship
+    Search *.md in research_internship
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• All Markdown notes in the vault were deleted. The vault now contains only .obsidian under /home/gana/
+  research_internship, and find /home/gana/research_internship -type f -name '*.md' returns no files.
+
+• Stopping all background terminals.
+
+
+› now implement zotero plugin integration to obsidian since my main usecase is research, literaure review and organization for writing papers
+
+
+• I’m treating this as an Obsidian vault configuration task: inspect the vault, plugin state, and any existing Zotero setup first, then wire in the minimal working integration for research and literature review. After that
+  I’ll verify the plugin/config files on disk and note any remaining manual steps if Obsidian itself needs a setting toggled.
+
+• Explored
+  └ Read app.json, SKILL.md
+    List .obsidian
+    Read core-plugins.json
+
+• Searched Obsidian Zotero Integration plugin GitHub settings import citations note templates bibliography official docs
+
+• Searched https://github.com/mgmeyers/obsidian-zotero-integration
+
+• Searched https://github.com/obsidian-community/obsidian-zotero-integration/tree/main/docs
+
+• Searched https://raw.githubusercontent.com/obsidian-community/obsidian-zotero-integration/main/docs/Export%20Settings.md
+
+• Searched
+
+• Searched
+
+• Searched site:github.com/obsidian-community/obsidian-zotero-integration manifest id obsidian zotero integration
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I’ve confirmed the vault is basically clean, so I’m now checking the machine for Zotero and existing plugin assets before I install anything. If Zotero is present, I’ll configure the Obsidian side around the current
+  obsidian-zotero-integration workflow rather than inventing a custom bridge.
+
+• Explored
+  └ List .obsidian
+
+• Ran which zotero || true
+  └ (no output)
+
+• Ran find ~ -maxdepth 4 \( -iname 'zotero' -o -iname 'zotero.desktop' -o -iname '*BetterBibTeX*' \) 2>/dev/null | head -n 200
+  └ (no output)
+
+• Searched 'main.js'
+
+• Searched
+
+• Searched site:github.com/obsidian-community/obsidian-zotero-integration/releases/download/3.2.1 main.js
+
+• Searched https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugins.json
+
+• Searched 'zotero-integration' in https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugins.json
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found the right community plugin id: obsidian-zotero-desktop-connector. The vault has no community plugins yet and this machine doesn’t appear to have Zotero installed, so I’m pulling the plugin source/docs locally now
+  to configure the Obsidian side correctly instead of guessing the settings schema.
+
+✔ You approved codex to run git clone --depth 1 https://github.com/obsidian-community/obsidian-zotero-int... this time
+
+• Ran git clone --depth 1 https://github.com/obsidian-community/obsidian-zotero-integration.git /tmp/obsidian-zotero-integration
+  └ (no output)
+
+• Waited for background terminal
+
+• Explored
+  └ Read manifest.json
+    Search DEFAULT_SETTINGS|default settings|cli|templatePath|libraryPath|collection|citation in obsidian-zotero-integration
+    List docs
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I have the exact plugin id/version and the source locally now. Next I’m extracting the on-disk settings schema so I can write a real vault config and a usable literature-note template rather than leaving you with a half-
+  installed plugin.
+
+• Explored
+  └ Read main.ts, Export Settings.md, types.ts, settings.tsx, FAQ.md
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I have the settings schema now. The plugin stores plain JSON in .obsidian/plugins/obsidian-zotero-desktop-connector/data.json, so I can configure it directly. I’m pulling a few field names from the plugin docs/source
+  next, then I’ll install the release assets and add a research-oriented import template plus a vault folder layout.
+
+• Explored
+  └ Read PDF Annotations.md, ExportFormatSettings.tsx
+    Search abstractNote|attachments|annotations|citekey|creators|year|DOI|title in obsidian-zotero-integration
+
+• Searched Obsidian .obsidian community-plugins.json safe mode app.json enable community plugins format
+
+• Working (3m 13s • esc to interrupt)
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• One caveat is Obsidian’s own “Restricted mode”. I can install the plugin files and pre-enable the vault
+  plugin list on disk, but if Community plugins are still globally blocked in the app, Obsidian won’t
+  execute it until that mode is turned off. I’m checking the local config for that flag so I can avoid
+  leaving you with a manual cleanup step if it’s writable from disk.
+
+• Explored
+  └ Read workspace.json
+
+• Ran rg -n "restricted|community|safe mode|safeMode|plugin" ~/.config/obsidian /home/gana/
+  │ research_internship/.obsidian 2>/dev/null
+  └ (no output)
+
+• Explored
+  └ List obsidian
+
+• Updated Plan
+  └ Setting up a working Obsidian-side Zotero workflow requires installing the community plugin, creating
+    research-oriented templates/folders, and wiring the vault settings on disk. Zotero itself is not present
+    on this machine, so verification will be limited to the Obsidian/vault side.
+    ✔ Inspect Zotero Integration plugin docs/source and determine vault settings schema
+    □ Create research-oriented template files and supporting vault layout in the workspace
+    □ Install plugin assets into the Obsidian vault and write plugin/community settings
+    □ Verify installed files and document remaining Zotero-side prerequisites
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I’m at the point of writing the actual research workflow files. I’m keeping the imported note path stable
+  as References/{{citekey}}.md instead of title-based filenames, because citekeys are the least fragile way
+  to keep literature notes synced across imports and paper drafts.
+
+• Explored
+  └ Read export.ts, applyBasicTemplates.ts
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I’ve settled on a practical default workflow: stable note files under References/{{citekey}}.md, imported
+  Zotero notes under Inbox/Zotero Notes/, and citation commands for both Pandoc-style writing and note-to-
+  note linking. That keeps the vault organized for literature review now, without locking you into one final
+  manuscript toolchain later.
+
+• Explored
+  └ Read export.ts
+    Search createFolder|mkdir|dirname\(|ensure.*folder|folderExists|create\( in export.ts
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The plugin itself creates missing parent folders on import, so I don’t need to seed the vault with
+  placeholder folders. I’m checking one more thing before the install: whether the annotation extractor has
+  a standalone binary I can stage now, because research workflows are much less useful if PDF highlights
+  don’t come across.
+
+• Explored
+  └ Read AssetDownloader.tsx, helpers.ts
+    Search pdfannots2json|getExeRoot|scopeExe|checkEXEVersion in helpers.ts
+    Search settingsVersion|exeVersion|_exeInternalVersion in obsidian-zotero-integration
+    Read main.ts
+
+─ Worked for 1m 14s ────────────────────────────────────────────────────────────────────────────────────────
+
+• I’m writing the actual template and settings payload now. The template is opinionated for literature
+  review work: stable metadata at the top, a persisted synthesis area you can edit freely, and incremental
+  annotation imports so repeated syncs don’t wipe your notes.
+
+• Edited 2 files (+111 -0)
+  └ obsidian-zotero-setup/Templates/Zotero Literature Note.md (+74 -0)
+     1 +---
+     2 +citekey: {{citekey}}
+     3 +status: unread
+     4 +source: zotero
+     5 +tags:
+     6 +  - literature-note
+     7 +---
+     8 +
+     9 +# {{title}}
+    10 +
+    11 +## Citation
+    12 +{{bibliography}}
+    13 +
+    14 +## Metadata
+    15 +- Citekey: `{{citekey}}`
+    16 +- Type: {{itemType}}
+    17 +- Authors: {% if authors %}{{authors}}{% elif creators and creators.length > 0 %}{% for creator in c
+        reators %}{% if creator.name %}{{creator.name}}{% else %}{{creator.firstName}} {{creator.lastName}}{
+        % endif %}{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}
+    18 +- Year: {% if date %}{{date | format("YYYY")}}{% endif %}
+    19 +- Zotero: [Open item]({{desktopURI}})
+    20 +{% if DOI %}- DOI: {{DOI}}
+    21 +{% endif %}{% if pdfZoteroLink %}- PDF: {{pdfZoteroLink}}
+    22 +{% endif %}{% if hashTags %}- Tags: {{hashTags}}
+    23 +{% endif %}
+    24 +
+    25 +{% if abstractNote %}
+    26 +## Abstract
+    27 +{{abstractNote}}
+    28 +{% endif %}
+    29 +
+    30 +{% persist "summary" %}
+    31 +## Summary
+    32 +- Research question:
+    33 +- Core claim:
+    34 +- Method:
+    35 +- Key findings:
+    36 +- Relevance to my work:
+    37 +{% endpersist %}
+    38 +
+    39 +{% persist "review" %}
+    40 +## Literature Review Notes
+    41 +- Strengths:
+    42 +- Weaknesses:
+    43 +- Useful quotes or claims:
+    44 +- Follow-up questions:
+    45 +{% endpersist %}
+    46 +
+    47 +{% if markdownNotes %}
+    48 +{% persist "zotero-notes" %}
+    49 +## Zotero Notes
+    50 +{{markdownNotes}}
+    51 +{% endpersist %}
+    52 +{% endif %}
+    53 +
+    54 +{% persist "annotations" %}
+    55 +{% set newAnnotations = annotations | filterby("date", "dateafter", lastImportDate) %}
+    56 +{% if newAnnotations.length > 0 %}
+    57 +## Imported Annotations
+    58 +### {{importDate | format("YYYY-MM-DD HH:mm")}}
+    59 +{% for annotation in newAnnotations %}
+    60 +#### Page {{annotation.pageLabel or annotation.page}}
+    61 +{% if annotation.annotatedText %}
+    62 +> {{annotation.annotatedText}}
+    63 +{% endif %}
+    64 +{% if annotation.imageRelativePath %}
+    65 +![[{{annotation.imageRelativePath}}]]
+    66 +{% endif %}
+    67 +{% if annotation.comment %}
+    68 +Comment: {{annotation.comment}}
+    69 +{% endif %}
+    70 +Type: {{annotation.type}}{% if annotation.colorCategory %} | Color: {{annotation.colorCategory}}{% e
+        ndif %} | [Open in Zotero]({{annotation.attachment.desktopURI.replace("select", "open-pdf")}}?page={
+        {annotation.pageLabel}}&annotation={{annotation.id}})
+    71 +
+    72 +{% endfor %}
+    73 +{% endif %}
+    74 +{% endpersist %}
+
+  └ obsidian-zotero-setup/plugin-data.json (+37 -0)
+     1 +{
+     2 +  "database": "Zotero",
+     3 +  "noteImportFolder": "Inbox/Zotero Notes",
+     4 +  "pdfExportImageDPI": 120,
+     5 +  "pdfExportImageFormat": "jpg",
+     6 +  "pdfExportImageQuality": 90,
+     7 +  "citeFormats": [
+     8 +    {
+     9 +      "name": "Insert Pandoc citation",
+    10 +      "format": "pandoc"
+    11 +    },
+    12 +    {
+    13 +      "name": "Insert literature note link",
+    14 +      "format": "template",
+    15 +      "template": "[[References/{{citekey}}|{{title}}]]"
+    16 +    },
+    17 +    {
+    18 +      "name": "Insert APA citation",
+    19 +      "format": "formatted-citation",
+    20 +      "cslStyle": "apa"
+    21 +    }
+    22 +  ],
+    23 +  "exportFormats": [
+    24 +    {
+    25 +      "name": "Import literature note",
+    26 +      "outputPathTemplate": "References/{{citekey}}.md",
+    27 +      "imageOutputPathTemplate": "Assets/{{citekey}}/",
+    28 +      "imageBaseNameTemplate": "image",
+    29 +      "templatePath": "Templates/Zotero Literature Note.md",
+    30 +      "cslStyle": "apa"
+    31 +    }
+    32 +  ],
+    33 +  "citeSuggestTemplate": "{{title}} :: @{{citekey}}",
+    34 +  "openNoteAfterImport": true,
+    35 +  "whichNotesToOpenAfterImport": "first-imported-note",
+    36 +  "shouldConcat": true
+    37 +}
+
+• Added obsidian-zotero-setup/community-plugins.json (+3 -0)
+    1 +[
+    2 +  "obsidian-zotero-desktop-connector"
+    3 +]
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I’m moving from local prep to the actual vault install now: plugin binaries into .obsidian/plugins, the
+  template into Templates/, and the vault’s plugin list/config files. I’m also staging the PDF annotation
+  utility so highlights and rectangles can import later, not just metadata.
+
+
+✔ You approved codex to run mkdir -p /home/gana/research_internship/.obsidian/plugins/obsidian-zotero-des...
+  this time
+
+• Waited for background terminal · mkdir -p /home/gana/research_internship/.obsidian/plugins/obsidian-zoter
+o-desktop-connector /home/gana/research_internship/Templates /home/gana/research_internship/.obsidian/plugi
+ns/obsidian-zotero-desktop-connector && curl -fL
+https://github.com/obsidian-community/obsidian-zotero-integration/releases/download/3.2.1/main.js -o /home/
+gana/research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector/main.js && curl -fL
+https://github.com/obsidian-community/obsidian-zotero-integration/releases/download/3.2.1/manifest.json -o
+/home/gana/research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector/manifest.json && curl -fL
+https://github.com/obsidian-community/obsidian-zotero-integration/releases/download/3.2.1/styles.css -o /ho
+me/gana/research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector/styles.css && cp /home/gana
+/research/obsidian-zotero-setup/plugin-data.json /home/gana/research_internship/.obsidian/plugins/obsidian-
+zotero-desktop-connector/data.json && cp /home/gana/research/obsidian-zotero-setup/community-plugins.json /
+home/gana/research_internship/.obsidian/community-plugins.json && cp '/home/gana/research/obsidian-zotero-s
+etup/Templates/Zotero Literature Note.md' '/home/gana/research_internship/Templates/Zotero Literature Note.
+md' && curl -fL
+https://github.com/mgmeyers/pdfannots2json/releases/download/1.0.15/pdfannots2json.Linux.x64.tar.gz -o /tmp
+/pdfannots2json.Linux.x64.tar.gz && tar -xzf /tmp/pdfannots2json.Linux.x64.tar.gz -C /home/gana/research_in
+ternship/.obsidian/plugins/obsidian-zotero-desktop-connector && if [ -f /home/gana/research_internship/.obs
+idian/plugins/obsidian-zotero-desktop-connector/pdfannots2json ]; then mv /home/gana/research_internship/.o
+bsidian/plugins/obsidian-zotero-desktop-connector/pdfannots2json /home/gana/research_internship/.obsidian/p
+lugins/obsidian-zotero-desktop-connector/pdfannots2json-linux-x64; fi && chmod +x /home/gana/research_inter
+nship/.obsidian/plugins/obsidian-zotero-desktop-connector/pdfannots2json-linux-x64
+
+• Ran mkdir -p /home/gana/research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector /home/gan
+  │ a/research_internship/Templates /home/gana/research_internship/.obsidian/plugins/obsidian-zotero-desk
+  │ top-connector && curl -fL
+  │ … +20 lines
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+    … +19 lines
+    0  5882k      0  0:00:02  0:00:02 --:--:--  9.8M
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The install finished cleanly. I’m doing a file-level verification pass now and one small settings refinement so the bundled PDF extractor is recognized as already provisioned rather than prompting for a download later.
+
+• Edited obsidian-zotero-setup/plugin-data.json (+2 -0)
+    3    "noteImportFolder": "Inbox/Zotero Notes",
+    4 +  "exeVersion": "1.0.15",
+    5 +  "_exeInternalVersion": 1,
+    6    "pdfExportImageDPI": 120,
+
+✔ You approved codex to run cp /home/gana/research/obsidian-zotero-setup/plugin-data.json /home/gana/rese... this time
+
+• Explored
+  └ List .obsidian
+    List research_internship
+
+• Ran cp /home/gana/research/obsidian-zotero-setup/plugin-data.json /home/gana/research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector/data.json
+  └ (no output)
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The vault files are in place. I’m checking the actual contents now, because release downloads sometimes silently return HTML if an asset URL is wrong, and I don’t want to leave you with a broken plugin folder that only
+  looks installed.
+
+✔ You approved codex to run '/home/gana/research_internship/.obsidian/plugins/obsidian-zotero-desktop-con... this time
+
+• Explored
+  └ Read data.json, manifest.json, community-plugins.json
+
+• Ran '/home/gana/research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector/pdfannots2json-linux-x64' -v
+  └ v1.0.15
+
+• Searched Zotero Linux download official latest 2026 Better BibTeX latest release official
+
+• Updated Plan
+  └ The Obsidian-side integration is installed and verified on disk, including the PDF annotation utility. Remaining end-to-end prerequisites are on the Zotero side because Zotero is not installed on this machine.
+    ✔ Inspect Zotero Integration plugin docs/source and determine vault settings schema
+    ✔ Create research-oriented template files and supporting vault layout in the workspace
+    ✔ Install plugin assets into the Obsidian vault and write plugin/community settings
+    ✔ Verify installed files and document remaining Zotero-side prerequisites
+
+─ Worked for 1m 03s ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The Obsidian side is installed and configured.
+
+  I added the Zotero Integration community plugin under /home/gana/research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector/manifest.json, wired its settings in /home/gana/research_internship/.obsidian/
+  plugins/obsidian-zotero-desktop-connector/data.json, enabled it in /home/gana/research_internship/.obsidian/community-plugins.json, and installed the PDF annotation extractor at /home/gana/research_internship/.obsidian/
+  plugins/obsidian-zotero-desktop-connector/pdfannots2json-linux-x64. The extractor runs and reports v1.0.15. I also added a research-oriented import template at /home/gana/research_internship/Templates/
+  Zotero%20Literature%20Note.md.
+
+  The configured workflow is:
+
+  - Literature notes import to References/{{citekey}}.md
+  - Imported Zotero notes go to Inbox/Zotero Notes
+  - PDF annotation images go to Assets/{{citekey}}/
+  - Citation commands are preconfigured for Pandoc, APA citation, and literature note link
+
+  Two things still need to exist on the Zotero/app side before this works end-to-end:
+
+  - Zotero itself is not installed on this machine
+  - The plugin requires Better BibTeX in Zotero
+
+  You may also need to restart Obsidian and ensure Settings -> Community plugins -> Restricted mode is off so the installed plugin actually loads.
+
+  If you want, I can do the Zotero-side setup next: install Zotero, install Better BibTeX, and wire the first live import.
+
+• Permissions updated to Full Access
+
+
+› install all missing things, you have all the permissions
+
+
+• I’m installing the missing Zotero-side pieces now. First I’m checking the current machine state and fetching the latest official Zotero and Better BibTeX release information so I install the real current artifacts rather
+  than stale versions.
+
+• Searched official Zotero download Linux tarball latest site:zotero.org download
+
+• Ran uname -a
+  └ Linux pop-os 6.18.7-76061807-generic #202601231045~1769703228~24.04~cb87b5b SMP PREEMPT_DYNAMIC Thu J x86_64 x86_64 x86_64 GNU/Linux
+
+• Explored
+  └ Read os-release
+
+• Ran which zotero || true
+  └ (no output)
+
+• Ran ls -la /home/gana/.zotero 2>/dev/null || true
+  └ (no output)
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The machine is clean: no Zotero install and no Zotero profile yet. I’m resolving the current official download URLs next, then I’ll install Zotero in the user profile and stage Better BibTeX into the Zotero profile so
+  the Obsidian connector has its required backend.
+
+• Ran python3 - <<'PY'
+  │ import urllib.request
+  │ u='https://api.github.com/repos/retorquere/zotero-better-bibtex/releases/latest'
+  │ … +2 lines
+  └ {"url":"https://api.github.com/repos/retorquere/zotero-better-bibtex/releases/297062689","assets_url":"https://api.github.com/repos/retorquere/zotero-better-bibtex/releases/297062689/assets","upload_url":"https://
+    uploads.github.com/repos/retorquere/zotero-better-bibtex/releases/297062689/assets{?name,label}","html_url":"https://github.com/retorquere/zotero-better-bibtex/releases/tag/v9.0.10","id":297062689,"author":
+    … +17 lines
+    Zotero 7 is no longer supported.\n\nIf you use Firefox, make sure to right-click and save the XPI file, not just clicking it.\n\nYou can verify you are on the latest version by going into 'Tools' -> 'Addons' in Zotero/
+    Juris-M, clicking the gear
+
+• Ran python3 - <<'PY'
+  │ import urllib.request, re
+  │ html=urllib.request.urlopen('https://www.zotero.org/download/').read().decode('utf-8', 'ignore')
+  │ … +8 lines
+  └ <!DOCTYPE html>
+    <html lang="en">
+    … +21 lines
+    ["bibtex","bookmarks","mods","refer","rdf_bibliontology","rdf_dc","rdf_zotero","ris","wikipedia"],"exportFormatsMap":{"bibtex":"BibTeX","bookmarks":"Bookmarks","mods":"MODS","refer":"Refer\/
+    BibIX","rdf_bibliontology":"Biblio
+
+• Ran python3 - <<'PY'
+  │ import urllib.request, re
+  │ html=urllib.request.urlopen('https://www.zotero.org/download/').read().decode('utf-8', 'ignore')
+  │ … +4 lines
+  └ <a href="https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64">Linux 64-bit</a>
+    <a href="https://www.zotero.org/download/client/dl?channel=release&platform=linux-arm64">Linux ARM64</a>
+    … +96 lines
+    class=\"installation-help\"><a\n\t\t\t\t\t\t\t\t\t\thref=\"https:\/\/www.zotero.org\/support\/kb\/safari_compatibility\">Don\u2019t see the\n\t\t\t\t\t\t\t\t\t\tZotero Connector in Safari?<\/a><\/p>\n\t\t\t\t\t\t\t<\/
+    li>\n\t\t\t\t\t\t<\/ul>\n\t\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t\t<\/div>\n\t\t<\/div>\n\t<\/div>\n<\/div>\n"}));
+
+• Waited for background terminal
+
+• Waited for background terminal
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I have the current versions: Zotero 8.0.4 from Zotero’s own download page and Better BibTeX 9.0.10 from the project’s latest GitHub release. I’m installing Zotero into a user-local location now, then I’ll create a
+  profile and drop Better BibTeX into the Zotero extensions directory so it loads on first real launch.
+
+• Waited for background terminal · set -e
+mkdir -p /home/gana/.local/opt /home/gana/.local/bin /home/gana/.local/share/applications /tmp/zotero-install
+curl -fL 'https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64' -o /tmp/zotero-install/zotero.tar.bz2
+rm -rf /tmp/zotero-install/Zotero_linux-x86_64
+mkdir -p /tmp/zotero-install/Zotero_linux-x86_64
+ tar -xjf /tmp/zotero-install/zotero.tar.bz2 -C /tmp/zotero-install/Zotero_linux-x86_64
+rm -rf /home/gana/.local/opt/Zotero
+mv /tmp/zotero-install/Zotero_linux-x86_64/Zotero_linux-x86_64 /home/gana/.local/opt/Zotero
+cat > /home/gana/.local/bin/zotero <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+exec /home/gana/.local/opt/Zotero/zotero "$@"
+EOF
+chmod +x /home/gana/.local/bin/zotero
+cat > /home/gana/.local/share/applications/zotero.desktop <<'EOF'
+[Desktop Entry]
+Name=Zotero
+Exec=/home/gana/.local/bin/zotero %U
+Icon=/home/gana/.local/opt/Zotero/chrome/icons/default/default256.png
+Terminal=false
+Type=Application
+Categories=Office;Education;Science;
+MimeType=x-scheme-handler/zotero;
+StartupWMClass=Zotero
+EOF
+update-desktop-database /home/gana/.local/share/applications >/dev/null 2>&1 || true
+/home/gana/.local/bin/zotero -v
+
+• Ran set -e
+  │ mkdir -p /home/gana/.local/opt /home/gana/.local/bin /home/gana/.local/share/applications /tmp/zotero-install
+  │ curl -fL 'https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64' -o /tmp/zotero-install/zotero.tar.bz2
+  │ … +24 lines
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+ 20 98.1M   20 19.9M    0     0  5387k      0  0:00:18  0:00:02  0:00:41 7956k
+    … +4 lines
+    tar: Child returned status 2
+    tar: Error is not recoverable: exiting now
+
+• Waited for background terminal
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The Zotero download endpoint served a different archive format than I expected, so the install stopped at extraction instead of half-installing anything. I’m checking the file type and restarting the install with the
+  correct extractor rather than forcing it.
+
+• Ran file /tmp/zotero-install/zotero.tar.bz2
+  └ /tmp/zotero-install/zotero.tar.bz2: XZ compressed data, checksum CRC64
+
+• Ran ls -la /home/gana/.local/bin/zotero /home/gana/.local/opt/Zotero /home/gana/.local/share/applications/zotero.desktop 2>/dev/null || true
+  └ (no output)
+
+• Waited for background terminal · set -e
+mkdir -p /home/gana/.local/opt /home/gana/.local/bin /home/gana/.local/share/applications /tmp/zotero-install
+rm -rf /tmp/zotero-install/Zotero_linux-x86_64 /home/gana/.local/opt/Zotero /home/gana/.local/bin/zotero /home/gana/.local/share/applications/zotero.desktop
+mkdir -p /tmp/zotero-install/Zotero_linux-x86_64
+if [ ! -f /tmp/zotero-install/zotero.tar.xz ]; then mv /tmp/zotero-install/zotero.tar.bz2 /tmp/zotero-install/zotero.tar.xz; fi
+tar -xJf /tmp/zotero-install/zotero.tar.xz -C /tmp/zotero-install/Zotero_linux-x86_64
+mv /tmp/zotero-install/Zotero_linux-x86_64/Zotero_linux-x86_64 /home/gana/.local/opt/Zotero
+printf '%s
+' '#!/usr/bin/env bash' 'set -euo pipefail' 'exec /home/gana/.local/opt/Zotero/zotero "$@"' > /home/gana/.local/bin/zotero
+chmod +x /home/gana/.local/bin/zotero
+printf '%s
+' '[Desktop Entry]' 'Name=Zotero' 'Exec=/home/gana/.local/bin/zotero %U' 'Icon=/home/gana/.local/opt/Zotero/icons/icon128.png' 'Terminal=false' 'Type=Application' 'Categories=Office;Education;Science;' 'MimeType=x-scheme-
+handler/zotero;' 'StartupWMClass=Zotero' > /home/gana/.local/share/applications/zotero.desktop
+update-desktop-database /home/gana/.local/share/applications >/dev/null 2>&1 || true
+/home/gana/.local/opt/Zotero/zotero -v
+
+• Ran set -e
+  │ mkdir -p /home/gana/.local/opt /home/gana/.local/bin /home/gana/.local/share/applications /tmp/zotero-install
+  │ rm -rf /tmp/zotero-install/Zotero_linux-x86_64 /home/gana/.local/opt/Zotero /home/gana/.local/bin/zotero /home/gana/.local/share/applications/zotero.desktop
+  │ … +12 lines
+  └ Zotero Zotero 140.7.0esr, Copyright (c) 2006-2025 Contributors
+
+• Explored
+  └ Read zotero
+    List Zotero
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Zotero itself is installed cleanly now under ~/.local/opt/Zotero with a launcher in ~/.local/bin/zotero. I’m checking how best to seed the profile and extension install next, because Better BibTeX has to land in Zotero’s
+  profile, not just somewhere on disk.
+
+• Ran find /home/gana -maxdepth 3 \( -path '/home/gana/.zotero*' -o -path '/home/gana/Zotero*' -o -path '/home/gana/.mozilla*' \) 2>/dev/null | sort | sed -n '1,200p'
+  └ (no output)
+
+• Ran /home/gana/.local/bin/zotero -h
+  └ Usage: /home/gana/.local/opt/Zotero/zotero-bin [ options ... ] [URL]
+           where options include:
+    … +58 lines
+                         Please read security guidelines at https://firefox-source-docs.mozilla.org/remote/Security.html
+      --remote-allow-system-access Enable privileged access to the application's parent process
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I can force Zotero to create its first profile without waiting on a full GUI interaction. I’m doing a short headless first-start run now, then I’ll inspect the generated profile directory and place Better BibTeX where
+  Zotero will load it.
+
+• Waited for background terminal · timeout 20 /home/gana/.local/bin/zotero --headless --new-instance --first-startup || true
+find /home/gana -maxdepth 4 \( -path '/home/gana/.zotero*' -o -path '/home/gana/Zotero*' \) 2>/dev/null | sort
+
+• Ran timeout 20 /home/gana/.local/bin/zotero --headless --new-instance --first-startup || true
+  │ find /home/gana -maxdepth 4 \( -path '/home/gana/.zotero*' -o -path '/home/gana/Zotero*' \) 2>/dev/null | sort
+  └ /home/gana/.zotero
+    /home/gana/.zotero/zotero
+    … +20 lines
+    /home/gana/.zotero/zotero/Profile Groups/2ae943b0.sqlite-wal
+    /home/gana/.zotero/zotero/profiles.ini
+
+• Explored
+  └ Read profiles.ini
+
+• Ran mkdir -p /tmp/bbt-install && curl -fL https://github.com/retorquere/zotero-better-bibtex/releases/download/v9.0.10/zotero-better-bibtex-9.0.10.xpi -o /tmp/bbt-install/zotero-better-bibtex-9.0.10.xpi && unzip -p /tmp
+  │ /bbt-install/zotero-better-bibtex-9.0.10.xpi manifest.json | sed -n '1,220p'
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 32.6M  100 32.6M    0     0  12.2M      0  0:00:02  0:00:02  0:00:01 16.8M
+    … +17 lines
+      }
+    }
+
+• Waited for background terminal
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The Better BibTeX package is correct and the addon id is better-bibtex@iris-advies.com. I’m installing it the standard Firefox/Zotero way by placing the XPI in the profile’s extensions/ directory, then I’ll start Zotero
+  once more so it can register the addon into the profile metadata.
+
+• Waited for background terminal · set -e
+PROFILE=/home/gana/.zotero/zotero/ouvxxuan.default
+mkdir -p "$PROFILE/extensions"
+cp /tmp/bbt-install/zotero-better-bibtex-9.0.10.xpi "$PROFILE/extensions/better-bibtex@iris-advies.com.xpi"
+timeout 25 /home/gana/.local/bin/zotero --headless --new-instance || true
+find "$PROFILE/extensions" -maxdepth 2 -type f | sort
+printf '\n---\n'
+ls -la "$PROFILE" | rg 'extensions.json|addonStartup|prefs.js|extensions' || true
+
+• Ran set -e
+  │ PROFILE=/home/gana/.zotero/zotero/ouvxxuan.default
+  │ mkdir -p "$PROFILE/extensions"
+  │ … +5 lines
+  └ Missing chrome or resource URL: chrome://zotero/skin/16/white/loading.svg
+    [Parent 21219, Main Thread] WARNING: gtk_icon_theme_get_for_screen: assertion 'GDK_IS_SCREEN (screen)' failed: 'glib warning', file /builds/worker/checkouts/gecko/toolkit/xre/nsSigHandlers.cpp:201
+    … +95 lines
+    -rw-rw-r-- 1 gana gana   1878 Mar 23 11:04 extensions.json
+    -rw------- 1 gana gana   3174 Mar 23 11:04 prefs.js
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The profile metadata exists now, which is good: Zotero wrote extensions.json and addonStartup.json.lz4. The headless run complained about an already-running Firefox/Zotero process, so I’m checking the extension registry
+  and the live process state before I decide whether a final GUI launch is needed.
+
+• Explored
+  └ Read extensions.json, prefs.js
+
+• Ran pgrep -af '/home/gana/.local/opt/Zotero|zotero-bin|zotero'
+  └ (no output)
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Better BibTeX is present in the profile, but Zotero treated it as a sideloaded addon and left it disabled by default. I’m fixing that the Firefox/Zotero-native way: set the profile prefs so app-profile addons aren’t
+  auto-disabled, flip the addon state in the registry, then start Zotero once with a GUI session so the addon manager can rebuild startup data.
+
+• Waited for background terminal · set -e
+PROFILE=/home/gana/.zotero/zotero/ouvxxuan.default
+python3 - <<'PY'
+import json, pathlib
+profile = pathlib.Path('/home/gana/.zotero/zotero/ouvxxuan.default')
+ext = profile / 'extensions.json'
+data = json.loads(ext.read_text())
+for addon in data.get('addons', []):
+    if addon.get('id') == 'better-bibtex@iris-advies.com':
+        addon['userDisabled'] = False
+        addon['active'] = True
+        addon['seen'] = True
+        addon['softDisabled'] = False
+        addon['foreignInstall'] = False
+ext.write_text(json.dumps(data, separators=(',', ':')))
+PY
+cat > "$PROFILE/user.js" <<'EOF'
+user_pref("extensions.autoDisableScopes", 0);
+user_pref("extensions.enabledScopes", 15);
+EOF
+rm -f "$PROFILE/.parentlock"
+timeout 30 env DISPLAY=:1 /home/gana/.local/bin/zotero --new-instance || true
+python3 - <<'PY'
+import json, pathlib
+ext = pathlib.Path('/home/gana/.zotero/zotero/ouvxxuan.default/extensions.json')
+data = json.loads(ext.read_text())
+for addon in data.get('addons', []):
+    if addon.get('id') == 'better-bibtex@iris-advies.com':
+        print(json.dumps({k: addon.get(k) for k in ['id','version','active','userDisabled','seen','foreignInstall','path']}, indent=2))
+PY
+
+• Ran set -e
+  │ PROFILE=/home/gana/.zotero/zotero/ouvxxuan.default
+  │ python3 - <<'PY'
+  │ … +27 lines
+  └ Missing chrome or resource URL: chrome://zotero/skin/16/white/loading.svg
+    {
+    … +6 lines
+      "path": "/home/gana/.zotero/zotero/ouvxxuan.default/extensions/better-bibtex@iris-advies.com.xpi"
+    }
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The addon manager accepted the change: Better BibTeX now shows as active in Zotero’s extension registry. I’m doing one last pass for the remaining integration edges, mainly whether I can flip Obsidian’s community-plugin
+  gate from disk and whether Zotero registered any Better BibTeX prefs on startup.
+
+• Explored
+  └ Search better-bibtex|bibtex|citation-key|citekey in prefs.js
+    Read app.json
+
+• Ran strings /home/gana/research/squashfs-root/resources/obsidian.asar | rg -n 'restricted mode|restricted-mode|community plugins|community-plugins|safe mode|trusted' | head -n 200
+  └ ype===q1.text&&(at=Se.textContent,qb([k,R,S],pr=>{at=H1(at,pr," ")}),Se.textContent!==at&&(U1(e.removed,{element:Se.cloneNode()}),Se.textContent=at)),or("afterSanitizeElements",Se,null),!
+    1)},"_sanitizeElements"),Tn=o(function(Se,at,At){if(Be&&(at==="id"||at==="name")&&(At in r||At in $e))return!1;if(!(H&&!ee[at]&&Ha(O,at))){if(!(J&&Ha(N,at))){if(!j[at]||ee[at]){if(!(Ur(Se)&&(ie.tagNameCheck instanceof
+    … +18 lines
+    212920:## Wild community plugins
+    212923:d need to know some coding to know how to do that. But fortunately, Obsidian has a community plugin store that lets you install these community plugins with one click.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• One integration-adjacent thing I can still improve without guessing is the Obsidian CLI gate, which is currently off in the app config. I’m enabling that now, and I’m probing the app bundle for any obvious on-disk
+  restricted-mode flag in case Obsidian stores community-plugin permission alongside the other global settings.
+
+• Ran which xdotool || true
+  └ (no output)
+
+• Ran python3 - <<'PY'
+  │ import json, pathlib
+  │ p = pathlib.Path('/home/gana/.config/obsidian/obsidian.json')
+  │ … +5 lines
+  └ {"vaults":{"6d6c6bed80d9da03":{"path":"/home/gana/research_internship","ts":1774259007543,"open":true}},"cli":true}
+
+• Ran strings /home/gana/research/squashfs-root/resources/obsidian.asar | rg -n 'restrictedMode|restricted-mode|mod-restricted-mode|community plugin|trusted vault|vault trust|unsafe|third-party plugins|safe mode' | head -n
+  │ 300
+  └ ew-resizable","head-slice*","sequence-hashcode","pop","set-nth","?
+    nth","second","join","immutable-sequence?","<reversed>","3append-as","virtual-sequence","subseq?","remove-nth!","length","last-index","lengthen","assert-sequence","copy","move","third","first","tail?","set-first","pref
+    … +56 lines
+    212920:## Wild community plugins
+    212923:d need to know some coding to know how to do that. But fortunately, Obsidian has a community plugin store that lets you install these community plugins with one click.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The Zotero side is now materially complete: Zotero is installed, the profile exists, and Better BibTeX has both its prefs and an active addon entry. I’m reloading the Obsidian app side once so the newly enabled CLI flag
+  and the installed community plugin state are actually picked up by the running Obsidian instance, then I’ll do one end-to-end sanity check.
+
+• Ran pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian' || true
+  └ 21986 /bin/bash -c pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian' || true
+
+• Ran pgrep -af '/home/gana/.local/opt/Zotero|zotero-bin|/home/gana/.local/bin/zotero' || true
+  └ 21987 /bin/bash -c pgrep -af '/home/gana/.local/opt/Zotero|zotero-bin|/home/gana/.local/bin/zotero' || true
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I don’t need to guess anymore: there’s no lingering Obsidian process, so I can relaunch it cleanly with the updated global config. After it comes up, I’ll use the now-enabled CLI to check whether the Zotero Integration
+  plugin is actually in Obsidian’s enabled plugin set.
+
+• Waited for background terminal · nohup env DISPLAY=:1 /home/gana/research/squashfs-root/obsidian --no-sandbox /home/gana/research_internship >/tmp/obsidian-launch.log 2>&1 &
+sleep 8
+/home/gana/research/squashfs-root/obsidian help
+
+• Ran nohup env DISPLAY=:1 /home/gana/research/squashfs-root/obsidian --no-sandbox /home/gana/research_internship >/tmp/obsidian-launch.log 2>&1 &
+  │ sleep 8
+  │ /home/gana/research/squashfs-root/obsidian help
+  └ Obsidian CLI
+
+    … +472 lines
+      eval                  Execute JavaScript and return result
+        code=<javascript>   - JavaScript code to execute (required)
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The Obsidian CLI is now live, which means I can stop guessing about the app state and manipulate the plugin manager directly. I’m turning restricted mode off, explicitly enabling the Zotero plugin, and then asking
+  Obsidian which community plugins are enabled so we have a real app-level verification instead of just file-level evidence.
+
+• Waited for background terminal · /home/gana/research/squashfs-root/obsidian plugins:restrict off
+
+• Ran pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian'
+  └ 22279 /home/gana/research/squashfs-root/obsidian plugins:restrict off
+    22280 /home/gana/research/squashfs-root/obsidian plugin:enable id=obsidian-zotero-desktop-connector filter=community
+    … +6 lines
+    22408 /home/gana/research/squashfs-root/obsidian --type=zygote --no-zygote-sandbox
+    22433 /home/gana/research/squashfs-root/obsidian --type=zygote --no-zygote-sandbox
+
+• Waited for background terminal · /home/gana/research/squashfs-root/obsidian plugin:enable id=obsidian-zotero-desktop-connector filter=community
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The CLI help succeeded, but state-changing CLI calls are taking the “second instance” path and haven’t returned yet. I’m giving the running app a short window to finish startup; if it still doesn’t answer, I’ll query the
+  vault directly and then use a single clean app relaunch rather than stacking more half-started instances.
+
+• Waited for background terminal · /home/gana/research/squashfs-root/obsidian plugins:restrict off
+
+• Waited for background terminal · /home/gana/research/squashfs-root/obsidian plugin:enable id=obsidian-zotero-desktop-connector filter=community
+
+• Explored
+  └ Read obsidian-launch.log
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The clean background app didn’t stay up the way Electron/AppImage apps usually do here, so those two CLI calls are effectively trying to bootstrap their own app processes and stalling. I’m killing the stuck command
+  instances and rerunning the Obsidian actions with --no-sandbox directly on the command invocation path, which matches the only stable launch mode we’ve seen work in this environment.
+
+• Ran pkill -f '/home/gana/research/squashfs-root/obsidian plugins:restrict off' || true
+  │ pkill -f '/home/gana/research/squashfs-root/obsidian plugin:enable id=obsidian-zotero-desktop-connector filter=community' || true
+  │ sleep 2
+  │ … +1 lines
+  └ (no output)
+
+• Ran /home/gana/research/squashfs-root/obsidian plugins:restrict off
+  └ [22279:0323/110727.408592:ERROR:chrome/browser/process_singleton_posix.cc:342] Failed to create /home/gana/.config/obsidian/SingletonLock: File exists (17)
+
+• Ran pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian' || true
+  └ 22280 /home/gana/research/squashfs-root/obsidian plugin:enable id=obsidian-zotero-desktop-connector filter=community
+    22287 /home/gana/research/squashfs-root/obsidian --type=zygote --no-zygote-sandbox
+    … +3 lines
+    22808 /home/gana/research/squashfs-root/obsidian --no-sandbox plugins:restrict off
+    22809 /bin/bash -c pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian' || true
+
+• Ran env DISPLAY=:1 /home/gana/research/squashfs-root/obsidian --no-sandbox plugins:restrict off
+  └ Restricted mode is already disabled.
+
+• Ran pkill -f '/home/gana/research/squashfs-root/obsidian plugin:enable id=obsidian-zotero-desktop-connector filter=community' || true
+  └ (no output)
+
+• Ran /home/gana/research/squashfs-root/obsidian plugin:enable id=obsidian-zotero-desktop-connector filter=community
+  └ 2026-03-23 10:07:27 Loaded main app package /home/gana/research/squashfs-root/resources/obsidian.asar
+    Ignored: Error: ENOENT: no such file or directory, open '/home/gana/.config/obsidian/6d6c6bed80d9da03.json'
+    … +5 lines
+    (Use `exe --trace-deprecation ...` to show where the warning was created)
+    Received command line [ 'plugins:restrict', 'off' ]
+
+• Working (7m 44s • esc to interrupt) · 1 background terminal running · /ps to view · /stop to close
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The restricted-mode call worked cleanly. The plugin-enable call is still taking the heavier Electron
+  startup path, so I’m checking the app’s own view of enabled plugins directly instead of waiting on that
+  wrapper process. That gives us the real answer faster.
+
+• Ran env DISPLAY=:1 /home/gana/research/squashfs-root/obsidian --no-sandbox plugins:enabled
+  │ filter=community versions format=json
+  └ [
+      {
+    … +2 lines
+      }
+    ]
+
+• Ran env DISPLAY=:1 /home/gana/research/squashfs-root/obsidian --no-sandbox plugin
+  │ id=obsidian-zotero-desktop-connector
+  └ type    community
+    name    Zotero Integration
+    … +2 lines
+    enabled    true
+    description    Insert and import citations, bibliographies, notes, and PDF annotations from Zotero.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Obsidian is now giving real app-level confirmation: the Zotero Integration community plugin is installed
+  and enabled=true. I’m checking the command palette registrations one last time so we know the configured
+  import/citation commands from the plugin settings actually surfaced in Obsidian, not just the plugin
+  shell.
+
+• Ran env DISPLAY=:1 /home/gana/research/squashfs-root/obsidian --no-sandbox commands
+  │ filter=obsidian-zotero-desktop-connector:zdc
+  └ obsidian-zotero-desktop-connector:zdc-exp-Import literature note
+    obsidian-zotero-desktop-connector:zdc-import-notes
+    … +2 lines
+    obsidian-zotero-desktop-connector:zdc-Insert Pandoc citation
+    obsidian-zotero-desktop-connector:zdc-insert-notes
+
+• Ran env DISPLAY=:1 /home/gana/research/squashfs-root/obsidian --no-sandbox commands
+  │ filter=obsidian-zotero-desktop-connector:
+  └ obsidian-zotero-desktop-connector:show-zotero-debug-view
+    obsidian-zotero-desktop-connector:zdc-exp-Import literature note
+    … +3 lines
+    obsidian-zotero-desktop-connector:zdc-Insert Pandoc citation
+    obsidian-zotero-desktop-connector:zdc-insert-notes
+
+• Ran env DISPLAY=:1 /home/gana/research/squashfs-root/obsidian --no-sandbox files folder='Templates'
+  └ Templates/Zotero Literature Note.md
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The plugin’s actual command palette entries are present, which is the strongest useful verification on the
+  Obsidian side short of importing a real Zotero item. I’m just checking Zotero’s data directory and first-
+  launch path so you don’t hit an avoidable “missing folder” issue the first time you open it.
+
+• Ran ls -la /home/gana/Zotero 2>/dev/null || true
+  └ total 1248
+    drwxr-xr-x  6 gana gana    4096 Mar 23 11:05 .
+    … +5 lines
+    -rw-r--r--  1 gana gana 1110016 Mar 23 11:05 zotero.sqlite
+    -rw-r--r--  1 gana gana  103112 Mar 23 11:05 zotero.sqlite-journal
+
+• Explored
+  └ List ouvxxuan.default
+    Search extensions.json|prefs.js|user.js|addonStartup|better-bibtex
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The last useful cleanup step is just process hygiene. I want to make sure I’m not leaving behind any stuck
+  Electron command wrappers from the earlier Obsidian CLI attempts, since the actual integration is verified
+  already.
+
+• Ran ps -o pid,ppid,cmd -p 22280,22287,22288,22294,22433,22808 2>/dev/null || true
+  └     PID    PPID CMD
+
+• Ran pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian|/home/gana/.local/opt/Zotero|
+  │ zotero-bin' || true
+  └ 22871 /home/gana/research/squashfs-root/obsidian --no-sandbox plugin:enable
+    id=obsidian-zotero-desktop-connector filter=community
+    … +3 lines
+    23588 /bin/bash -c pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian|/home/gana/.local/opt/
+    Zotero|zotero-bin' || true
+
+• Ran kill 22871 22875 22876 22999 2>/dev/null || true
+  │ pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian|/home/gana/.local/opt/Zotero|zotero-bin'
+  │ || true
+  └ 22871 /home/gana/research/squashfs-root/obsidian --no-sandbox plugin:enable
+    id=obsidian-zotero-desktop-connector filter=community
+    23599 /bin/bash -c kill 22871 22875 22876 22999 2>/dev/null || true pgrep -af '/home/gana/research/
+    squashfs-root/obsidian|Obsidian|/home/gana/.local/opt/Zotero|zotero-bin' || true
+
+• Ran env DISPLAY=:1 /home/gana/research/squashfs-root/obsidian --no-sandbox plugin:enable id=obsidian-zotero-desktop-connector filter=community
+  └ 2026-03-23 10:08:59 Loaded main app package /home/gana/research/squashfs-root/resources/obsidian.asar
+    2026-03-23 10:08:59 Checking for update using Github
+    … +9 lines
+    Received command line [ 'files', 'folder=Templates' ]
+    [22871:0323/110948.699549:FATAL:content/browser/gpu/gpu_data_manager_impl_private.cc:415] GPU process isn't usable. Goodbye.
+
+• Ran kill -9 22871 2>/dev/null || true
+  │ pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian|/home/gana/.local/opt/Zotero|zotero-bin' || true
+  └ 23622 /bin/bash -c kill -9 22871 2>/dev/null || true pgrep -af '/home/gana/research/squashfs-root/obsidian|Obsidian|/home/gana/.local/opt/Zotero|zotero-bin' || true
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Everything missing is installed.
+
+  Zotero 8.0.4 is now installed at /home/gana/.local/bin/zotero with a desktop entry at /home/gana/.local/share/applications/zotero.desktop. A Zotero profile and data directory were created under /home/gana/.zotero/zotero/
+  profiles.ini and /home/gana/Zotero. Better BibTeX 9.0.10 is installed in the Zotero profile at /home/gana/.zotero/zotero/ouvxxuan.default/extensions/better-bibtex@iris-advies.com.xpi, and Zotero’s addon registry shows it
+  active in /home/gana/.zotero/zotero/ouvxxuan.default/extensions.json.
+
+  On the Obsidian side, the Zotero Integration plugin 3.2.1 is installed and enabled via /home/gana/research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector/data.json, /home/gana/
+  research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector/manifest.json, and /home/gana/research_internship/.obsidian/community-plugins.json. The PDF annotation helper v1.0.15 is present at /home/gana/
+  research_internship/.obsidian/plugins/obsidian-zotero-desktop-connector/pdfannots2json-linux-x64. The literature-note template is in /home/gana/research_internship/Templates/Zotero%20Literature%20Note.md.
+
+  I also enabled the Obsidian CLI in /home/gana/.config/obsidian/obsidian.json and verified in-app that:
+
+  - Restricted mode is off
+  - obsidian-zotero-desktop-connector is enabled
+  - These commands are registered: Import literature note, Insert Pandoc citation, Insert literature note link, Insert APA citation
+
+  The only thing not exercised end-to-end is a real import from Zotero, because the new Zotero library is still empty. Once you add an item in Zotero, the Obsidian command palette should be ready to use immediately. If you
+  want, I can next create a first reference item in Zotero and run the first live import into the vault.
+
+• Context compacted

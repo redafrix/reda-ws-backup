@@ -1,0 +1,101 @@
+categories:
+  - name: Basic Info
+    fields:
+      - name: item_name
+        description: Canonical name of the method family, benchmark, or research thread.
+        detail_level: brief
+      - name: item_type
+        description: One of survey, method family, benchmark, foundational control idea, representative paper cluster, or open gap.
+        detail_level: brief
+      - name: representative_years
+        description: Main years where the most relevant work appears.
+        detail_level: brief
+      - name: representative_venues
+        description: Main venues where this line of work appears.
+        detail_level: brief
+
+  - name: Problem Setup
+    fields:
+      - name: task_family
+        description: Main task formulation such as reaching, touch, scan, pushing, grasping, exploration, or manipulation.
+        detail_level: moderate
+      - name: robot_setup
+        description: Robot embodiment and whether work uses arm, hand, dual-arm, mobile manipulator, or other setup.
+        detail_level: moderate
+      - name: sensing_modalities
+        description: Sensors used such as RGB, RGBD, tactile, force, thermal, ultrasound, proprioception, or combinations.
+        detail_level: moderate
+      - name: action_space
+        description: Whether actions are continuous control, waypoints, primitives, language-conditioned actions, or hybrid.
+        detail_level: moderate
+
+  - name: Generalization Scope
+    fields:
+      - name: unseen_definition
+        description: What is novel or unseen, such as color, texture, shape, category, pose, clutter, or environment.
+        detail_level: detailed
+      - name: generalization_target
+        description: What transfer is claimed, for example new objects, new scenes, new tasks, or sim-to-real transfer.
+        detail_level: detailed
+      - name: partial_observability_or_uncertainty
+        description: How uncertainty or hidden state is modeled or handled.
+        detail_level: moderate
+
+  - name: Method Design
+    fields:
+      - name: method_family
+        description: Main method label such as tactile servoing, active perception, VLA, RL skill discovery, model-based control, or hybrid.
+        detail_level: brief
+      - name: key_idea
+        description: Core technical idea that makes the method family distinctive.
+        detail_level: detailed
+      - name: control_or_policy_structure
+        description: High-level structure such as hierarchical policy, planner plus controller, belief-space control, or end-to-end policy.
+        detail_level: detailed
+      - name: role_of_contact
+        description: Whether contact is a success condition, observation signal, task objective, or controller input.
+        detail_level: detailed
+      - name: role_of_language
+        description: Whether language is absent, auxiliary, or central to the formulation.
+        detail_level: moderate
+
+  - name: Data and Training
+    fields:
+      - name: data_source
+        description: Type of data used such as simulation, real robot data, demonstrations, synthetic data, or mixed.
+        detail_level: moderate
+      - name: training_regime
+        description: Main training setup such as supervised learning, offline RL, online RL, self-supervised learning, or no learning.
+        detail_level: moderate
+      - name: sim_to_real_strategy
+        description: Transfer technique if any, such as domain randomization, bilevel adaptation, synthetic data, or none.
+        detail_level: moderate
+
+  - name: Evaluation
+    fields:
+      - name: benchmarks_or_object_sets
+        description: Benchmarks, datasets, or object sets used for evaluation.
+        detail_level: moderate
+      - name: metrics
+        description: Main evaluation metrics such as success rate, contact success, shape accuracy, sample efficiency, or transfer gap.
+        detail_level: moderate
+      - name: representative_papers
+        description: Short list of strongest papers for this item.
+        detail_level: detailed
+
+  - name: Internship Relevance
+    fields:
+      - name: direct_relevance_to_subject
+        description: Why this item matters for active contact-based exploration or unseen-object manipulation in this internship.
+        detail_level: detailed
+      - name: reusable_components
+        description: Which parts could be reused, such as sensor fusion, exploration policy, controller, benchmark, or training trick.
+        detail_level: detailed
+      - name: limitations
+        description: Main assumptions, weaknesses, or mismatch with the internship setting.
+        detail_level: detailed
+      - name: recommended_follow_up
+        description: What to read next inside this line of work.
+        detail_level: moderate
+
+uncertain: []

@@ -1,0 +1,27 @@
+filters:
+  and:
+    - 'file.inFolder("Autonomous Unknown Object Exploration Review/02 Papers")'
+formulas:
+  paper_year: 'if(year, number(year), 0)'
+properties:
+  title:
+    displayName: "Title"
+  authors:
+    displayName: "Authors"
+  year:
+    displayName: "Year"
+  venue:
+    displayName: "Venue"
+  url:
+    displayName: "URL"
+  formula.paper_year:
+    displayName: "Paper Year"
+views:
+  - type: table
+    name: "Papers"
+    order:
+      - file.name
+      - year
+      - venue
+      - authors
+      - url

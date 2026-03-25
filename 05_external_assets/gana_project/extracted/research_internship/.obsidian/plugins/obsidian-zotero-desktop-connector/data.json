@@ -1,0 +1,39 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "Inbox/Zotero Notes",
+  "exeVersion": "1.0.15",
+  "_exeInternalVersion": 1,
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [
+    {
+      "name": "Insert Pandoc citation",
+      "format": "pandoc"
+    },
+    {
+      "name": "Insert literature note link",
+      "format": "template",
+      "template": "[[References/{{citekey}}|{{title}}]]"
+    },
+    {
+      "name": "Insert APA citation",
+      "format": "formatted-citation",
+      "cslStyle": "apa"
+    }
+  ],
+  "exportFormats": [
+    {
+      "name": "Import literature note",
+      "outputPathTemplate": "References/{{citekey}}.md",
+      "imageOutputPathTemplate": "Assets/{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "Templates/Zotero Literature Note.md",
+      "cslStyle": "apa"
+    }
+  ],
+  "citeSuggestTemplate": "{{title}} :: @{{citekey}}",
+  "openNoteAfterImport": true,
+  "whichNotesToOpenAfterImport": "first-imported-note",
+  "shouldConcat": true
+}

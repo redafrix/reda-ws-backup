@@ -1,0 +1,41 @@
+topic: World Models And pi*0.6 For Manipulation On Unseen Objects
+
+items:
+  - name: PointWorld
+    category: core-paper
+    description: Large pretrained 3D world model that predicts full-scene point flow for manipulation and supports MPC from one or few RGB-D views.
+  - name: Scaling World Model for Hierarchical Manipulation Policies
+    category: core-paper
+    description: Hierarchical planner that uses a world model to generate intermediate visual subgoals for a low-level VLA.
+  - name: Goal-VLA
+    category: core-paper
+    description: Object-centric world-model formulation where a generative VLM imagines desired goal states for zero-shot manipulation.
+  - name: Act2Goal
+    category: core-paper
+    description: Goal-conditioned visual world model with multi-scale temporal control and reward-free online adaptation.
+  - name: Dream to Manipulate
+    category: core-paper
+    description: Compositional world model and digital twin style simulator used to augment demonstrations and improve generalization.
+  - name: pi*0.6
+    category: adjacent-paper
+    description: Recent VLA plus RL paper on improving robot policies from demonstrations, expert corrections, and autonomous experience.
+  - name: GWM
+    category: support-paper
+    description: Gaussian world model that predicts future 3D scene states and supports both imitation learning and model-based RL.
+  - name: Visuo-Tactile World Models
+    category: support-paper
+    description: Contact-grounded world model using both vision and touch for contact-rich manipulation and planning.
+  - name: OmniVTA
+    category: support-paper
+    description: Large-scale visuo-tactile world-model system with a tactile reflex loop for contact-rich tasks.
+  - name: iMoWM
+    category: support-paper
+    description: Interactive multimodal world model that predicts RGB, depth, and robot masks autoregressively for RL and imitation.
+  - name: DayDreamer
+    category: foundational-baseline
+    description: Foundational real-robot world-model RL baseline for learning from sparse rewards directly in the real world.
+
+execution:
+  batch_size: 4
+  items_per_agent: 1
+  output_dir: ./results

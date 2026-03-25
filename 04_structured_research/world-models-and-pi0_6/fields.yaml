@@ -1,0 +1,74 @@
+categories:
+  - name: Basic Info
+    fields:
+      - name: item_name
+        description: Canonical paper or method name.
+        detail_level: brief
+      - name: year
+        description: Publication or release year.
+        detail_level: brief
+      - name: venue
+        description: Venue or source type such as arXiv, ICCV, CoRL, project page, or company report.
+        detail_level: brief
+      - name: source_url
+        description: Primary paper, project, or official source URL.
+        detail_level: brief
+
+  - name: World Model Design
+    fields:
+      - name: world_model_type
+        description: Predictive family such as goal-image model, point-flow model, Gaussian model, latent dynamics model, or tactile world model.
+        detail_level: moderate
+      - name: state_representation
+        description: Main internal representation such as images, objects, point clouds, Gaussian splats, tactile latents, or multimodal tokens.
+        detail_level: detailed
+      - name: action_conditioning
+        description: How actions enter the predictive model, such as low-level commands, goal conditioning, or point-flow actions.
+        detail_level: moderate
+      - name: planning_or_control_use
+        description: Whether the world model is used for MPC, subgoal generation, rollout search, policy training, or adaptation.
+        detail_level: detailed
+
+  - name: Learning Setup
+    fields:
+      - name: data_source
+        description: Real robot data, simulation, demonstrations, online experience, or mixed sources.
+        detail_level: moderate
+      - name: role_of_rl
+        description: Whether RL is absent, offline, online, model-based, reward-free adaptation, or central to the method.
+        detail_level: detailed
+      - name: role_of_touch
+        description: Whether touch is absent, optional, central, or only used for reflexive correction.
+        detail_level: moderate
+      - name: role_of_language
+        description: Whether language is absent, auxiliary, or central.
+        detail_level: moderate
+
+  - name: Internship Fit
+    fields:
+      - name: task_relevance
+        description: How directly this work matches same-task transfer to unseen objects.
+        detail_level: detailed
+      - name: unseen_definition
+        description: What is novel at test time such as new objects, new layouts, new scenes, or new embodiments.
+        detail_level: detailed
+      - name: simplest_reusable_idea
+        description: Smallest part of the method that could be reused in a simple reach, approach, or touch-confirm benchmark.
+        detail_level: detailed
+      - name: key_limitations
+        description: Main mismatch or weakness relative to the internship.
+        detail_level: detailed
+
+  - name: Evidence
+    fields:
+      - name: strongest_claim
+        description: Strongest experimentally supported claim from the abstract or official page.
+        detail_level: detailed
+      - name: main_benchmark_type
+        description: Type of evaluation such as zero-shot manipulation, contact-rich control, sparse-reward learning, or one-shot adaptation.
+        detail_level: moderate
+      - name: recommended_reading_order
+        description: Whether this paper should be read now, later, or only as background.
+        detail_level: brief
+
+uncertain: []

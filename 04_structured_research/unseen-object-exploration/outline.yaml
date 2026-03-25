@@ -1,0 +1,38 @@
+topic: Active Contact-Based Exploration and Manipulation of Unseen Static Objects
+
+items:
+  - name: Active tactile exploration on unknown objects
+    category: core-method
+    description: Methods that actively move the robot or sensor to gather tactile evidence about previously unseen objects.
+  - name: Visuo-tactile exploration and control for unknown objects
+    category: core-method
+    description: Methods combining vision and touch to explore, recognize, or control interaction with objects not fully known in advance.
+  - name: Contact-rich manipulation under partial observability
+    category: core-method
+    description: Planning or control methods for manipulation when contact state and object state are only partially observable.
+  - name: Tactile servoing and touch-driven control
+    category: classical-baseline
+    description: Classical or hybrid control frameworks where tactile contact directly drives robot motion or task completion.
+  - name: Active perception and representation for robotic manipulation
+    category: core-method
+    description: Methods that actively choose views, observations, or sensing actions to improve manipulation of uncertain scenes or objects.
+  - name: VLA and large-scale policy learning for manipulation generalization
+    category: modern-policy
+    description: Vision-language-action and related large-scale robot policy models that generalize across objects, scenes, and instructions.
+  - name: Transferable reinforcement learning skill discovery for manipulation
+    category: modern-policy
+    description: RL methods that discover reusable manipulation skills or exploration behaviors transferable to new tasks or objects.
+  - name: Sim-to-real unknown object manipulation from synthetic or randomized data
+    category: transfer
+    description: Methods that generalize to unknown objects in the real world via synthetic data, randomization, or transfer pipelines.
+  - name: Benchmarks and object sets for unseen-object manipulation
+    category: benchmark
+    description: Benchmarks, object sets, and evaluation protocols used to test manipulation on novel objects.
+  - name: Simple reaching or approach tasks for unseen-object transfer
+    category: gap-target
+    description: Work using simple reach, approach, or contact tasks as the benchmark for generalization to unseen objects.
+
+execution:
+  batch_size: 4
+  items_per_agent: 1
+  output_dir: ./results
