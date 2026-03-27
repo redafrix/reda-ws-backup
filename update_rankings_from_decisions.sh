@@ -6,7 +6,7 @@ paper_dir="$vault/03 Papers"
 final_set="$vault/05 Reviews/Final Must-Read Set.md"
 reading_queue="$vault/05 Reviews/Reading Queue.md"
 ranked_current="$vault/05 Reviews/Ranked Final Current.md"
-ranked_source="$vault/05 Reviews/Ranked Final 30.md"
+ranked_source="$vault/05 Reviews/Ranked Final Current.md"
 pdf_summaries="$vault/05 Reviews/PDF-Backed Read-First Summaries.md"
 
 tmp_items="$(mktemp)"
@@ -40,7 +40,7 @@ src, out = sys.argv[1], sys.argv[2]
 name = None
 rows = []
 for line in open(src, encoding="utf-8"):
-    m = re.match(r"^\d+\. \[\[03 Papers/(.+)\]\]\s*$", line)
+    m = re.match(r"^\d+\. \[\[(?:03 Papers/)?(.+)\]\]\s*$", line)
     if m:
         name = m.group(1)
         continue
@@ -54,8 +54,17 @@ python3 - "$pdf_summaries" "$tmp_summaries" <<'PY'
 import re, sys
 src, out = sys.argv[1], sys.argv[2]
 rows = []
-for line in open(src, encoding="utf-8"):
-    m = re.match(r"^\d+\. \[\[03 Papers/(.+)\]\]: (.+)\s*$", line)
+in_core = False
+for raw_line in open(src, encoding="utf-8"):
+    line = raw_line.rstrip("\n")
+    if line == "## Core Read-First Set":
+        in_core = True
+        continue
+    if in_core and line.startswith("## "):
+        break
+    if not in_core:
+        continue
+    m = re.match(r"^\d+\. \[\[(?:03 Papers/)?(.+)\]\]: (.+)\s*$", line)
     if m:
         rows.append(f"{m.group(1)}\t{m.group(2)}")
 open(out, "w", encoding="utf-8").write("\n".join(rows))
@@ -85,15 +94,28 @@ for line in "${ordered_lines[@]}"; do
   rank=$((rank + 1))
   perl -0pi -e "s/^project_rank: \\d+/project_rank: $rank/m" "$path"
 
-  list_block+="$rank. [[03 Papers/$name]]"$'\n'
-  queue_block+="$rank. [[03 Papers/$name]]"$'\n'
+  list_block+="$rank. [[${name}]]"$'\n'
+  queue_block+="$rank. [[${name}]]"$'\n'
 
   why="${WHY[$name]-No reason written yet.}"
-  ranked_block+="$rank. [[03 Papers/$name]]"$'\n'
+  ranked_block+="$rank. [[${name}]]"$'\n'
   ranked_block+="Why: $why"$'\n'$'\n'
 
   summary="${SUMMARY[$name]-No short summary written yet.}"
-  summary_block+="$rank. [[03 Papers/$name]]: $summary"$'\n'
+  if [[ "$summary" == "No short summary written yet." ]]; then
+    summary="$(python3 - "$path" <<'PY'
+import re, sys
+text = open(sys.argv[1], encoding="utf-8").read()
+m = re.search(r"## PDF-Backed Resume\s+Short take:\s*(.+?)\s*(?:\n\n|$)", text, flags=re.S)
+if m:
+    print(" ".join(m.group(1).split()))
+PY
+)"
+    if [[ -z "$summary" ]]; then
+      summary="No short summary written yet."
+    fi
+  fi
+  summary_block+="$rank. [[${name}]]: $summary"$'\n'
 done
 
 python3 - "$final_set" "$list_block" <<'PY'
@@ -143,7 +165,7 @@ python3 - "$pdf_summaries" "$summary_block" <<'PY'
 import re, sys
 path, block = sys.argv[1], sys.argv[2]
 text = open(path, encoding="utf-8").read()
-pattern = r"(## Core Read-First Set\n\n)(.*?)(\n## How To Use This Note)"
+pattern = r"(## Core Read-First Set\n\n)(.*?)(\n## (?:Simple Memory Explanations|How To Use This Note))"
 text = re.sub(pattern, lambda m: m.group(1) + block.rstrip() + "\n" + m.group(3), text, flags=re.S)
 open(path, "w", encoding="utf-8").write(text)
 PY
