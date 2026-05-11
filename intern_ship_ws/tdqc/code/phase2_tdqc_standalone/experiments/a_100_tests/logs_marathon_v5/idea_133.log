@@ -1,0 +1,88 @@
+=== STARTING idea_133 ===
+Path: /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133
+Files: ['phase2_tdqc', 'train.py']
+--- Training ---
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+epoch=0000 loss=0.007365 val_brier=0.249704
+epoch=0001 loss=0.006119 val_brier=0.248523
+epoch=0002 loss=0.005481 val_brier=0.247852
+epoch=0003 loss=0.005121 val_brier=0.247576
+epoch=0004 loss=0.004915 val_brier=0.247378
+epoch=0005 loss=0.004753 val_brier=0.247966
+epoch=0006 loss=0.004642 val_brier=0.247741
+epoch=0007 loss=0.004552 val_brier=0.247303
+epoch=0008 loss=0.004476 val_brier=0.247322
+epoch=0009 loss=0.004414 val_brier=0.247492
+epoch=0010 loss=0.004358 val_brier=0.247878
+epoch=0011 loss=0.004318 val_brier=0.247295
+epoch=0012 loss=0.004280 val_brier=0.247825
+epoch=0013 loss=0.004235 val_brier=0.247516
+epoch=0014 loss=0.004210 val_brier=0.247619
+epoch=0015 loss=0.004203 val_brier=0.248446
+epoch=0016 loss=0.003665 val_brier=0.248628
+epoch=0017 loss=0.003398 val_brier=0.248344
+epoch=0018 loss=0.003366 val_brier=0.248599
+epoch=0019 loss=0.003344 val_brier=0.247540
+epoch=0020 loss=0.003307 val_brier=0.247880
+epoch=0021 loss=0.003174 val_brier=0.248610
+epoch=0022 loss=0.003085 val_brier=0.248740
+epoch=0023 loss=0.003059 val_brier=0.248519
+epoch=0024 loss=0.003052 val_brier=0.248510
+epoch=0025 loss=0.003036 val_brier=0.248719
+epoch=0026 loss=0.003019 val_brier=0.248158
+epoch=0027 loss=0.003014 val_brier=0.248006
+epoch=0028 loss=0.002990 val_brier=0.249137
+epoch=0029 loss=0.002962 val_brier=0.248877
+epoch=0030 loss=0.002951 val_brier=0.248705
+epoch=0031 loss=0.002946 val_brier=0.249332
+Early stopping at epoch 31
+Training exited with code 0
+
+--- MEANINGFUL EVAL (TEST) ---
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133/phase2_tdqc/eval_tdqc.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.ckpt, map_location="cpu")
+--- Meaningful Evaluation (Threshold=0.5) ---
+Detection Recall: 98.21%
+False Positive Rate: 98.71%
+Mean Lead Time: 134.1 steps
+Median Lead Time: 146.0 steps
+P90 Lead Time: 150.0 steps
+------------------------------------------
+
+--- MEANINGFUL EVAL (OOD) ---
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133/phase2_tdqc/eval_tdqc.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.ckpt, map_location="cpu")
+--- Meaningful Evaluation (Threshold=0.5) ---
+Detection Recall: 98.19%
+False Positive Rate: 97.83%
+Mean Lead Time: 120.2 steps
+Median Lead Time: 130.0 steps
+P90 Lead Time: 149.0 steps
+------------------------------------------
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133/phase2_tdqc/eval_tdqc.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.ckpt, map_location="cpu")
+--- Meaningful Evaluation (Threshold=0.5) ---
+Detection Recall: 98.21%
+False Positive Rate: 98.71%
+Mean Lead Time: 134.1 steps
+Median Lead Time: 146.0 steps
+P90 Lead Time: 150.0 steps
+------------------------------------------
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_133/phase2_tdqc/eval_tdqc.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.ckpt, map_location="cpu")
+--- Meaningful Evaluation (Threshold=0.5) ---
+Detection Recall: 98.19%
+False Positive Rate: 97.83%
+Mean Lead Time: 120.2 steps
+Median Lead Time: 130.0 steps
+P90 Lead Time: 149.0 steps
+------------------------------------------

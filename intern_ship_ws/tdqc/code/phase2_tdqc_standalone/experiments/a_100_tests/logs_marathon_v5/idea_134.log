@@ -1,0 +1,293 @@
+=== STARTING idea_134 ===
+Path: /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134
+Files: ['phase2_tdqc', 'train.py']
+--- Training ---
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+epoch=0000 loss=0.230745 val_brier=0.211493
+epoch=0001 loss=0.204044 val_brier=0.192065
+epoch=0002 loss=0.189691 val_brier=0.181334
+epoch=0003 loss=0.180899 val_brier=0.173394
+epoch=0004 loss=0.173898 val_brier=0.166810
+epoch=0005 loss=0.167058 val_brier=0.161018
+epoch=0006 loss=0.161349 val_brier=0.154427
+epoch=0007 loss=0.156054 val_brier=0.149712
+epoch=0008 loss=0.150903 val_brier=0.146285
+epoch=0009 loss=0.146348 val_brier=0.140965
+epoch=0010 loss=0.142565 val_brier=0.136473
+epoch=0011 loss=0.138837 val_brier=0.134001
+epoch=0012 loss=0.134895 val_brier=0.129950
+epoch=0013 loss=0.131834 val_brier=0.128109
+epoch=0014 loss=0.128610 val_brier=0.124668
+epoch=0015 loss=0.126290 val_brier=0.120538
+epoch=0016 loss=0.123779 val_brier=0.119911
+epoch=0017 loss=0.121690 val_brier=0.117250
+epoch=0018 loss=0.119100 val_brier=0.115802
+epoch=0019 loss=0.117997 val_brier=0.114017
+epoch=0020 loss=0.115710 val_brier=0.111754
+epoch=0021 loss=0.114614 val_brier=0.109526
+epoch=0022 loss=0.112680 val_brier=0.109483
+epoch=0023 loss=0.110752 val_brier=0.107364
+epoch=0024 loss=0.110176 val_brier=0.106883
+epoch=0025 loss=0.108830 val_brier=0.104319
+epoch=0026 loss=0.106835 val_brier=0.103608
+epoch=0027 loss=0.105373 val_brier=0.101118
+epoch=0028 loss=0.104359 val_brier=0.099848
+epoch=0029 loss=0.103689 val_brier=0.100451
+epoch=0030 loss=0.102960 val_brier=0.099311
+epoch=0031 loss=0.102354 val_brier=0.097355
+epoch=0032 loss=0.101050 val_brier=0.097000
+epoch=0033 loss=0.100101 val_brier=0.096684
+epoch=0034 loss=0.100181 val_brier=0.094863
+epoch=0035 loss=0.098921 val_brier=0.096671
+epoch=0036 loss=0.098645 val_brier=0.095555
+epoch=0037 loss=0.097607 val_brier=0.094473
+epoch=0038 loss=0.096880 val_brier=0.092973
+epoch=0039 loss=0.097379 val_brier=0.093031
+epoch=0040 loss=0.096285 val_brier=0.092951
+epoch=0041 loss=0.096088 val_brier=0.091159
+epoch=0042 loss=0.095743 val_brier=0.090925
+epoch=0043 loss=0.095129 val_brier=0.092201
+epoch=0044 loss=0.093944 val_brier=0.092098
+epoch=0045 loss=0.094017 val_brier=0.092159
+epoch=0046 loss=0.093639 val_brier=0.090769
+epoch=0047 loss=0.092962 val_brier=0.090810
+epoch=0048 loss=0.092870 val_brier=0.090145
+epoch=0049 loss=0.092837 val_brier=0.089395
+epoch=0050 loss=0.092808 val_brier=0.089321
+epoch=0051 loss=0.092467 val_brier=0.088412
+epoch=0052 loss=0.091904 val_brier=0.088950
+epoch=0053 loss=0.091258 val_brier=0.090196
+epoch=0054 loss=0.090629 val_brier=0.089268
+epoch=0055 loss=0.091442 val_brier=0.087397
+epoch=0056 loss=0.090985 val_brier=0.087831
+epoch=0057 loss=0.090450 val_brier=0.088398
+epoch=0058 loss=0.090025 val_brier=0.087893
+epoch=0059 loss=0.089740 val_brier=0.086315
+epoch=0060 loss=0.089845 val_brier=0.086924
+epoch=0061 loss=0.089566 val_brier=0.087950
+epoch=0062 loss=0.089251 val_brier=0.085694
+epoch=0063 loss=0.088998 val_brier=0.087448
+epoch=0064 loss=0.088588 val_brier=0.087358
+epoch=0065 loss=0.088864 val_brier=0.085379
+epoch=0066 loss=0.088684 val_brier=0.085150
+epoch=0067 loss=0.088061 val_brier=0.085902
+epoch=0068 loss=0.088259 val_brier=0.085550
+epoch=0069 loss=0.088134 val_brier=0.085395
+epoch=0070 loss=0.087585 val_brier=0.084792
+epoch=0071 loss=0.087565 val_brier=0.084839
+epoch=0072 loss=0.087434 val_brier=0.085000
+epoch=0073 loss=0.087257 val_brier=0.083874
+epoch=0074 loss=0.087372 val_brier=0.083247
+epoch=0075 loss=0.086792 val_brier=0.084129
+epoch=0076 loss=0.086582 val_brier=0.083356
+epoch=0077 loss=0.086415 val_brier=0.083542
+epoch=0078 loss=0.086667 val_brier=0.083444
+epoch=0079 loss=0.086408 val_brier=0.082165
+epoch=0080 loss=0.085751 val_brier=0.082399
+epoch=0081 loss=0.085693 val_brier=0.081935
+epoch=0082 loss=0.085454 val_brier=0.082315
+epoch=0083 loss=0.085873 val_brier=0.083182
+epoch=0084 loss=0.085687 val_brier=0.081777
+epoch=0085 loss=0.085431 val_brier=0.081881
+epoch=0086 loss=0.084778 val_brier=0.083047
+epoch=0087 loss=0.084205 val_brier=0.082279
+epoch=0088 loss=0.084345 val_brier=0.081450
+epoch=0089 loss=0.084349 val_brier=0.082663
+epoch=0090 loss=0.083955 val_brier=0.080770
+epoch=0091 loss=0.084104 val_brier=0.081963
+epoch=0092 loss=0.083331 val_brier=0.080557
+epoch=0093 loss=0.083657 val_brier=0.080554
+epoch=0094 loss=0.083574 val_brier=0.079917
+epoch=0095 loss=0.083819 val_brier=0.080734
+epoch=0096 loss=0.083468 val_brier=0.079279
+epoch=0097 loss=0.082996 val_brier=0.081098
+epoch=0098 loss=0.082869 val_brier=0.079258
+epoch=0099 loss=0.083475 val_brier=0.078825
+epoch=0100 loss=0.082548 val_brier=0.078677
+epoch=0101 loss=0.082676 val_brier=0.078915
+epoch=0102 loss=0.082221 val_brier=0.080095
+epoch=0103 loss=0.082519 val_brier=0.078872
+epoch=0104 loss=0.081625 val_brier=0.079777
+epoch=0105 loss=0.082004 val_brier=0.079585
+epoch=0106 loss=0.081814 val_brier=0.078251
+epoch=0107 loss=0.081627 val_brier=0.079506
+epoch=0108 loss=0.081538 val_brier=0.077215
+epoch=0109 loss=0.081015 val_brier=0.078462
+epoch=0110 loss=0.080843 val_brier=0.077412
+epoch=0111 loss=0.081477 val_brier=0.078181
+epoch=0112 loss=0.081376 val_brier=0.076811
+epoch=0113 loss=0.080687 val_brier=0.078622
+epoch=0114 loss=0.080652 val_brier=0.077628
+epoch=0115 loss=0.080725 val_brier=0.077726
+epoch=0116 loss=0.080588 val_brier=0.077102
+epoch=0117 loss=0.080643 val_brier=0.077760
+epoch=0118 loss=0.080246 val_brier=0.077221
+epoch=0119 loss=0.079749 val_brier=0.077283
+epoch=0120 loss=0.079668 val_brier=0.077528
+epoch=0121 loss=0.079923 val_brier=0.078608
+epoch=0122 loss=0.079901 val_brier=0.076372
+epoch=0123 loss=0.079566 val_brier=0.075320
+epoch=0124 loss=0.079953 val_brier=0.076466
+epoch=0125 loss=0.079670 val_brier=0.077061
+epoch=0126 loss=0.079907 val_brier=0.076590
+epoch=0127 loss=0.079250 val_brier=0.075797
+epoch=0128 loss=0.078989 val_brier=0.077013
+epoch=0129 loss=0.078926 val_brier=0.077322
+epoch=0130 loss=0.078598 val_brier=0.075201
+epoch=0131 loss=0.079362 val_brier=0.076176
+epoch=0132 loss=0.078600 val_brier=0.075127
+epoch=0133 loss=0.078764 val_brier=0.074964
+epoch=0134 loss=0.078790 val_brier=0.076644
+epoch=0135 loss=0.079002 val_brier=0.074865
+epoch=0136 loss=0.078431 val_brier=0.074870
+epoch=0137 loss=0.077738 val_brier=0.074974
+epoch=0138 loss=0.078069 val_brier=0.075968
+epoch=0139 loss=0.078638 val_brier=0.074898
+epoch=0140 loss=0.077931 val_brier=0.075414
+epoch=0141 loss=0.077874 val_brier=0.075531
+epoch=0142 loss=0.078313 val_brier=0.074746
+epoch=0143 loss=0.077900 val_brier=0.074529
+epoch=0144 loss=0.078404 val_brier=0.075089
+epoch=0145 loss=0.078047 val_brier=0.074634
+epoch=0146 loss=0.077746 val_brier=0.073532
+epoch=0147 loss=0.077526 val_brier=0.073777
+epoch=0148 loss=0.077435 val_brier=0.074989
+epoch=0149 loss=0.077841 val_brier=0.074525
+epoch=0150 loss=0.077956 val_brier=0.074966
+epoch=0151 loss=0.077544 val_brier=0.075099
+epoch=0152 loss=0.077067 val_brier=0.076046
+epoch=0153 loss=0.077840 val_brier=0.074059
+epoch=0154 loss=0.077448 val_brier=0.074317
+epoch=0155 loss=0.077467 val_brier=0.074965
+epoch=0156 loss=0.077054 val_brier=0.074797
+epoch=0157 loss=0.076852 val_brier=0.074634
+epoch=0158 loss=0.077283 val_brier=0.073971
+epoch=0159 loss=0.077495 val_brier=0.073536
+epoch=0160 loss=0.077028 val_brier=0.073113
+epoch=0161 loss=0.077222 val_brier=0.074548
+epoch=0162 loss=0.076555 val_brier=0.073270
+epoch=0163 loss=0.076003 val_brier=0.074909
+epoch=0164 loss=0.077033 val_brier=0.073657
+epoch=0165 loss=0.076748 val_brier=0.072981
+epoch=0166 loss=0.076569 val_brier=0.074912
+epoch=0167 loss=0.076464 val_brier=0.073413
+epoch=0168 loss=0.076663 val_brier=0.074263
+epoch=0169 loss=0.076199 val_brier=0.073284
+epoch=0170 loss=0.075993 val_brier=0.073526
+epoch=0171 loss=0.076794 val_brier=0.072773
+epoch=0172 loss=0.076219 val_brier=0.074301
+epoch=0173 loss=0.076615 val_brier=0.073795
+epoch=0174 loss=0.075993 val_brier=0.073987
+epoch=0175 loss=0.075578 val_brier=0.074340
+epoch=0176 loss=0.075520 val_brier=0.073557
+epoch=0177 loss=0.076413 val_brier=0.073074
+epoch=0178 loss=0.076102 val_brier=0.073076
+epoch=0179 loss=0.075838 val_brier=0.073815
+epoch=0180 loss=0.076117 val_brier=0.073185
+epoch=0181 loss=0.076013 val_brier=0.072873
+epoch=0182 loss=0.075217 val_brier=0.073839
+epoch=0183 loss=0.075535 val_brier=0.072301
+epoch=0184 loss=0.075595 val_brier=0.072922
+epoch=0185 loss=0.075162 val_brier=0.073287
+epoch=0186 loss=0.075733 val_brier=0.072994
+epoch=0187 loss=0.075503 val_brier=0.073607
+epoch=0188 loss=0.075546 val_brier=0.073096
+epoch=0189 loss=0.076122 val_brier=0.072151
+epoch=0190 loss=0.076120 val_brier=0.073025
+epoch=0191 loss=0.075452 val_brier=0.073769
+epoch=0192 loss=0.075571 val_brier=0.072610
+epoch=0193 loss=0.075569 val_brier=0.071109
+epoch=0194 loss=0.074639 val_brier=0.073018
+epoch=0195 loss=0.075685 val_brier=0.073499
+epoch=0196 loss=0.075459 val_brier=0.073271
+epoch=0197 loss=0.075149 val_brier=0.072405
+epoch=0198 loss=0.075422 val_brier=0.072819
+epoch=0199 loss=0.074943 val_brier=0.072343
+epoch=0200 loss=0.075260 val_brier=0.072064
+epoch=0201 loss=0.075053 val_brier=0.072400
+epoch=0202 loss=0.075049 val_brier=0.070808
+epoch=0203 loss=0.075365 val_brier=0.071763
+epoch=0204 loss=0.074703 val_brier=0.073068
+epoch=0205 loss=0.074983 val_brier=0.072816
+epoch=0206 loss=0.075295 val_brier=0.072988
+epoch=0207 loss=0.074911 val_brier=0.071392
+epoch=0208 loss=0.075445 val_brier=0.071469
+epoch=0209 loss=0.075144 val_brier=0.072086
+epoch=0210 loss=0.075498 val_brier=0.072156
+epoch=0211 loss=0.074676 val_brier=0.071922
+epoch=0212 loss=0.075001 val_brier=0.073359
+epoch=0213 loss=0.074925 val_brier=0.072775
+epoch=0214 loss=0.074555 val_brier=0.072502
+epoch=0215 loss=0.074190 val_brier=0.072565
+epoch=0216 loss=0.073948 val_brier=0.070640
+epoch=0217 loss=0.074559 val_brier=0.071411
+epoch=0218 loss=0.074816 val_brier=0.072152
+epoch=0219 loss=0.074558 val_brier=0.071715
+epoch=0220 loss=0.074989 val_brier=0.072077
+epoch=0221 loss=0.074842 val_brier=0.071851
+epoch=0222 loss=0.074382 val_brier=0.072514
+epoch=0223 loss=0.074665 val_brier=0.073241
+epoch=0224 loss=0.074345 val_brier=0.071622
+epoch=0225 loss=0.074280 val_brier=0.073105
+epoch=0226 loss=0.075103 val_brier=0.072206
+epoch=0227 loss=0.073848 val_brier=0.072896
+epoch=0228 loss=0.074436 val_brier=0.071936
+epoch=0229 loss=0.074857 val_brier=0.073161
+epoch=0230 loss=0.074599 val_brier=0.072138
+epoch=0231 loss=0.074175 val_brier=0.070868
+epoch=0232 loss=0.074542 val_brier=0.071699
+epoch=0233 loss=0.073666 val_brier=0.072706
+epoch=0234 loss=0.074709 val_brier=0.071353
+epoch=0235 loss=0.073932 val_brier=0.072028
+epoch=0236 loss=0.073839 val_brier=0.071339
+Early stopping at epoch 236
+Training exited with code 0
+
+--- MEANINGFUL EVAL (TEST) ---
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134/phase2_tdqc/eval_tdqc.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.ckpt, map_location="cpu")
+--- Meaningful Evaluation (Threshold=0.5) ---
+Detection Recall: 99.86%
+False Positive Rate: 84.80%
+Mean Lead Time: 148.8 steps
+Median Lead Time: 150.0 steps
+P90 Lead Time: 150.0 steps
+------------------------------------------
+
+--- MEANINGFUL EVAL (OOD) ---
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134/phase2_tdqc/eval_tdqc.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.ckpt, map_location="cpu")
+--- Meaningful Evaluation (Threshold=0.5) ---
+Detection Recall: 100.00%
+False Positive Rate: 69.26%
+Mean Lead Time: 149.3 steps
+Median Lead Time: 150.0 steps
+P90 Lead Time: 150.0 steps
+------------------------------------------
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134/phase2_tdqc/eval_tdqc.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.ckpt, map_location="cpu")
+--- Meaningful Evaluation (Threshold=0.5) ---
+Detection Recall: 99.86%
+False Positive Rate: 84.80%
+Mean Lead Time: 148.8 steps
+Median Lead Time: 150.0 steps
+P90 Lead Time: 150.0 steps
+------------------------------------------
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134/phase2_tdqc/tdqc_dataset.py:30: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(self.path, map_location="cpu")
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/a_100_tests/idea_134/phase2_tdqc/eval_tdqc.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(args.ckpt, map_location="cpu")
+--- Meaningful Evaluation (Threshold=0.5) ---
+Detection Recall: 100.00%
+False Positive Rate: 69.26%
+Mean Lead Time: 149.3 steps
+Median Lead Time: 150.0 steps
+P90 Lead Time: 150.0 steps
+------------------------------------------
