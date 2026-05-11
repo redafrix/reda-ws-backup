@@ -1,0 +1,1065 @@
+================================================================================
+EXPERIMENT: v8_exp11_transformer
+ARCHITECTURE: Causal Transformer for TDQC (Temporal Difference Quality Control)
+DESCRIPTION: Failure prediction for VLA models using temporal uncertainty features.
+================================================================================
+
+--------------------------------------------------------------------------------
+FILE: phase2_tdqc/tdqc_model.py
+--------------------------------------------------------------------------------
+from __future__ import annotations
+
+from typing import Optional, Tuple, Dict, Any
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+
+class RMSNorm(nn.Module):
+    def __init__(self, dim: int, eps: float = 1e-6):
+        super().__init__()
+        self.eps = eps
+        self.weight = nn.Parameter(torch.ones(dim))
+
+    def _norm(self, x):
+        return x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + self.eps)
+
+    def forward(self, x):
+        output = self._norm(x.float()).type_as(x)
+        return output * self.weight
+
+
+class SwiGLU(nn.Module):
+    def __init__(self, dim: int, hidden_dim: int):
+        super().__init__()
+        self.w1 = nn.Linear(dim, hidden_dim, bias=False)
+        self.w2 = nn.Linear(hidden_dim, dim, bias=False)
+        self.w3 = nn.Linear(dim, hidden_dim, bias=False)
+
+    def forward(self, x):
+        return self.w2(F.silu(self.w1(x)) * self.w3(x))
+
+
+class TransformerBlock(nn.Module):
+    def __init__(self, dim: int, n_heads: int, dropout: float = 0.0):
+        super().__init__()
+        self.n_heads = n_heads
+        self.attention_norm = RMSNorm(dim)
+        self.ffn_norm = RMSNorm(dim)
+        self.dropout = nn.Dropout(dropout)
+
+        self.wq = nn.Linear(dim, dim, bias=False)
+        self.wk = nn.Linear(dim, dim, bias=False)
+        self.wv = nn.Linear(dim, dim, bias=False)
+        self.wo = nn.Linear(dim, dim, bias=False)
+
+        ffn_hidden_dim = int(2 * 4 * dim / 3)
+        self.feed_forward = SwiGLU(dim, ffn_hidden_dim)
+
+    def forward(self, x, mask=None):
+        # x: [B, T, D]
+        h = x + self.dropout(self.attention(self.attention_norm(x), mask))
+        out = h + self.dropout(self.feed_forward(self.ffn_norm(h)))
+        return out
+
+    def attention(self, x, mask=None):
+        bsz, seqlen, dim = x.shape
+        queries = self.wq(x)
+        keys = self.wk(x)
+        values = self.wv(x)
+
+        queries = queries.view(bsz, seqlen, self.n_heads, dim // self.n_heads).transpose(1, 2)
+        keys = keys.view(bsz, seqlen, self.n_heads, dim // self.n_heads).transpose(1, 2)
+        values = values.view(bsz, seqlen, self.n_heads, dim // self.n_heads).transpose(1, 2)
+
+        # If mask is provided, it should be [B, 1, T, T] and causal+padding
+        output = F.scaled_dot_product_attention(
+            queries,
+            keys,
+            values,
+            attn_mask=mask,
+            dropout_p=self.dropout.p if self.training else 0.0,
+            is_causal=(mask is None),
+        )
+
+        output = output.transpose(1, 2).contiguous().view(bsz, seqlen, dim)
+        return self.wo(output)
+
+    def forward_with_kv(self, x, kv_cache=None):
+        # x: [B, 1, D]
+        norm_x = self.attention_norm(x)
+        bsz, seqlen, dim = norm_x.shape
+
+        queries = self.wq(norm_x)
+        keys = self.wk(norm_x)
+        values = self.wv(norm_x)
+
+        queries = queries.view(bsz, seqlen, self.n_heads, dim // self.n_heads).transpose(1, 2)
+        keys = keys.view(bsz, seqlen, self.n_heads, dim // self.n_heads).transpose(1, 2)
+        values = values.view(bsz, seqlen, self.n_heads, dim // self.n_heads).transpose(1, 2)
+
+        if kv_cache is not None:
+            k_prev, v_prev = kv_cache
+            keys = torch.cat([k_prev, keys], dim=2)
+            values = torch.cat([v_prev, values], dim=2)
+
+        new_kv = (keys, values)
+
+        output = F.scaled_dot_product_attention(
+            queries,
+            keys,
+            values,
+            attn_mask=None,
+            dropout_p=0.0,
+            is_causal=False,
+        )
+
+        output = output.transpose(1, 2).contiguous().view(bsz, seqlen, dim)
+        attn_out = self.wo(output)
+
+        h = x + self.dropout(attn_out)
+        out = h + self.dropout(self.feed_forward(self.ffn_norm(h)))
+        return out, new_kv
+
+
+class TDQCTransformerCalibrator(nn.Module):
+    """
+    Causal Transformer TDQC calibrator.
+    """
+
+    def __init__(
+        self,
+        input_dim: int,
+        hidden_dim: int = 256,
+        n_heads: int = 8,
+        num_layers: int = 4,
+        dropout: float = 0.1,
+        max_seq_len: int = 512,
+    ):
+        super().__init__()
+        self.input_dim = input_dim
+        self.hidden_dim = hidden_dim
+        self.num_layers = num_layers
+
+        self.input_proj = nn.Linear(input_dim, hidden_dim)
+        self.pos_emb = nn.Parameter(torch.zeros(1, max_seq_len, hidden_dim))
+
+        self.blocks = nn.ModuleList(
+            [TransformerBlock(hidden_dim, n_heads, dropout) for _ in range(num_layers)]
+        )
+
+        self.norm = RMSNorm(hidden_dim)
+        self.head = nn.Linear(hidden_dim, 1)
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(
+        self,
+        x: torch.Tensor,
+        mask: Optional[torch.Tensor] = None,
+    ) -> torch.Tensor:
+        """
+        x: [B, T, F]
+        mask: [B, T] (1 for valid, 0 for padding)
+
+        Returns:
+            p_fail: [B, T]
+        """
+        B, T, F = x.shape
+
+        x = self.input_proj(x)  # [B, T, D]
+        x = x + self.pos_emb[:, :T, ...]
+        x = self.dropout(x)
+
+        if mask is not None:
+            # attn_mask: [B, 1, T, T]
+            causal_mask = torch.tril(torch.ones(T, T, device=x.device)).view(
+                1, 1, T, T
+            )
+            padding_mask = mask.view(B, 1, 1, T)
+            # PyTorch SDPA boolean mask: True means PARTICIPATE
+            attn_mask = (causal_mask * padding_mask).bool()
+        else:
+            attn_mask = None
+
+        for block in self.blocks:
+            x = block(x, mask=attn_mask)
+
+        x = self.norm(x)
+        logits = self.head(x).squeeze(-1)  # [B, T]
+        p_fail = torch.sigmoid(logits)  # [B, T]
+        return p_fail
+
+    @torch.no_grad()
+    def step(
+        self,
+        phi_t: torch.Tensor,
+        state: Optional[Dict[str, Any]] = None,
+    ) -> Tuple[torch.Tensor, Dict[str, Any]]:
+        """
+        Stateful online inference.
+        """
+        if phi_t.ndim == 1:
+            phi_t = phi_t.unsqueeze(0)
+
+        if state is None:
+            step = 0
+            kv_caches = [None] * self.num_layers
+        else:
+            step = state["step"]
+            kv_caches = state["kv_caches"]
+
+        z = self.input_proj(phi_t.unsqueeze(1))  # [B, 1, D]
+        z = z + self.pos_emb[:, step : step + 1, :]
+
+        x = z
+        new_kv_caches = []
+        for i, block in enumerate(self.blocks):
+            x, kv = block.forward_with_kv(x, kv_caches[i])
+            new_kv_caches.append(kv)
+
+        x = self.norm(x)
+        p_fail = torch.sigmoid(self.head(x).squeeze(-1)).squeeze(1)
+
+        return p_fail, {"step": step + 1, "kv_caches": new_kv_caches}
+
+
+def hard_update(target: nn.Module, source: nn.Module) -> None:
+    target.load_state_dict(source.state_dict())
+
+
+@torch.no_grad()
+def soft_update(target: nn.Module, source: nn.Module, tau: float = 0.005) -> None:
+    for p_targ, p_src in zip(target.parameters(), source.parameters()):
+        p_targ.data.mul_(1.0 - tau)
+        p_targ.data.add_(tau * p_src.data)
+
+--------------------------------------------------------------------------------
+FILE: train_tdqc.py (Main training script)
+--------------------------------------------------------------------------------
+from __future__ import annotations
+
+import argparse
+import json
+import random
+from pathlib import Path
+
+import torch
+from torch.utils.data import DataLoader, random_split
+
+from phase2_tdqc.tdqc_dataset import TDQCDataset, tdqc_collate
+from phase2_tdqc.tdqc_features import compute_feature_stats, normalize_features
+from phase2_tdqc.tdqc_losses import tdqc_brier_td_loss, sequential_brier_score
+from phase2_tdqc.tdqc_model import TDQCTransformerCalibrator, hard_update
+
+
+class EarlyStopping:
+    def __init__(self, patience=20, min_delta=1e-4):
+        self.patience = patience
+        self.min_delta = min_delta
+        self.counter = 0
+        self.best_loss = None
+        self.early_stop = False
+
+    def __call__(self, val_loss):
+        if self.best_loss is None:
+            self.best_loss = val_loss
+        elif val_loss > self.best_loss - self.min_delta:
+            self.counter += 1
+            if self.counter >= self.patience:
+                self.early_stop = True
+        else:
+            self.best_loss = val_loss
+            self.counter = 0
+
+
+def parse_args():
+    p = argparse.ArgumentParser()
+    p.add_argument("--dataset_path", type=str, required=True)
+    p.add_argument("--output_dir", type=str, required=True)
+    p.add_argument("--hidden_dim", type=int, default=256)
+    p.add_argument("--num_layers", type=int, default=4)
+    p.add_argument("--n_heads", type=int, default=8)
+    p.add_argument("--dropout", type=float, default=0.1)
+    p.add_argument("--batch_size", type=int, default=64)
+    p.add_argument("--epochs", type=int, default=200)
+    p.add_argument("--lr", type=float, default=1e-4)
+    p.add_argument("--warmup_epochs", type=int, default=5)
+    p.add_argument("--weight_decay", type=float, default=1e-2)
+    p.add_argument("--target_update_freq", type=int, default=100)
+    p.add_argument("--train_ratio", type=float, default=0.7)
+    p.add_argument("--val_ratio", type=float, default=0.15)
+    p.add_argument("--test_ratio", type=float, default=0.15)
+    p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--device", type=str, default="cuda")
+    p.add_argument("--resume_path", type=str, default=None, help="Path to checkpoint to resume from")
+    p.add_argument("--patience", type=int, default=20)
+    return p.parse_args()
+
+
+def move_batch(batch, device):
+    return {k: v.to(device) if torch.is_tensor(v) else v for k, v in batch.items()}
+
+
+@torch.no_grad()
+def collect_train_stats(loader, device):
+    all_valid_feats = []
+    for batch in loader:
+        feats = batch["features"]  # [B, T, F]
+        mask = batch["mask"]      # [B, T]
+        
+        # Only keep steps where mask == 1
+        valid_feats = feats[mask == 1.0] # [N_valid_steps, F]
+        all_valid_feats.append(valid_feats)
+        
+    features = torch.cat(all_valid_feats, dim=0).to(device)
+    dummy_mask = torch.ones(features.shape[0], device=device)
+    return compute_feature_stats(features, dummy_mask)
+
+
+@torch.no_grad()
+def evaluate(model, loader, mean, std, device):
+    model.eval()
+    total_count = 0.0
+    total_brier = 0.0
+
+    for batch in loader:
+        batch = move_batch(batch, device)
+        x = normalize_features(batch["features"], mean, std)
+        q = model(x, mask=batch["mask"])
+        brier = sequential_brier_score(q, batch["failure"], batch["mask"])
+        count = batch["mask"].sum().item()
+        total_brier += brier.item() * count
+        total_count += count
+
+    return {"seq_brier": total_brier / max(total_count, 1.0)}
+
+
+def main():
+    args = parse_args()
+    random.seed(args.seed)
+    torch.manual_seed(args.seed)
+
+    device = torch.device(args.device if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}", flush=True)
+    out_dir = Path(args.output_dir)
+    
+    if out_dir.exists() and not args.resume_path:
+        # Check if it contains any significant files
+        if (out_dir / "best.pt").exists() or (out_dir / "history.json").exists():
+            print(f"FATAL ERROR: Output directory {args.output_dir} already exists and contains model artifacts (best.pt or history.json).", flush=True)
+            print("Aborting to prevent catastrophic overwrite. Please use a different --output_dir.", flush=True)
+            return
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    print(f"Loading dataset from {args.dataset_path}...", flush=True)
+    dataset = TDQCDataset(args.dataset_path)
+    n_total = len(dataset)
+    print(f"Loaded {n_total} episodes.", flush=True)
+    
+    # Split sizes
+    n_train = int(args.train_ratio * n_total)
+    n_val = int(args.val_ratio * n_total)
+    n_test = n_total - n_train - n_val
+    print(f"Split sizes: {n_train} train, {n_val} val, {n_test} test.", flush=True)
+
+    print("DEBUG: Splitting dataset...", flush=True)
+    train_set, val_set, test_set = random_split(
+        dataset,
+        [n_train, n_val, n_test],
+        generator=torch.Generator().manual_seed(args.seed),
+    )
+
+    print("DEBUG: Creating DataLoaders...", flush=True)
+    train_loader = DataLoader(
+        train_set,
+        batch_size=args.batch_size,
+        shuffle=True,
+        collate_fn=tdqc_collate,
+        num_workers=0,
+    )
+    val_loader = DataLoader(
+        val_set,
+        batch_size=args.batch_size,
+        shuffle=False,
+        collate_fn=tdqc_collate,
+        num_workers=0,
+    )
+    test_loader = DataLoader(
+        test_set,
+        batch_size=args.batch_size,
+        shuffle=False,
+        collate_fn=tdqc_collate,
+        num_workers=0,
+    )
+
+    # Class weights.
+    print("DEBUG: Computing class weights...", flush=True)
+    successes = sum(int(dataset[i].success) for i in range(len(dataset)))
+    failures = len(dataset) - successes
+    print(f"DEBUG: total successes={successes}, failures={failures}", flush=True)
+    success_rate = successes / max(len(dataset), 1)
+    failure_rate = failures / max(len(dataset), 1)
+    success_weight = 0.5 / max(success_rate, 1e-6)
+    fail_weight = 0.5 / max(failure_rate, 1e-6)
+
+    print("DEBUG: Initializing model...", flush=True)
+    model = TDQCTransformerCalibrator(
+        input_dim=dataset.input_dim,
+        hidden_dim=args.hidden_dim,
+        n_heads=args.n_heads,
+        num_layers=args.num_layers,
+        dropout=args.dropout,
+    ).to(device)
+    target_model = TDQCTransformerCalibrator(
+        input_dim=dataset.input_dim,
+        hidden_dim=args.hidden_dim,
+        n_heads=args.n_heads,
+        num_layers=args.num_layers,
+        dropout=args.dropout,
+    ).to(device)
+    hard_update(target_model, model)
+    target_model.eval()
+
+    optim = torch.optim.AdamW(
+        model.parameters(),
+        lr=args.lr,
+        weight_decay=args.weight_decay,
+    )
+    
+    # Linear Warmup + Plateau
+    def lr_lambda(epoch):
+        if epoch < args.warmup_epochs:
+            return (epoch + 1) / args.warmup_epochs
+        return 1.0
+    
+    warmup_scheduler = torch.optim.lr_scheduler.LambdaLR(optim, lr_lambda)
+    plateau_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+        optim, mode="min", factor=0.5, patience=15, verbose=True
+    )
+    early_stopping = EarlyStopping(patience=args.patience, min_delta=1e-4)
+
+    global_step = 0
+    best_val = float("inf")
+    start_epoch = 0
+
+    if args.resume_path:
+        print(f"Resuming from {args.resume_path}...", flush=True)
+        ckpt = torch.load(args.resume_path, map_location=device)
+        model.load_state_dict(ckpt["model"])
+        target_model.load_state_dict(ckpt["target_model"])
+        mean = ckpt["mean"].to(device)
+        std = ckpt["std"].to(device)
+        start_epoch = ckpt["epoch"] + 1
+        best_val = ckpt.get("val_seq_brier", float("inf"))
+        print(f"Resuming at epoch {start_epoch} with best_val={best_val:.6f}", flush=True)
+    else:
+        print("DEBUG: Collecting training statistics for normalization...", flush=True)
+        mean_std_loader = DataLoader(
+            train_set,
+            batch_size=args.batch_size,
+            shuffle=False,
+            collate_fn=tdqc_collate,
+            num_workers=0,
+        )
+        stats = collect_train_stats(mean_std_loader, device)
+        mean = stats["mean"].to(device)
+        std = stats["std"].to(device)
+        print("DEBUG: Statistics collected.", flush=True)
+
+    config = vars(args) | {
+        "input_dim": dataset.input_dim,
+        "n_total": n_total,
+        "n_train": n_train,
+        "n_val": n_val,
+        "n_test": n_test,
+        "successes": successes,
+        "failures": failures,
+        "success_weight": success_weight,
+        "fail_weight": fail_weight,
+    }
+    (out_dir / "config.json").write_text(json.dumps(config, indent=2))
+
+    history = []
+    print("DEBUG: Starting training loop...", flush=True)
+    for epoch in range(start_epoch, args.epochs):
+        model.train()
+        running = 0.0
+        denom = 0
+
+        for batch in train_loader:
+            batch = move_batch(batch, device)
+            x = normalize_features(batch["features"], mean, std)
+
+            q_online = model(x, mask=batch["mask"])
+            with torch.no_grad():
+                q_target = target_model(x, mask=batch["mask"])
+
+            loss = tdqc_brier_td_loss(
+                q_online=q_online,
+                q_target=q_target,
+                failure=batch["failure"],
+                lengths=batch["lengths"],
+                mask=batch["mask"],
+                fail_weight=fail_weight,
+                success_weight=success_weight,
+            )
+
+            optim.zero_grad(set_to_none=True)
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            optim.step()
+
+            global_step += 1
+            if global_step % args.target_update_freq == 0:
+                hard_update(target_model, model)
+                target_model.eval()
+
+            running += loss.item()
+            denom += 1
+
+        train_loss = running / max(denom, 1)
+        val_metrics = evaluate(model, val_loader, mean, std, device)
+        val_brier = val_metrics["seq_brier"]
+        
+        if epoch < args.warmup_epochs:
+            warmup_scheduler.step()
+        else:
+            plateau_scheduler.step(val_brier)
+
+        print(
+            f"epoch={epoch:04d} lr={optim.param_groups[0]['lr']:.2e} "
+            f"train_loss={train_loss:.6f} val_seq_brier={val_brier:.6f} "
+            f"best={best_val:.6f} patience={early_stopping.counter}/{early_stopping.patience}",
+            flush=True
+        )
+
+        history.append({
+            "epoch": epoch,
+            "train_loss": train_loss,
+            "val_seq_brier": val_brier,
+        })
+        (out_dir / "history.json").write_text(json.dumps(history, indent=2))
+
+        ckpt = {
+            "model": model.state_dict(),
+            "target_model": target_model.state_dict(),
+            "mean": mean.detach().cpu(),
+            "std": std.detach().cpu(),
+            "config": config,
+            "epoch": epoch,
+            "val_seq_brier": val_brier,
+        }
+        torch.save(ckpt, out_dir / "last.pt")
+
+        if val_brier < best_val:
+            best_val = val_brier
+            torch.save(ckpt, out_dir / "best.pt")
+        
+        early_stopping(val_brier)
+        if early_stopping.early_stop:
+            print(f"Early stopping at epoch {epoch}", flush=True)
+            break
+
+    print(f"Training Done. Best val sequential Brier: {best_val:.6f}", flush=True)
+    
+    # Final Evaluation on Test Set
+    print("\n--- Final Test Evaluation ---", flush=True)
+    best_ckpt = torch.load(out_dir / "best.pt")
+    model.load_state_dict(best_ckpt["model"])
+    test_metrics = evaluate(model, test_loader, mean, std, device)
+    print(f"Final Test Sequential Brier: {test_metrics['seq_brier']:.6f}", flush=True)
+
+--------------------------------------------------------------------------------
+FILE: phase2_tdqc/tdqc_dataset.py
+--------------------------------------------------------------------------------
+from __future__ import annotations
+
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List
+
+import torch
+from torch.utils.data import Dataset
+
+
+@dataclass
+class TDQCEpisode:
+    features: torch.Tensor      # [T, F]
+    success: int                # 1 success, 0 failure
+    task_id: int = -1
+    episode_idx: int = -1
+    instruction: str = ""
+
+    @property
+    def failure(self) -> int:
+        return 1 - int(self.success)
+
+    @property
+    def length(self) -> int:
+        return int(self.features.shape[0])
+
+
+class TDQCDataset(Dataset):
+    def __init__(self, path: str | Path):
+        self.path = Path(path)
+        obj = torch.load(self.path, map_location="cpu")
+
+        if isinstance(obj, dict) and "episodes" in obj:
+            raw_episodes = obj["episodes"]
+        elif isinstance(obj, list):
+            raw_episodes = obj
+        else:
+            raise ValueError(
+                "Dataset must be either a list of episodes or a dict with key 'episodes'."
+            )
+
+        from tqdm import tqdm
+        self.episodes: List[TDQCEpisode] = []
+        print(f"Processing {len(raw_episodes)} episodes...")
+        for ep in tqdm(raw_episodes, desc="Loading Episodes"):
+            features = ep["features"]
+            if not isinstance(features, torch.Tensor):
+                features = torch.tensor(features, dtype=torch.float32)
+            else:
+                features = features.float()
+            
+            success = int(ep["success"])
+            self.episodes.append(
+                TDQCEpisode(
+                    features=features,
+                    success=success,
+                    task_id=int(ep.get("task_id", -1)),
+                    episode_idx=int(ep.get("episode_idx", -1)),
+                    instruction=str(ep.get("instruction", "")),
+                )
+            )
+
+        if len(self.episodes) == 0:
+            raise ValueError(f"No episodes found in {self.path}")
+
+        self.input_dim = int(self.episodes[0].features.shape[-1])
+
+    def __len__(self) -> int:
+        return len(self.episodes)
+
+    def __getitem__(self, idx: int) -> TDQCEpisode:
+        return self.episodes[idx]
+
+
+def tdqc_collate(batch: List[TDQCEpisode]) -> Dict[str, torch.Tensor]:
+    B = len(batch)
+    T_max = max(ep.length for ep in batch)
+    F = batch[0].features.shape[-1]
+
+    features = torch.zeros(B, T_max, F, dtype=torch.float32)
+    mask = torch.zeros(B, T_max, dtype=torch.float32)
+    lengths = torch.zeros(B, dtype=torch.long)
+    success = torch.zeros(B, dtype=torch.float32)
+    task_id = torch.zeros(B, dtype=torch.long)
+    episode_idx = torch.zeros(B, dtype=torch.long)
+
+    for b, ep in enumerate(batch):
+        T = ep.length
+        features[b, :T] = ep.features
+        mask[b, :T] = 1.0
+        lengths[b] = T
+        success[b] = float(ep.success)
+        task_id[b] = int(ep.task_id)
+        episode_idx[b] = int(ep.episode_idx)
+
+    failure = 1.0 - success
+
+    return {
+        "features": features,
+        "mask": mask,
+        "lengths": lengths,
+        "success": success,
+        "failure": failure,
+        "task_id": task_id,
+        "episode_idx": episode_idx,
+    }
+
+--------------------------------------------------------------------------------
+FILE: phase2_tdqc/tdqc_losses.py
+--------------------------------------------------------------------------------
+from __future__ import annotations
+
+import torch
+
+
+def make_td0_targets(
+    q_target: torch.Tensor,
+    failure: torch.Tensor,
+    lengths: torch.Tensor,
+    mask: torch.Tensor,
+) -> torch.Tensor:
+    """
+    Build TD(0) targets for p_fail.
+
+    q_target: [B, T]
+    failure:  [B], 1 failed rollout, 0 successful rollout
+    lengths:  [B]
+    mask:     [B, T]
+
+    Returns:
+        target: [B, T]
+    """
+    B, T = q_target.shape
+    target = torch.zeros_like(q_target)
+
+    for b in range(B):
+        L = int(lengths[b].item())
+        if L <= 0:
+            continue
+        if L > 1:
+            target[b, : L - 1] = q_target[b, 1:L]
+        target[b, L - 1] = failure[b]
+
+    # Padding values do not matter because mask removes them.
+    return target
+
+
+def tdqc_brier_td_loss(
+    q_online: torch.Tensor,
+    q_target: torch.Tensor,
+    failure: torch.Tensor,
+    lengths: torch.Tensor,
+    mask: torch.Tensor,
+    fail_weight: float = 1.0,
+    success_weight: float = 1.0,
+) -> torch.Tensor:
+    """
+    Masked TDQC loss for failure probability.
+
+    q_online: [B, T]
+    q_target: [B, T]
+    failure:  [B]
+    lengths:  [B]
+    mask:     [B, T]
+    """
+    with torch.no_grad():
+        targets = make_td0_targets(q_target, failure, lengths, mask)
+        sample_w = torch.where(
+            failure > 0.5,
+            torch.tensor(float(fail_weight), device=failure.device),
+            torch.tensor(float(success_weight), device=failure.device),
+        )
+        weights = sample_w[:, None] * mask
+
+    losses = (q_online - targets).pow(2)
+    loss = (losses * weights).sum() / weights.sum().clamp_min(1.0)
+    return loss
+
+
+@torch.no_grad()
+def sequential_brier_score(
+    q: torch.Tensor,
+    failure: torch.Tensor,
+    mask: torch.Tensor,
+) -> torch.Tensor:
+    """
+    Empirical sequential Brier score against terminal failure labels.
+    """
+    target = failure[:, None].expand_as(q)
+    return ((q - target).pow(2) * mask).sum() / mask.sum().clamp_min(1.0)
+
+--------------------------------------------------------------------------------
+FILE: phase2_tdqc/tdqc_features.py
+--------------------------------------------------------------------------------
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Dict
+
+import torch
+
+
+@dataclass
+class TDQCFeatureConfig:
+    horizon_decay: float = 0.8
+    use_log1p: bool = True
+    eps: float = 1e-8
+
+
+def _log1p_if_needed(x: torch.Tensor, use_log1p: bool) -> torch.Tensor:
+    return torch.log1p(torch.clamp_min(x, 0.0)) if use_log1p else x
+
+
+def aggregate_uncertainty_features(
+    path_variance: torch.Tensor,
+    last_step_variance: torch.Tensor,
+    cfg: TDQCFeatureConfig = TDQCFeatureConfig(),
+) -> torch.Tensor:
+    """
+    Convert Phase 1 variance tensors into a compact TDQC feature vector.
+    """
+    if path_variance.shape != last_step_variance.shape:
+        raise ValueError(
+            f"Shape mismatch: path_variance={path_variance.shape}, "
+            f"last_step_variance={last_step_variance.shape}"
+        )
+
+    squeeze_batch = False
+    if path_variance.ndim == 2:
+        path_variance = path_variance.unsqueeze(0)
+        last_step_variance = last_step_variance.unsqueeze(0)
+        squeeze_batch = True
+
+    if path_variance.ndim != 3:
+        raise ValueError(f"Expected [H,D] or [B,H,D], got {path_variance.shape}")
+
+    B, H, D = path_variance.shape
+    device = path_variance.device
+    dtype = path_variance.dtype
+
+    lam = float(cfg.horizon_decay)
+    if not (0.0 < lam <= 1.0):
+        raise ValueError(f"horizon_decay must be in (0,1], got {lam}")
+
+    weights = lam ** torch.arange(H, device=device, dtype=dtype)
+    weights = weights.view(1, H, 1)
+    denom = weights.sum() * D + cfg.eps
+
+    weighted_path_mean = (weights * path_variance).sum(dim=(1, 2)) / denom
+    weighted_last_mean = (weights * last_step_variance).sum(dim=(1, 2)) / denom
+
+    first_path_mean = path_variance[:, 0, :].mean(dim=-1)
+    first_last_mean = last_step_variance[:, 0, :].mean(dim=-1)
+
+    max_path = path_variance.amax(dim=(1, 2))
+    max_last = last_step_variance.amax(dim=(1, 2))
+
+    # Optional gripper-specific feature
+    gripper_path = path_variance[:, :, -1].mean(dim=-1)
+    gripper_last = last_step_variance[:, :, -1].mean(dim=-1)
+
+    feats = torch.stack(
+        [
+            weighted_path_mean,
+            weighted_last_mean,
+            first_path_mean,
+            first_last_mean,
+            max_path,
+            max_last,
+            gripper_path,
+            gripper_last,
+        ],
+        dim=-1,
+    )
+
+    feats = _log1p_if_needed(feats, cfg.use_log1p)
+
+    if squeeze_batch:
+        feats = feats.squeeze(0)
+
+    return feats
+
+
+@torch.no_grad()
+def compute_feature_stats(features: torch.Tensor, mask: torch.Tensor | None = None) -> Dict[str, torch.Tensor]:
+    """
+    Compute train-set normalization statistics.
+    """
+    if mask is None:
+        flat = features.reshape(-1, features.shape[-1])
+    else:
+        flat = features[mask.bool()]
+
+    mean = flat.mean(dim=0)
+    std = flat.std(dim=0).clamp_min(1e-6)
+    return {"mean": mean, "std": std}
+
+
+def normalize_features(features: torch.Tensor, mean: torch.Tensor, std: torch.Tensor) -> torch.Tensor:
+    return (features - mean.to(features.device)) / std.to(features.device)
+
+--------------------------------------------------------------------------------
+FILE: phase2_tdqc/eval_tdqc.py
+--------------------------------------------------------------------------------
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+import numpy as np
+
+import torch
+from torch.utils.data import DataLoader
+
+from phase2_tdqc.tdqc_dataset import TDQCDataset, tdqc_collate
+from phase2_tdqc.tdqc_features import normalize_features
+from phase2_tdqc.tdqc_losses import sequential_brier_score
+from phase2_tdqc.tdqc_model import TDQCTransformerCalibrator
+
+
+def parse_args():
+    p = argparse.ArgumentParser()
+    p.add_argument("--dataset_path", required=True)
+    p.add_argument("--ckpt", required=True)
+    p.add_argument("--batch_size", type=int, default=64)
+    p.add_argument("--device", default="cuda")
+    return p.parse_args()
+
+
+@torch.no_grad()
+def main():
+    args = parse_args()
+    device = torch.device(args.device if torch.cuda.is_available() else "cpu")
+
+    dataset = TDQCDataset(args.dataset_path)
+    loader = DataLoader(dataset, batch_size=args.batch_size, shuffle=False, collate_fn=tdqc_collate)
+
+    ckpt = torch.load(args.ckpt, map_location="cpu")
+    cfg = ckpt["config"]
+    model = TDQCTransformerCalibrator(
+        input_dim=cfg["input_dim"],
+        hidden_dim=cfg["hidden_dim"],
+        n_heads=cfg.get("n_heads", 8),
+        num_layers=cfg["num_layers"],
+        dropout=cfg["dropout"],
+    ).to(device)
+    model.load_state_dict(ckpt["model"])
+    model.eval()
+
+    mean = ckpt["mean"].to(device)
+    std = ckpt["std"].to(device)
+
+    total_brier = 0.0
+    total_count = 0.0
+    all_episode_scores = []
+    all_episode_failures = []
+    
+    all_step_q_success = []
+    all_step_q_failure = []
+
+    for batch in loader:
+        batch = {k: v.to(device) if torch.is_tensor(v) else v for k, v in batch.items()}
+        x = normalize_features(batch["features"], mean, std)
+        q = model(x, mask=batch["mask"])
+
+        brier = sequential_brier_score(q, batch["failure"], batch["mask"])
+        count = batch["mask"].sum().item()
+        total_brier += brier.item() * count
+        total_count += count
+
+        for b in range(q.shape[0]):
+            L = int(batch["lengths"][b].item())
+            max_q = float(q[b, :L].max().item())
+            all_episode_scores.append(max_q)
+            is_fail = int(batch["failure"][b].item())
+            all_episode_failures.append(is_fail)
+            
+            if is_fail:
+                all_step_q_failure.extend(q[b, :L].cpu().numpy().tolist())
+            else:
+                all_step_q_success.extend(q[b, :L].cpu().numpy().tolist())
+
+    all_episode_scores = np.array(all_episode_scores)
+    all_episode_failures = np.array(all_episode_failures)
+
+    print(f"sequential_brier={total_brier / max(total_count, 1.0):.6f}")
+
+    success_scores = all_episode_scores[all_episode_failures == 0]
+    failure_scores = all_episode_scores[all_episode_failures == 1]
+
+    print(f"Episode Stats:")
+    print(f"  Success: count={len(success_scores)}, mean_max_q={success_scores.mean():.4f}, std_max_q={success_scores.std():.4f}")
+    print(f"  Failure: count={len(failure_scores)}, mean_max_q={failure_scores.mean():.4f}, std_max_q={failure_scores.std():.4f}")
+
+    # Threshold analysis
+    print("\nThreshold Analysis (Episode-level Accuracy):")
+    for tau in [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
+        preds = (all_episode_scores >= tau).astype(int)
+        tp = ((preds == 1) & (all_episode_failures == 1)).sum()
+        tn = ((preds == 0) & (all_episode_failures == 0)).sum()
+        acc = (tp + tn) / len(all_episode_failures)
+        print(f"tau={tau:.1f} | acc={acc:.4f}")
+
+    try:
+        from sklearn.metrics import roc_auc_score
+        auc = roc_auc_score(all_episode_failures, all_episode_scores)
+        print(f"\nepisode_roc_auc={auc:.6f}")
+    except:
+        pass
+
+
+if __name__ == "__main__":
+    main()
+
+--------------------------------------------------------------------------------
+FILE: phase2_tdqc/build_dataset_v7_22d.py (Feature Engineering)
+--------------------------------------------------------------------------------
+import gzip
+import json
+import math
+import argparse
+import torch
+from pathlib import Path
+from tqdm import tqdm
+
+GRIPPER_DIM = 6
+
+def _std(vals: list) -> float:
+    n = len(vals)
+    if n < 2: return 0.0
+    m = sum(vals) / n
+    return math.sqrt(sum((v - m) ** 2 for v in vals) / n)
+
+def _signed_log1p(x: float) -> float:
+    return math.copysign(math.log1p(abs(x)), x)
+
+def _feat(step: dict) -> list:
+    pv = step["path_variance"]
+    lv = step["last_step_variance"]
+    di = step["denoise_initial_mean"]
+    dd = step["denoise_delta"]
+    dr = step["denoise_final_rotation_mean"]
+
+    return [
+        math.log1p(sum(pv) / len(pv)),
+        math.log1p(sum(lv) / len(lv)),
+        math.log1p(_std(pv)),
+        math.log1p(_std(lv)),
+        math.log1p(max(pv)),
+        math.log1p(max(lv)),
+        math.log1p(pv[GRIPPER_DIM]),
+        math.log1p(lv[GRIPPER_DIM]),
+        math.log1p(di),
+        _signed_log1p(dd),
+        math.log1p(dr),
+    ]
+
+def convert_split(jsonl_path: str, split_name: str) -> list:
+    episodes = []
+    is_gz = str(jsonl_path).endswith(".gz")
+    opener = gzip.open if is_gz else open
+    mode = "rt" if is_gz else "r"
+
+    with opener(jsonl_path, mode) as f:
+        for raw in tqdm(f, desc=split_name):
+            data  = json.loads(raw)
+            trace = data.get("uncertainty_trace", [])
+            steps_data = []
+            for step in trace:
+                steps_data.append(_feat(step))
+            if not steps_data: continue
+
+            raw_feats = torch.tensor(steps_data, dtype=torch.float32)
+            deltas = torch.zeros_like(raw_feats)
+            if raw_feats.shape[0] > 1:
+                deltas[1:] = raw_feats[1:] - raw_feats[:-1]
+            combined_feats = torch.cat([raw_feats, deltas], dim=-1)
+
+            episodes.append({
+                "features":    combined_feats,
+                "success":     bool(data.get("success", False)),
+                "task_id":     int(data.get("task_id", -1)),
+                "episode_idx": int(data.get("episode", -1)),
+            })
+    return episodes
+
+# (Rest of script omitted for brevity, logic is in convert_split)
+================================================================================
+END OF FILE
+================================================================================
