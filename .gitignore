@@ -1,0 +1,51 @@
+# Ignore all binary and large data formats
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.zip
+*.tar.gz
+*.7z
+*.rar
+*.npy
+*.npz
+*.h5
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.exe
+*.dll
+*.so
+*.o
+*.a
+
+# Ignore large CSVs and Excel (often datasets)
+*.csv
+*.xlsx
+*.xls
+
+# Ignore large log files
+*.log
+training_log.txt
+project_context_dump.txt
+ultimate_project_context.txt
+
+# Ignore specific large directories
+runs/
+logs/
+logs_marathon/
+data/
+datasets/
+__pycache__/
+.ipynb_checkpoints/
+node_modules/
+venv/
+.env
+
+# Hidden system files
+.DS_Store
+Thumbs.db
+.goutputstream-*

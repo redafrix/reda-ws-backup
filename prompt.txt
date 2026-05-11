@@ -1,0 +1,101 @@
+ THE COMPLETE, EXHAUSTIVE MASTER ORCHESTRATION PROMPT
+
+    1 /maestro:orchestrate "You are the Senior TechLead Orchestrator for the 'Generalized VLA and
+      Failure Detection' research project. You are being tasked with the most significant
+      architectural evolution of the TDQC (Temporal-Difference Quality Calibration) system to date:
+      Transitioning from a legacy LSTM bottleneck to a state-of-the-art Causal Decoder-Only
+      Transformer (Plan A).
+    2
+    3 ### 🌍 I. MISSION-CRITICAL WORKSPACE & MIGRATION CONTEXT
+    4 You are operating in a hybrid environment where speed and stability are paramount.
+    5 - **Physical Root:** `/media/redafrix/My Passport/reda_ws/` (External exfat drive).
+    6 - **Core Workspace Base:** `/media/redafrix/My
+      Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/`
+    7 - **Active SSD Environment:** `/home/redafrix/envs/simvla`.
+    8 - **Authoritative Single Sources of Truth:** Before writing a single line of code, you MUST
+      ingest the constraints in:
+    9     1. `/media/redafrix/My Passport/reda_ws/GEMINI.md` (Project North Star & Engineering
+      Standards).
+   10     2. `/media/redafrix/My Passport/reda_ws/MIGRATION_NOTES.md` (Crucial pathing and
+      hardware-link details).
+   11     3. `/media/redafrix/My
+      Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/plans_for_exp_11_and_12.md` (The specific architectural blueprint).
+   12
+   13 ### 🛡️ II. THE 'IMMUTABLE CORE' & ISOLATION PROTOCOLS
+   14 To maintain scientific reproducibility and system stability, you must adhere to these safety
+      rails:
+   15 1. **Experiment Encapsulation:** You are strictly forbidden from modifying any existing
+      experiment folders (e.g., `v8_exp08_balanced`). Every new idea MUST live in its own
+      self-contained bubble. Create: `experiments/v8_exp11_transformer/`.
+   16 2. **Capsule Setup:** Populate the new capsule by copying the code from `core/phase2_tdqc/` or
+      `experiments/v8_exp08_balanced/code/phase2_tdqc/` into your new `v8_exp11_transformer/code/`
+      directory. All subsequent edits MUST be surgical and confined to this new folder.
+   17 3. **Environment Isolation (NEW MANDATE):** If Plan A requires any new dependencies (e.g.,
+      specific versions of FlashAttention, or if you were attempting Plan B's Mamba kernels), you
+      MUST NOT modify the stable `/home/redafrix/envs/simvla` environment. Instead:
+   18     - Clone or create a new environment at `/home/redafrix/envs/simvla_transformer`.
+   19     - Install all necessary Transformer-specific requirements there.
+   20     - Update the local `activate_simvla.sh` inside your experiment capsule to ensure it
+      activates this new, isolated environment. This ensures that even if this experiment fails, the
+      main research environment remains untouched.
+   21
+   22 ### 🏗️ III. ARCHITECTURAL SPECIFICATIONS (PLAN A: THE CAUSAL TRANSFORMER)
+   23 You are to replace the `TDQCLSTMCalibrator` with a `TDQCTransformerCalibrator` following the
+      'LLaMA/Decision Transformer' recipe:
+   24 1. **Core Backbone:** A Decoder-Only Transformer. It must be strictly causal—under no
+      circumstances can the model at step $t$ attend to $t+1$.
+   25 2. **Stable Components:** 
+   26     - Implement a custom `RMSNorm` class (do not use PyTorch's default LayerNorm) to handle the
+      22D continuous feature range.
+   27     - Implement a custom `SwiGLU` MLP block (using `nn.SiLU` and a gated linear unit) to
+      improve non-linear generalization.
+   28 3. **Positional Awareness:** Use Absolute Positional Embeddings `nn.Embedding(500,
+      hidden_dim)`. This allows the model to understand the exact stage of the robotic trajectory
+      (e.g., 'Approaching' vs 'Grasping').
+   29 4. **Context Integration (Prefix Tokens):**
+   30     - Legacy Method (LSTM): You were adding the `suite_id` embedding to every feature vector.
+      This is inefficient.
+   31     - New Method (Transformer): Prepend the `suite_id` embedding as the very first token in the
+      sequence (a 'Suite Token' at index 0).
+   32     - Data flow: Project `[B, T, 22]` to `[B, T, 256]`. Prepend `[B, 1, 256]` (suite
+      embedding). Resulting sequence: `[B, T+1, 256]`.
+   33 5. **Causal Attention Engine:** Use `torch.nn.functional.scaled_dot_product_attention` with
+      `is_causal=True`. You must ensure that the lower-triangular mask is correctly applied.
+   34 6. **Online KV Cache (The 'Step' Logic):**
+   35     - The `step(phi_t, state)` function is the heart of our robot's online failure detection.
+   36     - Unlike the LSTM, the Transformer doesn't have a fixed-size hidden state. You must
+      implement Key-Value (KV) caching.
+   37     - The `state` parameter must be a dictionary containing `timestep_index` (int) and
+      `kv_cache` (a List of Tensors, one per layer, storing the historical K and V keys).
+   38     - At each control tick, append the new step's $K$ and $V$ to the cache and compute
+      attention. This ensures $O(1)$ inference latency.
+   39
+   40 ### 📈 IV. TRAINING & VALIDATION PIPELINE
+   41 1. **The Padding/Causal Mask Hybrid:** You must carefully construct a hybrid attention mask.
+      This mask must zero out both 'The Future' (Causal) AND 'The Padding' (the zeros at the end of
+      short episodes) to ensure the Transformer doesn't learn from non-data.
+   42 2. **Learning Rate Management:** Implement a **Linear Warmup** scheduler for the first 5
+      epochs. Start at `1e-7` and ramp to `1e-4`. After warmup, use `ReduceLROnPlateau` based on the
+      Validation Sequential Brier Score.
+   43 3. **Evaluation Protocol:**
+   44     - Train on the balanced v8 dataset.
+   45     - Perform a dual-track evaluation:
+   46         - Track 1: ID (In-Distribution) Test using `v8_test.pt`.
+   47         - Track 2: OOD (Out-of-Distribution) Test using `v8_unseen_obj_ood.pt` (Chocolate
+      Pudding/Orange Juice).
+   48     - Generate comparative plots for **Stepwise AUC-ROC** and **Sequential Brier Score** vs the
+      Exp 08 baseline.
+   49
+   50 ### 🚀 V. MAESTRO EXECUTION PLAN
+   51 I want a 4-phase Maestro workflow:
+   52 1. **Phase 1 (Setup):** Isolate the workspace, create the capsule, and verify/create the SSD
+      environment.
+   53 2. **Phase 2 (Implementation):** Perform the surgical model rewrite and training script
+      adaptation.
+   54 3. **Phase 3 (Training):** Launch the training loop with the warmup scheduler and monitor
+      convergence.
+   55 4. **Phase 4 (Analysis):** Run the final evaluations, compare against previous baselines, and
+      report if the Transformer successfully solved the 'forgetting' bottleneck of the LSTM.
+   56
+   57 Begin by creating the detailed Implementation Plan for the capsule and the model rewrite."
+

@@ -77,4 +77,4 @@ If the goal is to strengthen the active reading set without polluting it, the be
 
 ## Source Archive
 
-- `/home/redafrix/tests/intern_ship_research/05_external_assets/imported_review_archive/Autonomous Unknown Object Exploration Review`
+- `05_external_assets/imported_review_archive/Autonomous Unknown Object Exploration Review`
