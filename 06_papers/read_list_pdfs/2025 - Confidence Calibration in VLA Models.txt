@@ -1,0 +1,1697 @@
+Confidence Calibration in Vision-Language-Action Models
+Thomas Zollo
+
+TPZ 2105@ COLUMBIA . EDU
+
+Columbia University
+
+Richard Zemel
+
+ZEMEL @ CS . COLUMBIA . EDU
+
+arXiv:2507.17383v2 [cs.RO] 22 Dec 2025
+
+Columbia University
+
+Abstract
+Trustworthy robot behavior requires not only high levels of task success but also that the robot
+can reliably quantify how likely it is to succeed. To this end, we present a first-of-its-kind study
+of confidence calibration in vision-language-action (VLA) foundation models, which map visual
+observations and natural language instructions to low-level robot motor commands. We establish
+a confidence baseline for VLAs, examine how task success relates to calibration error and how
+calibration evolves over time, and introduce two lightweight techniques to remedy the miscalibration
+we observe: prompt ensembles and action-wise Platt scaling. Our aim in this study is to begin to
+develop the tools and conceptual understanding necessary to render VLAs both highly performant
+and highly trustworthy via reliable uncertainty quantification.
+
+1. Introduction
+Confidence calibration, or the degree to which a model’s predicted probabilities reflect the true
+likelihood of its predictions being correct, is a cornerstone of reliable machine learning systems
+(Guo et al., 2017). When a model is well-calibrated, downstream decision-makers (e.g., humans,
+planning algorithms, or safety monitors) can trust that a confidence estimate of 95% implies that
+the predicted outcome will occur roughly 95% of the time (see Figure 1). Mismatches between
+confidence and actual outcomes can have severe negative consequences in high-stakes settings such
+as medical diagnosis or autonomous driving, motivating a rich literature on improving calibration in
+deep learning models (Gal and Ghahramani, 2016; Kadavath et al., 2022; Lakshminarayanan et al.,
+2017; Lin et al., 2024; Minderer et al., 2021; Tian et al., 2023).
+Recently, the field of robotics has embraced a new class of vision-language-action (VLA)
+foundation models (Black et al., 2024, 2025; Kim et al., 2025; Zitkovich et al., 2023). Leveraging
+large-scale, multistage pretraining, these models translate visual observations and natural language
+instructions into low-level joint-space commands, unifying multimodal perception with motor control.
+Although still a relatively new paradigm, current VLA systems already demonstrate previously
+unattainable generalization across environments, tasks, and robot embodiments. Because these
+models encode broad semantic and visuomotor priors from large-scale pretraining, they can be
+
+1
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+VLA
+Model
+
+Action Prediction
+Conﬁdence: 95%
+
+?
+Pick the wine glass and
+place it in the cabinet.
+
+Trial Results:
+✅✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅ ✖ ✅✅✅
+
+Figure 1: To be trustworthy, a robotic system must be able to reliably express its confidence in its
+ability to perform a task, especially in high-stakes and open-world domains. A well-calibrated robot
+policy produces confidence estimates that align with its probability of task success. For example, the
+robot should succeed on 95% of instances for which it expresses 95% confidence.
+efficiently fine-tuned to new robots and downstream tasks, yielding large gains over training from
+scratch.
+Since VLAs are designed for closed-loop interaction with the physical world, knowing when and
+how strongly to trust their actions is critical. For example, consider a robot performing a task in a
+safety-critical environment, or attempting to manipulate a valuable, fragile object. In these scenarios,
+if the policy can accurately express uncertainty, then costly or dangerous accidents can be avoided,
+such as by refining the instruction or deferring the task to a human. Despite the importance of
+calibrated confidence, basic questions remain largely unaddressed, e.g., whether VLAs are calibrated,
+how calibration evolves over the task horizon, and how it can be improved.
+Contributions. To bridge this gap, we present (to our knowledge) the first study of calibration in
+VLAs, identifying key open questions and introducing practical remedies for miscalibration. Our
+contributions include:
+1. Benchmarking task success vs. calibration. We evaluate the relationship between task
+success and calibration error across multiple benchmarks and VLA variants, finding that
+the model architecture and training objective may play significant roles in determining this
+relationship.
+2. Prompt ensembles. We propose a lightweight, Bayesian-style method that averages a VLA’s
+confidence across multiple semantically equivalent rephrasings of an instruction. This approach
+consistently improves calibration, cutting expected calibration error by more than 20% on
+average.
+3. Calibration over task time. We analyze calibration over task time, showing that confidence is
+often most reliable after making some task progress, suggesting natural points for risk-aware
+intervention.
+4. Action-wise scaling. We discover systematic over-/under-confidence in different action
+dimensions and propose a method to recalibrate each action dimension independently to
+produce more reliable confidence estimates.
+2
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Our aim in this study is to begin to develop the tools and conceptual understanding necessary
+to render VLAs not only highly performant but also highly trustworthy via reliable uncertainty
+quantification.
+
+2. Related Work
+2.1. Confidence Calibration
+A model is considered well-calibrated when the confidence (i.e., probability) it assigns to an outcome
+matches the long-run frequency of that outcome. Deviation from this condition is often quantified via
+expected calibration error (ECE) (Guo et al., 2017), which is approximated by grouping predictions
+with similar confidence into bins and measuring the absolute difference between confidence and
+accuracy in each bin. Beyond ECE, other metrics such as maximum calibration error (Guo et al.,
+2017), Brier score (Brier, 1950), and negative log-likelihood (NLL) are used to capture related
+and complementary notions of miscalibration. Despite their impressive accuracy and trends toward
+better calibration, modern neural networks still display some persistent miscalibration (Minderer
+et al., 2021), especially when the task distribution does not match the training distribution (Ovadia
+et al., 2019). Consequently, a rich toolbox of post hoc fixes has emerged: Platt scaling (Platt, 1999),
+temperature scaling (Guo et al., 2017), histogram binning (Zadrozny and Elkan, 2001), and other
+recalibration methods (Kumar et al., 2019; Naeini et al., 2015; Zollo et al., 2024) can be applied to
+an already trained model to reduce calibration error without altering its decision rule. Other popular
+methods to improve calibration of neural networks include dropout (Gal and Ghahramani, 2016) and
+ensembling (Lakshminarayanan et al., 2017).
+2.2. Vision-Language-Action Models
+Vision-Language-Action models take visual data and natural language instructions as input and output
+robot actions (Black et al., 2024, 2025; Kim et al., 2025; Zitkovich et al., 2023). They are typically
+initialized from a visually-conditioned language model (VLM) that, in turn, is initialized from a
+pretrained large language model (LLM). This allows VLAs to leverage rich multimodal priors to
+integrate perception and action generation into a single end-to-end pipeline. While some VLAs
+retain the token-based output paradigm inherited from these base models (Kim et al., 2025; Zitkovich
+et al., 2023), others have augmented the architecture with, e.g., flow matching action experts for
+smooth, high-frequency control (Black et al., 2024, 2025). These systems already perform complex,
+language-specified tasks across diverse environments and robot embodiments. However, they lack a
+reliable mechanism for quantifying the uncertainty of their chosen action sequences.
+2.3. Calibration in LLMs
+Given that most state-of-the-art VLAs are built on LLM backbones, it is natural to consider how
+our work relates to existing studies of calibration in LLMs, an area that has received considerable
+attention recently. Typical approaches to generating confidence estimates with LLMs include
+expressing calibration as a multiple-choice question for the LLM (Kadavath et al., 2022), directly
+verbalizing confidence with the model’s text output (Band et al., 2024; Lin et al., 2022; Tian et al.,
+3
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+2023), or measuring semantic consistency across many sampled outputs for the same query (Chen
+et al., 2024; Duan et al., 2024; Kuhn et al., 2023). However, it is difficult to adapt these methods
+to the VLA setting. For example, while LLMs may produce the entire sequence before measuring
+confidence, in robotics potential failures must be flagged much earlier in the trajectory to ensure
+safety and avoid costly accidents. Also, sampling multiple full trajectories in the physical world may
+be impossible. Finally, current VLAs lack the flexible and robust text-to-text interface of LLMs,
+and thus cannot be expected to, e.g., answer natural language questions about their confidence in an
+action prediction.
+2.4. Uncertainty Quantification in Robotics
+Uncertainty quantification has long been a focus in robotics, particularly through the lens of probabilistic robotics (Deisenroth and Rasmussen, 2011; Thrun et al., 2005). Recent work explores the use
+of model ensembles in control systems, examining how disagreements among multiple models can
+capture uncertainty and guide more cautious policy updates and actions (Ataei and Dhiman, 2024;
+Chua et al., 2018; Pathak et al., 2019). Other advances include uncertainty-based active exploration
+(Wang et al., 2024) and the application of conformal methods, which can provide distribution-free
+guarantees for planning or classification pipelines (Ren et al., 2023; Sun et al., 2023). How to obtain
+calibrated, task-level uncertainty estimates given the expressive, multimodal perception and control
+abilities of VLAs remains an open and safety-critical problem.
+
+3. Calibration in Vision-Language-Action Models
+In this section, we formalize the problem of confidence calibration for vision-language-action models.
+We define calibration, describe a typical example of how contemporary VLA architectures generate
+actions and how to extract a corresponding confidence estimate, and introduce the standard calibration
+metrics used in our empirical study (see Figure 2 for a visual summary of this material). Finally, we
+present two lightweight remedies for the miscalibration we observe in practice: prompt ensembles
+and action-wise Platt scaling.
+3.1. Calibration
+Let C ∈ [0, 1] denote the confidence reported by a robot policy and Y ∈ {0, 1} the binary indicator of
+task success (we use uppercase C, Y for random variables and lowercase c, y for their realizations).
+A perfectly calibrated predictor satisfies
+P(Y = 1 | C = c) = c,
+
+∀ c ∈ [0, 1].
+
+(1)
+
+If this condition is met, then for the subset of trials on which the robot reports 80% confidence, we
+should observe successful completion 80% of the time.
+3.2. Vision-Language-Action Models
+At task timestep t, a VLA policy πθ has access to the observed history ot = (v≤t , l≤t , a<t ), where
+v is a visual observation, l is the (possibly fixed) natural language instruction, and a is an action.
+4
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Pick the wine
+glass and place
+it in the cabinet.
+
+Conﬁdence: 91.1%
+
+Recalibration
+VLA Model
+
+Recalibration: Learned map
+from uncalibrated conﬁdence
+estimates to calibrated ones
+(e.g., Platt scaling).
+
+Conﬁdence: 95%
+a1
+
+a2
+
+a3
+
+a4
+
+a5
+
+a6
+
+a7
+
+0.91
+
+0.95
+
+0.99
+
+0.84
+
+0.92
+
+0.79
+
+0.98
+
+Average
+
+Trial Results
+
+Calibration Error: Measures
+diﬀerences b/w conﬁdence
+estimates and success rates.
+
+✅✅✅✅✅✅✅✅✅✅
+✅✅✅✅✅✅✅✅ ✖ ✅
+
+Conﬁdence: 91.1%
+
+Figure 2: Given an input image and text instruction, popular VLAs such as OpenVLA and RT-2
+generate a distribution over discrete action tokens for each of the robot’s degrees of freedom.
+Confidence in each dimension’s prediction can be estimated using the probability assigned to the
+predicted token; a single estimate can be produced by averaging across dimensions. Given an
+uncalibrated confidence estimate, recalibration methods such as Platt scaling use a small calibration
+dataset to learn a map from uncalibrated confidence estimates to calibrated ones. Calibration error
+can be measured by comparing confidence estimates to actual task success rates.
+The policy induces a distribution over the next action πθ (a | ot ). When performing a task, the
+policy executes the most likely action a⋆t = argmaxa πθ (a | ot ). Given the need for calibration, we
+must extract a scalar confidence score ct from the model. We will interpret ct as an estimate of the
+probability that the task will ultimately succeed given the observation history and the chosen action,
+i.e., P(Y = 1 | ot , a⋆t ).
+Next, we propose a baseline method for extracting ct from a broad class of token-based VLAs.
+However, our subsequent analysis treats ct as a black-box number, so the following sections apply
+equally to token-based, diffusion-based, or other controllers, as long as they are able to emit such a
+scalar.
+3.3. Baseline Confidence Estimation
+Many state-of-the-art VLAs, including OpenVLA (Kim et al., 2025) and RT-2 (Zitkovich et al.,
+2023), represent an action with D discrete tokens, where each represents one dimension of the robot’s
+(d)
+action space. For each dimension d ∈ {1, . . . , D} the policy outputs logits zt and probabilities
+
+(d)
+(d) 
+(d)
+(d)
+pt = softmax zt ,
+pt,k = πθ At = k | ot
+(2)
+for action tokens k ∈ {1, . . . , K} in an action vocabulary of size K. At time t, the policy selects the
+(d)
+(d)
+top tokens at = argmaxk pt,k for each action dimension d, and decodes them into a continuous
+action for execution by the robot.
+5
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Because VLAs with token-based decoders closely mirror LLMs, we can adopt the usual LLM
+heuristic of using the probability of the token actually chosen as a confidence signal. For each action
+dimension, we take the probability assigned to the selected token, and average these values:
+D
+
+ct =
+
+1 X
+(d)
+max pt,k .
+k
+D
+
+(3)
+
+d=1
+
+Averaging plays a role similar to length-normalization in LLMs (Kuhn et al., 2023), preventing
+confidence from being unfairly reduced for robots with many degrees of freedom.
+3.4. Measuring Calibration
+Calibration metrics translate deviations from the condition in Equation (1) into quantitative measures of miscalibration. Given the difficulty of measuring such a condition (i.e., comparing two
+distributions), we consider a range of metrics.
+For what follows, let {(ci , yi )}N
+i=1 denote the reported confidence and binary outcome for
+each of N robot trials (episodes). Each trial i consists of timesteps t = 1, . . . , Ti with pertimestep confidences ci,t ; to obtain a single trial-level value ci we apply an aggregation function
+i
+h: ci = h({ci,t }Tt=1
+). Possible choices include the confidence before the first action, the mean across
+timesteps, or the min/max over the trajectory. The following measures are agnostic to choice of h; in
+our experiments we use the pre-action confidence ci = ci,1 , reflecting the high-stakes open-world
+robotics setting in which early risk assessment is particularly valuable.
+Expected Calibration Error. One popular measure of miscalibration is expected calibration error
+(ECE) (Fisch et al., 2022; Guo et al., 2017):
+
+1/q
+EC |P(Y = 1 | C) − C|q
+.
+
+ECEq =
+
+(4)
+
+Put simply, ECE measures the expected difference between confidence and accuracy over the robot’s
+task data distribution. The parameter q is typically set to q ∈ {1, 2}, where ECE1 weights deviations
+linearly and ECE2 penalizes larger errors.
+Because we can observe only a finite sample of trial results, the conditional expectation in
+Equation (4) cannot be directly measured. Instead, it is typically approximated with a binning-based
+estimator. With results from N robot trials, we approximate the population ECE quantity in Equation
+(4) by first ordering predictions according to confidence, and splitting them into M equal-sized bins
+d q is given by
+B1 , . . . , BM . Then, our empirical estimate ECE
+dq =
+ECE
+
+M
+X
+
+|Bm |
+q 1/q
+,
+acc(Bm ) − conf(Bm )
+N
+m=1
+
+where
+acc(Bm ) =
+
+1 X
+yi ,
+|Bm |
+
+conf(Bm ) =
+
+i∈Bm
+
+1 X
+ci .
+|Bm |
+i∈Bm
+
+We report both ECE1 and ECE2 in our experiments.
+6
+
+(5)
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Brier Score. Brier score (Brier, 1950) is a classic measure of the quality of probabilistic forecasting:
+N
+
+BS =
+
+1 X
+(ci − yi )2 .
+N
+
+(6)
+
+i=1
+
+Brier score is an example of a proper scoring rule (Gneiting and Raftery, 2007), meaning that it is
+minimized only when the predicted distribution matches the true distribution for each example (as
+opposed to ECE, where data is grouped by confidence level). Brier score rewards both reliability
+(confidence matching success) and sharpness (predictions away from the population rate).
+Negative Log-Likelihood. Another metric used to measure calibration (Guo et al., 2017) is negative
+log-likelihood (NLL):
+NLL = −
+
+N
+
+1 X
+yi log ci + (1 − yi ) log(1 − ci ) ,
+N
+
+(7)
+
+i=1
+
+Also a proper scoring rule, NLL penalizes very confident failures much more heavily than Brier
+score.
+Complementary Roles of Metrics. Because each metric emphasizes a different facet of probabilistic quality, we report all three to obtain a detailed view of calibration performance. ECE focuses
+on reliability, or the alignment between stated confidence and empirical success, but is indifferent to
+how decisive those confidences are. A trivial predictor that outputs the base success rate on every
+trial achieves zero ECE while offering almost no utility for decision-making; Brier score and NLL
+would penalize this behavior. Conversely, since Y is binary and only observed once, both Brier
+score and NLL implicitly discourage probabilistic predictions in the interior of [0, 1] when the goal
+is to achieve a very low loss. However, such estimates may sometimes be appropriate, e.g., due to
+randomness in the robot’s environment. Evaluating all three metrics together thus guards against
+corner cases and ensures that improvements in controlled evaluations translate into more actionable
+and reliable confidence estimates that are simultaneously calibrated, discriminative, and informative.
+3.5. Prompt Ensembles
+Similar to the VLMs from which they are derived (Zhou et al., 2024), semantically meaningless
+lexical differences in instructions, e.g., “pick up the coffee cup” vs. “grab the mug”, might shift
+visual attention, alter path planning, and thereby change the predictions and confidence scores emitted
+by VLA models. Although such sensitivity can pose a challenge to reliable task execution, it also
+creates an opportunity to employ an ensemble-based approach (Lakshminarayanan et al., 2017)
+to confidence estimation. Specifically, we can treat the particular wording of an instruction as a
+latent random variable and marginalize over it via Bayesian model averaging. Such averaging over
+rephrasings reduces variance in the final confidence estimate by canceling out the noise induced by
+word choice. Implementing this idea as an algorithm, we can then:
+1. Generate rephrasings. An auxiliary LLM produces r semantically equivalent prompts
+(1)
+(r)
+Lalt = {lalt , . . . , lalt } (see Table 1 for examples).
+7
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Instruction
+
+Pick up the black bowl between the plate and the ramekin
+and place it on the plate
+
+Rephrasings
+
+(1) Lift the black bowl located between the plate and the
+ramekin and set it on the plate.
+(2) Grasp the black bowl found between the plate and the
+ramekin and move it to the plate.
+(3) Take the black bowl positioned between the plate and
+the ramekin and position it on the plate.
+
+Table 1: Example of multiple paraphrases of a single VLA instruction (from our experiments with
+LIBERO Spatial). The rephrasings carry the same meaning as the original instruction, enabling a
+reprompting approach in which we ensemble over predictions conditioned on lexically different yet
+semantically equivalent instructions.
+(i)
+
+2. Estimate confidence with each variant. Generating an action with lalt yields a confidence
+(i)
+ct via Equation (3).
+3. Aggregate. The final estimate is the ensemble mean cens
+= 1r
+t
+
+(i)
+i=1 ct .
+
+Pr
+
+Conceptually, this prompt ensemble technique can play a similar role to full model ensembles
+(Lakshminarayanan et al., 2017) or inference-time dropout (Gal and Ghahramani, 2016). With
+efficient batching on parallel hardware, this method can add little (i.e., roughly constant) wall-clock
+latency in practice.
+3.6. Action-Wise Scaling
+A standard remedy for miscalibration in classification models is to gather a small validation set from
+the task distribution and perform post hoc recalibration, learning a function that maps uncalibrated
+confidence estimates to calibrated ones (Guo et al., 2017; Naeini et al., 2015; Platt, 1999; Zadrozny
+and Elkan, 2001). Post hoc recalibrators are typically simple functions of the original score function
+(e.g., logits) or confidence estimate.
+One popular example of a post hoc recalibration method is Platt scaling (Kumar et al., 2019;
+Platt, 1999). Given confidence outputs and binary outcomes {(ci , yi )}N
+i=1 on a held-out validation
+set, one fits an affine transform g(c) = σ(αc + β) that minimizes NLL,
+Xh
+i
+yi log g(ci ) + (1 − yi ) log 1 − g(ci ) ,
+min −
+α,β
+
+i
+
+where σ(x) = 1/(1 + e−x ). At inference, each ct is replaced with c̃t = g(ct ), with the goal of
+aligning confidence with the probability of task success while leaving the model’s actions unchanged.
+Unlike classification models that emit one predictive distribution per sample, many tokenbased VLAs output one predictive distribution per action dimension. Those dimensions can differ
+8
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+dramatically, for example because gripper open/close appears in nearly 100% of demonstrations,
+whereas “rotate wrist” is rarer. A single global transform therefore may not be able to correct all
+dimensions simultaneously.
+Action-Wise Platt Scaling. We propose to address this heterogeneity by fitting one affine transform
+per dimension d:
+D
+
+1 X
+(d)
+c̃t =
+σ αd max pt,k + βd ,
+(8)
+k
+D
+d=1
+
+with parameters {αd , βd } learned on the same calibration set. Intuitively, αd scales dimension d,
+flattening or sharpening its distribution, while βd shifts its overall optimism. As in standard Platt
+(d)
+scaling, the chosen tokens at remain unchanged; we only modify the reported confidence.
+This dimension-wise perspective can be applied to other post hoc recalibrators as well, for
+instance action-wise temperature scaling. Beyond the specific methodology, we aim to highlight
+that VLA calibration will require domain-specific tools rather than a direct transplant of methods
+designed for standard classifiers.
+
+4. Experiments
+Having described the problem of confidence calibration in vision-language-action models, we next
+conduct an empirical investigation of the following questions:
+1. How are task success and calibration error related, and what factors might play a role in this
+relationship? (Section 4.2)
+2. Can prompt ensembles consistently improve confidence estimates? (Section 4.3)
+3. How does calibration evolve over the task time horizon, and what does this suggest for potential
+monitoring systems? (Section 4.4)
+4. Are action dimensions differentially calibrated, and what are the implications for recalibration?
+(Section 4.5)
+Our aim is to highlight key issues and lay the empirical groundwork for future research on calibrating
+VLAs.1
+4.1. Experiment Details
+We perform our experiments using 4 different VLA variants: OpenVLA, MolmoAct (Lee et al.,
+2025), UniVLA (Bu et al., 2025), and NORA (Hung et al., 2025). We choose these models because
+they each predict tokens in a manner that allows for a natural probabilistic interpretation.2 All
+models are fine-tuned on 4 different task suites from the LIBERO (Liu et al., 2023) benchmark:
+Spatial, Object, Goal, and 10. LIBERO is a simulation environment for language-conditioned robot
+1 Our code is available at https://github.com/thomaspzollo/vla_calibration.
+2 Descriptions of confidence estimation with MolmoAct, UniVLA, and NORA are found in Appendix A.1.
+
+9
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+manipulation tasks inspired by human activities (see Table 3 for task examples). We also include
+results for the 8-bit and 4-bit quantized versions of OpenVLA fine-tuned on Spatial, Object, and
+Goal, for a total of 22 model/task suite combinations.
+Each task suite features 10 different tasks with 50 randomized initializations, for a total of 500
+examples. For a given task suite, task success rate represents the proportion of the 500 trials that
+result in success (while task error rate represents the proportion of trials that result in failure). To
+calculate ECE, we use 12 equal-mass bins and the Python package released with Kumar et al. (2019).
+Unless otherwise noted, we focus on confidence estimates produced at the first timestep, before
+any action is taken. This aligns with the need for safety in open-world robot deployments, where
+robots should signal uncertainty as early as possible in order to avoid costly or dangerous incidents.
+In Section 4.4, we explore how calibration differs across timesteps over the task horizon.
+4.2. Relationship Between Calibration and Task Success
+Much of the early research on calibration in deep learning models was based on perceptions of how
+task success (usually image classification accuracy) was related to calibration error. In particular,
+influential work argued that modern neural networks are poorly calibrated (Guo et al., 2017),
+suggesting that improved accuracy comes at the expense of calibration. This led researchers to
+propose training interventions to augment the cross-entropy loss with other objectives seeking
+improved calibration, potentially at a cost to overall accuracy (Kumar et al., 2018; Mukhoti et al.,
+2020). However, subsequent research found that, in fact, more accurate networks are generally
+better calibrated (and easier to recalibrate), and thus modifications to training procedures may not be
+needed (Minderer et al., 2021). Instead, techniques such as post hoc recalibration (Guo et al., 2017;
+Kumar et al., 2019; Zadrozny and Elkan, 2001) and ensembling (Fort and Lakshminarayanan, 2024;
+Lakshminarayanan et al., 2017), applied to models trained for high accuracy, are sufficient to achieve
+low calibration error (although calibration under distribution shift remains a significant challenge
+(Ovadia et al., 2019)).
+To establish high-level direction for calibration research in VLAs, our first experiment focuses
+on this important question of how task success relates to calibration error (according to ECE1 ,
+ECE2 , Brier score, and NLL) across the 22 model/task suite combinations described above. Results
+are visualized in Figure 3, and also reported in Table 6. All models exhibit a roughly monotonic
+relationship between task error and the discriminative metrics (Brier score and NLL), but they differ
+on ECE: OpenVLA and MolmoAct tend to achieve lower ECE when task error is low, whereas
+UniVLA and NORA do not show as clean a trend. One possible explanation is that in OpenVLA
+and MolmoAct, the cross-entropy loss (a proper scoring rule) more directly supervises discretized
+action dimension tokens, so bin-averaged confidence better tracks per-task success. By contrast, the
+latent or compressed action representations and auxiliary objectives in UniVLA and NORA may
+introduce a more significant mismatch between token probabilities and success. These patterns are
+only suggestive, but they point to architectural complexity in modern VLAs as a potential source of
+unfavorable calibration behavior. Future work with controlled ablations is needed to fully understand
+which design choices drive the observed behavior.
+
+10
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 3: Visualization of task error rates compared against 4 different calibration error measurements
+for 4 VLA variants (OpenVLA, MolmoAct, UniVLA, and NORA) and 4 LIBERO task suites (Spatial,
+Object, Goal, 10), as well as OpenVLA 8- and 4-bit versions on Spatial, Object, and Goal. All models
+exhibit a roughly monotonic relationship between task error and the discriminative measures (Brier
+score and NLL). ECE shows differences between model families, potentially due to architecture and
+objective differences.
+4.3. Ensembling Confidence Across Prompts
+We next study the empirical effectiveness of the prompt ensemble approach described in Section 3.5.
+First, for the natural language instruction associated with each task, we create 20 rephrasings using
+GPT-4o-mini (see Appendix Table 4 for the prompts used). During testing, we produce a confidence
+estimate conditioned on each “reprompt”, and average over these confidence scores to obtain the
+final model confidence. We evaluate OpenVLA and its quantized variants across 3 task suites, as
+well as UniVLA and NORA on the Spatial suite. We measure ECE1 , ECE2 , Brier score, and NLL,
+comparing to the baseline method for producing confidence estimates using the original instruction.
+Detailed results are recorded in Table 2 (results for the 8-bit and 4-bit quantized models are
+deferred to Appendix Table 7). Across all models and task suites, the Reprompt (prompt ensemble)
+approach always decreases calibration error according to ECE1 , ECE2 , and NLL, and never performs
+worse according to any of the metrics. Decreases in ECE can reach up to 40%, and average
+reductions are roughly 20% (see Figure 7 for a visualization of percent changes across all metrics).
+The improvement is larger for ECE than the proper scoring rules (Brier score and NLL), where
+average miscalibration decreases are closer to 5-10%. This suggests that improvements in reliability
+(i.e., confidence matching marginal success rates) are generally greater than those in sharpness,
+which is expected from an ensemble technique targeted at reducing variance in confidence estimation.
+
+11
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Model
+
+Dataset
+
+Method
+
+ECE1
+
+ECE2
+
+Brier
+
+NLL
+
+OpenVLA
+
+Spatial
+Spatial
+Object
+Object
+Goal
+Goal
+
+Baseline
+Reprompt
+Baseline
+Reprompt
+Baseline
+Reprompt
+
+0.088
+0.052
+0.060
+0.036
+0.151
+0.115
+
+0.106
+0.068
+0.073
+0.053
+0.170
+0.132
+
+0.150
+0.145
+0.108
+0.105
+0.207
+0.197
+
+0.533
+0.477
+0.401
+0.361
+0.707
+0.620
+
+UniVLA
+
+Spatial
+Spatial
+
+Baseline
+Reprompt
+
+0.162
+0.157
+
+0.193
+0.192
+
+0.064
+0.064
+
+0.282
+0.262
+
+NORA
+
+Spatial
+Spatial
+
+Baseline
+Reprompt
+
+0.099
+0.092
+
+0.115
+0.112
+
+0.105
+0.105
+
+0.386
+0.376
+
+Table 2: Calibration error measurements for 2 different methods of confidence estimation: (1)
+baseline (average selected token probability); (2) Reprompt (ensembling over semantically equivalent prompts). Prompt ensembling consistently improves all measures, and never leads to worse
+calibration.
+Overall, given its lightweight nature and strong empirical effectiveness, such data augmentation
+approaches seem like a promising direction for enhancing uncertainty quantification in VLAs.
+To understand the robustness of these results, we perform multiple ablations; because of space
+considerations, we defer full details and results to Appendix B.3. First, we consider the effect of
+changing the prompt given to GPT-4o-mini for producing the 20 instruction rephrasings, finding
+that improvements in calibration error from the Reprompt method are robust to different rephrasing
+prompts. Second, we consider the effect of the number of prompts used in the prompt ensemble,
+and see that the algorithm behaves favorably, where calibration error generally decreases as more
+instructions are included in the ensemble.
+4.4. Calibration Over Task Time
+The previous experiments evaluate confidence before the first action is executed, a conservative choice
+for safety-critical deployments. Yet many tasks might allow the robot to collect more information
+without risk before having to express confidence. For instance, in the wine glass scenario of Figure 1,
+the gripper can hover above the stem, refine its scene representation, and only then decide whether it
+is confident enough to proceed. More context should, in principle, yield better calibration.
+To test this intuition, we measure calibration across 500 test trials for 100 different levels of task
+completion ({0, 1, . . . , 99}%), where task completion is calculated as the current timestep index t
+divided by the total number of timesteps in the task episode (and multiplied by 100). Results for each
+level of task completion are averaged across the 500 trials, to study whether high-level confidence
+and calibration trends might occur. In this section, we focus on 6 model/task suite combinations
+(OpenVLA and its 8-bit version, each applied to Spatial, Object, and Goal suites), to understand
+12
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+how any observations might generalize. Our goal is to examine whether the quality of confidence
+estimates changes as the robot progresses in its task. At each measured timestep, we compute ECE1
+and Brier score using the baseline method for producing confidence estimates. Because a downstream
+safety monitor might consider the history of recent estimates (beyond the current one), we evaluate
+three aggregation rules for reporting a confidence estimate at each timestep:
+1. Current - confidence from the current timestep only;
+2. Window (5) - mean over the baseline confidence estimates from the current timestep and the
+four immediately preceding ones;
+3. Avg. All - mean over the baseline confidence estimates from all steps seen so far.
+Beyond calibration error, we also visualize how average confidence estimates evolve over the
+task horizon, separated by successful and failed trials. Finally, we plot reliability diagrams for the
+timesteps corresponding to {0, 50, 75, 99}% completion. Reliability diagrams (Guo et al., 2017) offer
+a visualization of expected calibration error, using a similar binning strategy. They show confidence
+against accuracy for each bin, where a well-calibrated system lies on the x = y line. Results for the
+Spatial task suite with the fine-tuned OpenVLA model are shown in Figure 4. Additional results
+for Spatial with the Quant-8 model (Figure 10), as well as the Object and Goal suites with the full
+precision (Figures 11, 13) and Quant-8 models (Figures 12, 14), are presented in Appendix B.4.
+Focusing first on results using the confidence estimate from the current step, a clear pattern
+emerges. As shown in Figure 4 and Figures 10-14, across all 6 settings and both metrics calibration
+improves sharply from 0% to approximately 50% completion, then plateaus or deteriorates back
+towards the original level (left-most and left-middle plots in section (a) of the results figures). Beyond
+lower scores on calibration error, our additional plots characterize the improved probabilistic nature
+of the confidence estimates towards the middle of the task horizon. In the right-middle and right-most
+plots in the top section (a) (titled “Successful Trials” and “Failed Trials”), the gap between the
+average confidence on successful vs. failed trials tends to be greatest around 50% task completion.
+Additionally, considering the top row of reliability diagrams (section (b)), we can see that the
+confidence estimates using the current step become far more reliable around this point: error for
+many bins is large at the beginning, then the difference between confidence and accuracy for most
+bins becomes smaller until the task is roughly 75% complete. Near task completion, the gap between
+confidence on successful vs. failed trials closes again, and reliability suffers as a result. These results
+suggest a practical recipe: let the robot execute a certified-safe prefix of the trajectory, and then assess
+its confidence and intervene if necessary. Such horizon-aware monitoring balances safety (no contact
+made during the prefix) with the improved reliability in confidence estimates that comes from extra
+perceptual context.
+We next observe the effects of other simple strategies for aggregating confidence estimates
+across timesteps. As described above, alongside the current step confidence, we also consider a
+sliding window average over 5 single-step estimates and the average of all observed single-step
+estimates. Across all model/task suite combinations, the sliding window method is particularly
+effective at improving the Brier score around the middle of the task horizon, although ECE is not
+always improved. With respect to averaging all single-step estimates so far, we observe that Brier
+score improves throughout the task, but ECE generally gets worse. The underlying behavior driving
+13
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 4: Empirical study of calibration error across the task time horizon. In the top row (a), the
+left two plots show how calibration evolves with task progress, while the right two plots show the
+average confidence by task time, grouped by successful and failed trials. The bottom two rows
+(b, c) offer a sample of the reliability diagrams produced by different methods for aggregating
+confidence estimates across time. Overall, these results illustrate that calibration can improve as
+the task progresses and more information is gathered, suggesting opportunities for context-aware
+uncertainty interventions.
+these changes can be observed in the bottom row of reliability diagrams (marked (c)): the “Avg. All”
+method is successful at assigning relatively lower confidence to failed examples, but also reduces
+variance in the estimates such that they are highly overconfident in these bins (i.e., for the leftmost
+bin at 99% completion, confidence is still high, but accuracy is near zero). Thus, while this approach
+fares poorly according to ECE, it is actually promising in the sense that it enables more effective
+discrimination between successful and failed trials.
+Finally, to further probe the generality of these results, we repeat these experiments using the
+UniVLA model, presented in Appendix Figures 15, 16, and 17. We once again find that calibration
+improves after making some task progress before deteriorating again, suggesting opportunities for
+context- and risk-aware applications of confidence quantification.
+4.4.1. Q UALITATIVE E XAMPLES OF C ONTEXT-AWARE C ONFIDENCE M ONITORING
+To illustrate how context-aware confidence monitoring could work in practice, we apply it to a
+representative pick and place task from the Goal suite. The task is to “put the wine bottle on the
+rack”, a case where the robot system should be relatively conservative to avoid breaking glass. We
+consider a naive approach to context-aware monitoring, proposing to halt task performance when
+
+14
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 5: Qualitative examples of a context-aware confidence monitoring strategy applied to a task
+from the Goal suite. Here, the task is to “put the wine bottle on the rack”. The red dashed line
+represents the 10% quantile of the confidence estimates output by the model across the task time
+horizon, offering a potential threshold below which the robot may abstain from performing the task.
+both: (1) the confidence level falls below a threshold set to the 10% quantile of confidence estimates
+for that point in the task horizon across all task trials (based on percent completion); (2) the robot
+is within a few inches of contacting an object, or already has contacted an object. Since building
+a system to detect proximity to objects is beyond the scope of this work, we focus on a qualitative
+demonstration of this idea. For each example under examination, we plot current confidence for
+{0, 20, 40, 60, 80, 98}% completion, as well as the corresponding 10% quantile risk threshold and
+an image of the robot environment at that time.
+Some particularly illustrative examples are shown in Figure 5. First, we consider the episode
+shown across the top row (marked (a), Episode 29 of the 50 in the Goal task suite). Here, confidence
+begins high, but falls until it is slightly below the halting threshold at 20% task completion, coinciding
+with the difficult subtask of gripping the rounded glass bottle. Allowed to continue, the model is able
+to grip the bottle, and confidence rebounds as it approaches the wine rack. However, confidence
+once again falls quickly when it begins to set the bottle down, possibly because the difficult grip
+put the bottle in an unfavorable position for placement. In the end, the robot fails to place the bottle
+securely on the rack, with potentially negative real-world consequences. Given the opportunity, a
+safety intervention could have been performed at multiple points before this incident, either to avoid
+grasping the bottle in the first place or to reset the bottle safely on the table instead of trying a failed
+placement.
+In both Episode 46 (marked (b)) and Episode 49 (marked (c)), confidence begins below the
+threshold. However, given the knowledge that calibration improves throughout the task horizon,
+we may prefer to allow the robot to proceed with the task as long as it is not too near any objects.
+15
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Comparing these examples shows the potential of such an approach. In Episode 46, although
+confidence increases throughout the beginning of the task, it dives sharply after 40% task completion
+and remains low throughout the rest of the task, as the wine bottle is ultimately knocked down and
+the model is unable to recover. Given our proposed strategy, the task might have been halted before
+the wine bottle was contacted (at 40% completion), and could, for example, have been deferred to a
+human. On the other hand, in Episode 49 confidence estimates remain above the threshold for the
+rest of the trial, and the robot is successful. This episode also highlights the usefulness of an adaptive
+confidence threshold, given that the confidence estimate at 98% task completion would have fallen
+below the threshold at other timesteps.
+More such qualitative examples are provided in Appendix Figure 18. These include both cases
+where the strategy succeeds and others where it fails (e.g., in Episode 1 confidence falls below the
+threshold while grasping in an ultimately successful trial).
+4.5. Calibration Across Action Dimensions
+Some token-based VLAs such as OpenVLA or MolmoAct decompose a low-level command into
+tokens explicitly corresponding to their 7 different action dimensions. Our baseline confidence
+estimate collapses this structure into a single scalar by averaging the top-token probabilities across
+the dimensions; implicitly, this assumes that every dimension is calibrated to the same degree.
+That assumption may not hold in practice: a gripper ‘open’ or ‘close’ token may appear in nearly
+every demonstration, whereas a 90◦ wrist roll could be rare. Such dataset imbalances and other
+implementation details might skew calibration across dimensions, and relevant algorithms, e.g., for
+post hoc recalibration, might benefit from explicitly addressing this. To study this question, our final
+experiment consists of two parts. (1) Per-dimension calibration audit. For each dimension d we
+(d)
+treat maxk pt,k as that dimension’s confidence and compute ECE1 , to examine whether different
+degrees of freedom are differentially calibrated. (2) Targeted recalibration test. We compare classic
+Platt scaling to the action-wise variant of Section 3.6, which learns independent scaling parameters
+for each action dimension before averaging the transformed confidences across dimensions.
+We perform our study using MolmoAct and all 3 OpenVLA variants (full, Quant-8, Quant-4)
+fine-tuned on the Spatial and Goal task suites. Each experiment is run for 1000 trials, with random
+20%/80% calibration-test splits. Given the reduced size of the test set, we measure calibration with
+10 equal-mass bins (instead of 12 as in other experiments). Beyond traditional Platt scaling, we also
+include a range of baselines: temperature scaling (Guo et al., 2017), histogram binning (Zadrozny and
+Elkan, 2001), and Platt binning (Kumar et al., 2019). (Note: temperature scaling is excluded from
+MolmoAct results, as the variable-length action encodings preclude a straightforward adaptation.)
+Figure 6 shows results with the baseline estimates for the full precision OpenVLA and MolmoAct
+models; Appendix Figure 19 includes the results with the quantized models.
+Two key observations arise. First, ECE1 varies by up to 2 times across dimensions, with no
+consistent best or worst dimensions across settings. It follows that a single scalar confidence
+masks significant differences in dimension-wise confidence estimates. Second, we can observe that
+replacing global Platt scaling with per-action-dimension transforms consistently lowers calibration
+error (and also improves over the additional baselines). ECE is improved by over 20% in some cases,
+without changing the selected tokens or adding meaningful runtime overhead. Together, these results
+
+16
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 6: On the left of each pair of plots, we compare miscalibration across action dimensions. On
+the right, we compare the performance of baselines to action-wise Platt scaling.
+indicate that VLA calibration research should treat each degree of freedom as its own concern in
+order to improve the effectiveness of relevant algorithmic tools. Dimension-aware post hoc methods
+such as action-wise Platt scaling offer a simple yet effective path toward that goal. More broadly,
+our findings underscore that calibrating VLAs introduces challenges not seen in other domains, so
+meaningful progress will demand substantial domain-specific research rather than wholesale adoption
+of understanding and techniques from other areas of deep learning.
+
+5. Discussion
+In this work, we set out to answer a simple but previously unexplored question: can existing VLA
+models tell us, in a statistically reliable way, how likely they are to succeed? Our experiments
+offer some preliminary answers. First, we find that average top-token probability is a reasonable
+confidence baseline, and that decisions like architecture and learning objectives may affect the crucial
+relationship between task performance and calibration error. Second, a zero-training algorithm using
+an ensemble of rephrased natural language instructions reliably reduces expected calibration error
+across 3 LIBERO suites and 3 VLA variants. This suggests that some miscalibration is simply
+high-variance noise in the language channel, and highlights a direction for future work in more
+reliable action prediction via input perturbation. Third, our results indicate that miscalibration is
+not uniform across potential sources of confidence estimates. Instead, it varies over time and across
+action dimensions, and adaptive post hoc fixes (e.g., time-horizon-aware monitoring and action-wise
+Platt scaling) can exploit that structure. Together, our findings point towards some interesting initial
+directions of study for VLA calibration: understanding how task accuracy and calibration co-evolve
+across diverse modeling approaches and environments, creating calibration tools grounded in practical
+VLA implementation details, incorporating temporal confidence dynamics, and developing rigorous
+algorithms that exploit these structures for identifying and addressing uncertainty.
+
+17
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+6. Limitations
+All experiments in this work are conducted in simulation. This choice is common in robotics research
+(e.g., Lillicrap et al. (2015); Schulman et al. (2017)), and enables the controlled resets and hundreds
+of rollouts per task suite needed for stable calibration estimates. However, it limits domain diversity
+and leaves open questions of how these results translate to real settings. Replicating the same
+study on physical robot hardware would require thousands of physical executions, which can be
+prohibitively time-consuming and expensive. Accordingly, simulation remains the most practical
+testbed for calibration research in the near term, though it cannot fully capture sensor noise, latency,
+wear-and-tear, and other physical factors that may influence confidence calibration in the real world.
+Studying these questions and techniques on real robots will ultimately be essential for understanding
+how these and other factors affect VLA calibration under realistic conditions.
+
+7. Future Work
+Several extensions follow naturally from our work. Confidence calibration should be benchmarked
+across other environments, robot embodiments, and VLA architectures, including diffusion-based
+planners, continuous regression heads, and flow-matching controllers. Establishing strong baselines for these architectures will likely require new confidence surrogates and post hoc adjustments.
+Likewise, perturbation techniques besides instruction paraphrasing, e.g., inserting synthetic lighting changes or random visual distractors, could expose additional failure modes and inspire new
+multimodal ensemble techniques. Running such experiments on real robots will be essential for
+understanding how various physical factors affect VLA calibration in the real world. Uncertainty
+estimation also holds the potential to guide efficient data gathering and fine-tuning, as in active learning (Wang et al., 2017). Further, while all of our experiments focused on fine-tuned in-distribution
+settings, future work should consider these phenomena in the zero-shot and out-of-distribution
+settings. Finally, our temporal analysis hints at a period mid-trajectory where confidence is most
+trustworthy; integrating that signal into selective execution, planning, or human-in-the-loop systems
+is an open challenge for designing adaptive risk-aware robotic pipelines.
+Overall, we hope our work helps build a foundation for the research on VLA calibration needed
+to make these models trustworthy components of real-world robotic systems.
+
+18
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Acknowledgements
+We thank Yunzhu Li and Yixuan Wang for the helpful discussions and feedback. We also thank ONR
+Grant N00014-23-1-2436 for its generous support. This work is supported by the funds provided
+by the National Science Foundation and by DoD OUSD (R&E) under Cooperative Agreement
+PHY-2229929 (The NSF AI Institute for Artificial and Natural Intelligence).
+
+References
+Masoud Ataei and Vikas Dhiman. Dadee: Well-calibrated uncertainty quantification in neural
+networks for barriers-based robot safety. arXiv preprint arXiv:2407.00616, 2024.
+Neil Band, Xuechen Li, Tengyu Ma, and Tatsunori Hashimoto. Linguistic calibration of long-form
+generations. In International Conference on Machine Learning, 2024.
+Kevin Black, Noah Brown, Danny Driess, Adnan Esmail, Michael Equi, Chelsea Finn, Niccolo Fusai,
+Lachy Groom, Karol Hausman, Brian Ichter, et al. π0 : A vision-language-action flow model for
+general robot control. CoRR, 2024.
+Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail, Michael
+Equi, Chelsea Finn, Niccolo Fusai, et al. π0.5 : a vision-language-action model with open-world
+generalization. arXiv preprint arXiv:2504.16054, 2025.
+Glenn W. Brier. Verification of forecasts expressed in terms of probability. Monthly Weather Review,
+78(1):1–3, 1950.
+Qingwen Bu, Yanting Yang, Jisong Cai, Shenyuan Gao, Guanghui Ren, Maoqing Yao, Ping Luo, and
+Hongyang Li. Univla: Learning to act anywhere with task-centric latent actions. arXiv preprint
+arXiv:2505.06111, 2025.
+Chao Chen, Kai Liu, Ze Chen, Yi Gu, Yue Wu, Mingyuan Tao, Zhihang Fu, and Jieping Ye. Inside:
+Llms’ internal states retain the power of hallucination detection. In International Conference on
+Learning Representations, 2024.
+Kurtland Chua, Roberto Calandra, Rowan McAllister, and Sergey Levine. Deep reinforcement
+learning in a handful of trials using probabilistic dynamics models. Advances in Neural Information
+Processing Systems, 2018.
+Marc Deisenroth and Carl E Rasmussen. Pilco: A model-based and data-efficient approach to policy
+search. In International Conference on Machine Learning, 2011.
+Jinhao Duan, Hao Cheng, Shiqi Wang, Alex Zavalny, Chenan Wang, Renjing Xu, Bhavya Kailkhura,
+and Kaidi Xu. Shifting attention to relevance: Towards the predictive uncertainty quantification of
+free-form large language models. In Proceedings of the 62nd Annual Meeting of the Association
+for Computational Linguistics, 2024.
+Adam Fisch, Tommi S. Jaakkola, and Regina Barzilay. Calibrated selective classification. Transactions on Machine Learning Research, 2022.
+
+19
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Stanislav Fort and Balaji Lakshminarayanan. Ensemble everything everywhere: Multi-scale aggregation for adversarial robustness. arXiv preprint arXiv:2408.05446, 2024.
+Yarin Gal and Zoubin Ghahramani. Dropout as a bayesian approximation: Representing model
+uncertainty in deep learning. In International Conference on Machine Learning, 2016.
+Tilmann Gneiting and Adrian E Raftery. Strictly proper scoring rules, prediction, and estimation.
+Journal of the American Statistical Association, 102(477):359–378, 2007.
+Chuan Guo, Geoff Pleiss, Yu Sun, and Kilian Q Weinberger. On calibration of modern neural
+networks. In International Conference on Machine Learning, 2017.
+Chia-Yu Hung, Qi Sun, Pengfei Hong, Amir Zadeh, Chuan Li, U Tan, Navonil Majumder, Soujanya
+Poria, et al. Nora: A small open-sourced generalist vision language action model for embodied
+tasks. arXiv preprint arXiv:2504.19854, 2025.
+Saurav Kadavath, Tom Conerly, Amanda Askell, Tom Henighan, Dawn Drain, Ethan Perez, Nicholas
+Schiefer, Zac Hatfield-Dodds, Nova DasSarma, Eli Tran-Johnson, et al. Language models (mostly)
+know what they know. arXiv preprint arXiv:2207.05221, 2022.
+Moo Jin Kim, Karl Pertsch, Siddharth Karamcheti, Ted Xiao, Ashwin Balakrishna, Suraj Nair,
+Rafael Rafailov, Ethan P Foster, Pannag R Sanketi, Quan Vuong, et al. Openvla: An open-source
+vision-language-action model. In Conference on Robot Learning, 2025.
+Lorenz Kuhn, Yarin Gal, and Sebastian Farquhar. Semantic uncertainty: Linguistic invariances for
+uncertainty estimation in natural language generation. In International Conference on Learning
+Representations, 2023.
+Ananya Kumar, Percy S Liang, and Tengyu Ma. Verified uncertainty calibration. Advances in Neural
+Information Processing Systems, 2019.
+Aviral Kumar, Sunita Sarawagi, and Ujjwal Jain. Trainable calibration measures for neural networks
+from kernel mean embeddings. In International Conference on Machine Learning, 2018.
+Balaji Lakshminarayanan, Alexander Pritzel, and Charles Blundell. Simple and scalable predictive
+uncertainty estimation using deep ensembles. Advances in Neural Information Processing Systems,
+2017.
+Jason Lee, Jiafei Duan, Haoquan Fang, Yuquan Deng, Shuo Liu, Boyang Li, Bohan Fang, Jieyu
+Zhang, Yi Ru Wang, Sangho Lee, et al. Molmoact: Action reasoning models that can reason in
+space. arXiv preprint arXiv:2508.07917, 2025.
+Timothy P Lillicrap, Jonathan J Hunt, Alexander Pritzel, Nicolas Heess, Tom Erez, Yuval Tassa,
+David Silver, and Daan Wierstra. Continuous control with deep reinforcement learning. arXiv
+preprint arXiv:1509.02971, 2015.
+Stephanie Lin, Jacob Hilton, and Owain Evans. Teaching models to express their uncertainty in
+words. Transactions on Machine Learning Research, 2022.
+
+20
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Zhen Lin, Shubhendu Trivedi, and Jimeng Sun. Generating with confidence: Uncertainty quantification for black-box large language models. Transactions on Machine Learning Research,
+2024.
+Bo Liu, Yifeng Zhu, Chongkai Gao, Yihao Feng, Qiang Liu, Yuke Zhu, and Peter Stone. Libero:
+Benchmarking knowledge transfer for lifelong robot learning. Advances in Neural Information
+Processing Systems, 2023.
+Matthias Minderer, Josip Djolonga, Rob Romijnders, Frances Hubis, Xiaohua Zhai, Neil Houlsby,
+Dustin Tran, and Mario Lucic. Revisiting the calibration of modern neural networks. Advances in
+Neural Information Processing Systems, 2021.
+Jishnu Mukhoti, Viveka Kulharia, Amartya Sanyal, Stuart Golodetz, Philip Torr, and Puneet Dokania.
+Calibrating deep neural networks using focal loss. Advances in Neural Information Processing
+Systems, 2020.
+Mahdi Pakdaman Naeini, Gregory Cooper, and Milos Hauskrecht. Obtaining well calibrated
+probabilities using bayesian binning. In AAAI Conference on Artificial Intelligence, 2015.
+Yaniv Ovadia, Emily Fertig, Jie Ren, Zachary Nado, Sebastian Nowozin, Joshua Dillon, Balaji
+Lakshminarayanan, and Jasper Snoek. Can you trust your model’s uncertainty? evaluating
+predictive uncertainty under dataset shift. Advances in Neural Information Processing Systems,
+2019.
+Deepak Pathak, Dhiraj Gandhi, and Abhinav Gupta. Self-supervised exploration via disagreement.
+In International Conference on Machine Learning, 2019.
+J. Platt. Probabilistic outputs for support vector machines and comparisons to regularized likelihood
+methods. Advances in Large Margin Classifiers, 10(3), 1999.
+Allen Z Ren, Anushri Dixit, Alexandra Bodrova, Sumeet Singh, Stephen Tu, Noah Brown, Pen Xu,
+Leila Takayama Takayama, Fei Xia, Jake Varley, et al. Robots that ask for help: Uncertainty
+alignment for large language model planners. In Conference on Robot Learning (CoRL), 2023.
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov. Proximal policy
+optimization algorithms. arXiv preprint arXiv:1707.06347, 2017.
+Jiankai Sun, Yiqi Jiang, Jianing Qiu, Parth Nobel, Mykel J Kochenderfer, and Mac Schwager.
+Conformal prediction for uncertainty-aware planning with diffusion dynamics model. In Advances
+in Neural Information Processing Systems, 2023.
+Sebastian Thrun, Wolfram Burgard, and Dieter Fox. Probabilistic robotics. MIT press, 2005.
+Katherine Tian, Eric Mitchell, Allan Zhou, Archit Sharma, Rafael Rafailov, Huaxiu Yao, Chelsea
+Finn, and Christopher D Manning. Just ask for calibration: Strategies for eliciting calibrated
+confidence scores from language models fine-tuned with human feedback. In The Conference on
+Empirical Methods in Natural Language Processing, 2023.
+Keze Wang, Dongyu Zhang, Ya Li, Ruimao Zhang, and Liang Lin. Cost-effective active learning for
+deep image classification. IEEE Transactions on Circuits and Systems for Video Technology, 27
+(12):2591–2600, December 2017.
+21
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Xiyao Wang, Ruijie Zheng, Yanchao Sun, Ruonan Jia, Wichayaporn Wongkamjan, Huazhe Xu,
+and Furong Huang. Coplanner: Plan to roll out conservatively but to explore optimistically for
+model-based rl. In International Conference on Learning Representations, 2024.
+Bianca Zadrozny and Charles Elkan. Obtaining calibrated probability estimates from decision trees
+and naive bayesian classifiers. International Conference on Machine Learning, 2001.
+Yiyang Zhou, Chenhang Cui, Jaehong Yoon, Linjun Zhang, Zhun Deng, Chelsea Finn, Mohit Bansal,
+and Huaxiu Yao. Analyzing and mitigating object hallucination in large vision-language models.
+In International Conference on Learning Representations, 2024.
+Brianna Zitkovich, Tianhe Yu, Sichun Xu, Peng Xu, Ted Xiao, Fei Xia, Jialin Wu, Paul Wohlhart,
+Stefan Welker, Ayzaan Wahid, et al. Rt-2: Vision-language-action models transfer web knowledge
+to robotic control. In Conference on Robot Learning, 2023.
+Thomas P Zollo, Zhun Deng, Jake Snell, Toniann Pitassi, and Richard Zemel. Improving predictor
+reliability with selective recalibration. In Transactions on Machine Learning Research, 2024.
+
+22
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Dataset
+
+Example Image
+
+Example Instruction
+
+Spatial
+
+Pick up the black bowl between the
+plate and the ramekin and place it on
+the plate.
+
+Object
+
+Pick up the alphabet soup and place it
+in the basket.
+
+Goal
+
+Open the middle drawer of the cabinet.
+
+10
+
+Put both the alphabet soup and the
+tomato sauce in the basket.
+
+Table 3: Task examples from the LIBERO task suites: Spatial, Object, Goal, and 10.
+
+Appendix
+Appendix A. Additional Experiment Details
+Task examples from the LIBERO task suites are shown in Table 3.
+A.1. Confidence Estimation with VLA Variants
+MolmoAct At each timestep, MolmoAct predicts a sequence of discrete action tokens for every
+action dimension, with a softmax distribution over the 256 action bins for each token. For a given
+action dimension, we take the probability assigned to the executed bin for each of its tokens and
+average these probabilities to obtain a per-dimension confidence. This yields one scalar confidence
+value per action dimension. We then average these per-dimension confidences across all action
+dimensions to obtain a single scalar confidence for the action at that timestep.
+
+23
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+UniVLA At each timestep, UniVLA predicts a fixed number (4) of discrete latent action tokens,
+each chosen from a codebook of size 16. For each latent token, we take the softmax probability
+assigned to the selected code as its token-level confidence. Because these latent tokens are jointly
+decoded into all continuous control dimensions, the confidence scores do not correspond to particular action dimensions. Finally, we average these per-token confidences to obtain a single scalar
+confidence for UniVLA at that timestep.
+NORA At each timestep, NORA predicts an action chunk encoded as a sequence of discrete tokens,
+each selected via a softmax over the augmented action vocabulary. For every token, we take the
+softmax probability of the sampled token as its token-level confidence. Because the NORA tokenizer
+mixes information from all control dimensions, we do not derive per-dimension confidences. Instead,
+we compute a single scalar confidence for NORA by averaging these token-level confidences across
+all tokens in the predicted action chunk for that timestep.
+A.2. Rephrasing Prompts
+The prompts given to GPT-4o-mini for rephrasing instructions from the LIBERO robot simulation environment are listed in Tables 4 and 5. Prompt 1 is the main prompt used throughout the experiments,
+and Prompts 2 and 3 are used to ablate the sensitivity to the rephrasings. Note that the different
+prompts lead to substantially different rephrasings, as Prompts 2 and 3 mandate the retention of the
+words “pick” and “place”, while as Table 1 shows, Prompt 1 leads to these words being replaced.
+
+24
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Prompt
+Prompt 1
+
+Prompt 2
+
+You are generating alternative phrasings of a robotic task instruction while
+preserving its exact meaning.
+### Task Instruction: ’[TASK DESCRIPTION]’
+### Instructions: - Generate **20** alternative ways to phrase the task
+instruction. - Keep each instruction **concise and unambiguous**. - Ensure
+the instructions remain suitable for a **robot, not a human**. - Only make
+**semantically meaningless** changes (e.g., word order, synonyms, slight
+rewording). - Double-check that the new instructions mean the same exact
+thing for the robot; do not just substitute synonyms without considering
+context. - Do **not** introduce additional steps, remove essential details,
+or alter the action.
+### Output Format: Each rephrased instruction should be wrapped in
+‘[instruction]‘ and ‘[/instruction]‘ tags, like this: [instruction] Rephrased instruction 1 [/instruction] [instruction] Rephrased instruction 2 [/instruction]
+You are generating alternative phrasings of a robotic task instruction while
+preserving its exact meaning.
+### Task Instruction: ’[TASK DESCRIPTION]’
+### Instructions: - Generate **20** alternative ways to phrase the task
+instruction. - Keep each instruction **concise and unambiguous**. - Ensure
+the instructions remain suitable for a **robot, not a human**. - Only make
+**semantically meaningless** changes (e.g., word order, synonyms, slight
+rewording). - Double-check that the new instructions mean the same exact
+thing for the robot; do not just substitute synonyms without considering
+context. - Do **not** introduce additional steps, remove essential details,
+or alter the action.
+- The first word of the instruction should be ‘PICK’, and then it should also
+include the word ‘PLACE’.
+### Output Format: Each rephrased instruction should be wrapped in
+‘[instruction]‘ and ‘[/instruction]‘ tags, like this: [instruction] Rephrased instruction 1 [/instruction] [instruction] Rephrased instruction 2 [/instruction]
+
+Table 4: Prompts 1 and 2 for GPT-4o-mini to rephrase LIBERO task instructions. These prompts are
+used for Spatial and Object. There is a small modification for Goal.
+
+25
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Prompt
+Prompt 3
+
+You are generating alternative phrasings of a robotic task instruction while
+preserving its exact meaning.
+### Task Instruction: ’[TASK DESCRIPTION]’
+### Instructions: - Generate **20** alternative ways to phrase the task
+instruction. - Keep each instruction **concise and unambiguous**. - Ensure
+the instructions remain suitable for a **robot, not a human**. - Only make
+**semantically meaningless** changes (e.g., word order, synonyms, slight
+rewording). - Double-check that the new instructions mean the same exact
+thing for the robot; do not just substitute synonyms without considering
+context. - Do **not** introduce additional steps, remove essential details,
+or alter the action. - Make the changes as minor as possible, as the robot’s
+language system is not very robust to rephrasing. - The first word of the
+instruction should be ‘PICK’, and then it should also include the word
+‘PLACE’.
+### Output Format: Each rephrased instruction should be wrapped in
+‘[instruction]‘ and ‘[/instruction]‘ tags, like this: [instruction] Rephrased instruction 1 [/instruction] [instruction] Rephrased instruction 2 [/instruction]
+
+Table 5: Prompt 3 for GPT-4o-mini to rephrase LIBERO task instructions. These prompts are used
+for Spatial and Object. There is a small modification for Goal.
+
+26
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Dataset
+
+Model
+
+Quant
+
+ECE1
+
+ECE2
+
+Brier
+
+NLL
+
+Succ. Rate
+
+Spatial
+Object
+Goal
+10
+
+NORA
+NORA
+NORA
+NORA
+
+-
+
+0.099
+0.210
+0.065
+0.184
+
+0.115
+0.229
+0.077
+0.212
+
+0.105
+0.090
+0.111
+0.260
+
+0.386
+0.343
+0.391
+0.811
+
+0.894
+0.960
+0.880
+0.674
+
+Spatial
+Object
+Goal
+10
+
+MolmoAct
+MolmoAct
+MolmoAct
+MolmoAct
+
+-
+
+0.113
+0.046
+0.129
+0.175
+
+0.123
+0.059
+0.141
+0.184
+
+0.134
+0.062
+0.146
+0.205
+
+0.625
+0.296
+0.657
+0.716
+
+0.860
+0.936
+0.846
+0.772
+
+Spatial
+Object
+Goal
+10
+
+UniVLA
+UniVLA
+UniVLA
+UniVLA
+
+-
+
+0.162
+0.082
+0.116
+0.134
+
+0.193
+0.135
+0.163
+0.174
+
+0.064
+0.054
+0.066
+0.092
+
+0.282
+0.224
+0.261
+0.339
+
+0.972
+0.962
+0.958
+0.932
+
+Spatial
+Object
+Goal
+10
+
+OpenVLA
+OpenVLA
+OpenVLA
+OpenVLA
+
+-
+
+0.088
+0.060
+0.151
+0.381
+
+0.106
+0.073
+0.170
+0.390
+
+0.150
+0.108
+0.207
+0.398
+
+0.533
+0.401
+0.707
+1.382
+
+0.828
+0.880
+0.758
+0.532
+
+Spatial
+Object
+Goal
+
+OpenVLA
+OpenVLA
+OpenVLA
+
+Quant-8
+Quant-8
+Quant-8
+
+0.070
+0.057
+0.140
+
+0.093
+0.065
+0.163
+
+0.138
+0.110
+0.205
+
+0.488
+0.409
+0.713
+
+0.844
+0.876
+0.760
+
+Spatial
+Object
+Goal
+
+OpenVLA
+OpenVLA
+OpenVLA
+
+Quant-4
+Quant-4
+Quant-4
+
+0.067
+0.091
+0.161
+
+0.086
+0.112
+0.182
+
+0.149
+0.135
+0.231
+
+0.503
+0.489
+0.748
+
+0.822
+0.850
+0.712
+
+Table 6: All task success and calibration results for 22 VLA/task suite combinations.
+
+Appendix B. Additional Experiment Results
+All task success and calibration results for 22 VLA/task suite combinations are shown in Table 6.
+B.1. Relationship Between Task Success and Calibration
+Table 6 features all results plotted in Figure 3.
+
+27
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Model
+
+Dataset
+
+Method
+
+ECE1
+
+ECE2
+
+Brier score
+
+NLL
+
+OpenVLA Quant-8
+
+Spatial
+
+Baseline
+Reprompt
+
+0.070
+0.050
+
+0.093
+0.062
+
+0.138
+0.131
+
+0.488
+0.434
+
+Object
+
+Baseline
+Reprompt
+
+0.057
+0.041
+
+0.065
+0.052
+
+0.110
+0.108
+
+0.409
+0.375
+
+Goal
+
+Baseline
+Reprompt
+
+0.140
+0.117
+
+0.163
+0.152
+
+0.205
+0.194
+
+0.713
+0.608
+
+Spatial
+
+Baseline
+Reprompt
+
+0.067
+0.055
+
+0.086
+0.079
+
+0.149
+0.148
+
+0.503
+0.482
+
+Object
+
+Baseline
+Reprompt
+
+0.091
+0.066
+
+0.112
+0.094
+
+0.135
+0.132
+
+0.489
+0.454
+
+Goal
+
+Baseline
+Reprompt
+
+0.161
+0.146
+
+0.182
+0.154
+
+0.231
+0.224
+
+0.748
+0.672
+
+OpenVLA Quant-4
+
+Table 7: Calibration error measurements using the 8-bit and 4-bit fine-tuned model versions and
+3 different LIBERO task suites, for 2 different methods of confidence estimation: (1) baseline (2)
+ensembling over semantically equivalent prompts (“Reprompt”). The prompt ensemble method
+improves all measures across all settings.
+
+Figure 7: Percent change in calibration error measurements by ensembling over semantically
+equivalent prompts.
+B.2. Prompt Ensembling
+Table 7 has prompt ensemble results for the quantized OpenVLA models. Figure 7 shows trends in
+percent change in calibration error using the prompt ensemble method.
+B.3. Ablations for Prompt Ensembles
+To understand the robustness of our prompt ensemble results, we perform multiple ablations using
+the OpenVLA model.
+28
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 8: Ablation results for the prompt ensemble method, where different prompts are given to
+GPT-4o-mini for producing the rephrasings of the original instruction. Prompt 1 is used in the main
+experiments, while Prompts 2 and 3 are variants. Results show that improvements in calibration error
+from Reprompt are robust to different rephrasing prompts.
+
+Figure 9: Ablating the number of prompts in the prompt ensemble for the Spatial, Goal, and Object
+task suites. Increasing the number of prompts generally improves calibration error.
+First, we consider the effect of changing the prompt given to GPT-4o-mini for producing the 20
+instruction rephrasings. In addition to the prompt used to produce the results in Table 2, we try two
+additional prompts, recorded in Appendix Table 4 and Table 5; “Prompt 1” is the original prompt,
+and “Prompt 2” and “Prompt 3” represent new prompts for the ablation. Note that the different
+
+29
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+prompts lead to substantially different rephrasings, as Prompts 2 and 3 mandate the retention of the
+words “pick” and “place”, while as Table 1 shows, Prompt 1 leads to these words being replaced.
+The ablation is run across all 3 task suites using fine-tuned OpenVLA, and we measure ECE1 and
+NLL. Results are shown in Figure 8. Improvements in calibration error from the Reprompt method
+are robust to different rephrasing prompts, with all ensemble variants producing lower error than the
+baseline method across both metrics and all 3 task suites.
+Second, we consider the effect of the number of prompts used in the prompt ensemble. Given a
+sound ensembling approach, we would expect to see improvement as more prompts are added to
+the ensemble (up to some point). To study this question, we record results using k ∈ {1, 5, 10, 20}
+different rephrasings (randomly chosen for 1000 trials when k < 20). Results for the Spatial, Goal,
+and Object task suites are shown in Figure 9. We see that the algorithm behaves favorably, where
+calibration error generally decreases as more instructions are included in the ensemble.
+
+30
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 10: Empirical study of calibration error across task time horizon for the Spatial task suite and
+the Quant-8 OpenVLA model.
+B.4. Calibration Across Task Time
+Figures 10, 11, 12, 13, and 14 offer additional results on calibration across the task time horizon
+using the OpenVLA model. Figures 15, 16, and 17 offer results for the same experiment on UniVLA.
+Figure 18 shows further qualitative examples from the context-aware monitoring experiment.
+
+31
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 11: Empirical study of calibration error across task time horizon for the Object task suite and
+the full precision OpenVLA model.
+
+Figure 12: Empirical study of calibration error across task time horizon for the Object task suite and
+the Quant-8 OpenVLA model.
+
+32
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 13: Empirical study of calibration error across task time horizon for the Goal task suite and
+the full precision OpenVLA model.
+
+Figure 14: Empirical study of calibration error across task time horizon for the Goal task suite and
+the Quant-8 OpenVLA model.
+
+33
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 15: Empirical study of calibration error across task time horizon for the Spatial task suite and
+the UniVLA model.
+
+Figure 16: Empirical study of calibration error across task time horizon for the Object task suite and
+the UniVLA model.
+
+34
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 17: Empirical study of calibration error across task time horizon for the Goal task suite and
+the UniVLA model.
+
+35
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+B.4.1. Q UALITATIVE E XAMPLES OF C ONTEXT-AWARE C ONFIDENCE M ONITORING
+Additional qualitative examples of our confidence-aware monitoring demonstration are provided in
+Figure 18. These include cases where the strategy succeeds and others where it fails (e.g., confidence
+falls below the threshold while grasping in an ultimately successful trial).
+
+36
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 18: Qualitative examples of a context-aware confidence calibration strategy for the task “put
+the wine bottle on the rack”. The red dashed line represents the 10% quantile of the confidence
+estimates output by the model across the task horizon, representing a potential threshold below which
+the robot may abstain from performing the task.
+
+37
+
+T. Z OLLO & R. Z EMEL . C ONFIDENCE C ALIBRATION IN V ISION -L ANGUAGE -ACTION M ODELS
+
+Figure 19: On the left of each pair of plots, we compare miscalibration across action dimensions.
+On the right, we compare the performance of typical Platt scaling, temperature scaling, histogram
+binning, and Platt binning to action-wise Platt scaling.
+B.5. Calibration Across Action Dimensions
+Figure 19 shows additional results for the action-wise recalibration experiments.
+
+38
+
+

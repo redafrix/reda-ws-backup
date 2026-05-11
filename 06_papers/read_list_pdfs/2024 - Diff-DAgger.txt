@@ -1,0 +1,1111 @@
+Diff-DAgger: Uncertainty Estimation with
+Diffusion Policy for Robotic Manipulation
+
+arXiv:2410.14868v4 [cs.RO] 24 Mar 2025
+
+Sung-Wook Lee1 , Xuhui Kang1 , Yen-Ling Kuo1
+Abstract— Recently, diffusion policy has shown impressive
+results in handling multi-modal tasks in robotic manipulation.
+However, it has fundamental limitations in out-of-distribution
+failures that persist due to compounding errors and its limited
+capability to extrapolate. One way to address these limitations
+is robot-gated DAgger, an interactive imitation learning with
+a robot query system to actively seek expert help during
+policy rollout. While robot-gated DAgger has high potential
+for learning at scale, existing methods like Ensemble-DAgger
+struggle with highly expressive policies: They often misinterpret
+policy disagreements as uncertainty at multi-modal decision
+points. To address this problem, we introduce Diff-DAgger,
+an efficient robot-gated DAgger algorithm that leverages the
+training objective of diffusion policy. We evaluate Diff-DAgger
+across different robot tasks including stacking, pushing, and
+plugging, and show that Diff-DAgger improves the task failure
+prediction by 39.0%, the task completion rate by 20.6%, and
+reduces the wall-clock time by a factor of 7.8. We hope that this
+work opens up a path for efficiently incorporating expressive
+yet data-hungry policies into interactive robot learning settings.
+The project website is available at: https://diffdagger.github.io.
+
+I. I NTRODUCTION
+Imitation learning for manipulation tasks poses significant
+challenges due to the need for long-horizon decision making,
+high precision, and adaptability in dynamic environments.
+Recently, significant advances have been made using offline
+approaches, also known as behavior cloning, by adopting
+generative models for action sequence prediction. These
+models mitigate the compounding error issue by reducing
+the number of action inferences [1] and addressing multimodality through generative capabilities [2]. In particular,
+diffusion policy [3] trains the model to predict the gradient
+of the action score function, and it has achieved state-of-theart results for learning different robotic tasks.
+While diffusion policy effectively handles highly multimodal demonstrations, it still faces a core issue of behavior
+cloning: the out-of-distribution (OOD) failure, where the
+policy compounds errors in action prediction and cannot
+extrapolate in unseen states. A common strategy to address
+OOD failure is DAgger [4], an interactive learning method
+which iteratively refines the policy by incorporating expert
+interventions. In particular, robot-gated DAgger lets robots
+decide when to seek expert help, removing the need for
+constant human supervision and enabling large-scale learning
+across multiple robots [5]. The effectiveness of this approach,
+therefore, relies heavily on the robot’s ability to accurately
+estimate its own uncertainty.
+1 University of Virginia
+
+{dcs3zc,xuhui,ylkuo}@virginia.edu
+
+However, none of the existing robot-gated DAgger approaches fully addresses the multi-modality present in
+demonstration data. For example, the most widely adopted
+Ensemble-DAgger approaches use the action variance among
+an ensemble of policies to estimate uncertainty [6–8]. This
+means that when tasks admit multiple solutions, policies
+might erroneously indicate high uncertainty even when in
+a previously visited state. We illustrate this problem with
+a 2D navigation example (Figure 2 (a)), where two primary paths—clockwise and counter-clockwise around a circle—lead to the goal. This scenario allows us to categorize regions as in-distribution uni-modal (along the circular paths, shown as mixed red and orange), in-distribution
+multi-modal (at the path divergence point, shown as green),
+and out-of-distribution (significant deviations from expected
+paths, shown as blue). While ensemble methods for robotgated DAgger effectively distinguish in-distribution unimodal from out-of-distribution data using action variance,
+they fail at in-distribution multi-modal points due to policy
+disagreement (Figure 2 (b)).
+
+Incorporating an expressive policy class that handles
+multi-modal data into the DAgger framework is a promising
+but under-explored direction. In light of this, we propose
+Diff-DAgger, an efficient robot-gated DAgger algorithm that
+addresses multi-modality in demonstration data while reducing wall-clock time compared to other methods. DiffDAgger uses a query system based on the loss function of
+the diffusion model, referred to as diffusion loss, which significantly improves the effectiveness of robot queries across
+various evaluation metrics. In five challenging manipulation
+tasks, including two real-world tasks, Diff-DAgger achieves
+a 39.0% higher F1 score in predicting task failure, and
+the collected data leads to 20.6% improvements in policy
+performance while improving the wall clock time by a factor
+of 7.8 in comparison to the baseline methods.
+
+We make the following contributions: First, we develop
+a novel robot-gated query system based on diffusion loss
+to better handle multi-modality in expert demonstrations.
+Second, we quantitatively evaluate Diff-DAgger’s efficiency
+in terms of task failure prediction, task completion, and
+wall-clock time during interactive learning to demonstrate its
+superiority over other baseline methods. Lastly, we discuss
+design choices that accelerate policy learning to enable faster
+convergence and improved overall performance.
+
+(a) Diffusion Policy
+CNN-based
+Diffusion Policy
+
+fθ
+
+(b) Diff-DAgger
+
+a
+
+State
+
+a
+
+..... a
+Repeat
+K Iterations
+
+Denoised
+Action
+
+Inference
+
+Inference
+Action
+
+ae
+Action
+
+ϵ
+
+Policy
+Rollout
+
+1. Calculate Loss
+
+~
+ae
+
+Noised
+Action
+
+L(fθ(oe, ~
+ae), ϵ)
+
+State
+
+ar
+
+ar = fθ(or, ar)
+2. Calculate Loss
+
+Noised
+Action
+
+State
+
+or
+
+Kiter
+
+o
+
+oe
+
+1. Get Action
+
+ar L
+Robot
+Action
+
+Training
+
+L(fθ(or, ~
+ar), ϵ)
+
+Y
+
+Decision
+
+2. Minimize Loss
+
+ar
+
+Robot
+Action
+
+θ ≈ argmin Lθ
+
+Noise
+
+Store
+
+Expert Data
+
+~
+ar
+
+Robot Task
+
+Noised
+Action
+
+L Low?
+
+Diffusion
+Loss
+
+Robot
+Action
+
+N
+
+ϵ
+Noise
+
+Expert
+Takeover
+
+Expert Takeover
+Expert Demo
+
+Fig. 1: Overview of Diff-DAgger. (a) Diffusion Policy and Training: In our study, we use the diffusion policy with a U-net architecture,
+a CNN-based model. During the training phase, diffusion policy is trained on static expert data. (b) Diff-DAgger during Deployment:
+At each timestep during the online learning phase, the robot performs two steps—inference and decision. In the inference step, the
+policy makes action inference by iteratively denoising a random noise, conditioned on the current observation. After action generation,
+the training loss function is used to compute the loss associated with the generated action. In the decision step, the robot proceeds with
+the action if the loss is low, otherwise it asks the expert to intervene. The arrows indicate the flow of steps.
+
+(a)
+
+Start
+
+Goal
+
+(b)
+
+policy distribution cannot perfectly match that of the expert
+distribution, also known as the covariate shift problem. [9].
+Interactive imitation learning combats this issue through
+online expert intervention to recover from undesired states
+visited by the trained policy. One approach in interactive
+imitation learning is human-gated DAgger (HG-DAgger)
+[10], where a human supervisor decides when to correct a
+robot’s actions. However, this requires continuous, one-onone monitoring, making it resource-intensive and unscalable
+for parallel learning with multiple robots. The alternative
+method is called the robot-gated DAgger, which requires
+the robot to autonomously estimate its own uncertainty. A
+common challenge in interactive imitation learning is to
+maximize the utility of expert intervention while minimizing
+the burden on the expert.
+B. Uncertainty Estimation of Robot Action
+
+Fig. 2: (a) Visualization of 2D navigation toy example. The orange
+dots represent the mode for following a clockwise path around
+the circle and the red dots represent another mode for following
+a counter-clockwise path. The green dots represent the multimodal region where multiple diverging paths exist. The blue region
+indicates out-of-distribution. (b) Comparison of action standard
+deviation and diffusion loss for different regions across 100 runs in
+the 2D navigation example. The left bar plot displays the standard
+deviation of action across policies for in-distribution uni-modal (ID,
+UM), in-distribution multi-modal (ID, MM), and out-of-distribution
+(OOD) regions. The right bar plot shows the corresponding diffusion loss for these regions.
+
+II. R ELATED W ORK
+A. Interactive Imitation Learning
+The goal of imitation learning is to train a policy from
+an offline dataset through supervised learning. However,
+this approach suffers from a fundamental issue when the
+
+The most widely used method for estimating action uncertainty is to use an ensemble of policies bootstrapped on a
+subset of the training data and using the level of disagreement
+among the policies output to estimate uncertainty [6–8].
+However, the ensemble method for uncertainty estimation
+can be problematic in practice, especially when the task
+allows multiple modes of completion. Specifically, they are
+prone to either mistaking in-distribution multi-modal data as
+out-of-distribution data or vice versa. This is because expressive ensemble policies may disagree due to the presence
+of multiple viable strategies where each policy is certain
+about its generated plan, leading to high action variance.
+Furthermore, if the policy generates an action sequence
+instead of a single action, the uncertainty estimation may
+explode due to divergence over time or lose accuracy if a
+shorter horizon is used for calculating action variance.
+Another uncertainty estimation method is to use a separately trained classifier to more explicitly detect OOD states
+using failure states [11]. However, this requires significant efforts of collecting and labeling human-gated interventions as
+
+training data. In [12], the auxiliary reconstruction loss from
+the image observations is proposed to estimate uncertainty,
+but this method may be susceptible to confounding variables
+related to reconstruction complexity, potentially independent
+of the current state’s in-distribution status.
+In contrast to the existing robot-gated DAgger methods,
+our approach handles complex data distribution by incorporating the loss function of diffusion policy into the decision
+rule. This approach does not need multiple policies for
+uncertainty estimation, reducing both training and inference
+time while benefiting from using an expressive policy class.
+C. Policy Learning and Classification with Diffusion Models
+Diffusion models, originally proposed as generative models for images, have seen success in various decisionmaking tasks due to their ability to handle complex data
+distributions. In robotics, these models have been used in
+various aspects including reinforcement learning (RL) [13],
+imitation learning [3], task planning and motion planning
+[14]. Interestingly, diffusion models have also been shown
+to be effective zero-shot classifiers for the data distributions they are trained on [15–17]. This dual functionality
+of generative and discriminative capabilities enhances their
+value in decision-making tasks. Especially, it aligns well
+with a robot-gated DAgger framework, which requires both
+generation and evaluation of robot plans to decide when
+human intervention is necessary during task execution.
+III. M ETHOD
+
+where o is the observation sequence, a is the action sequence,
+and ϵ is a noise vector from Gaussian distribution N (0, I).
+The parameter αt is a time-dependent factor that modulates
+the influence of the original data and the added noise during
+the diffusion process, and t is the denoising timestep. The
+loss function L(o, a, ϵ, t) calculates the mean squared error
+between the prediction target f (ϵ, a, t), which depends on
+the choice of prediction type, and the noise predicted by the
+model fθ , given the noised data at time t [18].
+C. Diff-DAgger
+1) OOD Detection via Diffusion Loss: During robot rollout, the uncertainty of the current action plan is estimated using the diffusion policy’s loss value for the given observation
+and the generated action. In order to establish a baseline, we
+calculate the expected diffusion loss L for each data point
+in the training dataset using equation 2.
+L (o, a, π) = Eϵ∼N (0,I),t∼µ(1,T ) Lπ (o, a, ϵ, t)
+
+(2)
+
+For practical implementation, we select a batch size Nb to
+sample both the noise and diffusion timesteps and compute
+the average loss over the batch. Given a quantile threshold
+α, we assume OOD if the diffusion loss of the generated
+action using Eqn 2 exceeds the α-quantile of the expected
+diffusion losses from the training data. Additionally, expert
+supervision takes place only if K past states consecutively
+violate the qauntile threshold α. It helps distinguish brief
+fluctuations from persistent out-of-distribution cases, significantly reducing the rate of false positives.
+
+A. Problem Statement
+The goal of imitation learning is to collect a dataset
+and train a robot policy to complete a set of tasks with
+expert demonstrations. In the robot-gated DAgger scenario,
+the robot autonomously queries for expert intervention. We
+assume the expert is skilled in completing the task, which
+is considered successful if the goal is reached within the
+time limit. We assume access to success information. Our
+objective is to design an efficient robot query system that
+accurately predicts task failures, requesting expert intervention only when necessary.
+B. Diffusion Policy
+1) Action Diffusion: Diffusion Policy formulates action
+generation as a DDPM [2], where Langevin dynamics iteratively denoises a Gaussian prior, N (0, I), to recover structured actions. This approach enables stable training, handles
+multimodal action distributions, and has achieved state-ofthe-art results in behavior cloning for robot manipulation [3].
+2) Loss Function: During training, Diffusion Policy samples a denoising timestep and a Gaussian noise vector to
+corrupt the action sequence. Given the corrupted actions
+and the original observation sequence, it predicts the target
+objective and optimizes using the following loss function:
+√
+√
+Lπ (o, a, ϵ, t) = ∥f (ϵ, a, t) − fθ (o, αt a + 1 − αt ϵ, t)∥2
+(1)
+
+Algorithm 1 Diff-DAgger
+1: Require Initial expert dataset Dexp , time-limit TL , expert
+
+policy πe , and thresholds α and K
+2: Initialize diffusion policy πr by training on Dexp
+3: for each trial do
+4:
+Train policy πr on dataset Dexp
+5:
+Set the threshold using Dexp and α
+6:
+control ← robot
+7:
+while task is not done do
+8:
+while control = expert and task is not done do
+9:
+ae ← πe (o)
+▷ Expert provides action
+10:
+Take action ae
+11:
+Dexp ← Dexp ∪ (o, ae )
+▷ Record state-action
+12:
+end while
+13:
+ar ← πr (o)
+▷ Policy provides action
+14:
+loss ← L (o, ar , πr )
+▷ Using Eq. 2
+15:
+if CDF(loss) > α for last K timesteps then
+16:
+control ← expert
+▷ Expert takeover
+17:
+else
+18:
+Take action ar
+19:
+end if
+20:
+end while
+21: end for
+
+2) Data Aggregation and Policy Update: We now summarize the data aggregation and policy update procedures.
+Diff-DAgger first initializes the policy πr by training it on
+Ni initial expert demonstrations. During rollout, the robot
+takes the actions in the environment until a high diffusion
+loss is detected. When the robot query is made, experts
+
+Pushing
+
+Stacking (Sim)
+
+Plugging
+
+Loading
+
+Stacking (Real)
+
+Fig. 3: Overview of simulation and real-world tasks: stacking,
+pushing, plugging, and loading.
+#
+Contact High
+N
+Obj C Rich
+Prec
+
+TL
+
+Expert Type
+
+Task Succ
+Dur Rate
+
+Type
+
+Task
+
+Sim
+
+Stacking
+Pushing
+Plugging
+
+2
+1
+2
+
+3
+1
+3
+
+False
+True
+False
+
+False 250 Motion Planner
+False 250
+RL Agent
+True 500 Motion Planner
+
+60.3
+65.7
+147
+
+Real
+
+Stacking
+Loading
+
+2
+2
+
+3
+3
+
+False
+True
+
+False 600
+True 600
+
+174.2 1.00
+210.5 1.00
+
+Human
+Human
+
+1.00
+0.93
+0.98
+
+TABLE I: Task and Expert Summary. # Obj: number of objects,
+NC : number of cameras, Contact Rich: contact-richness, High Prec:
+high-precision, TL : time limit in timesteps at 20 Hz in simulation
+or 30 Hz in real world, Task Dur: average expert task duration in
+simulation steps, Exp SR: expert success rate during intervention.
+
+intervene from the current scene and complete the task. Upon
+completion of the task by either the robot or the expert,
+the task is initialized to a random initial configuration. If
+the robot neither queries nor completes the task after a
+time limit, automatic expert intervention takes place. After
+every Nd expert intervention has been made, we perform a
+policy update, which consists of policy training and threshold
+setting. The policy training involves training the policy for a
+fixed number of epochs using the previously collected expert
+demonstration data, and threshold setting involves setting the
+base values by iterating through the training dataset to set
+the OOD violation threshold used for robot-query trigger.
+The full pseudo-code is available in Algorithm 1.
+IV. E XPERIMENT
+We address the following three research questions to
+understand the effectiveness of Diff-DAgger.
+RQ1 Can diffusion loss predict task failure (Section IV-B)?
+RQ2 Given a fixed number of expert interventions, can DiffDAgger outperform existing methods (Section IV-C)?
+RQ3 Can Diff-DAgger reduce the wall-clock time of DAgger iterations (Section IV-D)?
+A. Experiment Setup
+1) Tasks and Experts: We test Diff-DAgger in the simulated and real robot environments. We include three tasks
+in simulation—stacking, pushing, and plugging—using the
+ManiSkill environment [19] and two tasks—stacking and
+loading—in real world. In the stacking task, the robot picks
+
+up a red cube and places it on a green cube, evaluating its
+basic perception and manipulation skills. The pushing task
+requires using an end-effector stick to move a red tee to
+a predefined position, requiring multimodal planning and
+control of contact dynamics. The plugging task involves
+inserting a charger into a receptacle, testing fine manipulation
+and alignment accuracy. Lastly, the loading task requires the
+robot to pick up the soft bread and precisely load in onto
+a toaster, assessing the robot’s ability to handle deformable
+objects with precision.
+For simulation tasks, we design experts as either multimodal or long-horizon planners to evaluate different expert
+types. Specifically, we use RL agents and motion planners as
+the experts: the motion planner, is a long-horizon planner that
+generates actions based on future goals, whereas multiple
+RL agents with different reward functions provide different
+modes for task completion. For stacking and plugging tasks,
+we use a rule-based RRT motion planner to simulate the
+expert [20]. For pushing, two experts are trained using PPO
+[21] with varying rewards: in addition to task-related reward,
+one agent is additionally rewarded for rotating the object
+clockwise direction, whereas other agent is rewarded for
+rotating counter-clockwise. During interactive learning, the
+agents alternate in providing demonstrations. We additionally
+compare learning from the counter-clockwise agent only.
+For real-world tasks, a proficient human expert teleoperated
+the robot using a VR controller. The tasks and experts are
+summarized in Table I.
+For the task setup, we use three cameras—left view, right
+view, and in-hand view—for pick-and-place tasks to mitigate
+visual occlusion, while a single top-down camera is used
+for the pushing task. In real-world experiments, we use a
+Franka Research 3 robot and use three RealSense D435
+cameras, capturing 720p RGB images at 30 FPS, which is
+then downsampled to 256p at 15 FPS.
+2) Baselines: We compare Diff-DAgger to the following
+algorithms: Behavior Cloning, which uses the offline human
+demonstration data as the training data; Ensemble-DAgger,
+which uses five policies to calculate action variance for uncertainty estimation; and ThriftyDAgger [7], a SOTA robotgated DAgger algorithm which incorporates risk measure
+into the decision rule using an offline RL algorithm. All
+methods use the diffusion policy with the same model architecture to ensure consistent expressiveness across methods.
+3) Model Learning: We adopt a model architecture similar to [22], utilizing a U-Net [22] policy head with FiLM
+conditioning [23]. We test both state-based and image-based
+data: For the state-based case, we use the internal robot
+proprioception data (robot joint position and end-effector
+pose) and the ground-truth pose of the external objects as
+the input. For the image-based case, we apply random crop
+augmentation following [24] and extract the embedding vector using an R3M ResNet18 encoder [25]. Instead of average
+pooling, we apply spatial softmax [26] to the extracted
+features before concatenating them with proprioception data.
+Additionally, the observation horizon is set to one to reduce
+the amount of data processed in each batch. All approaches
+
+use position-based control, using either joint position control
+or end-effector pose control, with either absolute or relative
+action representations [27]. For end-effector pose control, a
+6D representation for the orientation is used [28].
+B. Predictability of Robot Query on Task Failure
+The effectiveness of a robot query system depends on
+its ability to respond to a failing episode. To quantitatively
+assess this, we evaluate it in simulation, where task outcomes
+can be efficiently recorded without the need for real-world
+rollouts. Specifically, we construct a confusion matrix between the robot’s query decisions and task outcomes: For
+each task, we train the robot policy on a fixed number of
+expert demonstrations to roughly match 50% success rate and
+evaluate for 100 randomly initialized episodes. We record
+task completion without expert intervention and whether the
+policy estimates high uncertainty during each episode, as
+described in Section III-C. For each task, all methods use
+the same set of thresholds, including α and K, as shown in
+Table IV.
+The results show that Diff-DAgger achieves a significant
+improvement over Ensemble-DAgger and Thrifty-DAgger in
+terms of its ability to predict task failure: Compared to
+Ensemble-DAgger, Diff-DAgger achieves 42.7% higher F1
+and 38.4% greater accuracy scores on average across the
+simulated visuomotor tasks. Compared to Thrifty-DAgger,
+Diff-DAgger improves F1 scores by 22.6% and accuracy by
+32.8%. The results across tasks are shown in Table II.
+C. Task Performance
+We evaluate the policy performance of methods for statebased and image-based observations. Diff-DAgger method
+consistently outperforms the baselines in task completion rate
+across tasks, assuming the same number of expert demonstrations is given. On average, Diff-DAgger achieves a 13.7%
+improvement over the second-best method in state-based
+tasks. In visuomotor tasks, including the real-world tasks,
+Diff-DAgger on average achieves a 25.2% improvement over
+the other methods.
+D. Wall-Clock Time for DAgger
+Diff-DAgger also significantly reduces wall-clock time for
+training, threshold setting and inference, in comparison to
+the Ensemble-DAgger-based methods. Whereas EnsembleDAgger-based methods perform the ensemble action inference on the entire training data to set the numerical action
+variance threshold, Diff-DAgger requires passing a single
+batch per train data point to efficiently get the expected
+diffusion losses. Additionally, Diff-DAgger uses a single
+policy, reducing the wall clock time for both training and
+inference by the factor of the number of policies used
+for ensemble. Thrifty-DAgger extends Ensemble-DAgger by
+estimating risk, requiring extra data collection using the robot
+policy and additional risk estimator training, resulting in
+longer wall-clock time across tasks.
+We demonstrate the results on the visuomotor pushing
+task, where Diff-DAgger reduced training time by a factor of 5.1, threshold setting time by a factor of 48, and
+
+Method
+Ours
+
+0.88
+
+0.77
+
+0.83
+
+0.84
+
+Stacking
+
+30
+
+Ensemble-DA
+
+0.81
+
+0.31
+
+0.52
+
+0.59
+
+Thrifty-DA
+
+0.95
+
+0.21
+
+0.54
+
+0.65
+
+Ours
+
+0.83
+
+0.92
+
+0.88
+
+0.85
+
+Ensemble-DA
+
+1.00
+
+0.11
+
+0.60
+
+0.73
+
+Thrifty-DA
+
+1.00
+
+0.02
+
+0.57
+
+0.72
+
+40
+
+Pushing
+25/25
+(2 Experts)
+
+Plugging
+
+100
+
+TNR
+
+Acc ↑
+
+ND
+
+Pushing
+(1 Expert)
+
+TPR
+
+F1 ↑
+
+Task
+
+Ours
+
+1.00
+
+0.52
+
+0.77
+
+0.82
+
+Ensemble-DA
+
+0.29
+
+0.90
+
+0.58
+
+0.42
+
+Thrifty-DA
+
+0.58
+
+0.66
+
+0.62
+
+0.62
+
+Ours
+
+0.68
+
+0.82
+
+0.75
+
+0.73
+
+Ensemble-DA
+
+0.22
+
+0.27
+
+0.14
+
+0.37
+
+Thrifty-DA
+
+0.26
+
+0.31
+
+0.22
+
+0.21
+
+TABLE II: Comparison of robot query decisions (query or no
+query) against task outcomes (success or failure) in 100 policy
+rollouts for visuomotor tasks. Here, True Positive Rate (TPR) refers
+to the proportion of queries made to failing episodes, while True
+Negative Rate (TNR) refers to the proportion of non-queries made
+to successful episodes. ND is the number of expert demonstrations
+used for training the policy.
+Stacking
+(Sim)
+
+Pushing
+Pushing
+(1 Expert) (2 Experts)
+
+Plugging
+
+Stacking
+Loading
+(Real)
+
+State Image State Image State Image State Image Image
+BC
+0.89
+Ensemble-DA 0.72
+Thrifty-DA
+0.79
+Ours
+0.94
+
+0.85
+0.83
+0.86
+0.94
+
+0.89
+0.87
+0.85
+0.96
+
+0.72
+0.81
+0.81
+0.87
+
+0.74
+0.70
+0.69
+0.87
+
+0.71
+0.59
+0.68
+0.79
+
+0.75
+0.69
+0.65
+0.92
+
+0.49
+0.37
+0.47
+0.84
+
+0.6
+0.8
+
+Image
+0.8
+0.95
+
+TABLE III: Performance comparison across different tasks with
+state-based and image-based observations in simulation or realworld. We report success rates after the final DAgger iteration, using
+100 evaluation episodes for simulation tasks and 20 for real-world
+tasks. For each task, the number of expert demonstrations is fixed
+(detailed in Table IV) across methods. Our results show that DiffDAgger consistently outperforms the other methods given the same
+number of demonstrations from the expert.
+Task
+
+Action To Tp Ta PredTg Td Ni Nf Nd α K Nb
+
+Stacking (Sim)
+Abs Pose 1 32 8
+Pushing (1 Expert) Rel Joint 1 32 2
+Pushing (2 Experts) Rel Joint 1 32 2
+Plugging
+Abs Pose 1 64 8
+Stacking (Real)
+Loading
+
+V-obj
+V-obj
+V-obj
+V-obj
+
+16 20 60
+16 20 100
+16 20 100
+64 20 100
+
+4
+4
+4
+8
+
+0.99 2
+0.99 1
+0.9 2
+0.99 2
+
+512
+512
+512
+512
+
+Abs Pose 1 32 8 V-obj 16 40 120 20 0.99 2 512
+Abs Pose 1 64 8 V-obj 64 40 120 20 0.99 2 512
+
+TABLE IV: Hyperparameters for Diffusion Policy and DAgger.
+Action: action space, To : observation horizon, Tp : prediction horizon, Ta : rollout horizon, PredTg: prediction target when training
+diffusion policy, Td : number of diffusion timesteps for training and
+inference, Ni : number of initial expert demonstrations, Nf : final
+number of expert demonstrations, Nd : number of expert intervention
+after each training session, K: patience for violation, Nb : DiffDAgger specific batch size for calculating the diffusion loss.
+
+inference time by a factor of 3.8 compared to EnsembleDAgger, as shown in Fig 2. The overall reduction in average
+policy update time is by a factor of 7.8, reducing the total
+time to just 0.54 hours. Thrifty-DAgger requires additional
+data collection and training for risk estimation, and DiffDAgger achieves corresponding reduction factors for train-
+
+DiffDAgger
+
+Fig. 4: Average duration for training, threshold setting, inference,
+and total iteration for different methods, when training the final
+DAgger iteration of visuomotor policy for pushing task. A single
+A100 40 GB GPU is used for both training and inference.
+
+ing, threshold setting, and inference times of 6.4, 53, and
+3.9, respectively.
+E. Discussions
+False positives and false negatives reported in Table II
+have distinct implications: a false positive means the robot
+unnecessarily asks for expert demonstration, simply losing
+the benefits of interactive learning and resembling offline
+imitation learning. In contrast, a false negative, where the
+robot overestimates its ability and fails, is more detrimental,
+as it can cause the robot to deviate significantly from the
+relevant states. Both Ensemble-DAgger and Thrifty-DAgger
+incur a high rate of false negative in most tasks, especially
+when learning from two pushing experts. This is likely
+because the action variance present in the training dataset
+is high due to diverging plans (clockwise paths and counterclockwise paths) given the same state, resulting in the policies’ insensitivity toward true OOD data. And we speculate
+that this is the reason they perform worse than behavior
+cloning in many tasks. On the other hand, Diff-DAgger yields
+far fewer false negatives than other methods across tasks,
+making it a more suitable choice for an interactive learning
+framework with a complex data distribution. The sensitivity
+to task failure is visualized in Fig 5, where we show robot
+query behavior from each DAgger method. For instance,
+Diff-DAgger proactively requests expert intervention once
+the robots start to lose grip of the charger, while the other
+methods fail to detect this issue—resulting in either dropping
+the object or getting stuck in one motion.
+It has been observed that the prediction type used for the
+diffusion model during training can have significant impact
+on both the convergence rate and the policy performance
+[29]. We find that sample prediction and V-objective prediction converges faster than epsilon and report the results using
+V-objective across the tasks as it works well considering both
+convergence rate and policy performance.
+We also observe an interesting emergent behavior from
+policies trained on Diff-DAgger collected data: recovery
+behavior. As shown in Fig 6, after the policy fails at its
+initial attempt to stack the cube, it subsequently tries again
+and completes the task. This type of behavior is not typically
+observed unless carefully curated during data collection for
+offline behavior cloning.
+V. C ONCLUSION & F UTURE W ORK
+In this work, we present Diff-DAgger, an efficient robotgated DAgger method with diffusion policy. While Diff-
+
+ThriftyDAgger
+
+EnsembleDAgger
+
+Fig. 5: Robot query modes for different methods in the plugging
+task. Black boxes indicate policy rollout, red boxes represent
+robot queries, green boxes are expert interventions, and the purple
+box marks an automatic expert intervention due to timeout. In
+Diff-DAgger (Top), the robot promptly queries the expert when
+the charger slips at 9.1s, leading to a successful episode with
+expert help. In Thrifty-DAgger (Middle), the robot continues to try
+plugging in despite slipping, eventually querying for intervention
+after dropping it at 14.7s. In Ensemble-DAgger (Bottom), the
+robot fails to query despite not progressing, and times out at 25.0s
+to trigger automatic expert intervention. Expert interventions for
+Thrifty-DAgger and Ensemble-DAgger are omitted due to space.
+
+Robot misaligns
+the cube.
+
+Robot fails
+its 1st attempt.
+
+Robot makes a
+2nd attempt.
+
+Robot correctly
+stacks the cube.
+
+Fig. 6: Emergent behavior of DAgger-trained policy for stacking.
+We observed an interesting new behavior with Diff-DAgger trained
+policies: the recovery behavior after initial failure. This explains the
+improvement in policy performance over policies trained using the
+offline approach.
+
+DAgger shows improvements in task failure prediction, policy performance, and wall-clock time for learning over other
+methods, there are limitations: Whereas we dramatically
+reduce the wall-clock time for DAgger iteration, using an
+expressive policy class such as diffusion policy comes at the
+cost of increased training time in general. In addition, most
+of the choices we made to accelerate policy training is a
+trade-off between the policy performance, and we hope to
+address this in the future. We hope that this work paves a
+way to open up more discussion for incorporating expressive
+policies into interactive learning frameworks in anticipation
+that computing will become faster over time.
+ACKNOWLEDGMENTS
+This work was funded and supported by Delta Electronics
+Inc. We acknowledge Research Computing at the University
+of Virginia for providing the computational resources and
+technical support.
+
+R EFERENCES
+[1] T. Z. Zhao, V. Kumar, S. Levine, and C. Finn, “Learning
+Fine-Grained Bimanual Manipulation with Low-Cost
+Hardware,” in Proceedings of Robotics: Science and
+Systems, July 2023.
+[2] J. Ho, A. Jain, and P. Abbeel, “Denoising diffusion
+probabilistic models,” Advances in neural information
+processing systems, vol. 33, pp. 6840–6851, 2020.
+[3] C. Chi, S. Feng, Y. Du, Z. Xu, E. Cousineau, B. Burchfiel, and S. Song, “Diffusion policy: Visuomotor policy learning via action diffusion,” in Proceedings of
+Robotics: Science and Systems, July 2023.
+[4] S. Ross, G. Gordon, and D. Bagnell, “A reduction
+of imitation learning and structured prediction to noregret online learning,” in Proceedings of the fourteenth
+international conference on artificial intelligence and
+statistics. JMLR Workshop and Conference Proceedings, 2011, pp. 627–635.
+[5] R. Hoque, L. Y. Chen, S. Sharma, K. Dharmarajan,
+B. Thananjeyan, P. Abbeel, and K. Goldberg, “Fleetdagger: Interactive robot fleet learning with scalable
+human supervision,” in Conference on Robot Learning,
+2023, pp. 368–380.
+[6] K. Menda, K. Driggs-Campbell, and M. J. Kochenderfer, “Ensembledagger: A bayesian approach to safe
+imitation learning,” in 2019 IEEE/RSJ International
+Conference on Intelligent Robots and Systems (IROS).
+IEEE, 2019, pp. 5041–5048.
+[7] R. Hoque, A. Balakrishna, E. Novoseller, A. Wilcox,
+D. S. Brown, and K. Goldberg, “ThriftyDAgger:
+Budget-aware novelty and risk gating for interactive
+imitation learning,” in Conference on Robot Learning,
+2021.
+[8] S. Dass, K. Pertsch, H. Zhang, Y. Lee, J. J. Lim,
+and S. Nikolaidis, “Pato: Policy assisted teleoperation
+for scalable robot data collection,” in Proceedings of
+Robotics: Science and Systems, 2023.
+[9] S. Ross and D. Bagnell, “Efficient reductions for
+imitation learning,” in Proceedings of the thirteenth
+international conference on artificial intelligence and
+statistics. JMLR Workshop and Conference Proceedings, 2010, pp. 661–668.
+[10] M. Kelly, C. Sidrane, K. Driggs-Campbell, and
+M. J. Kochenderfer, “HG-DAgger: Interactive imitation learning with human experts,” in 2019 International Conference on Robotics and Automation (ICRA).
+IEEE, 2019, pp. 8077–8083.
+[11] H. Liu, S. Dass, R. Martı́n-Martı́n, and Y. Zhu, “Modelbased runtime monitoring with interactive imitation
+learning,” in International Conference on Robotics and
+Automation (ICRA), 2023.
+[12] J. Wong, A. Tung, A. Kurenkov, A. Mandlekar, L. FeiFei, S. Savarese, and R. Martı́n-Martı́n, “Error-aware
+imitation learning from teleoperation data for mobile
+manipulation,” in Conference on Robot Learning, 2022,
+pp. 1367–1378.
+
+[13] S. E. Ada, E. Oztop, and E. Ugur, “Diffusion policies
+for out-of-distribution generalization in offline reinforcement learning,” IEEE Robotics and Automation
+Letters, 2024.
+[14] J. Carvalho, A. T. Le, M. Baierl, D. Koert, and J. Peters,
+“Motion planning diffusion: Learning and planning of
+robot motions with diffusion models,” in IEEE/RSJ
+International Conference on Intelligent Robots and
+Systems (IROS). IEEE, 2023, pp. 1916–1923.
+[15] A. C. Li, M. Prabhudesai, S. Duggal, E. Brown, and
+D. Pathak, “Your diffusion model is secretly a zeroshot classifier,” in Proceedings of the IEEE/CVF International Conference on Computer Vision, 2023, pp.
+2206–2217.
+[16] S. Zhou, Y. Du, S. Zhang, M. Xu, Y. Shen, W. Xiao, D.Y. Yeung, and C. Gan, “Adaptive online replanning with
+diffusion models,” Advances in Neural Information
+Processing Systems, vol. 36, 2024.
+[17] B. Wang, G. Wu, T. Pang, Y. Zhang, and Y. Yin,
+“Diffail: Diffusion adversarial imitation learning,” in
+Proceedings of the AAAI Conference on Artificial Intelligence, vol. 38, no. 14, 2024, pp. 15 447–15 455.
+[18] T. Salimans and J. Ho, “Progressive distillation for fast
+sampling of diffusion models,” 2022.
+[19] S. Tao, F. Xiang, A. Shukla, Y. Qin, X. Hinrichsen,
+X. Yuan, C. Bao, X. Lin, Y. Liu, T. kai Chan, Y. Gao,
+X. Li, T. Mu, N. Xiao, A. Gurha, Z. Huang, R. Calandra, R. Chen, S. Luo, and H. Su, “Maniskill3: Gpu parallelized robotics simulation and rendering for generalizable embodied ai,” arXiv preprint arXiv:2410.00425,
+2024.
+[20] J. J. Kuffner and S. M. LaValle, “Rrt-connect: An efficient approach to single-query path planning,” in IEEE
+International Conference on Robotics and Automation.
+IEEE, 2000, pp. 995–1001.
+[21] J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and
+O. Klimov, “Proximal policy optimization algorithms,”
+arXiv preprint arXiv:1707.06347, 2017.
+[22] O. Ronneberger, P. Fischer, and T. Brox, “U-net:
+Convolutional networks for biomedical image segmentation,” in Medical image computing and computerassisted intervention–MICCAI 2015: 18th international
+conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18. Springer, 2015, pp. 234–241.
+[23] E. Perez, F. Strub, H. De Vries, V. Dumoulin, and
+A. Courville, “Film: Visual reasoning with a general
+conditioning layer,” in Proceedings of the AAAI conference on artificial intelligence, 2018.
+[24] A. Mandlekar, D. Xu, J. Wong, S. Nasiriany, C. Wang,
+R. Kulkarni, L. Fei-Fei, S. Savarese, Y. Zhu, and
+R. Martı́n-Martı́n, “What matters in learning from offline human demonstrations for robot manipulation,”
+2021.
+[25] S. Nair, A. Rajeswaran, V. Kumar, C. Finn, and
+A. Gupta, “R3M: A universal visual representation for
+robot manipulation,” 2022.
+[26] S. Levine, C. Finn, T. Darrell, and P. Abbeel, “End-to-
+
+end training of deep visuomotor policies,” Journal of
+Machine Learning Research, vol. 17, no. 39, pp. 1–40,
+2016.
+[27] C. Chi, Z. Xu, C. Pan, E. Cousineau, B. Burchfiel,
+S. Feng, R. Tedrake, and S. Song, “Universal manipulation interface: In-the-wild robot teaching without inthe-wild robots,” in Proceedings of Robotics: Science
+and Systems (RSS), 2024.
+[28] Y. Zhou, C. Barnes, J. Lu, J. Yang, and H. Li, “On
+the continuity of rotation representations in neural
+networks,” in Proceedings of the IEEE/CVF conference
+on computer vision and pattern recognition, 2019, pp.
+5745–5753.
+[29] Y. Ze, G. Zhang, K. Zhang, C. Hu, M. Wang, and
+H. Xu, “3d diffusion policy: Generalizable visuomotor policy learning via simple 3d representations,” in
+Proceedings of Robotics: Science and Systems (RSS),
+2024.
+
+
