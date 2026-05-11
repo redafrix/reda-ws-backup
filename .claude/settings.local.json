@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/redafrix/Downloads/**)",
+      "Bash(unzip -l /home/redafrix/Downloads/phase2_tdqc_20260427_1.zip)",
+      "Bash(unzip -l /home/redafrix/Downloads/phase2_tdqc_raw_pro_4000_20260428_171248.zip)",
+      "Bash(python3 *)",
+      "Read(//tmp/**)",
+      "Bash(mkdir -p /tmp/raw_pro)",
+      "Bash(unzip -q /home/redafrix/Downloads/phase2_tdqc_raw_pro_4000_20260428_171248.zip -d /tmp/raw_pro)",
+      "Bash([ -f \"$path/best.pt\" ])",
+      "Bash([ -f \"$path/history.json\" ])",
+      "Bash(awk '{print $1, $2, $3, $11, $12}')",
+      "Bash(read f *)",
+      "Bash(kill 102499 102596)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(nvcc --version)",
+      "Bash(nvidia-smi)",
+      "Bash(conda env *)",
+      "Bash(nvidia-smi --query-gpu=name,memory.total,memory.free --format=csv,noheader)",
+      "Read(//usr/local/cuda/**)",
+      "Read(//usr/local/**)",
+      "Bash(pip3 install *)",
+      "Bash(pip install *)",
+      "Bash(unzip -l phase2_tdqc_goal_object_ood_denoise_OOD_test.zip)"
+    ]
+  }
+}
