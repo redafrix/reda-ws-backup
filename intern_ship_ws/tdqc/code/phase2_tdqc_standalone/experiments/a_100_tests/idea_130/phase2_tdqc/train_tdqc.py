@@ -39,7 +39,7 @@ def evaluate(model, loader, mean, std, device):
     return {"seq_brier": total_brier / max(total_count, 1.0)}
 
 def main():
-    args = parse_args()
+    args = parse_args(); args.num_layers = 3
     random.seed(args.seed); torch.manual_seed(args.seed)
     device = torch.device(args.device if torch.cuda.is_available() else "cpu")
     out_dir = Path(args.output_dir); out_dir.mkdir(parents=True, exist_ok=True)
@@ -56,9 +56,9 @@ def main():
     
     mean, std = stats["mean"].to(device), stats["std"].to(device)
     
-    model = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=args.hidden_dim, num_layers=3).to(device)
-    target_model = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=args.hidden_dim, num_layers=3).to(device)
-    target_model2 = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=args.hidden_dim, num_layers=3).to(device)
+    model = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=args.hidden_dim, num_layers=args.num_layers).to(device)
+    target_model = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=args.hidden_dim, num_layers=args.num_layers).to(device)
+    target_model2 = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=args.hidden_dim, num_layers=args.num_layers).to(device)
     hard_update(target_model, model); target_model.eval()
     optim = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     

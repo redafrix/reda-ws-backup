@@ -1,85 +1,75 @@
 # 🦾 REMOTE CONTROL & EXPERIMENT EXECUTION GUIDE
-# Workspace: /media/redafrix/My Passport/reda_ws
+# Workspace: /media/rootalkhatib/My Passport/reda_ws (on pcrobot)
 
-This document is the definitive handbook for any Gemini CLI session managing this workspace. It ensures resilience, precision, and 100% remote reliability.
+This document is the definitive handbook for any Gemini CLI session managing this workspace. It ensures resilience, precision, and 100% remote reliability, specifically hardened against SSH disconnects and file system corruption.
 
 ###############################################################################
 # 1. AUTHENTICATION & NETWORK (VERIFIED)
 ###############################################################################
 
-## Target Machines
-- **Batman (Local Workspace Host):**
-  - **User:** `redafrix`
-  - **Sudo Password:** `cvbn,;:!`
-  - **Tailscale IP:** `100.100.216.15`
-- **pcrobotubuntu02 (Remote Assistant):**
-  - **User:** `rootalkhatib`
-  - **Sudo Password:** `Mohammad_Alkhatib_CTT_2025`
-  - **Tailscale IP:** `100.105.217.20`
-  - **Local IP:** `172.16.8.104`
-  - **SSH Alias:** `pcrobot` (Configured in `~/.ssh/config` for passwordless access)
+## Target Machine: pcrobot
+- **User:** `rootalkhatib` (UID: 1001)
+- **Sudo Password:** `Mohammad_Alkhatib_CTT_2025`
+- **Tailscale IP:** `100.105.217.20`
+- **SSH Alias:** `pcrobot` (Configured in `~/.ssh/config` for passwordless access)
 
-## Global Access & Automation
-- Tailscale is **ACTIVE**.
-- Passwordless SSH is **CONFIGURED**. 
-- **Aliases:**
-  - `bob "command"` -> Runs any command on the remote machine (e.g., `bob "ls -la"`).
-  - `remsmi` -> Quick check of remote GPU status.
+## Critical Reliability Check (MANDATORY)
+Before starting any marathon, verify that **Lingering** is enabled for the user. Without this, Ubuntu's `systemd-logind` will kill all background processes (including tmux) as soon as the last SSH session disconnects.
+
+- **Check Status:** `loginctl show-user rootalkhatib --property=Linger`
+- **Enable if 'no':** `sudo loginctl enable-linger rootalkhatib`
 
 ###############################################################################
-# 2. EXPERIMENT PROTOCOL: THE "CAPSULE" STANDARDS
+# 2. FILE SYSTEM CAUTION: EXFAT DRIVE
 ###############################################################################
-
-To maintain causality and reproducibility, every experiment **MUST** follow these rules:
-
-1.  **Isolation:** Create a dedicated folder: `experiments/v8_expXX/`.
-2.  **Code Locality:** Copy all training and model code into `experiments/v8_expXX/code/`. Never run from the central source during a production experiment.
-3.  **Unbuffered Logging:** Every `print()` statement in training scripts must use `flush=True`.
-4.  **Causality:** STRICT ban on non-causal normalization. Always use global training statistics collected at the start of the run.
-5.  **Output Redirection:** Always redirect `stdout` and `stderr` to `../outputs_v1/training.log`.
+The workspace resides on an **exFAT external drive**. This format does NOT have a journal.
+- **Risk:** If a process is killed abruptly (SIGKILL) or the OS crashes, files being written to (especially logs) will suffer from **NULL-BYTE CORRUPTION** (appearing as `^@^@^@` in text editors).
+- **Mitigation:**
+  1. Always use **TMUX** to ensure processes have a persistent TTY.
+  2. Use `python3 -u` (unbuffered) to ensure logs are flushed to disk frequently.
+  3. Ensure **Linger** is active so the OS doesn't kill the session on disconnect.
 
 ###############################################################################
-# 3. RESILIENCE: HOW TO LAUNCH LONG-RUNNING TASKS
+# 3. EXPERIMENT PROTOCOL: THE "MARATHON" STANDARDS
 ###############################################################################
 
-**NEVER** run a training loop directly in the primary CLI shell. If the connection drops, the process dies.
+Every experiment in a 100-run marathon follows this structure:
 
-### Standard Launch (Detached):
-```bash
-nohup python3 train_tdqc.py [ARGS] > ../outputs_v1/training.log 2>&1 &
-```
+1.  **Isolation:** Dedicated folder: `experiments/a_100_tests/idea_XXX/`.
+2.  **Unbuffered Logging:** Launch training with `PYTHONUNBUFFERED=1` or `python3 -u`.
+3.  **Log Redirection:**
+    - Standard Out: `../logs_marathon/idea_XXX.log`
+    - Standard Err: Redirect to the same log or a dedicated `.err` file.
 
-### The TMUX Protocol (Preferred for Interactive Debugging):
-1. **Create Session:** `tmux new -s expXX_run`
-2. **Launch:** Run your training script.
+###############################################################################
+# 4. RESILIENCE: HOW TO LAUNCH LONG-RUNNING TASKS
+###############################################################################
+
+### The TMUX Protocol (Required)
+1. **Create/Enter Session:** `tmux attach -t marathon || tmux new -s marathon`
+2. **Launch:** `python3 -u train.py --epochs 1000 ...`
 3. **Detach:** Press `Ctrl+b`, then `d`.
-4. **Reconnect:** `tmux attach -t expXX_run`.
-
-**System Status:**
-- Sleep/Suspend: **DISABLED**.
-- Lid Close: **IGNORED**.
-- The machine will remain awake and reachable 24/7.
+4. **Disconnect Safety:** With `Linger` enabled, you can safely shut down your local PC. The training will persist.
 
 ###############################################################################
-# 4. GRANULAR EVALUATION & REPORTING
+# 5. GIT BACKUP STRATEGY (THE CHUNKED METHOD)
 ###############################################################################
 
-Every evaluation must produce detailed tables for the following intervals:
-- **Steps:** 10, 12, 15, 50, 100, 150, 200, 300, and Overall.
-- **Metrics:** Accuracy (Acc), Brier Score (Brier), AUC-ROC (AUC), and Sample Count (N).
-- **Datasets:**
-  1. `v8_test.pt` (Standard Test Set)
-  2. `v8_unseen_obj_ood.pt` (OOD Unseen Objects)
-- **Proactivity Logic:** Use **Horizon Max-Pooling** (`max()` probability from step 0 to target step) to credit the model for early warnings.
+To backup the 233GB workspace code without timing out GitHub's servers:
+
+1.  **Strict .gitignore:** Must ignore `*.pt`, `*.zip`, `runs/`, `logs/`, and `data/`.
+2.  **Buffer Increase:** `git config http.postBuffer 524288000`
+3.  **Chunked Uploads:**
+    - **Chunk 1:** Root files (`.py`, `.sh`, `.md`).
+    - **Chunk 2:** Research directories (`00_subjects/` to `06_papers/`).
+    - **Chunk 3:** Code folders (`intern_ship_ws/tdqc/`, `intern_ship_ws/simvla/`).
+4.  **Nested Git Cleanup:** Before a full workspace push, find and remove nested `.git` folders (`find . -name '.git' -type d -exec rm -rf {} +`) to avoid submodule conflicts.
 
 ###############################################################################
-# 5. TROUBLESHOOTING
+# 6. SYSTEM HEALTH & MONITORING
 ###############################################################################
+- **GPU Status:** `nvidia-smi` (Target: 80% usage, Temp < 85°C).
+- **Process Check:** `ps aux | grep train.py`
+- **Progress Audit:** `tail -f experiments/a_100_tests/logs_marathon/idea_XXX.log`
 
-- **`spawn ENOENT`:** Restart the CLI session or verify the execution path.
-- **Environment:** Always use the SSD-based environment: `/home/redafrix/envs/simvla`.
-- **Activation:** `source intern_ship_ws/activate_simvla.sh`.
-- **GPU Not Found:** Re-run the activation script; it handles the CUDA pathing for the hybrid external/internal setup.
-
-**MANAGEMENT IS 100% REMOTE. NO MANUAL INTERVENTION REQUIRED ON THE PHYSICAL PC.**
-###############################################################################
+**MANAGEMENT IS 100% REMOTE. NO PHYSICAL ACCESS REQUIRED.**

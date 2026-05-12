@@ -14,7 +14,7 @@ def parse_args():
     p.add_argument("--hidden_dim", type=int, default=128)
     p.add_argument("--num_layers", type=int, default=1)
     p.add_argument("--dropout", type=float, default=0.05)
-    p.add_argument("--batch_size", type=int, default=64)
+    p.add_argument("--batch_size", type=int, default=512)
     p.add_argument("--epochs", type=int, default=1000)
     p.add_argument("--lr", type=float, default=1e-4)
     p.add_argument("--weight_decay", type=float, default=1e-2)
@@ -39,15 +39,15 @@ def evaluate(model, loader, mean, std, device):
     return {"seq_brier": total_brier / max(total_count, 1.0)}
 
 def main():
-    args = parse_args()
+    args = parse_args(); args.hidden_dim = 256
     random.seed(args.seed); torch.manual_seed(args.seed)
     device = torch.device(args.device if torch.cuda.is_available() else "cpu")
     out_dir = Path(args.output_dir); out_dir.mkdir(parents=True, exist_ok=True)
     dataset = TDQCDataset(args.dataset_path, max_horizon=150, is_train=True) # Truncation Mandate
     n_train = int(0.7 * len(dataset)); n_val = int(0.15 * len(dataset))
     train_set, val_set, test_set = random_split(dataset, [n_train, n_val, len(dataset)-n_train-n_val])
-    train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, collate_fn=tdqc_collate)
-    val_loader = DataLoader(val_set, batch_size=args.batch_size, collate_fn=tdqc_collate)
+    train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, collate_fn=tdqc_collate, num_workers=4, pin_memory=True)
+    val_loader = DataLoader(val_set, batch_size=args.batch_size, collate_fn=tdqc_collate, num_workers=4, pin_memory=True)
     
     
     # Properly collect all valid time-steps for normalization
@@ -56,9 +56,9 @@ def main():
     
     mean, std = stats["mean"].to(device), stats["std"].to(device)
     
-    model = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=256, num_layers=args.num_layers).to(device)
-    target_model = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=256, num_layers=args.num_layers).to(device)
-    target_model2 = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=256, num_layers=args.num_layers).to(device)
+    model = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=args.hidden_dim, num_layers=args.num_layers).to(device)
+    target_model = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=args.hidden_dim, num_layers=args.num_layers).to(device)
+    target_model2 = TDQCTransformerCalibrator(input_dim=dataset.input_dim, hidden_dim=args.hidden_dim, num_layers=args.num_layers).to(device)
     hard_update(target_model, model); target_model.eval()
     optim = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     

@@ -14,7 +14,7 @@ def parse_args():
     p.add_argument("--hidden_dim", type=int, default=128)
     p.add_argument("--num_layers", type=int, default=1)
     p.add_argument("--dropout", type=float, default=0.05)
-    p.add_argument("--batch_size", type=int, default=64)
+    p.add_argument("--batch_size", type=int, default=512)
     p.add_argument("--epochs", type=int, default=1000)
     p.add_argument("--lr", type=float, default=1e-4)
     p.add_argument("--weight_decay", type=float, default=1e-2)
@@ -46,8 +46,8 @@ def main():
     dataset = TDQCDataset(args.dataset_path, max_horizon=150) # Truncation Mandate
     n_train = int(0.7 * len(dataset)); n_val = int(0.15 * len(dataset))
     train_set, val_set, test_set = random_split(dataset, [n_train, n_val, len(dataset)-n_train-n_val])
-    train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, collate_fn=tdqc_collate)
-    val_loader = DataLoader(val_set, batch_size=args.batch_size, collate_fn=tdqc_collate)
+    train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True, collate_fn=tdqc_collate, num_workers=4, pin_memory=True)
+    val_loader = DataLoader(val_set, batch_size=args.batch_size, collate_fn=tdqc_collate, num_workers=4, pin_memory=True)
     
     
     # Properly collect all valid time-steps for normalization
