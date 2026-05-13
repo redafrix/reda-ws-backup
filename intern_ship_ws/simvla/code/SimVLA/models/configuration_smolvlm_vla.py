@@ -47,6 +47,9 @@ class SmolVLMVLAConfig(PretrainedConfig):
         # === DiT/AdaLN Mode ===
         use_adaln: bool = False,
         
+        # === Uncertainty prediction ===
+        predict_uncertainty: bool = False,
+        
         # === Image settings ===
         image_size: int = 384,  # Can be 384 or 512
         num_views: int = 3,  # Number of camera views
@@ -71,6 +74,9 @@ class SmolVLMVLAConfig(PretrainedConfig):
         
         # DiT/AdaLN settings
         self.use_adaln = use_adaln
+
+        # Uncertainty prediction
+        self.predict_uncertainty = predict_uncertainty
         
         # Image settings
         self.image_size = image_size

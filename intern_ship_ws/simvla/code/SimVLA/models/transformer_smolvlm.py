@@ -277,6 +277,7 @@ class SmolVLMActionTransformer(nn.Module):
         dim_time: int = 32,
         max_len_seq: int = 1024,
         use_adaln: bool = False,
+        predict_uncertainty: bool = False,
     ) -> None:
         super().__init__()
         self.hidden_size = hidden_size
@@ -284,6 +285,7 @@ class SmolVLMActionTransformer(nn.Module):
         self.dim_time = dim_time
         self.dim_propio = dim_propio
         self.use_adaln = use_adaln
+        self.predict_uncertainty = predict_uncertainty
 
         if use_adaln:
             # ========== DiT Mode: AdaLN ==========
@@ -310,7 +312,11 @@ class SmolVLMActionTransformer(nn.Module):
             nn.init.normal_(self.pos_emb, std=0.02)
             
             # Final layer
-            self.final_layer = FinalLayer(hidden_size, dim_action)
+            if predict_uncertainty:
+                self.velocity_head = FinalLayer(hidden_size, dim_action)
+                self.logvar_head = FinalLayer(hidden_size, dim_action)
+            else:
+                self.final_layer = FinalLayer(hidden_size, dim_action)
         else:
             # ========== Concat Mode: Original architecture ==========
             self.blocks = nn.ModuleList(
@@ -328,7 +334,11 @@ class SmolVLMActionTransformer(nn.Module):
             # Action encoder/decoder
             action_input_dim = dim_action + dim_time + dim_propio
             self.action_encoder = nn.Linear(action_input_dim, hidden_size)
-            self.action_decoder = nn.Linear(hidden_size, dim_action)
+            if predict_uncertainty:
+                self.velocity_head = nn.Linear(hidden_size, dim_action)
+                self.logvar_head = nn.Linear(hidden_size, dim_action)
+            else:
+                self.action_decoder = nn.Linear(hidden_size, dim_action)
 
         self.apply(basic_init)
 
@@ -397,7 +407,10 @@ class SmolVLMActionTransformer(nn.Module):
             x = block(x)
 
         # Decode only the action segment
-        return self.action_decoder(self.norm(x[:, :num_actions]))
+        x_out = self.norm(x[:, :num_actions])
+        if self.predict_uncertainty:
+            return self.velocity_head(x_out), self.logvar_head(x_out)
+        return self.action_decoder(x_out)
     
     def _forward_adaln(
         self,
@@ -439,6 +452,8 @@ class SmolVLMActionTransformer(nn.Module):
             x = block(x, c)
         
         # ========== 4. Final Layer with AdaLN ==========
+        if self.predict_uncertainty:
+            return self.velocity_head(x, c), self.logvar_head(x, c)
         return self.final_layer(x, c)
 
 

@@ -65,7 +65,7 @@ def load_model(checkpoint_path: str, norm_stats_path: str = None, smolvlm_model_
     
     logger.info(f"Loading SimVLA from {checkpoint_path}...")
     
-    model = SmolVLMVLA.from_pretrained(checkpoint_path)
+    model = SmolVLMVLA.from_pretrained(checkpoint_path, smolvlm_model_path=smolvlm_model_path)
     model = model.to(device)
     model.eval()
     
@@ -134,6 +134,7 @@ def decode_numpy(obj):
 
 
 def infer(observation: Dict[str, Any]) -> Dict[str, Any]:
+    logger.info("Infer function called")
     """Run inference on a single observation."""
     global model, processor
     
@@ -161,10 +162,10 @@ def infer(observation: Dict[str, Any]) -> Dict[str, Any]:
             state = np.pad(state, (0, 8 - len(state)))
         state = state[:8]
         
-        # Preprocess images
-        images, image_mask = preprocess_images(image0, image1)
-        images = images.to(device)
-        image_mask = image_mask.to(device)
+        # Preprocess images using the unified processor
+        proc_out = processor.encode_image([[image0, image1]])
+        images = proc_out["image_input"].to(device)
+        image_mask = proc_out["image_mask"].to(device)
         
         # Encode language instruction
         lang = processor.encode_language([prompt])
@@ -185,6 +186,7 @@ def infer(observation: Dict[str, Any]) -> Dict[str, Any]:
         
         actions = actions.cpu().numpy()[0]
         
+        logger.info(f"Predicted actions: {actions[0]}")
         return {"actions": actions}
         
     except Exception as e:
@@ -213,6 +215,7 @@ async def handle_connection(websocket, path=None):
         
         # Process requests
         async for message in websocket:
+            logger.info(f"Received message of type: {type(message)}")
             try:
                 # Parse request
                 if HAS_MSGPACK and isinstance(message, bytes):

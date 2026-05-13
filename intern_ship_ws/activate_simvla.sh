@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Hybrid Setup: Use the internal SSD environment for stability, but workspace on external drive.
-ENV_PATH="/home/redafrix/envs/simvla"
+ENV_PATH="/home/rootalkhatib/test/reda_ws/intern_ship_ws/assets/envs/envs/simvla"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Initialize conda

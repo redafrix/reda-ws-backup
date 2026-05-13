@@ -1,63 +1,63 @@
-# Ignore all binary and large data formats
-*.pt
-*.pth
-*.ckpt
-*.bin
+# Large results
+eval_results_*/
+eval_results_clean/
+*.mp4
+*.json
+!simvla/code/SimVLA/norm_stats/*.json
+!*.py
+!*.sh
+!*.md
+
+# Models and data
+checkpoints/
+ood_data/
 *.zip
-*.tar.gz
-*.7z
-*.rar
+*.pth
+*.bin
+*.pt
+*.safetensors
+*.hdf5
+*.h5
 *.npy
 *.npz
-*.h5
-*.pdf
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.mp4
-*.exe
-*.dll
-*.so
-*.o
-*.a
+*.ckpt
 
-# Ignore large CSVs and Excel (often datasets)
+# Large data / logs
+*.jsonl
 *.csv
 *.xlsx
 *.xls
-
-# Ignore large log files
 *.log
 training_log.txt
 project_context_dump.txt
 ultimate_project_context.txt
 
-# Ignore specific large directories
+# Large directories
 runs/
 logs/
 logs_marathon/
 data/
 datasets/
+intern_ship_ws/assets/
+intern_ship_ws/outputs/runs/
+intern_ship_ws/outputs/temp/
+intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/v9_eval_libero_pro/
+
+# Python/System
 __pycache__/
 .ipynb_checkpoints/
-node_modules/
 venv/
-.env
-
-# Hidden system files
+envs/
 .DS_Store
 Thumbs.db
 .goutputstream-*
 
-# Purged large assets
-intern_ship_ws/assets/
-intern_ship_ws/phase2_tdqc_denoise_clean_splits_20260504/
-intern_ship_ws/outputs/temp/
-intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/v9_eval_libero_pro/
-
-# Added by Gemini
-*.hdf5
-*.jsonl
-*.safetensors
-*.pth
+# Root-level exclusions
+00_subjects/
+01_context/
+02_search_strategy/
+03_search_runs/
+04_structured_research/
+05_external_assets/
+06_papers/
+v8_experiment_package.zip

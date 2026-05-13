@@ -97,6 +97,7 @@ class SmolVLMVLA(PreTrainedModel):
             dim_time=config.dim_time,
             max_len_seq=config.max_len_seq,
             use_adaln=self.use_adaln,
+            predict_uncertainty=getattr(config, 'predict_uncertainty', False),
         )
         
         if self.use_adaln:
@@ -428,12 +429,16 @@ class SmolVLMVLA(PreTrainedModel):
         while t > -dt / 2:
             t_tensor = torch.full((B,), t, device=device, dtype=dtype)
             
-            v_t = self.transformer(
+            output = self.transformer(
                 vlm_features=enc["vlm_features"],
                 action_with_noise=x_t,
                 proprio=proprio_norm,
                 t=t_tensor,
             )
+            if getattr(self.config, 'predict_uncertainty', False):
+                v_t, _ = output
+            else:
+                v_t = output
         
             x_t = x_t + dt * v_t
             t = t + dt
