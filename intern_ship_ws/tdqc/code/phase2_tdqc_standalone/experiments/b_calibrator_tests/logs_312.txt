@@ -1,0 +1,16 @@
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/b_calibrator_tests/train_physics_heavy.py:14: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  obj = torch.load(path, map_location='cpu')
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/tdqc/code/phase2_tdqc_standalone/experiments/b_calibrator_tests/train_physics_heavy.py:16: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.episodes = [TDQCEpisode(torch.tensor(ep['features'], dtype=torch.float32), int(ep['success'])) for ep in raw]
+Physics-Heavy Epoch 0 Loss: 0.009837
+Physics-Heavy Epoch 1 Loss: 0.007767
+Physics-Heavy Epoch 2 Loss: 0.007618
+Physics-Heavy Epoch 3 Loss: 0.007546
+Physics-Heavy Epoch 4 Loss: 0.007499
+Physics-Heavy Epoch 5 Loss: 0.007462
+Physics-Heavy Epoch 6 Loss: 0.007436
+Physics-Heavy Epoch 7 Loss: 0.007410
+Physics-Heavy Epoch 8 Loss: 0.007389
+Physics-Heavy Epoch 9 Loss: 0.007368
+Physics-Heavy Epoch 10 Loss: 0.007351
+Physics-Heavy Epoch 11 Loss: 0.007337
