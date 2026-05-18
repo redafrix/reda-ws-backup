@@ -72,6 +72,12 @@ def load_model(checkpoint_path: str, norm_stats_path: str = None, smolvlm_model_
     smolvlm_path = smolvlm_model_path or "HuggingFaceTB/SmolVLM-500M-Instruct"
     processor = SmolVLMVLAProcessor.from_pretrained(smolvlm_path)
     
+    # Force ImageNet normalization to match training (dataset_smolvlm.py)
+    import torch
+    processor._image_mean = torch.tensor([0.485, 0.456, 0.406]).view(1, 3, 1, 1)
+    processor._image_std = torch.tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1)
+    logger.info(f'Forced ImageNet normalization: mean={processor._image_mean.squeeze().tolist()}, std={processor._image_std.squeeze().tolist()}')
+    
     if norm_stats_path and os.path.exists(norm_stats_path):
         logger.info(f"Loading norm stats from: {norm_stats_path}")
         model.action_space.load_norm_stats(norm_stats_path)
@@ -186,7 +192,7 @@ def infer(observation: Dict[str, Any]) -> Dict[str, Any]:
         
         actions = actions.cpu().numpy()[0]
         
-        logger.info(f"Predicted actions: {actions[0]}")
+        logger.info(f"Predicted actions: {actions[0].tolist()}")
         return {"actions": actions}
         
     except Exception as e:

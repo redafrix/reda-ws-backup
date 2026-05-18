@@ -1,0 +1,62 @@
+# Stage 8 Architecture/Loss Big Sweep Results
+
+Generated: 2026-05-15T22:58:12+02:00
+
+Variants: action_only_baseline full_old_baseline context_gated_action seed_relative_rater seed_relative_pairwise per_step_error_head full_engineered_mlp full_engineered_simvla_focused seed_relative_simvla_focused heteroscedastic_head heteroscedastic_simvla_focused
+
+- completed id_task_split
+- completed holdout_libero_object
+- completed holdout_object_bowl
+- completed holdout_libero_spatial
+- completed holdout_libero_goal
+- completed holdout_object_cabinet
+- completed holdout_scene_kitchen_scene2
+
+## Quantile heads
+TRAIN holdout_libero_object quantile_action_q80
+TRAIN holdout_libero_object quantile_action_q90
+TRAIN holdout_libero_object quantile_action_q95
+TRAIN holdout_libero_object quantile_context_gated_q80
+TRAIN holdout_libero_object quantile_context_gated_q90
+TRAIN holdout_libero_object quantile_context_gated_q95
+TRAIN holdout_libero_object quantile_seed_relative_q90
+TRAIN holdout_object_bowl quantile_action_q80
+TRAIN holdout_object_bowl quantile_action_q90
+TRAIN holdout_object_bowl quantile_action_q95
+TRAIN holdout_object_bowl quantile_context_gated_q80
+TRAIN holdout_object_bowl quantile_context_gated_q90
+TRAIN holdout_object_bowl quantile_context_gated_q95
+TRAIN holdout_object_bowl quantile_seed_relative_q90
+TRAIN holdout_libero_spatial quantile_action_q80
+TRAIN holdout_libero_spatial quantile_action_q90
+TRAIN holdout_libero_spatial quantile_action_q95
+TRAIN holdout_libero_spatial quantile_context_gated_q80
+TRAIN holdout_libero_spatial quantile_context_gated_q90
+TRAIN holdout_libero_spatial quantile_context_gated_q95
+TRAIN holdout_libero_spatial quantile_seed_relative_q90
+TRAIN holdout_libero_goal quantile_action_q80
+TRAIN holdout_libero_goal quantile_action_q90
+TRAIN holdout_libero_goal quantile_action_q95
+TRAIN holdout_libero_goal quantile_context_gated_q80
+TRAIN holdout_libero_goal quantile_context_gated_q90
+TRAIN holdout_libero_goal quantile_context_gated_q95
+TRAIN holdout_libero_goal quantile_seed_relative_q90
+/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_quantile_head_results.md
+
+## Reports
+- `stage8_big_arch_holdout_libero_goal.json`
+- `stage8_big_arch_holdout_libero_goal.md`
+- `stage8_big_arch_holdout_libero_object.json`
+- `stage8_big_arch_holdout_libero_object.md`
+- `stage8_big_arch_holdout_libero_spatial.json`
+- `stage8_big_arch_holdout_libero_spatial.md`
+- `stage8_big_arch_holdout_object_bowl.json`
+- `stage8_big_arch_holdout_object_bowl.md`
+- `stage8_big_arch_holdout_object_cabinet.json`
+- `stage8_big_arch_holdout_object_cabinet.md`
+- `stage8_big_arch_holdout_scene_kitchen_scene2.json`
+- `stage8_big_arch_holdout_scene_kitchen_scene2.md`
+- `stage8_big_arch_id_task_split.json`
+- `stage8_big_arch_id_task_split.md`
+- `stage8_quantile_head_results.json`
+- `stage8_quantile_head_results.md`
