@@ -22,6 +22,31 @@ def set_state(env, state: dict) -> None:
     else:
         sim.set_state(state["state"])
     sim.forward()
+    clear_episode_termination(env)
+
+
+def clear_episode_termination(env) -> None:
+    """Reset robosuite/LIBERO termination flags after restoring a raw MuJoCo state."""
+    seen = set()
+    stack = [env]
+    for attr in ("env", "base_env", "wrapped_env", "_env"):
+        obj = getattr(env, attr, None)
+        if obj is not None:
+            stack.append(obj)
+    while stack:
+        obj = stack.pop()
+        if obj is None or id(obj) in seen:
+            continue
+        seen.add(id(obj))
+        for flag in ("_episode_terminated", "done", "_done", "terminated", "_terminated"):
+            if hasattr(obj, flag):
+                try:
+                    setattr(obj, flag, False)
+                except Exception:
+                    pass
+        inner = getattr(obj, "env", None)
+        if inner is not None and id(inner) not in seen:
+            stack.append(inner)
 
 def state_distance(a: dict, b: dict) -> float:
     if a.get("kind") == b.get("kind") == "mujoco_flat":

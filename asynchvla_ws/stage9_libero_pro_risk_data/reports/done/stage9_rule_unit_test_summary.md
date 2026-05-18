@@ -1,10 +1,10 @@
 # Stage 9 Rule Unit Test Summary
 
-Generated: `2026-05-18T11:22:29`
+Generated: `2026-05-18T16:02:09`
 
 Target parser pass: `True`
 
-Rule version: `stage9_rules_v6_four_class_evidence`
+Rule version: `stage9_rules_v7_corrected_strong_bad_only`
 
 Passed: `10/10`
 
@@ -25,8 +25,8 @@ Gate decision: `PASS`
 
 ```json
 {
-  "generated": "2026-05-18T11:22:29",
-  "rule_version": "stage9_rules_v6_four_class_evidence",
+  "generated": "2026-05-18T16:02:09",
+  "rule_version": "stage9_rules_v7_corrected_strong_bad_only",
   "target_parser_pass": true,
   "target_parser_output": {
     "task_language": "pick the alphabet soup and place it in the basket",

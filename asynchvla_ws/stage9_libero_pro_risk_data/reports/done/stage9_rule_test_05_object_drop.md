@@ -83,9 +83,12 @@ After image: `/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage9_libero
       "bad_contact_confident": null,
       "phase": "transport_or_place"
     },
-    "rule_version": "stage9_rules_v6_four_class_evidence",
+    "rule_version": "stage9_rules_v7_corrected_strong_bad_only",
     "strong_good_evidence": [],
     "weak_good_evidence": [],
+    "weak_negative_evidence": [
+      "zero_reward_only_weak"
+    ],
     "bad_evidence": [
       "target_object_dropped"
     ]

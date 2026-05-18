@@ -83,13 +83,16 @@ After image: `/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage9_libero
       "bad_contact_confident": null,
       "phase": "grasp_or_lift"
     },
-    "rule_version": "stage9_rules_v6_four_class_evidence",
+    "rule_version": "stage9_rules_v7_corrected_strong_bad_only",
     "strong_good_evidence": [
       "target_object_lifted"
     ],
     "weak_good_evidence": [
       "small_target_motion_not_strong",
       "weak_target_alignment_improved"
+    ],
+    "weak_negative_evidence": [
+      "zero_reward_only_weak"
     ],
     "bad_evidence": []
   }

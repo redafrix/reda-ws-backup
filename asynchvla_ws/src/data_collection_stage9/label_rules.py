@@ -1,9 +1,10 @@
 from __future__ import annotations
-RULE_VERSION = "stage9_rules_v6_four_class_evidence"
+RULE_VERSION = "stage9_rules_v7_corrected_strong_bad_only"
 
 LABEL_GOOD_STRONG = "GOOD_STRONG"
 LABEL_GOOD_WEAK = "GOOD_WEAK"
 LABEL_BAD = "BAD"
+LABEL_VALIDATED_BAD = "VALIDATED_BAD"
 LABEL_AMBIGUOUS = "AMBIGUOUS"
 
 
@@ -77,8 +78,6 @@ def _bad_evidence(e: dict) -> list[str]:
         reasons.append("large_object_height_drop")
     if goal_delta is not None and goal_delta > 0.06 and target_motion is not None and target_motion > 0.02:
         reasons.append("target_object_moved_away_from_goal")
-    if e.get("phase") in {"approach", "near_grasp"} and target_eef_delta is not None and target_eef_delta > 0.045:
-        reasons.append("eef_moved_away_from_target_during_approach")
     if _truthy(e.get("gripper_opened_near_target")) and th_drop is not None and th_drop > 0.04:
         reasons.append("gripper_lost_or_released_target")
     if _truthy(e.get("bad_contact_confident")):
@@ -90,7 +89,18 @@ def _bad_evidence(e: dict) -> list[str]:
     no_goal_progress = goal_delta is None or goal_delta > -0.003
     no_target_approach = target_eef_delta is None or target_eef_delta > -0.003
     if e.get("nonzero_reward_count_H", 0) == 0 and no_eef and no_target_motion and no_goal_progress and no_target_approach:
-        reasons.append("zero_reward_no_eef_target_or_goal_progress")
+        reasons.append("no_progress_strong")
+    return reasons
+
+
+def _weak_negative_evidence(e: dict) -> list[str]:
+    reasons = []
+    target_eef_delta = e.get("target_to_eef_delta")
+    phase = e.get("phase")
+    if phase in {"approach", "near_grasp"} and target_eef_delta is not None and target_eef_delta > 0.045:
+        reasons.append("eef_moved_away_from_target_during_approach")
+    if e.get("reward_sum_H", 0.0) == 0.0 and e.get("nonzero_reward_count_H", 0) == 0:
+        reasons.append("zero_reward_only_weak")
     return reasons
 
 
@@ -134,10 +144,12 @@ def label_outcome(outcome: dict, task_context: dict | None = None) -> dict:
     bad = _bad_evidence(e)
     strong = _strong_good_evidence(e)
     weak = _weak_good_evidence(e)
+    weak_negative = _weak_negative_evidence(e)
     if bad:
-        return {"label": LABEL_BAD, "label_confidence": "HIGH" if any("drop" in r or "unstable" in r for r in bad) else "MEDIUM", "bad_event_type": bad[0], "label_reasons": bad, "numeric_evidence": e, "rule_version": RULE_VERSION, "strong_good_evidence": strong, "weak_good_evidence": weak, "bad_evidence": bad}
+        return {"label": LABEL_BAD, "label_confidence": "HIGH" if any("drop" in r or "unstable" in r or "no_progress_strong" in r for r in bad) else "MEDIUM", "bad_event_type": bad[0], "label_reasons": bad, "numeric_evidence": e, "rule_version": RULE_VERSION, "strong_good_evidence": strong, "weak_good_evidence": weak, "weak_negative_evidence": weak_negative, "bad_evidence": bad}
     if strong:
-        return {"label": LABEL_GOOD_STRONG, "label_confidence": "HIGH", "bad_event_type": None, "label_reasons": strong, "numeric_evidence": e, "rule_version": RULE_VERSION, "strong_good_evidence": strong, "weak_good_evidence": weak, "bad_evidence": []}
+        return {"label": LABEL_GOOD_STRONG, "label_confidence": "HIGH", "bad_event_type": None, "label_reasons": strong, "numeric_evidence": e, "rule_version": RULE_VERSION, "strong_good_evidence": strong, "weak_good_evidence": weak, "weak_negative_evidence": weak_negative, "bad_evidence": []}
     if weak:
-        return {"label": LABEL_GOOD_WEAK, "label_confidence": "MEDIUM", "bad_event_type": None, "label_reasons": weak, "numeric_evidence": e, "rule_version": RULE_VERSION, "strong_good_evidence": [], "weak_good_evidence": weak, "bad_evidence": []}
-    return {"label": LABEL_AMBIGUOUS, "label_confidence": "LOW", "bad_event_type": "unknown", "label_reasons": ["no_clear_task_relevant_progress_or_bad_event"], "numeric_evidence": e, "rule_version": RULE_VERSION, "strong_good_evidence": [], "weak_good_evidence": [], "bad_evidence": []}
+        return {"label": LABEL_GOOD_WEAK, "label_confidence": "MEDIUM", "bad_event_type": None, "label_reasons": weak, "numeric_evidence": e, "rule_version": RULE_VERSION, "strong_good_evidence": [], "weak_good_evidence": weak, "weak_negative_evidence": weak_negative, "bad_evidence": []}
+    reasons = weak_negative or ["no_clear_task_relevant_progress_or_bad_event"]
+    return {"label": LABEL_AMBIGUOUS, "label_confidence": "LOW", "bad_event_type": "unknown", "label_reasons": reasons, "numeric_evidence": e, "rule_version": RULE_VERSION, "strong_good_evidence": [], "weak_good_evidence": [], "weak_negative_evidence": weak_negative, "bad_evidence": []}

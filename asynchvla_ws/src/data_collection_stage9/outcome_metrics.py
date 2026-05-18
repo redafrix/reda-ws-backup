@@ -1,7 +1,8 @@
 from __future__ import annotations
 import numpy as np
 from typing import Any
-from .libero_pro_env_utils import check_success, obs_to_proprio
+from pathlib import Path
+from .libero_pro_env_utils import check_success, obs_to_proprio, obs_images
 from .sim_state_utils import get_sim
 
 def obs_signal_summary(obs: dict) -> dict:
@@ -201,11 +202,98 @@ def compute_delta(before_obs, after_obs, before_obj, after_obj, task_context: di
     task = task_progress(before_obs, after_obs, before_obj, after_obj, task_context)
     return {"eef_delta": eef_delta, "object_delta_max": max(object_deltas.values()) if object_deltas else None, "object_deltas": object_deltas, "height_drop_max": max(height_drops.values()) if height_drops else None, "height_drops": height_drops, **rel, "task_progress": task}
 
-def execute_action_chunk(env, action_chunk, horizon: int, before_obs: dict, task_context: dict | None = None, return_after_obs: bool = False):
+
+def _safe_float_list(v):
+    if v is None:
+        return None
+    try:
+        return np.asarray(v, dtype=float).tolist()
+    except Exception:
+        return None
+
+
+def _trace_task_values(obs: dict, obj: dict, task_context: dict | None) -> dict:
+    if not task_context:
+        return {
+            "target_object_position": None,
+            "target_object_height": None,
+            "object_goal_distance": None,
+            "eef_target_distance": None,
+        }
+    target = task_context.get("target_base")
+    goal = task_context.get("goal_base")
+    tp = obs_pos(obs, target)
+    gp = obs_pos(obs, goal)
+    if tp is None:
+        tp = body_pos_by_prefix(obj, task_context.get("target_body_prefix"))
+    if gp is None:
+        gp = body_pos_by_prefix(obj, task_context.get("goal_body_prefix"))
+    ep = eef_pos(obs)
+    return {
+        "target_object_position": _safe_float_list(tp),
+        "target_object_height": float(tp[2]) if tp is not None else None,
+        "object_goal_distance": float(np.linalg.norm(tp - gp)) if tp is not None and gp is not None and target != goal else None,
+        "eef_target_distance": float(np.linalg.norm(tp - ep)) if tp is not None and ep is not None else None,
+    }
+
+
+def _save_trace_frame(frame_dir, step_index: int, obs: dict) -> str | None:
+    if frame_dir is None:
+        return None
+    try:
+        from PIL import Image
+        img, _ = obs_images(obs)
+        path = Path(frame_dir) / f"frame_{step_index:03d}.png"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        Image.fromarray(img.astype(np.uint8)).save(path)
+        return str(path)
+    except Exception:
+        return None
+
+
+def execute_action_chunk(
+    env,
+    action_chunk,
+    horizon: int,
+    before_obs: dict,
+    task_context: dict | None = None,
+    return_after_obs: bool = False,
+    save_full_trace: bool = False,
+    trace_frame_dir=None,
+    trace_frame_stride: int = 10,
+):
     rewards=[]; infos=[]; done=False; obs=before_obs
     before_success = check_success(env)
     before_obj = object_body_positions(env)
     before_contact = contact_summary(env)
+    trace = None
+    if save_full_trace:
+        initial_task = _trace_task_values(before_obs, before_obj, task_context)
+        trace = {
+            "schema_version": "stage9_horizon_trace_v1",
+            "requested_horizon": int(horizon),
+            "saved_action_steps": int(len(action_chunk)),
+            "rewards": [],
+            "success_flags": [],
+            "done_flags": [],
+            "eef_positions": [],
+            "target_object_positions": [],
+            "target_object_heights": [],
+            "object_goal_distances": [],
+            "eef_target_distances": [],
+            "gripper_states": [],
+            "contact_summaries": [],
+            "frame_paths": [],
+            "initial": {
+                "eef_position": _safe_float_list(eef_pos(before_obs)),
+                "gripper_state": _safe_float_list(gripper(before_obs)),
+                "contact_summary": before_contact,
+                **initial_task,
+            },
+        }
+        first_frame = _save_trace_frame(trace_frame_dir, 0, before_obs)
+        if first_frame:
+            trace["frame_paths"].append({"step": 0, "path": first_frame})
     
     # Robustness against robosuite "executing action in terminated episode"
     terminated = False
@@ -214,11 +302,31 @@ def execute_action_chunk(env, action_chunk, horizon: int, before_obs: dict, task
         if obj and (getattr(obj, '_episode_terminated', False) or getattr(obj, 'done', False)):
             terminated = True; break
 
-    if not terminated:
+    if terminated:
+        done = True
+    else:
         for i,act in enumerate(action_chunk[:horizon]):
             try:
                 obs, reward, done, info = env.step(np.asarray(act, dtype=np.float32))
                 rewards.append(float(reward)); infos.append({k: str(v)[:200] for k,v in (info or {}).items()})
+                if trace is not None:
+                    obj_now = object_body_positions(env)
+                    task_now = _trace_task_values(obs, obj_now, task_context)
+                    trace["rewards"].append(float(reward))
+                    trace["success_flags"].append(bool(check_success(env)))
+                    trace["done_flags"].append(bool(done))
+                    trace["eef_positions"].append(_safe_float_list(eef_pos(obs)))
+                    trace["target_object_positions"].append(task_now["target_object_position"])
+                    trace["target_object_heights"].append(task_now["target_object_height"])
+                    trace["object_goal_distances"].append(task_now["object_goal_distance"])
+                    trace["eef_target_distances"].append(task_now["eef_target_distance"])
+                    trace["gripper_states"].append(_safe_float_list(gripper(obs)))
+                    trace["contact_summaries"].append(contact_summary(env))
+                    step_num = i + 1
+                    if trace_frame_dir is not None and trace_frame_stride > 0 and (step_num % trace_frame_stride == 0 or step_num == min(horizon, len(action_chunk)) or done):
+                        frame_path = _save_trace_frame(trace_frame_dir, step_num, obs)
+                        if frame_path:
+                            trace["frame_paths"].append({"step": step_num, "path": frame_path})
                 if done: break
             except ValueError as e:
                 if "terminated episode" in str(e):
@@ -230,4 +338,13 @@ def execute_action_chunk(env, action_chunk, horizon: int, before_obs: dict, task
     after_contact = contact_summary(env)
     delta = compute_delta(before_obs, obs, before_obj, after_obj, task_context)
     result = {"H_used": int(min(horizon, len(action_chunk))), "steps_executed": len(rewards), "rewards": rewards, "reward_sum_H": float(sum(rewards)), "nonzero_reward_count_H": int(sum(abs(r)>1e-8 for r in rewards)), "success_before": before_success, "success_after": after_success, "success_within_H": bool(after_success and not before_success), "done_within_H": bool(done), "before_proprio": obs_to_proprio(before_obs).tolist(), "after_proprio": obs_to_proprio(obs).tolist(), "object_positions_before": before_obj, "object_positions_after": after_obj, "contact_before": before_contact, "contact_after": after_contact, "delta": delta, "info_keys": sorted(list(infos[-1].keys())) if infos else [], "last_info": infos[-1] if infos else {}}
+    if trace is not None:
+        trace["steps_executed"] = len(rewards)
+        trace["final"] = {
+            "eef_position": _safe_float_list(eef_pos(obs)),
+            "gripper_state": _safe_float_list(gripper(obs)),
+            "contact_summary": after_contact,
+            **_trace_task_values(obs, after_obj, task_context),
+        }
+        result["horizon_trace"] = trace
     return (result, obs) if return_after_obs else result
