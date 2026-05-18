@@ -1,0 +1,568 @@
+{
+  "created_at": "2026-05-15T15:09:28+02:00",
+  "jobs": [
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && mkdir -p asynchvla_ws/stage8_ultimate/results && echo bob_ok > asynchvla_ws/stage8_ultimate/results/smoke_bob_cpu.txt",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/smoke_bob_cpu.sh",
+      "dependencies": [],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/results/smoke_bob_cpu.txt"
+      ],
+      "gpu_required": false,
+      "job_id": "smoke_bob_cpu",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/smoke_bob_cpu.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 1,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/smoke_bob_cpu.json",
+      "timeout_hours": 1.0
+    },
+    {
+      "command": "cd /home/rootalkhatib/test/reda_ws && mkdir -p asynchvla_ws/stage8_ultimate/results && echo sam_ok > asynchvla_ws/stage8_ultimate/results/smoke_sam_cpu.txt",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/smoke_sam_cpu.sh",
+      "dependencies": [],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/results/smoke_sam_cpu.txt"
+      ],
+      "gpu_required": false,
+      "job_id": "smoke_sam_cpu",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/smoke_sam_cpu.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 1,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/smoke_sam_cpu.json",
+      "timeout_hours": 1.0
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && cat asynchvla_ws/stage8_ultimate/results/smoke_bob_cpu.txt > asynchvla_ws/stage8_ultimate/results/smoke_dependency_child.txt",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/smoke_dependency_child.sh",
+      "dependencies": [
+        "smoke_bob_cpu"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/results/smoke_dependency_child.txt"
+      ],
+      "gpu_required": false,
+      "job_id": "smoke_dependency_child",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/smoke_dependency_child.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 2,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/smoke_dependency_child.json",
+      "timeout_hours": 1.0
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\"; f=asynchvla_ws/stage8_ultimate/results/smoke_retry_counter.txt; n=0; [ -f \"$f\" ] && n=$(cat \"$f\"); n=$((n+1)); echo $n > \"$f\"; if [ \"$n\" -lt 2 ]; then echo intentional_fail; exit 7; fi; echo retry_ok > asynchvla_ws/stage8_ultimate/results/smoke_retry_success.txt",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/smoke_retry_failure.sh",
+      "dependencies": [],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/results/smoke_retry_success.txt"
+      ],
+      "gpu_required": false,
+      "job_id": "smoke_retry_failure",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/smoke_retry_failure.log",
+      "machine": "bob",
+      "max_retries": 2,
+      "priority": 2,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/smoke_retry_failure.json",
+      "timeout_hours": 1.0
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && bash asynchvla_ws/scripts/stage8_run_libero_pro_pilot.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/libero_pro_pilot_bob.sh",
+      "dependencies": [],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_libero_pro_pilot_results.md"
+      ],
+      "gpu_required": true,
+      "job_id": "libero_pro_pilot_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/libero_pro_pilot_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 10,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/libero_pro_pilot_bob.json",
+      "timeout_hours": 28
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && source asynchvla_ws/scripts/activate_simvla_sam.sh && export REDA_WS=\"/home/rootalkhatib/test/reda_ws\" && mkdir -p asynchvla_ws/stage8_ultimate/reports && for split in holdout_libero_object holdout_object_bowl holdout_libero_spatial; do timeout 14400 python3 asynchvla_ws/src/rater_stage6/run_stage6_experiments.py --split \"$split\" --variants action_only_baseline full_old_baseline context_gated_action seed_relative_pairwise per_step_error_head full_engineered_simvla_focused --epochs 80 --out-prefix stage8_${split}_model_sweep || echo \"WARN model_sweep failed $split\"; done; cp asynchvla_ws/outputs/reports/stage6/stage8_*_model_sweep.md asynchvla_ws/stage8_ultimate/reports/ 2>/dev/null || true; cp asynchvla_ws/outputs/reports/stage6/stage8_*_model_sweep.json asynchvla_ws/stage8_ultimate/reports/ 2>/dev/null || true",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_sam_model_sweep.sh",
+      "dependencies": [],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_holdout_libero_object_model_sweep.md"
+      ],
+      "gpu_required": false,
+      "job_id": "stage8_sam_model_sweep",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_sam_model_sweep.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 11,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_sam_model_sweep.json",
+      "timeout_hours": 18
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && source asynchvla_ws/scripts/activate_simvla_sam.sh && export REDA_WS=\"/home/rootalkhatib/test/reda_ws\" && python3 asynchvla_ws/src/calibration_stage8/run_calibration_sweep.py && cp asynchvla_ws/stage8_ultimate/reports/stage8_calibration*.md asynchvla_ws/stage8_ultimate/reports/ 2>/dev/null || true",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_sam_calibration_sweep.sh",
+      "dependencies": [
+        "stage8_sam_model_sweep"
+      ],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_calibration_sweep_summary.md"
+      ],
+      "gpu_required": false,
+      "job_id": "stage8_sam_calibration_sweep",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_sam_calibration_sweep.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 20,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_sam_calibration_sweep.json",
+      "timeout_hours": 2
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && REDA_WS=\"/home/rootalkhatib/test/reda_ws\" bash asynchvla_ws/scripts/stage8_run_sam_flowtrace_real.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_sam_flowtrace_real.sh",
+      "dependencies": [],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_flowtrace_real_results.md"
+      ],
+      "gpu_required": false,
+      "job_id": "stage8_sam_flowtrace_real",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_sam_flowtrace_real.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 21,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_sam_flowtrace_real.json",
+      "success_criteria": "flowtrace candidate datasets exist and variants train for at least three splits",
+      "timeout_hours": 28
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && REDA_WS=\"/home/rootalkhatib/test/reda_ws\" bash asynchvla_ws/scripts/stage8_run_sam_target_real.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_sam_target_real.sh",
+      "dependencies": [],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_target_sweep_real_results.md"
+      ],
+      "gpu_required": false,
+      "job_id": "stage8_sam_target_real",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_sam_target_real.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 22,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_sam_target_real.json",
+      "success_criteria": "multi-expert target columns built and rater variants evaluated",
+      "timeout_hours": 24
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && REDA_WS=\"/home/rootalkhatib/test/reda_ws\" bash asynchvla_ws/scripts/stage8_run_sam_arch_big.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_sam_arch_big.sh",
+      "dependencies": [
+        "stage8_sam_target_real"
+      ],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_architecture_loss_big_sweep_results.md"
+      ],
+      "gpu_required": false,
+      "job_id": "stage8_sam_arch_big",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_sam_arch_big.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 23,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_sam_arch_big.json",
+      "success_criteria": "expanded Stage6/8 architecture, heteroscedastic, and quantile sweeps complete",
+      "timeout_hours": 36
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && bash asynchvla_ws/scripts/stage8_run_sam_flowtrace_experiments.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/flowtrace_experiments_sam.sh",
+      "dependencies": [
+        "stage8_sam_model_sweep"
+      ],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_flowtrace_results.md"
+      ],
+      "gpu_required": false,
+      "job_id": "flowtrace_experiments_sam",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/flowtrace_experiments_sam.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 24,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/flowtrace_experiments_sam.json",
+      "timeout_hours": 16
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && REDA_WS=\"/home/rootalkhatib/test/reda_ws\" bash asynchvla_ws/scripts/stage8_run_sam_calibration_real.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_sam_calibration_real.sh",
+      "dependencies": [
+        "stage8_sam_arch_big"
+      ],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_calibration_mega_sweep_results.md",
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_calibration_best_deployable_method.md"
+      ],
+      "gpu_required": false,
+      "job_id": "stage8_sam_calibration_real",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_sam_calibration_real.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 24,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_sam_calibration_real.json",
+      "success_criteria": "target coverage 0.80/0.90/0.95 calibration sweeps complete",
+      "timeout_hours": 10
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && REDA_WS=\"/home/rootalkhatib/test/reda_ws\" bash asynchvla_ws/scripts/stage8_run_sam_history_real.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_sam_history_real.sh",
+      "dependencies": [
+        "stage8_sam_calibration_real"
+      ],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_history_real_results.md"
+      ],
+      "gpu_required": false,
+      "job_id": "stage8_sam_history_real",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_sam_history_real.log",
+      "machine": "sam",
+      "max_retries": 0,
+      "priority": 25,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_sam_history_real.json",
+      "success_criteria": "truthful history report or real history dataset/model if logs exist",
+      "timeout_hours": 2
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && bash asynchvla_ws/scripts/stage8_run_sam_target_sweep.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/target_sweep_sam.sh",
+      "dependencies": [
+        "stage8_sam_model_sweep"
+      ],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_target_comparison.md"
+      ],
+      "gpu_required": false,
+      "job_id": "target_sweep_sam",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/target_sweep_sam.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 25,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/target_sweep_sam.json",
+      "timeout_hours": 16
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && bash asynchvla_ws/scripts/stage8_run_sam_architecture_sweep.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/architecture_loss_sweep_sam.sh",
+      "dependencies": [
+        "stage8_sam_model_sweep"
+      ],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_model_sweep_results.md"
+      ],
+      "gpu_required": false,
+      "job_id": "architecture_loss_sweep_sam",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/architecture_loss_sweep_sam.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 26,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/architecture_loss_sweep_sam.json",
+      "timeout_hours": 24
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && bash asynchvla_ws/scripts/stage8_run_normal_libero_hard_baseline.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/normal_libero_hard_baseline_bob.sh",
+      "dependencies": [
+        "libero_pro_pilot_bob"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_normal_libero_hard_task_baseline.md"
+      ],
+      "gpu_required": true,
+      "job_id": "normal_libero_hard_baseline_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/normal_libero_hard_baseline_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 30,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/normal_libero_hard_baseline_bob.json",
+      "timeout_hours": 24
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && STAGE8_EPISODES=5 bash asynchvla_ws/scripts/stage8_run_libero_pro_expanded.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/libero_pro_expanded_rollout_bob.sh",
+      "dependencies": [
+        "normal_libero_hard_baseline_bob"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_libero_pro_expanded_rollout_results.md"
+      ],
+      "gpu_required": true,
+      "job_id": "libero_pro_expanded_rollout_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/libero_pro_expanded_rollout_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 31,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/libero_pro_expanded_rollout_bob.json",
+      "timeout_hours": 42
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && source asynchvla_ws/scripts/activate_simvla_bob.sh && python3 asynchvla_ws/src/data_building/build_flowtrace_multiseed_dataset.py --split-manifest asynchvla_ws/data/splits/holdout_libero_object.json --split-name stage8_flowtrace_medium --max-contexts 300 --max-calib 100 --max-test-id 100 --max-test-ood 100 --cap-per-file 40 --simvla-seeds 0 1 2 3 4 && python3 - <<'PY'\nfrom pathlib import Path\nimport torch\nbase=Path('asynchvla_ws/data/processed_stage7_flow/stage8_flowtrace_medium')\nlines=['# Stage 8 Flowtrace Results','',f'Dataset: `{base}`','']\nfor p in sorted(base.glob('flowtrace_multiseed_trace_*.pt')):\n d=torch.load(p,map_location='cpu'); samples=d.get('samples',[]); lines.append(f'- `{p.name}`: {len(samples)} contexts, seeds={d.get(\"seeds\")}')\nPath('asynchvla_ws/stage8_ultimate/reports/stage8_flowtrace_results.md').write_text('\\n'.join(lines)+'\\n')\nPY",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/flowtrace_medium_bob.sh",
+      "dependencies": [
+        "libero_pro_pilot_bob"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_flowtrace_results.md"
+      ],
+      "gpu_required": true,
+      "job_id": "flowtrace_medium_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/flowtrace_medium_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 40,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/flowtrace_medium_bob.json",
+      "timeout_hours": 12
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && bash asynchvla_ws/scripts/stage8_run_sam_calibration_mega.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/calibration_mega_sam.sh",
+      "dependencies": [
+        "architecture_loss_sweep_sam"
+      ],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_calibration_mega_sweep.md"
+      ],
+      "gpu_required": false,
+      "job_id": "calibration_mega_sam",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/calibration_mega_sam.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 50,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/calibration_mega_sam.json",
+      "timeout_hours": 8
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && STAGE8_EPISODES=30 bash asynchvla_ws/scripts/stage8_run_normal_libero_hard_30.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/normal_libero_hard_30eps_bob.sh",
+      "dependencies": [
+        "flowtrace_medium_bob"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_normal_libero_hard_task_results.md"
+      ],
+      "gpu_required": true,
+      "job_id": "normal_libero_hard_30eps_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/normal_libero_hard_30eps_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 60,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/normal_libero_hard_30eps_bob.json",
+      "timeout_hours": 42
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && STAGE8_EPISODES=30 bash asynchvla_ws/scripts/stage8_run_libero_pro_expanded.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/libero_pro_expanded_30eps_bob.sh",
+      "dependencies": [
+        "libero_pro_expanded_rollout_bob"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_libero_pro_expanded_rollout_results.md"
+      ],
+      "gpu_required": true,
+      "job_id": "libero_pro_expanded_30eps_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/libero_pro_expanded_30eps_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 70,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/libero_pro_expanded_30eps_bob.json",
+      "timeout_hours": 60
+    },
+    {
+      "command": "cd \"/home/rootalkhatib/test/reda_ws\" && bash asynchvla_ws/scripts/stage8_run_sam_history_models.sh",
+      "command_file": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/jobs/history_models_sam.sh",
+      "dependencies": [
+        "target_sweep_sam"
+      ],
+      "expected_outputs": [
+        "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_history_models.md"
+      ],
+      "gpu_required": false,
+      "job_id": "history_models_sam",
+      "log_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/logs/history_models_sam.log",
+      "machine": "sam",
+      "max_retries": 1,
+      "priority": 80,
+      "smoke_command": null,
+      "status_path": "/home/rootalkhatib/test/reda_ws/asynchvla_ws/stage8_ultimate/status/history_models_sam.json",
+      "timeout_hours": 1
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && bash asynchvla_ws/scripts/stage8_run_switch_policy_analysis.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/switch_policy_analysis_bob.sh",
+      "dependencies": [
+        "libero_pro_expanded_rollout_bob",
+        "normal_libero_hard_30eps_bob"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_switch_policy_results.md"
+      ],
+      "gpu_required": false,
+      "job_id": "switch_policy_analysis_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/switch_policy_analysis_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 90,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/switch_policy_analysis_bob.json",
+      "timeout_hours": 2
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && STAGE8_EPISODES=20 bash asynchvla_ws/scripts/stage8_run_libero_pro_expanded.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_libero_pro_20eps_bob.sh",
+      "dependencies": [
+        "libero_pro_expanded_rollout_bob"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_libero_pro_expanded_rollout_results.md"
+      ],
+      "gpu_required": true,
+      "job_id": "stage8_libero_pro_20eps_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_libero_pro_20eps_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 110,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_libero_pro_20eps_bob.json",
+      "success_criteria": "20-episode LIBERO-PRO expanded rollout report updated",
+      "timeout_hours": 48
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && STAGE8_EPISODES=50 bash asynchvla_ws/scripts/stage8_run_libero_pro_expanded.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_libero_pro_50eps_backup_bob.sh",
+      "dependencies": [
+        "stage8_libero_pro_20eps_bob"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_libero_pro_expanded_rollout_results.md"
+      ],
+      "gpu_required": true,
+      "job_id": "stage8_libero_pro_50eps_backup_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_libero_pro_50eps_backup_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 210,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_libero_pro_50eps_backup_bob.json",
+      "success_criteria": "50-episode backup LIBERO-PRO rollout if time remains",
+      "timeout_hours": 72
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && STAGE8_EPISODES=50 bash asynchvla_ws/scripts/stage8_run_normal_libero_hard_30.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_normal_libero_50eps_backup_bob.sh",
+      "dependencies": [
+        "normal_libero_hard_30eps_bob"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_normal_libero_hard_task_results.md"
+      ],
+      "gpu_required": true,
+      "job_id": "stage8_normal_libero_50eps_backup_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_normal_libero_50eps_backup_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 220,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_normal_libero_50eps_backup_bob.json",
+      "success_criteria": "50-episode hard normal LIBERO backup if time remains",
+      "timeout_hours": 48
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && bash asynchvla_ws/scripts/stage8_run_switch_policy_analysis.sh",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_switch_policy_extended_bob.sh",
+      "dependencies": [
+        "stage8_libero_pro_20eps_bob",
+        "stage8_sam_calibration_real"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/reports/stage8_switch_policy_results.md"
+      ],
+      "gpu_required": false,
+      "job_id": "stage8_switch_policy_extended_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_switch_policy_extended_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 230,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_switch_policy_extended_bob.json",
+      "success_criteria": "switch policy analysis over rollout logs and calibration outputs",
+      "timeout_hours": 4
+    },
+    {
+      "command": "cd \"/media/rootalkhatib/My Passport/reda_ws\" && python3 asynchvla_ws/scripts/stage8_write_final_report.py",
+      "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/stage8_final_report_bob.sh",
+      "dependencies": [
+        "switch_policy_analysis_bob",
+        "calibration_mega_sam",
+        "history_models_sam"
+      ],
+      "expected_outputs": [
+        "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/ASYNCVLA_SIMVLA_STAGE8_ULTIMATE_EXPERIMENT_REPORT.md"
+      ],
+      "gpu_required": false,
+      "job_id": "stage8_final_report_bob",
+      "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/stage8_final_report_bob.log",
+      "machine": "bob",
+      "max_retries": 1,
+      "priority": 999,
+      "smoke_command": null,
+      "status_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/status/stage8_final_report_bob.json",
+      "timeout_hours": 1
+    }
+  ],
+  "schema_version": "stage8_manifest_v1",
+  "stage8_expansion_notes": [
+    {
+      "added": [
+        "libero_pro_expanded_rollout_bob",
+        "libero_pro_expanded_30eps_bob",
+        "normal_libero_hard_30eps_bob",
+        "flowtrace_experiments_sam",
+        "target_sweep_sam",
+        "architecture_loss_sweep_sam",
+        "calibration_mega_sam",
+        "history_models_sam",
+        "switch_policy_analysis_bob",
+        "stage8_final_report_bob"
+      ],
+      "note": "Expanded queue for 72h unattended Stage 8 run with LIBERO-PRO primary, Sam model/calibration/target jobs, Bob rollout jobs, and watchdog backups.",
+      "time": "2026-05-15T16:14:31"
+    }
+  ],
+  "stage8_final_expansion_added_jobs": [
+    "stage8_sam_flowtrace_real",
+    "stage8_sam_target_real",
+    "stage8_sam_arch_big",
+    "stage8_sam_calibration_real",
+    "stage8_sam_history_real",
+    "stage8_libero_pro_20eps_bob",
+    "stage8_libero_pro_50eps_backup_bob",
+    "stage8_normal_libero_50eps_backup_bob",
+    "stage8_switch_policy_extended_bob"
+  ],
+  "updated_at": "2026-05-15T21:18:21"
+}

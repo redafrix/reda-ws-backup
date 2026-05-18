@@ -1,0 +1,313 @@
+[
+  {
+    "split": "id_task_split",
+    "variant": "context_gated_action",
+    "q_global": 0.23551316261291502,
+    "q_simvla": 0.24890348911285418,
+    "q_bins": [
+      0.12766093015670785,
+      0.17421811819076544,
+      0.13161234855651857,
+      0.36946849822998046
+    ],
+    "parts": {
+      "train": {
+        "global": {
+          "coverage": 1.0,
+          "mean_width": 0.4710263252258301,
+          "n": 5000
+        },
+        "simvla_only": {
+          "coverage": 1.0,
+          "mean_width": 0.4978069782257083,
+          "n": 5000
+        },
+        "binned": {
+          "coverage": 1.0,
+          "mean_width": 0.384648532280922,
+          "n": 5000
+        }
+      },
+      "calib": {
+        "global": {
+          "coverage": 0.896,
+          "mean_width": 0.4710263252258301,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.9,
+          "mean_width": 0.4978069782257083,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.8976,
+          "mean_width": 0.4016329867362976,
+          "n": 1250
+        }
+      },
+      "test_id": {
+        "global": {
+          "coverage": 0.9032,
+          "mean_width": 0.4710263252258301,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.9208,
+          "mean_width": 0.4978069782257083,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.808,
+          "mean_width": 0.35462069541931157,
+          "n": 1250
+        }
+      }
+    }
+  },
+  {
+    "split": "holdout_libero_object",
+    "variant": "context_gated_action",
+    "q_global": 0.26522489860653875,
+    "q_simvla": 0.30155026912689215,
+    "q_bins": [
+      0.09013478755950928,
+      0.1281592130661011,
+      0.2729482412338257,
+      0.3810682773590088
+    ],
+    "parts": {
+      "train": {
+        "global": {
+          "coverage": 1.0,
+          "mean_width": 0.5304497972130776,
+          "n": 5000
+        },
+        "simvla_only": {
+          "coverage": 1.0,
+          "mean_width": 0.6031005382537843,
+          "n": 5000
+        },
+        "binned": {
+          "coverage": 0.9976,
+          "mean_width": 0.34150281086921697,
+          "n": 5000
+        }
+      },
+      "calib": {
+        "global": {
+          "coverage": 0.8584,
+          "mean_width": 0.5304497972130776,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.9,
+          "mean_width": 0.6031005382537843,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.8976,
+          "mean_width": 0.43621133609771734,
+          "n": 1250
+        }
+      },
+      "test_id": {
+        "global": {
+          "coverage": 0.9688,
+          "mean_width": 0.5304497972130776,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.9944,
+          "mean_width": 0.6031005382537843,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.8376,
+          "mean_width": 0.36359986846923836,
+          "n": 1250
+        }
+      },
+      "test_ood": {
+        "global": {
+          "coverage": 0.9928,
+          "mean_width": 0.5304497972130776,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.9944,
+          "mean_width": 0.6031005382537843,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.9176,
+          "mean_width": 0.3204822780609132,
+          "n": 1250
+        }
+      }
+    }
+  },
+  {
+    "split": "holdout_object_bowl",
+    "variant": "context_gated_action",
+    "q_global": 0.1800950527191162,
+    "q_simvla": 0.14980086088180547,
+    "q_bins": [
+      0.1506564497947693,
+      0.1172475814819336,
+      0.1188145995140076,
+      0.17679326534271242
+    ],
+    "parts": {
+      "train": {
+        "global": {
+          "coverage": 0.9996,
+          "mean_width": 0.36019010543823243,
+          "n": 5000
+        },
+        "simvla_only": {
+          "coverage": 0.9994,
+          "mean_width": 0.299601721763611,
+          "n": 5000
+        },
+        "binned": {
+          "coverage": 0.9992,
+          "mean_width": 0.2919968332481385,
+          "n": 5000
+        }
+      },
+      "calib": {
+        "global": {
+          "coverage": 0.9496,
+          "mean_width": 0.36019010543823243,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.9,
+          "mean_width": 0.299601721763611,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.8976,
+          "mean_width": 0.2818290580940247,
+          "n": 1250
+        }
+      },
+      "test_id": {
+        "global": {
+          "coverage": 0.6808,
+          "mean_width": 0.36019010543823243,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.6248,
+          "mean_width": 0.299601721763611,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.5584,
+          "mean_width": 0.27539628149032597,
+          "n": 1250
+        }
+      },
+      "test_ood": {
+        "global": {
+          "coverage": 0.8752,
+          "mean_width": 0.36019010543823243,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.836,
+          "mean_width": 0.299601721763611,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.8032,
+          "mean_width": 0.2821721530723572,
+          "n": 1250
+        }
+      }
+    }
+  },
+  {
+    "split": "holdout_libero_spatial",
+    "variant": "context_gated_action",
+    "q_global": 0.2396587610244751,
+    "q_simvla": 0.28490371704101575,
+    "q_bins": [
+      0.12248592376708985,
+      0.12363439798355108,
+      0.12541013956069955,
+      0.5832348823547363
+    ],
+    "parts": {
+      "train": {
+        "global": {
+          "coverage": 1.0,
+          "mean_width": 0.4793175220489502,
+          "n": 5000
+        },
+        "simvla_only": {
+          "coverage": 1.0,
+          "mean_width": 0.5698074340820314,
+          "n": 5000
+        },
+        "binned": {
+          "coverage": 1.0,
+          "mean_width": 0.4865005839967727,
+          "n": 5000
+        }
+      },
+      "calib": {
+        "global": {
+          "coverage": 0.8512,
+          "mean_width": 0.4793175220489502,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.9,
+          "mean_width": 0.5698074340820314,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.8976,
+          "mean_width": 0.47774801284790047,
+          "n": 1250
+        }
+      },
+      "test_id": {
+        "global": {
+          "coverage": 0.8552,
+          "mean_width": 0.4793175220489502,
+          "n": 1250
+        },
+        "simvla_only": {
+          "coverage": 0.8888,
+          "mean_width": 0.5698074340820314,
+          "n": 1250
+        },
+        "binned": {
+          "coverage": 0.8704,
+          "mean_width": 0.4148771523284913,
+          "n": 1250
+        }
+      },
+      "test_ood": {
+        "global": {
+          "coverage": 0.898,
+          "mean_width": 0.47931752204895006,
+          "n": 1000
+        },
+        "simvla_only": {
+          "coverage": 0.963,
+          "mean_width": 0.5698074340820315,
+          "n": 1000
+        },
+        "binned": {
+          "coverage": 0.702,
+          "mean_width": 0.4219784276485444,
+          "n": 1000
+        }
+      }
+    }
+  }
+]

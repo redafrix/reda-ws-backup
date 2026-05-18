@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 import torch
 
@@ -11,6 +11,11 @@ class TraceConfig:
     steps: int = 10
     seed: int = 0
     return_initial_noise: bool = False
+    return_flow_trace: bool = True
+
+
+def _safe_float(x: torch.Tensor) -> float:
+    return float(x.detach().float().cpu())
 
 
 @torch.no_grad()
@@ -24,11 +29,14 @@ def generate_actions_trace(
     steps: int = 10,
     seed: int = 0,
     return_initial_noise: bool = False,
+    return_flow_trace: bool = True,
 ) -> Dict[str, Any]:
     """Non-breaking trace wrapper for SmolVLM-VLA flow-matching inference.
 
     This intentionally does not use trajectory timestep, episode progress,
-    episode length, or success/failure labels.
+    episode length, or success/failure labels. It leaves the model's original
+    generate_actions() path untouched and only exposes compact side-channel
+    metadata useful for uncertainty-rater experiments.
     """
     model.eval()
     device = proprio.device
@@ -52,10 +60,16 @@ def generate_actions_trace(
     generator.manual_seed(int(seed))
     x_t = torch.randn(B, model.num_actions, D, device=device, dtype=dtype, generator=generator)
     initial_noise = x_t.detach().clone() if return_initial_noise else None
+    initial_noise_norm = torch.linalg.vector_norm(x_t.reshape(B, -1), dim=-1)
 
     dt = -1.0 / steps
     t_value = 1.0
-    flow_steps = []
+    flow_steps: List[Dict[str, float]] = []
+    velocity_norms: List[torch.Tensor] = []
+    update_norms: List[torch.Tensor] = []
+    action_state_norms: List[torch.Tensor] = [torch.linalg.vector_norm(x_t.reshape(B, -1), dim=-1)]
+    prev_x = x_t
+
     while t_value > -dt / 2:
         t_tensor = torch.full((B,), t_value, device=device, dtype=dtype)
         pred = model.transformer(
@@ -66,24 +80,62 @@ def generate_actions_trace(
         )
         if getattr(model.config, "predict_uncertainty", False):
             v_t, logvar_t = pred
-            flow_steps.append({
-                "t": float(t_value),
-                "dt": float(dt),
-                "velocity_mean": float(v_t.detach().mean().cpu()),
-                "logvar_mean": float(logvar_t.detach().mean().cpu()),
-            })
         else:
             v_t = pred
-            flow_steps.append({
-                "t": float(t_value),
-                "dt": float(dt),
-                "velocity_mean": float(v_t.detach().mean().cpu()),
-            })
-        x_t = x_t + dt * v_t
+            logvar_t = None
+
+        update = dt * v_t
+        velocity_norm = torch.linalg.vector_norm(v_t.reshape(B, -1), dim=-1)
+        update_norm = torch.linalg.vector_norm(update.reshape(B, -1), dim=-1)
+        velocity_norms.append(velocity_norm)
+        update_norms.append(update_norm)
+
+        step_meta: Dict[str, float] = {
+            "t": float(t_value),
+            "dt": float(dt),
+            "velocity_mean": _safe_float(v_t.mean()),
+            "velocity_abs_mean": _safe_float(v_t.abs().mean()),
+            "velocity_norm_mean": _safe_float(velocity_norm.mean()),
+            "velocity_norm_max": _safe_float(velocity_norm.max()),
+            "update_norm_mean": _safe_float(update_norm.mean()),
+            "update_norm_max": _safe_float(update_norm.max()),
+        }
+        if logvar_t is not None:
+            step_meta["logvar_mean"] = _safe_float(logvar_t.mean())
+            step_meta["logvar_abs_mean"] = _safe_float(logvar_t.abs().mean())
+        flow_steps.append(step_meta)
+
+        prev_x = x_t
+        x_t = x_t + update
+        action_state_norms.append(torch.linalg.vector_norm(x_t.reshape(B, -1), dim=-1))
         t_value = t_value + dt
 
     generated_normalized_action = x_t
     generated_postprocessed_action = model.action_space.postprocess(generated_normalized_action)
+
+    velocity_stack = torch.stack(velocity_norms, dim=1) if velocity_norms else torch.zeros(B, 0, device=device, dtype=dtype)
+    update_stack = torch.stack(update_norms, dim=1) if update_norms else torch.zeros(B, 0, device=device, dtype=dtype)
+    action_norm_stack = torch.stack(action_state_norms, dim=1)
+    final_action_norm = torch.linalg.vector_norm(generated_normalized_action.reshape(B, -1), dim=-1)
+    total_path_length = update_stack.sum(dim=1) if update_stack.numel() else torch.zeros(B, device=device, dtype=dtype)
+    mean_update = update_stack.mean(dim=1) if update_stack.numel() else torch.zeros(B, device=device, dtype=dtype)
+    last_update = update_stack[:, -1] if update_stack.numel() else torch.zeros(B, device=device, dtype=dtype)
+    ratio_final_mean = last_update / (mean_update + 1e-8)
+
+    flow_trace_summary: Dict[str, torch.Tensor] = {
+        "initial_noise_norm": initial_noise_norm,
+        "final_action_norm": final_action_norm,
+        "velocity_norm_mean": velocity_stack.mean(dim=1) if velocity_stack.numel() else torch.zeros(B, device=device, dtype=dtype),
+        "velocity_norm_max": velocity_stack.max(dim=1).values if velocity_stack.numel() else torch.zeros(B, device=device, dtype=dtype),
+        "velocity_norm_final": velocity_stack[:, -1] if velocity_stack.numel() else torch.zeros(B, device=device, dtype=dtype),
+        "update_norm_mean": mean_update,
+        "update_norm_max": update_stack.max(dim=1).values if update_stack.numel() else torch.zeros(B, device=device, dtype=dtype),
+        "update_norm_last": last_update,
+        "total_path_length": total_path_length,
+        "final_update_over_mean_update": ratio_final_mean,
+        "action_state_norm_mean": action_norm_stack.mean(dim=1),
+        "action_state_norm_delta": action_norm_stack[:, -1] - action_norm_stack[:, 0],
+    }
 
     out: Dict[str, Any] = {
         "generated_normalized_action": generated_normalized_action,
@@ -94,7 +146,8 @@ def generate_actions_trace(
         "proprio_norm": proprio_norm,
         "seed": int(seed),
         "num_flow_steps": len(flow_steps),
-        "flow_steps": flow_steps,
+        "flow_steps": flow_steps if return_flow_trace else [],
+        "flow_trace_summary": flow_trace_summary if return_flow_trace else {},
     }
     if initial_noise is not None:
         out["initial_noise"] = initial_noise

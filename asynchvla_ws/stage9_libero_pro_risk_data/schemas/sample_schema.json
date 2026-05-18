@@ -1,0 +1,7 @@
+{
+  "schema_version": "stage9_libero_pro_counterfactual_v1",
+  "metadata": ["sample_id", "task_name", "task_language", "libero_pro_suite_or_task", "perturbation_type", "perturbation_params", "perturbation_seed", "env_reset_seed", "simvla_generation_seed", "rollout_seed", "state_id", "parent_episode_id", "parent_step_index", "collection_time", "code_version"],
+  "model_inputs": ["history", "current_observation_or_features", "current_proprio", "candidate_action_normalized", "candidate_action_env", "optional_flowtrace", "optional_uncertainty"],
+  "not_model_inputs": ["perturbation_type", "perturbation_seed", "task_id", "suite_id", "env_seed", "absolute_timestep", "episode_progress", "future_info"],
+  "label": ["GOOD", "BAD", "AMBIGUOUS"]
+}

@@ -1,0 +1,960 @@
+# Stage 5 Rater Metrics v2: stage5_debug
+
+- Train setting: `mixed`
+- Epochs: 100
+- Runtime: 1.7s
+- Checkpoint dir: `/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/outputs/checkpoints/stage5_debug`
+
+## Split info
+
+```json
+{
+  "train": {
+    "contexts": 30,
+    "rows": 300
+  },
+  "val": {
+    "contexts": 10,
+    "rows": 100
+  },
+  "test": {
+    "contexts": 10,
+    "rows": 100
+  },
+  "total_contexts": 50,
+  "total_rows": 500,
+  "salt": "stage5_debug",
+  "ratios": [
+    0.6,
+    0.2,
+    0.2
+  ]
+}
+```
+
+## Candidate type counts per part
+
+```json
+{
+  "train": {
+    "expert_action": 30,
+    "simvla_seed0": 30,
+    "simvla_seed1": 30,
+    "simvla_seed2": 30,
+    "simvla_seed3": 30,
+    "simvla_seed4": 30,
+    "perturb_small": 30,
+    "perturb_large": 30,
+    "same_task_far": 30,
+    "other_demo_or_other_task": 30
+  },
+  "val": {
+    "expert_action": 10,
+    "simvla_seed0": 10,
+    "simvla_seed1": 10,
+    "simvla_seed2": 10,
+    "simvla_seed3": 10,
+    "simvla_seed4": 10,
+    "perturb_small": 10,
+    "perturb_large": 10,
+    "same_task_far": 10,
+    "other_demo_or_other_task": 10
+  },
+  "test": {
+    "expert_action": 10,
+    "simvla_seed0": 10,
+    "simvla_seed1": 10,
+    "simvla_seed2": 10,
+    "simvla_seed3": 10,
+    "simvla_seed4": 10,
+    "perturb_small": 10,
+    "perturb_large": 10,
+    "same_task_far": 10,
+    "other_demo_or_other_task": 10
+  }
+}
+```
+
+## Full-candidate metrics
+
+| mode | part | n | pearson | spearman | AUROC | MAE | exp<perturb | exp<other | exp<seed0 | act_std_mean |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| full | train | 300 | 0.9763 | 0.9479 | 0.9967 | 0.1273 | 1.0000 | 0.8667 | 0.9667 | 0.6890 |
+| full | val | 100 | 0.8516 | 0.7966 | 0.8619 | 0.2352 | 0.6000 | 0.9000 | 1.0000 | 0.6546 |
+| full | test | 100 | 0.8213 | 0.7764 | 0.8033 | 0.2560 | 0.8000 | 0.8000 | 1.0000 | 0.5389 |
+| context | train | 300 | 0.4469 | 0.3891 | 0.7928 | 0.5428 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| context | val | 100 | 0.4208 | 0.3891 | 0.8238 | 0.5681 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| context | test | 100 | 0.3254 | 0.3089 | 0.7476 | 0.5221 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| action | train | 300 | 0.9663 | 0.9267 | 0.9995 | 0.1097 | 1.0000 | 0.5333 | 0.8333 | 0.6761 |
+| action | val | 100 | 0.9332 | 0.8726 | 0.9833 | 0.1793 | 1.0000 | 0.4000 | 0.9000 | 0.6333 |
+| action | test | 100 | 0.9211 | 0.8987 | 0.9657 | 0.1775 | 1.0000 | 0.6000 | 1.0000 | 0.5681 |
+
+## SimVLA-only metrics
+
+| mode | part | n_sim | pearson | spearman | AUROC | pairwise | best-pred | seed0 | random | oracle | impr_over_seed0 | gap_to_oracle |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| full | train | 5 | 0.99485135 | 0.9838 | 0.9733 | 0.7800 | 1.4433404 | 1.4979117 | 1.4884045 | 1.4343283 | 0.05457127 | 0.009012103 |
+| full | val | 5 | 0.9954156 | 0.9875 | 0.9752 | 0.8800 | 1.4856427 | 1.5985453 | 1.5605065 | 1.4813385 | 0.11290264 | 0.0043041706 |
+| full | test | 5 | 0.9866728 | 0.9390 | 0.9638 | 0.7100 | 1.4884175 | 1.5480001 | 1.5237796 | 1.4613634 | 0.05958259 | 0.027054071 |
+| context | train | 5 | 0.9948009 | 0.9688 | 0.9503 | 0.5000 | 1.4979117 | 1.4979117 | 1.4884045 | 1.4343283 | 0.0 | 0.063583374 |
+| context | val | 5 | 0.992081 | 0.9812 | 0.9714 | 0.5000 | 1.5985453 | 1.5985453 | 1.5605065 | 1.4813385 | 0.0 | 0.11720681 |
+| context | test | 5 | 0.9846309 | 0.9349 | 0.9810 | 0.5000 | 1.5480001 | 1.5480001 | 1.5237796 | 1.4613634 | 0.0 | 0.08663666 |
+| action | train | 5 | 0.99948716 | 0.9956 | 0.9941 | 0.8100 | 1.4421798 | 1.4979117 | 1.4884045 | 1.4343283 | 0.055731893 | 0.007851481 |
+| action | val | 5 | 0.99896425 | 0.9964 | 0.9981 | 0.8800 | 1.4860504 | 1.5985453 | 1.5605065 | 1.4813385 | 0.112494946 | 0.0047118664 |
+| action | test | 5 | 0.9980408 | 0.9939 | 0.9943 | 0.8600 | 1.4637033 | 1.5480001 | 1.5237796 | 1.4613634 | 0.08429682 | 0.00233984 |
+
+## SimVLA-only switch proxy (reject highest-uncertainty)
+
+| mode | part | reject% | accepted_mean | rejected_mean |
+| --- | --- | ---: | ---: | ---: |
+| full | train | 10 | 1.3645743 | 2.6028748 |
+| full | train | 25 | 1.2281638 | 2.2554293 |
+| full | train | 50 | 0.89129585 | 2.085513 |
+| full | train | 75 | 0.50293463 | 1.8110803 |
+| full | val | 10 | 1.4382399 | 2.6609051 |
+| full | val | 25 | 1.2703542 | 2.386325 |
+| full | val | 50 | 0.95196724 | 2.1690457 |
+| full | val | 75 | 0.62989557 | 1.8543838 |
+| full | test | 10 | 1.4231114 | 2.4297938 |
+| full | test | 25 | 1.3184847 | 2.1080813 |
+| full | test | 50 | 1.1951985 | 1.852361 |
+| full | test | 75 | 0.8906967 | 1.7237006 |
+| context | train | 10 | 1.3645744 | 2.6028748 |
+| context | train | 25 | 1.2283971 | 2.2547421 |
+| context | train | 50 | 0.8912958 | 2.0855129 |
+| context | train | 75 | 0.5065596 | 1.8098935 |
+| context | val | 10 | 1.4382399 | 2.6609051 |
+| context | val | 25 | 1.2703891 | 2.3862252 |
+| context | val | 50 | 0.95196724 | 2.169046 |
+| context | val | 75 | 0.65483874 | 1.8465066 |
+| context | test | 10 | 1.4231117 | 2.4297936 |
+| context | test | 25 | 1.3229631 | 2.0953352 |
+| context | test | 50 | 1.1978769 | 1.8496828 |
+| context | test | 75 | 0.896328 | 1.7219224 |
+| action | train | 10 | 1.3645743 | 2.602875 |
+| action | train | 25 | 1.226075 | 2.261586 |
+| action | train | 50 | 0.89129585 | 2.0855126 |
+| action | train | 75 | 0.5010574 | 1.811695 |
+| action | val | 10 | 1.43824 | 2.6609051 |
+| action | val | 25 | 1.2695957 | 2.3884833 |
+| action | val | 50 | 0.95196724 | 2.1690457 |
+| action | val | 75 | 0.6298956 | 1.8543838 |
+| action | test | 10 | 1.4231114 | 2.4297938 |
+| action | test | 25 | 1.3192974 | 2.1057682 |
+| action | test | 50 | 1.1709731 | 1.8765868 |
+| action | test | 75 | 0.8906967 | 1.7237006 |
+
+## Best epoch / val loss per mode
+
+```json
+{
+  "full": {
+    "best_epoch": 98,
+    "best_val_loss": 0.039547279477119446
+  },
+  "context": {
+    "best_epoch": 76,
+    "best_val_loss": 0.11304174363613129
+  },
+  "action": {
+    "best_epoch": 84,
+    "best_val_loss": 0.02813437022268772
+  }
+}
+```
+
+## Full metrics JSON
+
+```json
+{
+  "split_id": "stage5_debug",
+  "train_setting": "mixed",
+  "split_info": {
+    "train": {
+      "contexts": 30,
+      "rows": 300
+    },
+    "val": {
+      "contexts": 10,
+      "rows": 100
+    },
+    "test": {
+      "contexts": 10,
+      "rows": 100
+    },
+    "total_contexts": 50,
+    "total_rows": 500,
+    "salt": "stage5_debug",
+    "ratios": [
+      0.6,
+      0.2,
+      0.2
+    ]
+  },
+  "epochs": 100,
+  "models": {
+    "full": {
+      "best_epoch": 98,
+      "best_val_loss": 0.039547279477119446,
+      "input_dim": 1038,
+      "metrics": {
+        "train": {
+          "n": 300,
+          "pearson": 0.9762970805168152,
+          "spearman": 0.9479028473918111,
+          "auroc_top30_bad": 0.9967195767195767,
+          "mae": 0.12733621895313263,
+          "mse": 0.0311017706990242,
+          "risk_coverage": [
+            [
+              0.1,
+              0.24190731346607208
+            ],
+            [
+              0.25,
+              0.24093858897686005
+            ],
+            [
+              0.5,
+              0.4058307409286499
+            ],
+            [
+              0.75,
+              0.7594081163406372
+            ],
+            [
+              1.0,
+              1.099929690361023
+            ]
+          ],
+          "expert_lt_perturb_large": 1.0,
+          "expert_lt_other_task": 0.8666666666666667,
+          "expert_lt_simvla_seed0": 0.9666666666666667,
+          "action_sensitivity_std_mean": 0.6890422153816976,
+          "action_sensitivity_std_min": 0.368137504166094,
+          "simvla_only": {
+            "pearson": 0.9948513507843018,
+            "spearman": 0.9838250588915063,
+            "auroc": 0.9733333333333334,
+            "pairwise_acc": 0.78,
+            "best_seed": {
+              "predicted_best": 1.4433404207229614,
+              "seed0": 1.4979116916656494,
+              "random": 1.4884045124053955,
+              "oracle_best": 1.434328317642212,
+              "gap_to_oracle": 0.009012103080749512,
+              "improvement_over_seed0": 0.05457127094268799
+            },
+            "risk_coverage": {
+              "0.1": 0.34057122468948364,
+              "0.25": 0.5029346346855164,
+              "0.5": 0.891295850276947,
+              "0.75": 1.2281638383865356,
+              "1.0": 1.4884042739868164
+            },
+            "switch_proxy": {
+              "0.1": {
+                "accepted_mean": 1.3645743131637573,
+                "rejected_mean": 2.602874755859375,
+                "acceptance_rate": 0.9
+              },
+              "0.25": {
+                "accepted_mean": 1.2281638383865356,
+                "rejected_mean": 2.255429267883301,
+                "acceptance_rate": 0.75
+              },
+              "0.5": {
+                "accepted_mean": 0.891295850276947,
+                "rejected_mean": 2.085513114929199,
+                "acceptance_rate": 0.5
+              },
+              "0.75": {
+                "accepted_mean": 0.5029346346855164,
+                "rejected_mean": 1.8110803365707397,
+                "acceptance_rate": 0.25
+              }
+            }
+          }
+        },
+        "val": {
+          "n": 100,
+          "pearson": 0.8516104221343994,
+          "spearman": 0.7966320937512824,
+          "auroc_top30_bad": 0.8619047619047618,
+          "mae": 0.23521049320697784,
+          "mse": 0.20991842448711395,
+          "risk_coverage": [
+            [
+              0.1,
+              0.7310285568237305
+            ],
+            [
+              0.25,
+              0.5232375860214233
+            ],
+            [
+              0.5,
+              0.5828825235366821
+            ],
+            [
+              0.75,
+              0.7879547476768494
+            ],
+            [
+              1.0,
+              1.135540246963501
+            ]
+          ],
+          "expert_lt_perturb_large": 0.6,
+          "expert_lt_other_task": 0.9,
+          "expert_lt_simvla_seed0": 1.0,
+          "action_sensitivity_std_mean": 0.6546173667248638,
+          "action_sensitivity_std_min": 0.254296282194847,
+          "simvla_only": {
+            "pearson": 0.9954156279563904,
+            "spearman": 0.9875150060024009,
+            "auroc": 0.9752380952380953,
+            "pairwise_acc": 0.88,
+            "best_seed": {
+              "predicted_best": 1.485642671585083,
+              "seed0": 1.5985453128814697,
+              "random": 1.5605064630508423,
+              "oracle_best": 1.4813385009765625,
+              "gap_to_oracle": 0.004304170608520508,
+              "improvement_over_seed0": 0.11290264129638672
+            },
+            "risk_coverage": {
+              "0.1": 0.3628927171230316,
+              "0.25": 0.6298955678939819,
+              "0.5": 0.9519672393798828,
+              "0.75": 1.270354151725769,
+              "1.0": 1.5605064630508423
+            },
+            "switch_proxy": {
+              "0.1": {
+                "accepted_mean": 1.4382399320602417,
+                "rejected_mean": 2.660905122756958,
+                "acceptance_rate": 0.9
+              },
+              "0.25": {
+                "accepted_mean": 1.270354151725769,
+                "rejected_mean": 2.386324882507324,
+                "acceptance_rate": 0.75
+              },
+              "0.5": {
+                "accepted_mean": 0.9519672393798828,
+                "rejected_mean": 2.1690456867218018,
+                "acceptance_rate": 0.5
+              },
+              "0.75": {
+                "accepted_mean": 0.6298955678939819,
+                "rejected_mean": 1.8543838262557983,
+                "acceptance_rate": 0.25
+              }
+            }
+          }
+        },
+        "test": {
+          "n": 100,
+          "pearson": 0.8212894797325134,
+          "spearman": 0.7764060567798667,
+          "auroc_top30_bad": 0.8033333333333332,
+          "mae": 0.25598928332328796,
+          "mse": 0.18923400342464447,
+          "risk_coverage": [
+            [
+              0.1,
+              0.5357851386070251
+            ],
+            [
+              0.25,
+              0.4233623743057251
+            ],
+            [
+              0.5,
+              0.5839394927024841
+            ],
+            [
+              0.75,
+              0.8860607147216797
+            ],
+            [
+              1.0,
+              1.1276355981826782
+            ]
+          ],
+          "expert_lt_perturb_large": 0.8,
+          "expert_lt_other_task": 0.8,
+          "expert_lt_simvla_seed0": 1.0,
+          "action_sensitivity_std_mean": 0.5389395213125455,
+          "action_sensitivity_std_min": 0.15479303872601466,
+          "simvla_only": {
+            "pearson": 0.9866728186607361,
+            "spearman": 0.939015606242497,
+            "auroc": 0.9638095238095238,
+            "pairwise_acc": 0.71,
+            "best_seed": {
+              "predicted_best": 1.4884175062179565,
+              "seed0": 1.5480000972747803,
+              "random": 1.5237796306610107,
+              "oracle_best": 1.461363434791565,
+              "gap_to_oracle": 0.0270540714263916,
+              "improvement_over_seed0": 0.05958259105682373
+            },
+            "risk_coverage": {
+              "0.1": 0.5480672121047974,
+              "0.25": 0.8906967043876648,
+              "0.5": 1.1951985359191895,
+              "0.75": 1.3184846639633179,
+              "1.0": 1.5237798690795898
+            },
+            "switch_proxy": {
+              "0.1": {
+                "accepted_mean": 1.4231114387512207,
+                "rejected_mean": 2.4297938346862793,
+                "acceptance_rate": 0.9
+              },
+              "0.25": {
+                "accepted_mean": 1.3184846639633179,
+                "rejected_mean": 2.108081340789795,
+                "acceptance_rate": 0.75
+              },
+              "0.5": {
+                "accepted_mean": 1.1951985359191895,
+                "rejected_mean": 1.8523609638214111,
+                "acceptance_rate": 0.5
+              },
+              "0.75": {
+                "accepted_mean": 0.8906967043876648,
+                "rejected_mean": 1.7237006425857544,
+                "acceptance_rate": 0.25
+              }
+            }
+          }
+        }
+      }
+    },
+    "context": {
+      "best_epoch": 76,
+      "best_val_loss": 0.11304174363613129,
+      "input_dim": 968,
+      "metrics": {
+        "train": {
+          "n": 300,
+          "pearson": 0.4468689560890198,
+          "spearman": 0.3890663914894565,
+          "auroc_top30_bad": 0.7927513227513227,
+          "mae": 0.5427919030189514,
+          "mse": 0.6005482077598572,
+          "risk_coverage": [
+            [
+              0.1,
+              0.49988284707069397
+            ],
+            [
+              0.25,
+              0.5802947282791138
+            ],
+            [
+              0.5,
+              0.7921543121337891
+            ],
+            [
+              0.75,
+              0.9816033244132996
+            ],
+            [
+              1.0,
+              1.0999298095703125
+            ]
+          ],
+          "expert_lt_perturb_large": 0.0,
+          "expert_lt_other_task": 0.0,
+          "expert_lt_simvla_seed0": 0.0,
+          "action_sensitivity_std_mean": 1.1920928955078125e-09,
+          "action_sensitivity_std_min": 0.0,
+          "simvla_only": {
+            "pearson": 0.9948009252548218,
+            "spearman": 0.9687998889114646,
+            "auroc": 0.9502645502645503,
+            "pairwise_acc": 0.5,
+            "best_seed": {
+              "predicted_best": 1.4979116916656494,
+              "seed0": 1.4979116916656494,
+              "random": 1.4884045124053955,
+              "oracle_best": 1.434328317642212,
+              "gap_to_oracle": 0.0635833740234375,
+              "improvement_over_seed0": 0.0
+            },
+            "risk_coverage": {
+              "0.1": 0.33853113651275635,
+              "0.25": 0.5065596103668213,
+              "0.5": 0.8912957906723022,
+              "0.75": 1.2283971309661865,
+              "1.0": 1.4884042739868164
+            },
+            "switch_proxy": {
+              "0.1": {
+                "accepted_mean": 1.3645744323730469,
+                "rejected_mean": 2.602874755859375,
+                "acceptance_rate": 0.9
+              },
+              "0.25": {
+                "accepted_mean": 1.2283971309661865,
+                "rejected_mean": 2.25474214553833,
+                "acceptance_rate": 0.75
+              },
+              "0.5": {
+                "accepted_mean": 0.8912957906723022,
+                "rejected_mean": 2.08551287651062,
+                "acceptance_rate": 0.5
+              },
+              "0.75": {
+                "accepted_mean": 0.5065596103668213,
+                "rejected_mean": 1.8098934888839722,
+                "acceptance_rate": 0.25
+              }
+            }
+          }
+        },
+        "val": {
+          "n": 100,
+          "pearson": 0.42083021998405457,
+          "spearman": 0.38910145034478166,
+          "auroc_top30_bad": 0.8238095238095239,
+          "mae": 0.5680570006370544,
+          "mse": 0.6348655223846436,
+          "risk_coverage": [
+            [
+              0.1,
+              0.53758704662323
+            ],
+            [
+              0.25,
+              0.7153673768043518
+            ],
+            [
+              0.5,
+              0.8415378332138062
+            ],
+            [
+              0.75,
+              0.9855035543441772
+            ],
+            [
+              1.0,
+              1.1355403661727905
+            ]
+          ],
+          "expert_lt_perturb_large": 0.0,
+          "expert_lt_other_task": 0.0,
+          "expert_lt_simvla_seed0": 0.0,
+          "action_sensitivity_std_mean": 0.0,
+          "action_sensitivity_std_min": 0.0,
+          "simvla_only": {
+            "pearson": 0.9920809864997864,
+            "spearman": 0.9811935690598208,
+            "auroc": 0.9714285714285715,
+            "pairwise_acc": 0.5,
+            "best_seed": {
+              "predicted_best": 1.5985453128814697,
+              "seed0": 1.5985453128814697,
+              "random": 1.5605064630508423,
+              "oracle_best": 1.4813385009765625,
+              "gap_to_oracle": 0.11720681190490723,
+              "improvement_over_seed0": 0.0
+            },
+            "risk_coverage": {
+              "0.1": 0.3628927171230316,
+              "0.25": 0.6548387408256531,
+              "0.5": 0.9519672393798828,
+              "0.75": 1.2703890800476074,
+              "1.0": 1.5605064630508423
+            },
+            "switch_proxy": {
+              "0.1": {
+                "accepted_mean": 1.4382399320602417,
+                "rejected_mean": 2.660905122756958,
+                "acceptance_rate": 0.9
+              },
+              "0.25": {
+                "accepted_mean": 1.2703890800476074,
+                "rejected_mean": 2.3862252235412598,
+                "acceptance_rate": 0.75
+              },
+              "0.5": {
+                "accepted_mean": 0.9519672393798828,
+                "rejected_mean": 2.169045925140381,
+                "acceptance_rate": 0.5
+              },
+              "0.75": {
+                "accepted_mean": 0.6548387408256531,
+                "rejected_mean": 1.8465065956115723,
+                "acceptance_rate": 0.25
+              }
+            }
+          }
+        },
+        "test": {
+          "n": 100,
+          "pearson": 0.3253840208053589,
+          "spearman": 0.30885568682197817,
+          "auroc_top30_bad": 0.7476190476190476,
+          "mae": 0.5220599174499512,
+          "mse": 0.5382212400436401,
+          "risk_coverage": [
+            [
+              0.1,
+              0.6014010310173035
+            ],
+            [
+              0.25,
+              0.7775366306304932
+            ],
+            [
+              0.5,
+              0.975147545337677
+            ],
+            [
+              0.75,
+              1.019789218902588
+            ],
+            [
+              1.0,
+              1.1276355981826782
+            ]
+          ],
+          "expert_lt_perturb_large": 0.0,
+          "expert_lt_other_task": 0.0,
+          "expert_lt_simvla_seed0": 0.0,
+          "action_sensitivity_std_mean": 0.0,
+          "action_sensitivity_std_min": 0.0,
+          "simvla_only": {
+            "pearson": 0.9846308827400208,
+            "spearman": 0.9348721613245157,
+            "auroc": 0.980952380952381,
+            "pairwise_acc": 0.5,
+            "best_seed": {
+              "predicted_best": 1.5480000972747803,
+              "seed0": 1.5480000972747803,
+              "random": 1.5237796306610107,
+              "oracle_best": 1.461363434791565,
+              "gap_to_oracle": 0.08663666248321533,
+              "improvement_over_seed0": 0.0
+            },
+            "risk_coverage": {
+              "0.1": 0.5480672717094421,
+              "0.25": 0.8963279724121094,
+              "0.5": 1.1978769302368164,
+              "0.75": 1.3229631185531616,
+              "1.0": 1.5237797498703003
+            },
+            "switch_proxy": {
+              "0.1": {
+                "accepted_mean": 1.4231116771697998,
+                "rejected_mean": 2.4297935962677,
+                "acceptance_rate": 0.9
+              },
+              "0.25": {
+                "accepted_mean": 1.3229631185531616,
+                "rejected_mean": 2.0953352451324463,
+                "acceptance_rate": 0.75
+              },
+              "0.5": {
+                "accepted_mean": 1.1978769302368164,
+                "rejected_mean": 1.8496828079223633,
+                "acceptance_rate": 0.5
+              },
+              "0.75": {
+                "accepted_mean": 0.8963279724121094,
+                "rejected_mean": 1.7219223976135254,
+                "acceptance_rate": 0.25
+              }
+            }
+          }
+        }
+      }
+    },
+    "action": {
+      "best_epoch": 84,
+      "best_val_loss": 0.02813437022268772,
+      "input_dim": 70,
+      "metrics": {
+        "train": {
+          "n": 300,
+          "pearson": 0.9663285613059998,
+          "spearman": 0.9266547911115086,
+          "auroc_top30_bad": 0.9994708994708995,
+          "mae": 0.10972125828266144,
+          "mse": 0.04323984310030937,
+          "risk_coverage": [
+            [
+              0.1,
+              0.2605109214782715
+            ],
+            [
+              0.25,
+              0.30115824937820435
+            ],
+            [
+              0.5,
+              0.4134889841079712
+            ],
+            [
+              0.75,
+              0.7580886483192444
+            ],
+            [
+              1.0,
+              1.099929690361023
+            ]
+          ],
+          "expert_lt_perturb_large": 1.0,
+          "expert_lt_other_task": 0.5333333333333333,
+          "expert_lt_simvla_seed0": 0.8333333333333334,
+          "action_sensitivity_std_mean": 0.6761084072088056,
+          "action_sensitivity_std_min": 0.42100287629534006,
+          "simvla_only": {
+            "pearson": 0.9994871616363525,
+            "spearman": 0.9956086937197209,
+            "auroc": 0.9940740740740741,
+            "pairwise_acc": 0.81,
+            "best_seed": {
+              "predicted_best": 1.442179799079895,
+              "seed0": 1.4979116916656494,
+              "random": 1.4884045124053955,
+              "oracle_best": 1.434328317642212,
+              "gap_to_oracle": 0.007851481437683105,
+              "improvement_over_seed0": 0.055731892585754395
+            },
+            "risk_coverage": {
+              "0.1": 0.3421036899089813,
+              "0.25": 0.5010573863983154,
+              "0.5": 0.891295850276947,
+              "0.75": 1.2260750532150269,
+              "1.0": 1.4884042739868164
+            },
+            "switch_proxy": {
+              "0.1": {
+                "accepted_mean": 1.3645743131637573,
+                "rejected_mean": 2.602874994277954,
+                "acceptance_rate": 0.9
+              },
+              "0.25": {
+                "accepted_mean": 1.2260750532150269,
+                "rejected_mean": 2.2615859508514404,
+                "acceptance_rate": 0.75
+              },
+              "0.5": {
+                "accepted_mean": 0.891295850276947,
+                "rejected_mean": 2.085512638092041,
+                "acceptance_rate": 0.5
+              },
+              "0.75": {
+                "accepted_mean": 0.5010573863983154,
+                "rejected_mean": 1.8116949796676636,
+                "acceptance_rate": 0.25
+              }
+            }
+          }
+        },
+        "val": {
+          "n": 100,
+          "pearson": 0.9331609010696411,
+          "spearman": 0.872603404517032,
+          "auroc_top30_bad": 0.9833333333333333,
+          "mae": 0.17930833995342255,
+          "mse": 0.09140095114707947,
+          "risk_coverage": [
+            [
+              0.1,
+              0.6492500901222229
+            ],
+            [
+              0.25,
+              0.3993426263332367
+            ],
+            [
+              0.5,
+              0.4517480432987213
+            ],
+            [
+              0.75,
+              0.7826271653175354
+            ],
+            [
+              1.0,
+              1.1355403661727905
+            ]
+          ],
+          "expert_lt_perturb_large": 1.0,
+          "expert_lt_other_task": 0.4,
+          "expert_lt_simvla_seed0": 0.9,
+          "action_sensitivity_std_mean": 0.6332786401166209,
+          "action_sensitivity_std_min": 0.27941064467939697,
+          "simvla_only": {
+            "pearson": 0.998964250087738,
+            "spearman": 0.9963505402160864,
+            "auroc": 0.998095238095238,
+            "pairwise_acc": 0.88,
+            "best_seed": {
+              "predicted_best": 1.4860503673553467,
+              "seed0": 1.5985453128814697,
+              "random": 1.5605064630508423,
+              "oracle_best": 1.4813385009765625,
+              "gap_to_oracle": 0.00471186637878418,
+              "improvement_over_seed0": 0.11249494552612305
+            },
+            "risk_coverage": {
+              "0.1": 0.3628927767276764,
+              "0.25": 0.6298956274986267,
+              "0.5": 0.9519672393798828,
+              "0.75": 1.269595742225647,
+              "1.0": 1.5605064630508423
+            },
+            "switch_proxy": {
+              "0.1": {
+                "accepted_mean": 1.4382400512695312,
+                "rejected_mean": 2.660905122756958,
+                "acceptance_rate": 0.9
+              },
+              "0.25": {
+                "accepted_mean": 1.269595742225647,
+                "rejected_mean": 2.3884832859039307,
+                "acceptance_rate": 0.75
+              },
+              "0.5": {
+                "accepted_mean": 0.9519672393798828,
+                "rejected_mean": 2.1690456867218018,
+                "acceptance_rate": 0.5
+              },
+              "0.75": {
+                "accepted_mean": 0.6298956274986267,
+                "rejected_mean": 1.8543838262557983,
+                "acceptance_rate": 0.25
+              }
+            }
+          }
+        },
+        "test": {
+          "n": 100,
+          "pearson": 0.921137273311615,
+          "spearman": 0.8986908971626457,
+          "auroc_top30_bad": 0.9657142857142859,
+          "mae": 0.177483469247818,
+          "mse": 0.07843883335590363,
+          "risk_coverage": [
+            [
+              0.1,
+              0.4040152430534363
+            ],
+            [
+              0.25,
+              0.3700076639652252
+            ],
+            [
+              0.5,
+              0.535978376865387
+            ],
+            [
+              0.75,
+              0.8391159176826477
+            ],
+            [
+              1.0,
+              1.1276355981826782
+            ]
+          ],
+          "expert_lt_perturb_large": 1.0,
+          "expert_lt_other_task": 0.6,
+          "expert_lt_simvla_seed0": 1.0,
+          "action_sensitivity_std_mean": 0.5681089810616465,
+          "action_sensitivity_std_min": 0.07574687338373212,
+          "simvla_only": {
+            "pearson": 0.9980407953262329,
+            "spearman": 0.9938535414165666,
+            "auroc": 0.9942857142857142,
+            "pairwise_acc": 0.86,
+            "best_seed": {
+              "predicted_best": 1.4637032747268677,
+              "seed0": 1.5480000972747803,
+              "random": 1.5237796306610107,
+              "oracle_best": 1.461363434791565,
+              "gap_to_oracle": 0.0023398399353027344,
+              "improvement_over_seed0": 0.0842968225479126
+            },
+            "risk_coverage": {
+              "0.1": 0.5480672121047974,
+              "0.25": 0.8906967043876648,
+              "0.5": 1.1709730625152588,
+              "0.75": 1.319297432899475,
+              "1.0": 1.5237797498703003
+            },
+            "switch_proxy": {
+              "0.1": {
+                "accepted_mean": 1.4231114387512207,
+                "rejected_mean": 2.4297938346862793,
+                "acceptance_rate": 0.9
+              },
+              "0.25": {
+                "accepted_mean": 1.319297432899475,
+                "rejected_mean": 2.1057682037353516,
+                "acceptance_rate": 0.75
+              },
+              "0.5": {
+                "accepted_mean": 1.1709730625152588,
+                "rejected_mean": 1.8765867948532104,
+                "acceptance_rate": 0.5
+              },
+              "0.75": {
+                "accepted_mean": 0.8906967043876648,
+                "rejected_mean": 1.7237006425857544,
+                "acceptance_rate": 0.25
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "candidate_type_counts": {
+    "train": {
+      "expert_action": 30,
+      "simvla_seed0": 30,
+      "simvla_seed1": 30,
+      "simvla_seed2": 30,
+      "simvla_seed3": 30,
+      "simvla_seed4": 30,
+      "perturb_small": 30,
+      "perturb_large": 30,
+      "same_task_far": 30,
+      "other_demo_or_other_task": 30
+    },
+    "val": {
+      "expert_action": 10,
+      "simvla_seed0": 10,
+      "simvla_seed1": 10,
+      "simvla_seed2": 10,
+      "simvla_seed3": 10,
+      "simvla_seed4": 10,
+      "perturb_small": 10,
+      "perturb_large": 10,
+      "same_task_far": 10,
+      "other_demo_or_other_task": 10
+    },
+    "test": {
+      "expert_action": 10,
+      "simvla_seed0": 10,
+      "simvla_seed1": 10,
+      "simvla_seed2": 10,
+      "simvla_seed3": 10,
+      "simvla_seed4": 10,
+      "perturb_small": 10,
+      "perturb_large": 10,
+      "same_task_far": 10,
+      "other_demo_or_other_task": 10
+    }
+  },
+  "runtime_seconds": 1.7013027667999268
+}
+```

@@ -48,13 +48,14 @@ def eval_simvla_only(predictions, true_errors, context_ids, seeds, bad_action_pe
         # 4. Pairwise ranking
         for i in range(len(c_preds)):
             for j in range(i+1, len(c_preds)):
-                # if pred i < pred j, we want true i <= true j
-                if c_trues[i] != c_trues[j]:
-                    if (c_preds[i] < c_preds[j]) == (c_trues[i] < c_trues[j]):
-                        pairwise_correct += 1
-                    elif c_preds[i] == c_preds[j]:
-                        pairwise_correct += 0.5
-                    pairwise_total += 1
+                if c_trues[i] == c_trues[j]:
+                    continue
+                # tie in predictions counts as 0.5 regardless of trues
+                if c_preds[i] == c_preds[j]:
+                    pairwise_correct += 0.5
+                elif (c_preds[i] < c_preds[j]) == (c_trues[i] < c_trues[j]):
+                    pairwise_correct += 1
+                pairwise_total += 1
 
         # 5. Best-seed selection
         pred_best_idx = np.argmin(c_preds)

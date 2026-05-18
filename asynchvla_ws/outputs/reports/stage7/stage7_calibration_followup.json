@@ -1,0 +1,306 @@
+{
+  "variant": "context_gated_action",
+  "target_coverage": 0.9,
+  "splits": {
+    "id_task_split": {
+      "calib_rows": 2500,
+      "simvla_calib_rows": 1250,
+      "simvla_global_eta": 0.2446975282859802,
+      "per_part": {
+        "test_id": {
+          "global_residual": {
+            "n": 1250,
+            "coverage": 0.9232,
+            "mean_width": 0.2446975282859802
+          },
+          "binned_quantile_10": {
+            "n": 1250,
+            "coverage": 0.8744,
+            "mean_width": 0.16940859555229187,
+            "bins_used": 10,
+            "floor": false
+          },
+          "binned_quantile_10_with_floor": {
+            "n": 1250,
+            "coverage": 0.88,
+            "mean_width": 0.18183271251420594,
+            "bins_used": 10,
+            "floor": true
+          },
+          "per_task_simvla": {
+            "n": 1250,
+            "coverage": 0.9232,
+            "mean_width": 0.2446975282859802,
+            "tasks_with_local_eta": 4
+          },
+          "asymmetric_split_residual": {
+            "n": 1250,
+            "coverage_one_sided_upper": 0.9536,
+            "coverage_two_sided": 0.856,
+            "mean_width_upper_eta": 0.32372958735466,
+            "mean_width_two_sided": 0.4579225452327726
+          }
+        },
+        "test_ood": {
+          "global_residual": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null
+          },
+          "binned_quantile_10": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null,
+            "bins_used": 10,
+            "floor": false
+          },
+          "binned_quantile_10_with_floor": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null,
+            "bins_used": 10,
+            "floor": true
+          },
+          "per_task_simvla": {
+            "n": 0,
+            "coverage": null,
+            "mean_width": null,
+            "tasks_with_local_eta": 4
+          },
+          "asymmetric_split_residual": {
+            "n": 0,
+            "coverage_one_sided_upper": NaN,
+            "coverage_two_sided": NaN,
+            "mean_width_upper_eta": 0.32372958735466,
+            "mean_width_two_sided": NaN
+          }
+        }
+      }
+    },
+    "holdout_libero_object": {
+      "calib_rows": 2500,
+      "simvla_calib_rows": 1250,
+      "simvla_global_eta": 0.12324955118179322,
+      "per_part": {
+        "test_id": {
+          "global_residual": {
+            "n": 1250,
+            "coverage": 0.916,
+            "mean_width": 0.12324955118179322
+          },
+          "binned_quantile_10": {
+            "n": 1250,
+            "coverage": 0.9392,
+            "mean_width": 0.12955065636589053,
+            "bins_used": 10,
+            "floor": false
+          },
+          "binned_quantile_10_with_floor": {
+            "n": 1250,
+            "coverage": 0.9392,
+            "mean_width": 0.1302510691421814,
+            "bins_used": 10,
+            "floor": true
+          },
+          "per_task_simvla": {
+            "n": 1250,
+            "coverage": 0.916,
+            "mean_width": 0.12324955118179323,
+            "tasks_with_local_eta": 4
+          },
+          "asymmetric_split_residual": {
+            "n": 1250,
+            "coverage_one_sided_upper": 0.9696,
+            "coverage_two_sided": 0.9696,
+            "mean_width_upper_eta": 0.17423627590656277,
+            "mean_width_two_sided": 0.5286828614759447
+          }
+        },
+        "test_ood": {
+          "global_residual": {
+            "n": 1250,
+            "coverage": 0.8992,
+            "mean_width": 0.12324955118179322
+          },
+          "binned_quantile_10": {
+            "n": 1250,
+            "coverage": 0.9136,
+            "mean_width": 0.13121537729949953,
+            "bins_used": 10,
+            "floor": false
+          },
+          "binned_quantile_10_with_floor": {
+            "n": 1250,
+            "coverage": 0.9144,
+            "mean_width": 0.13136976936309053,
+            "bins_used": 10,
+            "floor": true
+          },
+          "per_task_simvla": {
+            "n": 1250,
+            "coverage": 0.8992,
+            "mean_width": 0.12324955118179323,
+            "tasks_with_local_eta": 4
+          },
+          "asymmetric_split_residual": {
+            "n": 1250,
+            "coverage_one_sided_upper": 0.9584,
+            "coverage_two_sided": 0.9584,
+            "mean_width_upper_eta": 0.17423627590656277,
+            "mean_width_two_sided": 0.5286828614759447
+          }
+        }
+      }
+    },
+    "holdout_object_bowl": {
+      "calib_rows": 2500,
+      "simvla_calib_rows": 1250,
+      "simvla_global_eta": 0.11391659294128417,
+      "per_part": {
+        "test_id": {
+          "global_residual": {
+            "n": 1250,
+            "coverage": 0.6872,
+            "mean_width": 0.11391659294128417
+          },
+          "binned_quantile_10": {
+            "n": 1250,
+            "coverage": 0.6784,
+            "mean_width": 0.11759634392608645,
+            "bins_used": 10,
+            "floor": false
+          },
+          "binned_quantile_10_with_floor": {
+            "n": 1250,
+            "coverage": 0.6784,
+            "mean_width": 0.11759634392608645,
+            "bins_used": 10,
+            "floor": true
+          },
+          "per_task_simvla": {
+            "n": 1250,
+            "coverage": 0.6872,
+            "mean_width": 0.11391659294128417,
+            "tasks_with_local_eta": 4
+          },
+          "asymmetric_split_residual": {
+            "n": 1250,
+            "coverage_one_sided_upper": 0.7232,
+            "coverage_two_sided": 0.6216,
+            "mean_width_upper_eta": 0.15886024023056022,
+            "mean_width_two_sided": 0.30264856459140743
+          }
+        },
+        "test_ood": {
+          "global_residual": {
+            "n": 1250,
+            "coverage": 0.936,
+            "mean_width": 0.11391659294128417
+          },
+          "binned_quantile_10": {
+            "n": 1250,
+            "coverage": 0.9344,
+            "mean_width": 0.13349189581008913,
+            "bins_used": 10,
+            "floor": false
+          },
+          "binned_quantile_10_with_floor": {
+            "n": 1250,
+            "coverage": 0.9344,
+            "mean_width": 0.13349189581008913,
+            "bins_used": 10,
+            "floor": true
+          },
+          "per_task_simvla": {
+            "n": 1250,
+            "coverage": 0.936,
+            "mean_width": 0.11391659294128417,
+            "tasks_with_local_eta": 4
+          },
+          "asymmetric_split_residual": {
+            "n": 1250,
+            "coverage_one_sided_upper": 0.952,
+            "coverage_two_sided": 0.8264,
+            "mean_width_upper_eta": 0.15886024023056022,
+            "mean_width_two_sided": 0.3026485645914075
+          }
+        }
+      }
+    },
+    "holdout_libero_spatial": {
+      "calib_rows": 2500,
+      "simvla_calib_rows": 1250,
+      "simvla_global_eta": 0.14264263874053956,
+      "per_part": {
+        "test_id": {
+          "global_residual": {
+            "n": 1250,
+            "coverage": 0.7912,
+            "mean_width": 0.14264263874053956
+          },
+          "binned_quantile_10": {
+            "n": 1250,
+            "coverage": 0.7664,
+            "mean_width": 0.14901903564994814,
+            "bins_used": 10,
+            "floor": false
+          },
+          "binned_quantile_10_with_floor": {
+            "n": 1250,
+            "coverage": 0.7904,
+            "mean_width": 0.1533999696941376,
+            "bins_used": 10,
+            "floor": true
+          },
+          "per_task_simvla": {
+            "n": 1250,
+            "coverage": 0.7912,
+            "mean_width": 0.14264263874053953,
+            "tasks_with_local_eta": 12
+          },
+          "asymmetric_split_residual": {
+            "n": 1250,
+            "coverage_one_sided_upper": 0.9552,
+            "coverage_two_sided": 0.9256,
+            "mean_width_upper_eta": 0.3621875414562198,
+            "mean_width_two_sided": 0.6346385514450043
+          }
+        },
+        "test_ood": {
+          "global_residual": {
+            "n": 1000,
+            "coverage": 0.701,
+            "mean_width": 0.14264263874053956
+          },
+          "binned_quantile_10": {
+            "n": 1000,
+            "coverage": 0.639,
+            "mean_width": 0.1436422779335022,
+            "bins_used": 10,
+            "floor": false
+          },
+          "binned_quantile_10_with_floor": {
+            "n": 1000,
+            "coverage": 0.648,
+            "mean_width": 0.1478562294504166,
+            "bins_used": 10,
+            "floor": true
+          },
+          "per_task_simvla": {
+            "n": 1000,
+            "coverage": 0.701,
+            "mean_width": 0.14264263874053956,
+            "tasks_with_local_eta": 12
+          },
+          "asymmetric_split_residual": {
+            "n": 1000,
+            "coverage_one_sided_upper": 0.985,
+            "coverage_two_sided": 0.985,
+            "mean_width_upper_eta": 0.3621875414562198,
+            "mean_width_two_sided": 0.6346385514450043
+          }
+        }
+      }
+    }
+  }
+}
