@@ -45,6 +45,11 @@ def raw_reasons(sample):
     return raw.get("bad_evidence") or raw.get("label_reasons") or []
 
 
+def bad_subtype(sample):
+    label = sample.get("label") or {}
+    return label.get("bad_subtype") or "unknown"
+
+
 def main() -> None:
     if len(sys.argv) != 4:
         raise SystemExit("usage: analyze_outcome_pilot.py DATA_DIR VALIDATION_DIR WORKSPACE_ROOT")
@@ -62,6 +67,9 @@ def main() -> None:
     reasons = Counter()
     reasons_phase = Counter()
     reasons_task = Counter()
+    subtype_counts = Counter()
+    subtype_phase = Counter()
+    subtype_task = Counter()
     phase_counts = Counter((s.get("metadata") or {}).get("parent_phase") for s in rows)
     task_counts = Counter((s.get("metadata") or {}).get("task_name") for s in rows)
     trace_lengths = Counter()
@@ -81,7 +89,7 @@ def main() -> None:
         trace_lengths[str(n)] += 1
         succ = terminal_success(sample)
         fail = terminal_failure(sample)
-        done = bool(outcome.get("done_within_H"))
+        done = bool(outcome.get("done_within_H") or outcome.get("terminal_done"))
         if n >= 40 or succ or done:
             trace_completeness["complete_or_terminal_before_40"] += 1
         else:
@@ -89,8 +97,14 @@ def main() -> None:
 
         if lab == "VALIDATED_BAD":
             rs = label_reasons(sample)
+            subtype = bad_subtype(sample)
+            subtype_counts[subtype] += 1
+            subtype_phase[(subtype, meta.get("parent_phase"))] += 1
+            subtype_task[(subtype, meta.get("task_name"))] += 1
             if not rs:
                 suspicious.append({"sample_id": sample.get("sample_id"), "issue": "validated_bad_missing_reason"})
+            if subtype not in {"action_specific", "state_context"}:
+                suspicious.append({"sample_id": sample.get("sample_id"), "issue": "validated_bad_bad_subtype_missing_or_unknown", "bad_subtype": subtype})
             if set(rs) == {"eef_moved_away_from_target_during_approach"}:
                 suspicious.append({"sample_id": sample.get("sample_id"), "issue": "validated_bad_eef_only"})
             if succ:
@@ -107,6 +121,7 @@ def main() -> None:
                     "state_id": meta.get("state_id"),
                     "seed": meta.get("simvla_generation_seed"),
                     "phase": meta.get("parent_phase"),
+                    "bad_subtype": subtype,
                     "reasons": rs,
                     "terminal_steps": outcome.get("terminal_steps"),
                     "terminal_timeout": outcome.get("terminal_timeout"),
@@ -172,12 +187,14 @@ def main() -> None:
     checks = {
         "no_final_bad_unknown_reason": all(label_reasons(s) for s in validated),
         "no_final_bad_from_eef_away_alone": all(set(label_reasons(s)) != {"eef_moved_away_from_target_during_approach"} for s in validated),
+        "validated_bad_has_known_subtype": all(bad_subtype(s) in {"action_specific", "state_context"} for s in validated),
         "some_validated_bad_exists": bool(validated),
         "good_strong_has_terminal_success": all(terminal_success(s) for s in good),
         "ambiguous_used_when_unsure": labels.get("AMBIGUOUS", 0) > 0,
         "same_state_comparison_exists": all(bool((s.get("label") or {}).get("same_state_comparison")) for s in rows),
         "full_h40_trace_or_terminal_before_40": trace_completeness.get("short_without_terminal_success_or_done", 0) == 0,
         "no_zero_step_samples": all(trace_len(s) > 0 for s in rows),
+        "every_sample_has_label_evidence": all(bool((s.get("label") or {}).get("label_evidence")) for s in rows),
     }
 
     summary = {
@@ -189,8 +206,11 @@ def main() -> None:
         "phase_counts": dict(phase_counts),
         "task_counts": dict(task_counts),
         "validated_bad_reason_counts": dict(reasons),
+        "validated_bad_subtype_counts": dict(subtype_counts),
         "validated_bad_reason_by_phase": {" | ".join(map(str, k)): v for k, v in reasons_phase.items()},
         "validated_bad_reason_by_task": {" | ".join(map(str, k)): v for k, v in reasons_task.items()},
+        "validated_bad_subtype_by_phase": {" | ".join(map(str, k)): v for k, v in subtype_phase.items()},
+        "validated_bad_subtype_by_task": {" | ".join(map(str, k)): v for k, v in subtype_task.items()},
         "trace_length_counts": dict(trace_lengths),
         "trace_completeness": dict(trace_completeness),
         "raw_bad_count": raws.get("BAD", 0),
@@ -205,6 +225,23 @@ def main() -> None:
     validation.mkdir(parents=True, exist_ok=True)
     analysis_stem = data.name
     (validation / f"{analysis_stem}_analysis.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n")
+    with (validation / f"{analysis_stem}_corrected_label_suggestions.jsonl").open("w") as f:
+        for sample in rows:
+            label = sample.get("label") or {}
+            suggestion = {
+                "sample_id": sample.get("sample_id"),
+                "suggested_final_label": sample_label(sample),
+                "suggested_bad_subtype": bad_subtype(sample),
+                "label_reasons": label_reasons(sample),
+                "label_confidence": label.get("label_confidence"),
+                "raw_label": raw_label(sample),
+                "raw_reasons": raw_reasons(sample),
+                "terminal_success": terminal_success(sample),
+                "terminal_failure": terminal_failure(sample),
+                "trace_len": trace_len(sample),
+                "same_state_comparison": label.get("same_state_comparison"),
+            }
+            f.write(json.dumps(suggestion, sort_keys=True, default=str) + "\n")
 
     review = validation / f"{analysis_stem}_review"
     review.mkdir(parents=True, exist_ok=True)
@@ -221,6 +258,7 @@ def main() -> None:
             "sample_id": sid,
             "label": sample_label(sample),
             "raw_label": raw_label(sample),
+            "bad_subtype": bad_subtype(sample),
             "phase": meta.get("parent_phase"),
             "seed": meta.get("simvla_generation_seed"),
             "terminal_steps": outcome.get("terminal_steps"),
@@ -263,12 +301,12 @@ def main() -> None:
         "",
         f"Dataset: `{data}`",
         "",
-        "| bucket | sample_id | label | raw_label | phase | seed | terminal_steps | trace_len | reasons |",
-        "|---|---|---|---|---|---:|---:|---:|---|",
+        "| bucket | sample_id | label | bad_subtype | raw_label | phase | seed | terminal_steps | trace_len | reasons |",
+        "|---|---|---|---|---|---|---:|---:|---:|---|",
     ]
     for row in review_rows:
         md.append(
-            f"| {row.get('bucket')} | `{row.get('sample_id')}` | {row.get('label')} | {row.get('raw_label')} | "
+            f"| {row.get('bucket')} | `{row.get('sample_id')}` | {row.get('label')} | {row.get('bad_subtype')} | {row.get('raw_label')} | "
             f"{row.get('phase')} | {row.get('seed')} | {row.get('terminal_steps')} | {row.get('trace_len')} | {row.get('reasons')} |"
         )
     (review / "review_table.md").write_text("\n".join(md) + "\n")
@@ -279,6 +317,7 @@ def main() -> None:
         "label_counts": summary["label_counts"],
         "raw_label_counts": summary["raw_label_counts"],
         "validated_bad_reason_counts": summary["validated_bad_reason_counts"],
+        "validated_bad_subtype_counts": summary["validated_bad_subtype_counts"],
         "trace_length_counts": summary["trace_length_counts"],
         "trace_completeness": summary["trace_completeness"],
         "raw_bad_downgraded_count": summary["raw_bad_downgraded_count"],

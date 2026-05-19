@@ -30,6 +30,15 @@ PHASES_OF_INTEREST = [
     "STUCK_OR_NO_PROGRESS",
 ]
 
+BAD_SUBTYPE_ACTION_SPECIFIC = "action_specific"
+BAD_SUBTYPE_STATE_CONTEXT = "state_context"
+BAD_SUBTYPE_UNKNOWN = "unknown"
+ALLOWED_BAD_SUBTYPES = {
+    BAD_SUBTYPE_ACTION_SPECIFIC,
+    BAD_SUBTYPE_STATE_CONTEXT,
+    BAD_SUBTYPE_UNKNOWN,
+}
+
 
 def git_hash() -> str:
     try:
@@ -69,6 +78,53 @@ def rollout_quality(sample: dict[str, Any]) -> float:
     if height_delta is not None:
         score += max(-60.0, min(60.0, 400.0 * float(height_delta)))
     return score
+
+
+def has_strong_progress(sample: dict[str, Any]) -> bool:
+    raw = sample.get("raw_local_label") or {}
+    outcome = sample.get("outcome") or {}
+    if terminal_success(outcome):
+        return True
+    if raw.get("strong_good_evidence"):
+        return True
+    evidence = raw.get("numeric_evidence") or {}
+    goal_delta = evidence.get("target_to_goal_delta")
+    height_delta = evidence.get("target_height_delta")
+    target_motion = evidence.get("target_motion")
+    try:
+        if goal_delta is not None and float(goal_delta) < -0.025:
+            return True
+        if height_delta is not None and target_motion is not None and float(height_delta) > 0.025 and float(target_motion) > 0.012:
+            return True
+    except (TypeError, ValueError):
+        pass
+    return False
+
+
+def infer_bad_subtype(sample: dict[str, Any], siblings: list[dict[str, Any]]) -> tuple[str, dict[str, Any]]:
+    if not terminal_failure(sample.get("outcome") or {}):
+        return BAD_SUBTYPE_UNKNOWN, {"candidate_terminal_failure": False}
+    other_samples = [s for s in siblings if s.get("sample_id") != sample.get("sample_id")]
+    success_or_progress_alt = [s for s in other_samples if terminal_success(s.get("outcome") or {}) or has_strong_progress(s)]
+    terminal_failures = [s for s in siblings if terminal_failure(s.get("outcome") or {})]
+    no_progress_failures = [
+        s for s in siblings
+        if terminal_failure(s.get("outcome") or {}) and not has_strong_progress(s)
+    ]
+    majority_threshold = max(3, (len(siblings) + 1) // 2)
+    evidence = {
+        "candidate_terminal_failure": True,
+        "num_siblings": len(siblings),
+        "success_or_strong_progress_alternative_count": len(success_or_progress_alt),
+        "terminal_failure_count": len(terminal_failures),
+        "no_progress_failure_count": len(no_progress_failures),
+        "majority_threshold": majority_threshold,
+    }
+    if success_or_progress_alt:
+        return BAD_SUBTYPE_ACTION_SPECIFIC, evidence
+    if len(no_progress_failures) >= majority_threshold:
+        return BAD_SUBTYPE_STATE_CONTEXT, evidence
+    return BAD_SUBTYPE_UNKNOWN, evidence
 
 
 def generate_chunk(model, proc, lang, obs, seed: int, device, steps: int, flowtrace: bool):
@@ -332,11 +388,21 @@ def final_labels_for_state(samples: list[dict[str, Any]]) -> None:
             "label": LABEL_AMBIGUOUS,
             "final_label": LABEL_AMBIGUOUS,
             "initial_label": raw.get("label"),
+            "bad_subtype": BAD_SUBTYPE_UNKNOWN,
             "label_reasons": ["terminal_outcome_ambiguous"],
             "raw_local_label": raw,
             "same_state_comparison": same,
             "terminal_success": terminal_success(sample["outcome"]),
             "terminal_failure": terminal_failure(sample["outcome"]),
+            "label_evidence": {
+                "terminal_success": terminal_success(sample["outcome"]),
+                "terminal_failure": terminal_failure(sample["outcome"]),
+                "raw_bad_evidence": raw.get("bad_evidence") or [],
+                "raw_strong_good_evidence": raw.get("strong_good_evidence") or [],
+                "raw_weak_good_evidence": raw.get("weak_good_evidence") or [],
+                "parent_failed_or_timeout": bool(sample["metadata"].get("parent_failed_or_timeout")),
+                "distance_to_failure_or_timeout": sample["metadata"].get("distance_to_failure_or_timeout"),
+            },
         }
 
     scores = {s["sample_id"]: rollout_quality(s) for s in samples}
@@ -388,12 +454,26 @@ def final_labels_for_state(samples: list[dict[str, Any]]) -> None:
         if raw_bad and (bad_by_advantage or bad_by_failure_tail):
             reasons.extend(raw_bad)
         if reasons:
+            bad_subtype, bad_subtype_evidence = infer_bad_subtype(sample, samples)
+            if bad_subtype == BAD_SUBTYPE_UNKNOWN:
+                sample["label"].update({
+                    "label": LABEL_AMBIGUOUS,
+                    "final_label": LABEL_AMBIGUOUS,
+                    "label_confidence": "LOW",
+                    "bad_subtype": BAD_SUBTYPE_UNKNOWN,
+                    "label_reasons": ["validated_bad_subtype_unknown"],
+                    "validated_bad_reasons": [],
+                    "bad_subtype_evidence": bad_subtype_evidence,
+                })
+                continue
             sample["label"].update({
                 "label": LABEL_VALIDATED_BAD,
                 "final_label": LABEL_VALIDATED_BAD,
                 "label_confidence": "HIGH",
+                "bad_subtype": bad_subtype,
                 "label_reasons": sorted(set(reasons)),
                 "validated_bad_reasons": sorted(set(reasons)),
+                "bad_subtype_evidence": bad_subtype_evidence,
             })
     for sample in samples:
         same = same_state_summary(sample, samples)
