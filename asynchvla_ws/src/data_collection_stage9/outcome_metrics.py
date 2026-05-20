@@ -242,10 +242,13 @@ def _save_trace_frame(frame_dir, step_index: int, obs: dict) -> str | None:
         return None
     try:
         from PIL import Image
-        img, _ = obs_images(obs)
+        img, wrist = obs_images(obs)
         path = Path(frame_dir) / f"frame_{step_index:03d}.png"
         path.parent.mkdir(parents=True, exist_ok=True)
         Image.fromarray(img.astype(np.uint8)).save(path)
+        if wrist is not None:
+            wrist_path = Path(frame_dir) / f"frame_{step_index:03d}_wrist.png"
+            Image.fromarray(wrist.astype(np.uint8)).save(wrist_path)
         return str(path)
     except Exception:
         return None

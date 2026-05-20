@@ -629,7 +629,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--suites", nargs="+", default=["libero_spatial_with_mug", "libero_object_with_mug"])
     parser.add_argument("--task-ids", nargs="+", type=int, default=[0, 1, 2, 3, 4, 5])
-    parser.add_argument("--simvla-seeds", nargs="+", type=int, default=[0, 1, 2, 3, 4, 5, 6, 7])
+    parser.add_argument("--simvla-seeds", nargs="+", type=int, default=list(range(64)))
     parser.add_argument("--max-total-states", type=int, default=24)
     parser.add_argument("--max-parent-episodes", type=int, default=8)
     parser.add_argument("--max-states-per-parent", type=int, default=2)
