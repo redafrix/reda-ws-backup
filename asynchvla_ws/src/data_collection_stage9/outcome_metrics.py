@@ -112,25 +112,33 @@ def detect_phase(obs: dict, env: Any, task_context: dict | None, history_stats: 
         obj_pos_dict = object_body_positions(env)
         gb = body_pos_by_prefix(obj_pos_dict, task_context.get("goal_body_prefix"))
     
+    dist_target_goal = None
     if gb is not None:
         dist_target_goal = np.linalg.norm(tb - gb)
         if dist_target_goal < 0.12:
             return "PLACE_OR_GOAL"
-    
-    if target_height > 0.12:
-        return "TRANSPORT"
-    
+
+    # Do not use absolute world z as "lifted" evidence. In LIBERO-PRO many
+    # table objects have z around 0.9 in world coordinates while still resting
+    # on the table, so `target_height > 0.12` incorrectly labeled early
+    # approach states as TRANSPORT. Phase should first be based on EEF-target
+    # relation and gripper state.
+    if dist_eef_target > 0.15:
+        return "APPROACH"
+
     if dist_eef_target < 0.06:
         g = gripper(obs)
         if g is not None and np.mean(np.abs(g)) < 0.015:
+            if dist_target_goal is not None and dist_target_goal >= 0.12:
+                return "TRANSPORT"
             return "GRASP_OR_LIFT"
         if target_height > 0.07:
             return "GRASP_OR_LIFT"
         return "NEAR_GRASP"
-    
+
     if dist_eef_target < 0.15:
         return "NEAR_GRASP"
-    
+
     return "APPROACH"
 
 def task_progress(before_obs: dict, after_obs: dict, before_obj: dict, after_obj: dict, task_context: dict | None) -> dict:

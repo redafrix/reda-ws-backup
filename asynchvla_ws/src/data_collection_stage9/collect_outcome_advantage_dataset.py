@@ -15,7 +15,7 @@ from PIL import Image
 from .history_buffer import HistoryBuffer
 from .label_rules import LABEL_AMBIGUOUS, LABEL_GOOD_STRONG, LABEL_GOOD_WEAK, label_outcome
 from .libero_pro_env_utils import make_env, obs_images, obs_to_proprio, reset_to_init, suite_perturbation_type
-from .outcome_metrics import detect_phase, eef_pos, execute_action_chunk, object_body_positions
+from .outcome_metrics import contact_summary, compute_delta, detect_phase, eef_pos, execute_action_chunk, object_body_positions
 from .sim_state_utils import get_state, save_state_npz, set_state
 from .simvla_candidate_sampler import load_simvla, sample_candidate
 from .strict_label_utils import LABEL_VALIDATED_BAD, same_state_summary
@@ -273,10 +273,25 @@ def execute_policy_continuation(
     aggregate_trace["terminal_success"] = bool(terminal_success_seen)
     aggregate_trace["terminal_failure"] = first_outcome["terminal_failure"]
     aggregate_trace["terminal_timeout"] = first_outcome["terminal_timeout"]
+    final_obj = object_body_positions(env)
     first_outcome["H_used"] = int(len(aggregate_trace["rewards"]))
+    first_outcome["steps_executed"] = int(len(aggregate_trace["rewards"]))
     first_outcome["rewards"] = aggregate_trace["rewards"]
     first_outcome["reward_sum_H"] = float(sum(aggregate_trace["rewards"]))
     first_outcome["nonzero_reward_count_H"] = int(sum(abs(r) > 1e-8 for r in aggregate_trace["rewards"]))
+    first_outcome["success_after"] = bool(terminal_success_seen)
+    first_outcome["success_within_H"] = bool(terminal_success_seen and not first_outcome.get("success_before"))
+    first_outcome["done_within_H"] = bool(done_seen)
+    first_outcome["after_proprio"] = obs_to_proprio(obs).tolist()
+    first_outcome["object_positions_after"] = final_obj
+    first_outcome["contact_after"] = contact_summary(env)
+    first_outcome["delta"] = compute_delta(
+        before_obs,
+        obs,
+        first_outcome.get("object_positions_before") or {},
+        final_obj,
+        task_context,
+    )
     first_outcome["horizon_trace"] = aggregate_trace
     return first_outcome, obs, continuation_actions
 

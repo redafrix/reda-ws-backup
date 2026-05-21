@@ -107,6 +107,7 @@ def main() -> None:
     parser.add_argument("--num-workers", type=int, default=2)
     parser.add_argument("--max-train-samples", type=int)
     parser.add_argument("--max-eval-samples", type=int)
+    parser.add_argument("--feature-set", default="all", choices=["all", "deployable_only"])
     parser.add_argument("--balanced-binary-train", action="store_true")
     parser.add_argument("--seed", type=int, default=9009)
     parser.add_argument("--device", default="cuda")
@@ -125,6 +126,7 @@ def main() -> None:
         source_remaps,
         max_samples=args.max_train_samples,
         balance_binary=args.balanced_binary_train,
+        feature_set=args.feature_set,
     )
     if len(train_dataset) == 0:
         raise RuntimeError("empty train dataset after target filtering")
@@ -138,7 +140,7 @@ def main() -> None:
         history_dim=train_dataset.history_dim,
     )
     train_loader = make_loader(train_dataset, args.batch_size, True, args.num_workers)
-    calib_dataset = Stage9RiskDataset(Path(args.split_dir) / "calib.jsonl", args.target_mode, source_remaps, max_samples=args.max_eval_samples)
+    calib_dataset = Stage9RiskDataset(Path(args.split_dir) / "calib.jsonl", args.target_mode, source_remaps, max_samples=args.max_eval_samples, feature_set=args.feature_set)
     calib_loader = make_loader(calib_dataset, args.batch_size, False, args.num_workers)
 
     model = create_model(args.model, dims, args.target_mode).to(device)
@@ -148,6 +150,7 @@ def main() -> None:
     config = {
         "model": args.model,
         "target_mode": args.target_mode,
+        "feature_set": args.feature_set,
         "split_dir": args.split_dir,
         "output_dir": str(out_dir),
         "source_remap": args.source_remap or [],
@@ -220,7 +223,7 @@ def main() -> None:
         path = Path(args.split_dir) / f"{split}.jsonl"
         if not path.exists():
             continue
-        dataset = Stage9RiskDataset(path, args.target_mode, source_remaps, max_samples=args.max_eval_samples)
+        dataset = Stage9RiskDataset(path, args.target_mode, source_remaps, max_samples=args.max_eval_samples, feature_set=args.feature_set)
         loader = make_loader(dataset, args.batch_size, False, args.num_workers)
         all_predictions.extend(evaluate_model(model, loader, device, args.target_mode, split))
     if args.mc_dropout_passes and args.mc_dropout_passes > 1:
@@ -229,7 +232,7 @@ def main() -> None:
             path = Path(args.split_dir) / f"{split}.jsonl"
             if not path.exists():
                 continue
-            dataset = Stage9RiskDataset(path, args.target_mode, source_remaps, max_samples=args.max_eval_samples)
+            dataset = Stage9RiskDataset(path, args.target_mode, source_remaps, max_samples=args.max_eval_samples, feature_set=args.feature_set)
             loader = make_loader(dataset, args.batch_size, False, args.num_workers)
             mc_rows.extend(evaluate_model(model, loader, device, args.target_mode, split, mc_dropout_passes=args.mc_dropout_passes))
         write_predictions(out_dir / "predictions_mc_dropout.jsonl", mc_rows)

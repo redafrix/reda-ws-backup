@@ -48,6 +48,7 @@ def add_continuous_label(sample: dict[str, Any], risk: dict[str, Any]) -> None:
         "legacy_label_suggestion": risk["legacy_label_suggestion"],
         "bad_subtype": risk["bad_subtype"],
         "positive_evidence": risk["positive_evidence"],
+        "weak_positive_evidence": risk.get("weak_positive_evidence") or [],
         "negative_evidence": risk["negative_evidence"],
         "weak_negative_evidence": risk["weak_negative_evidence"],
         "ambiguous_evidence": risk["ambiguous_evidence"],

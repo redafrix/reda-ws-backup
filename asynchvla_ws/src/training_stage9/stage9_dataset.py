@@ -97,7 +97,7 @@ def candidate_action_seq(sample: dict[str, Any], steps: int = 10, dim: int = 7) 
     return pad_seq(values, steps, dim)
 
 
-def history_seq(sample: dict[str, Any], steps: int = 8, dim: int = 17) -> np.ndarray:
+def history_seq(sample: dict[str, Any], steps: int = 8, dim: int = 17, feature_set: str = "all") -> np.ndarray:
     hist = sample.get("history") or []
     out = np.zeros((steps, dim), dtype=np.float32)
     tail = hist[-steps:]
@@ -105,21 +105,33 @@ def history_seq(sample: dict[str, Any], steps: int = 8, dim: int = 17) -> np.nda
     for i, item in enumerate(tail, start=start):
         if not isinstance(item, dict):
             continue
+        
+        reward = float(item.get("reward") or 0.0)
+        success = float(bool(item.get("success")))
+        
+        if feature_set == "deployable_only":
+            reward = 0.0
+            success = 0.0
+
         row = np.concatenate(
             [
                 pad_flat(item.get("proprio"), 8),
                 pad_flat(item.get("executed_action"), 7),
-                np.asarray([float(item.get("reward") or 0.0), float(bool(item.get("success")))], dtype=np.float32),
+                np.asarray([reward, success], dtype=np.float32),
             ]
         )
         out[i, : min(dim, row.size)] = row[:dim]
     return out
 
 
-def context_vec(sample: dict[str, Any], max_objects: int = 24) -> np.ndarray:
+def context_vec(sample: dict[str, Any], max_objects: int = 24, feature_set: str = "all") -> np.ndarray:
     current = sample.get("current") or {}
     proprio = pad_flat(current.get("proprio"), 8)
     positions = current.get("object_positions_before") or {}
+    
+    if feature_set == "deployable_only":
+        positions = {}
+
     object_values: list[float] = []
     if isinstance(positions, dict):
         for key in sorted(positions)[:max_objects]:
@@ -169,10 +181,12 @@ class Stage9RiskDataset(Dataset):
         source_remaps: list[tuple[str, str]] | None = None,
         max_samples: int | None = None,
         balance_binary: bool = False,
+        feature_set: str = "all",
     ) -> None:
         self.split_jsonl = Path(split_jsonl)
         self.target_mode = target_mode
         self.source_remaps = source_remaps or []
+        self.feature_set = feature_set
         split_rows = read_jsonl(self.split_jsonl)
         if max_samples:
             split_rows = split_rows[:max_samples]
@@ -188,6 +202,53 @@ class Stage9RiskDataset(Dataset):
         self.flat_dim = self.context_dim + self.action_steps * self.action_dim + self.history_steps * self.history_dim
         self.action_flat_dim = self.action_steps * self.action_dim
         self.context_action_dim = self.context_dim + self.action_flat_dim
+        
+        self._audit_features()
+
+    def _audit_features(self) -> None:
+        forbidden_substrings = [
+            "reward", "success", "object_pos", "object_positions", "goal", 
+            "distance_to_goal", "target_goal", "object_goal", "label", 
+            "evidence", "reason", "parent", "episode_success", "failed", 
+            "timeout", "task_id", "suite", "perturb", "seed", "env_seed", "metadata"
+        ]
+        
+        included = ["candidate_action", "current_proprio", "history_proprio", "history_executed_actions"]
+        excluded = []
+        if self.feature_set == "deployable_only":
+            excluded = ["reward", "success", "object_positions"]
+        
+        print(f"--- Feature Audit: {self.feature_set} ---")
+        print(f"Feature set: {self.feature_set}")
+        print(f"Included: {included}")
+        print(f"Excluded: {excluded}")
+        print(f"Input dim: {self.flat_dim}")
+        
+        forbidden_detected = False
+        if self.feature_set == "deployable_only":
+            # Just a sanity check on the first row if available
+            if self.rows:
+                sample = self.rows[0]
+                # We don't fail if the KEYS exist in the dict (they always will in the raw json),
+                # but we must ensure they are not USED in the feature vector.
+                # However, the user said: "If any of those are used in deployable_only features, fail loudly."
+                # I've modified history_seq and context_vec to not use them.
+                
+                # To be extra safe, let's check if our logic actually zeroes them out.
+                h = history_seq(sample, self.history_steps, self.history_dim, self.feature_set)
+                if h[:, -2:].any(): # reward and success are the last two columns
+                    print("ERROR: Forbidden features (reward/success) detected in history_seq!")
+                    forbidden_detected = True
+                
+                c = context_vec(sample, 24, self.feature_set)
+                if c[8:].any(): # object positions are after the 8 proprio dims
+                    print("ERROR: Forbidden features (object_positions) detected in context_vec!")
+                    forbidden_detected = True
+
+        print(f"Forbidden keys used in features: {'YES' if forbidden_detected else 'NO'}")
+        if forbidden_detected:
+            raise ValueError(f"Forbidden features detected in {self.feature_set} mode!")
+        print("---------------------------------")
 
     def _load_samples(self, split_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         by_file: dict[Path, dict[str, dict[str, Any]]] = defaultdict(dict)
@@ -236,8 +297,8 @@ class Stage9RiskDataset(Dataset):
         label = str(sample["label"])
         subtype = str(sample.get("bad_subtype") or "unknown")
         action = candidate_action_seq(sample, self.action_steps, self.action_dim)
-        history = history_seq(sample, self.history_steps, self.history_dim)
-        context = context_vec(sample)
+        history = history_seq(sample, self.history_steps, self.history_dim, self.feature_set)
+        context = context_vec(sample, 24, self.feature_set)
         action_flat = action.reshape(-1)
         flat = np.concatenate([context, action_flat, history.reshape(-1)]).astype(np.float32)
         context_action = np.concatenate([context, action_flat]).astype(np.float32)
