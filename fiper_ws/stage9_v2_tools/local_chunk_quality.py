@@ -234,10 +234,14 @@ def _no_progress_risk(e: dict[str, Any], progress_credit: float) -> float:
     if as_bool(e.get("success")):
         return 0.0
     reward = as_float(e.get("reward_sum_H"), 0.0) or 0.0
+    phase = str(e.get("phase") or "").upper()
     if reward > 0 or progress_credit >= 0.35:
         return 0.0
+    if progress_credit >= 0.10:
+        if phase in {"APPROACH", "NEAR_GRASP", "APPROACH_OR_NEAR_GRASP"}:
+            return 0.05
+        return 0.20
 
-    phase = str(e.get("phase") or "").upper()
     motion = _motion_credits(e)
     approach_relevant = phase in {"APPROACH", "NEAR_GRASP", "APPROACH_OR_NEAR_GRASP"}
     approach_credit = motion["eef_approach_credit"] if approach_relevant else 0.0
@@ -274,7 +278,13 @@ def _no_progress_risk(e: dict[str, Any], progress_credit: float) -> float:
     return clamp(expected_weight * stall + 0.20 * worsening)
 
 
-def _evidence_confidence(e: dict[str, Any], positive: list[str], negative: list[str]) -> float:
+def _evidence_confidence(
+    e: dict[str, Any],
+    positive: list[str],
+    negative: list[str],
+    weak_positive: list[str] | None = None,
+) -> float:
+    weak_positive = weak_positive or []
     conf = 0.20
     if e.get("target_pos_available") or e.get("target_base"):
         conf += 0.16
@@ -290,6 +300,8 @@ def _evidence_confidence(e: dict[str, Any], positive: list[str], negative: list[
         conf += 0.06
     if positive or negative:
         conf += 0.10
+    elif weak_positive:
+        conf += 0.06
     if len(negative) >= 2 or len(positive) >= 2:
         conf += 0.07
     return clamp(conf)
@@ -357,6 +369,7 @@ def score_sample_local(sample: dict[str, Any]) -> dict[str, Any]:
     """
     e = merged_numeric_evidence(sample)
     positive: list[str] = []
+    weak_positive: list[str] = []
     negative: list[str] = []
     weak_negative: list[str] = []
     ambiguous: list[str] = []
@@ -376,10 +389,16 @@ def score_sample_local(sample: dict[str, Any]) -> dict[str, Any]:
         positive.append("local_reward")
     if goal_progress >= 0.35:
         positive.append("target_moved_toward_goal")
+    elif goal_progress >= 0.08:
+        weak_positive.append("target_moved_toward_goal_weak")
     if lift_progress >= 0.35:
         positive.append("target_lifted")
+    elif lift_progress >= 0.08:
+        weak_positive.append("target_lifted_weak")
     if approach_progress >= 0.35:
         positive.append("eef_approached_target_in_approach_phase")
+    elif approach_progress >= 0.08:
+        weak_positive.append("eef_approached_target_in_approach_phase_weak")
 
     drop_risk = _drop_risk(e, goal_progress)
     away_risk = _goal_worsening(e)
@@ -433,7 +452,7 @@ def score_sample_local(sample: dict[str, Any]) -> dict[str, Any]:
     elif no_progress_risk >= 0.45:
         weak_negative.append("no_progress_weak")
 
-    if not positive and not negative and not weak_negative:
+    if not positive and not weak_positive and not negative and not weak_negative:
         ambiguous.append("no_clear_local_signal")
     if e.get("terminal_timeout_audit_only") and not negative:
         ambiguous.append("terminal_timeout_audit_only_not_label_proof")
@@ -447,14 +466,17 @@ def score_sample_local(sample: dict[str, Any]) -> dict[str, Any]:
         "local_progress_credit": progress_credit,
         **motion,
     }
-    confidence = _evidence_confidence(e, positive, negative)
+    confidence = _evidence_confidence(e, positive, negative, weak_positive)
     raw_risk, risk_score, chunk_quality = _final_risk_from_components(components, confidence)
+    if weak_positive and not positive and not negative:
+        risk_score = clamp(max(0.22, min(risk_score, 0.35)))
+        chunk_quality = 1.0 - risk_score
 
     # Absence of bad evidence is not evidence of a good action.  This matters
     # at preterminal branchpoints where sparse LIBERO rewards are often zero
     # and tiny object jitter can avoid the no-progress detector.  Those samples
     # must stay uncertain unless we have real positive progress/success/reward.
-    if not positive and not negative:
+    if not positive and not weak_positive and not negative:
         if weak_negative:
             ambiguous.append("no_positive_progress_only_weak_negative")
             uncertain_floor = clamp(0.42 + 0.10 * no_progress_risk + 0.04 * failure_onset_risk - 0.06 * progress_credit)
@@ -482,6 +504,7 @@ def score_sample_local(sample: dict[str, Any]) -> dict[str, Any]:
         "legacy_label_suggestion_local": _legacy_suggestion(risk_score, confidence, strong_bad, strong_good),
         "bad_subtype": BAD_SUBTYPE_UNKNOWN,
         "positive_evidence": strong_good,
+        "weak_positive_evidence": list(dict.fromkeys(weak_positive)),
         "negative_evidence": strong_bad,
         "weak_negative_evidence": list(dict.fromkeys(weak_negative)),
         "ambiguous_evidence": list(dict.fromkeys(ambiguous)),
@@ -526,6 +549,7 @@ def score_state_group(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
             confidence = clamp(confidence + 0.08)
 
         negative = list(row["negative_evidence"])
+        weak_positive = list(row.get("weak_positive_evidence") or [])
         weak_negative = list(row["weak_negative_evidence"])
         ambiguous = list(row["ambiguous_evidence"])
         no_progress_component = float(components.get("no_progress_risk", 0.0))
@@ -544,7 +568,10 @@ def score_state_group(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
             weak_negative.append("same_state_candidate_worse_than_alternatives")
 
         raw_risk, risk_score, chunk_quality = _final_risk_from_components(components, confidence)
-        if not row["positive_evidence"] and not negative:
+        if weak_positive and not row["positive_evidence"] and not negative:
+            risk_score = clamp(max(0.22, min(risk_score, 0.35)))
+            chunk_quality = 1.0 - risk_score
+        if not row["positive_evidence"] and not weak_positive and not negative:
             if weak_negative:
                 ambiguous.append("no_positive_progress_only_weak_negative")
                 uncertain_floor = clamp(
@@ -590,6 +617,7 @@ def score_state_group(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
             ),
             "bad_subtype": bad_subtype,
             "risk_components": components,
+            "weak_positive_evidence": list(dict.fromkeys(weak_positive)),
             "weak_negative_evidence": list(dict.fromkeys(weak_negative)),
             "ambiguous_evidence": list(dict.fromkeys(ambiguous)),
             "same_state_comparison_v2": {
