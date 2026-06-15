@@ -93,6 +93,8 @@ def get_args_parser():
     parser.add_argument("--train_metas_path", type=str, required=True, 
                         help="Path to training metadata")
     parser.add_argument("--batch_size", type=int, default=32)
+    parser.add_argument("--grad_accum_steps", type=int, default=1,
+                        help="Number of micro-batches to accumulate before each optimizer step")
     parser.add_argument("--image_size", type=int, default=384, 
                         help="Image size for SmolVLM (default: 384, can be 384 or 512)")
 
@@ -111,7 +113,13 @@ def get_args_parser():
         "--freeze_mode",
         type=str,
         default="action_heads_only",
-        choices=["action_heads_only", "freeze_vlm_only", "freeze_transformer_core_only", "none"],
+        choices=[
+            "action_heads_only",
+            "freeze_vlm_only",
+            "freeze_vlm_entire_run",
+            "freeze_transformer_core_only",
+            "none",
+        ],
         help="Which parameter groups stay trainable before unfreezing at freeze_steps",
     )
     parser.add_argument("--warmup_steps", type=int, default=2000)
@@ -270,11 +278,18 @@ def update_group_lrs(optim, step, args):
     trainable_during_freeze = {
         "action_heads_only": ["action_heads"],
         "freeze_vlm_only": ["transformer_core", "action_heads"],
+        "freeze_vlm_entire_run": ["transformer_core", "action_heads"],
         "freeze_transformer_core_only": ["vlm", "action_heads"],
         "none": ["vlm", "transformer_core", "action_heads"]
     }.get(args.freeze_mode, ["vlm", "transformer_core", "action_heads"])
 
-    if step < args.freeze_steps:
+    if args.freeze_mode == "freeze_vlm_entire_run":
+        for name in base:
+            if name in trainable_during_freeze:
+                set_group_lr(optim, name, get_lr(name, 0))
+            else:
+                set_group_lr(optim, name, 0.0)
+    elif step < args.freeze_steps:
         for name in base:
             if name in trainable_during_freeze:
                 set_group_lr(optim, name, get_lr(name, 0))
@@ -314,6 +329,7 @@ def main(args):
     tracker_config = {
         "learning_rate": args.learning_rate,
         "batch_size": args.batch_size,
+        "grad_accum_steps": args.grad_accum_steps,
         "iters": args.iters,
         "smolvlm_model_path": args.smolvlm_model_path,
         "freeze_steps": args.freeze_steps,
@@ -455,6 +471,17 @@ def main(args):
             logger.info(
                 f"Real parameter freeze enabled for first {args.freeze_steps} steps: training transformer core + action heads, VLM frozen"
             )
+        elif args.freeze_mode == "freeze_vlm_entire_run":
+            set_trainable_groups(
+                accelerator.unwrap_model(model),
+                train_vlm=False,
+                train_transformer_core=True,
+                train_action_heads=True,
+            )
+            groups_unfrozen = True
+            logger.info(
+                "Real parameter freeze enabled for entire run: training transformer core + action heads, VLM frozen"
+            )
         elif args.freeze_mode == "freeze_transformer_core_only":
             set_trainable_groups(
                 accelerator.unwrap_model(model),
@@ -489,7 +516,13 @@ def main(args):
     global_step, t0 = start_step, time.time()
     logger.info(f"🚀 Start SmolVLM-VLA training for {args.iters} iterations")
     logger.info(f"   world_size={accelerator.num_processes}")
+    logger.info(f"   grad_accum_steps={args.grad_accum_steps}")
+    logger.info(
+        f"   effective_batch_size={args.batch_size * accelerator.num_processes * args.grad_accum_steps}"
+    )
 
+    optim.zero_grad()
+    micro_step = 0
     for batch in train_dataloader:
         if (not groups_unfrozen) and global_step >= args.freeze_steps:
             set_trainable_groups(
@@ -521,8 +554,15 @@ def main(args):
         else:
             loss = sum(loss_dict.values())
         
-        # Backward
-        accelerator.backward(loss)
+        # Backward on scaled loss so the accumulated gradient matches the target batch size.
+        loss_for_backward = loss / args.grad_accum_steps
+        accelerator.backward(loss_for_backward)
+        micro_step += 1
+        should_update = micro_step % args.grad_accum_steps == 0
+
+        if not should_update:
+            continue
+
         if args.max_grad_norm:
             accelerator.clip_grad_norm_(model.parameters(), args.max_grad_norm)
         optim.step()
@@ -536,7 +576,7 @@ def main(args):
             accelerator.log(logs, step=global_step)
 
             if accelerator.is_main_process:
-                dt = (time.time() - t0) / args.log_interval
+                dt = (time.time() - t0) / max(1, args.log_interval)
                 t0 = time.time()
                 
                 extra_logs = ""
@@ -550,7 +590,7 @@ def main(args):
                     f"loss={logs['loss_total']:.4f}{extra_logs} "
                     f"lr_core={logs['lr_transformer_core']:.2e} "
                     f"lr_action={logs['lr_action_heads']:.2e} "
-                    f"lr_vlm={logs['lr_vlm']:.2e} ({dt:.2f}s/it)"
+                    f"lr_vlm={logs['lr_vlm']:.2e} ({dt:.2f}s/update)"
                 )
         
         # Checkpointing

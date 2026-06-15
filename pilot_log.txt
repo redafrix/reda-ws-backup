@@ -1,0 +1,30 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+`torch_dtype` is deprecated! Use `dtype` instead!
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_object_with_mug' (10 tasks).
+[Warning]: datasets path /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/datasets does not exist!
+Starting phase-balanced sampling for libero_object_with_mug_t0...
+samples 20 labels {'GOOD_WEAK': 17, 'GOOD_STRONG': 3}
+samples 40 labels {'GOOD_WEAK': 17, 'GOOD_STRONG': 23}
+{
+  "num_samples": 40,
+  "label_counts": {
+    "GOOD_WEAK": 17,
+    "GOOD_STRONG": 23
+  },
+  "out_dir": "asynchvla_ws/stage9_libero_pro_risk_data/data/pilot/phase_balanced_v1",
+  "suites": [
+    "libero_object_with_mug"
+  ],
+  "task_ids": [
+    0
+  ]
+}

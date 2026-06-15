@@ -11,12 +11,12 @@ from typing import Any
 
 import numpy as np
 
-from .collect_outcome_advantage_dataset import execute_policy_continuation, generate_chunk, git_hash, save_png
+from .collect_outcome_advantage_dataset import generate_chunk, git_hash, save_png
 from .collect_failed_episode_mining_v2 import add_continuous_label, strip_private
 from .history_buffer import HistoryBuffer
 from .libero_pro_env_utils import check_success, make_env, obs_images, obs_to_proprio, reset_to_init, suite_perturbation_type
 from .local_chunk_quality import score_state_group, summarize_state_group_risks
-from .outcome_metrics import contact_summary, compute_delta, detect_phase, execute_action_chunk, object_body_positions
+from .outcome_metrics import detect_phase, execute_action_chunk, object_body_positions
 from .sim_state_utils import get_state, save_state_npz, set_state
 from .simvla_candidate_sampler import load_simvla
 from .task_parser import parse_task_context
@@ -167,8 +167,7 @@ def run_parent_episode_dense(
         before_obs = obs
         before_obj = object_body_positions(env)
 
-        stop_step = args.stop_step if args.stop_step >= 0 else args.parent_max_steps - args.eval_horizon
-        if env_step >= args.start_step and env_step <= stop_step and ((env_step - args.start_step) % args.state_stride == 0):
+        if env_step >= args.start_step and ((env_step - args.start_step) % args.state_stride == 0):
             add_parent_record(
                 dense_states=dense_states,
                 outdir=outdir,
@@ -231,7 +230,6 @@ def run_parent_episode_dense(
         "parent_steps": int(env_step + 1),
         "dense_state_count": len(dense_states),
         "start_step": int(args.start_step),
-        "stop_step": int(args.stop_step if args.stop_step >= 0 else args.parent_max_steps - args.eval_horizon),
         "state_stride": int(args.state_stride),
         "parent_max_steps": int(args.parent_max_steps),
         "parent_policy_chunk_steps": int(args.parent_policy_chunk_steps),
@@ -293,65 +291,17 @@ def replay_dense_state(
         )
         sid = f"{state_id}_seed{seed_value}"
         frame_dir = outdir / "trace_frames" / sid if args.save_trace_frames else None
-        candidate_steps = min(args.candidate_chunk_steps, len(initial_chunk))
-        eval_horizon = max(candidate_steps, int(args.eval_horizon))
-        if eval_horizon > candidate_steps:
-            outcome, after_obs, continuation_actions = execute_policy_continuation(
-                env,
-                model,
-                proc,
-                lang,
-                device,
-                initial_chunk[:candidate_steps],
-                before_obs,
-                task_context,
-                eval_horizon=eval_horizon,
-                terminal_horizon=eval_horizon,
-                continuation_seed=int(seed_value) + 1_000_003,
-                trace_frame_dir=frame_dir,
-                trace_frame_stride=args.trace_frame_stride,
-            )
-            after_obj = object_body_positions(env)
-            after_contact = contact_summary(env)
-            htrace = outcome.get("horizon_trace") or {}
-            rewards = htrace.get("rewards") or outcome.get("rewards") or []
-            success_flags = htrace.get("success_flags") or []
-            done_flags = htrace.get("done_flags") or []
-            outcome.update({
-                "H_used": int(len(rewards)),
-                "steps_executed": int(len(rewards)),
-                "rewards": rewards,
-                "reward_sum_H": float(sum(rewards)),
-                "nonzero_reward_count_H": int(sum(abs(float(r)) > 1e-8 for r in rewards)),
-                "success_before": bool(outcome.get("success_before")),
-                "success_after": bool(check_success(env)),
-                "success_within_H": bool(any(success_flags) and not outcome.get("success_before")),
-                "done_within_H": bool(any(done_flags)),
-                "after_proprio": obs_to_proprio(after_obs).tolist(),
-                "object_positions_after": after_obj,
-                "contact_after": after_contact,
-                "delta": compute_delta(before_obs, after_obs, before_obj, after_obj, task_context),
-                "candidate_chunk_steps": int(candidate_steps),
-                "eval_horizon_requested": int(eval_horizon),
-                "policy_continuation_steps_after_candidate": int(max(0, len(rewards) - candidate_steps)),
-                "policy_continuation_actions_audit": continuation_actions,
-            })
-        else:
-            outcome, after_obs = execute_action_chunk(
-                env,
-                initial_chunk[:candidate_steps],
-                candidate_steps,
-                before_obs,
-                task_context=task_context,
-                return_after_obs=True,
-                save_full_trace=True,
-                trace_frame_dir=frame_dir,
-                trace_frame_stride=args.trace_frame_stride,
-            )
-            outcome["candidate_chunk_steps"] = int(candidate_steps)
-            outcome["eval_horizon_requested"] = int(eval_horizon)
-            outcome["policy_continuation_steps_after_candidate"] = 0
-            outcome["policy_continuation_actions_audit"] = []
+        outcome, after_obs = execute_action_chunk(
+            env,
+            initial_chunk,
+            min(args.candidate_chunk_steps, len(initial_chunk)),
+            before_obs,
+            task_context=task_context,
+            return_after_obs=True,
+            save_full_trace=True,
+            trace_frame_dir=frame_dir,
+            trace_frame_stride=args.trace_frame_stride,
+        )
         after_agent, after_wrist = obs_images(after_obs)
         after_agent_path = save_png(outdir / "images" / f"{sid}_after_agent.png", after_agent) if args.save_images else None
         after_wrist_path = save_png(outdir / "images" / f"{sid}_after_wrist.png", after_wrist) if args.save_images and after_wrist is not None else None
@@ -391,8 +341,6 @@ def replay_dense_state(
                 "candidate_action_normalized": norm.tolist() if hasattr(norm, "tolist") else norm,
                 "candidate_action_env": initial_chunk.tolist() if hasattr(initial_chunk, "tolist") else initial_chunk,
                 "simvla_seed": int(seed_value),
-                "target_action_chunk_steps": int(candidate_steps),
-                "eval_horizon_steps": int(eval_horizon),
                 "flowtrace_features": flow,
             },
             "outcome": outcome,
@@ -403,15 +351,12 @@ def replay_dense_state(
             },
             "episode_outcome": parent_state.get("episode_outcome") or {},
             "labeling_policy": {
-                "label_target": "initial_10_action_simvla_chunk",
+                "label_target": "candidate_action_chunk_from_dense_timestep",
                 "terminal_continuation_used_for_label": False,
                 "episode_failure_used_for_label": False,
                 "episode_failure_used_for_mining_only": True,
                 "same_state_replay_for_dense_timestep": True,
                 "continuous_risk_primary": True,
-                "policy_continuation_used_for_eval_horizon": bool(eval_horizon > candidate_steps),
-                "terminal_success_failure_used_for_label": False,
-                "eval_horizon_steps": int(eval_horizon),
             },
         }
         samples.append(sample)
@@ -555,11 +500,9 @@ def collect(args: argparse.Namespace) -> None:
         "history_k": args.history_k,
         "parent_max_steps": args.parent_max_steps,
         "start_step": args.start_step,
-        "stop_step": args.stop_step if args.stop_step >= 0 else args.parent_max_steps - args.eval_horizon,
         "state_stride": args.state_stride,
         "parent_policy_chunk_steps": args.parent_policy_chunk_steps,
         "candidate_chunk_steps": args.candidate_chunk_steps,
-        "eval_horizon": args.eval_horizon,
         "num_replay_seeds": len(replay_seeds),
         "replay_seeds": replay_seeds,
         "terminal_continuation_used_for_label": False,
@@ -584,15 +527,13 @@ def main() -> None:
     parser.add_argument("--max-failure-episodes", type=int, default=1)
     parser.add_argument("--parent-max-steps", type=int, default=400)
     parser.add_argument("--start-step", type=int, default=10)
-    parser.add_argument("--stop-step", type=int, default=-1, help="Last parent env step to replay; default parent_max_steps - eval_horizon")
     parser.add_argument("--state-stride", type=int, default=1)
     parser.add_argument("--max-replay-states", type=int, default=0, help="0 means every dense state from failed episodes")
     parser.add_argument("--parent-policy-chunk-steps", type=int, default=10)
     parser.add_argument("--candidate-chunk-steps", type=int, default=10)
-    parser.add_argument("--eval-horizon", type=int, default=10, help="Trace/scoring horizon. The target action remains the initial candidate chunk.")
     parser.add_argument("--history-k", type=int, default=8)
     parser.add_argument("--policy-seed-base", type=int, default=0)
-    parser.add_argument("--num-replay-seeds", type=int, default=20)
+    parser.add_argument("--num-replay-seeds", type=int, default=200)
     parser.add_argument("--replay-seed-base", type=int, default=20260520)
     parser.add_argument("--replay-seeds", nargs="+", type=int, default=None)
     parser.add_argument("--resolution", type=int, default=128)

@@ -83,11 +83,6 @@ def weak_negative_tuple(row: dict[str, Any]) -> tuple[str, ...]:
     return tuple(str(v) for v in vals)
 
 
-def weak_positive_tuple(row: dict[str, Any]) -> tuple[str, ...]:
-    vals = label_dict(row).get("weak_positive_evidence") or []
-    return tuple(str(v) for v in vals)
-
-
 def action_vector(row: dict[str, Any]) -> np.ndarray | None:
     cand = row.get("candidate_action")
     if not isinstance(cand, dict):
@@ -205,7 +200,6 @@ def summarize_dir(path: Path) -> dict[str, Any]:
         "risk_bin_counts": dict(Counter(risk_bin(r) for r in rows)),
         "bad_subtype_counts": dict(Counter(bad_subtype(r) for r in rows)),
         "negative_evidence_counts": {" | ".join(k) if k else "none": v for k, v in Counter(negative_tuple(r) for r in rows).most_common(20)},
-        "weak_positive_evidence_counts": {" | ".join(k) if k else "none": v for k, v in Counter(weak_positive_tuple(r) for r in rows).most_common(20)},
         "weak_negative_evidence_counts": {" | ".join(k) if k else "none": v for k, v in Counter(weak_negative_tuple(r) for r in rows).most_common(20)},
         "group_type_counts": dict(group_types),
         "groups_with_duplicate_seeds": sum(1 for g in group_summaries if g["duplicate_seed_count"] > 0),

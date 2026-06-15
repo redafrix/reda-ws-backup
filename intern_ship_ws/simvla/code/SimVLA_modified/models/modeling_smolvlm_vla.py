@@ -31,6 +31,12 @@ import cv2
 from safetensors.torch import load_file as load_safetensors_file
 
 from transformers import PreTrainedModel, AutoProcessor, AutoModelForImageTextToText
+try:
+    from peft import LoraConfig, get_peft_model
+except Exception:  # pragma: no cover - peft is optional for non-LoRA checkpoints
+    LoraConfig = None
+    get_peft_model = None
+
 from .transformer_smolvlm import SmolVLMActionTransformer
 from .action_hub import build_action_space
 from .configuration_smolvlm_vla import SmolVLMVLAConfig
@@ -86,6 +92,40 @@ class SmolVLMVLA(PreTrainedModel):
             torch_dtype=torch.float32,  # Use float32 for training stability
             trust_remote_code=True,
         )
+        if getattr(config, "use_lora", False):
+            if LoraConfig is None or get_peft_model is None:
+                raise ImportError("This checkpoint requires PEFT/LoRA, but peft is not installed")
+            target_modules = list(
+                getattr(
+                    config,
+                    "lora_target_modules",
+                    [
+                        "q_proj",
+                        "k_proj",
+                        "v_proj",
+                        "o_proj",
+                        "gate_proj",
+                        "up_proj",
+                        "down_proj",
+                        "out_proj",
+                        "fc1",
+                        "fc2",
+                    ],
+                )
+            )
+            lora_config = LoraConfig(
+                r=int(getattr(config, "lora_rank", 16)),
+                lora_alpha=int(getattr(config, "lora_alpha", 32)),
+                lora_dropout=float(getattr(config, "lora_dropout", 0.05)),
+                target_modules=target_modules,
+                bias="none",
+            )
+            self.vlm = get_peft_model(self.vlm, lora_config)
+            logging.info(
+                "✓ LoRA enabled for SmolVLM: "
+                f"rank={lora_config.r} alpha={lora_config.lora_alpha} "
+                f"dropout={lora_config.lora_dropout} targets={target_modules}"
+            )
         self.vlm_processor = AutoProcessor.from_pretrained(
             config.smolvlm_model_path,
             trust_remote_code=True,
@@ -122,6 +162,18 @@ class SmolVLMVLA(PreTrainedModel):
 
         # Deferred FastAPI app
         self.app: FastAPI | None = None
+
+    def _vlm_model(self):
+        """Return the underlying SmolVLM model block for plain or PEFT-wrapped VLMs."""
+        if hasattr(self.vlm, "model") and hasattr(self.vlm.model, "vision_model"):
+            return self.vlm.model
+        base_model = getattr(self.vlm, "base_model", None)
+        if base_model is not None:
+            wrapped = getattr(base_model, "model", None)
+            inner = getattr(wrapped, "model", None)
+            if inner is not None and hasattr(inner, "vision_model"):
+                return inner
+        raise AttributeError("Could not locate SmolVLM inner model with a vision_model")
 
     def _init_uncertainty_heads_from_legacy(self) -> None:
         if not getattr(self.config, "predict_uncertainty", False):
@@ -211,9 +263,13 @@ class SmolVLMVLA(PreTrainedModel):
 
     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path: str | os.PathLike, *model_args, **kwargs):
-        model = super().from_pretrained(pretrained_model_name_or_path, *model_args, **kwargs)
-        model._maybe_copy_legacy_output_head(str(pretrained_model_name_or_path))
-        return model
+        loaded = super().from_pretrained(pretrained_model_name_or_path, *model_args, **kwargs)
+        if isinstance(loaded, tuple):
+            model = loaded[0]
+            model._maybe_copy_legacy_output_head(str(pretrained_model_name_or_path))
+            return (model, *loaded[1:])
+        loaded._maybe_copy_legacy_output_head(str(pretrained_model_name_or_path))
+        return loaded
 
     # ============================= SmolVLM encoder =============================
     def forward_vlm(
@@ -355,7 +411,8 @@ class SmolVLMVLA(PreTrainedModel):
             raise ValueError("At least one image view must be valid.")
         
         # Encode images through SmolVLM's vision encoder (SigLIP)
-        vision_outputs = self.vlm.model.vision_model(
+        vlm_model = self._vlm_model()
+        vision_outputs = vlm_model.vision_model(
             pixel_values=valid_images,
             output_hidden_states=True,
             return_dict=True,
@@ -365,14 +422,14 @@ class SmolVLMVLA(PreTrainedModel):
         image_features = vision_outputs.last_hidden_state  # [num_valid, num_patches, vision_hidden]
         
         # Project to language model space using the connector/projector
-        if hasattr(self.vlm.model, 'connector'):
-            image_features = self.vlm.model.connector(image_features)
-        elif hasattr(self.vlm.model, 'multi_modal_projector'):
-            image_features = self.vlm.model.multi_modal_projector(image_features)
+        if hasattr(vlm_model, 'connector'):
+            image_features = vlm_model.connector(image_features)
+        elif hasattr(vlm_model, 'multi_modal_projector'):
+            image_features = vlm_model.multi_modal_projector(image_features)
         
         # ========== Step 2: Get text embeddings ==========
         # Idefics3 (SmolVLM) uses 'text_model' instead of 'language_model'
-        text_embeds = self.vlm.model.text_model.get_input_embeddings()(input_ids)  # [B, L, D]
+        text_embeds = vlm_model.text_model.get_input_embeddings()(input_ids)  # [B, L, D]
         
         # ========== Step 3: Build combined sequence per sample ==========
         # For each sample, concatenate: [image_features_view1, ..., image_features_viewN, text_embeds]
@@ -415,7 +472,7 @@ class SmolVLMVLA(PreTrainedModel):
         
         # ========== Step 5: Forward through text model (Idefics3/SmolVLM) ==========
         # This fuses visual and linguistic information through the full transformer
-        lm_outputs = self.vlm.model.text_model(
+        lm_outputs = vlm_model.text_model(
             inputs_embeds=padded_inputs_embeds,
             attention_mask=attention_mask,
             output_hidden_states=True,
@@ -508,6 +565,98 @@ class SmolVLMVLA(PreTrainedModel):
         velocity_loss = torch.mean(torch.square(v_t - u_t))
         return {"loss": velocity_loss, "velocity_loss": velocity_loss}
 
+    @torch.no_grad()
+    def collect_flow_uncertainty_calibration_batch(
+        self,
+        input_ids: torch.LongTensor,
+        image_input: torch.FloatTensor,
+        image_mask: torch.Tensor,
+        proprio: torch.Tensor,
+        action: torch.Tensor,
+    ) -> Dict[str, torch.Tensor]:
+        """
+        Collect the tensors needed for a predicted-variance vs empirical-flow-MSE
+        reliability curve.
+
+        This uses the exact same flow-matching construction as training:
+
+            x_t = t * noise + (1 - t) * action_norm
+            u_t = noise - action_norm
+
+        Returns:
+            sigma2:      [B, H, D] predicted variance
+            residual2:   [B, H, D] empirical squared flow error
+            v_pred:      [B, H, D] predicted flow velocity
+            u_star:      [B, H, D] target flow velocity
+            tau:         [B] sampled flow time
+            action_norm: [B, H, D] normalized expert action
+        """
+        if not getattr(self.config, "predict_uncertainty", False):
+            raise RuntimeError(
+                "collect_flow_uncertainty_calibration_batch requires "
+                "model.config.predict_uncertainty=True"
+            )
+
+        was_training = self.training
+        self.eval()
+
+        try:
+            enc = self.forward_vlm_efficient(image_input, image_mask, input_ids)
+
+            B = input_ids.shape[0]
+            device = input_ids.device
+
+            beta_dist = torch.distributions.Beta(
+                torch.tensor(1.5, device=device),
+                torch.tensor(1.0, device=device),
+            )
+            t = beta_dist.sample((B,)) * 0.999 + 0.001
+
+            if hasattr(self.action_space, "normalize_action"):
+                action_norm = self.action_space.normalize_action(action)
+            elif hasattr(self.action_space, "normalize"):
+                action_norm = self.action_space.normalize(action)
+            else:
+                action_norm = action
+
+            if hasattr(self.action_space, "normalize_state"):
+                proprio_norm = self.action_space.normalize_state(proprio)
+            elif hasattr(self.action_space, "normalize"):
+                proprio_norm = self.action_space.normalize(proprio)
+            else:
+                proprio_norm = proprio
+
+            noise = torch.randn_like(action_norm)
+            t_expanded = t.view(-1, 1, 1)
+
+            x_t = t_expanded * noise + (1.0 - t_expanded) * action_norm
+            u_star = noise - action_norm
+
+            pred = self.transformer(
+                vlm_features=enc["vlm_features"],
+                action_with_noise=x_t,
+                t=t,
+                proprio=proprio_norm,
+            )
+
+            v_pred, logvar_t = pred
+            sigma2 = F.softplus(logvar_t) + self.config.uncertainty_eps
+            residual2 = torch.square(v_pred - u_star)
+
+            return {
+                "sigma2": sigma2.detach(),
+                "log_sigma2": torch.log(sigma2.detach().clamp_min(self.config.uncertainty_eps)),
+                "residual2": residual2.detach(),
+                "v_pred": v_pred.detach(),
+                "u_star": u_star.detach(),
+                "tau": t.detach(),
+                "action_norm": action_norm.detach(),
+            }
+
+        finally:
+            if was_training:
+                self.train()
+
     # ================================= inference =================================
     @torch.no_grad()
     def generate_actions(
@@ -571,6 +720,152 @@ class SmolVLMVLA(PreTrainedModel):
         return self.action_space.postprocess(x_t)
 
     @torch.no_grad()
+    def generate_action_samples(
+        self,
+        input_ids: torch.LongTensor,
+        image_input: torch.FloatTensor,
+        image_mask: torch.Tensor,
+        proprio: torch.Tensor,
+        steps: int = 10,
+        num_action_samples: int = 16,
+    ) -> torch.Tensor:
+        """
+        Draw independent flow-matching action chunks from different initial noise.
+
+        Returns:
+            [B, num_action_samples, T_action, D_action] in the environment action
+            space after action-space postprocessing.
+        """
+        self.eval()
+        enc = self.forward_vlm_efficient(image_input, image_mask, input_ids)
+
+        B = input_ids.shape[0]
+        D = self.action_space.dim_action
+        device = proprio.device
+        dtype = proprio.dtype
+
+        if hasattr(self.action_space, "normalize_state"):
+            proprio_norm = self.action_space.normalize_state(proprio)
+        elif hasattr(self.action_space, "normalize"):
+            proprio_norm = self.action_space.normalize(proprio)
+        else:
+            proprio_norm = proprio
+
+        num_action_samples = max(1, int(num_action_samples))
+        sample_B = B * num_action_samples
+        sample_x = torch.randn(sample_B, self.num_actions, D, device=device, dtype=dtype)
+        sample_vlm = enc["vlm_features"].repeat_interleave(num_action_samples, dim=0)
+        sample_proprio = proprio_norm.repeat_interleave(num_action_samples, dim=0)
+
+        steps = max(1, int(steps))
+        dt = -1.0 / steps
+        t = 1.0
+        while t > -dt / 2:
+            t_tensor = torch.full((sample_B,), t, device=device, dtype=dtype)
+            pred = self.transformer(
+                vlm_features=sample_vlm,
+                action_with_noise=sample_x,
+                proprio=sample_proprio,
+                t=t_tensor,
+            )
+            if getattr(self.config, "predict_uncertainty", False):
+                v_t, _ = pred
+            else:
+                v_t = pred
+            sample_x = sample_x + dt * v_t
+            t = t + dt
+
+        return self.action_space.postprocess(sample_x).reshape(
+            B,
+            num_action_samples,
+            self.num_actions,
+            D,
+        )
+
+    @torch.no_grad()
+    def generate_action_samples_with_scores(
+        self,
+        input_ids: torch.LongTensor,
+        image_input: torch.FloatTensor,
+        image_mask: torch.Tensor,
+        proprio: torch.Tensor,
+        steps: int = 10,
+        num_action_samples: int = 16,
+    ) -> Dict[str, torch.Tensor]:
+        """
+        Draw independent flow samples and return per-candidate uncertainty scores.
+
+        learned_variance_score is computed from the predicted variance along the
+        same denoising trajectory that produced each sampled action chunk.
+        ensemble_disagreement_score is each final chunk's mean squared distance
+        from the ensemble mean in postprocessed action space.
+        """
+        self.eval()
+        enc = self.forward_vlm_efficient(image_input, image_mask, input_ids)
+
+        B = input_ids.shape[0]
+        D = self.action_space.dim_action
+        device = proprio.device
+        dtype = proprio.dtype
+
+        if hasattr(self.action_space, "normalize_state"):
+            proprio_norm = self.action_space.normalize_state(proprio)
+        elif hasattr(self.action_space, "normalize"):
+            proprio_norm = self.action_space.normalize(proprio)
+        else:
+            proprio_norm = proprio
+
+        num_action_samples = max(1, int(num_action_samples))
+        sample_B = B * num_action_samples
+        sample_x = torch.randn(sample_B, self.num_actions, D, device=device, dtype=dtype)
+        sample_vlm = enc["vlm_features"].repeat_interleave(num_action_samples, dim=0)
+        sample_proprio = proprio_norm.repeat_interleave(num_action_samples, dim=0)
+        learned_var_sum = torch.zeros(sample_B, device=device, dtype=dtype)
+        learned_var_max = torch.zeros(sample_B, device=device, dtype=dtype)
+
+        steps = max(1, int(steps))
+        dt = -1.0 / steps
+        t = 1.0
+        num_denoise_steps = 0
+        while t > -dt / 2:
+            t_tensor = torch.full((sample_B,), t, device=device, dtype=dtype)
+            pred = self.transformer(
+                vlm_features=sample_vlm,
+                action_with_noise=sample_x,
+                proprio=sample_proprio,
+                t=t_tensor,
+            )
+            if getattr(self.config, "predict_uncertainty", False):
+                v_t, logvar_t = pred
+                var_t = F.softplus(logvar_t) + self.config.uncertainty_eps
+                var_score = var_t.mean(dim=(1, 2))
+                learned_var_sum = learned_var_sum + var_score
+                learned_var_max = torch.maximum(learned_var_max, var_t.amax(dim=(1, 2)))
+            else:
+                v_t = pred
+            sample_x = sample_x + dt * v_t
+            t = t + dt
+            num_denoise_steps += 1
+
+        samples = self.action_space.postprocess(sample_x).reshape(
+            B,
+            num_action_samples,
+            self.num_actions,
+            D,
+        )
+        sample_mean = samples.mean(dim=1, keepdim=True)
+        disagreement = (samples - sample_mean).square().mean(dim=(2, 3))
+
+        learned_var_mean = learned_var_sum.reshape(B, num_action_samples) / max(num_denoise_steps, 1)
+        learned_var_max = learned_var_max.reshape(B, num_action_samples)
+        return {
+            "action_samples": samples,
+            "learned_variance_score": learned_var_mean,
+            "learned_variance_max_score": learned_var_max,
+            "ensemble_disagreement_score": disagreement,
+        }
+
+    @torch.no_grad()
     def generate_actions_with_uncertainty(
         self,
         input_ids: torch.LongTensor,
@@ -578,6 +873,7 @@ class SmolVLMVLA(PreTrainedModel):
         image_mask: torch.Tensor,
         proprio: torch.Tensor,
         steps: int = 10,
+        num_action_samples: int = 1,
     ) -> Dict[str, torch.Tensor]:
         self.eval()
         enc = self.forward_vlm_efficient(image_input, image_mask, input_ids)
@@ -598,8 +894,13 @@ class SmolVLMVLA(PreTrainedModel):
         dt = -1.0 / steps
 
         x_t = torch.randn(B, self.num_actions, D, device=device, dtype=dtype)
+        initial_x_t = x_t.clone()
         path_variance = torch.zeros_like(x_t)
         last_step_variance = torch.zeros_like(x_t)
+        denoise_means = []
+        velocity_norms = []
+        update_norms = []
+        update_vectors = []
         t = 1.0
 
         while t > -dt / 2:
@@ -614,19 +915,117 @@ class SmolVLMVLA(PreTrainedModel):
             if getattr(self.config, "predict_uncertainty", False):
                 v_t, logvar_t = pred
                 var_t = F.softplus(logvar_t) + self.config.uncertainty_eps
+                denoise_means.append(var_t.mean(dim=(1, 2)))
                 last_step_variance = var_t
                 path_variance = path_variance + (dt * dt) * var_t
             else:
                 v_t = pred
 
-            x_t = x_t + dt * v_t
+            update = dt * v_t
+            velocity_norms.append(v_t.norm(dim=-1).mean(dim=1))
+            update_norms.append(update.norm(dim=-1).mean(dim=1))
+            update_vectors.append(update.flatten(1))
+            x_t = x_t + update
             t = t + dt
 
         action = self.action_space.postprocess(x_t)
+        denoise_summary = {}
+        if velocity_norms:
+            velocity_trace = torch.stack(velocity_norms, dim=1)
+            update_trace = torch.stack(update_norms, dim=1)
+            denoise_summary.update(
+                {
+                    "denoise_velocity_norm_mean": velocity_trace.mean(dim=1),
+                    "denoise_velocity_norm_max": velocity_trace.amax(dim=1),
+                    "denoise_update_norm_mean": update_trace.mean(dim=1),
+                    "denoise_update_norm_max": update_trace.amax(dim=1),
+                    "denoise_update_norm_final": update_trace[:, -1],
+                    "denoise_update_spike": (
+                        update_trace[:, 1:] - update_trace[:, :-1]
+                    ).clamp_min(0.0).amax(dim=1)
+                    if update_trace.shape[1] > 1
+                    else torch.zeros(B, device=device, dtype=dtype),
+                    "denoise_final_initial_action_l2": (x_t - initial_x_t).flatten(1).norm(dim=1),
+                }
+            )
+            if len(update_vectors) > 1:
+                update_vec_trace = torch.stack(update_vectors, dim=1)
+                step_delta = update_vec_trace[:, 1:] - update_vec_trace[:, :-1]
+                denoise_summary["denoise_update_oscillation_mean"] = step_delta.norm(dim=-1).mean(dim=1)
+                cos = F.cosine_similarity(update_vec_trace[:, 1:], update_vec_trace[:, :-1], dim=-1)
+                denoise_summary["denoise_update_direction_flip_mean"] = (1.0 - cos).mean(dim=1)
+            else:
+                denoise_summary["denoise_update_oscillation_mean"] = torch.zeros(B, device=device, dtype=dtype)
+                denoise_summary["denoise_update_direction_flip_mean"] = torch.zeros(B, device=device, dtype=dtype)
+
+        if denoise_means:
+            denoise_mean_trace = torch.stack(denoise_means, dim=1)
+            initial_mean = denoise_mean_trace[:, 0]
+            final_mean = denoise_mean_trace[:, -1]
+            if denoise_mean_trace.shape[1] > 1:
+                x = torch.arange(
+                    denoise_mean_trace.shape[1],
+                    device=denoise_mean_trace.device,
+                    dtype=denoise_mean_trace.dtype,
+                )
+                x = x - x.mean()
+                y = denoise_mean_trace - denoise_mean_trace.mean(dim=1, keepdim=True)
+                slope = (y * x[None, :]).sum(dim=1) / (x.square().sum().clamp_min(1e-12))
+                spike = (denoise_mean_trace[:, 1:] - denoise_mean_trace[:, :-1]).clamp_min(0.0).max(dim=1).values
+            else:
+                slope = torch.zeros_like(final_mean)
+                spike = torch.zeros_like(final_mean)
+            rotation_end = min(6, last_step_variance.shape[-1])
+            if rotation_end > 3:
+                final_rotation_mean = last_step_variance[..., 3:rotation_end].mean(dim=(1, 2))
+            else:
+                final_rotation_mean = torch.zeros_like(final_mean)
+            denoise_summary.update(
+                {
+                    "denoise_initial_mean": initial_mean,
+                    "denoise_final_mean": final_mean,
+                    "denoise_delta": initial_mean - final_mean,
+                    "denoise_slope": slope,
+                    "denoise_final_max": last_step_variance.amax(dim=(1, 2)),
+                    "denoise_spike": spike,
+                    "denoise_final_gripper": last_step_variance[..., -1].mean(dim=1),
+                    "denoise_final_rotation_mean": final_rotation_mean,
+                }
+            )
+        sample_summary = {}
+        num_action_samples = max(1, int(num_action_samples))
+        if num_action_samples > 1:
+            sample_actions = self.generate_action_samples(
+                input_ids=input_ids,
+                image_input=image_input,
+                image_mask=image_mask,
+                proprio=proprio,
+                steps=steps,
+                num_action_samples=num_action_samples,
+            )
+            sample_var = sample_actions.var(dim=1, unbiased=False)
+            sample_mean = sample_actions.mean(dim=1, keepdim=True)
+            sample_l2 = (sample_actions - sample_mean).norm(dim=-1)
+            rotation_end = min(6, D)
+            sample_summary = {
+                "action_samples": sample_actions,
+                "sample_action_variance": sample_var,
+                "sample_action_var_mean": sample_var.mean(dim=(1, 2)),
+                "sample_action_var_max": sample_var.amax(dim=(1, 2)),
+                "sample_action_l2_mean": sample_l2.mean(dim=(1, 2)),
+                "sample_action_l2_max": sample_l2.amax(dim=(1, 2)),
+                "sample_action_translation_var": sample_var[..., :3].mean(dim=(1, 2)),
+                "sample_action_rotation_var": sample_var[..., 3:rotation_end].mean(dim=(1, 2))
+                if rotation_end > 3
+                else torch.zeros(B, device=device, dtype=dtype),
+                "sample_action_gripper_var": sample_var[..., -1].mean(dim=1),
+            }
         return {
             "action": action,
             "path_variance": path_variance,
             "last_step_variance": last_step_variance,
+            **denoise_summary,
+            **sample_summary,
         }
 
     # =============================== FastAPI service =============================
@@ -681,8 +1080,83 @@ class SmolVLMVLA(PreTrainedModel):
 
                 # Inference
                 steps = int(payload.get("steps", 10))
+                num_action_samples = int(payload.get("num_action_samples", 1))
+                want_uncertainty = bool(payload.get(
+                    "return_uncertainty",
+                    getattr(self.config, "predict_uncertainty", False),
+                ))
+
+                if want_uncertainty and getattr(self.config, "predict_uncertainty", False):
+                    out = self.generate_actions_with_uncertainty(
+                        **inputs,
+                        steps=steps,
+                        num_action_samples=num_action_samples,
+                    )
+                    action = out["action"].squeeze(0).float().cpu().numpy()
+                    path_variance = out["path_variance"].squeeze(0).float().cpu().numpy()
+                    last_step_variance = out["last_step_variance"].squeeze(0).float().cpu().numpy()
+
+                    uncertainty = {
+                        "path_variance": path_variance.tolist(),
+                        "last_step_variance": last_step_variance.tolist(),
+                        "path_step_mean": path_variance.mean(axis=-1).tolist(),
+                        "last_step_mean": last_step_variance.mean(axis=-1).tolist(),
+                        "mean_path_var": float(path_variance.mean()),
+                        "mean_last_var": float(last_step_variance.mean()),
+                        "max_path_var": float(path_variance.max()),
+                        "max_last_var": float(last_step_variance.max()),
+                    }
+                    for key in (
+                        "denoise_initial_mean",
+                        "denoise_final_mean",
+                        "denoise_delta",
+                        "denoise_slope",
+                        "denoise_final_max",
+                        "denoise_spike",
+                        "denoise_final_gripper",
+                        "denoise_final_rotation_mean",
+                        "denoise_velocity_norm_mean",
+                        "denoise_velocity_norm_max",
+                        "denoise_update_norm_mean",
+                        "denoise_update_norm_max",
+                        "denoise_update_norm_final",
+                        "denoise_update_spike",
+                        "denoise_update_oscillation_mean",
+                        "denoise_update_direction_flip_mean",
+                        "denoise_final_initial_action_l2",
+                        "sample_action_var_mean",
+                        "sample_action_var_max",
+                        "sample_action_l2_mean",
+                        "sample_action_l2_max",
+                        "sample_action_translation_var",
+                        "sample_action_rotation_var",
+                        "sample_action_gripper_var",
+                    ):
+                        if key in out:
+                            uncertainty[key] = float(out[key].squeeze(0).float().cpu().item())
+                    if "sample_action_variance" in out:
+                        uncertainty["sample_action_variance"] = out["sample_action_variance"].squeeze(0).float().cpu().numpy().tolist()
+                    response = {"action": action.tolist(), "uncertainty": uncertainty}
+                    if "action_samples" in out:
+                        response["action_samples"] = out["action_samples"].squeeze(0).float().cpu().numpy().tolist()
+                    return JSONResponse(response)
+
+                if num_action_samples > 1:
+                    action_samples = self.generate_action_samples(
+                        **inputs,
+                        steps=steps,
+                        num_action_samples=num_action_samples,
+                    ).squeeze(0).float().cpu().numpy()
+                    return JSONResponse(
+                        {
+                            "action": action_samples[0].tolist(),
+                            "action_samples": action_samples.tolist(),
+                        }
+                    )
+
                 action = self.generate_actions(**inputs, steps=steps).squeeze(0).float().cpu().numpy()
                 return JSONResponse({"action": action.tolist()})
+
 
             except Exception:
                 logging.error(traceback.format_exc())

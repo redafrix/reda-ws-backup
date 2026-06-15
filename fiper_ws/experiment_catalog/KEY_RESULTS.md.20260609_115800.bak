@@ -1,0 +1,102 @@
+# Key Results And Their Actual Meaning
+
+This page is the human-curated map. The host indexes contain the exhaustive artifact inventory.
+
+## Current Offline Detector Baseline
+
+The selected historical detector is `v2_018_transformer_k16`: width 128, three transformer layers, four attention heads, and 16 history steps. Its inputs are action statistics, current and historical ACE values, and proprioception. On the selected historical OOD evaluation it reported 15.4% seen false alarms, 25.6% OOD false alarms, and 95.2% OOD failure detection.
+
+Meaning: this establishes that the detector can classify risky trajectories offline. It does not by itself prove that replacing online actions improves task success.
+
+Source: [current baseline report](source_reports/bob/reports/FIPER_WS_CURRENT_BASELINE_AND_ORGANIZATION_REPORT_20260528.md).
+
+## Dean All-Task Offline Comparison
+
+The all-task split used 4,191 episodes: 3,405 successes and 786 failures/timeouts.
+
+| Detector | False alarms | Failure detection | Detection by 25% | Mean detection time |
+|---|---:|---:|---:|---:|
+| Base transformer | 14.2% | 95.8% | 54.0% | 0.231 |
+| Base + raw 98D uncertainty | 16.8% | 97.5% | 67.1% | 0.207 |
+
+Meaning: raw uncertainty improved detection and earliness but worsened false alarms. It was not an unambiguous replacement for the base detector.
+
+Source: [Dean all-task report](source_reports/dean/experiments/dean_all_tasks_full_uncertainty_test_20260601/DEAN_ALL_TASKS_FULL_UNCERTAINTY_TEST_20260601.md).
+
+## Dean Held-Out-Task OOD Comparison
+
+The OOD split held out the final two task IDs from each suite and used all remaining valid episodes for training, validation, and calibration.
+
+| Detector | OOD false alarms | OOD failure detection | Detection by 25% | Detection by 50% |
+|---|---:|---:|---:|---:|
+| Base transformer | 26.0% | 86.0% | 39.8% | 78.5% |
+| Base + raw 98D uncertainty | 28.9% | 84.9% | 35.5% | 83.9% |
+
+Meaning: direct 98D uncertainty input did not improve the overall OOD trade-off.
+
+Source: [held-out-task report](source_reports/dean/experiments/dean_ood_last2_taskids_full_v1_20260601/DEAN_OOD_LAST2_TASKIDS_FULL_V1_20260601.md).
+
+## Selected Top-8 Uncertainty Features
+
+Feature ranking used only seen training and validation rows. The selected `unc_topk8` model adds eight uncertainty dimensions to the detector's static branch while preserving the temporal transformer.
+
+| Split | Detector | False alarms | Failure detection | Detection by 25% |
+|---|---:|---:|---:|---:|
+| All tasks | Base | 14.2% | 95.8% | 54.0% |
+| All tasks | Top-8 uncertainty | 15.0% | 97.5% | 65.0% |
+| Held-out task IDs | Base | 26.0% | 86.0% | 39.8% |
+| Held-out task IDs | Top-8 uncertainty | 23.0% | 89.2% | 37.6% |
+
+Meaning: top-8 produced a useful offline trade-off and was retained for online evaluation. Offline gains still do not prove that intervention improves robot success.
+
+Source: [top-K report](source_reports/dean/experiments/dean_uncertainty_topk_feature_sweep_v1_20260602/DEAN_UNCERTAINTY_TOPK_FEATURE_SWEEP_REPORT.md).
+
+## Historical Four-Task Online Campaign
+
+| Task | No-risk modified SimVLA | Modified SimVLA + base risk | Net gain |
+|---|---:|---:|---:|
+| Task 7 seen | 244/450 | 281/450 | +37 |
+| Task 8 held-out | 210/429 | 213/429 | +3 |
+| Object Task 2 | 172/450 | 184/450 | +12 |
+| Object Task 0 | 395/552 | 399/552 | +4 |
+| **Total** | **1,021/1,881** | **1,077/1,881** | **+56** |
+
+Actual meaning: this campaign compared modified SimVLA `ckpt-60000` without risk intervention against the same modified checkpoint plus the base risk detector. Older reports incorrectly called the no-risk side vanilla SimVLA. Task 7 was individually persuasive; the other three task-level differences were small.
+
+It therefore supports “the base risk policy may help modified SimVLA on some tasks,” not “risk-aware original SimVLA beats original SimVLA.”
+
+Source: [corrected four-task summary](source_reports/batman/FOUR_TASK_RESULTS_SUMMARY.md).
+
+## Canonical Bob And Dean Four-Policy Replication
+
+All four policies ran back-to-back on 100 common reset seeds per host for `libero_object_object`, Task 0.
+
+| Host | Original SimVLA | Modified ckpt-60000 | Base risk | Top-8 risk |
+|---|---:|---:|---:|---:|
+| Bob | 10% | 28% | 25% | 26% |
+| Dean | 14% | 22% | 25% | 20% |
+
+Meaning: modified SimVLA beat original SimVLA on this task. Neither risk-aware policy showed a stable replicated advantage over modified SimVLA. Cross-host differences are expected because different GPUs produce slightly different actions that amplify through closed-loop control.
+
+Source: [canonical four-policy audit](source_reports/batman/CANONICAL_DEAN_BOB_4POLICY_FINAL_AUDIT_20260605.md).
+
+## Historical Full-Chunk Task 7 Result
+
+The full ten-action chunk baseline achieved 98/100 successes and failed seeds `1865224713` and `1517830958`. This was replicated and spot-checked. It used the modified checkpoint through the shared sampler default and is a different execution protocol from first-action receding horizon.
+
+Meaning: full-chunk execution dramatically changed Task 7 performance. It is not evidence about original SimVLA and must not be pooled with first-action results.
+
+## Current Active Work
+
+As of the latest manifest, Bob and Dean were running conservative top-8 intervention pilots. Their partial results are cataloged as `active` and must not be used as final evidence. Sam remains offline, so its four-task raw files are represented by the last audited aggregate summaries until the host is available again.
+
+## Task 3 and 6 H10 Aggressive TopK8 Ablation (2026-06-08)
+
+The H10-retrained TopK8 detector was tested at an aggressive **0.3 threshold** on Bob. It outperformed both the greedy baseline and the conservative q95 detector.
+
+| Task | SimVLA (Greedy) | Risk-TopK8 (q95) | Risk-TopK8 (0.3 Aggr) | Net Gain (Aggr vs Cons) |
+|---|---:|---:|---:|---:|
+| Task 3 | 17.0% | 17.0% | **19.0%** | +2.0 pts |
+| Task 6 | 57.0% | 57.0% | **62.0%** | +5.0 pts |
+
+Meaning: Lowering the risk threshold to 0.3 improved success on these specific precision tasks. The H10-retrained model was also verified as superior to the older Dean detector on Task 6.

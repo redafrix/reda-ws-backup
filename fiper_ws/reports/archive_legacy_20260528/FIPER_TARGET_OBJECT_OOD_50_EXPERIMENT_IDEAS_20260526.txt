@@ -1,0 +1,140 @@
+FIPER TARGET-OBJECT OOD 50-EXPERIMENT DESIGN
+Date: 2026-05-26
+
+Goal
+----
+Improve the three target-object OOD metrics at the same time:
+1. high OOD failure detection,
+2. low OOD success false alarms,
+3. early warning on OOD failures.
+
+Current failure mode
+--------------------
+The current action-only RND + ACE OR q95 monitor detects fold_01 OOD failures,
+but it alarms on nearly every successful OOD target-object rollout. The issue is
+not that the dataset is invalid. The issue is that the monitor still behaves too
+much like a distribution-shift detector instead of a conditional risk detector.
+
+Baseline evidence from fold_01:
+- Held-out picked objects: butter and chocolate_pudding.
+- OOD failure episodes: 35.
+- OOD success episodes: 183.
+- OR q95 K=3 detects all OOD failures early, but also false-alarms on 100% of
+  OOD successes.
+- ACE is more robust than action RND but later.
+- RND is early but overfires under target-object shift.
+
+Main campaign idea
+------------------
+Use fold_01 as a development fold. Train many candidate monitors with high max
+epochs and early stopping. Never train, calibrate, or early-stop on held-out OOD
+target-object rows. Rank candidates by OOD failure early detection minus OOD
+success false alarm burden.
+
+All thresholds must be calibrated from success_calib_seen only.
+
+Model families
+--------------
+Family A: success-only anomaly models
+- RND over action chunks.
+- RND over action summaries.
+- Conditional RND using action + proprio + object-distance set.
+- RND with 4/8/16-step history.
+- Autoencoder and denoising autoencoder variants.
+
+These preserve the success-only spirit of FIPER, but may still overfire on OOD
+successes if the learned normality manifold is too narrow.
+
+Family B: supervised seen-failure risk models
+- These train on success_train_seen as negative and failure_eval_seen as
+  positive.
+- OOD target-object success/failure rows stay evaluation-only.
+- These are not pure success-only FIPER, but they test whether seen-object
+  failure examples can teach a risk boundary that generalizes to unseen picked
+  objects.
+
+Family C: temporal models inspired by old archaeology
+- TCN_history_k8 is the most important old idea to retry.
+- GRU/LSTM/Transformer variants test whether temporal history reduces false
+  alarms by distinguishing "new but controlled" from "new and failing".
+- Inputs use previous proprio/executed_action/reward/success history plus
+  current candidate action chunk and optional ACE/context.
+
+Family D: ablations
+- No object-position set.
+- No current proprio.
+- ACE-only.
+- Short history vs medium history vs longer history.
+- BCE vs focal loss vs positive weighting.
+
+Why these are not cheating
+--------------------------
+- OOD target objects are never used in train, early stopping, or calibration.
+- The supervised jobs may use seen-object failures, but this is a different
+  model family and must be reported as supervised risk, not success-only RND.
+- Thresholds still come from success_calib_seen.
+- Task ID, suite ID, target-object label, and language are not used as model
+  input.
+- Object positions are represented as anonymous distance-sorted numeric sets,
+  not object-name slots.
+
+What counts as improvement
+--------------------------
+A candidate is interesting if it improves over current OR q95 K=3 on fold_01 by:
+- reducing success_test_ood episode false alarm substantially below 100%,
+- keeping failure_eval_ood detection high,
+- keeping Det@25 useful,
+- not exploding success_test_seen false alarms.
+
+Suggested decision tiers:
+- Strong candidate: OOD success FA K=3 under 40%, OOD failure detection over
+  85%, OOD Det@25 over 60%.
+- Usable warning candidate: OOD success FA K=3 under 60%, OOD failure detection
+  over 90%, OOD Det@25 over 70%.
+- Hard-stop candidate: OOD success FA K=3 under 10% with failure detection over
+  80%. This is unlikely in this campaign.
+
+50 tests in configs/target_object_ood_50_campaign_v1.json
+---------------------------------------------------------
+001-014: RND variants.
+015-022: autoencoder / denoising autoencoder variants.
+023-036: supervised vector risk models.
+037-050: supervised temporal TCN/GRU/LSTM/Transformer risk models.
+
+Primary old idea reused
+-----------------------
+TCN_history_k8, now retried on the clean target-object OOD split, with OOD rows
+kept out of train/calib.
+
+Primary new ideas added
+-----------------------
+1. Conditional RND with anonymous object-distance sets.
+2. Denoising autoencoder normality scoring.
+3. Seen-failure supervised risk models evaluated on unseen target objects.
+4. Sequence models with action + history tokens.
+5. No-object/no-proprio ablations to check whether context helps or just
+   memorizes nuisance variation.
+
+Files created for the campaign
+------------------------------
+- scripts/run_target_object_ood_campaign_v1.py
+- configs/target_object_ood_50_campaign_v1.json
+- reports/FIPER_TARGET_OBJECT_OOD_50_EXPERIMENT_IDEAS_20260526.txt
+- a_prompt_.txt
+
+Expected launch target
+----------------------
+Sam only:
+/home/rootalkhatib/test/reda_ws/fiper_ws
+
+Development fold:
+experiments/prepared_20260526/08_target_object_pick_basket_loto_v1/fold_01_holdout_butter_chocolate_pudding/datasets/refs
+
+Expected output root:
+experiments/target_object_ood_50_campaign_v1_fold01_20260526
+
+After the campaign
+------------------
+Do not immediately declare victory from fold_01. Use fold_01 only to select a
+small set of candidate model/policy families. Then test those frozen candidates
+on fold_00, fold_02, and fold_03.

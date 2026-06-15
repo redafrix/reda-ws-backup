@@ -52,6 +52,12 @@ class SmolVLMVLAConfig(PretrainedConfig):
         uncertainty_beta: float = 0.5,
         uncertainty_eps: float = 1e-6,
         return_uncertainty: bool = False,
+
+        # === LoRA settings ===
+        use_lora: bool = False,
+        lora_rank: int = 16,
+        lora_alpha: int = 32,
+        lora_dropout: float = 0.05,
         
         # === Image settings ===
         image_size: int = 384,  # Can be 384 or 512
@@ -83,6 +89,12 @@ class SmolVLMVLAConfig(PretrainedConfig):
         self.uncertainty_beta = uncertainty_beta
         self.uncertainty_eps = uncertainty_eps
         self.return_uncertainty = return_uncertainty
+
+        # LoRA settings
+        self.use_lora = use_lora
+        self.lora_rank = lora_rank
+        self.lora_alpha = lora_alpha
+        self.lora_dropout = lora_dropout
         
         # Image settings
         self.image_size = image_size
