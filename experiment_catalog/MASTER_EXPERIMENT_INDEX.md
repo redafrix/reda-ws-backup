@@ -265,6 +265,24 @@ Meaning: all three corrected adaptive-horizon ideas were mechanically valid diag
 
 ---
 
+### Sam Timeout800 OOD Selected-Cap 100ep Comparison (Complete)
+| Property | Value |
+| :--- | :--- |
+| **Root** | `/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_100ep_selected_cap_timeout800_20260615` |
+| **Date** | 2026-06-15 to 2026-06-16 |
+| **Suite** | `libero_goal_object_ood` using generated OOD assets |
+| **Tasks** | 18 tasks (0-17) |
+| **Seeds** | 10-109, paired across all three policies |
+| **Policies** | `original_simvla`, `modified_simvla`, `risk_topk8_selected_cap` |
+| **Execution** | H10 with `max_steps=800`; sequential full sweep on Sam |
+| **Gate** | selected-cap: main threshold 0.3, min margin 0.02, strong margin 0.05, selected risk cap 0.4 |
+| **Status** | **Complete** |
+| **Result** | Original 1,716/1,800 (95.33%); Modified 1,744/1,800 (96.89%); selected-cap 1,754/1,800 (97.44%). Paired selected-cap: +38 vs Original and +10 vs Modified. |
+| **Forensic audit** | `source_reports/sam/reports/SAM_TIMEOUT800_SELECTED_CAP_100EP_FINAL_ANALYSIS_20260616.md` |
+| **Trust** | **TRUST mechanically valid; positive result under extended 800-step timeout, not directly comparable to 300-step runs** |
+
+---
+
 ### Goal-Object Chunk10 Diagnostic (Bob, 2026-06-05)
 | Property | Value |
 | :--- | :--- |
