@@ -182,6 +182,20 @@ These were tests of alternative ways to use the TopK8 risk score without replaci
 
 Meaning: these are useful negative controls. Simply shortening or committing horizons based on the current TopK8 risk score does not solve the problem.
 
+## Sam Timeout800 Selected-Cap Result (2026-06-16)
+
+Sam reran the selected-cap policy on the full `libero_goal_object_ood` suite with `max_steps=800` instead of the usual 300-step timeout. This makes the run a separate robustness/recovery test, not a direct replacement for the 300-step benchmark tables.
+
+| Policy | Success | Rate | Mean steps | Successful episodes >300 steps |
+|---|---:|---:|---:|---:|
+| Original SimVLA | 1,716/1,800 | 95.33% | 153.98 | 40 |
+| Modified SimVLA | 1,744/1,800 | 96.89% | 138.68 | 27 |
+| Selected-cap risk-aware | 1,754/1,800 | 97.44% | 133.02 | 19 |
+
+Paired selected-cap result: 72 rescues / 34 regressions, net +38 vs Original SimVLA; 37 rescues / 27 regressions, net +10 vs Modified SimVLA.
+
+Meaning: this is the strongest Sam full-suite OOD result so far. It supports selected-cap as a useful recovery/robustness gate under a longer timeout. It should be presented with the timeout caveat because the 800-step setting changes the evaluation question.
+
 ## Forensic Audit Status (2026-06-09)
 
 An 8-step forensic audit of the H10 campaign was completed on 2026-06-09. See [FORENSIC_AUDIT_MAP.md](FORENSIC_AUDIT_MAP.md) for the full map of audit steps and findings. Key verdicts:
@@ -193,4 +207,4 @@ An 8-step forensic audit of the H10 campaign was completed on 2026-06-09. See [F
 - **Task-Level Overlap:** YES (Tasks 3/6 seen during training)
 - **Final Verdict:** RESULTS_MECHANICALLY_VALID_BUT_WEAK
 
-Updated: 2026-06-10
+Updated: 2026-06-16
