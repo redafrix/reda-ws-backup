@@ -217,6 +217,27 @@ Seeds: 10-109, matching the earlier Bob 100ep OOD baseline campaign.
 
 Interpretation: Bob favors delay30 slightly, but the gain is small and conflicts with the Dean delay30 replication. Treat this as a valid but not yet robust positive.
 
+### Sam Timeout800 Selected-Cap 100ep Replication — Complete
+
+Root: `/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_100ep_selected_cap_timeout800_20260615`
+
+This run repeats the full-suite OOD selected-cap evaluation on Sam with the timeout increased from 300 to 800 environment steps. It is mechanically valid, but it answers a different question from the 300-step runs.
+
+| Policy | Success | Rate | Mean Steps | Successful episodes >300 steps | Total Mods |
+| :--- | :---: | :---: | ---: | ---: | ---: |
+| Original SimVLA | 1,716/1,800 | 95.33% | 153.98 | 40 | 0 |
+| Modified SimVLA | 1,744/1,800 | 96.89% | 138.68 | 27 | 0 |
+| Selected-cap risk-aware | 1,754/1,800 | 97.44% | 133.02 | 19 | 2,629 |
+
+| Comparison | Rescues | Regressions | Net |
+| :--- | ---: | ---: | ---: |
+| Selected-cap vs Original SimVLA | 72 | 34 | +38 |
+| Selected-cap vs Modified SimVLA | 37 | 27 | +10 |
+
+Interpretation: this is a trusted positive full-suite OOD result under an extended timeout. The risk policy beats both Original and Modified SimVLA and has lower mean steps than both, but it cannot be pooled directly with the 300-step evaluations because `max_steps=800` gives every policy more recovery time. The raw JSONL recomputation corrected the CLI summary: risk successes after 300 steps are 19, not 20, and average modifications are 1.46 per risk episode.
+
+Codex source report: `source_reports/sam/reports/SAM_TIMEOUT800_SELECTED_CAP_100EP_FINAL_ANALYSIS_20260616.md`.
+
 ---
 
 
