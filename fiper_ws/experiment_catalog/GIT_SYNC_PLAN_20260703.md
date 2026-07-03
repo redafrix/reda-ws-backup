@@ -22,7 +22,7 @@ Remote:
 https://github.com/redafrix/reda-ws-backup.git
 ```
 
-Branches pushed before the deep-audit update:
+Branches pushed after the deep-audit update:
 
 | Branch | Purpose |
 |---|---|
@@ -32,10 +32,10 @@ Branches pushed before the deep-audit update:
 | `catalog/dean-20260703` | Dean FIPER/offline ablation manifests |
 | `catalog/cross-machine-20260703` | merged cross-machine catalog |
 
-Pre-audit pushed commit:
+Latest pushed catalog commit:
 
 ```text
-4774467e98143976ee7f91ab97f109dbcc449c95
+dcbf0251b59cb58fe3576f17e3f26c2ebd2ef3df
 ```
 
 Existing remote branches `main`, `bob`, `sam`, and `dean` were not overwritten.
