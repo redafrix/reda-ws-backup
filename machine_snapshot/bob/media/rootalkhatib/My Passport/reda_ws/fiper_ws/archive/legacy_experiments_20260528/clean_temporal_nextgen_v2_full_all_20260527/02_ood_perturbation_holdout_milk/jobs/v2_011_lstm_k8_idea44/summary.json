@@ -1,0 +1,88 @@
+{
+  "best_epoch": 2,
+  "feature_audit": {
+    "current_feature_dim": 43,
+    "dynamics_delta_alignment": "not_used",
+    "group_strategy": "ref_combined",
+    "hardstop_is_real_residual_gate": false,
+    "history_dim": 21,
+    "input_fields": [
+      "main_candidate_action_chunk_normalized.sequence_tokens",
+      "main_candidate_action_chunk_normalized.stats",
+      "ace_candidate_chunks_normalized.metrics",
+      "current.proprio",
+      "history.previous_proprio",
+      "history.previous_executed_action",
+      "history.previous_ace_metrics"
+    ],
+    "num_train_groups": 9,
+    "train_group_counts": {
+      "env_goal_none_none": 29769,
+      "env_object_family_none_none": 40463,
+      "env_spatial_none_none": 31494,
+      "mug_goal_none_none": 27562,
+      "mug_object_family_none_none": 40110,
+      "mug_spatial_none_none": 35933,
+      "object_goal_none_none": 30316,
+      "object_object_family_none_none": 39694,
+      "object_spatial_none_none": 31674
+    },
+    "uses_future_timestep": false,
+    "uses_group_metadata_as_training_label_only": false,
+    "uses_object_positions_before": false,
+    "uses_ood_rows_for_train": false,
+    "uses_reward": false,
+    "uses_success": false,
+    "uses_task_metadata_as_input": false,
+    "val_group_counts": {
+      "env_goal_none_none": 8008,
+      "env_object_family_none_none": 12144,
+      "env_spatial_none_none": 8473,
+      "mug_goal_none_none": 8071,
+      "mug_object_family_none_none": 11705,
+      "mug_spatial_none_none": 10486,
+      "object_goal_none_none": 9079,
+      "object_object_family_none_none": 10924,
+      "object_spatial_none_none": 8814
+    }
+  },
+  "feature_notes": "",
+  "key_metrics": {
+    "failure_eval_ood_hardstop_q99_K3_det": null,
+    "failure_eval_ood_hardstop_q99_K3_det25": null,
+    "failure_eval_ood_or_q95_K3_det": 0.987012987012987,
+    "failure_eval_ood_or_q95_K3_det25": 0.4458874458874459,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.2998099415204679,
+    "failure_eval_ood_score_q95_K3_det25": 0.41125541125541126,
+    "failure_eval_ood_score_q99_K3_det": 0.8658008658008658,
+    "failure_test_seen_or_q95_K3_det": 0.9891304347826086,
+    "failure_test_seen_or_q95_K3_det25": 0.8152173913043478,
+    "success_test_ood_hardstop_q99_K3_fa": null,
+    "success_test_ood_or_q95_K3_fa": 0.6812796208530806,
+    "success_test_ood_score_q95_K3_fa": 0.3424170616113744,
+    "success_test_ood_score_q99_K3_fa": 0.1990521327014218,
+    "success_test_seen_hardstop_q99_K3_fa": null,
+    "success_test_seen_or_q95_K3_fa": 0.3893280632411067,
+    "success_test_seen_score_q99_K3_fa": 0.029644268774703556
+  },
+  "mode": "supervised",
+  "model": "seq_lstm",
+  "name": "v2_011_lstm_k8_idea44",
+  "objective": 0.6622044158877046,
+  "runtime_seconds": 164.66550874710083,
+  "thresholds": {
+    "ace": {
+      "q90": -342.3939514160156,
+      "q95": -341.4825439453125,
+      "q99": -339.2380676269531
+    },
+    "residual": {},
+    "score": {
+      "eventual": {
+        "q90": 0.25593623518943787,
+        "q95": 0.49865177273750305,
+        "q99": 0.9553424119949341
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "best_epoch": 1,
+  "feature_notes": "",
+  "key_metrics": {
+    "failure_eval_ood_hardstop_q99_K3_det": 0.0,
+    "failure_eval_ood_hardstop_q99_K3_det25": 0.0,
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.6428571428571429,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.2952380952380952,
+    "failure_eval_ood_score_q95_K3_det25": 0.2857142857142857,
+    "failure_eval_ood_score_q99_K3_det": 0.0,
+    "failure_test_seen_or_q95_K3_det": 0.9285714285714286,
+    "failure_test_seen_or_q95_K3_det25": 0.42857142857142855,
+    "success_test_ood_hardstop_q99_K3_fa": 0.0,
+    "success_test_ood_or_q95_K3_fa": 0.6086956521739131,
+    "success_test_ood_score_q95_K3_fa": 0.043478260869565216,
+    "success_test_ood_score_q99_K3_fa": 0.0,
+    "success_test_seen_hardstop_q99_K3_fa": 0.0,
+    "success_test_seen_or_q95_K3_fa": 0.35714285714285715,
+    "success_test_seen_score_q99_K3_fa": 0.0
+  },
+  "mode": "supervised",
+  "model": "seq_tcn",
+  "name": "ng_survival_tcn_k8",
+  "objective": 1.1940993788819874,
+  "runtime_seconds": 6.518810272216797,
+  "thresholds": {
+    "ace": {
+      "q90": -343.1597900390625,
+      "q95": -342.33880615234375,
+      "q99": -341.1861267089844
+    },
+    "residual": {},
+    "score": {
+      "eventual": {
+        "q90": 0.6498639583587646,
+        "q95": 0.8457309007644653,
+        "q99": 0.9542074203491211
+      },
+      "h10": {
+        "q90": 0.029682744294404984,
+        "q95": 0.03870108723640442,
+        "q99": 0.05731487274169922
+      },
+      "h25": {
+        "q90": 0.05145572870969772,
+        "q95": 0.07060668617486954,
+        "q99": 0.11893855780363083
+      },
+      "h50": {
+        "q90": 0.09396418184041977,
+        "q95": 0.12906843423843384,
+        "q99": 0.24696491658687592
+      }
+    }
+  }
+}

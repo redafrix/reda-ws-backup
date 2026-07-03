@@ -1,0 +1,117 @@
+task: pick_place
+suite:
+  name: pick_place_default
+  split: train
+  difficulty: core
+  tags: [pick_place, train, rgbd, physical_receptacles, clutter]
+  description: "Default randomized pick-place collection with physical receptacles."
+
+output_dir: data/raw/debug_pick_place
+start_episode_id: 0
+num_episodes: 200
+max_steps: 4800
+settle_time_s: 1.0
+camera_width: 300
+camera_height: 300
+
+record_cameras: true
+camera_fps: 30
+record_depth: true
+
+seed: 123
+
+target_object:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: sample
+  variant_id: sample
+  split: train
+  role: target
+  required_affordances: [pickable]
+  required_grasp_strategy: center_top
+  max_planar_minor_extent_m: 0.075
+
+placement_target:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: sample
+  variant_id: sample
+  split: train
+  role: target
+  required_affordances: [container, physical_container]
+  required_grasp_strategy: unsupported
+
+object_receptacle_compatibility:
+  max_height_to_receptacle_width: 1.1
+  max_sampling_attempts: 64
+
+clutter:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  count_options: [5, 6, 7, 8]
+  unique_labels: true
+  sources:
+    - name: pickable_distractors
+      min_count: 4
+      weight: 3
+      category_id: sample
+      variant_id: sample
+      split: train
+      role: target
+      required_affordances: [pickable, reachable]
+      required_grasp_strategy: center_top
+    - name: receptacle_distractors
+      min_count: 0
+      max_count: 1
+      weight: 1
+      category_id: sample
+      variant_id: sample
+      split: train
+      role: target
+      required_affordances: [container, physical_container]
+      required_grasp_strategy: unsupported
+    - name: support_distractors
+      min_count: 1
+      max_count: 1
+      weight: 1
+      category_id: sample
+      variant_id: sample
+      split: train
+      role: any
+      required_affordances: [reachable, support]
+      required_grasp_strategy: unsupported
+  split: train
+  role: clutter
+  required_affordances: [reachable]
+  required_grasp_strategy: unsupported
+  xy_range:
+    x: [0.20, 1.15]
+    y: [-0.75, 0.75]
+  object_margin_m: 0.035
+  placement_target_margin_m: 0.035
+  clutter_margin_m: 0.025
+  max_footprint_radius_m: 0.17
+  max_asset_sampling_attempts: 128
+  max_layout_sampling_attempts: 128
+  grid_step_m: 0.015
+
+pose_randomization:
+  object_xy_range:
+    x: [-0.23, 0.37]
+    y: [-0.39, 0.71]
+  place_xy_range:
+    x: [-0.20, 0.40]
+    y: [-0.77, 0.33]
+  minimum_object_place_distance_m: 0.30
+  workspace:
+    robot_base_xy: [0.10, 0.0]
+    max_distance_m: 0.65
+    max_sampling_attempts: 128
+
+
+lighting_randomization:
+  dome_light_intensity_range: [650.0, 1200.0]
+  dome_light_color_options:
+    - [0.90, 0.90, 0.90]
+    - [1.00, 0.92, 0.84]
+    - [0.82, 0.88, 1.00]

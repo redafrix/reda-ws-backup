@@ -1,0 +1,122 @@
+Reading success_train_seen: 26792 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_train_seen: 27995 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_train_seen: 20676 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_train_seen: 75463 rows, 497 episodes
+Reading success_val_seen: 6981 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_val_seen: 7444 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_val_seen: 5450 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_val_seen: 19875 rows, 135 episodes
+Reading success_calib_seen: 7232 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_calib_seen: 7374 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_calib_seen: 5728 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_calib_seen: 20334 rows, 135 episodes
+Reading success_test_seen: 8179 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_test_seen: 7210 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_test_seen: 5928 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_test_seen: 21317 rows, 136 episodes
+Reading success_test_ood: 12477 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_test_ood: 12211 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_test_ood: 10241 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_test_ood: 34929 rows, 211 episodes
+Reading failure_train_seen: 3900 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading failure_train_seen: 3600 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading failure_train_seen: 11400 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded failure_train_seen: 18900 rows, 63 episodes
+Reading failure_val_seen: 1200 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading failure_val_seen: 1500 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading failure_val_seen: 3600 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded failure_val_seen: 6300 rows, 21 episodes
+Reading failure_test_seen: 1200 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading failure_test_seen: 1200 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading failure_test_seen: 3900 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded failure_test_seen: 6300 rows, 21 episodes
+Reading failure_eval_ood: 3600 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading failure_eval_ood: 4500 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading failure_eval_ood: 4500 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded failure_eval_ood: 12600 rows, 42 episodes
+=== Running job 1/4: ace_ablate_00_control_full8_every_step ===
+{"early_stop_score": 0.8132668376808238, "epoch": 1, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.30489278499915345, "val_auroc": 0.9058257282619547, "val_brier": 0.09255889058113098}
+{"early_stop_score": 0.8290294843769188, "epoch": 2, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.22443850635270762, "val_auroc": 0.9143941539383049, "val_brier": 0.08536466956138611}
+{"early_stop_score": 0.8322503244484053, "epoch": 3, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.1882402077922976, "val_auroc": 0.9148202216232405, "val_brier": 0.0825698971748352}
+{"early_stop_score": 0.8158669449220692, "epoch": 4, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.16210543533893135, "val_auroc": 0.9022214315663373, "val_brier": 0.08635448664426804}
+{"early_stop_score": 0.8340849024157566, "epoch": 5, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.1463383925639517, "val_auroc": 0.9154271897773785, "val_brier": 0.08134228736162186}
+{"early_stop_score": 0.8322240528986832, "epoch": 6, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.13087810082285384, "val_auroc": 0.9136426714585205, "val_brier": 0.08141861855983734}
+{"early_stop_score": 0.8046695559576327, "epoch": 7, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.12128927437512856, "val_auroc": 0.8947919576719576, "val_brier": 0.09012240171432495}
+{"early_stop_score": 0.8153211305342778, "epoch": 8, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.11174877837482022, "val_auroc": 0.9042912329040631, "val_brier": 0.08897010236978531}
+{"early_stop_score": 0.7999739358603575, "epoch": 9, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.1036476501210676, "val_auroc": 0.8921760926425077, "val_brier": 0.09220215678215027}
+{"early_stop_score": 0.8021590070436624, "epoch": 10, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.09701917537041312, "val_auroc": 0.8942767934511331, "val_brier": 0.0921177864074707}
+{"early_stop_score": 0.7846444036457716, "epoch": 11, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.09084711401019155, "val_auroc": 0.8814129020664869, "val_brier": 0.09676849842071533}
+{"early_stop_score": 0.7910807322430247, "epoch": 12, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.0863350483823598, "val_auroc": 0.8861586343216532, "val_brier": 0.09507790207862854}
+{"early_stop_score": 0.7689946139975431, "epoch": 13, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.08218736935982375, "val_auroc": 0.8735878686233404, "val_brier": 0.10459325462579727}
+{"early_stop_score": 0.7955353663744891, "epoch": 14, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.0764195274077053, "val_auroc": 0.8911165179195368, "val_brier": 0.09558115154504776}
+{"early_stop_score": 0.7862984390690111, "epoch": 15, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.0744083937015233, "val_auroc": 0.8859223799540781, "val_brier": 0.09962394088506699}
+{"early_stop_score": 0.7797110776671233, "epoch": 16, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.07035057955398792, "val_auroc": 0.8811964939602676, "val_brier": 0.10148541629314423}
+{"early_stop_score": 0.7780123594601237, "epoch": 17, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.06728361716599969, "val_auroc": 0.8790164160926425, "val_brier": 0.10100405663251877}
+{"early_stop_score": 0.7660893247307919, "epoch": 18, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.06309333582204289, "val_auroc": 0.8723428890885495, "val_brier": 0.10625356435775757}
+{"early_stop_score": 0.7778391790065113, "epoch": 19, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.06001253263282824, "val_auroc": 0.8783920135769192, "val_brier": 0.10055283457040787}
+{"early_stop_score": 0.7773878394142962, "epoch": 20, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.056300906593176894, "val_auroc": 0.8830709873215533, "val_brier": 0.10568314790725708}
+{"early_stop_score": 0.7607686887076865, "epoch": 21, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.05396535091586714, "val_auroc": 0.8699686373165618, "val_brier": 0.10919994860887527}
+{"early_stop_score": 0.7726404733491172, "epoch": 22, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.052392153887123594, "val_auroc": 0.8779883078766098, "val_brier": 0.10534783452749252}
+{"early_stop_score": 0.7817513739968631, "epoch": 23, "job": "ace_ablate_00_control_full8_every_step", "train_loss": 0.050648468591999715, "val_auroc": 0.8873742318059299, "val_brier": 0.10562285780906677}
+=== Running job 2/4: ace_ablate_01_full8_every_2_steps ===
+{"early_stop_score": 0.8304075856586824, "epoch": 1, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.3062917966910494, "val_auroc": 0.9168430228611361, "val_brier": 0.08643543720245361}
+{"early_stop_score": 0.8173353049096821, "epoch": 2, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.22983719305536612, "val_auroc": 0.9110842767295597, "val_brier": 0.09374897181987762}
+{"early_stop_score": 0.8188139707959535, "epoch": 3, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.19492359919761254, "val_auroc": 0.9057205231107118, "val_brier": 0.0869065523147583}
+{"early_stop_score": 0.826761812126393, "epoch": 4, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.17240624750653902, "val_auroc": 0.9111845941898772, "val_brier": 0.08442278206348419}
+{"early_stop_score": 0.7958112586449015, "epoch": 5, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.15754975402742866, "val_auroc": 0.8905865628431666, "val_brier": 0.09477530419826508}
+{"early_stop_score": 0.8093243081400682, "epoch": 6, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.143020627278138, "val_auroc": 0.8973139662573625, "val_brier": 0.08798965811729431}
+{"early_stop_score": 0.800795566762918, "epoch": 7, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.13240886310009453, "val_auroc": 0.8913245243086753, "val_brier": 0.0905289575457573}
+{"early_stop_score": 0.7978442454829834, "epoch": 8, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.12128985842795877, "val_auroc": 0.8926363581910751, "val_brier": 0.09479211270809174}
+{"early_stop_score": 0.7969963149085104, "epoch": 9, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.11287116692439328, "val_auroc": 0.8872983128681242, "val_brier": 0.0903019979596138}
+{"early_stop_score": 0.7983770887967675, "epoch": 10, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.10740767069524382, "val_auroc": 0.8876662473794549, "val_brier": 0.08928915858268738}
+{"early_stop_score": 0.7944456768686664, "epoch": 11, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.09987148901493084, "val_auroc": 0.8906528261954677, "val_brier": 0.0962071493268013}
+{"early_stop_score": 0.7916967766276165, "epoch": 12, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.0939275458364225, "val_auroc": 0.8875425057402416, "val_brier": 0.09584572911262512}
+{"early_stop_score": 0.7803255436340675, "epoch": 13, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.08879794060759913, "val_auroc": 0.8773416471997604, "val_brier": 0.0970161035656929}
+{"early_stop_score": 0.8026199388973123, "epoch": 14, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.08426316632185041, "val_auroc": 0.8945895258061296, "val_brier": 0.09196958690881729}
+{"early_stop_score": 0.7926405851835815, "epoch": 15, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.07948344056986696, "val_auroc": 0.8879372586602775, "val_brier": 0.09529667347669601}
+{"early_stop_score": 0.7769602194276213, "epoch": 16, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.07642708123638862, "val_auroc": 0.8746364220824598, "val_brier": 0.09767620265483856}
+{"early_stop_score": 0.7829529799337028, "epoch": 17, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.07341522237331402, "val_auroc": 0.8785423420185684, "val_brier": 0.09558936208486557}
+{"early_stop_score": 0.7732478755761112, "epoch": 18, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.07001105025107783, "val_auroc": 0.8724463212538685, "val_brier": 0.09919844567775726}
+{"early_stop_score": 0.7723454030686564, "epoch": 19, "job": "ace_ablate_01_full8_every_2_steps", "train_loss": 0.06738836930050113, "val_auroc": 0.8764043765598483, "val_brier": 0.10405897349119186}
+=== Running job 3/4: ace_ablate_02_first4_every_step ===
+{"early_stop_score": 0.7958598890833554, "epoch": 1, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.2998664895814609, "val_auroc": 0.8962447279624638, "val_brier": 0.10038483887910843}
+{"early_stop_score": 0.8156569833457509, "epoch": 2, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.22255064316881382, "val_auroc": 0.9051679904162923, "val_brier": 0.08951100707054138}
+{"early_stop_score": 0.81169422057296, "epoch": 3, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.18851196850703014, "val_auroc": 0.8996953898372766, "val_brier": 0.08800116926431656}
+{"early_stop_score": 0.8148114489698475, "epoch": 4, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.16418898781019498, "val_auroc": 0.9014967115902965, "val_brier": 0.08668526262044907}
+{"early_stop_score": 0.7935106325809732, "epoch": 5, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.14726090428184688, "val_auroc": 0.8856774363581911, "val_brier": 0.09216680377721786}
+{"early_stop_score": 0.7937800367570482, "epoch": 6, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.13257603298842421, "val_auroc": 0.8866980453229509, "val_brier": 0.09291800856590271}
+{"early_stop_score": 0.8120047491406297, "epoch": 7, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.12079209198312062, "val_auroc": 0.8979028132175302, "val_brier": 0.08589806407690048}
+{"early_stop_score": 0.7801646507121385, "epoch": 8, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.11115285027317884, "val_auroc": 0.8782426035739244, "val_brier": 0.09807795286178589}
+{"early_stop_score": 0.7871628052350075, "epoch": 9, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.10348909027208157, "val_auroc": 0.8835936507936508, "val_brier": 0.09643084555864334}
+{"early_stop_score": 0.792310707444373, "epoch": 10, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.09654966700912976, "val_auroc": 0.8870215194169911, "val_brier": 0.0947108119726181}
+{"early_stop_score": 0.7947526249106805, "epoch": 11, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.09140283214609797, "val_auroc": 0.8882758590396326, "val_brier": 0.09352323412895203}
+{"early_stop_score": 0.794675145918113, "epoch": 12, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.08475550939518262, "val_auroc": 0.8920858620345413, "val_brier": 0.09741071611642838}
+{"early_stop_score": 0.7988482442419755, "epoch": 13, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.08135840978200842, "val_auroc": 0.8922344174902666, "val_brier": 0.09338617324829102}
+{"early_stop_score": 0.7865359625518821, "epoch": 14, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.07520033376730555, "val_auroc": 0.8849511510432265, "val_brier": 0.09841518849134445}
+{"early_stop_score": 0.789600076028427, "epoch": 15, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.07257981607463301, "val_auroc": 0.8852937685933913, "val_brier": 0.0956936925649643}
+{"early_stop_score": 0.7865039496242292, "epoch": 16, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.06784648842715878, "val_auroc": 0.8873529000698812, "val_brier": 0.10084895044565201}
+{"early_stop_score": 0.7909126656923452, "epoch": 17, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.06369635374171705, "val_auroc": 0.8882172706399122, "val_brier": 0.09730460494756699}
+{"early_stop_score": 0.7845449410898369, "epoch": 18, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.062045644090427614, "val_auroc": 0.8878368773085754, "val_brier": 0.10329193621873856}
+{"early_stop_score": 0.7815787285689328, "epoch": 19, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.05776271322454379, "val_auroc": 0.8804994389537786, "val_brier": 0.09892071038484573}
+{"early_stop_score": 0.7907243796856119, "epoch": 20, "job": "ace_ablate_02_first4_every_step", "train_loss": 0.05659167211866233, "val_auroc": 0.891768505540581, "val_brier": 0.10104412585496902}
+=== Running job 4/4: ace_ablate_03_first4_every_2_steps ===
+{"early_stop_score": 0.8212316335275502, "epoch": 1, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.3061127036931069, "val_auroc": 0.910981156034741, "val_brier": 0.0897495225071907}
+{"early_stop_score": 0.8147094797604619, "epoch": 2, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.22467655827844046, "val_auroc": 0.9038052510731756, "val_brier": 0.08909577131271362}
+{"early_stop_score": 0.8193838150851898, "epoch": 3, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.19255780295385577, "val_auroc": 0.9062838853948287, "val_brier": 0.08690007030963898}
+{"early_stop_score": 0.8057591594605419, "epoch": 4, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.16872480654013836, "val_auroc": 0.8965573884396526, "val_brier": 0.09079822897911072}
+{"early_stop_score": 0.7992180472229607, "epoch": 5, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.15213791568710552, "val_auroc": 0.8926534092043527, "val_brier": 0.0934353619813919}
+{"early_stop_score": 0.8005829404698507, "epoch": 6, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.13962866992848674, "val_auroc": 0.893936316262354, "val_brier": 0.09335337579250336}
+{"early_stop_score": 0.8123340144133604, "epoch": 7, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.1309741532536057, "val_auroc": 0.9032581731057203, "val_brier": 0.09092415869235992}
+{"early_stop_score": 0.7986919601049416, "epoch": 8, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.12097742220735162, "val_auroc": 0.891115056404113, "val_brier": 0.09242309629917145}
+{"early_stop_score": 0.80044890495956, "epoch": 9, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.11329275739144504, "val_auroc": 0.8936247259658581, "val_brier": 0.09317582100629807}
+{"early_stop_score": 0.7781100514841215, "epoch": 10, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.10665760487620908, "val_auroc": 0.876573057801737, "val_brier": 0.09846300631761551}
+{"early_stop_score": 0.7703460132164992, "epoch": 11, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.09927908627967524, "val_auroc": 0.8719487910552062, "val_brier": 0.10160277783870697}
+{"early_stop_score": 0.7911156346771838, "epoch": 12, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.09760101290980006, "val_auroc": 0.8866958250973346, "val_brier": 0.09558019042015076}
+{"early_stop_score": 0.7909572649381524, "epoch": 13, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.09201437902704972, "val_auroc": 0.8851234022162324, "val_brier": 0.09416613727807999}
+{"early_stop_score": 0.7750883091320611, "epoch": 14, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.08660280957394015, "val_auroc": 0.8772475112309075, "val_brier": 0.10215920209884644}
+{"early_stop_score": 0.7619145558171886, "epoch": 15, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.08322159078244756, "val_auroc": 0.8701179594689029, "val_brier": 0.10820340365171432}
+{"early_stop_score": 0.7703848161970126, "epoch": 16, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.07924149164218243, "val_auroc": 0.8739305340920436, "val_brier": 0.10354571789503098}
+{"early_stop_score": 0.7734041834398718, "epoch": 17, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.07432774318821304, "val_auroc": 0.8774655485674353, "val_brier": 0.10406136512756348}
+{"early_stop_score": 0.7760982376142613, "epoch": 18, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.07197422364620658, "val_auroc": 0.8784561764999501, "val_brier": 0.10235793888568878}
+{"early_stop_score": 0.7635888683588616, "epoch": 19, "job": "ace_ablate_03_first4_every_2_steps", "train_loss": 0.06874611944989945, "val_auroc": 0.8682949545772187, "val_brier": 0.10470608621835709}
+{"done": true, "jobs_completed": 4, "output_dir": "experiments/transformer_k16_ace_sampling_ablation_fold00_v1_20260528"}

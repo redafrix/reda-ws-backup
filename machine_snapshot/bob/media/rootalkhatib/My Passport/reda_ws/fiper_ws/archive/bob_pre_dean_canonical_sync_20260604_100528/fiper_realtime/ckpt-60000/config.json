@@ -1,0 +1,25 @@
+{
+  "action_mode": "libero_joint",
+  "architectures": [
+    "SmolVLMVLA"
+  ],
+  "depth": 24,
+  "dim_time": 32,
+  "dtype": "float32",
+  "hidden_size": 1024,
+  "image_size": 384,
+  "max_len_seq": 512,
+  "mlp_ratio": 4.0,
+  "model_type": "smolvlm_vla",
+  "num_actions": 10,
+  "num_heads": 16,
+  "num_views": 3,
+  "predict_uncertainty": true,
+  "return_uncertainty": false,
+  "smolvlm_model_path": "HuggingFaceTB/SmolVLM-500M-Instruct",
+  "transformers_version": "4.57.6",
+  "uncertainty_beta": 0.5,
+  "uncertainty_eps": 1e-06,
+  "use_adaln": false,
+  "use_proprio": true
+}

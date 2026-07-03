@@ -1,0 +1,17 @@
+collection_config: configs/collect_pick_place_episodes.yaml
+output_dir: data/raw/simvla_paper_pick_place_5ep_no_rotation_800
+start_episode_id: 0
+num_episodes: 5
+num_envs: 1
+max_steps: 800
+settle_time_s: 0.25
+record_cameras: true
+record_depth: false
+camera_fps: 20
+state_record_fps: 20
+
+simvla:
+  eval_config: configs/eval_simvla_paper_bob_no_rotation.yaml
+  stop_on_success: true
+
+notes: Five paper/basic SimVLA pick-place deployment episodes with upright IsaacLab camera inputs.

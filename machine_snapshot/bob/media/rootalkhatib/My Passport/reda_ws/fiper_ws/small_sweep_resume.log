@@ -1,0 +1,104 @@
+Reading success_train_seen: 26792 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_train_seen: 27995 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_train_seen: 20676 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_train_seen: 75463 rows, 497 episodes
+Reading success_val_seen: 6981 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_val_seen: 7444 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_val_seen: 5450 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_val_seen: 19875 rows, 135 episodes
+Reading success_calib_seen: 7232 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_calib_seen: 7374 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_calib_seen: 5728 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_calib_seen: 20334 rows, 135 episodes
+Reading success_test_seen: 8179 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_test_seen: 7210 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_test_seen: 5928 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_test_seen: 21317 rows, 136 episodes
+Reading success_test_ood: 12477 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading success_test_ood: 12211 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading success_test_ood: 10241 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded success_test_ood: 34929 rows, 211 episodes
+Reading failure_train_seen: 3900 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading failure_train_seen: 3600 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading failure_train_seen: 11400 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded failure_train_seen: 18900 rows, 63 episodes
+Reading failure_val_seen: 1200 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading failure_val_seen: 1500 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading failure_val_seen: 3600 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded failure_val_seen: 6300 rows, 21 episodes
+Reading failure_test_seen: 1200 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading failure_test_seen: 1200 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading failure_test_seen: 3900 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded failure_test_seen: 6300 rows, 21 episodes
+Reading failure_eval_ood: 3600 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_A/fiper_receding_samples.jsonl
+Reading failure_eval_ood: 4500 rows from data/frozen/fiper_sweep_eternal_20260527_combined/bob_instance_B/fiper_receding_samples.jsonl
+Reading failure_eval_ood: 4500 rows from data/frozen/fiper_sweep_eternal_20260527_combined/sam_instance_A/fiper_receding_samples.jsonl
+Loaded failure_eval_ood: 12600 rows, 42 episodes
+=== Running job 1/6: cap_06_tiny_k16 ===
+=== Running job 2/6: cap_07_small_k16 ===
+=== Running job 3/6: cap_08_shallow_k16 ===
+=== Running job 4/6: cap_09_tiny_k32 ===
+{"early_stop_score": 0.8219019826668846, "epoch": 1, "job": "cap_09_tiny_k32", "train_loss": 0.3343345703996294, "val_auroc": 0.911240642907058, "val_brier": 0.08933866024017334}
+{"early_stop_score": 0.8471537841085214, "epoch": 2, "job": "cap_09_tiny_k32", "train_loss": 0.25818334156420175, "val_auroc": 0.9294827593091745, "val_brier": 0.08232897520065308}
+{"early_stop_score": 0.8480257508506522, "epoch": 3, "job": "cap_09_tiny_k32", "train_loss": 0.2219554167695162, "val_auroc": 0.9313609344115005, "val_brier": 0.08333518356084824}
+{"early_stop_score": 0.844901020912372, "epoch": 4, "job": "cap_09_tiny_k32", "train_loss": 0.2012169706082441, "val_auroc": 0.9281981990615953, "val_brier": 0.08329717814922333}
+{"early_stop_score": 0.8458767620459169, "epoch": 5, "job": "cap_09_tiny_k32", "train_loss": 0.18530646847879015, "val_auroc": 0.9288123709693521, "val_brier": 0.08293560892343521}
+{"early_stop_score": 0.8356949477321963, "epoch": 6, "job": "cap_09_tiny_k32", "train_loss": 0.17058907479532365, "val_auroc": 0.9195677428371768, "val_brier": 0.08387279510498047}
+{"early_stop_score": 0.8046927062514895, "epoch": 7, "job": "cap_09_tiny_k32", "train_loss": 0.16075812198403405, "val_auroc": 0.8978900668862932, "val_brier": 0.09319736063480377}
+{"early_stop_score": 0.8304079302518506, "epoch": 8, "job": "cap_09_tiny_k32", "train_loss": 0.15314405205530848, "val_auroc": 0.9141922571628232, "val_brier": 0.0837843269109726}
+{"early_stop_score": 0.7966251813044226, "epoch": 9, "job": "cap_09_tiny_k32", "train_loss": 0.14435866420588842, "val_auroc": 0.8888111330737746, "val_brier": 0.09218595176935196}
+{"early_stop_score": 0.8075996364438944, "epoch": 10, "job": "cap_09_tiny_k32", "train_loss": 0.139097370116449, "val_auroc": 0.8950689907157832, "val_brier": 0.08746935427188873}
+{"early_stop_score": 0.8152814211631237, "epoch": 11, "job": "cap_09_tiny_k32", "train_loss": 0.1340560687751305, "val_auroc": 0.9031853529000698, "val_brier": 0.0879039317369461}
+{"early_stop_score": 0.8127717856584017, "epoch": 12, "job": "cap_09_tiny_k32", "train_loss": 0.12732687671252382, "val_auroc": 0.9016237516222422, "val_brier": 0.08885196596384048}
+{"early_stop_score": 0.8151708587742575, "epoch": 13, "job": "cap_09_tiny_k32", "train_loss": 0.12303507733878082, "val_auroc": 0.9047096416092643, "val_brier": 0.08953878283500671}
+{"early_stop_score": 0.7988594836854012, "epoch": 14, "job": "cap_09_tiny_k32", "train_loss": 0.11995372942429249, "val_auroc": 0.8889805889987022, "val_brier": 0.09012110531330109}
+{"early_stop_score": 0.8048056157527264, "epoch": 15, "job": "cap_09_tiny_k32", "train_loss": 0.11545007494164676, "val_auroc": 0.8935103284416492, "val_brier": 0.08870471268892288}
+{"early_stop_score": 0.8106241604191302, "epoch": 16, "job": "cap_09_tiny_k32", "train_loss": 0.11180754301206368, "val_auroc": 0.8973628511530398, "val_brier": 0.0867386907339096}
+{"early_stop_score": 0.7965175521384048, "epoch": 17, "job": "cap_09_tiny_k32", "train_loss": 0.1074116707029866, "val_auroc": 0.8865996685634422, "val_brier": 0.09008211642503738}
+{"early_stop_score": 0.7906358138636045, "epoch": 18, "job": "cap_09_tiny_k32", "train_loss": 0.1052919199796227, "val_auroc": 0.8830726564839773, "val_brier": 0.09243684262037277}
+{"early_stop_score": 0.8048072640932248, "epoch": 19, "job": "cap_09_tiny_k32", "train_loss": 0.10260512949368818, "val_auroc": 0.8919038434661076, "val_brier": 0.08709657937288284}
+{"early_stop_score": 0.7832968379209541, "epoch": 20, "job": "cap_09_tiny_k32", "train_loss": 0.09936295841949258, "val_auroc": 0.8750564600179694, "val_brier": 0.09175962209701538}
+{"early_stop_score": 0.7856615615551193, "epoch": 21, "job": "cap_09_tiny_k32", "train_loss": 0.09605358807536644, "val_auroc": 0.8798069042627533, "val_brier": 0.09414534270763397}
+=== Running job 5/6: cap_10_small_k32 ===
+{"early_stop_score": 0.8370697598969656, "epoch": 1, "job": "cap_10_small_k32", "train_loss": 0.3195694156172799, "val_auroc": 0.9214909773385245, "val_brier": 0.08442121744155884}
+{"early_stop_score": 0.8479069471774631, "epoch": 2, "job": "cap_10_small_k32", "train_loss": 0.23418412115273438, "val_auroc": 0.9297182709394031, "val_brier": 0.08181132376194}
+{"early_stop_score": 0.8460833547366771, "epoch": 3, "job": "cap_10_small_k32", "train_loss": 0.2013718035162949, "val_auroc": 0.9299400938404712, "val_brier": 0.0838567391037941}
+{"early_stop_score": 0.8375371858977122, "epoch": 4, "job": "cap_10_small_k32", "train_loss": 0.18000288928548494, "val_auroc": 0.9209588259958071, "val_brier": 0.08342164009809494}
+{"early_stop_score": 0.8199835105777116, "epoch": 5, "job": "cap_10_small_k32", "train_loss": 0.16358396301909192, "val_auroc": 0.9076231925726266, "val_brier": 0.08763968199491501}
+{"early_stop_score": 0.8280847989517311, "epoch": 6, "job": "cap_10_small_k32", "train_loss": 0.14768245149918688, "val_auroc": 0.9149687611061196, "val_brier": 0.08688396215438843}
+{"early_stop_score": 0.823630550949892, "epoch": 7, "job": "cap_10_small_k32", "train_loss": 0.13678839784569857, "val_auroc": 0.9083570410302486, "val_brier": 0.0847264900803566}
+{"early_stop_score": 0.8152202150205572, "epoch": 8, "job": "cap_10_small_k32", "train_loss": 0.12700177344485997, "val_auroc": 0.9019801697114904, "val_brier": 0.08675995469093323}
+{"early_stop_score": 0.8076365149433584, "epoch": 9, "job": "cap_10_small_k32", "train_loss": 0.11898435629540827, "val_auroc": 0.8985888070280523, "val_brier": 0.09095229208469391}
+{"early_stop_score": 0.8114280814566214, "epoch": 10, "job": "cap_10_small_k32", "train_loss": 0.1116660274868089, "val_auroc": 0.9002016971149046, "val_brier": 0.08877361565828323}
+{"early_stop_score": 0.797174456964192, "epoch": 11, "job": "cap_10_small_k32", "train_loss": 0.1060562033690815, "val_auroc": 0.890232588599381, "val_brier": 0.09305813163518906}
+{"early_stop_score": 0.7952719329304442, "epoch": 12, "job": "cap_10_small_k32", "train_loss": 0.09948321203209036, "val_auroc": 0.8885103164620146, "val_brier": 0.09323838353157043}
+{"early_stop_score": 0.8080221214409882, "epoch": 13, "job": "cap_10_small_k32", "train_loss": 0.09597920352305339, "val_auroc": 0.8996590995307976, "val_brier": 0.09163697808980942}
+{"early_stop_score": 0.806129164352342, "epoch": 14, "job": "cap_10_small_k32", "train_loss": 0.09242567211026098, "val_auroc": 0.8979783647798742, "val_brier": 0.0918492004275322}
+{"early_stop_score": 0.7980756770732182, "epoch": 15, "job": "cap_10_small_k32", "train_loss": 0.08799075860742146, "val_auroc": 0.8903092902066487, "val_brier": 0.09223361313343048}
+{"early_stop_score": 0.7902624572348692, "epoch": 16, "job": "cap_10_small_k32", "train_loss": 0.08556755956232064, "val_auroc": 0.8874283398223021, "val_brier": 0.09716588258743286}
+{"early_stop_score": 0.7948128023634607, "epoch": 17, "job": "cap_10_small_k32", "train_loss": 0.0813242823672973, "val_auroc": 0.890012059498852, "val_brier": 0.09519925713539124}
+{"early_stop_score": 0.7961220029244636, "epoch": 18, "job": "cap_10_small_k32", "train_loss": 0.07889053981175752, "val_auroc": 0.8946478027353499, "val_brier": 0.09852579981088638}
+{"early_stop_score": 0.7902858257860013, "epoch": 19, "job": "cap_10_small_k32", "train_loss": 0.07521082479052427, "val_auroc": 0.8877148926824399, "val_brier": 0.0974290668964386}
+{"early_stop_score": 0.7928753655266343, "epoch": 20, "job": "cap_10_small_k32", "train_loss": 0.07178650928161494, "val_auroc": 0.8929281022262154, "val_brier": 0.10005273669958115}
+=== Running job 6/6: cap_11_shallow_k32 ===
+{"early_stop_score": 0.8279051976103589, "epoch": 1, "job": "cap_11_shallow_k32", "train_loss": 0.3184156568069768, "val_auroc": 0.9131939383048817, "val_brier": 0.08528874069452286}
+{"early_stop_score": 0.8500139467282439, "epoch": 2, "job": "cap_11_shallow_k32", "train_loss": 0.25539805267642185, "val_auroc": 0.932843310372367, "val_brier": 0.08282936364412308}
+{"early_stop_score": 0.8322316248505826, "epoch": 3, "job": "cap_11_shallow_k32", "train_loss": 0.2294741939844155, "val_auroc": 0.9245630268543477, "val_brier": 0.0923314020037651}
+{"early_stop_score": 0.8395599817260699, "epoch": 4, "job": "cap_11_shallow_k32", "train_loss": 0.20959792698059626, "val_auroc": 0.9227630068882899, "val_brier": 0.08320302516222}
+{"early_stop_score": 0.8328927796397845, "epoch": 5, "job": "cap_11_shallow_k32", "train_loss": 0.19319225635712708, "val_auroc": 0.9235727902565638, "val_brier": 0.09068001061677933}
+{"early_stop_score": 0.8393921113161764, "epoch": 6, "job": "cap_11_shallow_k32", "train_loss": 0.17973940752870668, "val_auroc": 0.9216701766996107, "val_brier": 0.0822780653834343}
+{"early_stop_score": 0.8285247627107, "epoch": 7, "job": "cap_11_shallow_k32", "train_loss": 0.16789618694806488, "val_auroc": 0.9160354677049016, "val_brier": 0.08751070499420166}
+{"early_stop_score": 0.8399695799217253, "epoch": 8, "job": "cap_11_shallow_k32", "train_loss": 0.15775036657365357, "val_auroc": 0.9248238474593191, "val_brier": 0.08485426753759384}
+{"early_stop_score": 0.8256464885038372, "epoch": 9, "job": "cap_11_shallow_k32", "train_loss": 0.1483328257937257, "val_auroc": 0.9124930338424678, "val_brier": 0.08684654533863068}
+{"early_stop_score": 0.8364703220934795, "epoch": 10, "job": "cap_11_shallow_k32", "train_loss": 0.14009433457764184, "val_auroc": 0.9218877268643306, "val_brier": 0.08541740477085114}
+{"early_stop_score": 0.8369430803179008, "epoch": 11, "job": "cap_11_shallow_k32", "train_loss": 0.13331767247338605, "val_auroc": 0.920064178895877, "val_brier": 0.08312109857797623}
+{"early_stop_score": 0.8241467709897111, "epoch": 12, "job": "cap_11_shallow_k32", "train_loss": 0.12586385696157207, "val_auroc": 0.9104673574922632, "val_brier": 0.08632058650255203}
+{"early_stop_score": 0.8193069462984903, "epoch": 13, "job": "cap_11_shallow_k32", "train_loss": 0.1229741521543119, "val_auroc": 0.9088130657881601, "val_brier": 0.0895061194896698}
+{"early_stop_score": 0.8097558184800813, "epoch": 14, "job": "cap_11_shallow_k32", "train_loss": 0.11505741244409143, "val_auroc": 0.9007713287411401, "val_brier": 0.09101551026105881}
+{"early_stop_score": 0.8125440994417548, "epoch": 15, "job": "cap_11_shallow_k32", "train_loss": 0.11223640741129232, "val_auroc": 0.9058094838774085, "val_brier": 0.09326538443565369}
+{"early_stop_score": 0.8093288356085659, "epoch": 16, "job": "cap_11_shallow_k32", "train_loss": 0.10698535824876006, "val_auroc": 0.9033478686233403, "val_brier": 0.09401903301477432}
+{"early_stop_score": 0.8046041015347157, "epoch": 17, "job": "cap_11_shallow_k32", "train_loss": 0.10284124620682825, "val_auroc": 0.8986307117899571, "val_brier": 0.0940266102552414}
+{"early_stop_score": 0.8161632950713819, "epoch": 18, "job": "cap_11_shallow_k32", "train_loss": 0.10026963062705548, "val_auroc": 0.9051019187381452, "val_brier": 0.0889386236667633}
+{"early_stop_score": 0.7996057794881201, "epoch": 19, "job": "cap_11_shallow_k32", "train_loss": 0.09649174542325299, "val_auroc": 0.8960362823200559, "val_brier": 0.09643050283193588}
+{"early_stop_score": 0.7995538160644369, "epoch": 20, "job": "cap_11_shallow_k32", "train_loss": 0.09232058306413937, "val_auroc": 0.8962782070480184, "val_brier": 0.09672439098358154}
+{"done": true, "jobs_completed": 6, "output_dir": "experiments/transformer_capacity_history_small_sweep_fold00_v1_20260528"}

@@ -1,0 +1,42 @@
+{
+  "uses_object_positions_before": false,
+  "uses_reward": false,
+  "uses_success": false,
+  "uses_task_metadata_as_input": false,
+  "uses_group_metadata_as_training_label_only": false,
+  "uses_ood_rows_for_train": false,
+  "uses_future_timestep": false,
+  "dynamics_delta_alignment": "not_used",
+  "hardstop_is_real_residual_gate": false,
+  "history_dim": 21,
+  "current_feature_dim": 1,
+  "input_fields": [
+    "history.previous_proprio",
+    "history.previous_executed_action",
+    "history.previous_ace_metrics"
+  ],
+  "group_strategy": "ref_combined",
+  "num_train_groups": 9,
+  "train_group_counts": {
+    "milk_10_family_none_none": 1462,
+    "milk_goal_none_none": 657,
+    "milk_spatial_none_none": 837,
+    "mug_goal_none_none": 682,
+    "mug_object_family_none_none": 1087,
+    "mug_spatial_none_none": 1005,
+    "object_goal_none_none": 753,
+    "object_object_family_none_none": 894,
+    "object_spatial_none_none": 815
+  },
+  "val_group_counts": {
+    "milk_10_family_none_none": 1497,
+    "milk_goal_none_none": 608,
+    "milk_spatial_none_none": 872,
+    "mug_goal_none_none": 680,
+    "mug_object_family_none_none": 1066,
+    "mug_spatial_none_none": 1001,
+    "object_goal_none_none": 779,
+    "object_object_family_none_none": 909,
+    "object_spatial_none_none": 780
+  }
+}

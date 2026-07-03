@@ -1,0 +1,494 @@
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783025268.764791 2505866 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1783025268.764835 2505866 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+Loading user config located at: '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-07-02T20:47:48Z [Info] [carb] Logging to file: /home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/kit/logs/Kit/IsaacLab/3.0/kit_20260702_224748.log
+2026-07-02T20:47:48Z [6ms] [Warning] [omni.ext.plugin] [ext: isaacsim.app.compatibility_check-1.1.4+110.1.2.lx64.r.cp312] Extensions config 'extension.toml' doesn't exist '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.app.compatibility_check-1.1.4+110.1.2.lx64.r.cp312' or '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.app.compatibility_check-1.1.4+110.1.2.lx64.r.cp312/config'
+2026-07-02T20:47:48Z [8ms] [Warning] [omni.ext.plugin] [ext: isaacsim.replicator.nurec_utils] Extensions config 'extension.toml' doesn't exist '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.replicator.nurec_utils' or '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.replicator.nurec_utils/config'
+2026-07-02T20:47:48Z [9ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rootalkhatib/IsaacLab-6.0/source/isaaclab_visualizers' or '/home/rootalkhatib/IsaacLab-6.0/source/isaaclab_visualizers/config'
+2026-07-02T20:47:49Z [486ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 595.71.05     | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 4070 Ti SUPER | Yes: 0 |     | 16622   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2705      | d588fc24.. |
+|     |                                  |        |     |            | a2        |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-124-generic
+| Processor: Intel(R) Xeon(R) w3-2423
+| Cores: 6 | Logical Cores: 12
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 31333 | Free Memory: 23765
+| Total Page/Swap (MB): 2047 | Free Page/Swap: 1426
+|---------------------------------------------------------------------------------------------|
+2026-07-02T20:47:49Z [1,039ms] [Warning] [omni.rtx] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-07-02T20:47:49Z [1,048ms] [Warning] [omni.rtx] IOMMU is enabled.
+2026-07-02T20:47:50Z [1,816ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-07-02T20:47:50Z [1,816ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-07-02T20:47:50Z [1,898ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-07-02T20:47:50Z [1,898ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-07-02T20:47:50Z [1,900ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+[ISAACLAB] AppLauncher initialization complete
+[INFO] Connecting Pi0.5 remote runtime for closed-loop rollout...
+[INFO] Connected to Pi0.5 policy server metadata={}
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO]: Registered backend 'physx' for factory FrameView.
+[INFO]: Registered backend 'physx' for factory RigidObject.
+[INFO]: Physics scene prim path: /physicsScene
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                     Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                    |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+| Index | Name                | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction | Position Limits  | Velocity Limits | Effort Limits |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+|   0   | panda_joint1        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.175      |     87.000    |
+|   1   | panda_joint2        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-1.763, 1.763]  |      2.175      |     87.000    |
+|   2   | panda_joint3        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.175      |     87.000    |
+|   3   | panda_joint4        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-3.072, -0.070] |      2.175      |     87.000    |
+|   4   | panda_joint5        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.610      |     12.000    |
+|   5   | panda_joint6        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-0.018, 3.753]  |      2.610      |     12.000    |
+|   6   | panda_joint7        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.610      |     12.000    |
+|   7   | panda_finger_joint1 |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       |  [0.000, 0.040]  |      0.200      |    200.000    |
+|   8   | panda_finger_joint2 |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       |  [0.000, 0.040]  |      0.200      |    200.000    |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+[INFO]: Registered backend 'physx' for factory Renderer.
+[INFO]: Created new renderer for simulation: IsaacRtxRenderer
+[INFO]: Using renderer: IsaacRtxRenderer
+[INFO]: Using renderer: IsaacRtxRenderer
+[INFO] Starting Pi0.5 reaching episode 4: instruction='reach the onion', target_label='onion'
+2026-07-02T20:47:50Z [1,900ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-07-02T20:47:50Z [2,274ms] [Warning] [isaacsim.core.simulation_manager.plugin] USD stage is not available; stage-opened subscription is deferred
+2026-07-02T20:47:50Z [2,274ms] [Warning] [isaacsim.core.simulation_manager.plugin] USD stage is not available; stage-opened subscription is deferred
+2026-07-02T20:47:50Z [2,314ms] [Warning] [omni.log] Source: omni.hydra was already registered.
+2026-07-02T20:47:51Z [2,923ms] [Warning] [pxr.Semantics] pxr.Semantics is deprecated - please use Semantics instead
+2026-07-02T20:47:51Z [3,017ms] [Warning] [omni.replicator.core.scripts.extension] No material configuration file, adding configuration to material settings directly.
+2026-07-02T20:47:56Z [7,580ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-07-02T20:47:56Z [8,265ms] [Warning] [omni.rtx] DLSS increasing input dimensions: Render resolution of (150, 150) is below minimal input resolution of 300.
+2026-07-02T20:47:56Z [8,345ms] [Warning] [omni.syntheticdata.plugin] OgnSdPostRenderVarToHost : rendervar copy from texture directly to host buffer is counter-performant. Please use copy from texture to device buffer first.
+2026-07-02T20:47:56Z [8,361ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,361ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,362ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,362ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,363ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,363ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,364ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,364ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,364ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,364ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,365ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,365ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,366ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,366ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,366ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,366ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,367ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,367ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,368ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,368ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,369ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,369ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,369ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,369ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,370ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,370ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,371ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,371ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,372ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,372ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,373ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,373ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,373ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,373ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,374ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,374ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,375ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,375ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,375ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,375ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,376ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,376ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,377ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,377ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,378ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,378ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,384ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,384ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,384ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,384ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,385ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,385ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,385ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,385ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,385ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,386ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,386ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,386ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,386ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,386ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,387ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,387ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,387ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,387ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,388ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,388ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,388ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,388ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,388ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,388ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,389ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,389ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,390ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,390ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,390ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,390ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,390ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,390ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,391ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,391ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,391ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,391ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:56Z [8,392ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:56Z [8,392ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:57Z [8,392ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:57Z [8,392ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:57Z [8,392ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:57Z [8,392ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:57Z [8,393ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:57Z [8,393ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:47:57Z [8,393ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:47:57Z [8,393ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+[INFO]: RTX streaming completed in 0.01 s.
+/home/rootalkhatib/isaaclab_repo/franka_wrist_camera_isaaclab/scripts/pi05_reaching_rollout.py:306: DeprecationWarning: The function 'set_joint_position_target' will be deprecated in a future release. Please use 'set_joint_position_target_index' instead.
+  robot.set_joint_position_target(current_cmd.target_joint_pos, joint_ids=arm_joint_ids)
+[INFO]: RTX streaming completed in 0.02 s.
+[INFO] Pi0.5 episode 4 success=False mode=failure completed=False steps=3600 instruction='reach the onion'
+[INFO] Starting Pi0.5 reaching episode 5: instruction='reach the basket', target_label='basket'
+2026-07-02T20:47:57Z [8,470ms] [Warning] [omni.kit.material.library.material_extensions] Could not initialize context menu integration: No module named 'omni.kit.context_menu'
+2026-07-02T20:48:27Z [39,081ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,081ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,082ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,082ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,082ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,082ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,083ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,083ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,084ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,084ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,085ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,085ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,085ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,086ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,086ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,086ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,087ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,087ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,088ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,088ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,089ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,089ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,089ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,089ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,091ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,091ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,091ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,091ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,092ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,092ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,096ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,096ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,097ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,097ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,098ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,098ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,108ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,108ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,109ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,109ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,110ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,110ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,110ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,110ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,111ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,111ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,117ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,117ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,118ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,118ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,118ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,119ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,119ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,119ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,119ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,119ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,120ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,120ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,120ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,120ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,121ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,121ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,121ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,121ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,122ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,122ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,122ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,122ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,123ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,123ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,123ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,124ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,124ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,124ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,126ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,127ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,127ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,127ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,127ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,127ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,128ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,128ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,129ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,129ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,130ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,130ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,130ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,130ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,131ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,131ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:48:27Z [39,131ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:48:27Z [39,131ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+[INFO] Pi0.5 episode 5 success=False mode=failure completed=False steps=3600 instruction='reach the basket'
+[INFO] Using Python: "/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/bin/python"
+[REACHING_EP4_REPAIR_DONE] 2026-07-02T22:47:46+02:00
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783025340.835770 2506692 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1783025340.835808 2506692 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+Loading user config located at: '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-07-02T20:49:00Z [Info] [carb] Logging to file: /home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/kit/logs/Kit/IsaacLab/3.0/kit_20260702_224900.log
+2026-07-02T20:49:00Z [5ms] [Warning] [omni.ext.plugin] [ext: isaacsim.replicator.nurec_utils] Extensions config 'extension.toml' doesn't exist '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.replicator.nurec_utils' or '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.replicator.nurec_utils/config'
+2026-07-02T20:49:00Z [7ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rootalkhatib/IsaacLab-6.0/source/isaaclab_visualizers' or '/home/rootalkhatib/IsaacLab-6.0/source/isaaclab_visualizers/config'
+2026-07-02T20:49:00Z [10ms] [Warning] [omni.ext.plugin] [ext: isaacsim.app.compatibility_check-1.1.4+110.1.2.lx64.r.cp312] Extensions config 'extension.toml' doesn't exist '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.app.compatibility_check-1.1.4+110.1.2.lx64.r.cp312' or '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.app.compatibility_check-1.1.4+110.1.2.lx64.r.cp312/config'
+2026-07-02T20:49:01Z [482ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 595.71.05     | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 4070 Ti SUPER | Yes: 0 |     | 16622   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2705      | d588fc24.. |
+|     |                                  |        |     |            | a2        |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-124-generic
+| Processor: Intel(R) Xeon(R) w3-2423
+| Cores: 6 | Logical Cores: 12
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 31333 | Free Memory: 23755
+| Total Page/Swap (MB): 2047 | Free Page/Swap: 1426
+|---------------------------------------------------------------------------------------------|
+2026-07-02T20:49:01Z [1,014ms] [Warning] [omni.rtx] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-07-02T20:49:01Z [1,023ms] [Warning] [omni.rtx] IOMMU is enabled.
+2026-07-02T20:49:02Z [1,799ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-07-02T20:49:02Z [1,799ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-07-02T20:49:02Z [1,878ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-07-02T20:49:02Z [1,878ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-07-02T20:49:02Z [1,880ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+[ISAACLAB] AppLauncher initialization complete
+[INFO] Connecting Pi0.5 remote runtime for pick-place rollout...
+[INFO] Connected to Pi0.5 policy server metadata={}
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO]: Registered backend 'physx' for factory FrameView.
+[INFO]: Registered backend 'physx' for factory RigidObject.
+[INFO]: Physics scene prim path: /physicsScene
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                     Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                    |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+| Index | Name                | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction | Position Limits  | Velocity Limits | Effort Limits |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+|   0   | panda_joint1        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.175      |     87.000    |
+|   1   | panda_joint2        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-1.763, 1.763]  |      2.175      |     87.000    |
+|   2   | panda_joint3        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.175      |     87.000    |
+|   3   | panda_joint4        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-3.072, -0.070] |      2.175      |     87.000    |
+|   4   | panda_joint5        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.610      |     12.000    |
+|   5   | panda_joint6        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-0.018, 3.753]  |      2.610      |     12.000    |
+|   6   | panda_joint7        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.610      |     12.000    |
+|   7   | panda_finger_joint1 |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       |  [0.000, 0.040]  |      0.200      |    200.000    |
+|   8   | panda_finger_joint2 |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       |  [0.000, 0.040]  |      0.200      |    200.000    |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+[INFO]: Registered backend 'physx' for factory Renderer.
+[INFO]: Created new renderer for simulation: IsaacRtxRenderer
+[INFO]: Using renderer: IsaacRtxRenderer
+[INFO]: Using renderer: IsaacRtxRenderer
+[INFO] Starting Pi0.5 pick-place episode 4: instruction='pick up the kiwi and place it in the basket', target='kiwi', placement='basket'
+2026-07-02T20:49:02Z [1,880ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-07-02T20:49:02Z [2,249ms] [Warning] [isaacsim.core.simulation_manager.plugin] USD stage is not available; stage-opened subscription is deferred
+2026-07-02T20:49:02Z [2,249ms] [Warning] [isaacsim.core.simulation_manager.plugin] USD stage is not available; stage-opened subscription is deferred
+2026-07-02T20:49:02Z [2,292ms] [Warning] [omni.log] Source: omni.hydra was already registered.
+2026-07-02T20:49:03Z [2,888ms] [Warning] [pxr.Semantics] pxr.Semantics is deprecated - please use Semantics instead
+2026-07-02T20:49:03Z [2,979ms] [Warning] [omni.replicator.core.scripts.extension] No material configuration file, adding configuration to material settings directly.
+2026-07-02T20:49:16Z [15,841ms] [Warning] [omni.client.python] Detected a blocking function. This will cause hitches or hangs in the UI. Please switch to the async version:
+  File "/home/rootalkhatib/isaaclab_repo/franka_wrist_camera_isaaclab/scripts/pi05_pick_place_rollout.py", line 422, in <module>
+  File "/home/rootalkhatib/isaaclab_repo/franka_wrist_camera_isaaclab/scripts/pi05_pick_place_rollout.py", line 416, in main
+  File "/home/rootalkhatib/isaaclab_repo/franka_wrist_camera_isaaclab/scripts/pi05_pick_place_rollout.py", line 382, in run_rollouts
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/scene/interactive_scene.py", line 200, in __init__
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/scene/interactive_scene.py", line 916, in _add_entities_from_cfg
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/utils/string.py", line 221, in __call__
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/assets/articulation/articulation.py", line 30, in __new__
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/utils/backend_utils.py", line 134, in __new__
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py", line 126, in __init__
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/assets/articulation/base_articulation.py", line 98, in __init__
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/assets/asset_base.py", line 92, in __init__
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/utils/string.py", line 221, in __call__
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/sim/utils/prims.py", line 704, in wrapper
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/sim/spawners/from_files/from_files.py", line 82, in spawn_from_usd
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/sim/spawners/from_files/from_files.py", line 317, in _spawn_from_usd_file
+  File "/home/rootalkhatib/IsaacLab-6.0/source/isaaclab/isaaclab/utils/assets.py", line 81, in check_file_path
+  File "/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/kit/extscore/omni.client.lib/omni/client/impl/__init__.py", line 138, in stat
+
+2026-07-02T20:49:28Z [27,596ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-07-02T20:49:29Z [28,404ms] [Warning] [omni.rtx] DLSS increasing input dimensions: Render resolution of (150, 150) is below minimal input resolution of 300.
+2026-07-02T20:49:29Z [28,488ms] [Warning] [omni.syntheticdata.plugin] OgnSdPostRenderVarToHost : rendervar copy from texture directly to host buffer is counter-performant. Please use copy from texture to device buffer first.
+2026-07-02T20:49:29Z [28,507ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,507ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,507ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,508ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,509ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,509ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,509ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,510ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,510ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,510ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,511ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,511ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,513ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,513ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,513ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,513ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,514ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,514ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,515ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,515ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,516ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,516ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,516ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,516ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,517ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,517ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,518ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,518ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,526ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,526ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,526ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,526ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,527ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,527ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,527ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,527ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,528ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,528ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,528ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,528ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,529ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,529ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,530ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,530ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,530ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,530ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,530ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,531ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,531ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,531ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,531ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,531ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,532ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,532ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:49:29Z [28,532ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:49:29Z [28,532ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+[INFO]: RTX streaming completed in 0.01 s.
+/home/rootalkhatib/isaaclab_repo/franka_wrist_camera_isaaclab/scripts/pi05_pick_place_rollout.py:288: DeprecationWarning: The function 'set_joint_position_target' will be deprecated in a future release. Please use 'set_joint_position_target_index' instead.
+  robot.set_joint_position_target(current_cmd.target_joint_pos, joint_ids=arm_joint_ids)
+[INFO]: RTX streaming completed in 0.04 s.
+[INFO] Pi0.5 pick-place episode 4 success=False completed=False steps=3800 instruction='pick up the kiwi and place it in the basket'
+[INFO] Starting Pi0.5 pick-place episode 5: instruction='pick up the onion and place it in the bowl', target='onion', placement='bowl'
+2026-07-02T20:49:29Z [28,619ms] [Warning] [omni.kit.material.library.material_extensions] Could not initialize context menu integration: No module named 'omni.kit.context_menu'
+2026-07-02T20:50:01Z [60,610ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,610ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,611ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,611ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,613ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,613ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,614ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,614ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,614ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,615ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,615ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,615ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,616ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,616ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,617ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,617ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,619ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,619ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,620ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,620ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,620ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,620ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,621ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,621ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,622ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,622ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,623ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,623ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,629ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,630ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,630ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,630ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,630ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,631ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,631ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,631ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,631ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,631ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,632ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,632ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,632ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,632ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,633ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,633ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,644ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,644ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,645ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,645ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,645ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,645ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,646ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,646ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,646ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,646ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+2026-07-02T20:50:01Z [60,647ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setLinearVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 251
+2026-07-02T20:50:01Z [60,647ms] [Error] [omni.physx.plugin] PhysX error: PxRigidDynamic::setAngularVelocity: Body must be non-kinematic!, FILE /builds/omniverse/physics/physx/source/physx/src/NpRigidDynamic.cpp, LINE 284
+[INFO] Pi0.5 pick-place episode 5 success=False completed=False steps=3800 instruction='pick up the onion and place it in the bowl'
+[INFO] Using Python: "/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/bin/python"
+[PICK_PLACE_EP4_REPAIR_DONE] 2026-07-02T22:47:46+02:00
+Multiple -pix_fmt options specified for stream 0, only the last option '-pix_fmt yuv420p' will be used.
+[INFO] wrote 1/10: reaching 000000 (225 frames)
+[INFO] wrote 2/10: reaching 000001 (225 frames)
+[INFO] wrote 3/10: reaching 000002 (225 frames)
+[INFO] wrote 4/10: reaching 000003 (225 frames)
+[INFO] wrote 5/10: reaching 000004 (225 frames)
+[INFO] wrote 6/10: pick_place 000000 (238 frames)
+[INFO] wrote 7/10: pick_place 000001 (238 frames)
+[INFO] wrote 8/10: pick_place 000002 (238 frames)
+[INFO] wrote 9/10: pick_place 000003 (238 frames)
+[INFO] wrote 10/10: pick_place 000004 (238 frames)
+[DONE] wrote data/processed/pi05_droid_10_tests_agent_view_2x.mp4 (2315 frames)
+[VIDEO_REBUILT] 2026-07-02T22:47:46+02:00

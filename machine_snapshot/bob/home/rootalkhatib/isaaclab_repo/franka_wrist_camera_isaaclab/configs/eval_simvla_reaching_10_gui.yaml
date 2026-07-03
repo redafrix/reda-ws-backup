@@ -1,0 +1,16 @@
+collection_config: configs/collect_reaching_episodes.yaml
+output_dir: data/raw/simvla_reaching_50k_gui
+start_episode_id: 0
+num_episodes: 10
+num_envs: 1
+success_threshold_m: 0.06
+max_steps: 1600
+settle_time_s: 0.5
+record_cameras: true
+record_depth: false
+camera_fps: 20
+state_record_fps: 20
+
+simvla:
+  eval_config: configs/eval_simvla_isaaclab_rotate180.yaml
+  stop_on_success: true

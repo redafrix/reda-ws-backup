@@ -1,0 +1,544 @@
+{
+  "expected_jobs": 44,
+  "expected_splits": [
+    "02_ood_perturbation_holdout_milk"
+  ],
+  "failures": [],
+  "output_root": "experiments/clean_temporal_nextgen_v2_full_all_20260527",
+  "splits": {
+    "02_ood_perturbation_holdout_milk": {
+      "failed_jobs_lines": 0,
+      "jobs": {
+        "v2_001_tcn_k1_baseline": {
+          "best_epoch": 12,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.0693687708678434,
+          "score_rows": 503151
+        },
+        "v2_002_tcn_k2_short": {
+          "best_epoch": 9,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.329232910780407,
+          "score_rows": 503151
+        },
+        "v2_003_tcn_k4_short": {
+          "best_epoch": 7,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.2469234007972931,
+          "score_rows": 503151
+        },
+        "v2_004_tcn_k6_midshort": {
+          "best_epoch": 6,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.1707931809930576,
+          "score_rows": 503151
+        },
+        "v2_005_tcn_k8_idea41": {
+          "best_epoch": 7,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.207600533610218,
+          "score_rows": 503151
+        },
+        "v2_006_tcn_k12_mid": {
+          "best_epoch": 3,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.7233713381199474,
+          "score_rows": 503151
+        },
+        "v2_007_tcn_k16_long": {
+          "best_epoch": 3,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.09937542538511,
+          "score_rows": 503151
+        },
+        "v2_008_tcn_k24_long": {
+          "best_epoch": 2,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.6311847538408429,
+          "score_rows": 503151
+        },
+        "v2_009_tcn_k32_verylong": {
+          "best_epoch": 2,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.8411160410439205,
+          "score_rows": 503151
+        },
+        "v2_010_lstm_k4_short": {
+          "best_epoch": 2,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.6544837040149218,
+          "score_rows": 503151
+        },
+        "v2_011_lstm_k8_idea44": {
+          "best_epoch": 2,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.6622044158877046,
+          "score_rows": 503151
+        },
+        "v2_012_lstm_k16_long": {
+          "best_epoch": 1,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.6772185589669623,
+          "score_rows": 503151
+        },
+        "v2_013_lstm_k24_long": {
+          "best_epoch": 2,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.5734268221647163,
+          "score_rows": 503151
+        },
+        "v2_014_gru_k8": {
+          "best_epoch": 6,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.0373030963129874,
+          "score_rows": 503151
+        },
+        "v2_015_gru_k16": {
+          "best_epoch": 3,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.8919958913262023,
+          "score_rows": 503151
+        },
+        "v2_016_transformer_small_k8": {
+          "best_epoch": 9,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.1131515472644669,
+          "score_rows": 503151
+        },
+        "v2_017_transformer_medium_k8": {
+          "best_epoch": 4,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.215498647241899,
+          "score_rows": 503151
+        },
+        "v2_018_transformer_k16": {
+          "best_epoch": 3,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.0735425625957256,
+          "score_rows": 503151
+        },
+        "v2_019_tcn_k8_no_current_proprio": {
+          "best_epoch": 10,
+          "feature_audit": {
+            "current_feature_dim": 35,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.0395292598053778,
+          "score_rows": 503151
+        },
+        "v2_020_tcn_k8_no_current_ace": {
+          "best_epoch": 7,
+          "feature_audit": {
+            "current_feature_dim": 36,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.1226424856138435,
+          "score_rows": 503151
+        },
+        "v2_021_tcn_k8_no_ace_history": {
+          "best_epoch": 5,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 15,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.3918152559714478,
+          "score_rows": 503151
+        },
+        "v2_022_tcn_k8_action_tokens_only": {
+          "best_epoch": 9,
+          "feature_audit": {
+            "current_feature_dim": 1,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 15,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.4525548975373825,
+          "score_rows": 503151
+        },
+        "v2_023_tcn_k8_history_only": {
+          "best_epoch": 8,
+          "feature_audit": {
+            "current_feature_dim": 1,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.0250327150698055,
+          "score_rows": 503151
+        },
+        "v2_024_tcn_k8_first_action_static": {
+          "best_epoch": 5,
+          "feature_audit": {
+            "current_feature_dim": 22,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.13181051039077,
+          "score_rows": 503151
+        },
+        "v2_025_tcn_k8_flat_action_static": {
+          "best_epoch": 4,
+          "feature_audit": {
+            "current_feature_dim": 85,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.8572887034663256,
+          "score_rows": 503151
+        },
+        "v2_026_tcn_k8_seqstats_static": {
+          "best_epoch": 6,
+          "feature_audit": {
+            "current_feature_dim": 113,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.164458678213057,
+          "score_rows": 503151
+        },
+        "v2_027_tcn_k8_wide256": {
+          "best_epoch": 2,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.094662961188822,
+          "score_rows": 503151
+        },
+        "v2_028_tcn_k8_lowdrop": {
+          "best_epoch": 4,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.9782217319050205,
+          "score_rows": 503151
+        },
+        "v2_029_tcn_k8_highdrop": {
+          "best_epoch": 5,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.307182240110326,
+          "score_rows": 503151
+        },
+        "v2_030_tcn_k8_focal": {
+          "best_epoch": 8,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.9837622196472392,
+          "score_rows": 503151
+        },
+        "v2_031_tcn_k8_pos2": {
+          "best_epoch": 6,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.338636207531736,
+          "score_rows": 503151
+        },
+        "v2_032_tcn_k8_label_smooth": {
+          "best_epoch": 6,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.0972655598402559,
+          "score_rows": 503151
+        },
+        "v2_033_survival_tcn_k8": {
+          "best_epoch": 7,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.0480174489292562,
+          "score_rows": 503151
+        },
+        "v2_034_survival_lstm_k8": {
+          "best_epoch": 2,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.6648070145391388,
+          "score_rows": 503151
+        },
+        "v2_035_survival_tcn_k16": {
+          "best_epoch": 7,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.885719816278234,
+          "score_rows": 503151
+        },
+        "v2_036_survival_tcn_k8_focal": {
+          "best_epoch": 19,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.059508979584191,
+          "score_rows": 503151
+        },
+        "v2_037_groupdro_target_tcn_k8": {
+          "best_epoch": 5,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": true
+          },
+          "objective": 0.9736136348025899,
+          "score_rows": 503151
+        },
+        "v2_038_groupdro_perturb_tcn_k8": {
+          "best_epoch": 5,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": true
+          },
+          "objective": 0.9159573941409919,
+          "score_rows": 503151
+        },
+        "v2_039_groupdro_suitefam_tcn_k8": {
+          "best_epoch": 6,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": true
+          },
+          "objective": 1.288827234994554,
+          "score_rows": 503151
+        },
+        "v2_040_adv_target_tcn_k8": {
+          "best_epoch": 18,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": true
+          },
+          "objective": 1.102893689180522,
+          "score_rows": 503151
+        },
+        "v2_041_adv_perturb_tcn_k8": {
+          "best_epoch": 10,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": true
+          },
+          "objective": 0.7085778600820842,
+          "score_rows": 503151
+        },
+        "v2_042_dynamics_tcn_k8_pastdelta": {
+          "best_epoch": 4,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": true,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 0.9408313285039024,
+          "score_rows": 503151
+        },
+        "v2_043_dynamics_survival_tcn_k8": {
+          "best_epoch": 8,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": true,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.2887444995419441,
+          "score_rows": 503151
+        },
+        "v2_044_transformer_k8_focal": {
+          "best_epoch": 43,
+          "feature_audit": {
+            "current_feature_dim": 43,
+            "hardstop_is_real_residual_gate": false,
+            "history_dim": 21,
+            "num_train_groups": 9,
+            "uses_group_metadata_as_training_label_only": false
+          },
+          "objective": 1.1375035346547815,
+          "score_rows": 503151
+        }
+      }
+    }
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,35 @@
+{
+  "run_name": "bob_task0_seq100_newseeds_20260603",
+  "created_by": "codex",
+  "purpose": "Bob sequential 100ep verification rerun after suspicious 50ep modified SimVLA result",
+  "suite": "libero_object_object",
+  "task_id": 0,
+  "num_episodes": 100,
+  "seed_rng_base": 202606031700,
+  "seed_sha256": "bcbff97fb901dd142ddf52748b31cc34244d0d312e4718b92973469895175a8e",
+  "first_10_seeds": [
+    1218001704,
+    906968328,
+    2107021832,
+    1885729677,
+    1019538013,
+    1530293847,
+    7323759,
+    989583797,
+    748524754,
+    691389397
+  ],
+  "configs": {
+    "riskpair": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/realtime_deployment/configs/bob_task0_seq100_newseeds_20260603_riskpair.json",
+    "original": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/realtime_deployment/configs/bob_task0_seq100_newseeds_20260603_original_simvla.json"
+  },
+  "launcher": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/realtime_deployment/scripts/launch_bob_task0_seq100_newseeds_20260603.sh",
+  "output_dir": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/realtime_deployment/runs/bob_task0_seq100_newseeds_20260603",
+  "policy_order": [
+    "risk_base",
+    "original_simvla",
+    "modified_simvla_ckpt60k",
+    "risk_unc_topk8"
+  ],
+  "one_process_at_a_time": true
+}

@@ -1,0 +1,101 @@
+{
+  "best_epoch": 1,
+  "feature_audit": {
+    "current_feature_dim": 43,
+    "dynamics_delta_alignment": "not_used",
+    "group_strategy": "ref_combined",
+    "hardstop_is_real_residual_gate": false,
+    "history_dim": 21,
+    "input_fields": [
+      "main_candidate_action_chunk_normalized.sequence_tokens",
+      "main_candidate_action_chunk_normalized.stats",
+      "ace_candidate_chunks_normalized.metrics",
+      "current.proprio",
+      "history.previous_proprio",
+      "history.previous_executed_action",
+      "history.previous_ace_metrics"
+    ],
+    "num_train_groups": 8,
+    "train_group_counts": {
+      "env_goal_none_none": 764,
+      "env_object_family_none_none": 1002,
+      "milk_10_family_none_none": 1788,
+      "milk_goal_none_none": 726,
+      "mug_goal_none_none": 782,
+      "mug_object_family_none_none": 1284,
+      "object_goal_none_none": 862,
+      "object_object_family_none_none": 984
+    },
+    "uses_future_timestep": false,
+    "uses_group_metadata_as_training_label_only": false,
+    "uses_object_positions_before": false,
+    "uses_ood_rows_for_train": false,
+    "uses_reward": false,
+    "uses_success": false,
+    "uses_task_metadata_as_input": false,
+    "val_group_counts": {
+      "env_goal_none_none": 739,
+      "env_object_family_none_none": 1062,
+      "milk_10_family_none_none": 1803,
+      "milk_goal_none_none": 684,
+      "mug_goal_none_none": 775,
+      "mug_object_family_none_none": 1243,
+      "object_goal_none_none": 902,
+      "object_object_family_none_none": 984
+    }
+  },
+  "feature_notes": "",
+  "key_metrics": {
+    "failure_eval_ood_hardstop_q99_K3_det": null,
+    "failure_eval_ood_hardstop_q99_K3_det25": null,
+    "failure_eval_ood_or_q95_K3_det": 0.8583690987124464,
+    "failure_eval_ood_or_q95_K3_det25": 0.030042918454935622,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.5504861111111111,
+    "failure_eval_ood_score_q95_K3_det25": 0.0,
+    "failure_eval_ood_score_q99_K3_det": 0.2918454935622318,
+    "failure_test_seen_or_q95_K3_det": 0.8181818181818182,
+    "failure_test_seen_or_q95_K3_det25": 0.03409090909090909,
+    "success_test_ood_hardstop_q99_K3_fa": null,
+    "success_test_ood_or_q95_K3_fa": 0.003472222222222222,
+    "success_test_ood_score_q95_K3_fa": 0.0020833333333333333,
+    "success_test_ood_score_q99_K3_fa": 0.0,
+    "success_test_seen_hardstop_q99_K3_fa": null,
+    "success_test_seen_or_q95_K3_fa": 0.021686746987951807,
+    "success_test_seen_score_q99_K3_fa": 0.004819277108433735
+  },
+  "mode": "supervised",
+  "model": "seq_tcn",
+  "name": "v2_033_survival_tcn_k8",
+  "objective": 0.9024032287950083,
+  "runtime_seconds": 3.2583134174346924,
+  "thresholds": {
+    "ace": {
+      "q90": -342.9039306640625,
+      "q95": -341.98870849609375,
+      "q99": -340.6480407714844
+    },
+    "residual": {},
+    "score": {
+      "eventual": {
+        "q90": 0.6080031394958496,
+        "q95": 0.6756716966629028,
+        "q99": 0.7729376554489136
+      },
+      "h10": {
+        "q90": 0.04176386073231697,
+        "q95": 0.048982106149196625,
+        "q99": 0.06836998462677002
+      },
+      "h25": {
+        "q90": 0.06570076942443848,
+        "q95": 0.07945913076400757,
+        "q99": 0.11124971508979797
+      },
+      "h50": {
+        "q90": 0.11962588876485825,
+        "q95": 0.14566823840141296,
+        "q99": 0.20408327877521515
+      }
+    }
+  }
+}

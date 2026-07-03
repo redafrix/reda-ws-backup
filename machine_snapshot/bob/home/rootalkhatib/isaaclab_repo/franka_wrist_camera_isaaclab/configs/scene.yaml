@@ -1,0 +1,22 @@
+# Isaac Lab Franka Tabletop Scene Configurations (Active parameters only)
+
+sim:
+  dt: 0.008333333333333333 # 1/120
+
+robot:
+  base_pos: [0.1, 0.0, 1.05]
+
+table:
+  height_m: 1.05
+  size: [2.0, 2.0, 0.05]
+  color: [0.55, 0.42, 0.30]
+
+cameras:
+  width: 128
+  height: 128
+
+debug_circle:
+  center_local: [0.45, 0.0, 1.31] # 1.05 + 0.26
+  diameter_m: 0.40
+  frequency_hz: 0.045
+  orientation_wxyz: [0.0, 1.0, 0.0, 0.0]

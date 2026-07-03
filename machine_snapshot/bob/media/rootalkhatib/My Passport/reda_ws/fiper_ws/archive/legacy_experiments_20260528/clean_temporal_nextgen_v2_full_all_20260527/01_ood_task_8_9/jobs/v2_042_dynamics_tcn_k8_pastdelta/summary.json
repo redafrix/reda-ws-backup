@@ -1,0 +1,99 @@
+{
+  "best_epoch": 10,
+  "feature_audit": {
+    "current_feature_dim": 43,
+    "dynamics_delta_alignment": "past/current only: proprio_t - proprio_t_minus_1",
+    "group_strategy": "ref_combined",
+    "hardstop_is_real_residual_gate": true,
+    "history_dim": 21,
+    "input_fields": [
+      "main_candidate_action_chunk_normalized.sequence_tokens",
+      "main_candidate_action_chunk_normalized.stats",
+      "ace_candidate_chunks_normalized.metrics",
+      "current.proprio",
+      "history.previous_proprio",
+      "history.previous_executed_action",
+      "history.previous_ace_metrics",
+      "past_transition_residual.proprio_t_minus_proprio_t_minus_1"
+    ],
+    "num_train_groups": 12,
+    "train_group_counts": {
+      "env_goal_none_none": 24208,
+      "env_object_family_none_none": 33748,
+      "env_spatial_none_none": 25913,
+      "milk_10_family_none_none": 34956,
+      "milk_goal_none_none": 23713,
+      "milk_spatial_none_none": 25009,
+      "mug_goal_none_none": 22911,
+      "mug_object_family_none_none": 34804,
+      "mug_spatial_none_none": 29117,
+      "object_goal_none_none": 24677,
+      "object_object_family_none_none": 32394,
+      "object_spatial_none_none": 26392
+    },
+    "uses_future_timestep": false,
+    "uses_group_metadata_as_training_label_only": false,
+    "uses_object_positions_before": false,
+    "uses_ood_rows_for_train": false,
+    "uses_reward": false,
+    "uses_success": false,
+    "uses_task_metadata_as_input": false,
+    "val_group_counts": {
+      "env_goal_none_none": 6739,
+      "env_object_family_none_none": 10231,
+      "env_spatial_none_none": 7381,
+      "milk_10_family_none_none": 11189,
+      "milk_goal_none_none": 6043,
+      "milk_spatial_none_none": 7314,
+      "mug_goal_none_none": 6789,
+      "mug_object_family_none_none": 9845,
+      "mug_spatial_none_none": 8105,
+      "object_goal_none_none": 7176,
+      "object_object_family_none_none": 9601,
+      "object_spatial_none_none": 7629
+    }
+  },
+  "feature_notes": "",
+  "key_metrics": {
+    "failure_eval_ood_hardstop_q99_K3_det": 0.8194444444444444,
+    "failure_eval_ood_hardstop_q99_K3_det25": 0.3055555555555556,
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.7083333333333334,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.17708333333333334,
+    "failure_eval_ood_score_q95_K3_det25": 0.6944444444444444,
+    "failure_eval_ood_score_q99_K3_det": 0.9166666666666666,
+    "failure_test_seen_or_q95_K3_det": 1.0,
+    "failure_test_seen_or_q95_K3_det25": 0.8833333333333333,
+    "success_test_ood_hardstop_q99_K3_fa": 0.22637362637362637,
+    "success_test_ood_or_q95_K3_fa": 0.5230769230769231,
+    "success_test_ood_score_q95_K3_fa": 0.3505494505494505,
+    "success_test_ood_score_q99_K3_fa": 0.24835164835164836,
+    "success_test_seen_hardstop_q99_K3_fa": 0.02028397565922921,
+    "success_test_seen_or_q95_K3_fa": 0.43610547667342797,
+    "success_test_seen_score_q99_K3_fa": 0.04462474645030426
+  },
+  "mode": "supervised",
+  "model": "seq_tcn",
+  "name": "v2_042_dynamics_tcn_k8_pastdelta",
+  "objective": 1.4139985437145683,
+  "runtime_seconds": 231.24771213531494,
+  "thresholds": {
+    "ace": {
+      "q90": -342.3871765136719,
+      "q95": -341.4693603515625,
+      "q99": -339.12078857421875
+    },
+    "residual": {
+      "q90": 0.006706458516418934,
+      "q95": 0.008107130415737629,
+      "q99": 0.012040325440466404
+    },
+    "score": {
+      "eventual": {
+        "q90": 0.2999914288520813,
+        "q95": 0.5552606582641602,
+        "q99": 0.9891066551208496
+      }
+    }
+  }
+}

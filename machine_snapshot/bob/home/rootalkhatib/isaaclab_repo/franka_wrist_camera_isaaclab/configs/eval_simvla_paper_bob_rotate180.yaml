@@ -1,0 +1,13 @@
+simvla:
+  repo_path: /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA
+  checkpoint_path: /media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/original_simvla_libero/YuankaiLuo_SimVLA-LIBERO
+  smolvlm_model_path: /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/models/huggingface/SmolVLM-500M-Instruct
+  norm_stats_path: /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA/norm_stats/libero_norm.json
+  image_rotation: rotate_180
+  action_mode: libero_joint
+  num_actions: 10
+  inference_steps: 10
+  predict_uncertainty: false
+  num_action_samples: 1
+  replan_steps: 5
+  notes: Bob-local paper/basic SimVLA-LIBERO checkpoint with IsaacLab converted camera convention.

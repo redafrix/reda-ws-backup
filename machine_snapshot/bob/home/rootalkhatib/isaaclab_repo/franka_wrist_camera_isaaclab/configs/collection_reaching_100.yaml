@@ -1,0 +1,110 @@
+task: reaching
+suite:
+  name: reaching_dense_clutter
+  split: train
+  difficulty: dense_clutter
+  tags: [reaching, train, rgbd, dense_clutter, receptacle_distractors, language_disambiguation]
+  description: "Reach a named target object among dense mixed tabletop clutter."
+
+output_dir: data/raw/debug_reaching_100
+start_episode_id: 0
+num_episodes: 100
+max_steps: 3600
+settle_time_s: 1.0
+camera_width: 300
+camera_height: 300
+
+record_cameras: true
+camera_fps: 30
+record_depth: true
+
+seed: 123
+
+target_sources:
+  - name: pickable_targets
+    weight: 3
+    catalog_config: object_catalog.generated.yaml
+    geometry_config: object_geometry.generated.yaml
+    category_id: sample
+    variant_id: sample
+    split: train
+    role: target
+    required_affordances: [pickable, reachable]
+    required_grasp_strategy: center_top
+  - name: receptacle_targets
+    weight: 2
+    catalog_config: object_catalog.generated.yaml
+    geometry_config: object_geometry.generated.yaml
+    category_id: sample
+    variant_id: sample
+    split: train
+    role: target
+    required_affordances: [container, physical_container]
+    required_grasp_strategy: unsupported
+
+clutter:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  slot_count: 12
+  unique_labels: true
+  count_options: [8, 9, 10, 11, 12]
+  exclude_target_variant: true
+  exclude_target_label: true
+  sources:
+    - name: pickable_distractors
+      min_count: 4
+      weight: 3
+      category_id: sample
+      variant_id: sample
+      split: train
+      role: target
+      required_affordances: [pickable, reachable]
+      required_grasp_strategy: center_top
+    - name: support_distractors
+      min_count: 1
+      max_count: 2
+      weight: 1
+      category_id: sample
+      variant_id: sample
+      split: train
+      role: any
+      required_affordances: [reachable, support]
+      required_grasp_strategy: unsupported
+    - name: receptacle_distractors
+      min_count: 0
+      max_count: 1
+      weight: 1
+      category_id: sample
+      variant_id: sample
+      split: train
+      role: target
+      required_affordances: [container, physical_container]
+      required_grasp_strategy: unsupported
+  xy_range:
+    x: [0.25, 1.08]
+    y: [-0.58, 0.58]
+  object_margin_m: 0.045
+  clutter_margin_m: 0.025
+  container_exclusion_extra_margin_m: 0.05
+  max_footprint_radius_m: 0.18
+  max_asset_sampling_attempts: 192
+  max_layout_sampling_attempts: 256
+  grid_step_m: 0.015
+
+
+pose_randomization:
+  object_xy_range:
+    x: [-0.23, 0.37]
+    y: [-0.39, 0.71]
+  workspace:
+    robot_base_xy: [0.10, 0.0]
+    max_distance_m: 0.65
+    max_sampling_attempts: 128
+
+
+lighting_randomization:
+  dome_light_intensity_range: [650.0, 1200.0]
+  dome_light_color_options:
+    - [0.90, 0.90, 0.90]
+    - [1.00, 0.92, 0.84]
+    - [0.82, 0.88, 1.00]

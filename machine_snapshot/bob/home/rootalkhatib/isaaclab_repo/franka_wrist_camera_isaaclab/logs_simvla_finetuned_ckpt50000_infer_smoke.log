@@ -1,0 +1,58 @@
+[INFO] Loading eval config: configs/eval_simvla_finetuned_ckpt50000_bob_no_rotation.yaml
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1783074891.345239 2899321 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1783074891.345280 2899321 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+Loading user config located at: '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-07-03T10:34:50Z [Info] [carb] Logging to file: /home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/kit/logs/Kit/IsaacLab/3.0/kit_20260703_123450.log
+2026-07-03T10:34:50Z [30ms] [Warning] [omni.ext.plugin] [ext: isaacsim.app.compatibility_check-1.1.4+110.1.2.lx64.r.cp312] Extensions config 'extension.toml' doesn't exist '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.app.compatibility_check-1.1.4+110.1.2.lx64.r.cp312' or '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.app.compatibility_check-1.1.4+110.1.2.lx64.r.cp312/config'
+2026-07-03T10:34:51Z [52ms] [Warning] [omni.ext.plugin] [ext: isaacsim.replicator.nurec_utils] Extensions config 'extension.toml' doesn't exist '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.replicator.nurec_utils' or '/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/exts/isaacsim.replicator.nurec_utils/config'
+2026-07-03T10:34:51Z [53ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rootalkhatib/IsaacLab-6.0/source/isaaclab_visualizers' or '/home/rootalkhatib/IsaacLab-6.0/source/isaaclab_visualizers/config'
+2026-07-03T10:34:51Z [720ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 595.71.05     | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 4070 Ti SUPER | Yes: 0 |     | 16622   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2705      | d588fc24.. |
+|     |                                  |        |     |            | a2        |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-124-generic
+| Processor: Intel(R) Xeon(R) w3-2423
+| Cores: 6 | Logical Cores: 12
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 31333 | Free Memory: 27439
+| Total Page/Swap (MB): 2047 | Free Page/Swap: 1458
+|---------------------------------------------------------------------------------------------|
+2026-07-03T10:34:52Z [1,392ms] [Warning] [omni.rtx] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-07-03T10:34:52Z [1,401ms] [Warning] [omni.rtx] IOMMU is enabled.
+2026-07-03T10:34:53Z [2,338ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-07-03T10:34:53Z [2,338ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-07-03T10:34:53Z [2,438ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-07-03T10:34:53Z [2,438ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-07-03T10:34:53Z [2,440ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+[ISAACLAB] AppLauncher initialization complete
+[INFO] SimVLA checkpoint: /media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/simvla_finetuned_isaac_20260703/ckpt-50000-finetuned
+[INFO] SimVLA repo: /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA
+[INFO] image_rotation=none device=cuda
+[INFO] Loading SimVLA runtime...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Some weights of the model checkpoint at /media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/simvla_finetuned_isaac_20260703/ckpt-50000-finetuned were not used when initializing SmolVLMVLA: ['transformer.logvar_head.bias', 'transformer.logvar_head.weight', 'transformer.velocity_head.bias', 'transformer.velocity_head.weight']
+- This IS expected if you are initializing SmolVLMVLA from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing SmolVLMVLA from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of SmolVLMVLA were not initialized from the model checkpoint at /media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/simvla_finetuned_isaac_20260703/ckpt-50000-finetuned and are newly initialized: ['transformer.action_decoder.bias', 'transformer.action_decoder.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[INFO] SimVLA runtime loaded; running one action generation.
+2026-07-03T10:34:53Z [2,440ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-07-03T10:34:53Z [2,854ms] [Warning] [isaacsim.core.simulation_manager.plugin] USD stage is not available; stage-opened subscription is deferred
+2026-07-03T10:34:53Z [2,854ms] [Warning] [isaacsim.core.simulation_manager.plugin] USD stage is not available; stage-opened subscription is deferred
+2026-07-03T10:34:53Z [2,899ms] [Warning] [omni.log] Source: omni.hydra was already registered.
+2026-07-03T10:34:54Z [3,586ms] [Warning] [pxr.Semantics] pxr.Semantics is deprecated - please use Semantics instead
+2026-07-03T10:34:54Z [3,690ms] [Warning] [omni.replicator.core.scripts.extension] No material configuration file, adding configuration to material settings directly.
+[INFO] Using Python: "/home/rootalkhatib/miniconda3/envs/env_isaaclab_6_0/bin/python"

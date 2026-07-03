@@ -1,0 +1,55 @@
+{
+  "conformal_rnd_thresholds": {
+    "q90": 0.0005919575225561859,
+    "q95": 0.0007541282742749899,
+    "q99": 0.0011254623462446031
+  },
+  "ace_threshold_q95": -82.17807199675721,
+  "false_alarm_rates": {
+    "train_success_id": {
+      "count": 11199,
+      "mean_rnd": 0.0002822040993143643,
+      "std_rnd": 0.00018756688598780744,
+      "fa_90": 0.06054111974283418,
+      "fa_95": 0.02553799446379141,
+      "fa_99": 0.005089740155371015
+    },
+    "test_success_id": {
+      "count": 3944,
+      "mean_rnd": 0.00030938521662388617,
+      "std_rnd": 0.00024088018432653733,
+      "fa_90": 0.09178498985801217,
+      "fa_95": 0.04665314401622718,
+      "fa_99": 0.010141987829614604
+    },
+    "test_success_ood_task": {
+      "count": 386,
+      "mean_rnd": 0.0002691804886804779,
+      "std_rnd": 0.00014694652245755515,
+      "fa_90": 0.012953367875647668,
+      "fa_95": 0.0051813471502590676,
+      "fa_99": 0.0025906735751295338
+    },
+    "test_success_ood_suite": {
+      "count": 2351,
+      "mean_rnd": 0.0004785276818552942,
+      "std_rnd": 0.0003149039505466597,
+      "fa_90": 0.24797958315610377,
+      "fa_95": 0.132284134410889,
+      "fa_99": 0.036154827732879626
+    }
+  },
+  "safe_mass_quadrants": {
+    "OOD_confident": 76,
+    "action_uncertain": 0,
+    "FIPER_alarm": 4,
+    "normal_confident": 0
+  },
+  "failure_mined_quadrants": {
+    "OOD_confident": 128,
+    "action_uncertain": 0,
+    "FIPER_alarm": 0,
+    "normal_confident": 0
+  },
+  "total_mining_queue": 208
+}

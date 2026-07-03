@@ -63,3 +63,8 @@ fiper_ws/stage9_v2_tools/
 isaac_pi05_work/
 realtime_deployment/
 vids/
+
+# Branch-specific lightweight machine snapshots are intentionally tracked.
+# Snapshot builders exclude large/binary/env artifacts before files enter here.
+!machine_snapshot/
+!machine_snapshot/**

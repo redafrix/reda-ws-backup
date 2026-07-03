@@ -1,0 +1,18 @@
+collection_config: configs/collect_reaching_episodes.yaml
+output_dir: data/raw/simvla_paper_reaching_dense_smoke_no_rotation
+start_episode_id: 0
+num_episodes: 1
+num_envs: 1
+max_steps: 300
+settle_time_s: 0.25
+record_cameras: true
+record_depth: false
+camera_fps: 20
+state_record_fps: 20
+
+simvla:
+  eval_config: configs/eval_simvla_paper_bob_no_rotation.yaml
+  stop_on_success: true
+
+notes: Uses final reaching data-collection config for assets, clutter, cameras, lighting, and sampling;
+  only rollout count/env/step limits are reduced for a first paper-SimVLA deployment smoke.

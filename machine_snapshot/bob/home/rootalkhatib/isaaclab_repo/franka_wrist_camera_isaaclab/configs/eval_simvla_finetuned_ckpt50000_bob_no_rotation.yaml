@@ -1,0 +1,13 @@
+simvla:
+  repo_path: /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA
+  checkpoint_path: /media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/simvla_finetuned_isaac_20260703/ckpt-50000-finetuned-action-decoder
+  smolvlm_model_path: /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/models/huggingface/SmolVLM-500M-Instruct
+  norm_stats_path: /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA/norm_stats/libero_norm.json
+  image_rotation: none
+  action_mode: libero_joint
+  num_actions: 10
+  inference_steps: 10
+  predict_uncertainty: false
+  num_action_samples: 1
+  replan_steps: 5
+  notes: User fine-tuned ckpt-50000 adapted velocity_head to action_decoder deployed like the old paper/basic SimVLA Isaac run; live Isaac cameras are already upright, so no image flip/rotation is applied.

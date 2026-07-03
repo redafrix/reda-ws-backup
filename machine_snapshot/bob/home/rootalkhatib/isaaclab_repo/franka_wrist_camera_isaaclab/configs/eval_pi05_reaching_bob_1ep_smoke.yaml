@@ -1,0 +1,16 @@
+collection_config: configs/collect_reaching_episodes.yaml
+output_dir: data/raw/pi05_libero_reaching_1ep_smoke
+start_episode_id: 0
+num_episodes: 1
+num_envs: 1
+max_steps: 3600
+settle_time_s: 1.0
+record_cameras: true
+record_depth: false
+camera_fps: 20
+state_record_fps: 20
+
+pi05:
+  eval_config: configs/eval_pi05_libero_bob.yaml
+
+notes: One-episode Pi0.5 reaching integration smoke with collection-length failure limit.

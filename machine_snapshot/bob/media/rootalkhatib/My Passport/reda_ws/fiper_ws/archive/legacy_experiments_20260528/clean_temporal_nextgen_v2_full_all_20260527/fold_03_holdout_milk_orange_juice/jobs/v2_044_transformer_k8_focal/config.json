@@ -1,0 +1,21 @@
+{
+  "action_repr": "stats",
+  "batch_size": 384,
+  "focal_gamma": 2.0,
+  "heads": 4,
+  "history_steps": 8,
+  "include_ace": true,
+  "include_ace_history": true,
+  "include_action": true,
+  "include_objects": false,
+  "include_proprio": true,
+  "layers": 2,
+  "loss": "focal",
+  "max_epochs": 120,
+  "mode": "supervised",
+  "model": "seq_transformer",
+  "name": "v2_044_transformer_k8_focal",
+  "patience": 18,
+  "seed": 42,
+  "width": 128
+}

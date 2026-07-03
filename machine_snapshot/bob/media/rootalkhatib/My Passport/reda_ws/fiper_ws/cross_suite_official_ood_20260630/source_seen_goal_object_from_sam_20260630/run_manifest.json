@@ -1,0 +1,214 @@
+{
+  "ace_candidates": 8,
+  "action_horizon": 10,
+  "checkpoint": "/home/rootalkhatib/test/reda_ws/fiper_ws/checkpoints/ckpt-60000",
+  "checkpoint_sha256": "3fab12d94c963f530ddce9f66aed4bf2623b2a2bbd527c85918fce2fcf8aec71",
+  "code_version": "6af5931af",
+  "created_at": "2026-06-26T16:48:44+0200",
+  "excluded_suites": [
+    "libero_100"
+  ],
+  "global_task_count": 10,
+  "global_task_plan": [
+    [
+      "libero_goal_object_official",
+      0
+    ],
+    [
+      "libero_goal_object_official",
+      1
+    ],
+    [
+      "libero_goal_object_official",
+      2
+    ],
+    [
+      "libero_goal_object_official",
+      3
+    ],
+    [
+      "libero_goal_object_official",
+      4
+    ],
+    [
+      "libero_goal_object_official",
+      5
+    ],
+    [
+      "libero_goal_object_official",
+      6
+    ],
+    [
+      "libero_goal_object_official",
+      7
+    ],
+    [
+      "libero_goal_object_official",
+      8
+    ],
+    [
+      "libero_goal_object_official",
+      9
+    ]
+  ],
+  "history_k": 16,
+  "max_timesteps": 800,
+  "model_denoise_steps": 10,
+  "norm_stats": "/home/rootalkhatib/test/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json",
+  "perturbation_plan": "generic_object_for_object_suites_plus_base_libero_90_control",
+  "save_images": false,
+  "save_states": true,
+  "schema_version": "dean_fiper_uncertainty_receding_v1_manifest",
+  "smolvlm_path": "/home/rootalkhatib/test/reda_ws/intern_ship_ws/assets/models/huggingface/.hf_cache/transformers/models--HuggingFaceTB--SmolVLM-500M-Instruct/snapshots/a7da5b986cb59b408707209984f360a5f4ad7e47",
+  "suites": [
+    "libero_goal_object_official"
+  ],
+  "uncertainty_49d_keys": [
+    "path_step_mean",
+    "last_step_mean",
+    "mean_path_var",
+    "mean_last_var",
+    "max_path_var",
+    "max_last_var",
+    "denoise_initial_mean",
+    "denoise_final_mean",
+    "denoise_delta",
+    "denoise_slope",
+    "denoise_final_max",
+    "denoise_spike",
+    "denoise_final_gripper",
+    "denoise_final_rotation_mean",
+    "denoise_velocity_norm_mean",
+    "denoise_velocity_norm_max",
+    "denoise_update_norm_mean",
+    "denoise_update_norm_max",
+    "denoise_update_norm_final",
+    "denoise_update_spike",
+    "denoise_update_oscillation_mean",
+    "denoise_update_direction_flip_mean",
+    "denoise_final_initial_action_l2",
+    "sample_action_var_mean",
+    "sample_action_var_max",
+    "sample_action_l2_mean",
+    "sample_action_l2_max",
+    "sample_action_translation_var",
+    "sample_action_rotation_var",
+    "sample_action_gripper_var",
+    "action_norm",
+    "action_max_abs",
+    "action_translation_norm",
+    "action_rotation_norm",
+    "action_gripper_abs",
+    "action_delta_prev_norm",
+    "action_delta_prev_max_abs",
+    "plan_drift_l2",
+    "plan_drift_mean_l2",
+    "plan_drift_max_l2",
+    "state_mahalanobis",
+    "state_mahalanobis_eef",
+    "state_mahalanobis_rotation",
+    "state_mahalanobis_gripper",
+    "state_eef_norm",
+    "state_rotation_norm",
+    "state_gripper_norm",
+    "state_gripper_width",
+    "state_delta_prev_norm"
+  ],
+  "uncertainty_delta_49d_keys": [
+    "path_step_mean_delta",
+    "last_step_mean_delta",
+    "mean_path_var_delta",
+    "mean_last_var_delta",
+    "max_path_var_delta",
+    "max_last_var_delta",
+    "denoise_initial_mean_delta",
+    "denoise_final_mean_delta",
+    "denoise_delta_delta",
+    "denoise_slope_delta",
+    "denoise_final_max_delta",
+    "denoise_spike_delta",
+    "denoise_final_gripper_delta",
+    "denoise_final_rotation_mean_delta",
+    "denoise_velocity_norm_mean_delta",
+    "denoise_velocity_norm_max_delta",
+    "denoise_update_norm_mean_delta",
+    "denoise_update_norm_max_delta",
+    "denoise_update_norm_final_delta",
+    "denoise_update_spike_delta",
+    "denoise_update_oscillation_mean_delta",
+    "denoise_update_direction_flip_mean_delta",
+    "denoise_final_initial_action_l2_delta",
+    "sample_action_var_mean_delta",
+    "sample_action_var_max_delta",
+    "sample_action_l2_mean_delta",
+    "sample_action_l2_max_delta",
+    "sample_action_translation_var_delta",
+    "sample_action_rotation_var_delta",
+    "sample_action_gripper_var_delta",
+    "action_norm_delta",
+    "action_max_abs_delta",
+    "action_translation_norm_delta",
+    "action_rotation_norm_delta",
+    "action_gripper_abs_delta",
+    "action_delta_prev_norm_delta",
+    "action_delta_prev_max_abs_delta",
+    "plan_drift_l2_delta",
+    "plan_drift_mean_l2_delta",
+    "plan_drift_max_l2_delta",
+    "state_mahalanobis_delta",
+    "state_mahalanobis_eef_delta",
+    "state_mahalanobis_rotation_delta",
+    "state_mahalanobis_gripper_delta",
+    "state_eef_norm_delta",
+    "state_rotation_norm_delta",
+    "state_gripper_norm_delta",
+    "state_gripper_width_delta",
+    "state_delta_prev_norm_delta"
+  ],
+  "worker_id": "worker_0",
+  "worker_shard_count": 1,
+  "worker_shard_index": 0,
+  "worker_task_count": 10,
+  "worker_task_plan": [
+    [
+      "libero_goal_object_official",
+      0
+    ],
+    [
+      "libero_goal_object_official",
+      1
+    ],
+    [
+      "libero_goal_object_official",
+      2
+    ],
+    [
+      "libero_goal_object_official",
+      3
+    ],
+    [
+      "libero_goal_object_official",
+      4
+    ],
+    [
+      "libero_goal_object_official",
+      5
+    ],
+    [
+      "libero_goal_object_official",
+      6
+    ],
+    [
+      "libero_goal_object_official",
+      7
+    ],
+    [
+      "libero_goal_object_official",
+      8
+    ],
+    [
+      "libero_goal_object_official",
+      9
+    ]
+  ]
+}
