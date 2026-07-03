@@ -1,0 +1,86 @@
+{
+  "created": "2026-07-03",
+  "workspace": "/home/redafrix/tests/internship",
+  "purpose": "Documentation-only map of recent Isaac Sim / IsaacLab experiments without moving or modifying raw experiment folders.",
+  "shared_decisions": {
+    "isaac_camera_flip": false,
+    "reason": "IsaacLab cameras are already upright; LIBERO flip was a LIBERO-specific correction.",
+    "reaching_failure_max_steps": 3600,
+    "pick_place_failure_max_steps": 3800
+  },
+  "experiments": [
+    {
+      "id": "001",
+      "name": "SimVLA basic Isaac no-rotation tests",
+      "status": "completed_all_failed",
+      "tasks": {
+        "reaching": 5,
+        "pick_place": 5
+      },
+      "local_evidence": [
+        "vids/simvla_basic_10_tests_agent_view_2x_no_rotation_summary.json",
+        "vids/old/simvla_basic_10_tests_agent_view_2x_no_rotation.mp4",
+        "vids/simvla_paper_reaching_dense_smoke_no_rotation_videos/"
+      ],
+      "details": "experiments/001_simvla_basic_no_rotation.md"
+    },
+    {
+      "id": "002",
+      "name": "OpenPI Pi0.5 LIBERO checkpoint in Isaac",
+      "status": "completed_all_failed",
+      "tasks": {
+        "reaching": 5,
+        "pick_place": 5
+      },
+      "server_port": 8005,
+      "policy_config": "pi05_libero",
+      "local_evidence": [
+        "vids/pi05_libero_10_tests_agent_view_4x_labeled.mp4",
+        "isaac_pi05_work/configs/eval_pi05_libero_bob.yaml",
+        "isaac_pi05_work/configs/eval_pi05_reaching_bob_5ep.yaml",
+        "isaac_pi05_work/configs/eval_pi05_pick_place_bob_5ep.yaml"
+      ],
+      "details": "experiments/002_pi05_libero_isaac.md"
+    },
+    {
+      "id": "003",
+      "name": "OpenPI Pi0.5 DROID checkpoint in Isaac",
+      "status": "completed_all_failed",
+      "tasks": {
+        "reaching": 5,
+        "pick_place": 5
+      },
+      "server_port": 8006,
+      "policy_config": "pi05_droid",
+      "local_evidence": [
+        "vids/pi05_droid_10_tests_agent_view_4x_labeled.mp4",
+        "isaac_pi05_work/configs/eval_pi05_droid_bob.yaml",
+        "isaac_pi05_work/configs/eval_pi05_droid_reaching_bob_5ep.yaml",
+        "isaac_pi05_work/configs/eval_pi05_droid_pick_place_bob_5ep.yaml"
+      ],
+      "details": "experiments/003_pi05_droid_isaac.md"
+    },
+    {
+      "id": "004",
+      "name": "Combined video speed and task labels",
+      "status": "completed",
+      "local_evidence": [
+        "vids/pi05_droid_10_tests_agent_view_4x_labeled.mp4",
+        "vids/pi05_libero_10_tests_agent_view_4x_labeled.mp4"
+      ],
+      "details": "experiments/004_video_outputs_and_labels.md"
+    }
+  ],
+  "task_sequence": [
+    {"index": 1, "task": "reaching", "instruction": "reach the avocado"},
+    {"index": 2, "task": "reaching", "instruction": "reach the bowl"},
+    {"index": 3, "task": "reaching", "instruction": "reach the basket"},
+    {"index": 4, "task": "reaching", "instruction": "reach the onion"},
+    {"index": 5, "task": "reaching", "instruction": "reach the onion"},
+    {"index": 6, "task": "pick_place", "instruction": "pick up the can and place it in the tray"},
+    {"index": 7, "task": "pick_place", "instruction": "pick up the can and place it in the basket"},
+    {"index": 8, "task": "pick_place", "instruction": "pick up the onion and place it in the tray"},
+    {"index": 9, "task": "pick_place", "instruction": "pick up the onion and place it in the tray"},
+    {"index": 10, "task": "pick_place", "instruction": "pick up the kiwi and place it in the basket"}
+  ]
+}

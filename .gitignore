@@ -1,0 +1,32 @@
+# Heavy experiment artifacts
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npz
+*.zarr
+*.mp4
+*.avi
+*.mkv
+*.jsonl
+*.log
+
+# Temporary/generated local chunks
+fiper_ws/tmp_checkpoint/
+
+# Python/runtime
+__pycache__/
+*.pyc
+.venv/
+env/
+conda/
+
+# External cloned repos and package caches
+external/
+repos/
+node_modules/
+
+# Large generated outputs
+outputs/
+videos/
+wandb/
