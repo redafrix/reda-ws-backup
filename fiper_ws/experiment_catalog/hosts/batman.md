@@ -1,5 +1,7 @@
 # Batman Experiment Index
 
+> 2026-07-03 coverage note: this generated host index is historical and does not enumerate the large local archive cleanup trees. For the complete deep-audit additions, read `../DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md` and `../manifests/deep_audit_summary_20260703.json`. Important local archive families include Stage6-9 Codex reports, official-FIPER scripts, Pi0.5/OpenVLA scripts, video-smoke material, and old Isaac/IsaacLab work.
+
 | Status | Kind | Experiment | Original path |
 |---|---|---|---|
 | `artifacts_only_or_unknown` | `offline_experiment` | [archive_20260522_full_analysis_20260522_154228](../entries/batman/batman__experiments__archive_20260522_full_analysis_20260522_154228/README.md) | `/home/redafrix/tests/internship/fiper_ws/experiments/archive_20260522_full_analysis_20260522_154228` |

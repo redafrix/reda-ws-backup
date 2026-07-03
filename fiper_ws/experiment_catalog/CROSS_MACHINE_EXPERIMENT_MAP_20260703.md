@@ -9,21 +9,22 @@ This is the current entry point for future Codex/Gemini sessions. It does not re
 Read these files in this order:
 
 1. `CROSS_MACHINE_EXPERIMENT_MAP_20260703.md` - this file, current cross-host map.
-2. `KEY_RESULTS.md` - curated scientific conclusions and caveats.
-3. `DATASET_MAP.md` - dataset provenance and exact paths.
-4. `MASTER_EXPERIMENT_INDEX.md` - chronological/campaign-level index.
-5. `TRUSTED_RESULTS_SUMMARY.md` - forensic trust verdicts.
-6. `OPENVLA_EXPERIMENT_MAP_20260619.md` - OpenVLA-specific work.
-7. `BIG_ARTIFACTS_NOT_IN_GIT_20260703.md` - remote heavy artifacts that must not be committed.
-8. Obsidian report: `/home/redafrix/Documents/Obsidian Vault/FIPER Risk-Aware Report 20260602/FIPER Risk-Aware SimVLA - Full Report.md`.
+2. `DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md` - cross-host/archive coverage audit and missing-family triage.
+3. `KEY_RESULTS.md` - curated scientific conclusions and caveats.
+4. `DATASET_MAP.md` - dataset provenance and exact paths.
+5. `MASTER_EXPERIMENT_INDEX.md` - chronological/campaign-level index.
+6. `TRUSTED_RESULTS_SUMMARY.md` - forensic trust verdicts.
+7. `OPENVLA_EXPERIMENT_MAP_20260619.md` - OpenVLA-specific work.
+8. `BIG_ARTIFACTS_NOT_IN_GIT_20260703.md` - remote heavy artifacts that must not be committed.
+9. Obsidian report: `/home/redafrix/Documents/Obsidian Vault/FIPER Risk-Aware Report 20260602/FIPER Risk-Aware SimVLA - Full Report.md`.
 
 ## Host Status Snapshot
 
-Captured 2026-07-03 around 10:55 CEST.
+Captured 2026-07-03 around 10:55-12:20 CEST, then updated after the Git repair and deep coverage audit.
 
 | Host | SSH alias | Role | Disk status | Current caution |
 |---|---|---|---|---|
-| Batman/local laptop | local | Catalog, Obsidian report, local scripts | workspace repo has broken/empty `.git` | Git push is blocked until the project remote is restored/provided. |
+| Batman/local laptop | local | Catalog, Obsidian report, local scripts | Git repo repaired and clean after catalog commit/push | Keep large artifacts excluded; use the branch-per-host catalog branches listed below. |
 | Bob / PCROBOTUBUNTU02 | `pcrobot` | Main online/eval host, OpenVLA, Pi0.5, official FIPER on Bob, cross-suite OOD | `/media/rootalkhatib/My Passport`: 101G free, 95% used; `/`: 313G free | External disk is nearly full but usable for logs/reports; avoid new huge datasets without cleanup. |
 | Sam / PCROBOTUBUNTU05 | `sam` | Official SimVLA source data collection and older timeout800 selected-cap run | `/`: 1.9G free, 100% used | Do not launch large jobs until space is freed. Current official source dataset is frozen/usable, not actively collecting. |
 | Dean / Batman | `dean` | Historical FIPER materialization, official FIPER ablations, Dean online selected-cap | `/`: 3.8G free, 100% used | Do not materialize more embeddings on root without cleanup or external target. |
@@ -69,6 +70,13 @@ Root: `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/cross_suite_official_ood
 All OOD datasets save H10 main action chunks `[10,7]`, 8 ACE candidate chunks `[8,10,7]`, 49D uncertainty, history/proprio fields, and MuJoCo states for FIPER materialization.
 
 ## Main Result Families
+
+### Deep Coverage Audit
+
+- Deep audit report: `DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md`.
+- Compact manifest: `manifests/deep_audit_summary_20260703.json`.
+- Scope: local/Batman, Bob, Sam, Dean, and archived folders. The scan reduced 2,888 experiment-like roots and triaged 445 roots that were not clearly covered by older text maps.
+- Important recovered families: Bob `bob_risk_matrix_campaign_20260605`, Bob `re_run_v2_018_audit_20260624`, Pi0.5 smoke/10ep/no-task9/40ep runs, Sam video reels, Dean `fiper_goal_object_collection_20260605`, Dean TDQC/SimVLA legacy roots, and local Stage6-9/official-FIPER/Pi0.5/OpenVLA archives.
 
 ### SimVLA H10 Online/Offline
 
@@ -119,15 +127,12 @@ All OOD datasets save H10 main action chunks `[10,7]`, 8 ACE candidate chunks `[
 
 ## Current Git Reality
 
-The local path `/home/redafrix/tests/internship/.git` is an empty/broken directory. `git status` fails with `fatal: not a git repository`. No GitHub remote is discoverable for this project from local config. Therefore:
+Git was repaired on 2026-07-03 after the broken local `.git` directory was moved to `.git.broken_20260703_112818`.
 
-- Files have been prepared for Git, but no push can be done safely until the repo is restored or a GitHub URL is provided.
-- Proposed branch names when the remote is available:
-  - `catalog/batman-20260703`
-  - `catalog/bob-20260703`
-  - `catalog/sam-20260703`
-  - `catalog/dean-20260703`
-  - `catalog/cross-machine-20260703`
+- Remote: `https://github.com/redafrix/reda-ws-backup.git`.
+- Branches pushed before the deep-audit update: `catalog/batman-20260703`, `catalog/bob-20260703`, `catalog/sam-20260703`, `catalog/dean-20260703`, and `catalog/cross-machine-20260703`.
+- Branch commit before this audit pass: `4774467e98143976ee7f91ab97f109dbcc449c95`.
+- Existing remote branches `main`, `bob`, `sam`, and `dean` were not overwritten.
 - Heavy artifacts must stay out of Git; use `BIG_ARTIFACTS_NOT_IN_GIT_20260703.md` as the substitute manifest.
 
 ## Next Session Checklist
@@ -136,4 +141,4 @@ The local path `/home/redafrix/tests/internship/.git` is an empty/broken directo
 2. Check live disk and tmux on Bob/Sam/Dean before launching anything.
 3. If working on FIPER official comparisons, use the Bob 20260701/20260702 official-FIPER roots first; do not use older Dean threshold sweeps unless explicitly studying historical ablations.
 4. If working on our current SimVLA model, use the promoted official-source model under `cross_suite_official_ood_20260630/models/simvla_h10_topk8_official_goal_object_seen_main_20260701`.
-5. If pushing to GitHub, fix/restore Git first and keep large tensors/jsonl/videos out of Git.
+5. If pushing to GitHub, run the large-file audit first and keep large tensors/jsonl/videos out of Git.

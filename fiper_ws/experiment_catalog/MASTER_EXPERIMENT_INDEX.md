@@ -547,3 +547,42 @@ This table uses one fixed checkpoint, `simvla_h10_topk8_official_goal_object_see
 | `spatial_object_100` | `q95_success` | 0.9054 | 60.22% | 100.00% | 100.00% | 100.00% | 0.079 |
 | `object_object_100` | `q95_success` | 0.9054 | 34.92% | 81.08% | 75.68% | 81.08% | 0.030 |
 | `libero10_object_100` | `q99_success` | 0.9976 | 13.04% | 22.08% | 0.00% | 6.49% | 0.641 |
+
+---
+
+## Deep Coverage Audit Addendum (2026-07-03)
+
+This addendum records experiment families recovered by the 2026-07-03 deep cross-host/archive scan. Full audit report: `DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md`. Compact machine-readable summary: `manifests/deep_audit_summary_20260703.json`.
+
+### Audit Scope
+
+| Host | Reduced experiment-like roots | Filtered roots not clearly covered before | Notes |
+| :--- | ---: | ---: | :--- |
+| Bob | 1747 | 44 | Includes Pi0.5 subruns, OpenVLA smokes, historical FIPER/SimVLA campaign roots, cross-suite per-dataset eval roots. |
+| Batman/local | 909 | 347 | Mostly archives and copied project material; contains Stage6-9 reports/scripts, official-FIPER scripts, Pi0.5/OpenVLA scripts, video-smoke material, and old Isaac folders. |
+| Dean | 146 | 53 | Includes `fiper_goal_object_collection_20260605` and TDQC/legacy SimVLA roots under `/home/redafrix/SimVLA_modified/folderu`. |
+| Sam | 86 | 1 | Adds video/manual-review reels for goal/OOD rollouts. |
+
+### Recovered Or Strengthened Families
+
+| Family | Host | Path | Current interpretation |
+| :--- | :--- | :--- | :--- |
+| Bob risk matrix campaign | Bob | `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/bob_risk_matrix_campaign_20260605` | Historical isolated comparison of `base` 43D detector vs `unc_topk8` 51D detector; records fairness controls, queue/resume state, smoke dependencies, and compatibility matrix. |
+| Clean v2_018 audit rerun | Bob | `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/experiments/re_run_v2_018_audit_20260624` | Clean bridge report for original-FIPER-style baselines vs `v2_018_transformer_k16`; selected `score q95 K3` row gives seen FA 16.2%, OOD FA 26.1%, OOD failure detection 95.2%. |
+| Old goal-object-OOD full sweep/audit | Bob | `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/libero_goal_object_ood_full_sweep_20260609` and `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/libero_goal_object_ood_audit_20260609` | Historical OOD setup evidence and task/path audit. Parsed audit production summaries include 18 rows, 17 successes. |
+| Pi0.5 OOD smoke and 10ep | Bob | `/media/rootalkhatib/My Passport/reda_ws/pi05_libero_risk_ws_20260623/online_evals/pi05_libero_goal_object_ood_basic_vs_selected_cap_smoke_20260625` and `..._10ep_20260625` | Smoke: 2 rows/policy. 10ep full OOD18: 180 rows for basic and 180 for risk; both parsed as 176/180 success. |
+| Pi0.5 local no-task9 risk head | Bob | `/media/rootalkhatib/My Passport/reda_ws/pi05_libero_risk_ws_20260623/offline_risk_experiments/pi05_goal_object_h10_risk_no_task9_20260625` and `/datasets/pi05_libero_goal_object_h10_risk_frozen_no_task9_20260625` | Rebuilt after local task9 rack issue. Dataset has 3681 episodes, 3298 successes, 383 failures across tasks 0..8. |
+| Pi0.5 40ep threshold/always-lowest probes | Bob | `/media/rootalkhatib/My Passport/reda_ws/pi05_libero_risk_ws_20260623/online_evals/pi05_ood_q95mass1_loose_task9_task12_40ep_timeout300_20260625`, `...q95mass02...`, `...always_lowest_task13_task14...` | Threshold-behavior probes before the larger official OOD/swap campaigns. Keep as diagnostic, not final evidence. |
+| Pi0.5 official OOD18 100ep | Bob | `/media/rootalkhatib/My Passport/reda_ws/pi05_libero_risk_ws_20260623/online_evals/pi05_official_ood_18task_100ep_basic_then_selected_cap_q95mass02_20260625` | Parsed JSONL: basic 1754/1800 success, risk selected-cap 1736/1800 success. |
+| Pi0.5 official goal-swap 50ep | Bob | `/media/rootalkhatib/My Passport/reda_ws/pi05_libero_risk_ws_20260623/online_evals/pi05_official_goal_swap_10task_50ep_basic_then_selected_cap_q95mass02_20260625` | Parsed JSONL: basic 161/500 success, risk selected-cap 166/500 success; risk made 1306 action changes. |
+| OpenVLA smokes and H1 follow-up | Bob | `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616/online_evals` | OpenVLA H1 follow-up now parses as 1800/1800 rows, 1022 successes. Older “1720/1800 interrupted” text is stale unless a newer live check contradicts this. |
+| Dean goal-object collection workspace | Dean | `/home/dean/fiper_goal_object_collection_20260605` | Major historical source: exact_200 chunk10 162/200 success, exact_200 receding 153/200, continuous chunk10 14005/17409, continuous receding 2072/2745. Includes smoke, benchmark, and reproduction bundle folders. |
+| Dean TDQC / SimVLA legacy roots | Dean | `/home/redafrix/SimVLA_modified/folderu/evaluation/libero/eval_libero_pro` and `/home/redafrix/SimVLA_modified/folderu/runs/tdqc_calibrator` | Legacy TDQC calibration/evaluation evidence. Do not mix with current H10 TopK8 claims unless explicitly studying historical TDQC. |
+| Sam video review reels | Sam | `/home/rootalkhatib/test/reda_ws/fiper_ws/trash/video_reels_libero_goal_and_ood_20260616` | Manual/visual review provenance, including OOD selected-cap and goal-object manifests. |
+| Local archived scripts/reports | Batman | `/home/redafrix/tests/internship/archive/root_cleanup_20260629` and `/home/redafrix/tests/internship/archive/root_cleanup_second_pass_20260602` | Contains Pi0.5/OpenVLA/official-FIPER scripts, video-smoke artifacts, old Isaac material, and Stage6-9 Codex reports. Treat as archived provenance, not active source roots. |
+
+### Corrections From This Audit
+
+- `CROSS_MACHINE_EXPERIMENT_MAP_20260703.md`, `HOST_WORKSPACE_MAP.md`, and `GIT_SYNC_PLAN_20260703.md` were stale about Git being broken. Git is now repaired and branch-per-host catalog branches have been pushed.
+- The old host manifests under `fiper_ws/experiment_catalog/manifests` are historical June snapshots; they are not complete current inventories.
+- Heavy raw scan outputs from this audit remain in `/tmp/internship_deep_audit_20260703` and were not committed. The durable substitute is `DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md` plus `manifests/deep_audit_summary_20260703.json`.

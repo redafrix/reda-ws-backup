@@ -1,5 +1,7 @@
 # Dean Experiment Index
 
+> 2026-07-03 coverage note: this generated host index is historical and does not enumerate every newer Dean root. For the complete deep-audit additions, read `../DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md` and `../manifests/deep_audit_summary_20260703.json`. Important recovered Dean families include `/home/dean/fiper_goal_object_collection_20260605` production/smoke/benchmark runs and `/home/redafrix/SimVLA_modified/folderu` TDQC/legacy SimVLA roots.
+
 | Status | Kind | Experiment | Original path |
 |---|---|---|---|
 | `artifacts_only_or_unknown` | `offline_experiment` | [archive](../entries/dean/dean__experiments__archive/README.md) | `/home/dean/fiper_uncertainty_collection/experiments/archive` |

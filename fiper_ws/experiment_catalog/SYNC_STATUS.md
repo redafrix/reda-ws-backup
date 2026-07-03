@@ -407,3 +407,29 @@ Updates from the OpenVLA risk-input forensic audit, focused horizon diagnostic, 
   - HF official PRO target suites: `libero_goal_swap`, `libero_goal_task`, `libero_spatial_object`, `libero_object_object`, `libero_10_object`.
   - `libero_goal_object_ood` target: local benchmark suite, not present in HF `zhouxueyang/LIBERO-Pro`; documented provenance is BDDL under `libero_goal_object_ood_temp` and init under `libero_goal_object_ood`, with 18/18 task preflight pass.
 - OOD target datasets save MuJoCo states, H10 main action chunks, 8 ACE candidate chunks, and 49D uncertainty features, so they are suitable raw material for both our offline risk-head evaluation and later official-FIPER materialization.
+
+## 2026-07-03 Deep Cross-Host Experiment Coverage Audit
+
+- User requested a slower, complete pass over experiment maps, archived folders, and remote workspaces.
+- Repaired local Git earlier on 2026-07-03 and pushed the branch-per-host catalog branches. The maps that still said “Git broken” were corrected in this update.
+- Fresh scans were run across:
+  - local/Batman `/home/redafrix/tests/internship`, local `fiper_ws`, local `isaac_experiment_map`, and the Obsidian vault report folder;
+  - Bob `/media/rootalkhatib/My Passport/reda_ws/fiper_ws`, OpenVLA workspace, Pi0.5 workspace, and Isaac Lab workspace;
+  - Sam `/home/rootalkhatib/test/reda_ws/fiper_ws`;
+  - Dean `/home/dean/fiper_uncertainty_collection`, `/home/dean/fiper_goal_object_collection_20260605`, and `/home/redafrix/SimVLA_modified`.
+- Reduced roots found: 2,888 total (`bob=1747`, `batman=909`, `dean=146`, `sam=86`).
+- Filtered not-clearly-covered roots found: 445 total (`bob=44`, `batman=347`, `dean=53`, `sam=1`). Many local hits are archive/package false positives, but several real families were restored to the map.
+- Important families added/strengthened:
+  - Bob `bob_risk_matrix_campaign_20260605`;
+  - Bob `re_run_v2_018_audit_20260624`;
+  - Bob Pi0.5 smoke/10ep/no-task9/40ep/official OOD/swap roots;
+  - Bob OpenVLA smoke roots and H1 follow-up correction;
+  - Bob cross-suite per-dataset train/eval roots;
+  - Sam video reels at `/home/rootalkhatib/test/reda_ws/fiper_ws/trash/video_reels_libero_goal_and_ood_20260616`;
+  - Dean `fiper_goal_object_collection_20260605`;
+  - Dean TDQC/SimVLA legacy roots under `/home/redafrix/SimVLA_modified/folderu`;
+  - local Stage6-9, Pi0.5/OpenVLA, official-FIPER, video-smoke, and Isaac archive folders.
+- New durable files:
+  - `DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md`;
+  - `manifests/deep_audit_summary_20260703.json`.
+- Raw scan JSON files were kept in `/tmp/internship_deep_audit_20260703` and intentionally not committed.

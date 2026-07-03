@@ -1,5 +1,7 @@
 # Sam Experiment Index
 
+> 2026-07-03 coverage note: this generated host index is historical and omits some newer/archive evidence. For the complete deep-audit additions, read `../DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md` and `../manifests/deep_audit_summary_20260703.json`. Important Sam additions include the official seen-source dataset path in the cross-machine map and the video-review reels under `/home/rootalkhatib/test/reda_ws/fiper_ws/trash/video_reels_libero_goal_and_ood_20260616`.
+
 | Status | Kind | Experiment | Original path |
 |---|---|---|---|
 | `host_offline_result_known_from_audit` | `realtime_run` | [sam_w0_seen_task7](../entries/sam/sam__realtime_deployment__runs__baseline_same_seed_4worker_20260601__sam_w0_seen_task7/README.md) | `/home/rootalkhatib/test/reda_ws/fiper_ws/realtime_deployment/runs/baseline_same_seed_4worker_20260601/sam_w0_seen_task7` |
