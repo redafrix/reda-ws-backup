@@ -5,11 +5,22 @@
 *.safetensors
 *.npz
 *.zarr
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
 *.mp4
 *.avi
 *.mkv
 *.jsonl
 *.log
+*.bak
+
+# Credentials / local SSH material
+id_*
+*.pem
+*.key
 
 # Temporary/generated local chunks
 fiper_ws/tmp_checkpoint/
@@ -30,3 +41,25 @@ node_modules/
 outputs/
 videos/
 wandb/
+
+# Raw/generated experiment workspaces kept out of this lightweight catalog repo.
+# The durable paths and checksums for these artifacts are recorded in
+# fiper_ws/experiment_catalog/BIG_ARTIFACTS_NOT_IN_GIT_20260703.md.
+archive/
+checks/
+cross_suite_official_ood_20260630/
+fiper_ws/campaigns/
+fiper_ws/collection/
+fiper_ws/current_baseline/
+fiper_ws/data/
+fiper_ws/experiments/
+fiper_ws/obsidian_reports/
+fiper_ws/realtime_deployment/
+fiper_ws/reports/
+fiper_ws/scratch/
+fiper_ws/stage9_fiper_bridge/
+fiper_ws/stage9_training_experiments/
+fiper_ws/stage9_v2_tools/
+isaac_pi05_work/
+realtime_deployment/
+vids/
