@@ -1,0 +1,753 @@
+{
+  "dataset_root": "/home/dean/fiper_uncertainty_collection/data/simvla_goal_object_ood_ablation_20260625/simvla_libero_goal_object_ood_h10_uncertainty_180ep_20260622",
+  "dataset_summary": {
+    "episodes": 180,
+    "failure_episodes": 31,
+    "row_task_counts": {
+      "0": 4299,
+      "1": 1819,
+      "2": 2403,
+      "3": 1183,
+      "4": 1175,
+      "5": 1401,
+      "6": 986,
+      "7": 913,
+      "8": 855,
+      "9": 956,
+      "10": 1598,
+      "11": 7365,
+      "12": 5965,
+      "13": 1962,
+      "14": 3986,
+      "15": 3358,
+      "16": 1075,
+      "17": 3331
+    },
+    "rows": 44630,
+    "success_episodes": 149
+  },
+  "experiment": "selected_cap_topk8_offline_on_libero_goal_object_ood_180ep_20260622",
+  "feature_schema": {
+    "action_shape": [
+      10,
+      7
+    ],
+    "explicit_task_id_input": false,
+    "explicit_timestep_input": false,
+    "history_dim": 21,
+    "history_steps": 16,
+    "selected_uncertainty_dims": [
+      6,
+      21,
+      25,
+      27,
+      23,
+      2,
+      26,
+      24
+    ],
+    "static_dim": 51,
+    "static_layout": "action_stats_28 + ace_7 + proprio_8 + selected_uncertainty_topk8_8"
+  },
+  "metrics": {
+    "any_row_fixed_0.3_online_gate": {
+      "episode": {
+        "det_at_10": 1.0,
+        "det_at_25": 1.0,
+        "det_at_50": 1.0,
+        "detected_failure_count": 31,
+        "episode_false_alarm_rate": 1.0,
+        "episodes": 180,
+        "failure_detection_rate": 1.0,
+        "failure_episodes": 31,
+        "false_alarm_count": 149,
+        "mean_detection_fraction": 0.011209677419354839,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 7
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 2,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 8
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 7
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          }
+        },
+        "success_episodes": 149
+      },
+      "step": {
+        "accuracy": 0.6921129285234148,
+        "auprc": 0.7567383469535295,
+        "auroc": 0.7330423570103948,
+        "f1": 0.7565336026506494,
+        "fn": 3451,
+        "fnr": 0.13915322580645162,
+        "fp": 10290,
+        "fpr": 0.518910741301059,
+        "tn": 9540,
+        "tp": 21349
+      }
+    },
+    "any_row_fixed_0.5": {
+      "episode": {
+        "det_at_10": 1.0,
+        "det_at_25": 1.0,
+        "det_at_50": 1.0,
+        "detected_failure_count": 31,
+        "episode_false_alarm_rate": 0.9798657718120806,
+        "episodes": 180,
+        "failure_detection_rate": 1.0,
+        "failure_episodes": 31,
+        "false_alarm_count": 146,
+        "mean_detection_fraction": 0.01633064516129032,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 7
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 2,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 8
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.7,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 7
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          }
+        },
+        "success_episodes": 149
+      },
+      "step": {
+        "accuracy": 0.6946224512659646,
+        "auprc": 0.7567383469535295,
+        "auroc": 0.7330423570103948,
+        "f1": 0.7428539084168223,
+        "fn": 5114,
+        "fnr": 0.20620967741935484,
+        "fp": 8515,
+        "fpr": 0.42939989914271304,
+        "tn": 11315,
+        "tp": 19686
+      }
+    },
+    "any_row_q95": {
+      "episode": {
+        "det_at_10": 1.0,
+        "det_at_25": 1.0,
+        "det_at_50": 1.0,
+        "detected_failure_count": 31,
+        "episode_false_alarm_rate": 0.9798657718120806,
+        "episodes": 180,
+        "failure_detection_rate": 1.0,
+        "failure_episodes": 31,
+        "false_alarm_count": 146,
+        "mean_detection_fraction": 0.023225806451612898,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 7
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 2,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 8
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.7,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 7
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          }
+        },
+        "success_episodes": 149
+      },
+      "step": {
+        "accuracy": 0.698274703114497,
+        "auprc": 0.7567383469535295,
+        "auroc": 0.7330423570103948,
+        "f1": 0.7370332760506171,
+        "fn": 5929,
+        "fnr": 0.2390725806451613,
+        "fp": 7537,
+        "fpr": 0.3800806858295512,
+        "tn": 12293,
+        "tp": 18871
+      }
+    },
+    "any_row_q99": {
+      "episode": {
+        "det_at_10": 0.5161290322580645,
+        "det_at_25": 0.967741935483871,
+        "det_at_50": 1.0,
+        "detected_failure_count": 31,
+        "episode_false_alarm_rate": 0.6778523489932886,
+        "episodes": 180,
+        "failure_detection_rate": 1.0,
+        "failure_episodes": 31,
+        "false_alarm_count": 101,
+        "mean_detection_fraction": 0.09971774193548384,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 7
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 0.8888888888888888,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 0.4444444444444444,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 0.6666666666666666,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 2,
+            "false_alarm_rate": 0.125,
+            "success_episodes": 8
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.1,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 0.2857142857142857,
+            "success_episodes": 7
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.5,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.4,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.2,
+            "success_episodes": 10
+          }
+        },
+        "success_episodes": 149
+      },
+      "step": {
+        "accuracy": 0.6644857719023078,
+        "auprc": 0.7567383469535295,
+        "auroc": 0.7330423570103948,
+        "f1": 0.6500584248656228,
+        "fn": 10892,
+        "fnr": 0.4391935483870968,
+        "fp": 4082,
+        "fpr": 0.20584972264246093,
+        "tn": 15748,
+        "tp": 13908
+      }
+    },
+    "score_q95_mass_conformal": {
+      "episode": {
+        "conformal_mass_threshold": 0.15,
+        "det_at_10": 1.0,
+        "det_at_25": 1.0,
+        "det_at_50": 1.0,
+        "detected_failure_count": 31,
+        "episode_false_alarm_rate": 0.959731543624161,
+        "episodes": 180,
+        "failure_detection_rate": 1.0,
+        "failure_episodes": 31,
+        "false_alarm_count": 143,
+        "mean_detection_fraction": 0.025475392627881628,
+        "mean_final_mass": 48.23588423563375,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 7
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 2,
+            "false_alarm_rate": 0.875,
+            "success_episodes": 8
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.6,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 3,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 7
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.9,
+            "success_episodes": 10
+          }
+        },
+        "q95_row_threshold": 0.6155413389205933,
+        "success_episodes": 149
+      },
+      "step": {
+        "accuracy": 0.698274703114497,
+        "auprc": 0.7567383469535295,
+        "auroc": 0.7330423570103948,
+        "f1": 0.7370332760506171,
+        "fn": 5929,
+        "fnr": 0.2390725806451613,
+        "fp": 7537,
+        "fpr": 0.3800806858295512,
+        "tn": 12293,
+        "tp": 18871
+      }
+    }
+  },
+  "risk_model_dir": "/home/dean/fiper_uncertainty_collection/experiments/h10_ood_risk_models_20260610/unc_topk8",
+  "rows_path": "/home/dean/fiper_uncertainty_collection/data/simvla_goal_object_ood_ablation_20260625/simvla_libero_goal_object_ood_h10_uncertainty_180ep_20260622/fiper_receding_samples.jsonl",
+  "runtime_seconds": 34.32836866378784,
+  "summaries_path": "/home/dean/fiper_uncertainty_collection/data/simvla_goal_object_ood_ablation_20260625/simvla_libero_goal_object_ood_h10_uncertainty_180ep_20260622/episode_summaries.jsonl",
+  "thresholds": {
+    "conformal_mass": 0.15,
+    "fixed_0.3_online_gate": 0.3,
+    "fixed_0.5": 0.5,
+    "q95": 0.6155413389205933,
+    "q99": 0.9665935635566711
+  }
+}

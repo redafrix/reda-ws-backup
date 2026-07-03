@@ -1,0 +1,15 @@
+Starting SimVLA servers
+CHECKPOINT = /home/redafrix/SimVLA_modified/runs/simvla_libero_uncertainty/ckpt-110000
+NORM_STATS = /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+PORTS      = 8111 8112 8113 8114 8115
+GPU_IDS    = 0
+SAMPLES    = 1
+LOG DIR    = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/eval_ckpt_110000_200eps/ckpt-110000/server_logs
+Launching server on port 8111 with seed 700 on GPU 0
+Launching server on port 8112 with seed 701 on GPU 0
+Launching server on port 8113 with seed 702 on GPU 0
+Launching server on port 8114 with seed 703 on GPU 0
+Launching server on port 8115 with seed 704 on GPU 0
+
+Servers launched in background. Check logs with:
+  tail -f /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/eval_ckpt_110000_200eps/ckpt-110000/server_logs/server_8103.log

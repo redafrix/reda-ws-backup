@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_goal_object
+Trials: 10
+Task id filter: 7
+Port: 8113
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task7_seed563_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8113
+   Task suite: libero_goal_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Task suite: libero_goal_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+turn on the stove...:   0%|          | 0/10 [00:00<?, ?it/s][A
+turn on the stove...:  10%|█         | 1/10 [00:15<02:17, 15.24s/it][A
+turn on the stove...:  20%|██        | 2/10 [00:30<02:01, 15.13s/it][A
+turn on the stove...:  30%|███       | 3/10 [00:46<01:49, 15.62s/it][A
+turn on the stove...:  40%|████      | 4/10 [01:02<01:35, 15.88s/it][A
+turn on the stove...:  50%|█████     | 5/10 [01:18<01:19, 15.85s/it][A
+turn on the stove...:  60%|██████    | 6/10 [01:34<01:03, 15.83s/it][A
+turn on the stove...:  70%|███████   | 7/10 [01:49<00:46, 15.45s/it][A
+turn on the stove...:  80%|████████  | 8/10 [02:02<00:29, 14.91s/it][A
+turn on the stove...:  90%|█████████ | 9/10 [02:16<00:14, 14.53s/it][A
+turn on the stove...: 100%|██████████| 10/10 [02:29<00:00, 13.97s/it][A
+                                                                     [ATasks:  30%|███       | 3/10 [02:32<05:56, 50.91s/it]Tasks: 100%|██████████| 10/10 [02:32<00:00, 15.27s/it]
+  [OK] Task 7 Ep 0: SUCCESS (steps=82)
+  [OK] Task 7 Ep 1: SUCCESS (steps=84)
+  [OK] Task 7 Ep 2: SUCCESS (steps=85)
+  [OK] Task 7 Ep 3: SUCCESS (steps=83)
+  [OK] Task 7 Ep 4: SUCCESS (steps=82)
+  [OK] Task 7 Ep 5: SUCCESS (steps=82)
+  [OK] Task 7 Ep 6: SUCCESS (steps=83)
+  [OK] Task 7 Ep 7: SUCCESS (steps=81)
+  [OK] Task 7 Ep 8: SUCCESS (steps=81)
+  [OK] Task 7 Ep 9: SUCCESS (steps=81)
+   Task 7: 10/10 (100.0%)
+
+Total success rate: 10/10 (100.0%)

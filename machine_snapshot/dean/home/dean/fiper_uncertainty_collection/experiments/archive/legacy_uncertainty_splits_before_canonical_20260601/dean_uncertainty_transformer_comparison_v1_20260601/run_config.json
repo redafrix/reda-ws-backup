@@ -1,0 +1,33 @@
+{
+  "alpha": 0.15,
+  "batch_size": 512,
+  "calib_success_limit": 120,
+  "device": "cuda",
+  "dropout": 0.1,
+  "elapsed_seconds": 1639.5286779403687,
+  "heads": 4,
+  "history_steps": 16,
+  "layers": 3,
+  "lr": 0.0002,
+  "max_epochs": 35,
+  "min_conformal_mass": 0.15,
+  "ood_failure_limit": 260,
+  "ood_success_limit": 260,
+  "output_dir": "/home/dean/fiper_uncertainty_collection/experiments/dean_uncertainty_transformer_comparison_v1_20260601",
+  "patience": 8,
+  "run_root": "/home/dean/fiper_uncertainty_collection/runs/dean_object_uncertainty_20260529",
+  "seed": 20260601,
+  "splits": [
+    "random_mixed",
+    "ood_suite_libero90",
+    "ood_task_holdout"
+  ],
+  "test_failure_limit": 180,
+  "test_success_limit": 180,
+  "train_failure_limit": 260,
+  "train_success_limit": 260,
+  "val_failure_limit": 80,
+  "val_success_limit": 80,
+  "weight_decay": 0.0001,
+  "width": 128
+}

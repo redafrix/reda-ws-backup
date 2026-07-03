@@ -1,0 +1,57 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_spatial_object
+Trials: 10
+Task id filter: 3
+Port: 8103
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_tasks3_5_extra_hard_smoke_20260513_110123/raw_batches/libero_spatial_object__task3_batch0_seed93000.jsonl
+State stats path: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8103
+   Task suite: libero_spatial_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_spatial_object' (10 tasks).
+Task suite: libero_spatial_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+   State novelty stats: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl on the ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl on the ...:  10%|█         | 1/10 [00:58<08:46, 58.53s/it][A
+pick up the black bowl on the ...:  20%|██        | 2/10 [01:58<07:52, 59.09s/it][A
+pick up the black bowl on the ...:  30%|███       | 3/10 [02:54<06:45, 57.93s/it][A
+pick up the black bowl on the ...:  40%|████      | 4/10 [03:48<05:37, 56.23s/it][A
+pick up the black bowl on the ...:  50%|█████     | 5/10 [04:42<04:37, 55.41s/it][A
+pick up the black bowl on the ...:  60%|██████    | 6/10 [06:23<04:44, 71.05s/it][A
+pick up the black bowl on the ...:  70%|███████   | 7/10 [07:19<03:17, 65.96s/it][A
+pick up the black bowl on the ...:  80%|████████  | 8/10 [08:15<02:05, 62.88s/it][A
+pick up the black bowl on the ...:  90%|█████████ | 9/10 [09:22<01:04, 64.27s/it][A
+pick up the black bowl on the ...: 100%|██████████| 10/10 [10:25<00:00, 63.76s/it][A
+                                                                                  [ATasks:  70%|███████   | 7/10 [10:27<04:28, 89.59s/it]Tasks: 100%|██████████| 10/10 [10:27<00:00, 62.71s/it]
+  [OK] Task 3 Ep 0: SUCCESS (steps=116)
+  [OK] Task 3 Ep 1: SUCCESS (steps=118)
+  [OK] Task 3 Ep 2: SUCCESS (steps=113)
+  [OK] Task 3 Ep 3: SUCCESS (steps=107)
+  [OK] Task 3 Ep 4: SUCCESS (steps=108)
+  [OK] Task 3 Ep 5: SUCCESS (steps=196)
+  [OK] Task 3 Ep 6: SUCCESS (steps=110)
+  [OK] Task 3 Ep 7: SUCCESS (steps=114)
+  [OK] Task 3 Ep 8: SUCCESS (steps=133)
+  [OK] Task 3 Ep 9: SUCCESS (steps=124)
+   Task 3: 10/10 (100.0%)
+
+Total success rate: 10/10 (100.0%)

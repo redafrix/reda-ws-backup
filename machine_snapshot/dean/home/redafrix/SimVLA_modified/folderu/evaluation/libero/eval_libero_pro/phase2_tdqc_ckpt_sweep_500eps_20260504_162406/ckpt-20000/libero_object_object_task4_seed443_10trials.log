@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 4
+Port: 8115
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406/ckpt-20000/libero_object_object_task4_seed443_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8115
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the ketchup and place ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the ketchup and place ...:  10%|█         | 1/10 [00:29<04:28, 29.84s/it][A
+pick up the ketchup and place ...:  20%|██        | 2/10 [01:44<07:30, 56.34s/it][A
+pick up the ketchup and place ...:  30%|███       | 3/10 [02:12<05:01, 43.08s/it][A
+pick up the ketchup and place ...:  40%|████      | 4/10 [02:36<03:34, 35.81s/it][A
+pick up the ketchup and place ...:  50%|█████     | 5/10 [03:06<02:48, 33.72s/it][A
+pick up the ketchup and place ...:  60%|██████    | 6/10 [04:15<03:02, 45.56s/it][A
+pick up the ketchup and place ...:  70%|███████   | 7/10 [05:31<02:46, 55.52s/it][A
+pick up the ketchup and place ...:  80%|████████  | 8/10 [05:59<01:33, 46.87s/it][A
+pick up the ketchup and place ...:  90%|█████████ | 9/10 [07:16<00:56, 56.17s/it][A
+pick up the ketchup and place ...: 100%|██████████| 10/10 [08:30<00:00, 61.79s/it][A
+                                                                                  [ATasks:  60%|██████    | 6/10 [08:33<05:42, 85.50s/it]Tasks: 100%|██████████| 10/10 [08:33<00:00, 51.30s/it]
+  [OK] Task 4 Ep 0: SUCCESS (steps=158)
+  [FAIL] Task 4 Ep 1: FAILURE (steps=410)
+  [OK] Task 4 Ep 2: SUCCESS (steps=174)
+  [OK] Task 4 Ep 3: SUCCESS (steps=164)
+  [OK] Task 4 Ep 4: SUCCESS (steps=202)
+  [FAIL] Task 4 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 6: FAILURE (steps=410)
+  [OK] Task 4 Ep 7: SUCCESS (steps=149)
+  [FAIL] Task 4 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 9: FAILURE (steps=410)
+   Task 4: 5/10 (50.0%)
+
+Total success rate: 5/10 (50.0%)

@@ -1,0 +1,768 @@
+{
+  "strategy": {
+    "clean_train": "training only",
+    "clean_val": "ID validation only",
+    "clean_test": "ID test only",
+    "goal_object_train_seeds": [
+      509,
+      521,
+      547
+    ],
+    "goal_object_val_ood_seeds": [
+      563
+    ],
+    "goal_object_test_ood_seeds": [
+      587
+    ],
+    "goal_object_task_ids_used": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "goal_object_task9_note": "Task 9 is skipped by default because current JSONL files are empty."
+  },
+  "input": {
+    "clean_dir": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504",
+    "goal_object_dir": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916",
+    "train_clean": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504/train_clean.jsonl.gz",
+    "val_clean": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504/val_clean.jsonl.gz",
+    "test_clean": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504/test_clean.jsonl.gz"
+  },
+  "outputs": {
+    "train_mixed_clean_plus_goal_object": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_robust_splits_20260504_121516/train_mixed_clean_plus_goal_object.jsonl.gz",
+      "episodes": 31807,
+      "success": 19721,
+      "failure": 12086,
+      "unknown_success": 0,
+      "by_task": {
+        "0": 3124,
+        "1": 3133,
+        "2": 3172,
+        "3": 3163,
+        "4": 3001,
+        "5": 3181,
+        "6": 3158,
+        "7": 3162,
+        "8": 3273,
+        "9": 3440
+      },
+      "by_suite": {
+        "libero_10_lan": 1000,
+        "libero_10_object": 900,
+        "libero_10_swap": 1000,
+        "libero_goal_lan": 1000,
+        "libero_goal_object": 270,
+        "libero_goal_swap": 1477,
+        "libero_object_lan": 4360,
+        "libero_object_object": 4360,
+        "libero_object_swap": 4360,
+        "libero_spatial_lan": 4360,
+        "libero_spatial_object": 4360,
+        "libero_spatial_swap": 4360
+      }
+    },
+    "val_id_clean": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_robust_splits_20260504_121516/val_id_clean.jsonl.gz",
+      "episodes": 3942,
+      "success": 2438,
+      "failure": 1504,
+      "unknown_success": 0,
+      "by_task": {
+        "0": 380,
+        "1": 395,
+        "2": 375,
+        "3": 384,
+        "4": 412,
+        "5": 383,
+        "6": 394,
+        "7": 364,
+        "8": 413,
+        "9": 442
+      },
+      "by_suite": {
+        "libero_10_lan": 124,
+        "libero_10_object": 112,
+        "libero_10_swap": 126,
+        "libero_goal_lan": 125,
+        "libero_goal_swap": 185,
+        "libero_object_lan": 545,
+        "libero_object_object": 545,
+        "libero_object_swap": 545,
+        "libero_spatial_lan": 545,
+        "libero_spatial_object": 545,
+        "libero_spatial_swap": 545
+      }
+    },
+    "test_id_clean": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_robust_splits_20260504_121516/test_id_clean.jsonl.gz",
+      "episodes": 3942,
+      "success": 2435,
+      "failure": 1507,
+      "unknown_success": 0,
+      "by_task": {
+        "0": 421,
+        "1": 397,
+        "2": 378,
+        "3": 378,
+        "4": 387,
+        "5": 361,
+        "6": 373,
+        "7": 399,
+        "8": 415,
+        "9": 433
+      },
+      "by_suite": {
+        "libero_10_lan": 126,
+        "libero_10_object": 113,
+        "libero_10_swap": 124,
+        "libero_goal_lan": 125,
+        "libero_goal_swap": 184,
+        "libero_object_lan": 545,
+        "libero_object_object": 545,
+        "libero_object_swap": 545,
+        "libero_spatial_lan": 545,
+        "libero_spatial_object": 545,
+        "libero_spatial_swap": 545
+      }
+    },
+    "val_goal_object_ood": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_robust_splits_20260504_121516/val_goal_object_ood.jsonl.gz",
+      "episodes": 90,
+      "success": 77,
+      "failure": 13,
+      "unknown_success": 0,
+      "by_task": {
+        "0": 10,
+        "1": 10,
+        "2": 10,
+        "3": 10,
+        "4": 10,
+        "5": 10,
+        "6": 10,
+        "7": 10,
+        "8": 10
+      },
+      "by_suite": {
+        "libero_goal_object": 90
+      }
+    },
+    "test_goal_object_ood": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_robust_splits_20260504_121516/test_goal_object_ood.jsonl.gz",
+      "episodes": 90,
+      "success": 80,
+      "failure": 10,
+      "unknown_success": 0,
+      "by_task": {
+        "0": 10,
+        "1": 10,
+        "2": 10,
+        "3": 10,
+        "4": 10,
+        "5": 10,
+        "6": 10,
+        "7": 10,
+        "8": 10
+      },
+      "by_suite": {
+        "libero_goal_object": 90
+      }
+    },
+    "train_clean_only": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_robust_splits_20260504_121516/train_clean_only.jsonl.gz",
+      "episodes": 31537,
+      "success": 19497,
+      "failure": 12040,
+      "unknown_success": 0,
+      "by_task": {
+        "0": 3094,
+        "1": 3103,
+        "2": 3142,
+        "3": 3133,
+        "4": 2971,
+        "5": 3151,
+        "6": 3128,
+        "7": 3132,
+        "8": 3243,
+        "9": 3440
+      },
+      "by_suite": {
+        "libero_10_lan": 1000,
+        "libero_10_object": 900,
+        "libero_10_swap": 1000,
+        "libero_goal_lan": 1000,
+        "libero_goal_swap": 1477,
+        "libero_object_lan": 4360,
+        "libero_object_object": 4360,
+        "libero_object_swap": 4360,
+        "libero_spatial_lan": 4360,
+        "libero_spatial_object": 4360,
+        "libero_spatial_swap": 4360
+      }
+    },
+    "goal_object_train_only": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_robust_splits_20260504_121516/goal_object_train_only.jsonl.gz",
+      "episodes": 270,
+      "success": 224,
+      "failure": 46,
+      "unknown_success": 0,
+      "by_task": {
+        "0": 30,
+        "1": 30,
+        "2": 30,
+        "3": 30,
+        "4": 30,
+        "5": 30,
+        "6": 30,
+        "7": 30,
+        "8": 30
+      },
+      "by_suite": {
+        "libero_goal_object": 270
+      }
+    },
+    "val_selection_mixed_id_plus_goal_object_ood": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_robust_splits_20260504_121516/val_selection_mixed_id_plus_goal_object_ood.jsonl.gz",
+      "episodes": 4032,
+      "success": 2515,
+      "failure": 1517,
+      "unknown_success": 0,
+      "by_task": {
+        "0": 390,
+        "1": 405,
+        "2": 385,
+        "3": 394,
+        "4": 422,
+        "5": 393,
+        "6": 404,
+        "7": 374,
+        "8": 423,
+        "9": 442
+      },
+      "by_suite": {
+        "libero_10_lan": 124,
+        "libero_10_object": 112,
+        "libero_10_swap": 126,
+        "libero_goal_lan": 125,
+        "libero_goal_object": 90,
+        "libero_goal_swap": 185,
+        "libero_object_lan": 545,
+        "libero_object_object": 545,
+        "libero_object_swap": 545,
+        "libero_spatial_lan": 545,
+        "libero_spatial_object": 545,
+        "libero_spatial_swap": 545
+      }
+    },
+    "test_mixed_id_plus_goal_object_ood": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_robust_splits_20260504_121516/test_mixed_id_plus_goal_object_ood.jsonl.gz",
+      "episodes": 4032,
+      "success": 2515,
+      "failure": 1517,
+      "unknown_success": 0,
+      "by_task": {
+        "0": 431,
+        "1": 407,
+        "2": 388,
+        "3": 388,
+        "4": 397,
+        "5": 371,
+        "6": 383,
+        "7": 409,
+        "8": 425,
+        "9": 433
+      },
+      "by_suite": {
+        "libero_10_lan": 126,
+        "libero_10_object": 113,
+        "libero_10_swap": 124,
+        "libero_goal_lan": 125,
+        "libero_goal_object": 90,
+        "libero_goal_swap": 184,
+        "libero_object_lan": 545,
+        "libero_object_object": 545,
+        "libero_object_swap": 545,
+        "libero_spatial_lan": 545,
+        "libero_spatial_object": 545,
+        "libero_spatial_swap": 545
+      }
+    }
+  },
+  "goal_object_file_stats": [
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task0_seed509_10trials.jsonl",
+      "task_id": 0,
+      "seed": 509,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 7,
+      "failure": 3
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task0_seed521_10trials.jsonl",
+      "task_id": 0,
+      "seed": 521,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 7,
+      "failure": 3
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task0_seed547_10trials.jsonl",
+      "task_id": 0,
+      "seed": 547,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 6,
+      "failure": 4
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task0_seed563_10trials.jsonl",
+      "task_id": 0,
+      "seed": 563,
+      "trials": 10,
+      "split": "goal_object_val_ood",
+      "episodes": 10,
+      "success": 8,
+      "failure": 2
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task0_seed587_10trials.jsonl",
+      "task_id": 0,
+      "seed": 587,
+      "trials": 10,
+      "split": "goal_object_test_ood",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task1_seed509_10trials.jsonl",
+      "task_id": 1,
+      "seed": 509,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 8,
+      "failure": 2
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task1_seed521_10trials.jsonl",
+      "task_id": 1,
+      "seed": 521,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task1_seed547_10trials.jsonl",
+      "task_id": 1,
+      "seed": 547,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task1_seed563_10trials.jsonl",
+      "task_id": 1,
+      "seed": 563,
+      "trials": 10,
+      "split": "goal_object_val_ood",
+      "episodes": 10,
+      "success": 8,
+      "failure": 2
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task1_seed587_10trials.jsonl",
+      "task_id": 1,
+      "seed": 587,
+      "trials": 10,
+      "split": "goal_object_test_ood",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task2_seed509_10trials.jsonl",
+      "task_id": 2,
+      "seed": 509,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task2_seed521_10trials.jsonl",
+      "task_id": 2,
+      "seed": 521,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task2_seed547_10trials.jsonl",
+      "task_id": 2,
+      "seed": 547,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task2_seed563_10trials.jsonl",
+      "task_id": 2,
+      "seed": 563,
+      "trials": 10,
+      "split": "goal_object_val_ood",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task2_seed587_10trials.jsonl",
+      "task_id": 2,
+      "seed": 587,
+      "trials": 10,
+      "split": "goal_object_test_ood",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task3_seed509_10trials.jsonl",
+      "task_id": 3,
+      "seed": 509,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 5,
+      "failure": 5
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task3_seed521_10trials.jsonl",
+      "task_id": 3,
+      "seed": 521,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 5,
+      "failure": 5
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task3_seed547_10trials.jsonl",
+      "task_id": 3,
+      "seed": 547,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 2,
+      "failure": 8
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task3_seed563_10trials.jsonl",
+      "task_id": 3,
+      "seed": 563,
+      "trials": 10,
+      "split": "goal_object_val_ood",
+      "episodes": 10,
+      "success": 5,
+      "failure": 5
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task3_seed587_10trials.jsonl",
+      "task_id": 3,
+      "seed": 587,
+      "trials": 10,
+      "split": "goal_object_test_ood",
+      "episodes": 10,
+      "success": 4,
+      "failure": 6
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task4_seed509_10trials.jsonl",
+      "task_id": 4,
+      "seed": 509,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task4_seed521_10trials.jsonl",
+      "task_id": 4,
+      "seed": 521,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task4_seed547_10trials.jsonl",
+      "task_id": 4,
+      "seed": 547,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 8,
+      "failure": 2
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task4_seed563_10trials.jsonl",
+      "task_id": 4,
+      "seed": 563,
+      "trials": 10,
+      "split": "goal_object_val_ood",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task4_seed587_10trials.jsonl",
+      "task_id": 4,
+      "seed": 587,
+      "trials": 10,
+      "split": "goal_object_test_ood",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task5_seed509_10trials.jsonl",
+      "task_id": 5,
+      "seed": 509,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task5_seed521_10trials.jsonl",
+      "task_id": 5,
+      "seed": 521,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task5_seed547_10trials.jsonl",
+      "task_id": 5,
+      "seed": 547,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task5_seed563_10trials.jsonl",
+      "task_id": 5,
+      "seed": 563,
+      "trials": 10,
+      "split": "goal_object_val_ood",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task5_seed587_10trials.jsonl",
+      "task_id": 5,
+      "seed": 587,
+      "trials": 10,
+      "split": "goal_object_test_ood",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task6_seed509_10trials.jsonl",
+      "task_id": 6,
+      "seed": 509,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task6_seed521_10trials.jsonl",
+      "task_id": 6,
+      "seed": 521,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 7,
+      "failure": 3
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task6_seed547_10trials.jsonl",
+      "task_id": 6,
+      "seed": 547,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 7,
+      "failure": 3
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task6_seed563_10trials.jsonl",
+      "task_id": 6,
+      "seed": 563,
+      "trials": 10,
+      "split": "goal_object_val_ood",
+      "episodes": 10,
+      "success": 7,
+      "failure": 3
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task6_seed587_10trials.jsonl",
+      "task_id": 6,
+      "seed": 587,
+      "trials": 10,
+      "split": "goal_object_test_ood",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task7_seed509_10trials.jsonl",
+      "task_id": 7,
+      "seed": 509,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task7_seed521_10trials.jsonl",
+      "task_id": 7,
+      "seed": 521,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task7_seed547_10trials.jsonl",
+      "task_id": 7,
+      "seed": 547,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task7_seed563_10trials.jsonl",
+      "task_id": 7,
+      "seed": 563,
+      "trials": 10,
+      "split": "goal_object_val_ood",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task7_seed587_10trials.jsonl",
+      "task_id": 7,
+      "seed": 587,
+      "trials": 10,
+      "split": "goal_object_test_ood",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task8_seed509_10trials.jsonl",
+      "task_id": 8,
+      "seed": 509,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task8_seed521_10trials.jsonl",
+      "task_id": 8,
+      "seed": 521,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task8_seed547_10trials.jsonl",
+      "task_id": 8,
+      "seed": 547,
+      "trials": 10,
+      "split": "goal_object_train",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task8_seed563_10trials.jsonl",
+      "task_id": 8,
+      "seed": 563,
+      "trials": 10,
+      "split": "goal_object_val_ood",
+      "episodes": 10,
+      "success": 10,
+      "failure": 0
+    },
+    {
+      "file": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task8_seed587_10trials.jsonl",
+      "task_id": 8,
+      "seed": 587,
+      "trials": 10,
+      "split": "goal_object_test_ood",
+      "episodes": 10,
+      "success": 9,
+      "failure": 1
+    }
+  ],
+  "skipped_empty_files": [],
+  "skipped_seed_files": [],
+  "skipped_task_files": [
+    "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task9_seed509_10trials.jsonl",
+    "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task9_seed521_10trials.jsonl",
+    "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task9_seed547_10trials.jsonl",
+    "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task9_seed563_10trials.jsonl",
+    "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task9_seed587_10trials.jsonl"
+  ],
+  "leak_check": {
+    "atomic_splits_checked": [
+      "train_mixed_clean_plus_goal_object",
+      "val_id_clean",
+      "test_id_clean",
+      "val_goal_object_ood",
+      "test_goal_object_ood"
+    ],
+    "leaks_found": 0
+  }
+}

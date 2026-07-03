@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 6
+Port: 8112
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/eval_ckpt_110000_200eps/ckpt-110000/libero_object_object_task6_seed409_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8112
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the butter and place i...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the butter and place i...:  10%|█         | 1/10 [00:24<03:40, 24.53s/it][A
+pick up the butter and place i...:  20%|██        | 2/10 [00:47<03:10, 23.79s/it][A
+pick up the butter and place i...:  30%|███       | 3/10 [01:10<02:42, 23.16s/it][A
+pick up the butter and place i...:  40%|████      | 4/10 [01:46<02:49, 28.32s/it][A
+pick up the butter and place i...:  50%|█████     | 5/10 [02:16<02:24, 28.88s/it][A
+pick up the butter and place i...:  60%|██████    | 6/10 [03:37<03:07, 46.81s/it][A
+pick up the butter and place i...:  70%|███████   | 7/10 [04:08<02:04, 41.58s/it][A
+pick up the butter and place i...:  80%|████████  | 8/10 [04:39<01:16, 38.05s/it][A
+pick up the butter and place i...:  90%|█████████ | 9/10 [05:10<00:36, 36.02s/it][A
+pick up the butter and place i...: 100%|██████████| 10/10 [05:38<00:00, 33.48s/it][A
+                                                                                  [ATasks:  40%|████      | 4/10 [05:40<08:31, 85.19s/it]Tasks: 100%|██████████| 10/10 [05:40<00:00, 34.08s/it]
+  [OK] Task 6 Ep 0: SUCCESS (steps=146)
+  [OK] Task 6 Ep 1: SUCCESS (steps=145)
+  [OK] Task 6 Ep 2: SUCCESS (steps=135)
+  [OK] Task 6 Ep 3: SUCCESS (steps=222)
+  [OK] Task 6 Ep 4: SUCCESS (steps=156)
+  [FAIL] Task 6 Ep 5: FAILURE (steps=410)
+  [OK] Task 6 Ep 6: SUCCESS (steps=157)
+  [OK] Task 6 Ep 7: SUCCESS (steps=155)
+  [OK] Task 6 Ep 8: SUCCESS (steps=156)
+  [OK] Task 6 Ep 9: SUCCESS (steps=141)
+   Task 6: 9/10 (90.0%)
+
+Total success rate: 9/10 (90.0%)

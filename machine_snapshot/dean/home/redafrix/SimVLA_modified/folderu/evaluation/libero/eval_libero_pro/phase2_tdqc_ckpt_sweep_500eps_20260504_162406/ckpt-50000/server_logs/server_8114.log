@@ -1,0 +1,80 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1777907881.764205   73271 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1777907881.807607   73271 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1777907883.070386   73271 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+INFO:__main__:Loading SimVLA from /home/redafrix/SimVLA_modified/runs/simvla_libero_uncertainty/ckpt-50000...
+INFO:__main__:Using inference RNG seed: 703
+INFO:root:Loading SmolVLM from: HuggingFaceTB/SmolVLM-500M-Instruct
+`torch_dtype` is deprecated! Use `dtype` instead!
+INFO:root:SmolVLM hidden size: 960
+INFO:root:✓ Concat mode enabled: conditions concatenated to sequence
+INFO:root:[SmolVLMVLAProcessor] Initialized with image_size=384, mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]
+INFO:__main__:Loading norm stats from: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+INFO:__main__:   State norm: mean=[-0.07068316638469696, 0.018536901101469994, 0.8913209438323975]
+INFO:__main__:   Action norm: mean=[0.047240227460861206, 0.0508635975420475, -0.09378840774297714]
+INFO:__main__:Model loaded! Device: cuda, Image size: 384x384
+INFO:__main__:Starting SimVLA server on 0.0.0.0:8114
+INFO:__main__:  Image size: 384x384
+INFO:__main__:  Action horizon: 10
+INFO:__main__:Creating SimVLA server (host: 0.0.0.0, port: 8114)
+INFO:websockets.server:server listening on 0.0.0.0:8114
+INFO:__main__:SimVLA server listening on 0.0.0.0:8114
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 34094) opened
+INFO:__main__:Connection from ('127.0.0.1', 34094) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 38470) opened
+INFO:__main__:Connection from ('127.0.0.1', 38470) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 42612) opened
+INFO:__main__:Connection from ('127.0.0.1', 42612) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 44464) opened
+INFO:__main__:Connection from ('127.0.0.1', 44464) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 52266) opened
+INFO:__main__:Connection from ('127.0.0.1', 52266) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 48868) opened
+INFO:__main__:Connection from ('127.0.0.1', 48868) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 33472) opened
+INFO:__main__:Connection from ('127.0.0.1', 33472) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 46834) opened
+INFO:__main__:Connection from ('127.0.0.1', 46834) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 44902) opened
+INFO:__main__:Connection from ('127.0.0.1', 44902) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 43212) opened
+INFO:__main__:Connection from ('127.0.0.1', 43212) closed

@@ -1,0 +1,68 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_spatial_object
+Trials: 10
+Task id filter: 0
+Port: 8103
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_balanced_50_50_20260512_121118/raw_batches/libero_spatial_object__task0_batch17_seed50017.jsonl
+State stats path: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8103
+   Task suite: libero_spatial_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_spatial_object' (10 tasks).
+Task suite: libero_spatial_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+   State novelty stats: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl between...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl between...:  10%|█         | 1/10 [00:40<06:02, 40.31s/it][A
+                                                                                 [ATasks:  90%|█████████ | 9/10 [01:59<00:13, 13.25s/it]
+  [OK] Task 0 Ep 0: SUCCESS (steps=84)
+Traceback (most recent call last):
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 714, in <module>
+    main()
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 700, in main
+    eval_libero(
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 566, in eval_libero
+    action = client.step(obs_dict, task_description)
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 322, in step
+    result = self.client.infer(element)
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/openpi_client/websocket_client_policy.py", line 45, in infer
+    response = self._ws.recv()
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/websockets/sync/connection.py", line 207, in recv
+    return self.recv_messages.get(timeout)
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/websockets/sync/messages.py", line 96, in get
+    completed = self.message_complete.wait(timeout)
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/threading.py", line 558, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/threading.py", line 302, in wait
+    waiter.acquire()
+KeyboardInterrupt
+Exception ignored in: <function MjRenderContext.__del__ at 0x7b57ab309c10>
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x7b57ab309a60>
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>

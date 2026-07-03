@@ -1,0 +1,43 @@
+============================================================
+Phase 2 TDQC LIBERO uncertainty rollout collection
+============================================================
+REPO_ROOT        = /home/redafrix/SimVLA_modified
+EVAL_DIR         = /home/redafrix/SimVLA_modified/evaluation/libero
+LIBERO_PRO_ROOT  = /home/redafrix/LIBERO-PRO
+PORTS            = 8103 8104 8105
+MAX_PARALLEL     = 3
+NO_VIDEO         = true
+STATE_STATS_PATH = /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+SUITES           = libero_goal_object
+SEEDS            = 801 809 821
+NUM_TRIALS       = 10
+OUT_DIR          = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540
+COMBINED_JSONL   = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/combined_all_suites_all_seeds.jsonl
+============================================================
+============================================================
+Running suite=libero_goal_object, seed=801, trials=10, port=8103
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/libero_goal_object_seed801_10trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/libero_goal_object_seed801_10trials.log
+============================================================
+============================================================
+Running suite=libero_goal_object, seed=809, trials=10, port=8104
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/libero_goal_object_seed809_10trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/libero_goal_object_seed809_10trials.log
+============================================================
+============================================================
+Running suite=libero_goal_object, seed=821, trials=10, port=8105
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/libero_goal_object_seed821_10trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/libero_goal_object_seed821_10trials.log
+============================================================
+[OK] Wrote 90 rollout lines to /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/libero_goal_object_seed801_10trials.jsonl
+[OK] Wrote 90 rollout lines to /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/libero_goal_object_seed809_10trials.jsonl
+[OK] Wrote 90 rollout lines to /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/libero_goal_object_seed821_10trials.jsonl
+
+============================================================
+Collection finished.
+Successful rollout lines merged: 270
+Total combined rollout lines: 270
+Failed jobs: 0
+Combined JSONL:
+/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_k8_skipbroken_20260511_141540/combined_all_suites_all_seeds.jsonl
+============================================================

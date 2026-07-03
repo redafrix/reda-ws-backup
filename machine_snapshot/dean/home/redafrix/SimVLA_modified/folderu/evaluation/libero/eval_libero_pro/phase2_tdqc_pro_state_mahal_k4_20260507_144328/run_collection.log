@@ -1,0 +1,26 @@
+============================================================
+Phase 2 TDQC LIBERO uncertainty rollout collection
+============================================================
+REPO_ROOT        = /home/redafrix/SimVLA_modified
+EVAL_DIR         = /home/redafrix/SimVLA_modified/evaluation/libero
+LIBERO_PRO_ROOT  = /home/redafrix/LIBERO-PRO
+PORTS            = 8103 8104
+MAX_PARALLEL     = 2
+NO_VIDEO         = true
+STATE_STATS_PATH = /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+SUITES           = libero_spatial_object libero_spatial_swap libero_spatial_lan libero_object_object libero_object_swap libero_object_lan libero_goal_object libero_goal_swap libero_goal_lan libero_10_object libero_10_swap libero_10_lan
+SEEDS            = 601 607 613
+NUM_TRIALS       = 10
+OUT_DIR          = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_pro_state_mahal_k4_20260507_144328
+COMBINED_JSONL   = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_pro_state_mahal_k4_20260507_144328/combined_all_suites_all_seeds.jsonl
+============================================================
+============================================================
+Running suite=libero_spatial_object, seed=601, trials=10, port=8103
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_pro_state_mahal_k4_20260507_144328/libero_spatial_object_seed601_10trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_pro_state_mahal_k4_20260507_144328/libero_spatial_object_seed601_10trials.log
+============================================================
+============================================================
+Running suite=libero_spatial_object, seed=607, trials=10, port=8104
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_pro_state_mahal_k4_20260507_144328/libero_spatial_object_seed607_10trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_pro_state_mahal_k4_20260507_144328/libero_spatial_object_seed607_10trials.log
+============================================================

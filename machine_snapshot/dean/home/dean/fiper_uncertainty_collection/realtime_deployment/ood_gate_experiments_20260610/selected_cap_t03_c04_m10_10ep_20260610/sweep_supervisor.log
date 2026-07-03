@@ -1,0 +1,1045 @@
+[run_all_m10] START task0_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task0_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=104 mods=0 time=19.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=122 mods=0 time=20.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=217 mods=2 time=36.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=126 mods=0 time=21.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=121 mods=1 time=21.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=119 mods=1 time=19.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=114 mods=1 time=19.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=118 mods=1 time=20.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=119 mods=0 time=20.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=120 mods=0 time=20.1s
+[run_all_m10] END task0_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task1_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task1_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=163 mods=0 time=27.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=169 mods=0 time=27.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=172 mods=0 time=28.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=169 mods=0 time=26.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=166 mods=0 time=27.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=173 mods=0 time=29.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=164 mods=1 time=26.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=168 mods=0 time=27.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=163 mods=0 time=22.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=162 mods=0 time=33.1s
+[run_all_m10] END task1_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task2_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task2_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=167 mods=0 time=34.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=169 mods=0 time=33.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=failure_or_timeout steps=300 mods=0 time=58.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=169 mods=0 time=34.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=168 mods=0 time=34.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=168 mods=0 time=33.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=170 mods=0 time=34.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=247 mods=0 time=48.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=162 mods=1 time=35.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=167 mods=0 time=34.6s
+[run_all_m10] END task2_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task3_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task3_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=126 mods=0 time=28.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=121 mods=1 time=26.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=135 mods=0 time=27.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=108 mods=0 time=22.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=138 mods=0 time=29.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=118 mods=0 time=24.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=122 mods=0 time=25.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=177 mods=1 time=34.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=115 mods=0 time=24.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=113 mods=0 time=23.9s
+[run_all_m10] END task3_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task4_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task4_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=196 mods=1 time=41.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=127 mods=0 time=28.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=109 mods=0 time=22.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=122 mods=0 time=26.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=128 mods=0 time=27.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=118 mods=0 time=24.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=119 mods=0 time=23.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=109 mods=0 time=22.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=123 mods=0 time=28.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=108 mods=0 time=22.7s
+[run_all_m10] END task4_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task5_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task5_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=87 mods=1 time=20.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=90 mods=0 time=18.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=143 mods=0 time=30.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=81 mods=0 time=18.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=90 mods=0 time=19.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=92 mods=0 time=20.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=82 mods=0 time=18.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=86 mods=0 time=18.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=85 mods=0 time=18.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=82 mods=0 time=18.7s
+[run_all_m10] END task5_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task6_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task6_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=82 mods=0 time=19.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=78 mods=0 time=16.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=81 mods=1 time=18.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=78 mods=0 time=16.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=83 mods=1 time=19.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=87 mods=0 time=18.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=83 mods=0 time=18.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=86 mods=0 time=18.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=79 mods=1 time=17.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=81 mods=0 time=18.2s
+[run_all_m10] END task6_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task7_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task7_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=91 mods=0 time=21.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=failure_or_timeout steps=300 mods=0 time=59.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=93 mods=0 time=21.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=81 mods=0 time=17.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=87 mods=0 time=20.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=91 mods=1 time=20.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=83 mods=0 time=17.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=89 mods=1 time=19.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=failure_or_timeout steps=300 mods=0 time=56.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=85 mods=0 time=17.9s
+[run_all_m10] END task7_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task8_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task8_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=97 mods=1 time=23.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=88 mods=0 time=18.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=89 mods=0 time=20.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=78 mods=0 time=16.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=86 mods=0 time=20.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=86 mods=0 time=18.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=86 mods=0 time=20.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=85 mods=0 time=18.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=85 mods=0 time=19.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=83 mods=0 time=19.7s
+[run_all_m10] END task8_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task9_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task9_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=89 mods=1 time=19.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=82 mods=1 time=17.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=84 mods=1 time=20.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=86 mods=0 time=19.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=91 mods=2 time=20.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=89 mods=2 time=17.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=79 mods=0 time=17.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=85 mods=0 time=19.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=81 mods=0 time=17.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=80 mods=0 time=17.3s
+[run_all_m10] END task9_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task10_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task10_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=88 mods=0 time=19.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=81 mods=0 time=18.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=86 mods=0 time=20.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=87 mods=0 time=20.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=85 mods=0 time=19.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=82 mods=0 time=20.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=84 mods=0 time=19.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=83 mods=0 time=19.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=81 mods=0 time=18.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=81 mods=0 time=20.0s
+[run_all_m10] END task10_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task11_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task11_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=88 mods=1 time=20.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=91 mods=2 time=20.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=96 mods=0 time=20.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=86 mods=1 time=20.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=91 mods=0 time=21.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=98 mods=1 time=20.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=94 mods=1 time=22.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=99 mods=1 time=21.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=91 mods=2 time=20.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=96 mods=0 time=22.1s
+[run_all_m10] END task11_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task12_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task12_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=112 mods=1 time=25.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=97 mods=0 time=19.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=94 mods=0 time=20.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=90 mods=2 time=18.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=92 mods=1 time=21.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=99 mods=1 time=20.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=98 mods=0 time=19.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=100 mods=0 time=20.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=88 mods=1 time=17.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=92 mods=3 time=22.0s
+[run_all_m10] END task12_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task13_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task13_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=127 mods=0 time=26.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=122 mods=0 time=25.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=138 mods=0 time=28.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=125 mods=0 time=26.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=146 mods=2 time=32.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=145 mods=2 time=29.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=141 mods=1 time=29.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=132 mods=0 time=27.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=120 mods=0 time=24.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=120 mods=0 time=24.3s
+[run_all_m10] END task13_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task14_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task14_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=134 mods=0 time=29.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=132 mods=0 time=27.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=120 mods=0 time=24.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=124 mods=0 time=28.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=130 mods=0 time=27.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=142 mods=0 time=30.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=136 mods=0 time=27.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=failure_or_timeout steps=300 mods=1 time=58.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=122 mods=0 time=25.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=126 mods=0 time=26.0s
+[run_all_m10] END task14_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task15_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task15_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=87 mods=0 time=20.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=93 mods=0 time=19.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=92 mods=0 time=21.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=126 mods=0 time=15.2s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=100 mods=0 time=17.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=92 mods=0 time=16.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=93 mods=0 time=16.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=91 mods=0 time=16.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=170 mods=0 time=28.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=98 mods=0 time=17.0s
+[run_all_m10] END task15_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task16_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task16_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=87 mods=0 time=16.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=86 mods=0 time=15.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=91 mods=0 time=17.0s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=87 mods=0 time=15.5s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=89 mods=0 time=15.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=90 mods=0 time=15.4s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=success steps=91 mods=0 time=16.3s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=85 mods=0 time=15.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=87 mods=0 time=15.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=86 mods=0 time=15.5s
+[run_all_m10] END task16_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] START task17_risk_topk8_selected_cap_m10.json
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/dean/.local/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[startup] policy=risk_topk8 config=/home/dean/fiper_uncertainty_collection/realtime_deployment/ood_gate_experiments_20260610/selected_cap_t03_c04_m10_10ep_20260610/configs/task17_risk_topk8_selected_cap_m10.json checkpoint=/home/dean/checkpoints/simvla_libero_uncertainty/ckpt-60000
+`torch_dtype` is deprecated! Use `dtype` instead!
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/torch/nn/modules/linear.py:125: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  return F.linear(input, self.weight, self.bias)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py:101: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
+/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/transformers/integrations/sdpa_attention.py:96: UserWarning: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#results-reproducibility (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:217.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=0 seed=200 outcome=success steps=170 mods=0 time=28.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=1 seed=201 outcome=success steps=79 mods=0 time=13.7s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=2 seed=202 outcome=success steps=76 mods=0 time=13.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=3 seed=203 outcome=success steps=91 mods=0 time=16.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=4 seed=204 outcome=success steps=92 mods=0 time=16.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=5 seed=205 outcome=success steps=77 mods=0 time=13.8s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=6 seed=206 outcome=failure_or_timeout steps=300 mods=0 time=46.9s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=7 seed=207 outcome=success steps=91 mods=0 time=16.6s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=8 seed=208 outcome=success steps=155 mods=0 time=25.1s
+[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/libero/../datasets does not exist!
+[episode] policy=risk_topk8 ep=9 seed=209 outcome=success steps=72 mods=0 time=13.4s
+[run_all_m10] END task17_risk_topk8_selected_cap_m10.json rc=0
+[run_all_m10] COMPLETE

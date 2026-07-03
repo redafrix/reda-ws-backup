@@ -1,0 +1,30 @@
+{
+  "batch_size": 384,
+  "device": "cuda",
+  "feature_hygiene": {
+    "original_fiper_uses_failure_labels_for_training": false,
+    "original_fiper_uses_ood_for_training": false,
+    "v2018_uses_ood_for_training": false
+  },
+  "rnd_epochs": 20,
+  "seed": 42,
+  "v2018_config": {
+    "action_repr": "stats",
+    "batch_size": 384,
+    "heads": 4,
+    "history_steps": 16,
+    "include_ace": true,
+    "include_ace_history": true,
+    "include_action": true,
+    "include_objects": false,
+    "include_proprio": true,
+    "layers": 3,
+    "max_epochs": 120,
+    "mode": "supervised",
+    "model": "seq_transformer",
+    "name": "v2_018_transformer_k16_clean_rerun",
+    "patience": 18,
+    "seed": 42,
+    "width": 128
+  }
+}

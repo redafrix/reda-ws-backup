@@ -1,0 +1,295 @@
+{
+  "bad_counts": {},
+  "by_run": {
+    "phase2_tdqc_denoise_15000_20260430_093849": {
+      "episodes": 13625,
+      "failure": 5788,
+      "success": 7837
+    },
+    "phase2_tdqc_denoise_50000_after_phase2_tdqc_denoise_15000_20260430_093849_20260430_163924": {
+      "episodes": 25796,
+      "failure": 9263,
+      "success": 16533
+    }
+  },
+  "by_suite": {
+    "libero_10_lan": {
+      "episodes": 1250,
+      "failure": 105,
+      "success": 1145
+    },
+    "libero_10_object": {
+      "episodes": 1125,
+      "failure": 663,
+      "success": 462
+    },
+    "libero_10_swap": {
+      "episodes": 1250,
+      "failure": 1175,
+      "success": 75
+    },
+    "libero_goal_lan": {
+      "episodes": 1250,
+      "failure": 34,
+      "success": 1216
+    },
+    "libero_goal_swap": {
+      "episodes": 1846,
+      "failure": 1829,
+      "success": 17
+    },
+    "libero_object_lan": {
+      "episodes": 5450,
+      "failure": 29,
+      "success": 5421
+    },
+    "libero_object_object": {
+      "episodes": 5450,
+      "failure": 578,
+      "success": 4872
+    },
+    "libero_object_swap": {
+      "episodes": 5450,
+      "failure": 5440,
+      "success": 10
+    },
+    "libero_spatial_lan": {
+      "episodes": 5450,
+      "failure": 132,
+      "success": 5318
+    },
+    "libero_spatial_object": {
+      "episodes": 5450,
+      "failure": 232,
+      "success": 5218
+    },
+    "libero_spatial_swap": {
+      "episodes": 5450,
+      "failure": 4834,
+      "success": 616
+    }
+  },
+  "created_at": "2026-05-04T09:27:33",
+  "files": {
+    "combined": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504/combined_clean.jsonl.gz",
+    "test": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504/test_clean.jsonl.gz",
+    "train": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504/train_clean.jsonl.gz",
+    "val": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504/val_clean.jsonl.gz"
+  },
+  "output_dir": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504",
+  "required_episode_keys": [
+    "task_suite",
+    "task_id",
+    "success",
+    "steps",
+    "uncertainty_trace"
+  ],
+  "required_first_step_denoise_keys": [
+    "denoise_initial_mean",
+    "denoise_final_mean",
+    "denoise_delta",
+    "denoise_slope",
+    "denoise_final_max",
+    "denoise_spike",
+    "denoise_final_gripper",
+    "denoise_final_rotation_mean"
+  ],
+  "source_runs": [
+    "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_15000_20260430_093849",
+    "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_50000_after_phase2_tdqc_denoise_15000_20260430_093849_20260430_163924"
+  ],
+  "split_policy": "deterministic exact 80/10/10 within each (task_suite, success) stratum, sorted by sha1(source_run|file|line|suite|task_id|success)",
+  "splits": {
+    "test": {
+      "by_suite": {
+        "libero_10_lan": {
+          "episodes": 126,
+          "failure": 11,
+          "success": 115
+        },
+        "libero_10_object": {
+          "episodes": 113,
+          "failure": 67,
+          "success": 46
+        },
+        "libero_10_swap": {
+          "episodes": 124,
+          "failure": 117,
+          "success": 7
+        },
+        "libero_goal_lan": {
+          "episodes": 125,
+          "failure": 4,
+          "success": 121
+        },
+        "libero_goal_swap": {
+          "episodes": 184,
+          "failure": 183,
+          "success": 1
+        },
+        "libero_object_lan": {
+          "episodes": 545,
+          "failure": 3,
+          "success": 542
+        },
+        "libero_object_object": {
+          "episodes": 545,
+          "failure": 58,
+          "success": 487
+        },
+        "libero_object_swap": {
+          "episodes": 545,
+          "failure": 544,
+          "success": 1
+        },
+        "libero_spatial_lan": {
+          "episodes": 545,
+          "failure": 13,
+          "success": 532
+        },
+        "libero_spatial_object": {
+          "episodes": 545,
+          "failure": 23,
+          "success": 522
+        },
+        "libero_spatial_swap": {
+          "episodes": 545,
+          "failure": 484,
+          "success": 61
+        }
+      },
+      "episodes": 3942,
+      "failure": 1507,
+      "success": 2435
+    },
+    "train": {
+      "by_suite": {
+        "libero_10_lan": {
+          "episodes": 1000,
+          "failure": 84,
+          "success": 916
+        },
+        "libero_10_object": {
+          "episodes": 900,
+          "failure": 530,
+          "success": 370
+        },
+        "libero_10_swap": {
+          "episodes": 1000,
+          "failure": 940,
+          "success": 60
+        },
+        "libero_goal_lan": {
+          "episodes": 1000,
+          "failure": 27,
+          "success": 973
+        },
+        "libero_goal_swap": {
+          "episodes": 1477,
+          "failure": 1463,
+          "success": 14
+        },
+        "libero_object_lan": {
+          "episodes": 4360,
+          "failure": 23,
+          "success": 4337
+        },
+        "libero_object_object": {
+          "episodes": 4360,
+          "failure": 462,
+          "success": 3898
+        },
+        "libero_object_swap": {
+          "episodes": 4360,
+          "failure": 4352,
+          "success": 8
+        },
+        "libero_spatial_lan": {
+          "episodes": 4360,
+          "failure": 106,
+          "success": 4254
+        },
+        "libero_spatial_object": {
+          "episodes": 4360,
+          "failure": 186,
+          "success": 4174
+        },
+        "libero_spatial_swap": {
+          "episodes": 4360,
+          "failure": 3867,
+          "success": 493
+        }
+      },
+      "episodes": 31537,
+      "failure": 12040,
+      "success": 19497
+    },
+    "val": {
+      "by_suite": {
+        "libero_10_lan": {
+          "episodes": 124,
+          "failure": 10,
+          "success": 114
+        },
+        "libero_10_object": {
+          "episodes": 112,
+          "failure": 66,
+          "success": 46
+        },
+        "libero_10_swap": {
+          "episodes": 126,
+          "failure": 118,
+          "success": 8
+        },
+        "libero_goal_lan": {
+          "episodes": 125,
+          "failure": 3,
+          "success": 122
+        },
+        "libero_goal_swap": {
+          "episodes": 185,
+          "failure": 183,
+          "success": 2
+        },
+        "libero_object_lan": {
+          "episodes": 545,
+          "failure": 3,
+          "success": 542
+        },
+        "libero_object_object": {
+          "episodes": 545,
+          "failure": 58,
+          "success": 487
+        },
+        "libero_object_swap": {
+          "episodes": 545,
+          "failure": 544,
+          "success": 1
+        },
+        "libero_spatial_lan": {
+          "episodes": 545,
+          "failure": 13,
+          "success": 532
+        },
+        "libero_spatial_object": {
+          "episodes": 545,
+          "failure": 23,
+          "success": 522
+        },
+        "libero_spatial_swap": {
+          "episodes": 545,
+          "failure": 483,
+          "success": 62
+        }
+      },
+      "episodes": 3942,
+      "failure": 1504,
+      "success": 2438
+    }
+  },
+  "validation": {
+    "failure": 15051,
+    "success": 24370,
+    "valid": 39421
+  }
+}

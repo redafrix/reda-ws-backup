@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 8
+Port: 8114
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406/ckpt-30000/libero_object_object_task8_seed431_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8114
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the chocolate pudding ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the chocolate pudding ...:  10%|█         | 1/10 [00:33<04:58, 33.21s/it][A
+pick up the chocolate pudding ...:  20%|██        | 2/10 [01:20<05:34, 41.77s/it][A
+pick up the chocolate pudding ...:  30%|███       | 3/10 [01:54<04:24, 37.86s/it][A
+pick up the chocolate pudding ...:  40%|████      | 4/10 [02:31<03:45, 37.60s/it][A
+pick up the chocolate pudding ...:  50%|█████     | 5/10 [03:04<03:00, 36.17s/it][A
+pick up the chocolate pudding ...:  60%|██████    | 6/10 [03:35<02:17, 34.33s/it][A
+pick up the chocolate pudding ...:  70%|███████   | 7/10 [04:10<01:43, 34.46s/it][A
+pick up the chocolate pudding ...:  80%|████████  | 8/10 [04:36<01:03, 31.68s/it][A
+pick up the chocolate pudding ...:  90%|█████████ | 9/10 [05:37<00:40, 40.99s/it][A
+pick up the chocolate pudding ...: 100%|██████████| 10/10 [06:08<00:00, 37.81s/it][A
+                                                                                  [ATasks:  20%|██        | 2/10 [06:10<24:42, 185.36s/it]Tasks: 100%|██████████| 10/10 [06:10<00:00, 37.07s/it]
+  [OK] Task 8 Ep 0: SUCCESS (steps=170)
+  [OK] Task 8 Ep 1: SUCCESS (steps=256)
+  [OK] Task 8 Ep 2: SUCCESS (steps=171)
+  [OK] Task 8 Ep 3: SUCCESS (steps=196)
+  [OK] Task 8 Ep 4: SUCCESS (steps=175)
+  [OK] Task 8 Ep 5: SUCCESS (steps=165)
+  [OK] Task 8 Ep 6: SUCCESS (steps=201)
+  [OK] Task 8 Ep 7: SUCCESS (steps=168)
+  [FAIL] Task 8 Ep 8: FAILURE (steps=410)
+  [OK] Task 8 Ep 9: SUCCESS (steps=201)
+   Task 8: 9/10 (90.0%)
+
+Total success rate: 9/10 (90.0%)

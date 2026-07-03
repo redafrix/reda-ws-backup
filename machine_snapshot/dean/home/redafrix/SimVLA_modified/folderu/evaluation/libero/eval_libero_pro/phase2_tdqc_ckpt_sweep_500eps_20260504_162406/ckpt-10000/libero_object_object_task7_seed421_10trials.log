@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 7
+Port: 8113
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406/ckpt-10000/libero_object_object_task7_seed421_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8113
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the milk and place it ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the milk and place it ...:  10%|█         | 1/10 [00:26<03:57, 26.43s/it][A
+pick up the milk and place it ...:  20%|██        | 2/10 [00:52<03:31, 26.45s/it][A
+pick up the milk and place it ...:  30%|███       | 3/10 [01:19<03:04, 26.37s/it][A
+pick up the milk and place it ...:  40%|████      | 4/10 [01:45<02:38, 26.37s/it][A
+pick up the milk and place it ...:  50%|█████     | 5/10 [02:12<02:13, 26.66s/it][A
+pick up the milk and place it ...:  60%|██████    | 6/10 [02:41<01:50, 27.54s/it][A
+pick up the milk and place it ...:  70%|███████   | 7/10 [03:09<01:22, 27.41s/it][A
+pick up the milk and place it ...:  80%|████████  | 8/10 [03:37<00:55, 27.58s/it][A
+pick up the milk and place it ...:  90%|█████████ | 9/10 [04:02<00:26, 26.98s/it][A
+pick up the milk and place it ...: 100%|██████████| 10/10 [04:29<00:00, 27.00s/it][A
+                                                                                  [ATasks:  30%|███       | 3/10 [04:31<10:34, 90.66s/it]Tasks: 100%|██████████| 10/10 [04:31<00:00, 27.20s/it]
+  [OK] Task 7 Ep 0: SUCCESS (steps=142)
+  [OK] Task 7 Ep 1: SUCCESS (steps=141)
+  [OK] Task 7 Ep 2: SUCCESS (steps=136)
+  [OK] Task 7 Ep 3: SUCCESS (steps=140)
+  [OK] Task 7 Ep 4: SUCCESS (steps=140)
+  [OK] Task 7 Ep 5: SUCCESS (steps=150)
+  [OK] Task 7 Ep 6: SUCCESS (steps=144)
+  [OK] Task 7 Ep 7: SUCCESS (steps=147)
+  [OK] Task 7 Ep 8: SUCCESS (steps=136)
+  [OK] Task 7 Ep 9: SUCCESS (steps=142)
+   Task 7: 10/10 (100.0%)
+
+Total success rate: 10/10 (100.0%)

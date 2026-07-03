@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 9
+Port: 8115
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406/ckpt-50000/libero_object_object_task9_seed431_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8115
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the orange juice and p...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the orange juice and p...:  10%|█         | 1/10 [00:31<04:45, 31.68s/it][A
+pick up the orange juice and p...:  20%|██        | 2/10 [01:00<03:59, 29.90s/it][A
+pick up the orange juice and p...:  30%|███       | 3/10 [01:24<03:11, 27.31s/it][A
+pick up the orange juice and p...:  40%|████      | 4/10 [01:48<02:35, 25.89s/it][A
+pick up the orange juice and p...:  50%|█████     | 5/10 [02:12<02:06, 25.27s/it][A
+pick up the orange juice and p...:  60%|██████    | 6/10 [02:36<01:39, 24.85s/it][A
+pick up the orange juice and p...:  70%|███████   | 7/10 [03:05<01:18, 26.24s/it][A
+pick up the orange juice and p...:  80%|████████  | 8/10 [03:35<00:55, 27.53s/it][A
+pick up the orange juice and p...:  90%|█████████ | 9/10 [04:07<00:28, 28.70s/it][A
+pick up the orange juice and p...: 100%|██████████| 10/10 [04:36<00:00, 29.02s/it][A
+                                                                                  [ATasks:  10%|█         | 1/10 [04:39<41:56, 279.58s/it]Tasks: 100%|██████████| 10/10 [04:39<00:00, 27.96s/it]
+  [OK] Task 9 Ep 0: SUCCESS (steps=122)
+  [OK] Task 9 Ep 1: SUCCESS (steps=121)
+  [OK] Task 9 Ep 2: SUCCESS (steps=121)
+  [OK] Task 9 Ep 3: SUCCESS (steps=124)
+  [OK] Task 9 Ep 4: SUCCESS (steps=125)
+  [OK] Task 9 Ep 5: SUCCESS (steps=122)
+  [OK] Task 9 Ep 6: SUCCESS (steps=126)
+  [OK] Task 9 Ep 7: SUCCESS (steps=123)
+  [OK] Task 9 Ep 8: SUCCESS (steps=120)
+  [OK] Task 9 Ep 9: SUCCESS (steps=119)
+   Task 9: 10/10 (100.0%)
+
+Total success rate: 10/10 (100.0%)

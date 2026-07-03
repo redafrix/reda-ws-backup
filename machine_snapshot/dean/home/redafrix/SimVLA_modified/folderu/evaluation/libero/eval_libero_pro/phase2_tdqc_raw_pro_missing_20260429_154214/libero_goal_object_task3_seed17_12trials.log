@@ -1,0 +1,41 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_goal_object
+Trials: 12
+Task id filter: 3
+Port: 8106
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_missing_20260429_154214/libero_goal_object_task3_seed17_12trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8106
+   Task suite: libero_goal_object
+   Replan steps: 5
+
+Traceback (most recent call last):
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 496, in <module>
+    main()
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 477, in main
+    client = WebSocketClient(args.host, args.port, replan_steps=args.replan_steps)
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 110, in __init__
+    self.client = ws_client.WebsocketClientPolicy(host, port)
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/openpi_client/websocket_client_policy.py", line 27, in __init__
+    self._ws, self._server_metadata = self._wait_for_server()
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/openpi_client/websocket_client_policy.py", line 35, in _wait_for_server
+    conn = websockets.sync.client.connect(
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/websockets/sync/client.py", line 253, in connect
+    sock = socket.create_connection((wsuri.host, wsuri.port), **kwargs)
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused

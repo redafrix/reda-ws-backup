@@ -1,0 +1,23 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1777301620.617580  125130 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1777301620.651205  125130 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1777301622.985303  125130 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+INFO:__main__:Loading SimVLA from /home/redafrix/SimVLA_modified/runs/simvla_libero_uncertainty/ckpt-60000...
+INFO:__main__:Using inference RNG seed: 7
+INFO:root:Loading SmolVLM from: HuggingFaceTB/SmolVLM-500M-Instruct
+`torch_dtype` is deprecated! Use `dtype` instead!
+INFO:root:SmolVLM hidden size: 960
+INFO:root:✓ Concat mode enabled: conditions concatenated to sequence
+INFO:root:[SmolVLMVLAProcessor] Initialized with image_size=384, mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]
+INFO:__main__:Loading norm stats from: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+INFO:__main__:   State norm: mean=[-0.07068316638469696, 0.018536901101469994, 0.8913209438323975]
+INFO:__main__:   Action norm: mean=[0.047240227460861206, 0.0508635975420475, -0.09378840774297714]
+INFO:__main__:Model loaded! Device: cuda, Image size: 384x384
+INFO:__main__:Starting SimVLA server on 0.0.0.0:8108
+INFO:__main__:  Image size: 384x384
+INFO:__main__:  Action horizon: 10
+INFO:__main__:Creating SimVLA server (host: 0.0.0.0, port: 8108)
+INFO:websockets.server:server listening on 0.0.0.0:8108
+INFO:__main__:SimVLA server listening on 0.0.0.0:8108

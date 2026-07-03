@@ -1,0 +1,40 @@
+============================================================
+Phase 2 TDQC LIBERO uncertainty rollout collection
+============================================================
+REPO_ROOT        = /home/redafrix/SimVLA_modified
+EVAL_DIR         = /home/redafrix/SimVLA_modified/evaluation/libero
+LIBERO_PRO_ROOT  = /home/redafrix/LIBERO-PRO
+PORTS            = 8103 8104 8105 8106 8107
+MAX_PARALLEL     = 5
+NO_VIDEO         = true
+SUITES           = libero_goal_object libero_goal_swap libero_10_object libero_10_swap
+SEEDS            = 7 17 46
+NUM_TRIALS       = 3
+OUT_DIR          = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528
+COMBINED_JSONL   = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/combined_all_suites_all_seeds.jsonl
+============================================================
+============================================================
+Running suite=libero_goal_object, seed=7, trials=3, port=8103
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_object_seed7_3trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_object_seed7_3trials.log
+============================================================
+============================================================
+Running suite=libero_goal_object, seed=17, trials=3, port=8104
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_object_seed17_3trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_object_seed17_3trials.log
+============================================================
+============================================================
+Running suite=libero_goal_object, seed=46, trials=3, port=8105
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_object_seed46_3trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_object_seed46_3trials.log
+============================================================
+============================================================
+Running suite=libero_goal_swap, seed=7, trials=3, port=8106
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_swap_seed7_3trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_swap_seed7_3trials.log
+============================================================
+============================================================
+Running suite=libero_goal_swap, seed=17, trials=3, port=8107
+Output JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_swap_seed17_3trials.jsonl
+Run log:      /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_raw_pro_fixed2_20260428_155528/libero_goal_swap_seed17_3trials.log
+============================================================

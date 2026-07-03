@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 0
+Port: 8111
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406/ckpt-60000/libero_object_object_task0_seed421_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8111
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the alphabet soup and ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the alphabet soup and ...:  10%|█         | 1/10 [02:14<20:06, 134.08s/it][A
+pick up the alphabet soup and ...:  20%|██        | 2/10 [04:14<16:46, 125.82s/it][A
+pick up the alphabet soup and ...:  30%|███       | 3/10 [06:12<14:16, 122.38s/it][A
+pick up the alphabet soup and ...:  40%|████      | 4/10 [07:59<11:38, 116.34s/it][A
+pick up the alphabet soup and ...:  50%|█████     | 5/10 [09:57<09:44, 116.81s/it][A
+pick up the alphabet soup and ...:  60%|██████    | 6/10 [12:12<08:12, 123.11s/it][A
+pick up the alphabet soup and ...:  70%|███████   | 7/10 [13:50<05:45, 115.06s/it][A
+pick up the alphabet soup and ...:  80%|████████  | 8/10 [14:39<03:07, 93.85s/it] [A
+pick up the alphabet soup and ...:  90%|█████████ | 9/10 [16:50<01:45, 105.53s/it][A
+pick up the alphabet soup and ...: 100%|██████████| 10/10 [18:02<00:00, 95.02s/it][A
+                                                                                  [ATasks: 100%|██████████| 10/10 [18:04<00:00, 108.47s/it]Tasks: 100%|██████████| 10/10 [18:04<00:00, 108.47s/it]
+  [FAIL] Task 0 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 5: FAILURE (steps=410)
+  [OK] Task 0 Ep 6: SUCCESS (steps=367)
+  [OK] Task 0 Ep 7: SUCCESS (steps=166)
+  [FAIL] Task 0 Ep 8: FAILURE (steps=410)
+  [OK] Task 0 Ep 9: SUCCESS (steps=202)
+   Task 0: 3/10 (30.0%)
+
+Total success rate: 3/10 (30.0%)

@@ -1,0 +1,42 @@
+============================================================
+Balanced Phase 2 TDQC LIBERO uncertainty rollout collection
+============================================================
+REPO_ROOT            = /home/redafrix/SimVLA_modified
+EVAL_DIR             = /home/redafrix/SimVLA_modified/evaluation/libero
+LIBERO_PRO_ROOT      = /home/redafrix/LIBERO-PRO
+PORTS                = 8103 8104 8105
+MAX_PARALLEL         = 3
+NO_VIDEO             = true
+STATE_STATS_PATH     = /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+EXTRA_PERTURBATIONS  = <none>
+OBJECT_PERTURB_LEVEL = hard
+SUITES               = libero_spatial_object
+TASK_IDS             = 0 1 2
+TARGET_PER_CLASS     = 10
+BATCH_TRIALS         = 10
+SEED_BASE            = 70000
+MAX_BATCHES_PER_TASK = 20
+OUT_DIR              = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_smoke_20260512_160822
+============================================================
+[OK] All 3/3 servers are reachable.
+[LAUNCH] suite=libero_spatial_object task=0 batch=0 seed=70000 port=8103
+[LAUNCH] suite=libero_spatial_object task=1 batch=0 seed=71000 port=8104
+[LAUNCH] suite=libero_spatial_object task=2 batch=0 seed=72000 port=8105
+[WARNING] Nonzero rc=1 for libero_spatial_object__task0. Keeping any partial JSONL. See /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_smoke_20260512_160822/raw_batches/libero_spatial_object__task0_batch0_seed70000.log
+[DONE] libero_spatial_object__task0 rc=1 raw(+0/+0) selected=0/0 batches=1
+[LAUNCH] suite=libero_spatial_object task=0 batch=1 seed=70001 port=8103
+[WARNING] Nonzero rc=1 for libero_spatial_object__task1. Keeping any partial JSONL. See /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_smoke_20260512_160822/raw_batches/libero_spatial_object__task1_batch0_seed71000.log
+[DONE] libero_spatial_object__task1 rc=1 raw(+0/+0) selected=0/0 batches=1
+[LAUNCH] suite=libero_spatial_object task=1 batch=1 seed=71001 port=8104
+[WARNING] Nonzero rc=1 for libero_spatial_object__task2. Keeping any partial JSONL. See /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_smoke_20260512_160822/raw_batches/libero_spatial_object__task2_batch0_seed72000.log
+[DONE] libero_spatial_object__task2 rc=1 raw(+0/+0) selected=0/0 batches=1
+[LAUNCH] suite=libero_spatial_object task=2 batch=1 seed=72001 port=8105
+[WARNING] Nonzero rc=1 for libero_spatial_object__task0. Keeping any partial JSONL. See /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_smoke_20260512_160822/raw_batches/libero_spatial_object__task0_batch1_seed70001.log
+[DONE] libero_spatial_object__task0 rc=1 raw(+0/+0) selected=0/0 batches=2
+[LAUNCH] suite=libero_spatial_object task=0 batch=2 seed=70002 port=8103
+[WARNING] Nonzero rc=1 for libero_spatial_object__task1. Keeping any partial JSONL. See /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_smoke_20260512_160822/raw_batches/libero_spatial_object__task1_batch1_seed71001.log
+[DONE] libero_spatial_object__task1 rc=1 raw(+0/+0) selected=0/0 batches=2
+[LAUNCH] suite=libero_spatial_object task=1 batch=2 seed=71002 port=8104
+[WARNING] Nonzero rc=1 for libero_spatial_object__task2. Keeping any partial JSONL. See /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_smoke_20260512_160822/raw_batches/libero_spatial_object__task2_batch1_seed72001.log
+[DONE] libero_spatial_object__task2 rc=1 raw(+0/+0) selected=0/0 batches=2
+[LAUNCH] suite=libero_spatial_object task=2 batch=2 seed=72002 port=8105

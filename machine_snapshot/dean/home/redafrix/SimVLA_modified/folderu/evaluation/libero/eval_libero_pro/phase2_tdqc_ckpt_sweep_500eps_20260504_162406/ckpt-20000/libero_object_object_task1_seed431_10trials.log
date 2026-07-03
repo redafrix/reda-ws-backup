@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 1
+Port: 8112
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406/ckpt-20000/libero_object_object_task1_seed431_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8112
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the cream cheese and p...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the cream cheese and p...:  10%|█         | 1/10 [00:21<03:10, 21.18s/it][A
+pick up the cream cheese and p...:  20%|██        | 2/10 [00:46<03:08, 23.59s/it][A
+pick up the cream cheese and p...:  30%|███       | 3/10 [01:11<02:50, 24.40s/it][A
+pick up the cream cheese and p...:  40%|████      | 4/10 [01:34<02:22, 23.74s/it][A
+pick up the cream cheese and p...:  50%|█████     | 5/10 [01:54<01:51, 22.25s/it][A
+pick up the cream cheese and p...:  60%|██████    | 6/10 [02:18<01:32, 23.08s/it][A
+pick up the cream cheese and p...:  70%|███████   | 7/10 [02:45<01:12, 24.23s/it][A
+pick up the cream cheese and p...:  80%|████████  | 8/10 [03:10<00:49, 24.65s/it][A
+pick up the cream cheese and p...:  90%|█████████ | 9/10 [03:36<00:24, 24.80s/it][A
+pick up the cream cheese and p...: 100%|██████████| 10/10 [04:01<00:00, 25.09s/it][A
+                                                                                  [ATasks:  90%|█████████ | 9/10 [04:03<00:27, 27.09s/it]Tasks: 100%|██████████| 10/10 [04:03<00:00, 24.38s/it]
+  [OK] Task 1 Ep 0: SUCCESS (steps=136)
+  [OK] Task 1 Ep 1: SUCCESS (steps=161)
+  [OK] Task 1 Ep 2: SUCCESS (steps=162)
+  [OK] Task 1 Ep 3: SUCCESS (steps=147)
+  [OK] Task 1 Ep 4: SUCCESS (steps=133)
+  [OK] Task 1 Ep 5: SUCCESS (steps=162)
+  [OK] Task 1 Ep 6: SUCCESS (steps=168)
+  [OK] Task 1 Ep 7: SUCCESS (steps=134)
+  [OK] Task 1 Ep 8: SUCCESS (steps=134)
+  [OK] Task 1 Ep 9: SUCCESS (steps=135)
+   Task 1: 10/10 (100.0%)
+
+Total success rate: 10/10 (100.0%)

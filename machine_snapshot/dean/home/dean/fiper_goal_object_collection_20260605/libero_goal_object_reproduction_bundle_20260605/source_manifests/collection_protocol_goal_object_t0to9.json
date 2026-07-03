@@ -1,0 +1,103 @@
+{
+  "protocol_id": "libero_goal_multi_ood_calibrated_100s100f_trials0to9_40to49_20260604",
+  "purpose": "Suite-diverse LIBERO-PRO goal-family OOD calibration pool for full-UQ risk monitoring.",
+  "suites": [
+    {
+      "perturbation_family": "initial_layout_swap_ood",
+      "task_suite_name": "libero_goal_swap"
+    },
+    {
+      "perturbation_family": "object_substitution_ood",
+      "task_suite_name": "libero_goal_object"
+    },
+    {
+      "perturbation_family": "task_composition_ood",
+      "task_suite_name": "libero_goal_task"
+    },
+    {
+      "perturbation_family": "language_goal_ood",
+      "task_suite_name": "libero_goal_lan"
+    }
+  ],
+  "candidate_episode_spec": {
+    "eval_seed": 0,
+    "initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "task_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "total_candidates": 800
+  },
+  "runtime": {
+    "max_episode_steps": 250,
+    "trial_windows": [
+      {
+        "num_trials_per_task": 10,
+        "trial_end_index": 9,
+        "trial_start_index": 0
+      },
+      {
+        "num_trials_per_task": 10,
+        "trial_end_index": 49,
+        "trial_start_index": 40
+      }
+    ],
+    "vam_num_execute_actions": 14,
+    "vam_num_sampling_steps": 2,
+    "vam_stop_video_denoising_step": 0
+  },
+  "full_uq": {
+    "action_candidates": 8,
+    "action_candidate_batch_size": 4,
+    "save_action_candidate_arrays": true,
+    "save_v2w_variance_arrays": true,
+    "v2w_candidates": 3
+  },
+  "selection": {
+    "max_episodes_per_suite_per_class": 50,
+    "min_episodes_per_class": 100,
+    "selection_seed": 20260604,
+    "target_failures": 100,
+    "target_successes": 100
+  },
+  "non_overlap_contract": {
+    "current_multi_ood_trials": "10-14",
+    "previous_pro_goal_object_ood_trials": "10-39",
+    "this_protocol_trials": "0-9 and 40-49",
+    "episode_identity": [
+      "task_suite_name",
+      "task_id",
+      "initial_state_index",
+      "eval_seed"
+    ]
+  }
+}

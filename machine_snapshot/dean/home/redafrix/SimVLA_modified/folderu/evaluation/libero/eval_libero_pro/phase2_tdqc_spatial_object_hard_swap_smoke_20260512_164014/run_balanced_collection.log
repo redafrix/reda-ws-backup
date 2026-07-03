@@ -1,0 +1,113 @@
+============================================================
+Balanced Phase 2 TDQC LIBERO uncertainty rollout collection
+============================================================
+REPO_ROOT            = /home/redafrix/SimVLA_modified
+EVAL_DIR             = /home/redafrix/SimVLA_modified/evaluation/libero
+LIBERO_PRO_ROOT      = /home/redafrix/LIBERO-PRO
+PORTS                = 8103 8104 8105
+MAX_PARALLEL         = 3
+NO_VIDEO             = true
+STATE_STATS_PATH     = /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+EXTRA_PERTURBATIONS  = swap
+OBJECT_PERTURB_LEVEL = hard
+SUITES               = libero_spatial_object
+TASK_IDS             = 0 1 2
+TARGET_PER_CLASS     = 10
+BATCH_TRIALS         = 10
+SEED_BASE            = 70000
+MAX_BATCHES_PER_TASK = 20
+OUT_DIR              = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_swap_smoke_20260512_164014
+============================================================
+[OK] All 3/3 servers are reachable.
+[PREP] FORCE_LIBERO_PRO_REGEN=true: regenerating each suite once before collection.
+[PREP] suite=libero_spatial_object log=/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_swap_smoke_20260512_164014/raw_batches/libero_spatial_object__asset_prep.log
+[PREP] Suite asset regeneration complete; batch jobs will reuse generated assets.
+[LAUNCH] suite=libero_spatial_object task=0 batch=0 seed=70000 port=8103
+[LAUNCH] suite=libero_spatial_object task=1 batch=0 seed=71000 port=8104
+[LAUNCH] suite=libero_spatial_object task=2 batch=0 seed=72000 port=8105
+[DONE] libero_spatial_object__task2 rc=0 raw(+8/+2) selected=8/2 batches=1
+[LAUNCH] suite=libero_spatial_object task=2 batch=1 seed=72001 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=8/2 batches=1
+[LAUNCH] suite=libero_spatial_object task=0 batch=1 seed=70001 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=1
+[LAUNCH] suite=libero_spatial_object task=1 batch=1 seed=71001 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+6/+4) selected=10/6 batches=2
+[LAUNCH] suite=libero_spatial_object task=2 batch=2 seed=72002 port=8105
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=10/6 batches=3
+[LAUNCH] suite=libero_spatial_object task=2 batch=3 seed=72003 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+5/+5) selected=10/7 batches=2
+[LAUNCH] suite=libero_spatial_object task=0 batch=2 seed=70002 port=8103
+[DONE] libero_spatial_object__task2 rc=0 raw(+9/+1) selected=10/7 batches=4
+[LAUNCH] suite=libero_spatial_object task=2 batch=4 seed=72004 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=2
+[LAUNCH] suite=libero_spatial_object task=1 batch=2 seed=71002 port=8104
+[DONE] libero_spatial_object__task0 rc=0 raw(+4/+6) selected=10/10 batches=3
+[DONE] libero_spatial_object__task2 rc=0 raw(+7/+3) selected=10/10 batches=5
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=3
+[LAUNCH] suite=libero_spatial_object task=1 batch=3 seed=71003 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=4
+[LAUNCH] suite=libero_spatial_object task=1 batch=4 seed=71004 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=5
+[LAUNCH] suite=libero_spatial_object task=1 batch=5 seed=71005 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=6
+[LAUNCH] suite=libero_spatial_object task=1 batch=6 seed=71006 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=7
+[LAUNCH] suite=libero_spatial_object task=1 batch=7 seed=71007 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=8
+[LAUNCH] suite=libero_spatial_object task=1 batch=8 seed=71008 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=9
+[LAUNCH] suite=libero_spatial_object task=1 batch=9 seed=71009 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=10
+[LAUNCH] suite=libero_spatial_object task=1 batch=10 seed=71010 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=11
+[LAUNCH] suite=libero_spatial_object task=1 batch=11 seed=71011 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=12
+[LAUNCH] suite=libero_spatial_object task=1 batch=12 seed=71012 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=13
+[LAUNCH] suite=libero_spatial_object task=1 batch=13 seed=71013 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=14
+[LAUNCH] suite=libero_spatial_object task=1 batch=14 seed=71014 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=15
+[LAUNCH] suite=libero_spatial_object task=1 batch=15 seed=71015 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=16
+[LAUNCH] suite=libero_spatial_object task=1 batch=16 seed=71016 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=17
+[LAUNCH] suite=libero_spatial_object task=1 batch=17 seed=71017 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=18
+[LAUNCH] suite=libero_spatial_object task=1 batch=18 seed=71018 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=19
+[LAUNCH] suite=libero_spatial_object task=1 batch=19 seed=71019 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+0/+10) selected=0/10 batches=20
+{
+  "target_per_class": 10,
+  "expected_task_count": 3,
+  "completed_task_count": 2,
+  "selected_success_total": 20,
+  "selected_failure_total": 30,
+  "combined_lines": 50,
+  "tasks": [
+    {
+      "file": "libero_spatial_object__task0_balanced.jsonl",
+      "selected_success": 10,
+      "selected_failure": 10,
+      "complete": true
+    },
+    {
+      "file": "libero_spatial_object__task1_balanced.jsonl",
+      "selected_success": 0,
+      "selected_failure": 10,
+      "complete": false
+    },
+    {
+      "file": "libero_spatial_object__task2_balanced.jsonl",
+      "selected_success": 10,
+      "selected_failure": 10,
+      "complete": true
+    }
+  ]
+}
+============================================================
+Balanced collection finished.
+Selected combined JSONL: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_swap_smoke_20260512_164014/combined_balanced.jsonl
+Summary JSON: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_swap_smoke_20260512_164014/balanced_summary.json
+============================================================

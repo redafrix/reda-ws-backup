@@ -1,0 +1,693 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778580676.237268   18680 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1778580678.860722   18680 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778580682.611544   18680 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+INFO:__main__:Loading SimVLA from /home/redafrix/SimVLA_modified/runs/simvla_libero_uncertainty/ckpt-60000...
+INFO:__main__:Using inference RNG seed: 7
+INFO:root:Loading SmolVLM from: HuggingFaceTB/SmolVLM-500M-Instruct
+`torch_dtype` is deprecated! Use `dtype` instead!
+INFO:root:SmolVLM hidden size: 960
+INFO:root:✓ Concat mode enabled: conditions concatenated to sequence
+INFO:root:[SmolVLMVLAProcessor] Initialized with image_size=384, mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]
+INFO:__main__:Loading norm stats from: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+INFO:__main__:   State norm: mean=[-0.07068316638469696, 0.018536901101469994, 0.8913209438323975]
+INFO:__main__:   Action norm: mean=[0.047240227460861206, 0.0508635975420475, -0.09378840774297714]
+INFO:__main__:Model loaded! Device: cuda, Image size: 384x384
+INFO:__main__:Starting SimVLA server on 0.0.0.0:8103
+INFO:__main__:  Image size: 384x384
+INFO:__main__:  Action horizon: 10
+INFO:__main__:  Action disagreement samples: 8
+INFO:__main__:Creating SimVLA server (host: 0.0.0.0, port: 8103)
+INFO:websockets.server:server listening on 0.0.0.0:8103
+INFO:__main__:SimVLA server listening on 0.0.0.0:8103
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 53122) opened
+INFO:__main__:Connection from ('127.0.0.1', 53122) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 46674) opened
+INFO:__main__:Connection from ('127.0.0.1', 46674) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 54432) opened
+INFO:__main__:Connection from ('127.0.0.1', 54432) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 39630) opened
+INFO:__main__:Connection from ('127.0.0.1', 39630) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 49602) opened
+INFO:__main__:Connection from ('127.0.0.1', 49602) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 33250) opened
+INFO:__main__:Connection from ('127.0.0.1', 33250) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 57890) opened
+INFO:__main__:Connection from ('127.0.0.1', 57890) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 60998) opened
+INFO:__main__:Connection from ('127.0.0.1', 60998) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 60328) opened
+INFO:__main__:Connection from ('127.0.0.1', 60328) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 33176) opened
+INFO:__main__:Connection from ('127.0.0.1', 33176) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 45546) opened
+INFO:__main__:Connection from ('127.0.0.1', 45546) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 34914) opened
+INFO:__main__:Connection from ('127.0.0.1', 34914) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 33942) opened
+INFO:__main__:Connection from ('127.0.0.1', 33942) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 48068) opened
+INFO:__main__:Connection from ('127.0.0.1', 48068) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 56488) opened
+INFO:__main__:Connection from ('127.0.0.1', 56488) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 48580) opened
+INFO:__main__:Connection from ('127.0.0.1', 48580) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 47082) opened
+INFO:__main__:Connection from ('127.0.0.1', 47082) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 37792) opened
+INFO:__main__:Connection from ('127.0.0.1', 37792) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 40022) opened
+INFO:__main__:Connection from ('127.0.0.1', 40022) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 56696) opened
+INFO:__main__:Connection from ('127.0.0.1', 56696) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 47274) opened
+INFO:__main__:Connection from ('127.0.0.1', 47274) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 40352) opened
+INFO:__main__:Connection from ('127.0.0.1', 40352) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 45080) opened
+INFO:__main__:Connection from ('127.0.0.1', 45080) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 53950) opened
+INFO:__main__:Connection from ('127.0.0.1', 53950) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 49750) opened
+INFO:__main__:Connection from ('127.0.0.1', 49750) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 54562) opened
+INFO:__main__:Connection from ('127.0.0.1', 54562) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 49576) opened
+INFO:__main__:Connection from ('127.0.0.1', 49576) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 44046) opened
+INFO:__main__:Connection from ('127.0.0.1', 44046) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 41782) opened
+INFO:__main__:Connection from ('127.0.0.1', 41782) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 59822) opened
+INFO:__main__:Connection from ('127.0.0.1', 59822) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 49698) opened
+INFO:__main__:Connection from ('127.0.0.1', 49698) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 44416) opened
+INFO:__main__:Connection from ('127.0.0.1', 44416) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 41144) opened
+INFO:__main__:Connection from ('127.0.0.1', 41144) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 60748) opened
+INFO:__main__:Connection from ('127.0.0.1', 60748) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 54350) opened
+INFO:__main__:Connection from ('127.0.0.1', 54350) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 40118) opened
+INFO:__main__:Connection from ('127.0.0.1', 40118) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 39372) opened
+INFO:__main__:Connection from ('127.0.0.1', 39372) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 32996) opened
+INFO:__main__:Connection from ('127.0.0.1', 32996) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 47548) opened
+INFO:__main__:Connection from ('127.0.0.1', 47548) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 44388) opened
+INFO:__main__:Connection from ('127.0.0.1', 44388) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 37120) opened
+INFO:__main__:Connection from ('127.0.0.1', 37120) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 55270) opened
+INFO:__main__:Connection from ('127.0.0.1', 55270) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 52930) opened
+INFO:__main__:Connection from ('127.0.0.1', 52930) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 34592) opened
+INFO:__main__:Connection from ('127.0.0.1', 34592) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 34860) opened
+INFO:__main__:Connection from ('127.0.0.1', 34860) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 41994) opened
+INFO:__main__:Connection from ('127.0.0.1', 41994) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 57962) opened
+INFO:__main__:Connection from ('127.0.0.1', 57962) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 51926) opened
+INFO:__main__:Connection from ('127.0.0.1', 51926) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 56074) opened
+INFO:__main__:Connection from ('127.0.0.1', 56074) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 32938) opened
+INFO:__main__:Connection from ('127.0.0.1', 32938) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 55260) opened
+INFO:__main__:Connection from ('127.0.0.1', 55260) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 54714) opened
+INFO:__main__:Connection from ('127.0.0.1', 54714) closed
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request
+ERROR:websockets.server:opening handshake failed
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 138, in parse
+    request_line = yield from parse_line(read_line)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 320, in parse_line
+    line = yield from read_line(MAX_LINE_LENGTH)
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/streams.py", line 46, in read_line
+    raise EOFError(f"stream ends after {p} bytes, before end of line")
+EOFError: stream ends after 0 bytes, before end of line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/server.py", line 547, in parse
+    request = yield from Request.parse(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/http11.py", line 140, in parse
+    raise EOFError("connection closed while reading HTTP request line") from exc
+EOFError: connection closed while reading HTTP request line
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 356, in conn_handler
+    await connection.handshake(
+  File "/home/redafrix/miniconda3/envs/simvla/lib/python3.10/site-packages/websockets/asyncio/server.py", line 207, in handshake
+    raise self.protocol.handshake_exc
+websockets.exceptions.InvalidMessage: did not receive a valid HTTP request

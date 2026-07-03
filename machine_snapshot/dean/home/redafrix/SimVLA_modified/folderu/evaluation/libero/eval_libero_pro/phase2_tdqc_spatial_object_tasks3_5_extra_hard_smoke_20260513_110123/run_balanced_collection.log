@@ -1,0 +1,31 @@
+============================================================
+Balanced Phase 2 TDQC LIBERO uncertainty rollout collection
+============================================================
+REPO_ROOT            = /home/redafrix/SimVLA_modified
+EVAL_DIR             = /home/redafrix/SimVLA_modified/evaluation/libero
+LIBERO_PRO_ROOT      = /home/redafrix/LIBERO-PRO
+PORTS                = 8103 8104 8105
+MAX_PARALLEL         = 3
+NO_VIDEO             = true
+STATE_STATS_PATH     = /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+EXTRA_PERTURBATIONS  = <none>
+OBJECT_PERTURB_LEVEL = extra_hard
+SUITES               = libero_spatial_object
+TASK_IDS             = 3 4 5
+TARGET_PER_CLASS     = 10
+BATCH_TRIALS         = 10
+SEED_BASE            = 93000
+MAX_BATCHES_PER_TASK = 20
+OUT_DIR              = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_tasks3_5_extra_hard_smoke_20260513_110123
+============================================================
+[OK] All 3/3 servers are reachable.
+[PREP] FORCE_LIBERO_PRO_REGEN=true: regenerating each suite once before collection.
+[PREP] suite=libero_spatial_object log=/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_tasks3_5_extra_hard_smoke_20260513_110123/raw_batches/libero_spatial_object__asset_prep.log
+[PREP] Suite asset regeneration complete; batch jobs will reuse generated assets.
+[LAUNCH] suite=libero_spatial_object task=3 batch=0 seed=93000 port=8103
+[LAUNCH] suite=libero_spatial_object task=4 batch=0 seed=94000 port=8104
+[LAUNCH] suite=libero_spatial_object task=5 batch=0 seed=95000 port=8105
+[DONE] libero_spatial_object__task3 rc=0 raw(+10/+0) selected=10/0 batches=1
+[LAUNCH] suite=libero_spatial_object task=3 batch=1 seed=93001 port=8103
+[DONE] libero_spatial_object__task4 rc=0 raw(+10/+0) selected=10/0 batches=1
+[LAUNCH] suite=libero_spatial_object task=4 batch=1 seed=94001 port=8104

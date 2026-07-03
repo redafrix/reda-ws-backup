@@ -1,0 +1,159 @@
+{
+  "source_files": [
+    "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_denoise_clean_splits_20260504/combined_clean.jsonl.gz",
+    "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/combined_goal_object_ood.jsonl"
+  ],
+  "created_at": "2026-05-05T10:05:27",
+  "split_policy": "train/val use only *_swap and *_lan PRO suites; deterministic 90/10 hash split within non-object train pool; test uses only *_object suites; no *_object in train/val",
+  "train_suites": [
+    "libero_10_lan",
+    "libero_10_swap",
+    "libero_goal_lan",
+    "libero_goal_swap",
+    "libero_object_lan",
+    "libero_object_swap",
+    "libero_spatial_lan",
+    "libero_spatial_swap"
+  ],
+  "test_suites": [
+    "libero_10_object",
+    "libero_goal_object",
+    "libero_object_object",
+    "libero_spatial_object"
+  ],
+  "outputs": {
+    "train": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_object_holdout_splits_20260505/train_non_object_pro.jsonl.gz",
+      "episodes": 24750,
+      "success": 12510,
+      "failure": 12240,
+      "by_suite": {
+        "libero_10_lan": {
+          "episodes": 1143,
+          "success": 1051,
+          "failure": 92
+        },
+        "libero_10_swap": {
+          "episodes": 1130,
+          "success": 66,
+          "failure": 1064
+        },
+        "libero_goal_lan": {
+          "episodes": 1128,
+          "success": 1096,
+          "failure": 32
+        },
+        "libero_goal_swap": {
+          "episodes": 1681,
+          "success": 13,
+          "failure": 1668
+        },
+        "libero_object_lan": {
+          "episodes": 4899,
+          "success": 4874,
+          "failure": 25
+        },
+        "libero_object_swap": {
+          "episodes": 4892,
+          "success": 10,
+          "failure": 4882
+        },
+        "libero_spatial_lan": {
+          "episodes": 4950,
+          "success": 4834,
+          "failure": 116
+        },
+        "libero_spatial_swap": {
+          "episodes": 4927,
+          "success": 566,
+          "failure": 4361
+        }
+      }
+    },
+    "val": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_object_holdout_splits_20260505/val_non_object_pro.jsonl.gz",
+      "episodes": 2646,
+      "success": 1308,
+      "failure": 1338,
+      "by_suite": {
+        "libero_10_lan": {
+          "episodes": 107,
+          "success": 94,
+          "failure": 13
+        },
+        "libero_10_swap": {
+          "episodes": 120,
+          "success": 9,
+          "failure": 111
+        },
+        "libero_goal_lan": {
+          "episodes": 122,
+          "success": 120,
+          "failure": 2
+        },
+        "libero_goal_swap": {
+          "episodes": 165,
+          "success": 4,
+          "failure": 161
+        },
+        "libero_object_lan": {
+          "episodes": 551,
+          "success": 547,
+          "failure": 4
+        },
+        "libero_object_swap": {
+          "episodes": 558,
+          "success": 0,
+          "failure": 558
+        },
+        "libero_spatial_lan": {
+          "episodes": 500,
+          "success": 484,
+          "failure": 16
+        },
+        "libero_spatial_swap": {
+          "episodes": 523,
+          "success": 50,
+          "failure": 473
+        }
+      }
+    },
+    "test": {
+      "path": "/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_object_holdout_splits_20260505/test_object_perturbation.jsonl.gz",
+      "episodes": 12475,
+      "success": 10933,
+      "failure": 1542,
+      "by_suite": {
+        "libero_10_object": {
+          "episodes": 1125,
+          "success": 462,
+          "failure": 663
+        },
+        "libero_goal_object": {
+          "episodes": 450,
+          "success": 381,
+          "failure": 69
+        },
+        "libero_object_object": {
+          "episodes": 5450,
+          "success": 4872,
+          "failure": 578
+        },
+        "libero_spatial_object": {
+          "episodes": 5450,
+          "success": 5218,
+          "failure": 232
+        }
+      }
+    }
+  },
+  "skipped": {},
+  "ignored": {
+    "total": {
+      "episodes": 0,
+      "success": 0,
+      "failure": 0
+    },
+    "by_suite": {}
+  }
+}

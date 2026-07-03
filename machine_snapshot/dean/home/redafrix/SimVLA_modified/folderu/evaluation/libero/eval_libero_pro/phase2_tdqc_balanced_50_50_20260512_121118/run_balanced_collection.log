@@ -1,0 +1,165 @@
+============================================================
+Balanced Phase 2 TDQC LIBERO uncertainty rollout collection
+============================================================
+REPO_ROOT            = /home/redafrix/SimVLA_modified
+EVAL_DIR             = /home/redafrix/SimVLA_modified/evaluation/libero
+LIBERO_PRO_ROOT      = /home/redafrix/LIBERO-PRO
+PORTS                = 8103 8104 8105
+MAX_PARALLEL         = 3
+NO_VIDEO             = true
+STATE_STATS_PATH     = /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+SUITES               = libero_spatial_object libero_spatial_swap libero_spatial_lan libero_object_object libero_object_swap libero_object_lan libero_goal_object libero_goal_swap libero_goal_lan libero_10_object libero_10_swap libero_10_lan
+TASK_IDS             = 0 1 2 3 4 5 6 7 8 9
+TARGET_PER_CLASS     = 50
+BATCH_TRIALS         = 10
+SEED_BASE            = 50000
+MAX_BATCHES_PER_TASK = 100
+OUT_DIR              = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_balanced_50_50_20260512_121118
+============================================================
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[WAIT] Servers reachable: 0/3 ...
+[OK] All 3/3 servers are reachable.
+[LAUNCH] suite=libero_spatial_object task=0 batch=0 seed=50000 port=8103
+[LAUNCH] suite=libero_spatial_object task=1 batch=0 seed=51000 port=8104
+[LAUNCH] suite=libero_spatial_object task=2 batch=0 seed=52000 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=10/0 batches=1
+[LAUNCH] suite=libero_spatial_object task=1 batch=1 seed=51001 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+9/+1) selected=9/1 batches=1
+[LAUNCH] suite=libero_spatial_object task=2 batch=1 seed=52001 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=8/2 batches=1
+[LAUNCH] suite=libero_spatial_object task=0 batch=1 seed=50001 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=20/0 batches=2
+[LAUNCH] suite=libero_spatial_object task=1 batch=2 seed=51002 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=19/1 batches=2
+[LAUNCH] suite=libero_spatial_object task=2 batch=2 seed=52002 port=8105
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=29/1 batches=3
+[LAUNCH] suite=libero_spatial_object task=2 batch=3 seed=52003 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=16/4 batches=2
+[LAUNCH] suite=libero_spatial_object task=0 batch=2 seed=50002 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=30/0 batches=3
+[LAUNCH] suite=libero_spatial_object task=1 batch=3 seed=51003 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=39/1 batches=4
+[LAUNCH] suite=libero_spatial_object task=2 batch=4 seed=52004 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=40/0 batches=4
+[LAUNCH] suite=libero_spatial_object task=1 batch=4 seed=51004 port=8104
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=24/6 batches=3
+[LAUNCH] suite=libero_spatial_object task=0 batch=3 seed=50003 port=8103
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=49/1 batches=5
+[LAUNCH] suite=libero_spatial_object task=2 batch=5 seed=52005 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=5
+[LAUNCH] suite=libero_spatial_object task=1 batch=5 seed=51005 port=8104
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=32/8 batches=4
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/1 batches=6
+[LAUNCH] suite=libero_spatial_object task=0 batch=4 seed=50004 port=8103
+[LAUNCH] suite=libero_spatial_object task=2 batch=6 seed=52006 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=6
+[LAUNCH] suite=libero_spatial_object task=1 batch=6 seed=51006 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+9/+1) selected=50/2 batches=7
+[LAUNCH] suite=libero_spatial_object task=2 batch=7 seed=52007 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=40/10 batches=5
+[LAUNCH] suite=libero_spatial_object task=0 batch=5 seed=50005 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=7
+[LAUNCH] suite=libero_spatial_object task=1 batch=7 seed=51007 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=8
+[LAUNCH] suite=libero_spatial_object task=2 batch=8 seed=52008 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=8
+[LAUNCH] suite=libero_spatial_object task=1 batch=8 seed=51008 port=8104
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=48/12 batches=6
+[LAUNCH] suite=libero_spatial_object task=0 batch=6 seed=50006 port=8103
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=9
+[LAUNCH] suite=libero_spatial_object task=2 batch=9 seed=52009 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=9
+[LAUNCH] suite=libero_spatial_object task=1 batch=9 seed=51009 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=10
+[LAUNCH] suite=libero_spatial_object task=2 batch=10 seed=52010 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=50/14 batches=7
+[LAUNCH] suite=libero_spatial_object task=0 batch=7 seed=50007 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=10
+[LAUNCH] suite=libero_spatial_object task=1 batch=10 seed=51010 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=11
+[LAUNCH] suite=libero_spatial_object task=2 batch=11 seed=52011 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=50/16 batches=8
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=11
+[LAUNCH] suite=libero_spatial_object task=0 batch=8 seed=50008 port=8103
+[LAUNCH] suite=libero_spatial_object task=1 batch=11 seed=51011 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=12
+[LAUNCH] suite=libero_spatial_object task=2 batch=12 seed=52012 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=12
+[LAUNCH] suite=libero_spatial_object task=1 batch=12 seed=51012 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=13
+[LAUNCH] suite=libero_spatial_object task=2 batch=13 seed=52013 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=50/18 batches=9
+[LAUNCH] suite=libero_spatial_object task=0 batch=9 seed=50009 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=13
+[LAUNCH] suite=libero_spatial_object task=1 batch=13 seed=51013 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=14
+[LAUNCH] suite=libero_spatial_object task=2 batch=14 seed=52014 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=50/20 batches=10
+[LAUNCH] suite=libero_spatial_object task=0 batch=10 seed=50010 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/0 batches=14
+[LAUNCH] suite=libero_spatial_object task=1 batch=14 seed=51014 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=15
+[LAUNCH] suite=libero_spatial_object task=2 batch=15 seed=52015 port=8105
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=16
+[LAUNCH] suite=libero_spatial_object task=2 batch=16 seed=52016 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=50/22 batches=11
+[LAUNCH] suite=libero_spatial_object task=0 batch=11 seed=50011 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+9/+1) selected=50/1 batches=15
+[LAUNCH] suite=libero_spatial_object task=1 batch=15 seed=51015 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=17
+[LAUNCH] suite=libero_spatial_object task=2 batch=17 seed=52017 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=50/24 batches=12
+[LAUNCH] suite=libero_spatial_object task=0 batch=12 seed=50012 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/1 batches=16
+[LAUNCH] suite=libero_spatial_object task=1 batch=16 seed=51016 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=18
+[LAUNCH] suite=libero_spatial_object task=2 batch=18 seed=52018 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/1 batches=17
+[LAUNCH] suite=libero_spatial_object task=1 batch=17 seed=51017 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=19
+[LAUNCH] suite=libero_spatial_object task=2 batch=19 seed=52019 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=50/26 batches=13
+[LAUNCH] suite=libero_spatial_object task=0 batch=13 seed=50013 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/1 batches=18
+[LAUNCH] suite=libero_spatial_object task=1 batch=18 seed=51018 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=20
+[LAUNCH] suite=libero_spatial_object task=2 batch=20 seed=52020 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=50/28 batches=14
+[LAUNCH] suite=libero_spatial_object task=0 batch=14 seed=50014 port=8103
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/1 batches=19
+[LAUNCH] suite=libero_spatial_object task=1 batch=19 seed=51019 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=21
+[LAUNCH] suite=libero_spatial_object task=2 batch=21 seed=52021 port=8105
+[DONE] libero_spatial_object__task0 rc=0 raw(+9/+1) selected=50/29 batches=15
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=22
+[LAUNCH] suite=libero_spatial_object task=0 batch=15 seed=50015 port=8103
+[LAUNCH] suite=libero_spatial_object task=2 batch=22 seed=52022 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/1 batches=20
+[LAUNCH] suite=libero_spatial_object task=1 batch=20 seed=51020 port=8104
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=23
+[LAUNCH] suite=libero_spatial_object task=2 batch=23 seed=52023 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/1 batches=21
+[LAUNCH] suite=libero_spatial_object task=1 batch=21 seed=51021 port=8104
+[DONE] libero_spatial_object__task0 rc=0 raw(+8/+2) selected=50/31 batches=16
+[LAUNCH] suite=libero_spatial_object task=0 batch=16 seed=50016 port=8103
+[DONE] libero_spatial_object__task2 rc=0 raw(+10/+0) selected=50/2 batches=24
+[LAUNCH] suite=libero_spatial_object task=2 batch=24 seed=52024 port=8105
+[DONE] libero_spatial_object__task1 rc=0 raw(+10/+0) selected=50/1 batches=22
+[LAUNCH] suite=libero_spatial_object task=1 batch=22 seed=51022 port=8104
+[WARNING] Nonzero rc=2 for libero_spatial_object__task2. Keeping any partial JSONL. See /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_balanced_50_50_20260512_121118/raw_batches/libero_spatial_object__task2_batch24_seed52024.log
+[DONE] libero_spatial_object__task2 rc=2 raw(+10/+0) selected=50/2 batches=25
+[LAUNCH] suite=libero_spatial_object task=2 batch=25 seed=52025 port=8105
+[WARNING] Nonzero rc=2 for libero_spatial_object__task0. Keeping any partial JSONL. See /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_balanced_50_50_20260512_121118/raw_batches/libero_spatial_object__task0_batch16_seed50016.log
+[DONE] libero_spatial_object__task0 rc=2 raw(+8/+2) selected=50/33 batches=17
+[LAUNCH] suite=libero_spatial_object task=0 batch=17 seed=50017 port=8103

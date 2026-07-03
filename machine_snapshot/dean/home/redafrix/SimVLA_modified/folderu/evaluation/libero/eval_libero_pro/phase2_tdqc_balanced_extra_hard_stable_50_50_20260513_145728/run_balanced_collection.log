@@ -1,0 +1,23 @@
+============================================================
+Balanced Phase 2 TDQC LIBERO uncertainty rollout collection
+============================================================
+REPO_ROOT            = /home/redafrix/SimVLA_modified
+EVAL_DIR             = /home/redafrix/SimVLA_modified/evaluation/libero
+LIBERO_PRO_ROOT      = /home/redafrix/LIBERO-PRO
+PORTS                = 8103 8104 8105
+MAX_PARALLEL         = 3
+NO_VIDEO             = true
+STATE_STATS_PATH     = /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+EXTRA_PERTURBATIONS  = <none>
+OBJECT_PERTURB_LEVEL = extra_hard
+SUITES               = libero_spatial_object libero_spatial_swap libero_spatial_lan libero_object_object libero_object_swap libero_object_lan libero_goal_object libero_goal_swap libero_goal_lan libero_10_object libero_10_swap libero_10_lan
+TASK_IDS             = 0 1 2 3 4 5 6 7 8 9
+TARGET_PER_CLASS     = 50
+BATCH_TRIALS         = 10
+SEED_BASE            = 140000
+MAX_BATCHES_PER_TASK = 100
+OUT_DIR              = /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_balanced_extra_hard_stable_50_50_20260513_145728
+============================================================
+[OK] All 3/3 servers are reachable.
+[PREP] FORCE_LIBERO_PRO_REGEN=true: regenerating each suite once before collection.
+[PREP] suite=libero_spatial_object log=/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_balanced_extra_hard_stable_50_50_20260513_145728/raw_batches/libero_spatial_object__asset_prep.log

@@ -1,0 +1,201 @@
+{
+  "source_root": "evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406",
+  "holdout_task_id": 4,
+  "train": {
+    "episodes": 1799,
+    "success": 1611,
+    "failure": 188,
+    "by_checkpoint": {
+      "ckpt-10000": {
+        "episodes": 360,
+        "success": 326,
+        "failure": 34
+      },
+      "ckpt-20000": {
+        "episodes": 360,
+        "success": 321,
+        "failure": 39
+      },
+      "ckpt-30000": {
+        "episodes": 359,
+        "success": 317,
+        "failure": 42
+      },
+      "ckpt-50000": {
+        "episodes": 360,
+        "success": 322,
+        "failure": 38
+      },
+      "ckpt-60000": {
+        "episodes": 360,
+        "success": 325,
+        "failure": 35
+      }
+    },
+    "by_task": {
+      "0": {
+        "episodes": 200,
+        "success": 28,
+        "failure": 172
+      },
+      "1": {
+        "episodes": 200,
+        "success": 199,
+        "failure": 1
+      },
+      "2": {
+        "episodes": 200,
+        "success": 198,
+        "failure": 2
+      },
+      "3": {
+        "episodes": 200,
+        "success": 200,
+        "failure": 0
+      },
+      "5": {
+        "episodes": 199,
+        "success": 195,
+        "failure": 4
+      },
+      "6": {
+        "episodes": 200,
+        "success": 200,
+        "failure": 0
+      },
+      "7": {
+        "episodes": 200,
+        "success": 200,
+        "failure": 0
+      },
+      "8": {
+        "episodes": 200,
+        "success": 191,
+        "failure": 9
+      },
+      "9": {
+        "episodes": 200,
+        "success": 200,
+        "failure": 0
+      }
+    }
+  },
+  "val": {
+    "episodes": 451,
+    "success": 405,
+    "failure": 46,
+    "by_checkpoint": {
+      "ckpt-10000": {
+        "episodes": 90,
+        "success": 82,
+        "failure": 8
+      },
+      "ckpt-20000": {
+        "episodes": 90,
+        "success": 81,
+        "failure": 9
+      },
+      "ckpt-30000": {
+        "episodes": 91,
+        "success": 80,
+        "failure": 11
+      },
+      "ckpt-50000": {
+        "episodes": 90,
+        "success": 81,
+        "failure": 9
+      },
+      "ckpt-60000": {
+        "episodes": 90,
+        "success": 81,
+        "failure": 9
+      }
+    },
+    "by_task": {
+      "0": {
+        "episodes": 50,
+        "success": 8,
+        "failure": 42
+      },
+      "1": {
+        "episodes": 50,
+        "success": 50,
+        "failure": 0
+      },
+      "2": {
+        "episodes": 50,
+        "success": 49,
+        "failure": 1
+      },
+      "3": {
+        "episodes": 50,
+        "success": 50,
+        "failure": 0
+      },
+      "5": {
+        "episodes": 51,
+        "success": 49,
+        "failure": 2
+      },
+      "6": {
+        "episodes": 50,
+        "success": 50,
+        "failure": 0
+      },
+      "7": {
+        "episodes": 50,
+        "success": 50,
+        "failure": 0
+      },
+      "8": {
+        "episodes": 50,
+        "success": 49,
+        "failure": 1
+      },
+      "9": {
+        "episodes": 50,
+        "success": 50,
+        "failure": 0
+      }
+    }
+  },
+  "test": {
+    "episodes": 250,
+    "success": 149,
+    "failure": 101,
+    "by_checkpoint": {
+      "ckpt-10000": {
+        "episodes": 50,
+        "success": 27,
+        "failure": 23
+      },
+      "ckpt-20000": {
+        "episodes": 50,
+        "success": 35,
+        "failure": 15
+      },
+      "ckpt-30000": {
+        "episodes": 50,
+        "success": 29,
+        "failure": 21
+      },
+      "ckpt-50000": {
+        "episodes": 50,
+        "success": 14,
+        "failure": 36
+      },
+      "ckpt-60000": {
+        "episodes": 50,
+        "success": 44,
+        "failure": 6
+      }
+    },
+    "by_task": {
+      "4": {
+        "episodes": 250,
+        "success": 149,
+        "failure": 101
+      }
+    }
+  }
+}

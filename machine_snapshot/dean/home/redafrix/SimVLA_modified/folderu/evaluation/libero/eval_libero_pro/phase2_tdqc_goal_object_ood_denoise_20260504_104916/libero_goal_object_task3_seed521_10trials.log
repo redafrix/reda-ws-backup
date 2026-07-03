@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_goal_object
+Trials: 10
+Task id filter: 3
+Port: 8114
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task3_seed521_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8114
+   Task suite: libero_goal_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Task suite: libero_goal_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+open the top drawer and put th...:   0%|          | 0/10 [00:00<?, ?it/s][A
+open the top drawer and put th...:  10%|█         | 1/10 [00:44<06:41, 44.59s/it][A
+open the top drawer and put th...:  20%|██        | 2/10 [02:12<09:22, 70.28s/it][A
+open the top drawer and put th...:  30%|███       | 3/10 [03:15<07:47, 66.75s/it][A
+open the top drawer and put th...:  40%|████      | 4/10 [04:18<06:31, 65.31s/it][A
+open the top drawer and put th...:  50%|█████     | 5/10 [05:20<05:20, 64.18s/it][A
+open the top drawer and put th...:  60%|██████    | 6/10 [05:49<03:28, 52.12s/it][A
+open the top drawer and put th...:  70%|███████   | 7/10 [06:13<02:09, 43.01s/it][A
+open the top drawer and put th...:  80%|████████  | 8/10 [06:39<01:15, 37.50s/it][A
+open the top drawer and put th...:  90%|█████████ | 9/10 [07:43<00:45, 45.69s/it][A
+open the top drawer and put th...: 100%|██████████| 10/10 [08:09<00:00, 39.82s/it][A
+                                                                                  [ATasks:  70%|███████   | 7/10 [08:12<03:31, 70.37s/it]Tasks: 100%|██████████| 10/10 [08:12<00:00, 49.26s/it]
+  [OK] Task 3 Ep 0: SUCCESS (steps=187)
+  [FAIL] Task 3 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 4: FAILURE (steps=410)
+  [OK] Task 3 Ep 5: SUCCESS (steps=191)
+  [OK] Task 3 Ep 6: SUCCESS (steps=158)
+  [OK] Task 3 Ep 7: SUCCESS (steps=160)
+  [FAIL] Task 3 Ep 8: FAILURE (steps=410)
+  [OK] Task 3 Ep 9: SUCCESS (steps=154)
+   Task 3: 5/10 (50.0%)
+
+Total success rate: 5/10 (50.0%)

@@ -1,0 +1,282 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: <all>
+Port: 8103
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_pro_state_mahal_k8_6000_20260507_145523/libero_object_object_seed701_10trials.jsonl
+State stats path: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8103
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+   State novelty stats: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the orange juice and p...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the orange juice and p...:  10%|█         | 1/10 [01:08<10:14, 68.30s/it][A
+pick up the orange juice and p...:  20%|██        | 2/10 [02:21<09:30, 71.28s/it][A
+pick up the orange juice and p...:  30%|███       | 3/10 [03:33<08:20, 71.46s/it][A
+pick up the orange juice and p...:  40%|████      | 4/10 [04:51<07:24, 74.04s/it][A
+pick up the orange juice and p...:  50%|█████     | 5/10 [06:04<06:08, 73.64s/it][A
+pick up the orange juice and p...:  60%|██████    | 6/10 [07:15<04:51, 72.94s/it][A
+pick up the orange juice and p...:  70%|███████   | 7/10 [08:26<03:36, 72.10s/it][A
+pick up the orange juice and p...:  80%|████████  | 8/10 [09:30<02:19, 69.72s/it][A
+pick up the orange juice and p...:  90%|█████████ | 9/10 [10:31<01:06, 66.83s/it][A
+pick up the orange juice and p...: 100%|██████████| 10/10 [11:31<00:00, 64.75s/it][A
+                                                                                  [ATasks:  10%|█         | 1/10 [11:33<1:44:03, 693.72s/it]  [OK] Task 9 Ep 0: SUCCESS (steps=118)
+  [OK] Task 9 Ep 1: SUCCESS (steps=120)
+  [OK] Task 9 Ep 2: SUCCESS (steps=121)
+  [OK] Task 9 Ep 3: SUCCESS (steps=131)
+  [OK] Task 9 Ep 4: SUCCESS (steps=122)
+  [OK] Task 9 Ep 5: SUCCESS (steps=120)
+  [OK] Task 9 Ep 6: SUCCESS (steps=119)
+  [OK] Task 9 Ep 7: SUCCESS (steps=120)
+  [OK] Task 9 Ep 8: SUCCESS (steps=123)
+  [OK] Task 9 Ep 9: SUCCESS (steps=121)
+   Task 9: 10/10 (100.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the chocolate pudding ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the chocolate pudding ...:  10%|█         | 1/10 [01:35<14:18, 95.36s/it][A
+pick up the chocolate pudding ...:  20%|██        | 2/10 [02:58<11:45, 88.22s/it][A
+pick up the chocolate pudding ...:  30%|███       | 3/10 [04:16<09:45, 83.68s/it][A
+pick up the chocolate pudding ...:  40%|████      | 4/10 [05:59<09:07, 91.20s/it][A
+pick up the chocolate pudding ...:  50%|█████     | 5/10 [07:54<08:18, 99.77s/it][A
+pick up the chocolate pudding ...:  60%|██████    | 6/10 [09:25<06:27, 96.85s/it][A
+pick up the chocolate pudding ...:  70%|███████   | 7/10 [10:42<04:30, 90.28s/it][A
+pick up the chocolate pudding ...:  80%|████████  | 8/10 [12:01<02:53, 86.70s/it][A
+pick up the chocolate pudding ...:  90%|█████████ | 9/10 [13:30<01:27, 87.32s/it][A
+pick up the chocolate pudding ...: 100%|██████████| 10/10 [15:06<00:00, 90.06s/it][A
+                                                                                  [ATasks:  20%|██        | 2/10 [26:40<1:49:14, 819.33s/it]  [OK] Task 8 Ep 0: SUCCESS (steps=190)
+  [OK] Task 8 Ep 1: SUCCESS (steps=166)
+  [OK] Task 8 Ep 2: SUCCESS (steps=155)
+  [OK] Task 8 Ep 3: SUCCESS (steps=206)
+  [OK] Task 8 Ep 4: SUCCESS (steps=228)
+  [OK] Task 8 Ep 5: SUCCESS (steps=181)
+  [OK] Task 8 Ep 6: SUCCESS (steps=151)
+  [OK] Task 8 Ep 7: SUCCESS (steps=155)
+  [OK] Task 8 Ep 8: SUCCESS (steps=176)
+  [OK] Task 8 Ep 9: SUCCESS (steps=190)
+   Task 8: 10/10 (100.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the milk and place it ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the milk and place it ...:  10%|█         | 1/10 [01:10<10:31, 70.13s/it][A
+pick up the milk and place it ...:  20%|██        | 2/10 [02:23<09:34, 71.86s/it][A
+pick up the milk and place it ...:  30%|███       | 3/10 [03:34<08:20, 71.51s/it][A
+pick up the milk and place it ...:  40%|████      | 4/10 [04:52<07:25, 74.33s/it][A
+pick up the milk and place it ...:  50%|█████     | 5/10 [06:06<06:09, 73.99s/it][A
+pick up the milk and place it ...:  60%|██████    | 6/10 [07:17<04:51, 72.95s/it][A
+pick up the milk and place it ...:  70%|███████   | 7/10 [08:38<03:46, 75.62s/it][A
+pick up the milk and place it ...:  80%|████████  | 8/10 [09:54<02:31, 75.70s/it][A
+pick up the milk and place it ...:  90%|█████████ | 9/10 [11:03<01:13, 73.68s/it][A
+pick up the milk and place it ...: 100%|██████████| 10/10 [12:12<00:00, 72.17s/it][A
+                                                                                  [ATasks:  30%|███       | 3/10 [38:54<1:31:01, 780.21s/it]  [OK] Task 7 Ep 0: SUCCESS (steps=144)
+  [OK] Task 7 Ep 1: SUCCESS (steps=148)
+  [OK] Task 7 Ep 2: SUCCESS (steps=140)
+  [OK] Task 7 Ep 3: SUCCESS (steps=158)
+  [OK] Task 7 Ep 4: SUCCESS (steps=147)
+  [OK] Task 7 Ep 5: SUCCESS (steps=144)
+  [OK] Task 7 Ep 6: SUCCESS (steps=160)
+  [OK] Task 7 Ep 7: SUCCESS (steps=151)
+  [OK] Task 7 Ep 8: SUCCESS (steps=143)
+  [OK] Task 7 Ep 9: SUCCESS (steps=139)
+   Task 7: 10/10 (100.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the butter and place i...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the butter and place i...:  10%|█         | 1/10 [01:13<10:58, 73.13s/it][A
+pick up the butter and place i...:  20%|██        | 2/10 [02:42<11:00, 82.61s/it][A
+pick up the butter and place i...:  30%|███       | 3/10 [03:55<09:07, 78.15s/it][A
+pick up the butter and place i...:  40%|████      | 4/10 [06:00<09:39, 96.65s/it][A
+pick up the butter and place i...:  50%|█████     | 5/10 [07:30<07:51, 94.34s/it][A
+pick up the butter and place i...:  60%|██████    | 6/10 [09:28<06:48, 102.22s/it][A
+pick up the butter and place i...:  70%|███████   | 7/10 [10:43<04:40, 93.57s/it] [A
+pick up the butter and place i...:  80%|████████  | 8/10 [12:00<02:56, 88.25s/it][A
+pick up the butter and place i...:  90%|█████████ | 9/10 [13:15<01:23, 83.99s/it][A
+pick up the butter and place i...: 100%|██████████| 10/10 [15:09<00:00, 93.43s/it][A
+                                                                                  [ATasks:  40%|████      | 4/10 [54:05<1:23:11, 831.84s/it]  [OK] Task 6 Ep 0: SUCCESS (steps=147)
+  [OK] Task 6 Ep 1: SUCCESS (steps=175)
+  [OK] Task 6 Ep 2: SUCCESS (steps=147)
+  [OK] Task 6 Ep 3: SUCCESS (steps=248)
+  [OK] Task 6 Ep 4: SUCCESS (steps=182)
+  [OK] Task 6 Ep 5: SUCCESS (steps=231)
+  [OK] Task 6 Ep 6: SUCCESS (steps=150)
+  [OK] Task 6 Ep 7: SUCCESS (steps=152)
+  [OK] Task 6 Ep 8: SUCCESS (steps=150)
+  [OK] Task 6 Ep 9: SUCCESS (steps=225)
+   Task 6: 10/10 (100.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the tomato sauce and p...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the tomato sauce and p...:  10%|█         | 1/10 [01:15<11:19, 75.50s/it][A
+pick up the tomato sauce and p...:  20%|██        | 2/10 [02:13<08:42, 65.34s/it][A
+pick up the tomato sauce and p...:  30%|███       | 3/10 [03:18<07:36, 65.22s/it][A
+pick up the tomato sauce and p...:  40%|████      | 4/10 [04:18<06:18, 63.13s/it][A
+pick up the tomato sauce and p...:  50%|█████     | 5/10 [05:28<05:28, 65.62s/it][A
+pick up the tomato sauce and p...:  60%|██████    | 6/10 [06:41<04:32, 68.12s/it][A
+pick up the tomato sauce and p...:  70%|███████   | 7/10 [09:31<05:04, 101.44s/it][A
+pick up the tomato sauce and p...:  80%|████████  | 8/10 [10:35<02:58, 89.32s/it] [A
+pick up the tomato sauce and p...:  90%|█████████ | 9/10 [11:35<01:20, 80.39s/it][A
+pick up the tomato sauce and p...: 100%|██████████| 10/10 [15:05<00:00, 120.13s/it][A
+                                                                                   [ATasks:  50%|█████     | 5/10 [1:09:11<1:11:33, 858.70s/it]  [OK] Task 5 Ep 0: SUCCESS (steps=151)
+  [OK] Task 5 Ep 1: SUCCESS (steps=119)
+  [OK] Task 5 Ep 2: SUCCESS (steps=134)
+  [OK] Task 5 Ep 3: SUCCESS (steps=121)
+  [OK] Task 5 Ep 4: SUCCESS (steps=143)
+  [OK] Task 5 Ep 5: SUCCESS (steps=145)
+  [OK] Task 5 Ep 6: SUCCESS (steps=338)
+  [OK] Task 5 Ep 7: SUCCESS (steps=125)
+  [OK] Task 5 Ep 8: SUCCESS (steps=120)
+  [FAIL] Task 5 Ep 9: FAILURE (steps=410)
+   Task 5: 9/10 (90.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the ketchup and place ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the ketchup and place ...:  10%|█         | 1/10 [01:24<12:43, 84.84s/it][A
+pick up the ketchup and place ...:  20%|██        | 2/10 [02:54<11:40, 87.54s/it][A
+pick up the ketchup and place ...:  30%|███       | 3/10 [04:26<10:26, 89.51s/it][A
+pick up the ketchup and place ...:  40%|████      | 4/10 [05:59<09:05, 90.84s/it][A
+pick up the ketchup and place ...:  50%|█████     | 5/10 [07:13<07:04, 84.87s/it][A
+pick up the ketchup and place ...:  60%|██████    | 6/10 [08:38<05:39, 84.96s/it][A
+pick up the ketchup and place ...:  70%|███████   | 7/10 [09:49<04:01, 80.58s/it][A
+pick up the ketchup and place ...:  80%|████████  | 8/10 [13:20<04:03, 121.84s/it][A
+pick up the ketchup and place ...:  90%|█████████ | 9/10 [16:50<02:29, 149.52s/it][A
+pick up the ketchup and place ...: 100%|██████████| 10/10 [18:20<00:00, 131.15s/it][A
+                                                                                   [ATasks:  60%|██████    | 6/10 [1:27:33<1:02:45, 941.31s/it]  [OK] Task 4 Ep 0: SUCCESS (steps=167)
+  [OK] Task 4 Ep 1: SUCCESS (steps=178)
+  [OK] Task 4 Ep 2: SUCCESS (steps=180)
+  [OK] Task 4 Ep 3: SUCCESS (steps=183)
+  [OK] Task 4 Ep 4: SUCCESS (steps=148)
+  [OK] Task 4 Ep 5: SUCCESS (steps=166)
+  [OK] Task 4 Ep 6: SUCCESS (steps=141)
+  [FAIL] Task 4 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 8: FAILURE (steps=410)
+  [OK] Task 4 Ep 9: SUCCESS (steps=179)
+   Task 4: 8/10 (80.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the bbq sauce and plac...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the bbq sauce and plac...:  10%|█         | 1/10 [01:08<10:15, 68.37s/it][A
+pick up the bbq sauce and plac...:  20%|██        | 2/10 [02:17<09:08, 68.53s/it][A
+pick up the bbq sauce and plac...:  30%|███       | 3/10 [03:22<07:50, 67.28s/it][A
+pick up the bbq sauce and plac...:  40%|████      | 4/10 [04:23<06:28, 64.81s/it][A
+pick up the bbq sauce and plac...:  50%|█████     | 5/10 [05:27<05:21, 64.37s/it][A
+pick up the bbq sauce and plac...:  60%|██████    | 6/10 [06:31<04:17, 64.29s/it][A
+pick up the bbq sauce and plac...:  70%|███████   | 7/10 [07:34<03:12, 64.01s/it][A
+pick up the bbq sauce and plac...:  80%|████████  | 8/10 [08:38<02:07, 63.75s/it][A
+pick up the bbq sauce and plac...:  90%|█████████ | 9/10 [09:41<01:03, 63.74s/it][A
+pick up the bbq sauce and plac...: 100%|██████████| 10/10 [10:50<00:00, 65.29s/it][A
+                                                                                  [ATasks:  70%|███████   | 7/10 [1:38:25<42:19, 846.64s/it]    [OK] Task 3 Ep 0: SUCCESS (steps=135)
+  [OK] Task 3 Ep 1: SUCCESS (steps=135)
+  [OK] Task 3 Ep 2: SUCCESS (steps=130)
+  [OK] Task 3 Ep 3: SUCCESS (steps=124)
+  [OK] Task 3 Ep 4: SUCCESS (steps=128)
+  [OK] Task 3 Ep 5: SUCCESS (steps=125)
+  [OK] Task 3 Ep 6: SUCCESS (steps=125)
+  [OK] Task 3 Ep 7: SUCCESS (steps=127)
+  [OK] Task 3 Ep 8: SUCCESS (steps=129)
+  [OK] Task 3 Ep 9: SUCCESS (steps=135)
+   Task 3: 10/10 (100.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the salad dressing and...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the salad dressing and...:  10%|█         | 1/10 [01:00<09:00, 60.01s/it][A
+pick up the salad dressing and...:  20%|██        | 2/10 [02:01<08:05, 60.63s/it][A
+pick up the salad dressing and...:  30%|███       | 3/10 [03:02<07:05, 60.82s/it][A
+pick up the salad dressing and...:  40%|████      | 4/10 [04:02<06:04, 60.82s/it][A
+pick up the salad dressing and...:  50%|█████     | 5/10 [05:02<05:00, 60.20s/it][A
+pick up the salad dressing and...:  60%|██████    | 6/10 [06:03<04:02, 60.52s/it][A
+pick up the salad dressing and...:  70%|███████   | 7/10 [07:04<03:02, 60.90s/it][A
+pick up the salad dressing and...:  80%|████████  | 8/10 [08:06<02:02, 61.14s/it][A
+pick up the salad dressing and...:  90%|█████████ | 9/10 [09:05<01:00, 60.47s/it][A
+pick up the salad dressing and...: 100%|██████████| 10/10 [10:33<00:00, 68.98s/it][A
+                                                                                  [ATasks:  80%|████████  | 8/10 [1:49:00<25:58, 779.21s/it]  [OK] Task 2 Ep 0: SUCCESS (steps=123)
+  [OK] Task 2 Ep 1: SUCCESS (steps=122)
+  [OK] Task 2 Ep 2: SUCCESS (steps=123)
+  [OK] Task 2 Ep 3: SUCCESS (steps=123)
+  [OK] Task 2 Ep 4: SUCCESS (steps=119)
+  [OK] Task 2 Ep 5: SUCCESS (steps=120)
+  [OK] Task 2 Ep 6: SUCCESS (steps=124)
+  [OK] Task 2 Ep 7: SUCCESS (steps=122)
+  [OK] Task 2 Ep 8: SUCCESS (steps=118)
+  [OK] Task 2 Ep 9: SUCCESS (steps=170)
+   Task 2: 10/10 (100.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the cream cheese and p...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the cream cheese and p...:  10%|█         | 1/10 [01:24<12:38, 84.24s/it][A
+pick up the cream cheese and p...:  20%|██        | 2/10 [02:41<10:38, 79.86s/it][A
+pick up the cream cheese and p...:  30%|███       | 3/10 [03:47<08:34, 73.54s/it][A
+pick up the cream cheese and p...:  40%|████      | 4/10 [04:53<07:05, 70.86s/it][A
+pick up the cream cheese and p...:  50%|█████     | 5/10 [06:10<06:05, 73.01s/it][A
+pick up the cream cheese and p...:  60%|██████    | 6/10 [07:58<05:39, 84.83s/it][A
+pick up the cream cheese and p...:  70%|███████   | 7/10 [09:10<04:02, 80.69s/it][A
+pick up the cream cheese and p...:  80%|████████  | 8/10 [10:16<02:32, 76.05s/it][A
+pick up the cream cheese and p...:  90%|█████████ | 9/10 [11:22<01:12, 72.78s/it][A
+pick up the cream cheese and p...: 100%|██████████| 10/10 [12:51<00:00, 77.85s/it][A
+                                                                                  [ATasks:  90%|█████████ | 9/10 [2:01:52<12:57, 777.13s/it]  [OK] Task 1 Ep 0: SUCCESS (steps=168)
+  [OK] Task 1 Ep 1: SUCCESS (steps=150)
+  [OK] Task 1 Ep 2: SUCCESS (steps=130)
+  [OK] Task 1 Ep 3: SUCCESS (steps=130)
+  [OK] Task 1 Ep 4: SUCCESS (steps=150)
+  [OK] Task 1 Ep 5: SUCCESS (steps=211)
+  [OK] Task 1 Ep 6: SUCCESS (steps=142)
+  [OK] Task 1 Ep 7: SUCCESS (steps=133)
+  [OK] Task 1 Ep 8: SUCCESS (steps=134)
+  [OK] Task 1 Ep 9: SUCCESS (steps=177)
+   Task 1: 10/10 (100.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the alphabet soup and ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the alphabet soup and ...:  10%|█         | 1/10 [01:13<11:05, 73.90s/it][A
+pick up the alphabet soup and ...:  20%|██        | 2/10 [04:43<20:27, 153.46s/it][A
+pick up the alphabet soup and ...:  30%|███       | 3/10 [08:12<20:54, 179.16s/it][A
+pick up the alphabet soup and ...:  40%|████      | 4/10 [11:41<19:05, 190.92s/it][A
+pick up the alphabet soup and ...:  50%|█████     | 5/10 [13:06<12:42, 152.56s/it][A
+pick up the alphabet soup and ...:  60%|██████    | 6/10 [16:37<11:29, 172.43s/it][A
+pick up the alphabet soup and ...:  70%|███████   | 7/10 [18:23<07:32, 150.73s/it][A
+pick up the alphabet soup and ...:  80%|████████  | 8/10 [19:48<04:19, 129.84s/it][A
+pick up the alphabet soup and ...:  90%|█████████ | 9/10 [23:19<02:35, 155.23s/it][A
+pick up the alphabet soup and ...: 100%|██████████| 10/10 [24:49<00:00, 135.02s/it][A
+                                                                                   [ATasks: 100%|██████████| 10/10 [2:26:43<00:00, 997.36s/it]Tasks: 100%|██████████| 10/10 [2:26:43<00:00, 880.32s/it]
+  [OK] Task 0 Ep 0: SUCCESS (steps=145)
+  [FAIL] Task 0 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 3: FAILURE (steps=410)
+  [OK] Task 0 Ep 4: SUCCESS (steps=165)
+  [FAIL] Task 0 Ep 5: FAILURE (steps=410)
+  [OK] Task 0 Ep 6: SUCCESS (steps=207)
+  [OK] Task 0 Ep 7: SUCCESS (steps=166)
+  [FAIL] Task 0 Ep 8: FAILURE (steps=410)
+  [OK] Task 0 Ep 9: SUCCESS (steps=177)
+   Task 0: 5/10 (50.0%)
+
+Total success rate: 92/100 (92.0%)

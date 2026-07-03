@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 3
+Port: 8114
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406/ckpt-10000/libero_object_object_task3_seed421_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8114
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the bbq sauce and plac...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the bbq sauce and plac...:  10%|█         | 1/10 [00:40<06:06, 40.78s/it][A
+pick up the bbq sauce and plac...:  20%|██        | 2/10 [01:21<05:27, 40.98s/it][A
+pick up the bbq sauce and plac...:  30%|███       | 3/10 [02:00<04:39, 39.87s/it][A
+pick up the bbq sauce and plac...:  40%|████      | 4/10 [02:24<03:22, 33.73s/it][A
+pick up the bbq sauce and plac...:  50%|█████     | 5/10 [02:47<02:28, 29.72s/it][A
+pick up the bbq sauce and plac...:  60%|██████    | 6/10 [03:07<01:46, 26.60s/it][A
+pick up the bbq sauce and plac...:  70%|███████   | 7/10 [03:30<01:15, 25.20s/it][A
+pick up the bbq sauce and plac...:  80%|████████  | 8/10 [03:51<00:47, 23.87s/it][A
+pick up the bbq sauce and plac...:  90%|█████████ | 9/10 [04:15<00:23, 23.85s/it][A
+pick up the bbq sauce and plac...: 100%|██████████| 10/10 [04:39<00:00, 24.11s/it][A
+                                                                                  [ATasks:  70%|███████   | 7/10 [04:42<02:01, 40.34s/it]Tasks: 100%|██████████| 10/10 [04:42<00:00, 28.24s/it]
+  [OK] Task 3 Ep 0: SUCCESS (steps=130)
+  [OK] Task 3 Ep 1: SUCCESS (steps=130)
+  [OK] Task 3 Ep 2: SUCCESS (steps=127)
+  [OK] Task 3 Ep 3: SUCCESS (steps=125)
+  [OK] Task 3 Ep 4: SUCCESS (steps=128)
+  [OK] Task 3 Ep 5: SUCCESS (steps=123)
+  [OK] Task 3 Ep 6: SUCCESS (steps=134)
+  [OK] Task 3 Ep 7: SUCCESS (steps=129)
+  [OK] Task 3 Ep 8: SUCCESS (steps=129)
+  [OK] Task 3 Ep 9: SUCCESS (steps=131)
+   Task 3: 10/10 (100.0%)
+
+Total success rate: 10/10 (100.0%)

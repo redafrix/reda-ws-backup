@@ -1,0 +1,41 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_spatial_object
+Trials: 10
+Task id filter: 3
+Port: 8103
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_tasks3_5_extra_hard_v3_smoke_20260513_113241/raw_batches/libero_spatial_object__task3_batch0_seed101000.jsonl
+State stats path: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8103
+   Task suite: libero_spatial_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_spatial_object' (10 tasks).
+Task suite: libero_spatial_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+   State novelty stats: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl on the ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl on the ...:  10%|█         | 1/10 [00:50<07:34, 50.45s/it][A
+pick up the black bowl on the ...:  20%|██        | 2/10 [01:47<07:14, 54.34s/it][A
+pick up the black bowl on the ...:  30%|███       | 3/10 [02:44<06:27, 55.36s/it][A
+pick up the black bowl on the ...:  40%|████      | 4/10 [03:40<05:34, 55.78s/it][A
+pick up the black bowl on the ...:  50%|█████     | 5/10 [04:34<04:34, 54.97s/it][A
+pick up the black bowl on the ...:  60%|██████    | 6/10 [05:30<03:41, 55.44s/it][A
+pick up the black bowl on the ...:  70%|███████   | 7/10 [06:27<02:48, 56.05s/it][A
+pick up the black bowl on the ...:  80%|████████  | 8/10 [07:26<01:53, 56.83s/it][A

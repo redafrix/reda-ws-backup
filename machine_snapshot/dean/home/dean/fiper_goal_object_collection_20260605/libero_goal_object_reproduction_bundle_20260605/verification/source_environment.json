@@ -1,0 +1,75 @@
+{
+  "absolute_libero_pro_source_path": "/home/utilisateur/worldmodel/LIBERO-PRO",
+  "benchmark_registration_source": "/home/utilisateur/worldmodel/LIBERO-PRO/libero/libero/benchmark/__init__.py",
+  "evaluator_source": "/home/utilisateur/worldmodel/mimic-video/eval/libero/run.py",
+  "known_limitations": [
+    "The local LIBERO-PRO source tree does not contain .git metadata, so a commit hash and dirty status cannot be recovered from this machine.",
+    "The bundle preserves exact source and asset bytes with SHA-256 hashes; use these hashes as the reproducibility anchor.",
+    "Raw LIBERO Task.language strings are derived from filenames; this collection used prompt_source=bddl_language, so BDDL (:language ...) is the prompt authority."
+  ],
+  "launch_scripts": [
+    "/home/utilisateur/worldmodel/mimic-video/scripts/run_libero_goal_ood_full_uncertainty_collection.sh",
+    "/home/utilisateur/worldmodel/mimic-video/scripts/launch_pro_goal_multi_ood_calibrated_100x100.sh"
+  ],
+  "libero_pro_git": {
+    "commit": null,
+    "dirty_status": "UNKNOWN_NOT_A_GIT_CHECKOUT",
+    "is_git_checkout": false,
+    "remote_url": null,
+    "remote_v": {
+      "returncode": 128,
+      "stderr": "fatal: not a git repository (or any of the parent directories): .git",
+      "stdout": ""
+    },
+    "rev_parse": {
+      "returncode": 128,
+      "stderr": "fatal: not a git repository (or any of the parent directories): .git",
+      "stdout": ""
+    },
+    "status_short": {
+      "returncode": 128,
+      "stderr": "fatal: not a git repository (or any of the parent directories): .git",
+      "stdout": ""
+    }
+  },
+  "python_environment": {
+    "libero_config_path": "/home/utilisateur/worldmodel/mimic-video/.runtime_libero_configs/pro",
+    "packages": {
+      "bddl": {
+        "metadata_version": "1.0.1",
+        "module_file": "/home/utilisateur/worldmodel/mimic-video/model/.venv/lib/python3.10/site-packages/bddl/__init__.py",
+        "version_attr": null
+      },
+      "libero": {
+        "metadata_version": "0.1.0",
+        "module_file": null,
+        "version_attr": null
+      },
+      "numpy": {
+        "metadata_version": "1.26.4",
+        "module_file": "/home/utilisateur/worldmodel/mimic-video/model/.venv/lib/python3.10/site-packages/numpy/__init__.py",
+        "version_attr": "1.26.4"
+      },
+      "robosuite": {
+        "metadata_version": "1.4.0",
+        "module_file": "/home/utilisateur/worldmodel/mimic-video/model/.venv/lib/python3.10/site-packages/robosuite/__init__.py",
+        "version_attr": "1.4.0"
+      },
+      "torch": {
+        "metadata_version": "2.11.0+cu128",
+        "module_file": "/home/utilisateur/worldmodel/mimic-video/model/.venv/lib/python3.10/site-packages/torch/__init__.py",
+        "version_attr": "2.11.0+cu128"
+      }
+    },
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.35",
+    "python_executable": "/home/utilisateur/worldmodel/mimic-video/model/.venv/bin/python",
+    "python_version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+    "pythonpath": "/home/utilisateur/worldmodel/mimic-video:/home/utilisateur/worldmodel/mimic-video/model:/home/utilisateur/worldmodel/LIBERO-PRO"
+  },
+  "runtime_libero_config": "/home/utilisateur/worldmodel/mimic-video/.runtime_libero_configs/pro/config.yaml",
+  "source_result_directories": {
+    "goal_object_t0to9": "/home/utilisateur/worldmodel/mimic-video/results/w2a_libero_goal_half_v2w_libero_goal_agentview_lora_rank256_lr1.778e-04_bsz32_iter_000007020_fused_lr1.000e-04_layer20_bsz128_iter_000050022_step2_stopafter0_execute14_uqK8_w2ab4_wuqK3_v2wuq_pgcal100_20260604_173600_object_t0to9/libero_goal_object",
+    "goal_object_t40to49": "/home/utilisateur/worldmodel/mimic-video/results/w2a_libero_goal_half_v2w_libero_goal_agentview_lora_rank256_lr1.778e-04_bsz32_iter_000007020_fused_lr1.000e-04_layer20_bsz128_iter_000050022_step2_stopafter0_execute14_uqK8_w2ab4_wuqK3_v2wuq_pgcal100_20260604_173600_object_t40to49/libero_goal_object"
+  },
+  "task_map_source": "/home/utilisateur/worldmodel/LIBERO-PRO/libero/libero/benchmark/libero_suite_task_map.py"
+}

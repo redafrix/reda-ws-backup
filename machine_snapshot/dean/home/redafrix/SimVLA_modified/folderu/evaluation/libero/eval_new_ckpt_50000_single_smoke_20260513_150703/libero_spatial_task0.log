@@ -1,0 +1,47 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s]
+
+pick up the black bowl between...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the black bowl between...: 100%|██████████| 1/1 [00:41<00:00, 41.28s/it][A
+
+                                                                                [A
+Tasks: 100%|██████████| 10/10 [00:42<00:00,  4.28s/it]
+Tasks: 100%|██████████| 10/10 [00:42<00:00,  4.28s/it]
+
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_spatial
+Trials: 1
+Task id filter: 0
+Port: 8123
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_new_ckpt_50000_single_smoke_20260513_150703/libero_spatial_task0_uncertainty.jsonl
+State stats path: <disabled>
+============================================================
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8123
+   Task suite: libero_spatial
+   Replan steps: 5
+
+[info] Applying task order index 0 (permutation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) for benchmark 'libero_spatial' (10 tasks).
+Task suite: libero_spatial
+   Tasks: 10, Trials per task: 1
+   Max steps: 800
+   State novelty stats: <disabled>
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 0 Ep 0: FAILURE (steps=810)
+   Task 0: 0/1 (0.0%)
+
+Total success rate: 0/1 (0.0%)
+

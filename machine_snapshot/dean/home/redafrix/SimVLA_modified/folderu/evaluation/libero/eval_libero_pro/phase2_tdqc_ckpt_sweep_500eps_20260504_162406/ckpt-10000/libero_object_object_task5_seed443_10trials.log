@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 5
+Port: 8111
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406/ckpt-10000/libero_object_object_task5_seed443_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8111
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the tomato sauce and p...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the tomato sauce and p...:  10%|█         | 1/10 [00:53<07:57, 53.10s/it][A
+pick up the tomato sauce and p...:  20%|██        | 2/10 [01:44<06:57, 52.18s/it][A
+pick up the tomato sauce and p...:  30%|███       | 3/10 [02:42<06:23, 54.75s/it][A
+pick up the tomato sauce and p...:  40%|████      | 4/10 [03:36<05:26, 54.42s/it][A
+pick up the tomato sauce and p...:  50%|█████     | 5/10 [04:31<04:32, 54.59s/it][A
+pick up the tomato sauce and p...:  60%|██████    | 6/10 [05:25<03:37, 54.34s/it][A
+pick up the tomato sauce and p...:  70%|███████   | 7/10 [06:08<02:32, 50.79s/it][A
+pick up the tomato sauce and p...:  80%|████████  | 8/10 [06:46<01:33, 46.62s/it][A
+pick up the tomato sauce and p...:  90%|█████████ | 9/10 [07:23<00:43, 43.80s/it][A
+pick up the tomato sauce and p...: 100%|██████████| 10/10 [07:55<00:00, 40.18s/it][A
+                                                                                  [ATasks:  50%|█████     | 5/10 [07:58<07:58, 95.79s/it]Tasks: 100%|██████████| 10/10 [07:58<00:00, 47.90s/it]
+  [OK] Task 5 Ep 0: SUCCESS (steps=128)
+  [OK] Task 5 Ep 1: SUCCESS (steps=118)
+  [OK] Task 5 Ep 2: SUCCESS (steps=129)
+  [OK] Task 5 Ep 3: SUCCESS (steps=124)
+  [OK] Task 5 Ep 4: SUCCESS (steps=128)
+  [OK] Task 5 Ep 5: SUCCESS (steps=123)
+  [OK] Task 5 Ep 6: SUCCESS (steps=119)
+  [OK] Task 5 Ep 7: SUCCESS (steps=124)
+  [OK] Task 5 Ep 8: SUCCESS (steps=129)
+  [OK] Task 5 Ep 9: SUCCESS (steps=125)
+   Task 5: 10/10 (100.0%)
+
+Total success rate: 10/10 (100.0%)

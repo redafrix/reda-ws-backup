@@ -1,0 +1,282 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_spatial_swap
+Trials: 10
+Task id filter: <all>
+Port: 8104
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_pro_state_mahal_k8_6000_20260507_145523/libero_spatial_swap_seed719_10trials.jsonl
+State stats path: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8104
+   Task suite: libero_spatial_swap
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_spatial_swap' (10 tasks).
+Task suite: libero_spatial_swap
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+   State novelty stats: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl on the ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl on the ...:  10%|█         | 1/10 [03:31<31:45, 211.68s/it][A
+pick up the black bowl on the ...:  20%|██        | 2/10 [07:03<28:11, 211.48s/it][A
+pick up the black bowl on the ...:  30%|███       | 3/10 [10:34<24:39, 211.39s/it][A
+pick up the black bowl on the ...:  40%|████      | 4/10 [14:05<21:08, 211.42s/it][A
+pick up the black bowl on the ...:  50%|█████     | 5/10 [17:37<17:37, 211.47s/it][A
+pick up the black bowl on the ...:  60%|██████    | 6/10 [21:08<14:05, 211.48s/it][A
+pick up the black bowl on the ...:  70%|███████   | 7/10 [24:40<10:34, 211.44s/it][A
+pick up the black bowl on the ...:  80%|████████  | 8/10 [28:11<07:02, 211.42s/it][A
+pick up the black bowl on the ...:  90%|█████████ | 9/10 [31:43<03:31, 211.47s/it][A
+pick up the black bowl on the ...: 100%|██████████| 10/10 [35:12<00:00, 210.73s/it][A
+                                                                                   [ATasks:  10%|█         | 1/10 [35:14<5:17:14, 2114.93s/it]  [FAIL] Task 9 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 9: FAILURE (steps=410)
+   Task 9: 0/10 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl next to...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl next to...:  10%|█         | 1/10 [00:58<08:43, 58.22s/it][A
+pick up the black bowl next to...:  20%|██        | 2/10 [01:55<07:39, 57.49s/it][A
+pick up the black bowl next to...:  30%|███       | 3/10 [03:00<07:06, 61.00s/it][A
+pick up the black bowl next to...:  40%|████      | 4/10 [03:54<05:49, 58.28s/it][A
+pick up the black bowl next to...:  50%|█████     | 5/10 [04:50<04:46, 57.33s/it][A
+pick up the black bowl next to...:  60%|██████    | 6/10 [05:54<03:59, 59.82s/it][A
+pick up the black bowl next to...:  70%|███████   | 7/10 [06:56<03:01, 60.50s/it][A
+pick up the black bowl next to...:  80%|████████  | 8/10 [07:54<01:59, 59.59s/it][A
+pick up the black bowl next to...:  90%|█████████ | 9/10 [11:24<01:46, 106.73s/it][A
+pick up the black bowl next to...: 100%|██████████| 10/10 [12:19<00:00, 90.55s/it][A
+                                                                                  [ATasks:  20%|██        | 2/10 [47:35<2:54:14, 1306.77s/it]  [OK] Task 8 Ep 0: SUCCESS (steps=119)
+  [OK] Task 8 Ep 1: SUCCESS (steps=113)
+  [OK] Task 8 Ep 2: SUCCESS (steps=127)
+  [OK] Task 8 Ep 3: SUCCESS (steps=109)
+  [OK] Task 8 Ep 4: SUCCESS (steps=112)
+  [OK] Task 8 Ep 5: SUCCESS (steps=127)
+  [OK] Task 8 Ep 6: SUCCESS (steps=122)
+  [OK] Task 8 Ep 7: SUCCESS (steps=111)
+  [FAIL] Task 8 Ep 8: FAILURE (steps=410)
+  [OK] Task 8 Ep 9: SUCCESS (steps=114)
+   Task 8: 9/10 (90.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl on the ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl on the ...:  10%|█         | 1/10 [03:32<31:49, 212.13s/it][A
+pick up the black bowl on the ...:  20%|██        | 2/10 [07:03<28:15, 211.94s/it][A
+pick up the black bowl on the ...:  30%|███       | 3/10 [10:35<24:40, 211.56s/it][A
+pick up the black bowl on the ...:  40%|████      | 4/10 [14:06<21:09, 211.62s/it][A
+pick up the black bowl on the ...:  50%|█████     | 5/10 [17:38<17:38, 211.70s/it][A
+pick up the black bowl on the ...:  60%|██████    | 6/10 [21:10<14:06, 211.70s/it][A
+pick up the black bowl on the ...:  70%|███████   | 7/10 [24:41<10:34, 211.52s/it][A
+pick up the black bowl on the ...:  80%|████████  | 8/10 [28:12<07:03, 211.52s/it][A
+pick up the black bowl on the ...:  90%|█████████ | 9/10 [31:44<03:31, 211.52s/it][A
+pick up the black bowl on the ...: 100%|██████████| 10/10 [35:14<00:00, 210.96s/it][A
+                                                                                   [ATasks:  30%|███       | 3/10 [1:22:51<3:15:33, 1676.16s/it]  [FAIL] Task 7 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 9: FAILURE (steps=410)
+   Task 7: 0/10 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl next to...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl next to...:  10%|█         | 1/10 [03:31<31:47, 211.97s/it][A
+pick up the black bowl next to...:  20%|██        | 2/10 [07:03<28:11, 211.43s/it][A
+pick up the black bowl next to...:  30%|███       | 3/10 [10:34<24:39, 211.37s/it][A
+pick up the black bowl next to...:  40%|████      | 4/10 [14:05<21:08, 211.49s/it][A
+pick up the black bowl next to...:  50%|█████     | 5/10 [17:37<17:37, 211.40s/it][A
+pick up the black bowl next to...:  60%|██████    | 6/10 [21:08<14:05, 211.46s/it][A
+pick up the black bowl next to...:  70%|███████   | 7/10 [24:39<10:34, 211.34s/it][A
+pick up the black bowl next to...:  80%|████████  | 8/10 [28:11<07:02, 211.36s/it][A
+pick up the black bowl next to...:  90%|█████████ | 9/10 [31:42<03:31, 211.36s/it][A
+pick up the black bowl next to...: 100%|██████████| 10/10 [35:12<00:00, 211.01s/it][A
+                                                                                   [ATasks:  40%|████      | 4/10 [1:58:06<3:04:55, 1849.28s/it]  [FAIL] Task 6 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 9: FAILURE (steps=410)
+   Task 6: 0/10 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl on the ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl on the ...:  10%|█         | 1/10 [01:15<11:15, 75.07s/it][A
+pick up the black bowl on the ...:  20%|██        | 2/10 [04:46<20:42, 155.34s/it][A
+pick up the black bowl on the ...:  30%|███       | 3/10 [07:27<18:26, 158.06s/it][A
+pick up the black bowl on the ...:  40%|████      | 4/10 [10:59<17:54, 179.12s/it][A
+pick up the black bowl on the ...:  50%|█████     | 5/10 [14:30<15:54, 190.82s/it][A
+pick up the black bowl on the ...:  60%|██████    | 6/10 [18:01<13:10, 197.73s/it][A
+pick up the black bowl on the ...:  70%|███████   | 7/10 [21:32<10:06, 202.03s/it][A
+pick up the black bowl on the ...:  80%|████████  | 8/10 [25:05<06:50, 205.33s/it][A
+pick up the black bowl on the ...:  90%|█████████ | 9/10 [28:35<03:26, 206.77s/it][A
+pick up the black bowl on the ...: 100%|██████████| 10/10 [32:05<00:00, 207.98s/it][A
+                                                                                   [ATasks:  50%|█████     | 5/10 [2:30:13<2:36:27, 1877.47s/it]  [OK] Task 5 Ep 0: SUCCESS (steps=148)
+  [FAIL] Task 5 Ep 1: FAILURE (steps=410)
+  [OK] Task 5 Ep 2: SUCCESS (steps=313)
+  [FAIL] Task 5 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 9: FAILURE (steps=410)
+   Task 5: 2/10 (20.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl in the ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl in the ...:  10%|█         | 1/10 [03:30<31:37, 210.89s/it][A
+pick up the black bowl in the ...:  20%|██        | 2/10 [07:02<28:10, 211.27s/it][A
+pick up the black bowl in the ...:  30%|███       | 3/10 [10:34<24:40, 211.57s/it][A
+pick up the black bowl in the ...:  40%|████      | 4/10 [14:05<21:07, 211.27s/it][A
+pick up the black bowl in the ...:  50%|█████     | 5/10 [17:36<17:36, 211.33s/it][A
+pick up the black bowl in the ...:  60%|██████    | 6/10 [21:08<14:05, 211.39s/it][A
+pick up the black bowl in the ...:  70%|███████   | 7/10 [24:38<10:33, 211.21s/it][A
+pick up the black bowl in the ...:  80%|████████  | 8/10 [28:10<07:02, 211.21s/it][A
+pick up the black bowl in the ...:  90%|█████████ | 9/10 [31:40<03:31, 211.10s/it][A
+pick up the black bowl in the ...: 100%|██████████| 10/10 [35:11<00:00, 211.03s/it][A
+                                                                                   [ATasks:  60%|██████    | 6/10 [3:05:27<2:10:31, 1957.77s/it]  [FAIL] Task 4 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 9: FAILURE (steps=410)
+   Task 4: 0/10 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl on the ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl on the ...:  10%|█         | 1/10 [03:30<31:34, 210.55s/it][A
+pick up the black bowl on the ...:  20%|██        | 2/10 [07:01<28:06, 210.78s/it][A
+pick up the black bowl on the ...:  30%|███       | 3/10 [10:32<24:37, 211.05s/it][A
+pick up the black bowl on the ...:  40%|████      | 4/10 [14:04<21:07, 211.22s/it][A
+pick up the black bowl on the ...:  50%|█████     | 5/10 [17:35<17:35, 211.08s/it][A
+pick up the black bowl on the ...:  60%|██████    | 6/10 [21:06<14:05, 211.32s/it][A
+pick up the black bowl on the ...:  70%|███████   | 7/10 [24:38<10:34, 211.41s/it][A
+pick up the black bowl on the ...:  80%|████████  | 8/10 [28:10<07:02, 211.45s/it][A
+pick up the black bowl on the ...:  90%|█████████ | 9/10 [31:41<03:31, 211.40s/it][A
+pick up the black bowl on the ...: 100%|██████████| 10/10 [35:12<00:00, 211.20s/it][A
+                                                                                   [ATasks:  70%|███████   | 7/10 [3:40:41<1:40:26, 2008.76s/it]  [FAIL] Task 3 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 3 Ep 9: FAILURE (steps=410)
+   Task 3: 0/10 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl from ta...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl from ta...:  10%|█         | 1/10 [03:30<31:35, 210.61s/it][A
+pick up the black bowl from ta...:  20%|██        | 2/10 [07:02<28:10, 211.27s/it][A
+pick up the black bowl from ta...:  30%|███       | 3/10 [10:34<24:42, 211.74s/it][A
+pick up the black bowl from ta...:  40%|████      | 4/10 [14:05<21:08, 211.34s/it][A
+pick up the black bowl from ta...:  50%|█████     | 5/10 [17:37<17:37, 211.57s/it][A
+pick up the black bowl from ta...:  60%|██████    | 6/10 [21:08<14:05, 211.50s/it][A
+pick up the black bowl from ta...:  70%|███████   | 7/10 [24:40<10:34, 211.52s/it][A
+pick up the black bowl from ta...:  80%|████████  | 8/10 [28:11<07:02, 211.47s/it][A
+pick up the black bowl from ta...:  90%|█████████ | 9/10 [31:42<03:31, 211.42s/it][A
+pick up the black bowl from ta...: 100%|██████████| 10/10 [35:14<00:00, 211.35s/it][A
+                                                                                   [ATasks:  80%|████████  | 8/10 [4:15:57<1:08:05, 2042.91s/it]  [FAIL] Task 2 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 9: FAILURE (steps=410)
+   Task 2: 0/10 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl next to...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl next to...:  10%|█         | 1/10 [03:30<31:33, 210.36s/it][A
+pick up the black bowl next to...:  20%|██        | 2/10 [07:00<28:01, 210.24s/it][A
+pick up the black bowl next to...:  30%|███       | 3/10 [10:29<24:27, 209.64s/it][A
+pick up the black bowl next to...:  40%|████      | 4/10 [14:00<21:01, 210.33s/it][A
+pick up the black bowl next to...:  50%|█████     | 5/10 [17:30<17:31, 210.21s/it][A
+pick up the black bowl next to...:  60%|██████    | 6/10 [21:02<14:03, 210.82s/it][A
+pick up the black bowl next to...:  70%|███████   | 7/10 [24:34<10:33, 211.09s/it][A
+pick up the black bowl next to...:  80%|████████  | 8/10 [28:05<07:02, 211.13s/it][A
+pick up the black bowl next to...:  90%|█████████ | 9/10 [31:37<03:31, 211.20s/it][A
+pick up the black bowl next to...: 100%|██████████| 10/10 [35:08<00:00, 211.18s/it][A
+                                                                                   [ATasks:  90%|█████████ | 9/10 [4:51:07<34:23, 2063.90s/it]    [FAIL] Task 1 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 9: FAILURE (steps=410)
+   Task 1: 0/10 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the black bowl between...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the black bowl between...:  10%|█         | 1/10 [03:31<31:44, 211.62s/it][A
+pick up the black bowl between...:  20%|██        | 2/10 [07:02<28:11, 211.42s/it][A
+pick up the black bowl between...:  30%|███       | 3/10 [10:35<24:42, 211.81s/it][A
+pick up the black bowl between...:  40%|████      | 4/10 [14:06<21:08, 211.43s/it][A
+pick up the black bowl between...:  50%|█████     | 5/10 [17:36<17:35, 211.19s/it][A
+pick up the black bowl between...:  60%|██████    | 6/10 [21:08<14:05, 211.32s/it][A
+pick up the black bowl between...:  70%|███████   | 7/10 [24:40<10:34, 211.43s/it][A
+pick up the black bowl between...:  80%|████████  | 8/10 [28:11<07:02, 211.38s/it][A
+pick up the black bowl between...:  90%|█████████ | 9/10 [31:43<03:31, 211.60s/it][A
+pick up the black bowl between...: 100%|██████████| 10/10 [35:13<00:00, 211.05s/it][A
+                                                                                   [ATasks: 100%|██████████| 10/10 [5:26:22<00:00, 2079.63s/it]Tasks: 100%|██████████| 10/10 [5:26:22<00:00, 1958.22s/it]
+  [FAIL] Task 0 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 9: FAILURE (steps=410)
+   Task 0: 0/10 (0.0%)
+
+Total success rate: 11/100 (11.0%)

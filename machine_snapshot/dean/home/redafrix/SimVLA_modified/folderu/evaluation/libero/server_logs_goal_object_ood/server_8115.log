@@ -1,0 +1,53 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1777884459.834822   20844 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1777884462.340260   20844 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1777884466.194819   20844 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+INFO:__main__:Loading SimVLA from /home/redafrix/SimVLA_modified/runs/simvla_libero_uncertainty/ckpt-60000...
+INFO:__main__:Using inference RNG seed: 704
+INFO:root:Loading SmolVLM from: HuggingFaceTB/SmolVLM-500M-Instruct
+`torch_dtype` is deprecated! Use `dtype` instead!
+INFO:root:SmolVLM hidden size: 960
+INFO:root:✓ Concat mode enabled: conditions concatenated to sequence
+INFO:root:[SmolVLMVLAProcessor] Initialized with image_size=384, mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]
+INFO:__main__:Loading norm stats from: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+INFO:__main__:   State norm: mean=[-0.07068316638469696, 0.018536901101469994, 0.8913209438323975]
+INFO:__main__:   Action norm: mean=[0.047240227460861206, 0.0508635975420475, -0.09378840774297714]
+INFO:__main__:Model loaded! Device: cuda, Image size: 384x384
+INFO:__main__:Starting SimVLA server on 0.0.0.0:8115
+INFO:__main__:  Image size: 384x384
+INFO:__main__:  Action horizon: 10
+INFO:__main__:Creating SimVLA server (host: 0.0.0.0, port: 8115)
+INFO:websockets.server:server listening on 0.0.0.0:8115
+INFO:__main__:SimVLA server listening on 0.0.0.0:8115
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 56822) opened
+INFO:__main__:Connection from ('127.0.0.1', 56822) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 54912) opened
+INFO:__main__:Connection from ('127.0.0.1', 54912) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 60020) opened
+INFO:__main__:Connection from ('127.0.0.1', 60020) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 50250) opened
+INFO:__main__:Connection from ('127.0.0.1', 50250) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 41876) opened
+INFO:__main__:Connection from ('127.0.0.1', 41876) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 52702) opened
+INFO:__main__:Connection from ('127.0.0.1', 52702) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 50042) opened
+INFO:__main__:Connection from ('127.0.0.1', 50042) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 56402) opened
+INFO:__main__:Connection from ('127.0.0.1', 56402) closed
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 54478) opened
+INFO:websockets.server:connection open
+INFO:__main__:Connection from ('127.0.0.1', 48108) opened
+INFO:__main__:Connection from ('127.0.0.1', 48108) closed
+INFO:__main__:Connection from ('127.0.0.1', 54478) closed

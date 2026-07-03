@@ -1,0 +1,64 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_goal_object
+Trials: 10
+Task id filter: <all>
+Port: 8105
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_pro_state_mahal_k8_6000_20260507_145523/libero_goal_object_seed719_10trials.jsonl
+State stats path: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8105
+   Task suite: libero_goal_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Task suite: libero_goal_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+   State novelty stats: /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the wine bottle on the rac...:   0%|          | 0/10 [00:00<?, ?it/s][A
+                                                                         [ATasks:   0%|          | 0/10 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 705, in <module>
+    main()
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 691, in main
+    eval_libero(
+  File "/home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py", line 518, in eval_libero
+    obs = env.set_init_state(initial_states[ep % len(initial_states)])
+  File "/home/redafrix/LIBERO-PRO/libero/libero/envs/env_wrapper.py", line 137, in set_init_state
+    return self.regenerate_obs_from_state(init_state)
+  File "/home/redafrix/LIBERO-PRO/libero/libero/envs/env_wrapper.py", line 142, in regenerate_obs_from_state
+    self.check_success()
+  File "/home/redafrix/LIBERO-PRO/libero/libero/envs/env_wrapper.py", line 104, in check_success
+    return self.env._check_success()
+  File "/home/redafrix/LIBERO-PRO/libero/libero/envs/problems/libero_tabletop_manipulation.py", line 142, in _check_success
+    result = self._eval_predicate(state) and result
+  File "/home/redafrix/LIBERO-PRO/libero/libero/envs/problems/libero_tabletop_manipulation.py", line 154, in _eval_predicate
+    self.object_states_dict[object_2_name],
+KeyError: 'wine_rack_stand_1_top_region'
+Exception ignored in: <function MjRenderContext.__del__ at 0x78f11a1c8a60>
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/utils/binding_utils.py", line 199, in __del__
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>
+Exception ignored in: <function EGLGLContext.__del__ at 0x78f11a1c88b0>
+Traceback (most recent call last):
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 155, in __del__
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/renderers/context/egl_context.py", line 149, in free
+  File "/home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/OpenGL/error.py", line 230, in glCheckError
+OpenGL.raw.EGL._errors.EGLError: <exception str() failed>

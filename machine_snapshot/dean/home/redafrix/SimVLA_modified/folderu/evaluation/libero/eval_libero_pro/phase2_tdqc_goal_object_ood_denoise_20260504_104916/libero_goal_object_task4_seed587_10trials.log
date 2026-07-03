@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_goal_object
+Trials: 10
+Task id filter: 4
+Port: 8115
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task4_seed587_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8115
+   Task suite: libero_goal_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Task suite: libero_goal_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the bowl on top of the cab...:   0%|          | 0/10 [00:00<?, ?it/s][A
+put the bowl on top of the cab...:  10%|█         | 1/10 [00:16<02:24, 16.11s/it][A
+put the bowl on top of the cab...:  20%|██        | 2/10 [00:31<02:05, 15.66s/it][A
+put the bowl on top of the cab...:  30%|███       | 3/10 [00:47<01:51, 15.98s/it][A
+put the bowl on top of the cab...:  40%|████      | 4/10 [01:59<03:47, 37.96s/it][A
+put the bowl on top of the cab...:  50%|█████     | 5/10 [02:16<02:32, 30.44s/it][A
+put the bowl on top of the cab...:  60%|██████    | 6/10 [02:33<01:43, 25.93s/it][A
+put the bowl on top of the cab...:  70%|███████   | 7/10 [02:50<01:08, 22.78s/it][A
+put the bowl on top of the cab...:  80%|████████  | 8/10 [03:06<00:41, 20.81s/it][A
+put the bowl on top of the cab...:  90%|█████████ | 9/10 [03:51<00:28, 28.29s/it][A
+put the bowl on top of the cab...: 100%|██████████| 10/10 [04:02<00:00, 23.05s/it][A
+                                                                                  [ATasks:  60%|██████    | 6/10 [04:07<02:45, 41.26s/it]Tasks: 100%|██████████| 10/10 [04:07<00:00, 24.75s/it]
+  [OK] Task 4 Ep 0: SUCCESS (steps=86)
+  [OK] Task 4 Ep 1: SUCCESS (steps=91)
+  [OK] Task 4 Ep 2: SUCCESS (steps=88)
+  [FAIL] Task 4 Ep 3: FAILURE (steps=410)
+  [OK] Task 4 Ep 4: SUCCESS (steps=91)
+  [OK] Task 4 Ep 5: SUCCESS (steps=92)
+  [OK] Task 4 Ep 6: SUCCESS (steps=90)
+  [OK] Task 4 Ep 7: SUCCESS (steps=92)
+  [OK] Task 4 Ep 8: SUCCESS (steps=293)
+  [OK] Task 4 Ep 9: SUCCESS (steps=86)
+   Task 4: 9/10 (90.0%)
+
+Total success rate: 9/10 (90.0%)

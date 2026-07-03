@@ -1,0 +1,220 @@
+{
+  "best_epoch": 6,
+  "bucket_counts": {
+    "failure_eval_ood": {
+      "episodes": 93,
+      "rows": 27900
+    },
+    "failure_test_seen": {
+      "episodes": 0,
+      "rows": 0
+    },
+    "failure_train_seen": {
+      "episodes": 554,
+      "rows": 166200
+    },
+    "failure_val_seen": {
+      "episodes": 139,
+      "rows": 41700
+    },
+    "success_calib_seen": {
+      "episodes": 476,
+      "rows": 63841
+    },
+    "success_test_ood": {
+      "episodes": 235,
+      "rows": 23686
+    },
+    "success_test_seen": {
+      "episodes": 0,
+      "rows": 0
+    },
+    "success_train_seen": {
+      "episodes": 2219,
+      "rows": 299239
+    },
+    "success_val_seen": {
+      "episodes": 475,
+      "rows": 63629
+    }
+  },
+  "feature_audit": {
+    "history_dim": 29,
+    "history_steps": 16,
+    "input_fields": [
+      "history.previous_proprio",
+      "history.previous_executed_action",
+      "history.previous_ace_metrics",
+      "main_candidate_action_chunk_normalized.sequence_tokens",
+      "main_candidate_action_chunk_normalized.stats",
+      "ace_candidate_chunks_normalized.metrics",
+      "current.proprio",
+      "history.previous_selected_uncertainty_top8",
+      "current.selected_uncertainty_top8"
+    ],
+    "selected_uncertainty_dim_count": 8,
+    "selected_uncertainty_dims": [
+      6,
+      27,
+      21,
+      25,
+      2,
+      23,
+      26,
+      24
+    ],
+    "static_dim": 51,
+    "unc_raw_static_dropout": 0.0,
+    "uses_future_timestep": false,
+    "uses_object_positions_before": false,
+    "uses_ood_rows_for_feature_selection": false,
+    "uses_ood_rows_for_train": false,
+    "uses_reward": false,
+    "uses_success": false,
+    "uses_task_metadata_as_input": false,
+    "uses_test_rows_for_feature_selection": false
+  },
+  "feature_selection": {
+    "selected_dims": [
+      6,
+      27,
+      21,
+      25,
+      2,
+      23,
+      26,
+      24
+    ],
+    "selection_source": "existing unc_topk8 ranking selected from seen train/validation rows only",
+    "topk": 8,
+    "uses_ood_rows_for_selection": false,
+    "uses_test_rows_for_selection": false
+  },
+  "metrics_by_bucket": {
+    "failure_eval_ood": {
+      "det_at_25": 0.43010752688172044,
+      "det_at_50": 0.7419354838709677,
+      "episode_alarm_rate": 0.8064516129032258,
+      "episodes": 93,
+      "failure_detection_rate": 0.8064516129032258,
+      "mean_detection_time": 0.25102222222222226,
+      "mean_final_mass": 12.292900344376923,
+      "rows": 27900,
+      "success_false_alarm_rate": null,
+      "triggered": 75
+    },
+    "failure_test_seen": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.0,
+      "episodes": 0,
+      "failure_detection_rate": null,
+      "mean_detection_time": null,
+      "mean_final_mass": null,
+      "rows": 0,
+      "success_false_alarm_rate": null,
+      "triggered": 0
+    },
+    "failure_train_seen": {
+      "det_at_25": 0.796028880866426,
+      "det_at_50": 0.9765342960288809,
+      "episode_alarm_rate": 1.0,
+      "episodes": 554,
+      "failure_detection_rate": 1.0,
+      "mean_detection_time": 0.15607701564380266,
+      "mean_final_mass": 31.096335188146103,
+      "rows": 166200,
+      "success_false_alarm_rate": null,
+      "triggered": 554
+    },
+    "failure_val_seen": {
+      "det_at_25": 0.539568345323741,
+      "det_at_50": 0.8561151079136691,
+      "episode_alarm_rate": 0.9784172661870504,
+      "episodes": 139,
+      "failure_detection_rate": 0.9784172661870504,
+      "mean_detection_time": 0.2669852941176471,
+      "mean_final_mass": 24.614775121640815,
+      "rows": 41700,
+      "success_false_alarm_rate": null,
+      "triggered": 136
+    },
+    "success_calib_seen": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.1869747899159664,
+      "episodes": 476,
+      "failure_detection_rate": null,
+      "mean_detection_time": 0.48420925464495196,
+      "mean_final_mass": 0.6776275214026956,
+      "rows": 63841,
+      "success_false_alarm_rate": 0.1869747899159664,
+      "triggered": 89
+    },
+    "success_test_ood": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.5106382978723404,
+      "episodes": 235,
+      "failure_detection_rate": null,
+      "mean_detection_time": 0.6271110786304778,
+      "mean_final_mass": 1.046801767450698,
+      "rows": 23686,
+      "success_false_alarm_rate": 0.5106382978723404,
+      "triggered": 120
+    },
+    "success_test_seen": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.0,
+      "episodes": 0,
+      "failure_detection_rate": null,
+      "mean_detection_time": null,
+      "mean_final_mass": null,
+      "rows": 0,
+      "success_false_alarm_rate": null,
+      "triggered": 0
+    },
+    "success_train_seen": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.06083821541234791,
+      "episodes": 2219,
+      "failure_detection_rate": null,
+      "mean_detection_time": 0.4946045760135006,
+      "mean_final_mass": 0.10096313825541114,
+      "rows": 299239,
+      "success_false_alarm_rate": 0.06083821541234791,
+      "triggered": 135
+    },
+    "success_val_seen": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.14736842105263157,
+      "episodes": 475,
+      "failure_detection_rate": null,
+      "mean_detection_time": 0.440350886393321,
+      "mean_final_mass": 0.5909831020706579,
+      "rows": 63629,
+      "success_false_alarm_rate": 0.14736842105263157,
+      "triggered": 70
+    }
+  },
+  "split": "ood_last2_taskids_full",
+  "summary_metrics": {
+    "ood_failure_det_at_25": 0.43010752688172044,
+    "ood_failure_det_at_50": 0.7419354838709677,
+    "ood_failure_detection": 0.8064516129032258,
+    "ood_success_fa": 0.5106382978723404,
+    "seen_failure_det_at_25": null,
+    "seen_failure_det_at_50": null,
+    "seen_failure_detection": null,
+    "seen_success_fa": null
+  },
+  "thresholds": {
+    "conformal_mass": 0.15,
+    "q95": 0.8533070087432861,
+    "q99": 0.9976175427436829
+  },
+  "variant": "unc_topk8_temporal_v1"
+}

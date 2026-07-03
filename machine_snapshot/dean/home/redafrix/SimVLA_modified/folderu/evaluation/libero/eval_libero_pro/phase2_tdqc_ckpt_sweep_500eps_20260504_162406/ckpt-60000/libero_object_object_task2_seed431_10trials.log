@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object_object
+Trials: 10
+Task id filter: 2
+Port: 8113
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_ckpt_sweep_500eps_20260504_162406/ckpt-60000/libero_object_object_task2_seed431_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8113
+   Task suite: libero_object_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_object_object' (10 tasks).
+Task suite: libero_object_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+pick up the salad dressing and...:   0%|          | 0/10 [00:00<?, ?it/s][A
+pick up the salad dressing and...:  10%|█         | 1/10 [00:20<03:02, 20.31s/it][A
+pick up the salad dressing and...:  20%|██        | 2/10 [00:39<02:39, 19.92s/it][A
+pick up the salad dressing and...:  30%|███       | 3/10 [00:59<02:18, 19.77s/it][A
+pick up the salad dressing and...:  40%|████      | 4/10 [01:22<02:06, 21.15s/it][A
+pick up the salad dressing and...:  50%|█████     | 5/10 [01:53<02:02, 24.45s/it][A
+pick up the salad dressing and...:  60%|██████    | 6/10 [02:16<01:35, 23.99s/it][A
+pick up the salad dressing and...:  70%|███████   | 7/10 [02:39<01:11, 23.69s/it][A
+pick up the salad dressing and...:  80%|████████  | 8/10 [03:47<01:15, 37.74s/it][A
+pick up the salad dressing and...:  90%|█████████ | 9/10 [04:04<00:31, 31.43s/it][A
+pick up the salad dressing and...: 100%|██████████| 10/10 [04:22<00:00, 27.33s/it][A
+                                                                                  [ATasks:  80%|████████  | 8/10 [04:25<01:06, 33.14s/it]Tasks: 100%|██████████| 10/10 [04:25<00:00, 26.51s/it]
+  [OK] Task 2 Ep 0: SUCCESS (steps=122)
+  [OK] Task 2 Ep 1: SUCCESS (steps=119)
+  [OK] Task 2 Ep 2: SUCCESS (steps=119)
+  [OK] Task 2 Ep 3: SUCCESS (steps=121)
+  [OK] Task 2 Ep 4: SUCCESS (steps=163)
+  [OK] Task 2 Ep 5: SUCCESS (steps=120)
+  [OK] Task 2 Ep 6: SUCCESS (steps=120)
+  [FAIL] Task 2 Ep 7: FAILURE (steps=410)
+  [OK] Task 2 Ep 8: SUCCESS (steps=113)
+  [OK] Task 2 Ep 9: SUCCESS (steps=122)
+   Task 2: 9/10 (90.0%)
+
+Total success rate: 9/10 (90.0%)

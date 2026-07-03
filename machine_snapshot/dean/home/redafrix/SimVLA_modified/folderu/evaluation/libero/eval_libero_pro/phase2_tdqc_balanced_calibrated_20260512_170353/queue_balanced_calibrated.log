@@ -1,0 +1,19 @@
+[2026-05-12 17:03:53] Queued calibrated balanced TDQC collection.
+[2026-05-12 17:03:53] RUN_ROOT=/home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_balanced_calibrated_20260512_170353
+[2026-05-12 17:03:53] PORTS=8103 8104 8105
+[2026-05-12 17:03:53] MAX_PARALLEL=3
+[2026-05-12 17:03:53] TARGET_PER_CLASS=50
+[2026-05-12 17:03:53] BATCH_TRIALS=10
+[2026-05-12 17:03:53] MAX_BATCHES_PER_TASK=120
+[2026-05-12 17:03:53] STATE_STATS_PATH=/home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+[2026-05-12 17:03:53] Waiting for current LIBERO work to finish (0s elapsed).
+68252 bash ./collect_phase2_tdqc_balanced_per_task.sh
+72988 bash ./collect_phase2_tdqc_balanced_per_task.sh
+72990 bash ./run_libero_pro_eval.sh
+73001 bash ./collect_phase2_tdqc_balanced_per_task.sh
+73003 bash ./run_libero_pro_eval.sh
+73030 python /home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py --host 127.0.0.1 --port 8103 --client_type websocket --task_suite libero_spatial_object --num_trials 10 --seed 70000 --replan_steps 5 --video_out /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro --uncertainty_log /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_swap_smoke_20260512_164014/raw_batches/libero_spatial_object__task0_batch0_seed70000.jsonl --task_id 0 --no_video --state_stats_path /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+73031 python /home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py --host 127.0.0.1 --port 8104 --client_type websocket --task_suite libero_spatial_object --num_trials 10 --seed 71000 --replan_steps 5 --video_out /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro --uncertainty_log /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_swap_smoke_20260512_164014/raw_batches/libero_spatial_object__task1_batch0_seed71000.jsonl --task_id 1 --no_video --state_stats_path /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json
+74323 bash ./collect_phase2_tdqc_balanced_per_task.sh
+74325 bash ./run_libero_pro_eval.sh
+74333 python /home/redafrix/SimVLA_modified/evaluation/libero/libero_client.py --host 127.0.0.1 --port 8105 --client_type websocket --task_suite libero_spatial_object --num_trials 10 --seed 72001 --replan_steps 5 --video_out /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro --uncertainty_log /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_spatial_object_hard_swap_smoke_20260512_164014/raw_batches/libero_spatial_object__task2_batch1_seed72001.jsonl --task_id 2 --no_video --state_stats_path /home/redafrix/SimVLA_modified/norm_stats/libero_norm.json

@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_goal_object
+Trials: 10
+Task id filter: 8
+Port: 8114
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task8_seed509_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8114
+   Task suite: libero_goal_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Task suite: libero_goal_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the bowl on the plate...:   0%|          | 0/10 [00:00<?, ?it/s][A
+put the bowl on the plate...:  10%|█         | 1/10 [00:12<01:55, 12.86s/it][A
+put the bowl on the plate...:  20%|██        | 2/10 [00:26<01:45, 13.16s/it][A
+put the bowl on the plate...:  30%|███       | 3/10 [00:38<01:30, 12.87s/it][A
+put the bowl on the plate...:  40%|████      | 4/10 [00:52<01:19, 13.22s/it][A
+put the bowl on the plate...:  50%|█████     | 5/10 [01:06<01:08, 13.64s/it][A
+put the bowl on the plate...:  60%|██████    | 6/10 [01:39<01:20, 20.09s/it][A
+put the bowl on the plate...:  70%|███████   | 7/10 [01:51<00:51, 17.31s/it][A
+put the bowl on the plate...:  80%|████████  | 8/10 [03:22<01:21, 40.81s/it][A
+put the bowl on the plate...:  90%|█████████ | 9/10 [03:40<00:33, 33.68s/it][A
+put the bowl on the plate...: 100%|██████████| 10/10 [03:55<00:00, 28.06s/it][A
+                                                                             [ATasks:  20%|██        | 2/10 [03:58<15:52, 119.04s/it]Tasks: 100%|██████████| 10/10 [03:58<00:00, 23.81s/it]
+  [OK] Task 8 Ep 0: SUCCESS (steps=68)
+  [OK] Task 8 Ep 1: SUCCESS (steps=67)
+  [OK] Task 8 Ep 2: SUCCESS (steps=72)
+  [OK] Task 8 Ep 3: SUCCESS (steps=72)
+  [OK] Task 8 Ep 4: SUCCESS (steps=71)
+  [OK] Task 8 Ep 5: SUCCESS (steps=226)
+  [OK] Task 8 Ep 6: SUCCESS (steps=74)
+  [FAIL] Task 8 Ep 7: FAILURE (steps=410)
+  [OK] Task 8 Ep 8: SUCCESS (steps=76)
+  [OK] Task 8 Ep 9: SUCCESS (steps=69)
+   Task 8: 9/10 (90.0%)
+
+Total success rate: 9/10 (90.0%)

@@ -1,0 +1,146 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s]
+
+pick up the orange juice and p...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the orange juice and p...: 100%|██████████| 1/1 [00:38<00:00, 38.61s/it][A
+
+                                                                                [A
+Tasks:  10%|█         | 1/10 [00:40<06:05, 40.58s/it]
+
+pick up the chocolate pudding ...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the chocolate pudding ...: 100%|██████████| 1/1 [00:38<00:00, 38.96s/it][A
+
+                                                                                [A
+Tasks:  20%|██        | 2/10 [01:20<05:19, 39.98s/it]
+
+pick up the milk and place it ...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the milk and place it ...: 100%|██████████| 1/1 [00:38<00:00, 38.79s/it][A
+
+                                                                                [A
+Tasks:  30%|███       | 3/10 [01:59<04:38, 39.81s/it]
+
+pick up the butter and place i...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the butter and place i...: 100%|██████████| 1/1 [00:39<00:00, 39.12s/it][A
+
+                                                                                [A
+Tasks:  40%|████      | 4/10 [02:39<03:58, 39.77s/it]
+
+pick up the tomato sauce and p...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the tomato sauce and p...: 100%|██████████| 1/1 [00:38<00:00, 38.56s/it][A
+
+                                                                                [A
+Tasks:  50%|█████     | 5/10 [03:18<03:17, 39.54s/it]
+
+pick up the ketchup and place ...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the ketchup and place ...: 100%|██████████| 1/1 [00:38<00:00, 38.82s/it][A
+
+                                                                                [A
+Tasks:  60%|██████    | 6/10 [03:58<02:37, 39.50s/it]
+
+pick up the bbq sauce and plac...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the bbq sauce and plac...: 100%|██████████| 1/1 [00:38<00:00, 38.93s/it][A
+
+                                                                                [A
+Tasks:  70%|███████   | 7/10 [04:37<01:58, 39.50s/it]
+
+pick up the salad dressing and...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the salad dressing and...: 100%|██████████| 1/1 [00:39<00:00, 39.13s/it][A
+
+                                                                                [A
+Tasks:  80%|████████  | 8/10 [05:17<01:19, 39.57s/it]
+
+pick up the cream cheese and p...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the cream cheese and p...: 100%|██████████| 1/1 [00:38<00:00, 38.97s/it][A
+
+                                                                                [A
+Tasks:  90%|█████████ | 9/10 [05:56<00:39, 39.57s/it]
+
+pick up the alphabet soup and ...:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+pick up the alphabet soup and ...: 100%|██████████| 1/1 [00:38<00:00, 38.97s/it][A
+
+                                                                                [A
+Tasks: 100%|██████████| 10/10 [06:36<00:00, 39.56s/it]
+Tasks: 100%|██████████| 10/10 [06:36<00:00, 39.63s/it]
+
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_object
+Trials: 1
+Task id filter: <all>
+Port: 8123
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_new_ckpt_50000_20tasks_20260513_150800/libero_object_uncertainty.jsonl
+State stats path: <disabled>
+============================================================
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8123
+   Task suite: libero_object
+   Replan steps: 5
+
+[info] Applying task order index 0 (permutation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) for benchmark 'libero_object' (10 tasks).
+Task suite: libero_object
+   Tasks: 10, Trials per task: 1
+   Max steps: 800
+   State novelty stats: <disabled>
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 9 Ep 0: FAILURE (steps=810)
+   Task 9: 0/1 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 8 Ep 0: FAILURE (steps=810)
+   Task 8: 0/1 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 7 Ep 0: FAILURE (steps=810)
+   Task 7: 0/1 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 6 Ep 0: FAILURE (steps=810)
+   Task 6: 0/1 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 5 Ep 0: FAILURE (steps=810)
+   Task 5: 0/1 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 4 Ep 0: FAILURE (steps=810)
+   Task 4: 0/1 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 3 Ep 0: FAILURE (steps=810)
+   Task 3: 0/1 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 2 Ep 0: FAILURE (steps=810)
+   Task 2: 0/1 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 1 Ep 0: FAILURE (steps=810)
+   Task 1: 0/1 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+  [FAIL] Task 0 Ep 0: FAILURE (steps=810)
+   Task 0: 0/1 (0.0%)
+
+Total success rate: 0/10 (0.0%)
+

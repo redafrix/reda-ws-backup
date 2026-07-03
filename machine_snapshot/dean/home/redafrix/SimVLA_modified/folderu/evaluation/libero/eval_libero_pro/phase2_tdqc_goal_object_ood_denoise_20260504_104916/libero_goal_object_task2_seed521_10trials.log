@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_goal_object
+Trials: 10
+Task id filter: 2
+Port: 8113
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task2_seed521_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8113
+   Task suite: libero_goal_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Task suite: libero_goal_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the wine bottle on top of ...:   0%|          | 0/10 [00:00<?, ?it/s][A
+put the wine bottle on top of ...:  10%|█         | 1/10 [00:15<02:23, 15.98s/it][A
+put the wine bottle on top of ...:  20%|██        | 2/10 [00:32<02:08, 16.05s/it][A
+put the wine bottle on top of ...:  30%|███       | 3/10 [00:48<01:52, 16.07s/it][A
+put the wine bottle on top of ...:  40%|████      | 4/10 [01:04<01:36, 16.02s/it][A
+put the wine bottle on top of ...:  50%|█████     | 5/10 [01:21<01:21, 16.37s/it][A
+put the wine bottle on top of ...:  60%|██████    | 6/10 [01:40<01:09, 17.31s/it][A
+put the wine bottle on top of ...:  70%|███████   | 7/10 [01:55<00:50, 16.74s/it][A
+put the wine bottle on top of ...:  80%|████████  | 8/10 [02:13<00:33, 16.93s/it][A
+put the wine bottle on top of ...:  90%|█████████ | 9/10 [02:28<00:16, 16.42s/it][A
+put the wine bottle on top of ...: 100%|██████████| 10/10 [02:46<00:00, 16.85s/it][A
+                                                                                  [ATasks:  80%|████████  | 8/10 [02:49<00:42, 21.16s/it]Tasks: 100%|██████████| 10/10 [02:49<00:00, 16.93s/it]
+  [OK] Task 2 Ep 0: SUCCESS (steps=105)
+  [OK] Task 2 Ep 1: SUCCESS (steps=97)
+  [OK] Task 2 Ep 2: SUCCESS (steps=97)
+  [OK] Task 2 Ep 3: SUCCESS (steps=101)
+  [OK] Task 2 Ep 4: SUCCESS (steps=106)
+  [OK] Task 2 Ep 5: SUCCESS (steps=119)
+  [OK] Task 2 Ep 6: SUCCESS (steps=95)
+  [OK] Task 2 Ep 7: SUCCESS (steps=109)
+  [OK] Task 2 Ep 8: SUCCESS (steps=90)
+  [OK] Task 2 Ep 9: SUCCESS (steps=99)
+   Task 2: 10/10 (100.0%)
+
+Total success rate: 10/10 (100.0%)

@@ -1,0 +1,320 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_goal_object
+Trials: 12
+Task id filter: <all>
+Port: 8103
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_20260427_165420/libero_goal_object_seed17_12trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8103
+   Task suite: libero_goal_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Task suite: libero_goal_object
+   Tasks: 10, Trials per task: 12
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the wine bottle on the rac...:   0%|          | 0/12 [00:00<?, ?it/s][A
+put the wine bottle on the rac...:   8%|▊         | 1/12 [01:35<17:33, 95.80s/it][A
+put the wine bottle on the rac...:  17%|█▋        | 2/12 [03:09<15:46, 94.64s/it][A
+put the wine bottle on the rac...:  25%|██▌       | 3/12 [04:44<14:14, 94.90s/it][A
+put the wine bottle on the rac...:  33%|███▎      | 4/12 [06:18<12:34, 94.28s/it][A
+put the wine bottle on the rac...:  42%|████▏     | 5/12 [07:51<10:57, 93.90s/it][A
+put the wine bottle on the rac...:  50%|█████     | 6/12 [08:53<08:18, 83.09s/it][A
+put the wine bottle on the rac...:  58%|█████▊    | 7/12 [09:56<06:22, 76.47s/it][A
+put the wine bottle on the rac...:  67%|██████▋   | 8/12 [10:58<04:48, 72.03s/it][A
+put the wine bottle on the rac...:  75%|███████▌  | 9/12 [12:00<03:26, 68.89s/it][A
+put the wine bottle on the rac...:  83%|████████▎ | 10/12 [13:03<02:13, 66.92s/it][A
+put the wine bottle on the rac...:  92%|█████████▏| 11/12 [14:05<01:05, 65.59s/it][A
+put the wine bottle on the rac...: 100%|██████████| 12/12 [15:08<00:00, 64.66s/it][A
+                                                                                  [ATasks:  10%|█         | 1/10 [15:11<2:16:44, 911.63s/it]  [FAIL] Task 9 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 9: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 10: FAILURE (steps=410)
+  [FAIL] Task 9 Ep 11: FAILURE (steps=410)
+   Task 9: 0/12 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the bowl on the plate...:   0%|          | 0/12 [00:00<?, ?it/s][A
+put the bowl on the plate...:   8%|▊         | 1/12 [01:02<11:28, 62.64s/it][A
+put the bowl on the plate...:  17%|█▋        | 2/12 [02:06<10:33, 63.36s/it][A
+put the bowl on the plate...:  25%|██▌       | 3/12 [03:09<09:29, 63.29s/it][A
+put the bowl on the plate...:  33%|███▎      | 4/12 [04:12<08:25, 63.20s/it][A
+put the bowl on the plate...:  42%|████▏     | 5/12 [05:16<07:24, 63.49s/it][A
+put the bowl on the plate...:  50%|█████     | 6/12 [06:20<06:20, 63.43s/it][A
+put the bowl on the plate...:  58%|█████▊    | 7/12 [07:23<05:17, 63.42s/it][A
+put the bowl on the plate...:  67%|██████▋   | 8/12 [08:27<04:13, 63.47s/it][A
+put the bowl on the plate...:  75%|███████▌  | 9/12 [09:30<03:10, 63.48s/it][A
+put the bowl on the plate...:  83%|████████▎ | 10/12 [10:34<02:07, 63.57s/it][A
+put the bowl on the plate...:  92%|█████████▏| 11/12 [11:37<01:03, 63.57s/it][A
+put the bowl on the plate...: 100%|██████████| 12/12 [12:41<00:00, 63.56s/it][A
+                                                                             [ATasks:  20%|██        | 2/10 [27:54<1:49:54, 824.29s/it]  [FAIL] Task 8 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 9: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 10: FAILURE (steps=410)
+  [FAIL] Task 8 Ep 11: FAILURE (steps=410)
+   Task 8: 0/12 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+turn on the stove...:   0%|          | 0/12 [00:00<?, ?it/s][A
+turn on the stove...:   8%|▊         | 1/12 [01:03<11:37, 63.41s/it][A
+turn on the stove...:  17%|█▋        | 2/12 [02:06<10:35, 63.50s/it][A
+turn on the stove...:  25%|██▌       | 3/12 [03:10<09:30, 63.36s/it][A
+turn on the stove...:  33%|███▎      | 4/12 [04:13<08:27, 63.46s/it][A
+turn on the stove...:  42%|████▏     | 5/12 [05:17<07:23, 63.40s/it][A
+turn on the stove...:  50%|█████     | 6/12 [06:20<06:20, 63.37s/it][A
+turn on the stove...:  58%|█████▊    | 7/12 [07:23<05:16, 63.39s/it][A
+turn on the stove...:  67%|██████▋   | 8/12 [08:26<04:12, 63.14s/it][A
+turn on the stove...:  75%|███████▌  | 9/12 [09:29<03:09, 63.20s/it][A
+turn on the stove...:  83%|████████▎ | 10/12 [10:33<02:06, 63.24s/it][A
+turn on the stove...:  92%|█████████▏| 11/12 [11:36<01:03, 63.22s/it][A
+turn on the stove...: 100%|██████████| 12/12 [12:39<00:00, 63.31s/it][A
+                                                                     [ATasks:  30%|███       | 3/10 [40:36<1:32:49, 795.59s/it]  [FAIL] Task 7 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 9: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 10: FAILURE (steps=410)
+  [FAIL] Task 7 Ep 11: FAILURE (steps=410)
+   Task 7: 0/12 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the cream cheese in the bo...:   0%|          | 0/12 [00:00<?, ?it/s][A
+put the cream cheese in the bo...:   8%|▊         | 1/12 [01:03<11:40, 63.70s/it][A
+put the cream cheese in the bo...:  17%|█▋        | 2/12 [02:06<10:34, 63.42s/it][A
+put the cream cheese in the bo...:  25%|██▌       | 3/12 [03:10<09:29, 63.27s/it][A
+put the cream cheese in the bo...:  33%|███▎      | 4/12 [04:13<08:26, 63.35s/it][A
+put the cream cheese in the bo...:  42%|████▏     | 5/12 [05:16<07:22, 63.28s/it][A
+put the cream cheese in the bo...:  50%|█████     | 6/12 [06:20<06:20, 63.40s/it][A
+put the cream cheese in the bo...:  58%|█████▊    | 7/12 [07:23<05:16, 63.29s/it][A
+put the cream cheese in the bo...:  67%|██████▋   | 8/12 [08:26<04:12, 63.15s/it][A
+put the cream cheese in the bo...:  75%|███████▌  | 9/12 [09:29<03:09, 63.27s/it][A
+put the cream cheese in the bo...:  83%|████████▎ | 10/12 [10:33<02:06, 63.29s/it][A
+put the cream cheese in the bo...:  92%|█████████▏| 11/12 [11:36<01:03, 63.31s/it][A
+put the cream cheese in the bo...: 100%|██████████| 12/12 [12:39<00:00, 63.31s/it][A
+                                                                                  [ATasks:  40%|████      | 4/10 [53:17<1:18:12, 782.10s/it]  [FAIL] Task 6 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 9: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 10: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 11: FAILURE (steps=410)
+   Task 6: 0/12 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+push the plate to the front of...:   0%|          | 0/12 [00:00<?, ?it/s][A
+push the plate to the front of...:   8%|▊         | 1/12 [01:03<11:39, 63.58s/it][A
+push the plate to the front of...:  17%|█▋        | 2/12 [02:07<10:39, 63.90s/it][A
+push the plate to the front of...:  25%|██▌       | 3/12 [03:11<09:33, 63.68s/it][A
+push the plate to the front of...:  33%|███▎      | 4/12 [04:15<08:30, 63.86s/it][A
+push the plate to the front of...:  42%|████▏     | 5/12 [05:18<07:26, 63.80s/it][A
+push the plate to the front of...:  50%|█████     | 6/12 [06:23<06:23, 63.90s/it][A
+push the plate to the front of...:  58%|█████▊    | 7/12 [07:26<05:19, 63.82s/it][A
+push the plate to the front of...:  67%|██████▋   | 8/12 [08:30<04:15, 63.84s/it][A
+push the plate to the front of...:  75%|███████▌  | 9/12 [09:34<03:11, 63.87s/it][A
+push the plate to the front of...:  83%|████████▎ | 10/12 [10:38<02:07, 63.84s/it][A
+push the plate to the front of...:  92%|█████████▏| 11/12 [11:41<01:03, 63.80s/it][A
+push the plate to the front of...: 100%|██████████| 12/12 [12:45<00:00, 63.65s/it][A
+                                                                                  [ATasks:  50%|█████     | 5/10 [1:06:04<1:04:42, 776.52s/it]  [FAIL] Task 5 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 9: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 10: FAILURE (steps=410)
+  [FAIL] Task 5 Ep 11: FAILURE (steps=410)
+   Task 5: 0/12 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the bowl on top of the cab...:   0%|          | 0/12 [00:00<?, ?it/s][A
+put the bowl on top of the cab...:   8%|▊         | 1/12 [01:03<11:36, 63.36s/it][A
+put the bowl on top of the cab...:  17%|█▋        | 2/12 [02:07<10:35, 63.57s/it][A
+put the bowl on top of the cab...:  25%|██▌       | 3/12 [03:10<09:32, 63.63s/it][A
+put the bowl on top of the cab...:  33%|███▎      | 4/12 [04:13<08:27, 63.46s/it][A
+put the bowl on top of the cab...:  42%|████▏     | 5/12 [05:17<07:25, 63.60s/it][A
+put the bowl on top of the cab...:  50%|█████     | 6/12 [06:21<06:21, 63.51s/it][A
+put the bowl on top of the cab...:  58%|█████▊    | 7/12 [07:24<05:17, 63.43s/it][A
+put the bowl on top of the cab...:  67%|██████▋   | 8/12 [08:27<04:12, 63.19s/it][A
+put the bowl on top of the cab...:  75%|███████▌  | 9/12 [09:30<03:09, 63.33s/it][A
+put the bowl on top of the cab...:  83%|████████▎ | 10/12 [10:34<02:06, 63.45s/it][A
+put the bowl on top of the cab...:  92%|█████████▏| 11/12 [11:37<01:03, 63.47s/it][A
+put the bowl on top of the cab...: 100%|██████████| 12/12 [12:41<00:00, 63.63s/it][A
+                                                                                  [ATasks:  60%|██████    | 6/10 [1:18:47<51:28, 772.13s/it]    [FAIL] Task 4 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 9: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 10: FAILURE (steps=410)
+  [FAIL] Task 4 Ep 11: FAILURE (steps=410)
+   Task 4: 0/12 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+open the top drawer and put th...:   0%|          | 0/12 [00:00<?, ?it/s][A
+open the top drawer and put th...:   8%|▊         | 1/12 [00:29<05:22, 29.33s/it][A
+open the top drawer and put th...:  17%|█▋        | 2/12 [01:14<06:25, 38.53s/it][A
+open the top drawer and put th...:  25%|██▌       | 3/12 [01:45<05:17, 35.23s/it][A
+open the top drawer and put th...:  33%|███▎      | 4/12 [02:49<06:12, 46.52s/it][A
+open the top drawer and put th...:  42%|████▏     | 5/12 [03:33<05:18, 45.53s/it][A
+open the top drawer and put th...:  50%|█████     | 6/12 [04:19<04:34, 45.79s/it][A
+open the top drawer and put th...:  58%|█████▊    | 7/12 [04:51<03:26, 41.34s/it][A
+open the top drawer and put th...:  67%|██████▋   | 8/12 [05:19<02:28, 37.02s/it][A
+open the top drawer and put th...:  75%|███████▌  | 9/12 [05:47<01:43, 34.34s/it][A
+open the top drawer and put th...:  83%|████████▎ | 10/12 [06:51<01:26, 43.41s/it][A
+open the top drawer and put th...:  92%|█████████▏| 11/12 [07:18<00:38, 38.50s/it][A
+open the top drawer and put th...: 100%|██████████| 12/12 [07:59<00:00, 38.99s/it][A
+                                                                                  [ATasks:  70%|███████   | 7/10 [1:26:48<33:50, 676.88s/it]  [OK] Task 3 Ep 0: SUCCESS (steps=180)
+  [OK] Task 3 Ep 1: SUCCESS (steps=289)
+  [OK] Task 3 Ep 2: SUCCESS (steps=199)
+  [FAIL] Task 3 Ep 3: FAILURE (steps=410)
+  [OK] Task 3 Ep 4: SUCCESS (steps=278)
+  [OK] Task 3 Ep 5: SUCCESS (steps=296)
+  [OK] Task 3 Ep 6: SUCCESS (steps=204)
+  [OK] Task 3 Ep 7: SUCCESS (steps=179)
+  [OK] Task 3 Ep 8: SUCCESS (steps=177)
+  [FAIL] Task 3 Ep 9: FAILURE (steps=410)
+  [OK] Task 3 Ep 10: SUCCESS (steps=174)
+  [OK] Task 3 Ep 11: SUCCESS (steps=255)
+   Task 3: 10/12 (83.3%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the wine bottle on top of ...:   0%|          | 0/12 [00:00<?, ?it/s][A
+put the wine bottle on top of ...:   8%|▊         | 1/12 [01:02<11:32, 62.96s/it][A
+put the wine bottle on top of ...:  17%|█▋        | 2/12 [02:06<10:33, 63.39s/it][A
+put the wine bottle on top of ...:  25%|██▌       | 3/12 [03:10<09:30, 63.39s/it][A
+put the wine bottle on top of ...:  33%|███▎      | 4/12 [04:13<08:26, 63.31s/it][A
+put the wine bottle on top of ...:  42%|████▏     | 5/12 [05:16<07:22, 63.22s/it][A
+put the wine bottle on top of ...:  50%|█████     | 6/12 [06:19<06:18, 63.10s/it][A
+put the wine bottle on top of ...:  58%|█████▊    | 7/12 [07:22<05:15, 63.17s/it][A
+put the wine bottle on top of ...:  67%|██████▋   | 8/12 [08:25<04:12, 63.00s/it][A
+put the wine bottle on top of ...:  75%|███████▌  | 9/12 [09:28<03:09, 63.13s/it][A
+put the wine bottle on top of ...:  83%|████████▎ | 10/12 [10:31<02:06, 63.20s/it][A
+put the wine bottle on top of ...:  92%|█████████▏| 11/12 [11:35<01:03, 63.23s/it][A
+put the wine bottle on top of ...: 100%|██████████| 12/12 [12:38<00:00, 63.34s/it][A
+                                                                                  [ATasks:  80%|████████  | 8/10 [1:39:28<23:26, 703.43s/it]  [FAIL] Task 2 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 9: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 10: FAILURE (steps=410)
+  [FAIL] Task 2 Ep 11: FAILURE (steps=410)
+   Task 2: 0/12 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the bowl on the stove...:   0%|          | 0/12 [00:00<?, ?it/s][A
+put the bowl on the stove...:   8%|▊         | 1/12 [01:02<11:27, 62.54s/it][A
+put the bowl on the stove...:  17%|█▋        | 2/12 [02:06<10:31, 63.13s/it][A
+put the bowl on the stove...:  25%|██▌       | 3/12 [03:09<09:29, 63.28s/it][A
+put the bowl on the stove...:  33%|███▎      | 4/12 [04:12<08:25, 63.21s/it][A
+put the bowl on the stove...:  42%|████▏     | 5/12 [05:15<07:21, 63.12s/it][A
+put the bowl on the stove...:  50%|█████     | 6/12 [06:19<06:19, 63.31s/it][A
+put the bowl on the stove...:  58%|█████▊    | 7/12 [07:22<05:16, 63.36s/it][A
+put the bowl on the stove...:  67%|██████▋   | 8/12 [08:24<04:11, 62.98s/it][A
+put the bowl on the stove...:  75%|███████▌  | 9/12 [09:28<03:09, 63.16s/it][A
+put the bowl on the stove...:  83%|████████▎ | 10/12 [10:32<02:06, 63.30s/it][A
+put the bowl on the stove...:  92%|█████████▏| 11/12 [11:35<01:03, 63.28s/it][A
+put the bowl on the stove...: 100%|██████████| 12/12 [12:38<00:00, 63.34s/it][A
+                                                                             [ATasks:  90%|█████████ | 9/10 [1:52:09<12:01, 721.29s/it]  [FAIL] Task 1 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 9: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 10: FAILURE (steps=410)
+  [FAIL] Task 1 Ep 11: FAILURE (steps=410)
+   Task 1: 0/12 (0.0%)
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+open the middle drawer of the ...:   0%|          | 0/12 [00:00<?, ?it/s][A
+open the middle drawer of the ...:   8%|▊         | 1/12 [01:03<11:36, 63.32s/it][A
+open the middle drawer of the ...:  17%|█▋        | 2/12 [02:06<10:35, 63.51s/it][A
+open the middle drawer of the ...:  25%|██▌       | 3/12 [03:10<09:31, 63.54s/it][A
+open the middle drawer of the ...:  33%|███▎      | 4/12 [04:13<08:27, 63.47s/it][A
+open the middle drawer of the ...:  42%|████▏     | 5/12 [05:17<07:24, 63.46s/it][A
+open the middle drawer of the ...:  50%|█████     | 6/12 [06:20<06:20, 63.43s/it][A
+open the middle drawer of the ...:  58%|█████▊    | 7/12 [07:24<05:17, 63.42s/it][A
+open the middle drawer of the ...:  67%|██████▋   | 8/12 [08:26<04:12, 63.24s/it][A
+open the middle drawer of the ...:  75%|███████▌  | 9/12 [09:30<03:09, 63.25s/it][A
+open the middle drawer of the ...:  83%|████████▎ | 10/12 [10:33<02:06, 63.36s/it][A
+open the middle drawer of the ...:  92%|█████████▏| 11/12 [11:37<01:03, 63.45s/it][A
+open the middle drawer of the ...: 100%|██████████| 12/12 [12:40<00:00, 63.43s/it][A
+                                                                                  [ATasks: 100%|██████████| 10/10 [2:04:52<00:00, 734.04s/it]Tasks: 100%|██████████| 10/10 [2:04:52<00:00, 749.21s/it]
+  [FAIL] Task 0 Ep 0: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 1: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 2: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 3: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 4: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 5: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 6: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 7: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 9: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 10: FAILURE (steps=410)
+  [FAIL] Task 0 Ep 11: FAILURE (steps=410)
+   Task 0: 0/12 (0.0%)
+
+Total success rate: 10/120 (8.3%)

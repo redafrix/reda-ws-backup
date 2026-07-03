@@ -1,0 +1,191 @@
+{
+  "best_epoch": 2,
+  "bucket_counts": {
+    "failure_eval_ood": {
+      "episodes": 260,
+      "rows": 78000
+    },
+    "failure_test_seen": {
+      "episodes": 133,
+      "rows": 39900
+    },
+    "failure_train_seen": {
+      "episodes": 242,
+      "rows": 72600
+    },
+    "failure_val_seen": {
+      "episodes": 66,
+      "rows": 19800
+    },
+    "success_calib_seen": {
+      "episodes": 120,
+      "rows": 15916
+    },
+    "success_test_ood": {
+      "episodes": 260,
+      "rows": 33979
+    },
+    "success_test_seen": {
+      "episodes": 123,
+      "rows": 14882
+    },
+    "success_train_seen": {
+      "episodes": 260,
+      "rows": 32307
+    },
+    "success_val_seen": {
+      "episodes": 80,
+      "rows": 10090
+    }
+  },
+  "feature_audit": {
+    "history_dim": 21,
+    "history_steps": 16,
+    "input_fields": [
+      "history.previous_proprio",
+      "history.previous_executed_action",
+      "history.previous_ace_metrics",
+      "main_candidate_action_chunk_normalized.sequence_tokens",
+      "main_candidate_action_chunk_normalized.stats",
+      "ace_candidate_chunks_normalized.metrics",
+      "current.proprio",
+      "simvla_uncertainty_49d",
+      "simvla_uncertainty_delta_49d"
+    ],
+    "static_dim": 141,
+    "unc_raw_static_dropout": 0.0,
+    "uses_future_timestep": false,
+    "uses_object_positions_before": false,
+    "uses_ood_rows_for_train": false,
+    "uses_reward": false,
+    "uses_success": false,
+    "uses_task_metadata_as_input": false
+  },
+  "metrics_by_bucket": {
+    "failure_eval_ood": {
+      "det_at_25": 0.4269230769230769,
+      "det_at_50": 0.7461538461538462,
+      "episode_alarm_rate": 0.8538461538461538,
+      "episodes": 260,
+      "failure_detection_rate": 0.8538461538461538,
+      "mean_detection_time": 0.2906156156156156,
+      "mean_final_mass": 2.9307220472739295,
+      "rows": 78000,
+      "success_false_alarm_rate": null,
+      "triggered": 222
+    },
+    "failure_test_seen": {
+      "det_at_25": 0.46616541353383456,
+      "det_at_50": 0.6616541353383458,
+      "episode_alarm_rate": 0.9097744360902256,
+      "episodes": 133,
+      "failure_detection_rate": 0.9097744360902256,
+      "mean_detection_time": 0.31132231404958677,
+      "mean_final_mass": 3.4777341117536213,
+      "rows": 39900,
+      "success_false_alarm_rate": null,
+      "triggered": 121
+    },
+    "failure_train_seen": {
+      "det_at_25": 0.5206611570247934,
+      "det_at_50": 0.756198347107438,
+      "episode_alarm_rate": 0.9628099173553719,
+      "episodes": 242,
+      "failure_detection_rate": 0.9628099173553719,
+      "mean_detection_time": 0.2861516452074392,
+      "mean_final_mass": 3.797371470977452,
+      "rows": 72600,
+      "success_false_alarm_rate": null,
+      "triggered": 233
+    },
+    "failure_val_seen": {
+      "det_at_25": 0.42424242424242425,
+      "det_at_50": 0.6666666666666666,
+      "episode_alarm_rate": 0.9242424242424242,
+      "episodes": 66,
+      "failure_detection_rate": 0.9242424242424242,
+      "mean_detection_time": 0.31508196721311477,
+      "mean_final_mass": 3.4633603475310584,
+      "rows": 19800,
+      "success_false_alarm_rate": null,
+      "triggered": 61
+    },
+    "success_calib_seen": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.08333333333333333,
+      "episodes": 120,
+      "failure_detection_rate": null,
+      "mean_detection_time": 0.6212722414121777,
+      "mean_final_mass": 0.10540726731220881,
+      "rows": 15916,
+      "success_false_alarm_rate": 0.08333333333333333,
+      "triggered": 10
+    },
+    "success_test_ood": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.3153846153846154,
+      "episodes": 260,
+      "failure_detection_rate": null,
+      "mean_detection_time": 0.3752525389870695,
+      "mean_final_mass": 0.2876969935802313,
+      "rows": 33979,
+      "success_false_alarm_rate": 0.3153846153846154,
+      "triggered": 82
+    },
+    "success_test_seen": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.056910569105691054,
+      "episodes": 123,
+      "failure_detection_rate": null,
+      "mean_detection_time": 0.5836629374910688,
+      "mean_final_mass": 0.05058887867423577,
+      "rows": 14882,
+      "success_false_alarm_rate": 0.056910569105691054,
+      "triggered": 7
+    },
+    "success_train_seen": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.0,
+      "episodes": 260,
+      "failure_detection_rate": null,
+      "mean_detection_time": null,
+      "mean_final_mass": 0.0026541182628044713,
+      "rows": 32307,
+      "success_false_alarm_rate": 0.0,
+      "triggered": 0
+    },
+    "success_val_seen": {
+      "det_at_25": null,
+      "det_at_50": null,
+      "episode_alarm_rate": 0.075,
+      "episodes": 80,
+      "failure_detection_rate": null,
+      "mean_detection_time": 0.6149927184691885,
+      "mean_final_mass": 0.057431779056787494,
+      "rows": 10090,
+      "success_false_alarm_rate": 0.075,
+      "triggered": 6
+    }
+  },
+  "split": "ood_suite_libero90",
+  "summary_metrics": {
+    "ood_failure_det_at_25": 0.4269230769230769,
+    "ood_failure_det_at_50": 0.7461538461538462,
+    "ood_failure_detection": 0.8538461538461538,
+    "ood_success_fa": 0.3153846153846154,
+    "seen_failure_det_at_25": 0.46616541353383456,
+    "seen_failure_det_at_50": 0.6616541353383458,
+    "seen_failure_detection": 0.9097744360902256,
+    "seen_success_fa": 0.056910569105691054
+  },
+  "thresholds": {
+    "conformal_mass": 0.15,
+    "q95": 0.9772858023643494,
+    "q99": 0.9987921714782715
+  },
+  "variant": "unc_raw"
+}

@@ -1,0 +1,55 @@
+============================================================
+Running LIBERO-PRO evaluation via SimVLA server
+============================================================
+LIBERO_PRO_ROOT: /home/redafrix/LIBERO-PRO
+LIBERO_CONFIG_PATH: /home/redafrix/SimVLA_modified/evaluation/libero/.libero_pro_config
+Task suite: libero_goal_object
+Trials: 10
+Task id filter: 6
+Port: 8112
+Uncertainty log: /home/redafrix/SimVLA_modified/evaluation/libero/eval_libero_pro/phase2_tdqc_goal_object_ood_denoise_20260504_104916/libero_goal_object_task6_seed547_10trials.jsonl
+============================================================
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/redafrix/miniconda3/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Starting LIBERO evaluation client
+   Client type: websocket
+   Server: ws://127.0.0.1:8112
+   Task suite: libero_goal_object
+   Replan steps: 5
+
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Task suite: libero_goal_object
+   Tasks: 10, Trials per task: 10
+   Max steps: 400
+Tasks:   0%|          | 0/10 [00:00<?, ?it/s][Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+[Warning]: datasets path /home/redafrix/LIBERO-PRO/libero/datasets does not exist!
+
+put the cream cheese in the bo...:   0%|          | 0/10 [00:00<?, ?it/s][A
+put the cream cheese in the bo...:  10%|█         | 1/10 [00:16<02:30, 16.76s/it][A
+put the cream cheese in the bo...:  20%|██        | 2/10 [00:32<02:08, 16.02s/it][A
+put the cream cheese in the bo...:  30%|███       | 3/10 [00:50<02:00, 17.18s/it][A
+put the cream cheese in the bo...:  40%|████      | 4/10 [01:52<03:28, 34.77s/it][A
+put the cream cheese in the bo...:  50%|█████     | 5/10 [02:10<02:23, 28.62s/it][A
+put the cream cheese in the bo...:  60%|██████    | 6/10 [02:53<02:14, 33.54s/it][A
+put the cream cheese in the bo...:  70%|███████   | 7/10 [03:10<01:24, 28.02s/it][A
+put the cream cheese in the bo...:  80%|████████  | 8/10 [03:26<00:48, 24.22s/it][A
+put the cream cheese in the bo...:  90%|█████████ | 9/10 [04:25<00:35, 35.28s/it][A
+put the cream cheese in the bo...: 100%|██████████| 10/10 [05:25<00:00, 42.93s/it][A
+                                                                                  [ATasks:  40%|████      | 4/10 [05:28<08:13, 82.17s/it]Tasks: 100%|██████████| 10/10 [05:28<00:00, 32.87s/it]
+  [OK] Task 6 Ep 0: SUCCESS (steps=103)
+  [OK] Task 6 Ep 1: SUCCESS (steps=99)
+  [OK] Task 6 Ep 2: SUCCESS (steps=116)
+  [FAIL] Task 6 Ep 3: FAILURE (steps=410)
+  [OK] Task 6 Ep 4: SUCCESS (steps=113)
+  [OK] Task 6 Ep 5: SUCCESS (steps=277)
+  [OK] Task 6 Ep 6: SUCCESS (steps=102)
+  [OK] Task 6 Ep 7: SUCCESS (steps=102)
+  [FAIL] Task 6 Ep 8: FAILURE (steps=410)
+  [FAIL] Task 6 Ep 9: FAILURE (steps=410)
+   Task 6: 7/10 (70.0%)
+
+Total success rate: 7/10 (70.0%)
