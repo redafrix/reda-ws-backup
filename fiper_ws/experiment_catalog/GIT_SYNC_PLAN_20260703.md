@@ -32,11 +32,13 @@ Branches pushed after the deep-audit update:
 | `catalog/dean-20260703` | Dean FIPER/offline ablation manifests |
 | `catalog/cross-machine-20260703` | merged cross-machine catalog |
 
-Latest pushed catalog commit:
+Deep-audit content commit:
 
 ```text
 dcbf0251b59cb58fe3576f17e3f26c2ebd2ef3df
 ```
+
+Follow-up metadata-only commits may be newer; use `git rev-parse HEAD` for the exact current branch tip.
 
 Existing remote branches `main`, `bob`, `sam`, and `dean` were not overwritten.
 

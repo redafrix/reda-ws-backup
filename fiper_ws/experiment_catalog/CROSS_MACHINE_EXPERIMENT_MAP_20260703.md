@@ -131,7 +131,7 @@ Git was repaired on 2026-07-03 after the broken local `.git` directory was moved
 
 - Remote: `https://github.com/redafrix/reda-ws-backup.git`.
 - Branches pushed after the deep-audit update: `catalog/batman-20260703`, `catalog/bob-20260703`, `catalog/sam-20260703`, `catalog/dean-20260703`, and `catalog/cross-machine-20260703`.
-- Latest pushed catalog commit after this audit pass: `dcbf0251b59cb58fe3576f17e3f26c2ebd2ef3df`.
+- Deep-audit content commit: `dcbf0251b59cb58fe3576f17e3f26c2ebd2ef3df`. Follow-up metadata-only commits may be newer; use `git rev-parse HEAD` for the exact local tip.
 - Existing remote branches `main`, `bob`, `sam`, and `dean` were not overwritten.
 - Heavy artifacts must stay out of Git; use `BIG_ARTIFACTS_NOT_IN_GIT_20260703.md` as the substitute manifest.
 
