@@ -1,0 +1,30 @@
+{
+  "best_epoch": 1,
+  "feature_notes": "positive-weighted seen-failure risk",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.7142857142857143,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.20857142857142857,
+    "failure_eval_ood_score_q95_K3_det25": 0.42857142857142855,
+    "success_test_ood_or_q95_K3_fa": 0.9781420765027322,
+    "success_test_ood_score_q95_K3_fa": 0.7377049180327869,
+    "success_test_seen_or_q95_K3_fa": 0.43103448275862066
+  },
+  "mode": "supervised",
+  "model": "residual_mlp",
+  "name": "033_sup_full_k8_pos2",
+  "objective": 0.7458410724380202,
+  "runtime_seconds": 22.863489866256714,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.4093150794506073,
+      "q95": 0.6490347385406494,
+      "q99": 0.9560397863388062
+    }
+  }
+}

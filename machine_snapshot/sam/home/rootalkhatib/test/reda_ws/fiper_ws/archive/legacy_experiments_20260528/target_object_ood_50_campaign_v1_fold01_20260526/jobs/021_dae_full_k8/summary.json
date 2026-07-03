@@ -1,0 +1,30 @@
+{
+  "best_epoch": 160,
+  "feature_notes": "denoising autoencoder with 8-step history",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 1.0,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.0420952380952381,
+    "failure_eval_ood_score_q95_K3_det25": 1.0,
+    "success_test_ood_or_q95_K3_fa": 1.0,
+    "success_test_ood_score_q95_K3_fa": 1.0,
+    "success_test_seen_or_q95_K3_fa": 0.5517241379310345
+  },
+  "mode": "ae",
+  "model": "mlp",
+  "name": "021_dae_full_k8",
+  "objective": 1.2241379310344827,
+  "runtime_seconds": 55.643670082092285,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.01786624826490879,
+      "q95": 0.02267681434750557,
+      "q99": 0.036776673048734665
+    }
+  }
+}

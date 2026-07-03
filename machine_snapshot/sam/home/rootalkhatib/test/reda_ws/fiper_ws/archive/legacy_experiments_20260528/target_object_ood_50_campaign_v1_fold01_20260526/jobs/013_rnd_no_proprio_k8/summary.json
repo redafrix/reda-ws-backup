@@ -1,0 +1,30 @@
+{
+  "best_epoch": 158,
+  "feature_notes": "RND ablation without current proprio",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 1.0,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.008571428571428572,
+    "failure_eval_ood_score_q95_K3_det25": 1.0,
+    "success_test_ood_or_q95_K3_fa": 1.0,
+    "success_test_ood_score_q95_K3_fa": 1.0,
+    "success_test_seen_or_q95_K3_fa": 0.5431034482758621
+  },
+  "mode": "rnd",
+  "model": "mlp",
+  "name": "013_rnd_no_proprio_k8",
+  "objective": 1.228448275862069,
+  "runtime_seconds": 45.584803104400635,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 3.7486803194042295e-05,
+      "q95": 4.838848326471634e-05,
+      "q99": 8.87991554918699e-05
+    }
+  }
+}

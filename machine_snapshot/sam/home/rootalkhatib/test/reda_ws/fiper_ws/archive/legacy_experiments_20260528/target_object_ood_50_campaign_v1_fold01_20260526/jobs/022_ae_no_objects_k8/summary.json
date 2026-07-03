@@ -1,0 +1,30 @@
+{
+  "best_epoch": 160,
+  "feature_notes": "autoencoder no-object ablation",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 1.0,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.1720952380952381,
+    "failure_eval_ood_score_q95_K3_det25": 1.0,
+    "success_test_ood_or_q95_K3_fa": 1.0,
+    "success_test_ood_score_q95_K3_fa": 0.9890710382513661,
+    "success_test_seen_or_q95_K3_fa": 0.5258620689655172
+  },
+  "mode": "ae",
+  "model": "mlp",
+  "name": "022_ae_no_objects_k8",
+  "objective": 1.2370689655172413,
+  "runtime_seconds": 49.28237533569336,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.02544599026441574,
+      "q95": 0.03314454108476639,
+      "q99": 0.053156133741140366
+    }
+  }
+}

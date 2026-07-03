@@ -1,0 +1,30 @@
+{
+  "best_epoch": 158,
+  "feature_notes": "conditional autoencoder",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 1.0,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.006952380952380952,
+    "failure_eval_ood_score_q95_K3_det25": 1.0,
+    "success_test_ood_or_q95_K3_fa": 1.0,
+    "success_test_ood_score_q95_K3_fa": 1.0,
+    "success_test_seen_or_q95_K3_fa": 0.6293103448275862
+  },
+  "mode": "ae",
+  "model": "mlp",
+  "name": "018_ae_context_action",
+  "objective": 1.1853448275862069,
+  "runtime_seconds": 48.45311760902405,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.012426674365997314,
+      "q95": 0.015932027250528336,
+      "q99": 0.02647496573626995
+    }
+  }
+}

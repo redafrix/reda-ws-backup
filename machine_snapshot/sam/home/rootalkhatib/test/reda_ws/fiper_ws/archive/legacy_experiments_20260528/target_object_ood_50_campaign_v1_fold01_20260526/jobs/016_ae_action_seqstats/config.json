@@ -1,0 +1,17 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "hidden": [
+    384,
+    192
+  ],
+  "include_action": true,
+  "latent": 64,
+  "max_epochs": 160,
+  "mode": "ae",
+  "model": "mlp",
+  "name": "016_ae_action_seqstats",
+  "notes": "autoencoder on action chunk plus action summaries",
+  "patience": 18,
+  "seed": 42
+}

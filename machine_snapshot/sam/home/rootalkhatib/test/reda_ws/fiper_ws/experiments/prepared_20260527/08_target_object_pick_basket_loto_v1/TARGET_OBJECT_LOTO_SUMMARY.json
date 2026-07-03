@@ -1,0 +1,1611 @@
+[
+  {
+    "fold_name": "fold_00_holdout_alphabet_soup_bbq_sauce",
+    "heldout_leakage_into_seen_splits": [],
+    "heldout_objects": [
+      "alphabet_soup",
+      "bbq_sauce"
+    ],
+    "split_summary": {
+      "failure_eval_ood": {
+        "episodes": 42,
+        "outcomes": {
+          "failure_or_timeout": 42
+        },
+        "perturbation_groups": {
+          "env": 15,
+          "mug": 15,
+          "object": 12
+        },
+        "rows": 12600,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          3
+        ]
+      },
+      "failure_test_seen": {
+        "episodes": 21,
+        "outcomes": {
+          "failure_or_timeout": 21
+        },
+        "perturbation_groups": {
+          "env": 4,
+          "mug": 13,
+          "object": 4
+        },
+        "rows": 6300,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "milk",
+          "orange_juice",
+          "salad_dressing"
+        ],
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ]
+      },
+      "failure_train_seen": {
+        "episodes": 63,
+        "outcomes": {
+          "failure_or_timeout": 63
+        },
+        "perturbation_groups": {
+          "env": 12,
+          "mug": 38,
+          "object": 13
+        },
+        "rows": 18900,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "failure_val_seen": {
+        "episodes": 21,
+        "outcomes": {
+          "failure_or_timeout": 21
+        },
+        "perturbation_groups": {
+          "env": 5,
+          "mug": 12,
+          "object": 4
+        },
+        "rows": 6300,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "milk",
+          "orange_juice",
+          "salad_dressing"
+        ],
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ]
+      },
+      "success_calib_seen": {
+        "episodes": 135,
+        "outcomes": {
+          "success": 135
+        },
+        "perturbation_groups": {
+          "env": 51,
+          "mug": 37,
+          "object": 47
+        },
+        "rows": 20334,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_test_ood": {
+        "episodes": 211,
+        "outcomes": {
+          "success": 211
+        },
+        "perturbation_groups": {
+          "env": 73,
+          "mug": 64,
+          "object": 74
+        },
+        "rows": 34929,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          3
+        ]
+      },
+      "success_test_seen": {
+        "episodes": 136,
+        "outcomes": {
+          "success": 136
+        },
+        "perturbation_groups": {
+          "env": 47,
+          "mug": 38,
+          "object": 51
+        },
+        "rows": 21317,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_train_seen": {
+        "episodes": 497,
+        "outcomes": {
+          "success": 497
+        },
+        "perturbation_groups": {
+          "env": 182,
+          "mug": 137,
+          "object": 178
+        },
+        "rows": 75463,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_val_seen": {
+        "episodes": 135,
+        "outcomes": {
+          "success": 135
+        },
+        "perturbation_groups": {
+          "env": 51,
+          "mug": 37,
+          "object": 47
+        },
+        "rows": 19875,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "status": "READY_STRONG"
+  },
+  {
+    "fold_name": "fold_01_holdout_butter_chocolate_pudding",
+    "heldout_leakage_into_seen_splits": [],
+    "heldout_objects": [
+      "butter",
+      "chocolate_pudding"
+    ],
+    "split_summary": {
+      "failure_eval_ood": {
+        "episodes": 40,
+        "outcomes": {
+          "failure_or_timeout": 40
+        },
+        "perturbation_groups": {
+          "env": 4,
+          "mug": 34,
+          "object": 2
+        },
+        "rows": 12000,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "butter",
+          "chocolate_pudding"
+        ],
+        "task_ids": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "failure_test_seen": {
+        "episodes": 23,
+        "outcomes": {
+          "failure_or_timeout": 23
+        },
+        "perturbation_groups": {
+          "env": 7,
+          "mug": 9,
+          "object": 7
+        },
+        "rows": 6900,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "cream_cheese",
+          "milk",
+          "orange_juice",
+          "salad_dressing"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ]
+      },
+      "failure_train_seen": {
+        "episodes": 62,
+        "outcomes": {
+          "failure_or_timeout": 62
+        },
+        "perturbation_groups": {
+          "env": 18,
+          "mug": 27,
+          "object": 17
+        },
+        "rows": 18600,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "failure_val_seen": {
+        "episodes": 22,
+        "outcomes": {
+          "failure_or_timeout": 22
+        },
+        "perturbation_groups": {
+          "env": 7,
+          "mug": 8,
+          "object": 7
+        },
+        "rows": 6600,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "cream_cheese",
+          "milk",
+          "orange_juice",
+          "salad_dressing"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ]
+      },
+      "success_calib_seen": {
+        "episodes": 136,
+        "outcomes": {
+          "success": 136
+        },
+        "perturbation_groups": {
+          "env": 49,
+          "mug": 41,
+          "object": 46
+        },
+        "rows": 20034,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_test_ood": {
+        "episodes": 212,
+        "outcomes": {
+          "success": 212
+        },
+        "perturbation_groups": {
+          "env": 84,
+          "mug": 44,
+          "object": 84
+        },
+        "rows": 37489,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "butter",
+          "chocolate_pudding"
+        ],
+        "task_ids": [
+          2,
+          3,
+          6,
+          8
+        ]
+      },
+      "success_test_seen": {
+        "episodes": 132,
+        "outcomes": {
+          "success": 132
+        },
+        "perturbation_groups": {
+          "env": 45,
+          "mug": 39,
+          "object": 48
+        },
+        "rows": 20074,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_train_seen": {
+        "episodes": 498,
+        "outcomes": {
+          "success": 498
+        },
+        "perturbation_groups": {
+          "env": 177,
+          "mug": 148,
+          "object": 173
+        },
+        "rows": 74265,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_val_seen": {
+        "episodes": 136,
+        "outcomes": {
+          "success": 136
+        },
+        "perturbation_groups": {
+          "env": 49,
+          "mug": 41,
+          "object": 46
+        },
+        "rows": 20056,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "status": "READY_STRONG"
+  },
+  {
+    "fold_name": "fold_02_holdout_cream_cheese_ketchup",
+    "heldout_leakage_into_seen_splits": [],
+    "heldout_objects": [
+      "cream_cheese",
+      "ketchup"
+    ],
+    "split_summary": {
+      "failure_eval_ood": {
+        "episodes": 30,
+        "outcomes": {
+          "failure_or_timeout": 30
+        },
+        "perturbation_groups": {
+          "env": 14,
+          "mug": 5,
+          "object": 11
+        },
+        "rows": 9000,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "cream_cheese",
+          "ketchup"
+        ],
+        "task_ids": [
+          1,
+          4
+        ]
+      },
+      "failure_test_seen": {
+        "episodes": 26,
+        "outcomes": {
+          "failure_or_timeout": 26
+        },
+        "perturbation_groups": {
+          "env": 6,
+          "mug": 15,
+          "object": 5
+        },
+        "rows": 7800,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "milk",
+          "orange_juice",
+          "salad_dressing"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          6,
+          7,
+          8
+        ]
+      },
+      "failure_train_seen": {
+        "episodes": 67,
+        "outcomes": {
+          "failure_or_timeout": 67
+        },
+        "perturbation_groups": {
+          "env": 11,
+          "mug": 44,
+          "object": 12
+        },
+        "rows": 20100,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "failure_val_seen": {
+        "episodes": 24,
+        "outcomes": {
+          "failure_or_timeout": 24
+        },
+        "perturbation_groups": {
+          "env": 5,
+          "mug": 14,
+          "object": 5
+        },
+        "rows": 7200,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "milk",
+          "orange_juice",
+          "salad_dressing"
+        ],
+        "task_ids": [
+          0,
+          2,
+          3,
+          6,
+          7
+        ]
+      },
+      "success_calib_seen": {
+        "episodes": 134,
+        "outcomes": {
+          "success": 134
+        },
+        "perturbation_groups": {
+          "env": 51,
+          "mug": 36,
+          "object": 47
+        },
+        "rows": 19760,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_test_ood": {
+        "episodes": 222,
+        "outcomes": {
+          "success": 222
+        },
+        "perturbation_groups": {
+          "env": 74,
+          "mug": 73,
+          "object": 75
+        },
+        "rows": 36375,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "cream_cheese",
+          "ketchup"
+        ],
+        "task_ids": [
+          1,
+          4,
+          5
+        ]
+      },
+      "success_test_seen": {
+        "episodes": 132,
+        "outcomes": {
+          "success": 132
+        },
+        "perturbation_groups": {
+          "env": 46,
+          "mug": 36,
+          "object": 50
+        },
+        "rows": 20674,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_train_seen": {
+        "episodes": 492,
+        "outcomes": {
+          "success": 492
+        },
+        "perturbation_groups": {
+          "env": 182,
+          "mug": 132,
+          "object": 178
+        },
+        "rows": 74907,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_val_seen": {
+        "episodes": 134,
+        "outcomes": {
+          "success": 134
+        },
+        "perturbation_groups": {
+          "env": 51,
+          "mug": 36,
+          "object": 47
+        },
+        "rows": 20202,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "milk",
+          "orange_juice",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "status": "READY_STRONG"
+  },
+  {
+    "fold_name": "fold_03_holdout_milk_orange_juice",
+    "heldout_leakage_into_seen_splits": [],
+    "heldout_objects": [
+      "milk",
+      "orange_juice"
+    ],
+    "split_summary": {
+      "failure_eval_ood": {
+        "episodes": 24,
+        "outcomes": {
+          "failure_or_timeout": 24
+        },
+        "perturbation_groups": {
+          "mug": 21,
+          "object": 3
+        },
+        "rows": 7200,
+        "suites": [
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "milk",
+          "orange_juice"
+        ],
+        "task_ids": [
+          6,
+          7
+        ]
+      },
+      "failure_test_seen": {
+        "episodes": 26,
+        "outcomes": {
+          "failure_or_timeout": 26
+        },
+        "perturbation_groups": {
+          "env": 8,
+          "mug": 12,
+          "object": 6
+        },
+        "rows": 7800,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "salad_dressing"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "failure_train_seen": {
+        "episodes": 72,
+        "outcomes": {
+          "failure_or_timeout": 72
+        },
+        "perturbation_groups": {
+          "env": 20,
+          "mug": 34,
+          "object": 18
+        },
+        "rows": 21600,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          9
+        ]
+      },
+      "failure_val_seen": {
+        "episodes": 25,
+        "outcomes": {
+          "failure_or_timeout": 25
+        },
+        "perturbation_groups": {
+          "env": 8,
+          "mug": 11,
+          "object": 6
+        },
+        "rows": 7500,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "salad_dressing"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6
+        ]
+      },
+      "success_calib_seen": {
+        "episodes": 133,
+        "outcomes": {
+          "success": 133
+        },
+        "perturbation_groups": {
+          "env": 48,
+          "mug": 39,
+          "object": 46
+        },
+        "rows": 21022,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      },
+      "success_test_ood": {
+        "episodes": 228,
+        "outcomes": {
+          "success": 228
+        },
+        "perturbation_groups": {
+          "env": 88,
+          "mug": 57,
+          "object": 83
+        },
+        "rows": 29375,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "milk",
+          "orange_juice"
+        ],
+        "task_ids": [
+          6,
+          7,
+          9
+        ]
+      },
+      "success_test_seen": {
+        "episodes": 132,
+        "outcomes": {
+          "success": 132
+        },
+        "perturbation_groups": {
+          "env": 45,
+          "mug": 38,
+          "object": 49
+        },
+        "rows": 22089,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      },
+      "success_train_seen": {
+        "episodes": 488,
+        "outcomes": {
+          "success": 488
+        },
+        "perturbation_groups": {
+          "env": 175,
+          "mug": 140,
+          "object": 173
+        },
+        "rows": 78311,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      },
+      "success_val_seen": {
+        "episodes": 133,
+        "outcomes": {
+          "success": 133
+        },
+        "perturbation_groups": {
+          "env": 48,
+          "mug": 39,
+          "object": 46
+        },
+        "rows": 21121,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      }
+    },
+    "status": "READY_STRONG"
+  },
+  {
+    "fold_name": "fold_04_holdout_salad_dressing_tomato_sauce",
+    "heldout_leakage_into_seen_splits": [],
+    "heldout_objects": [
+      "salad_dressing",
+      "tomato_sauce"
+    ],
+    "split_summary": {
+      "failure_eval_ood": {
+        "episodes": 11,
+        "outcomes": {
+          "failure_or_timeout": 11
+        },
+        "perturbation_groups": {
+          "env": 3,
+          "mug": 3,
+          "object": 5
+        },
+        "rows": 3300,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          2,
+          8,
+          9
+        ]
+      },
+      "failure_test_seen": {
+        "episodes": 28,
+        "outcomes": {
+          "failure_or_timeout": 28
+        },
+        "perturbation_groups": {
+          "env": 7,
+          "mug": 15,
+          "object": 6
+        },
+        "rows": 8400,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "milk",
+          "orange_juice"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ]
+      },
+      "failure_train_seen": {
+        "episodes": 80,
+        "outcomes": {
+          "failure_or_timeout": 80
+        },
+        "perturbation_groups": {
+          "env": 19,
+          "mug": 45,
+          "object": 16
+        },
+        "rows": 24000,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ]
+      },
+      "failure_val_seen": {
+        "episodes": 28,
+        "outcomes": {
+          "failure_or_timeout": 28
+        },
+        "perturbation_groups": {
+          "env": 7,
+          "mug": 15,
+          "object": 6
+        },
+        "rows": 8400,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "milk",
+          "orange_juice"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ]
+      },
+      "success_calib_seen": {
+        "episodes": 130,
+        "outcomes": {
+          "success": 130
+        },
+        "perturbation_groups": {
+          "env": 49,
+          "mug": 35,
+          "object": 46
+        },
+        "rows": 20002,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_test_ood": {
+        "episodes": 241,
+        "outcomes": {
+          "success": 241
+        },
+        "perturbation_groups": {
+          "env": 85,
+          "mug": 75,
+          "object": 81
+        },
+        "rows": 33750,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "salad_dressing",
+          "tomato_sauce"
+        ],
+        "task_ids": [
+          2,
+          5,
+          8,
+          9
+        ]
+      },
+      "success_test_seen": {
+        "episodes": 132,
+        "outcomes": {
+          "success": 132
+        },
+        "perturbation_groups": {
+          "env": 45,
+          "mug": 37,
+          "object": 50
+        },
+        "rows": 21554,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_train_seen": {
+        "episodes": 481,
+        "outcomes": {
+          "success": 481
+        },
+        "perturbation_groups": {
+          "env": 176,
+          "mug": 131,
+          "object": 174
+        },
+        "rows": 76250,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "success_val_seen": {
+        "episodes": 130,
+        "outcomes": {
+          "success": 130
+        },
+        "perturbation_groups": {
+          "env": 49,
+          "mug": 35,
+          "object": 46
+        },
+        "rows": 20362,
+        "suites": [
+          "libero_object_env",
+          "libero_object_object",
+          "libero_object_with_mug"
+        ],
+        "target_objects": [
+          "alphabet_soup",
+          "bbq_sauce",
+          "butter",
+          "chocolate_pudding",
+          "cream_cheese",
+          "ketchup",
+          "milk",
+          "orange_juice"
+        ],
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    "status": "LOW_OOD_FAILURE_SUPPORT"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "blocks": 5,
+  "focal_gamma": 2.0,
+  "history_steps": 8,
+  "include_ace": true,
+  "include_action": true,
+  "include_history": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "loss": "focal",
+  "max_epochs": 180,
+  "mode": "supervised",
+  "model": "residual_mlp",
+  "name": "032_sup_full_k8_focal",
+  "notes": "focal loss full k8",
+  "patience": 20,
+  "seed": 42,
+  "width": 512
+}

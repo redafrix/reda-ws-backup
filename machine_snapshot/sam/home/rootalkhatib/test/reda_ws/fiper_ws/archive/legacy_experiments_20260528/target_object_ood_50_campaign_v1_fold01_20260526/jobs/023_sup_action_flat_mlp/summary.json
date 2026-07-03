@@ -1,0 +1,30 @@
+{
+  "best_epoch": 26,
+  "feature_notes": "supervised seen-failure action baseline",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.6285714285714286,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.28209523809523807,
+    "failure_eval_ood_score_q95_K3_det25": 0.4,
+    "success_test_ood_or_q95_K3_fa": 0.9562841530054644,
+    "success_test_ood_score_q95_K3_fa": 0.4972677595628415,
+    "success_test_seen_or_q95_K3_fa": 0.4827586206896552
+  },
+  "mode": "supervised",
+  "model": "mlp",
+  "name": "023_sup_action_flat_mlp",
+  "objective": 0.5813373172898328,
+  "runtime_seconds": 28.076586484909058,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.32876020669937134,
+      "q95": 0.49812474846839905,
+      "q99": 0.792963981628418
+    }
+  }
+}

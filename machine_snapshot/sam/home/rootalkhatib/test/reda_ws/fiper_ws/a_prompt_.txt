@@ -1,0 +1,117 @@
+You are continuing a Stage 9 / LIBERO-PRO / FIPER target-object OOD experiment campaign.
+
+Read this prompt completely before running commands.
+
+Hard rules:
+- Do NOT collect data.
+- Do NOT modify raw data.
+- Do NOT use Bob for training.
+- Work only on Sam unless explicitly told otherwise.
+- Do not delete or overwrite previous experiments.
+- If code crashes, patch only the minimal real bug and report the exact fix.
+- OOD target-object rows must never be used for training, early stopping, or calibration.
+
+Workspace on Sam:
+  /home/rootalkhatib/test/reda_ws/fiper_ws
+
+Purpose:
+The current action-only RND + ACE OR q95 monitor detects target-object OOD failures, but it false-alarms on almost every successful OOD target-object rollout. We need to run a controlled 50-experiment campaign to find better models/rules that balance:
+1. high OOD failure detection,
+2. low OOD success false alarms,
+3. useful early detection.
+
+Development fold:
+  experiments/prepared_20260526/08_target_object_pick_basket_loto_v1/fold_01_holdout_butter_chocolate_pudding/datasets/refs
+
+Held-out target objects:
+  butter
+  chocolate_pudding
+
+Files that should already exist:
+  scripts/run_target_object_ood_campaign_v1.py
+  configs/target_object_ood_50_campaign_v1.json
+  reports/FIPER_TARGET_OBJECT_OOD_50_EXPERIMENT_IDEAS_20260526.txt
+
+First, verify:
+  cd /home/rootalkhatib/test/reda_ws/fiper_ws
+  source ../asynchvla_ws/scripts/activate_simvla_sam.sh
+  python3 -m py_compile scripts/run_target_object_ood_campaign_v1.py
+  python3 -m json.tool configs/target_object_ood_50_campaign_v1.json >/tmp/target_object_ood_50_campaign_v1.checked.json
+
+Then run a tiny smoke test with 2 jobs:
+  python3 scripts/run_target_object_ood_campaign_v1.py \
+    --campaign-config configs/target_object_ood_50_campaign_v1.json \
+    --refs-dir experiments/prepared_20260526/08_target_object_pick_basket_loto_v1/fold_01_holdout_butter_chocolate_pudding/datasets/refs \
+    --output-dir experiments/target_object_ood_50_campaign_v1_fold01_smoke_20260526 \
+    --device cpu \
+    --max-jobs 2 \
+    --max-train-rows 2000 \
+    --max-calib-rows 1000 \
+    --max-eval-rows 1000 \
+    --max-epochs 3 \
+    --patience 2 \
+    --batch-size 128 \
+    --force
+
+Smoke test must confirm:
+- both jobs complete,
+- campaign_summary.csv exists,
+- CAMPAIGN_TOPLINE_REPORT.md exists,
+- no OOD rows were used for training/calibration,
+- score files and metrics exist for each smoke job.
+
+If smoke passes, launch the full sequential campaign on Sam with nohup:
+  nohup python3 scripts/run_target_object_ood_campaign_v1.py \
+    --campaign-config configs/target_object_ood_50_campaign_v1.json \
+    --refs-dir experiments/prepared_20260526/08_target_object_pick_basket_loto_v1/fold_01_holdout_butter_chocolate_pudding/datasets/refs \
+    --output-dir experiments/target_object_ood_50_campaign_v1_fold01_20260526 \
+    --device cuda \
+    --seed 42 \
+    > experiments/target_object_ood_50_campaign_v1_fold01_20260526.launch.log 2>&1 &
+
+After launch, report:
+- background PID,
+- first 20 log lines,
+- current GPU/RAM load if available,
+- exact output dir.
+
+While running, do not start another heavy training job. Only inspect status.
+
+When the full campaign finishes, write:
+  reports/FIPER_TARGET_OBJECT_OOD_50_CAMPAIGN_FOLD01_RESULTS_REPORT_20260526.md
+
+Final report must include:
+1. Whether all 50 jobs completed.
+2. Failed jobs and exact error text, if any.
+3. Top 15 jobs sorted by objective.
+4. For each top job:
+   - model family,
+   - input fields,
+   - best epoch,
+   - OOD success FA OR q95 K3,
+   - OOD failure detection OR q95 K3,
+   - OOD failure Det@25 OR q95 K3,
+   - OOD failure mean first detection time,
+   - score-only metrics,
+   - ACE-only metrics,
+   - whether it beats the baseline.
+5. Best success-only anomaly model.
+6. Best supervised seen-failure risk model.
+7. Best temporal model.
+8. Whether TCN_history_k8 helped.
+9. Whether context/action/history lowered false alarms.
+10. Whether any candidate is deployable as:
+    - hard stop,
+    - warning only,
+    - not deployable.
+11. Exact command lines run.
+12. Exact files written.
+
+Final decision fields:
+  FULL_50_CAMPAIGN_COMPLETE = YES/NO
+  BEST_JOB = job name or NONE
+  BEST_SUCCESS_ONLY_JOB = job name or NONE
+  BEST_TEMPORAL_JOB = job name or NONE
+  OOD_SUCCESS_FALSE_ALARM_IMPROVED = YES/NO
+  OOD_FAILURE_EARLY_DETECTION_STILL_USEFUL = YES/NO
+  READY_TO_FREEZE_POLICY_AND_TEST_FOLDS_00_02_03 = YES/NO

@@ -1,0 +1,23 @@
+{
+  "suite": "libero_10_with_milk",
+  "task_id": 7,
+  "max_steps": 300,
+  "global_action_seed": 424242,
+  "seeds": [
+    889528444,
+    1869585543,
+    222736063,
+    712704968,
+    1559319872,
+    1370034125,
+    1681172831,
+    1468778042,
+    1462228070,
+    430311902
+  ],
+  "risk_model_job_dir": "experiments/current_baseline_v2_018_20260528/00_global_main/jobs/v2_018_transformer_k16",
+  "action_selection_policy": "risk_filtered_lowest_score_candidate_v2_strict_margin",
+  "action_mod_min_improvement": 0.10,
+  "action_mod_q99_min_improvement": 0.15,
+  "output_dir": "realtime_deployment/runs/riskaware_actionmod_v2_strict_chunk_exec_task7_10eps_sam_20260529"
+}

@@ -1,0 +1,30 @@
+{
+  "best_epoch": 27,
+  "feature_notes": "TCN k8 focal loss",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.6285714285714286,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.25771428571428573,
+    "failure_eval_ood_score_q95_K3_det25": 0.2,
+    "success_test_ood_or_q95_K3_fa": 0.8852459016393442,
+    "success_test_ood_score_q95_K3_fa": 0.4098360655737705,
+    "success_test_seen_or_q95_K3_fa": 0.4827586206896552
+  },
+  "mode": "supervised",
+  "model": "seq_tcn",
+  "name": "049_sup_seq_tcn_k8_focal",
+  "objective": 0.6878946943390132,
+  "runtime_seconds": 63.13192415237427,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.41622087359428406,
+      "q95": 0.5722094178199768,
+      "q99": 0.968378484249115
+    }
+  }
+}

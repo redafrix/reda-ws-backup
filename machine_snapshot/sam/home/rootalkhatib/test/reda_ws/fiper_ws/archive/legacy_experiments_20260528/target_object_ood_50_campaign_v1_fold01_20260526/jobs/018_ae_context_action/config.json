@@ -1,0 +1,19 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "hidden": [
+    512,
+    256
+  ],
+  "include_action": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "latent": 96,
+  "max_epochs": 160,
+  "mode": "ae",
+  "model": "mlp",
+  "name": "018_ae_context_action",
+  "notes": "conditional autoencoder",
+  "patience": 18,
+  "seed": 42
+}

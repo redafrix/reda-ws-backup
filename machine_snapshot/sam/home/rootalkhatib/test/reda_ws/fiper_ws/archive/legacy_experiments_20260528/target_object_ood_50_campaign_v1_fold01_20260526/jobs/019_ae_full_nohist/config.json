@@ -1,0 +1,20 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "hidden": [
+    768,
+    384
+  ],
+  "include_ace": true,
+  "include_action": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "latent": 128,
+  "max_epochs": 160,
+  "mode": "ae",
+  "model": "mlp",
+  "name": "019_ae_full_nohist",
+  "notes": "large no-history autoencoder",
+  "patience": 18,
+  "seed": 42
+}

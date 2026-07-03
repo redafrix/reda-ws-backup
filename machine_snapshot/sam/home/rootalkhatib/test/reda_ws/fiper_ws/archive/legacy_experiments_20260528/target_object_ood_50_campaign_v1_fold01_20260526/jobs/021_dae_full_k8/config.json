@@ -1,0 +1,24 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "denoise": true,
+  "hidden": [
+    768,
+    384
+  ],
+  "history_steps": 8,
+  "include_ace": true,
+  "include_action": true,
+  "include_history": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "latent": 128,
+  "max_epochs": 160,
+  "mode": "ae",
+  "model": "mlp",
+  "name": "021_dae_full_k8",
+  "noise_std": 0.05,
+  "notes": "denoising autoencoder with 8-step history",
+  "patience": 18,
+  "seed": 42
+}

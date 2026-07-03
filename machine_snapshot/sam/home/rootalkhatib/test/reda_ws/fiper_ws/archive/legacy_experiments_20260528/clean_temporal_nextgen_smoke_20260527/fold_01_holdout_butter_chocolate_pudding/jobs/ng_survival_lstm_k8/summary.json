@@ -1,0 +1,57 @@
+{
+  "best_epoch": 1,
+  "feature_notes": "",
+  "key_metrics": {
+    "failure_eval_ood_hardstop_q99_K3_det": 0.07142857142857142,
+    "failure_eval_ood_hardstop_q99_K3_det25": 0.0,
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.6428571428571429,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.29571428571428565,
+    "failure_eval_ood_score_q95_K3_det25": 0.2857142857142857,
+    "failure_eval_ood_score_q99_K3_det": 0.07142857142857142,
+    "failure_test_seen_or_q95_K3_det": 1.0,
+    "failure_test_seen_or_q95_K3_det25": 0.35714285714285715,
+    "success_test_ood_hardstop_q99_K3_fa": 0.0,
+    "success_test_ood_or_q95_K3_fa": 0.6086956521739131,
+    "success_test_ood_score_q95_K3_fa": 0.043478260869565216,
+    "success_test_ood_score_q99_K3_fa": 0.0,
+    "success_test_seen_hardstop_q99_K3_fa": 0.0,
+    "success_test_seen_or_q95_K3_fa": 0.39285714285714285,
+    "success_test_seen_score_q99_K3_fa": 0.0
+  },
+  "mode": "supervised",
+  "model": "seq_lstm",
+  "name": "ng_survival_lstm_k8",
+  "objective": 1.1762422360248446,
+  "runtime_seconds": 6.685138940811157,
+  "thresholds": {
+    "ace": {
+      "q90": -343.1597900390625,
+      "q95": -342.33880615234375,
+      "q99": -341.1861267089844
+    },
+    "residual": {},
+    "score": {
+      "eventual": {
+        "q90": 0.6274228096008301,
+        "q95": 0.82073575258255,
+        "q99": 0.9434635639190674
+      },
+      "h10": {
+        "q90": 0.031351011246442795,
+        "q95": 0.03879301995038986,
+        "q99": 0.05207803100347519
+      },
+      "h25": {
+        "q90": 0.0602262057363987,
+        "q95": 0.07412239164113998,
+        "q99": 0.10859938710927963
+      },
+      "h50": {
+        "q90": 0.09342914819717407,
+        "q95": 0.12984400987625122,
+        "q99": 0.2462327778339386
+      }
+    }
+  }
+}

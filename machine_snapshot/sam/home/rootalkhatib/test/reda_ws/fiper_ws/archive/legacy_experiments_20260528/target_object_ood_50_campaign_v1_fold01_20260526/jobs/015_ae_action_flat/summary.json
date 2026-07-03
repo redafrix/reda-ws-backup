@@ -1,0 +1,30 @@
+{
+  "best_epoch": 159,
+  "feature_notes": "success-only autoencoder on action chunk",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.9142857142857143,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.15333333333333335,
+    "failure_eval_ood_score_q95_K3_det25": 0.9142857142857143,
+    "success_test_ood_or_q95_K3_fa": 1.0,
+    "success_test_ood_score_q95_K3_fa": 0.994535519125683,
+    "success_test_seen_or_q95_K3_fa": 0.6293103448275862
+  },
+  "mode": "ae",
+  "model": "mlp",
+  "name": "015_ae_action_flat",
+  "objective": 1.0139162561576351,
+  "runtime_seconds": 45.367924213409424,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.017498154193162918,
+      "q95": 0.023270895704627037,
+      "q99": 0.03965580835938454
+    }
+  }
+}

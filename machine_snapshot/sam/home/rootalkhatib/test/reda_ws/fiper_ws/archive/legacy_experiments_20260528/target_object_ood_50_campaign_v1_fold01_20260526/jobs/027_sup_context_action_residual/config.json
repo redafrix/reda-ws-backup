@@ -1,0 +1,16 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "blocks": 4,
+  "include_action": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "max_epochs": 160,
+  "mode": "supervised",
+  "model": "residual_mlp",
+  "name": "027_sup_context_action_residual",
+  "notes": "residual MLP inspired by old residual_mlp_large",
+  "patience": 18,
+  "seed": 42,
+  "width": 512
+}

@@ -1,0 +1,30 @@
+{
+  "best_epoch": 61,
+  "feature_notes": "supervised ACE metrics only",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.7714285714285715,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.23476190476190475,
+    "failure_eval_ood_score_q95_K3_det25": 0.6857142857142857,
+    "success_test_ood_or_q95_K3_fa": 0.8743169398907104,
+    "success_test_ood_score_q95_K3_fa": 0.6229508196721312,
+    "success_test_seen_or_q95_K3_fa": 0.45689655172413796
+  },
+  "mode": "supervised",
+  "model": "mlp",
+  "name": "036_sup_ace_only",
+  "objective": 1.0029334571590083,
+  "runtime_seconds": 42.143678426742554,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.3805162012577057,
+      "q95": 0.5336004495620728,
+      "q99": 0.6859216690063477
+    }
+  }
+}

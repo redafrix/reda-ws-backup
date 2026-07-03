@@ -1,0 +1,30 @@
+{
+  "best_epoch": 160,
+  "feature_notes": "large no-history autoencoder",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 1.0,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.007619047619047619,
+    "failure_eval_ood_score_q95_K3_det25": 1.0,
+    "success_test_ood_or_q95_K3_fa": 1.0,
+    "success_test_ood_score_q95_K3_fa": 1.0,
+    "success_test_seen_or_q95_K3_fa": 0.6206896551724138
+  },
+  "mode": "ae",
+  "model": "mlp",
+  "name": "019_ae_full_nohist",
+  "objective": 1.1896551724137931,
+  "runtime_seconds": 49.16129231452942,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.007708983961492777,
+      "q95": 0.009909658692777157,
+      "q99": 0.017336199060082436
+    }
+  }
+}

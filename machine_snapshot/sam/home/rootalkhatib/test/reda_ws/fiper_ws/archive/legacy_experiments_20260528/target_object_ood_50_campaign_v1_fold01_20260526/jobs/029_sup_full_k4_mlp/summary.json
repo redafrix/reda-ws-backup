@@ -1,0 +1,30 @@
+{
+  "best_epoch": 2,
+  "feature_notes": "history k4 supervised MLP",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.6571428571428571,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.2638095238095238,
+    "failure_eval_ood_score_q95_K3_det25": 0.2857142857142857,
+    "success_test_ood_or_q95_K3_fa": 0.7704918032786885,
+    "success_test_ood_score_q95_K3_fa": 0.12021857923497267,
+    "success_test_seen_or_q95_K3_fa": 0.46551724137931033
+  },
+  "mode": "supervised",
+  "model": "mlp",
+  "name": "029_sup_full_k4_mlp",
+  "objective": 0.9257893886780263,
+  "runtime_seconds": 16.317707538604736,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.29845482110977173,
+      "q95": 0.5193886756896973,
+      "q99": 0.9451059103012085
+    }
+  }
+}

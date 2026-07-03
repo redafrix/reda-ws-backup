@@ -1,0 +1,22 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "hidden": [
+    768,
+    384,
+    192
+  ],
+  "history_steps": 4,
+  "include_ace": true,
+  "include_action": true,
+  "include_history": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "max_epochs": 160,
+  "mode": "supervised",
+  "model": "mlp",
+  "name": "029_sup_full_k4_mlp",
+  "notes": "history k4 supervised MLP",
+  "patience": 18,
+  "seed": 42
+}

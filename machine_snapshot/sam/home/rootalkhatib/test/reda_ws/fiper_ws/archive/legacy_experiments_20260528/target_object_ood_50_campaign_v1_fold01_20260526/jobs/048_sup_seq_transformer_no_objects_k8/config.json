@@ -1,0 +1,18 @@
+{
+  "action_repr": "stats",
+  "batch_size": 256,
+  "heads": 4,
+  "history_steps": 8,
+  "include_ace": true,
+  "include_action": true,
+  "include_proprio": true,
+  "layers": 3,
+  "max_epochs": 180,
+  "mode": "supervised",
+  "model": "seq_transformer",
+  "name": "048_sup_seq_transformer_no_objects_k8",
+  "notes": "transformer no object-position ablation",
+  "patience": 20,
+  "seed": 42,
+  "width": 128
+}

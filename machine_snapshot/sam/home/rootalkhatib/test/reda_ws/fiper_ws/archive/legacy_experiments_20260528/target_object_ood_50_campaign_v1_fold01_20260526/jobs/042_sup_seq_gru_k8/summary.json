@@ -1,0 +1,30 @@
+{
+  "best_epoch": 1,
+  "feature_notes": "GRU history k8",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.6571428571428571,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.25171428571428567,
+    "failure_eval_ood_score_q95_K3_det25": 0.45714285714285713,
+    "success_test_ood_or_q95_K3_fa": 0.7650273224043715,
+    "success_test_ood_score_q95_K3_fa": 0.12021857923497267,
+    "success_test_seen_or_q95_K3_fa": 0.49137931034482757
+  },
+  "mode": "supervised",
+  "model": "seq_gru",
+  "name": "042_sup_seq_gru_k8",
+  "objective": 0.9210550755067429,
+  "runtime_seconds": 34.344812631607056,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.3182107210159302,
+      "q95": 0.48038163781166077,
+      "q99": 0.7883923053741455
+    }
+  }
+}

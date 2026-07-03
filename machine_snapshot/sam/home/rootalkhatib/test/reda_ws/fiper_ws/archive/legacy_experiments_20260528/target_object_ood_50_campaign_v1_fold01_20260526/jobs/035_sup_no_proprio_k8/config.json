@@ -1,0 +1,18 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "blocks": 4,
+  "history_steps": 8,
+  "include_ace": true,
+  "include_action": true,
+  "include_history": true,
+  "include_objects": true,
+  "max_epochs": 160,
+  "mode": "supervised",
+  "model": "residual_mlp",
+  "name": "035_sup_no_proprio_k8",
+  "notes": "supervised ablation without current proprio",
+  "patience": 18,
+  "seed": 42,
+  "width": 384
+}

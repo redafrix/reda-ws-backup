@@ -1,0 +1,30 @@
+{
+  "best_epoch": 1,
+  "feature_notes": "full no-history supervised MLP",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.8,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.16580952380952382,
+    "failure_eval_ood_score_q95_K3_det25": 0.6285714285714286,
+    "success_test_ood_or_q95_K3_fa": 0.7595628415300546,
+    "success_test_ood_score_q95_K3_fa": 0.18032786885245902,
+    "success_test_seen_or_q95_K3_fa": 0.46551724137931033
+  },
+  "mode": "supervised",
+  "model": "mlp",
+  "name": "028_sup_full_nohist_mlp",
+  "objective": 1.2278971170152628,
+  "runtime_seconds": 15.580511093139648,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.28527534008026123,
+      "q95": 0.42068105936050415,
+      "q99": 0.6966549754142761
+    }
+  }
+}

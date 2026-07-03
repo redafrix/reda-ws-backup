@@ -1,0 +1,19 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "embed_dim": 128,
+  "hidden": [
+    512,
+    384
+  ],
+  "include_action": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "max_epochs": 160,
+  "mode": "rnd",
+  "model": "mlp",
+  "name": "006_rnd_context_action",
+  "notes": "conditional RND using action plus proprio plus object distance set",
+  "patience": 18,
+  "seed": 42
+}

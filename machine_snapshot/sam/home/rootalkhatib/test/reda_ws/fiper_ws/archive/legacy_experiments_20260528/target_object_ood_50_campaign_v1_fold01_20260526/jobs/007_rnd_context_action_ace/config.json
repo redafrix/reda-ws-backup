@@ -1,0 +1,20 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "embed_dim": 128,
+  "hidden": [
+    512,
+    384
+  ],
+  "include_ace": true,
+  "include_action": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "max_epochs": 160,
+  "mode": "rnd",
+  "model": "mlp",
+  "name": "007_rnd_context_action_ace",
+  "notes": "conditional RND with ACE metrics",
+  "patience": 18,
+  "seed": 42
+}

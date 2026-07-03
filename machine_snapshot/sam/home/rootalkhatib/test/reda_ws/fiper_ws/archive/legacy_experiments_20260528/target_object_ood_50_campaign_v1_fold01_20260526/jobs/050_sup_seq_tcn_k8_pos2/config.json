@@ -1,0 +1,18 @@
+{
+  "action_repr": "stats",
+  "batch_size": 384,
+  "history_steps": 8,
+  "include_ace": true,
+  "include_action": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "max_epochs": 180,
+  "mode": "supervised",
+  "model": "seq_tcn",
+  "name": "050_sup_seq_tcn_k8_pos2",
+  "notes": "TCN k8 positive class weighted",
+  "patience": 20,
+  "pos_weight": 2.0,
+  "seed": 42,
+  "width": 128
+}

@@ -1,0 +1,30 @@
+{
+  "best_epoch": 4,
+  "feature_notes": "LSTM history k16",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.6857142857142857,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.22847619047619047,
+    "failure_eval_ood_score_q95_K3_det25": 0.34285714285714286,
+    "success_test_ood_or_q95_K3_fa": 0.7923497267759563,
+    "success_test_ood_score_q95_K3_fa": 0.20218579234972678,
+    "success_test_seen_or_q95_K3_fa": 0.46551724137931033
+  },
+  "mode": "supervised",
+  "model": "seq_lstm",
+  "name": "045_sup_seq_lstm_k16",
+  "objective": 0.950145360574982,
+  "runtime_seconds": 43.02288889884949,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.28257277607917786,
+      "q95": 0.49511367082595825,
+      "q99": 0.9886336326599121
+    }
+  }
+}

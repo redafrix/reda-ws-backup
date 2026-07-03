@@ -1,0 +1,21 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "hidden": [
+    512,
+    256
+  ],
+  "history_steps": 8,
+  "include_ace": true,
+  "include_action": true,
+  "include_history": true,
+  "include_proprio": true,
+  "latent": 96,
+  "max_epochs": 160,
+  "mode": "ae",
+  "model": "mlp",
+  "name": "022_ae_no_objects_k8",
+  "notes": "autoencoder no-object ablation",
+  "patience": 18,
+  "seed": 42
+}

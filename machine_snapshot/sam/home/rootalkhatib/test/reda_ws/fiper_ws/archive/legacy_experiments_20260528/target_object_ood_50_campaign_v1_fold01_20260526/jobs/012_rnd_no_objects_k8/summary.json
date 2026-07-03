@@ -1,0 +1,30 @@
+{
+  "best_epoch": 160,
+  "feature_notes": "RND ablation without object position set",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 1.0,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.1285714285714286,
+    "failure_eval_ood_score_q95_K3_det25": 1.0,
+    "success_test_ood_or_q95_K3_fa": 1.0,
+    "success_test_ood_score_q95_K3_fa": 0.994535519125683,
+    "success_test_seen_or_q95_K3_fa": 0.5517241379310345
+  },
+  "mode": "rnd",
+  "model": "mlp",
+  "name": "012_rnd_no_objects_k8",
+  "objective": 1.2241379310344827,
+  "runtime_seconds": 45.01048994064331,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 2.92866061499808e-05,
+      "q95": 3.862783341901377e-05,
+      "q99": 7.184514834079891e-05
+    }
+  }
+}

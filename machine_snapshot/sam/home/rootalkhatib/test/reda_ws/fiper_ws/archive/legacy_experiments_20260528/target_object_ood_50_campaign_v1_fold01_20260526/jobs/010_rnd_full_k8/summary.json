@@ -1,0 +1,30 @@
+{
+  "best_epoch": 155,
+  "feature_notes": "RND with 8-step history",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 1.0,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.006666666666666666,
+    "failure_eval_ood_score_q95_K3_det25": 1.0,
+    "success_test_ood_or_q95_K3_fa": 1.0,
+    "success_test_ood_score_q95_K3_fa": 1.0,
+    "success_test_seen_or_q95_K3_fa": 0.5603448275862069
+  },
+  "mode": "rnd",
+  "model": "mlp",
+  "name": "010_rnd_full_k8",
+  "objective": 1.2198275862068966,
+  "runtime_seconds": 44.75102782249451,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 3.067803481826559e-05,
+      "q95": 3.917443609680049e-05,
+      "q99": 7.267136970767751e-05
+    }
+  }
+}

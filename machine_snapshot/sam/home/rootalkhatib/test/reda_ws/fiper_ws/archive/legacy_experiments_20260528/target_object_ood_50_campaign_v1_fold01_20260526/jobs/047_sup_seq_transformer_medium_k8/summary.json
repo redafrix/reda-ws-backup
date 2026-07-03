@@ -1,0 +1,30 @@
+{
+  "best_epoch": 7,
+  "feature_notes": "medium transformer history/action",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.6,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.2944761904761905,
+    "failure_eval_ood_score_q95_K3_det25": 0.2571428571428571,
+    "success_test_ood_or_q95_K3_fa": 0.8961748633879781,
+    "success_test_ood_score_q95_K3_fa": 0.40437158469945356,
+    "success_test_seen_or_q95_K3_fa": 0.49137931034482757
+  },
+  "mode": "supervised",
+  "model": "seq_transformer",
+  "name": "047_sup_seq_transformer_medium_k8",
+  "objective": 0.6100480497456192,
+  "runtime_seconds": 102.20997309684753,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.2951658070087433,
+      "q95": 0.6000963449478149,
+      "q99": 0.9990401268005371
+    }
+  }
+}

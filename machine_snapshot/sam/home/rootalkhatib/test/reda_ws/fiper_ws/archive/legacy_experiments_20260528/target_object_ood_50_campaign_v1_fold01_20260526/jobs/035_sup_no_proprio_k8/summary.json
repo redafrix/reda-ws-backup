@@ -1,0 +1,30 @@
+{
+  "best_epoch": 1,
+  "feature_notes": "supervised ablation without current proprio",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.6,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.2773333333333333,
+    "failure_eval_ood_score_q95_K3_det25": 0.2,
+    "success_test_ood_or_q95_K3_fa": 0.8032786885245902,
+    "success_test_ood_score_q95_K3_fa": 0.15300546448087432,
+    "success_test_seen_or_q95_K3_fa": 0.47413793103448276
+  },
+  "mode": "supervised",
+  "model": "residual_mlp",
+  "name": "035_sup_no_proprio_k8",
+  "objective": 0.7580130016958735,
+  "runtime_seconds": 18.9294273853302,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.4199594259262085,
+      "q95": 0.692676305770874,
+      "q99": 0.9873616099357605
+    }
+  }
+}

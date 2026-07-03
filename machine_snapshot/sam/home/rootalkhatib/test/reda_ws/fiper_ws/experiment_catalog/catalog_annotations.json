@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "global_warnings": [
+    "The May 29 to June 1 four-task reports label their paired baseline as vanilla SimVLA, but both runners loaded the default modified checkpoint ckpt-60000. Treat those experiments as modified SimVLA versus modified SimVLA plus the base risk detector.",
+    "Bob and Dean are separate hardware replications. Their closed-loop outcomes are not expected to match episode-for-episode even with identical seeds because GPU-level numerical differences alter generated actions.",
+    "A result is canonical only when its checkpoint, runner, detector artifacts, reset-seed manifest, action-seed protocol, and raw episode summaries are all identified. Aggregate-only reports are evidence summaries, not substitutes for raw logs."
+  ],
+  "rules": [
+    {
+      "pattern": "riskaware_4worker_20260529(?:/.+)?",
+      "title": "Four-task risk-aware campaign",
+      "meaning": "Modified SimVLA ckpt-60000 plus the v2_018 base risk detector and ACE candidate selection.",
+      "checkpoint": "modified SimVLA uncertainty checkpoint ckpt-60000",
+      "trust": "paired result; checkpoint semantics corrected on 2026-06-05",
+      "warning": "This is not a comparison against original SimVLA."
+    },
+    {
+      "pattern": "baseline_same_seed_4worker_20260601(?:/.+)?",
+      "title": "Paired no-risk baseline for the four-task campaign",
+      "meaning": "Modified SimVLA ckpt-60000 without ACE selection or risk-based action replacement. Reset seeds match the corresponding risk-aware campaign.",
+      "checkpoint": "modified SimVLA uncertainty checkpoint ckpt-60000",
+      "trust": "paired result; checkpoint semantics corrected on 2026-06-05",
+      "warning": "Older reports call this vanilla SimVLA; that label is incorrect."
+    },
+    {
+      "pattern": "canonical_dean_bob_task0_4policy_seq100_20260604.+",
+      "title": "Canonical four-policy Task 0 replication",
+      "meaning": "Back-to-back 100-episode comparison of original SimVLA, modified ckpt-60000, base risk-aware policy, and top-8 uncertainty risk-aware policy.",
+      "checkpoint": "explicit per-policy checkpoint",
+      "trust": "canonical and fully audited on 2026-06-05",
+      "warning": "Interpret Bob and Dean as separate replications, not identical trajectory replays."
+    },
+    {
+      "pattern": "conservative_topk8_midrange_pilot_20260605.+",
+      "title": "Conservative top-8 intervention pilot",
+      "meaning": "Small active pilot testing stricter intervention rules for the top-8 uncertainty risk model.",
+      "checkpoint": "modified SimVLA ckpt-60000",
+      "trust": "experimental; do not use as a final result until completion audit",
+      "warning": "Status and conclusions may change while the run is active."
+    },
+    {
+      "pattern": "current_baseline_v2_018_20260528.*",
+      "title": "Selected base transformer risk detector",
+      "meaning": "Offline detector family selected before adding the new SimVLA uncertainty features. Includes global, task-ID OOD, and object-holdout variants.",
+      "checkpoint": "risk detector artifacts; policy data were generated with the modified SimVLA pipeline",
+      "trust": "selected historical offline baseline"
+    },
+    {
+      "pattern": "current_dean_risk_models_20260602.*",
+      "title": "Current Dean risk models",
+      "meaning": "The two retained detector families: base transformer and the same transformer with eight selected uncertainty dimensions in the static branch.",
+      "checkpoint": "base and unc_topk8 detector model.pt artifacts",
+      "trust": "current retained offline models"
+    },
+    {
+      "pattern": "dean_uncertainty_topk_feature_sweep_v1_20260602.*",
+      "title": "Top-K uncertainty feature sweep",
+      "meaning": "Offline comparison of 8, 16, and 32 selected uncertainty dimensions on the all-task and held-out-task splits.",
+      "checkpoint": "offline detector models",
+      "trust": "completed offline experiment"
+    },
+    {
+      "pattern": "dean_all_tasks_full_uncertainty_test_20260601.*",
+      "title": "All-task uncertainty input test",
+      "meaning": "In-distribution comparison between the base transformer and direct 98D uncertainty input using all available tasks.",
+      "checkpoint": "offline detector models",
+      "trust": "completed offline experiment"
+    },
+    {
+      "pattern": "dean_ood_last2_taskids_full_v1_20260601.*",
+      "title": "Held-out last-two-task-IDs experiment",
+      "meaning": "OOD split holding out the last two task IDs from each suite while using all other valid episodes for train, validation, and calibration.",
+      "checkpoint": "offline detector models",
+      "trust": "completed canonical OOD split"
+    },
+    {
+      "pattern": "baseline_simvla_libero10_milk_task7_sam_v1.*|riskaware_actionmod_v2_strict_libero10_milk_task7_bob_full_20260528.*|comparison_analysis_task7.*",
+      "title": "Early Task 7 first-action comparison",
+      "meaning": "Historical 100-seed first-action receding-horizon comparison. Both policy paths used the modified ckpt-60000 sampler, despite reports using the word vanilla for the baseline.",
+      "checkpoint": "modified SimVLA uncertainty checkpoint ckpt-60000",
+      "trust": "raw canonical 100-episode summaries exist; checkpoint label corrected on 2026-06-05",
+      "warning": "The observed 58% versus 61% result does not compare against original SimVLA."
+    },
+    {
+      "pattern": "chunk_exec.*task7|chunk_exec_task7|chunk_exec_bad_audit",
+      "title": "Task 7 full-chunk execution experiment",
+      "meaning": "Historical experiment executing full action chunks instead of only the first action. The 100-episode full-chunk baseline reached 98 successes, but it used the modified ckpt-60000 sampler.",
+      "checkpoint": "modified SimVLA uncertainty checkpoint ckpt-60000",
+      "trust": "baseline replicated and spot-checked; risk-aware run was interrupted and later archived",
+      "warning": "Do not combine this result with first-action rollouts or present it as original SimVLA performance."
+    },
+    {
+      "pattern": "archive/.+|archive_bundle:.+",
+      "title": "Archived material",
+      "meaning": "Preserved historical or rejected work. It is retained for provenance but should not be treated as the current selected method.",
+      "trust": "archive"
+    }
+  ],
+  "external_entries": [
+    {
+      "id": "sam:realtime_deployment/runs/riskaware_4worker_20260529/sam_w0_seen_task7",
+      "host": "sam",
+      "kind": "realtime_run",
+      "name": "sam_w0_seen_task7",
+      "relative_path": "realtime_deployment/runs/riskaware_4worker_20260529/sam_w0_seen_task7",
+      "absolute_path": "/home/rootalkhatib/test/reda_ws/fiper_ws/realtime_deployment/runs/riskaware_4worker_20260529/sam_w0_seen_task7",
+      "status": "host_offline_result_known_from_audit",
+      "title": "Task 7 four-task risk-aware campaign",
+      "meaning": "Modified SimVLA ckpt-60000 plus the base risk detector. Recorded result: 281/450 successes.",
+      "checkpoint": "modified SimVLA uncertainty checkpoint ckpt-60000",
+      "trust": "aggregate audit available; raw files unavailable while Sam is offline",
+      "warning": "Not original SimVLA."
+    },
+    {
+      "id": "sam:realtime_deployment/runs/baseline_same_seed_4worker_20260601/sam_w0_seen_task7",
+      "host": "sam",
+      "kind": "realtime_run",
+      "name": "sam_w0_seen_task7",
+      "relative_path": "realtime_deployment/runs/baseline_same_seed_4worker_20260601/sam_w0_seen_task7",
+      "absolute_path": "/home/rootalkhatib/test/reda_ws/fiper_ws/realtime_deployment/runs/baseline_same_seed_4worker_20260601/sam_w0_seen_task7",
+      "status": "host_offline_result_known_from_audit",
+      "title": "Task 7 paired no-risk baseline",
+      "meaning": "Modified SimVLA ckpt-60000 without risk intervention. Recorded result: 244/450 successes.",
+      "checkpoint": "modified SimVLA uncertainty checkpoint ckpt-60000",
+      "trust": "aggregate audit available; raw files unavailable while Sam is offline",
+      "warning": "Older documentation incorrectly calls this vanilla SimVLA."
+    },
+    {
+      "id": "sam:realtime_deployment/runs/riskaware_4worker_20260529/sam_w1_ood_task8",
+      "host": "sam",
+      "kind": "realtime_run",
+      "name": "sam_w1_ood_task8",
+      "relative_path": "realtime_deployment/runs/riskaware_4worker_20260529/sam_w1_ood_task8",
+      "absolute_path": "/home/rootalkhatib/test/reda_ws/fiper_ws/realtime_deployment/runs/riskaware_4worker_20260529/sam_w1_ood_task8",
+      "status": "host_offline_result_known_from_audit",
+      "title": "Task 8 OOD four-task risk-aware campaign",
+      "meaning": "Modified SimVLA ckpt-60000 plus the task-ID OOD risk detector. Recorded result: 213/429 successes.",
+      "checkpoint": "modified SimVLA uncertainty checkpoint ckpt-60000",
+      "trust": "aggregate audit available; raw files unavailable while Sam is offline",
+      "warning": "The +3 success difference was not statistically persuasive."
+    },
+    {
+      "id": "sam:realtime_deployment/runs/baseline_same_seed_4worker_20260601/sam_w1_ood_task8",
+      "host": "sam",
+      "kind": "realtime_run",
+      "name": "sam_w1_ood_task8",
+      "relative_path": "realtime_deployment/runs/baseline_same_seed_4worker_20260601/sam_w1_ood_task8",
+      "absolute_path": "/home/rootalkhatib/test/reda_ws/fiper_ws/realtime_deployment/runs/baseline_same_seed_4worker_20260601/sam_w1_ood_task8",
+      "status": "host_offline_result_known_from_audit",
+      "title": "Task 8 OOD paired no-risk baseline",
+      "meaning": "Modified SimVLA ckpt-60000 without risk intervention. Recorded result: 210/429 successes.",
+      "checkpoint": "modified SimVLA uncertainty checkpoint ckpt-60000",
+      "trust": "aggregate audit available; raw files unavailable while Sam is offline",
+      "warning": "Older documentation incorrectly calls this vanilla SimVLA."
+    }
+  ]
+}

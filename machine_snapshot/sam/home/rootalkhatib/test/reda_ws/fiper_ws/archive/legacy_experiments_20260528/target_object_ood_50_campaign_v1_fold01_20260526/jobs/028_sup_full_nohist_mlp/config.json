@@ -1,0 +1,20 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "hidden": [
+    768,
+    384,
+    192
+  ],
+  "include_ace": true,
+  "include_action": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "max_epochs": 160,
+  "mode": "supervised",
+  "model": "mlp",
+  "name": "028_sup_full_nohist_mlp",
+  "notes": "full no-history supervised MLP",
+  "patience": 18,
+  "seed": 42
+}

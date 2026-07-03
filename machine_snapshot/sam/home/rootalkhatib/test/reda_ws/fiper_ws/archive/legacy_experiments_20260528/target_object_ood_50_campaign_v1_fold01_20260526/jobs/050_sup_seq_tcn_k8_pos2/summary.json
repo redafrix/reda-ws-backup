@@ -1,0 +1,30 @@
+{
+  "best_epoch": 1,
+  "feature_notes": "TCN k8 positive class weighted",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 0.8571428571428571,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.15838095238095237,
+    "failure_eval_ood_score_q95_K3_det25": 0.7142857142857143,
+    "success_test_ood_or_q95_K3_fa": 0.7923497267759563,
+    "success_test_ood_score_q95_K3_fa": 0.26229508196721313,
+    "success_test_seen_or_q95_K3_fa": 0.46551724137931033
+  },
+  "mode": "supervised",
+  "model": "seq_tcn",
+  "name": "050_sup_seq_tcn_k8_pos2",
+  "objective": 1.2930025034321249,
+  "runtime_seconds": 30.454404592514038,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 0.4596098065376282,
+      "q95": 0.6363895535469055,
+      "q99": 0.8616951704025269
+    }
+  }
+}

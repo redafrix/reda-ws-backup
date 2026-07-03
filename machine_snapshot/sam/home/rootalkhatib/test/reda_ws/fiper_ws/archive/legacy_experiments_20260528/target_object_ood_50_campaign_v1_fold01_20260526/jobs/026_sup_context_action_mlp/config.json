@@ -1,0 +1,18 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "hidden": [
+    512,
+    256
+  ],
+  "include_action": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "max_epochs": 160,
+  "mode": "supervised",
+  "model": "mlp",
+  "name": "026_sup_context_action_mlp",
+  "notes": "context plus action supervised",
+  "patience": 18,
+  "seed": 42
+}

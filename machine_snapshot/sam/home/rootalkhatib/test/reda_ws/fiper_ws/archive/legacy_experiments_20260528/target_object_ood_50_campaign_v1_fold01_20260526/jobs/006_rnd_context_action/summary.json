@@ -1,0 +1,30 @@
+{
+  "best_epoch": 158,
+  "feature_notes": "conditional RND using action plus proprio plus object distance set",
+  "key_metrics": {
+    "failure_eval_ood_or_q95_K3_det": 1.0,
+    "failure_eval_ood_or_q95_K3_det25": 1.0,
+    "failure_eval_ood_or_q95_K3_mean_time": 0.006666666666666666,
+    "failure_eval_ood_score_q95_K3_det25": 1.0,
+    "success_test_ood_or_q95_K3_fa": 1.0,
+    "success_test_ood_score_q95_K3_fa": 1.0,
+    "success_test_seen_or_q95_K3_fa": 0.5862068965517241
+  },
+  "mode": "rnd",
+  "model": "mlp",
+  "name": "006_rnd_context_action",
+  "objective": 1.206896551724138,
+  "runtime_seconds": 43.91296911239624,
+  "thresholds": {
+    "ace": {
+      "q90": -343.2600402832031,
+      "q95": -342.3268737792969,
+      "q99": -340.95281982421875
+    },
+    "score": {
+      "q90": 2.542229776736349e-05,
+      "q95": 3.372855644556694e-05,
+      "q99": 6.235359614947811e-05
+    }
+  }
+}

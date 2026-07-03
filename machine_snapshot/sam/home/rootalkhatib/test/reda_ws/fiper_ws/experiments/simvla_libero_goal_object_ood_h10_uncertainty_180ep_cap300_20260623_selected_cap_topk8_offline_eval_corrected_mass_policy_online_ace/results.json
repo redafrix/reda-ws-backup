@@ -1,0 +1,753 @@
+{
+  "dataset_root": "/home/rootalkhatib/test/reda_ws/fiper_ws/datasets/simvla_libero_goal_object_ood_h10_uncertainty_180ep_cap300_20260623",
+  "dataset_summary": {
+    "episodes": 180,
+    "failure_episodes": 37,
+    "row_task_counts": {
+      "0": 2295,
+      "1": 1819,
+      "2": 1903,
+      "3": 1183,
+      "4": 1175,
+      "5": 1290,
+      "6": 986,
+      "7": 913,
+      "8": 855,
+      "9": 956,
+      "10": 1098,
+      "11": 2865,
+      "12": 2465,
+      "13": 1462,
+      "14": 1986,
+      "15": 2062,
+      "16": 1075,
+      "17": 1643
+    },
+    "rows": 28031,
+    "success_episodes": 143
+  },
+  "experiment": "selected_cap_topk8_offline_on_libero_goal_object_ood_180ep_20260622",
+  "feature_schema": {
+    "action_shape": [
+      10,
+      7
+    ],
+    "explicit_task_id_input": false,
+    "explicit_timestep_input": false,
+    "history_dim": 21,
+    "history_steps": 16,
+    "selected_uncertainty_dims": [
+      6,
+      21,
+      25,
+      27,
+      23,
+      2,
+      26,
+      24
+    ],
+    "static_dim": 51,
+    "static_layout": "action_stats_28 + ace_7 + proprio_8 + selected_uncertainty_topk8_8"
+  },
+  "metrics": {
+    "any_row_fixed_0.3_online_gate": {
+      "episode": {
+        "det_at_10": 0.918918918918919,
+        "det_at_25": 1.0,
+        "det_at_50": 1.0,
+        "detected_failure_count": 37,
+        "episode_false_alarm_rate": 1.0,
+        "episodes": 180,
+        "failure_detection_rate": 1.0,
+        "failure_episodes": 37,
+        "false_alarm_count": 143,
+        "mean_detection_fraction": 0.039099099099099095,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 5,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 5
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          }
+        },
+        "success_episodes": 143
+      },
+      "step": {
+        "accuracy": 0.6394349113481502,
+        "auprc": 0.6304512530847528,
+        "auroc": 0.7408787894267193,
+        "f1": 0.648928410156657,
+        "fn": 1759,
+        "fnr": 0.15846846846846846,
+        "fp": 8348,
+        "fpr": 0.4930600673321127,
+        "tn": 8583,
+        "tp": 9341
+      }
+    },
+    "any_row_fixed_0.5": {
+      "episode": {
+        "det_at_10": 0.8648648648648649,
+        "det_at_25": 1.0,
+        "det_at_50": 1.0,
+        "detected_failure_count": 37,
+        "episode_false_alarm_rate": 0.9790209790209791,
+        "episodes": 180,
+        "failure_detection_rate": 1.0,
+        "failure_episodes": 37,
+        "false_alarm_count": 140,
+        "mean_detection_fraction": 0.05234234234234234,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 5,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 5
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.7,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          }
+        },
+        "success_episodes": 143
+      },
+      "step": {
+        "accuracy": 0.6645856373300988,
+        "auprc": 0.6304512530847528,
+        "auroc": 0.7408787894267193,
+        "f1": 0.6401561543172076,
+        "fn": 2737,
+        "fnr": 0.24657657657657658,
+        "fp": 6665,
+        "fpr": 0.39365660622526727,
+        "tn": 10266,
+        "tp": 8363
+      }
+    },
+    "any_row_q95": {
+      "episode": {
+        "det_at_10": 0.7297297297297297,
+        "det_at_25": 1.0,
+        "det_at_50": 1.0,
+        "detected_failure_count": 37,
+        "episode_false_alarm_rate": 0.9790209790209791,
+        "episodes": 180,
+        "failure_detection_rate": 1.0,
+        "failure_episodes": 37,
+        "false_alarm_count": 140,
+        "mean_detection_fraction": 0.06873873873873874,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 5,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 5
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.7,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          }
+        },
+        "success_episodes": 143
+      },
+      "step": {
+        "accuracy": 0.6820306089686419,
+        "auprc": 0.6304512530847528,
+        "auroc": 0.7408787894267193,
+        "f1": 0.6397769065998464,
+        "fn": 3185,
+        "fnr": 0.28693693693693695,
+        "fp": 5728,
+        "fpr": 0.33831433465241273,
+        "tn": 11203,
+        "tp": 7915
+      }
+    },
+    "any_row_q99": {
+      "episode": {
+        "det_at_10": 0.02702702702702703,
+        "det_at_25": 0.2702702702702703,
+        "det_at_50": 0.918918918918919,
+        "detected_failure_count": 35,
+        "episode_false_alarm_rate": 0.6783216783216783,
+        "episodes": 180,
+        "failure_detection_rate": 0.9459459459459459,
+        "failure_episodes": 37,
+        "false_alarm_count": 97,
+        "mean_detection_fraction": 0.2621904761904762,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 5,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 5
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 0.8888888888888888,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 0.4444444444444444,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 0.6666666666666666,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 0.5,
+            "failure_episodes": 4,
+            "false_alarm_rate": 0.16666666666666666,
+            "success_episodes": 6
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.1,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 0.16666666666666666,
+            "success_episodes": 6
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.5,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.4,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.2,
+            "success_episodes": 10
+          }
+        },
+        "success_episodes": 143
+      },
+      "step": {
+        "accuracy": 0.7338304020548678,
+        "auprc": 0.6304512530847528,
+        "auroc": 0.7408787894267193,
+        "f1": 0.62335302135393,
+        "fn": 4926,
+        "fnr": 0.4437837837837838,
+        "fp": 2535,
+        "fpr": 0.1497253558561219,
+        "tn": 14396,
+        "tp": 6174
+      }
+    },
+    "score_q95_mass_conformal": {
+      "episode": {
+        "conformal_mass_threshold": 0.15,
+        "det_at_10": 0.6216216216216216,
+        "det_at_25": 1.0,
+        "det_at_50": 1.0,
+        "detected_failure_count": 37,
+        "episode_false_alarm_rate": 0.958041958041958,
+        "episodes": 180,
+        "failure_detection_rate": 1.0,
+        "failure_episodes": 37,
+        "false_alarm_count": 137,
+        "mean_detection_fraction": 0.07791738226520835,
+        "mean_final_mass": 23.87860307726595,
+        "per_task": {
+          "0": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 5,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 5
+          },
+          "1": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "10": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "11": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 9,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 1
+          },
+          "12": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 7,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 3
+          },
+          "13": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "14": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "15": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 0.8333333333333334,
+            "success_episodes": 6
+          },
+          "16": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.6,
+            "success_episodes": 10
+          },
+          "17": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 4,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 6
+          },
+          "2": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "3": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "4": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "5": {
+            "failure_detection_rate": 1.0,
+            "failure_episodes": 1,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 9
+          },
+          "6": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "7": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "8": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 1.0,
+            "success_episodes": 10
+          },
+          "9": {
+            "failure_detection_rate": 0.0,
+            "failure_episodes": 0,
+            "false_alarm_rate": 0.9,
+            "success_episodes": 10
+          }
+        },
+        "q95_row_threshold": 0.6155413389205933,
+        "success_episodes": 143
+      },
+      "step": {
+        "accuracy": 0.6820306089686419,
+        "auprc": 0.6304512530847528,
+        "auroc": 0.7408787894267193,
+        "f1": 0.6397769065998464,
+        "fn": 3185,
+        "fnr": 0.28693693693693695,
+        "fp": 5728,
+        "fpr": 0.33831433465241273,
+        "tn": 11203,
+        "tp": 7915
+      }
+    }
+  },
+  "risk_model_dir": "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8",
+  "rows_path": "/home/rootalkhatib/test/reda_ws/fiper_ws/datasets/simvla_libero_goal_object_ood_h10_uncertainty_180ep_cap300_20260623/fiper_receding_samples.jsonl",
+  "runtime_seconds": 23.724125385284424,
+  "summaries_path": "/home/rootalkhatib/test/reda_ws/fiper_ws/datasets/simvla_libero_goal_object_ood_h10_uncertainty_180ep_cap300_20260623/episode_summaries.jsonl",
+  "thresholds": {
+    "conformal_mass": 0.15,
+    "fixed_0.3_online_gate": 0.3,
+    "fixed_0.5": 0.5,
+    "q95": 0.6155413389205933,
+    "q99": 0.9665935635566711
+  }
+}

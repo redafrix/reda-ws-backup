@@ -1,0 +1,22 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "embed_dim": 160,
+  "hidden": [
+    768,
+    384
+  ],
+  "history_steps": 8,
+  "include_ace": true,
+  "include_action": true,
+  "include_history": true,
+  "include_objects": true,
+  "include_proprio": true,
+  "max_epochs": 160,
+  "mode": "rnd",
+  "model": "mlp",
+  "name": "010_rnd_full_k8",
+  "notes": "RND with 8-step history",
+  "patience": 18,
+  "seed": 42
+}

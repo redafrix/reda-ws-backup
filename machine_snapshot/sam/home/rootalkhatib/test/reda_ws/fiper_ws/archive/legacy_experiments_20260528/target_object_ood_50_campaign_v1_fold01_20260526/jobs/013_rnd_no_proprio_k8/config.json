@@ -1,0 +1,21 @@
+{
+  "action_repr": "seq_stats",
+  "batch_size": 512,
+  "embed_dim": 128,
+  "hidden": [
+    512,
+    256
+  ],
+  "history_steps": 8,
+  "include_ace": true,
+  "include_action": true,
+  "include_history": true,
+  "include_objects": true,
+  "max_epochs": 160,
+  "mode": "rnd",
+  "model": "mlp",
+  "name": "013_rnd_no_proprio_k8",
+  "notes": "RND ablation without current proprio",
+  "patience": 18,
+  "seed": 42
+}
