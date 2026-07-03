@@ -1,0 +1,99 @@
+defaults:
+  require_explicit_profile: true
+
+profiles:
+  missing_geo_object:
+    status: supported
+    top_grasp_depth_m: 0.025
+    mass_kg: null
+
+  # Supported objects
+  apple01:
+    status: supported
+    top_grasp_depth_m: 0.045
+    mass_kg: null
+    static_friction: null
+    dynamic_friction: null
+    restitution: null
+    source: validated_baseline
+
+  avocado02:
+    status: supported
+    top_grasp_depth_m: 0.025
+    mass_kg: null
+    static_friction: null
+    dynamic_friction: null
+    restitution: null
+    source: validated_baseline
+
+  onion00:
+    status: supported
+    top_grasp_depth_m: 0.025
+    mass_kg: null
+    static_friction: null
+    dynamic_friction: null
+    restitution: null
+    source: validated_baseline
+
+  kiwi00:
+    status: supported
+    top_grasp_depth_m: 0.025
+    mass_kg: null
+    static_friction: null
+    dynamic_friction: null
+    restitution: null
+    source: validated_baseline
+
+  lime00:
+    status: supported
+    top_grasp_depth_m: 0.025
+    mass_kg: null
+    static_friction: null
+    dynamic_friction: null
+    restitution: null
+    source: validated_baseline
+
+  fcan03:
+    status: supported
+    top_grasp_depth_m: 0.035
+    mass_kg: 0.15
+    static_friction: null
+    dynamic_friction: null
+    restitution: null
+    source: validated_5_of_5
+
+  tangerine06:
+    status: supported
+    top_grasp_depth_m: 0.025
+    mass_kg: null
+    static_friction: null
+    dynamic_friction: null
+    restitution: null
+    source: validated_baseline
+
+  egg03:
+    status: supported
+    top_grasp_depth_m: 0.025
+    mass_kg: null
+    static_friction: null
+    dynamic_friction: null
+    restitution: null
+    source: validated_baseline
+
+  # Rejected and Unsupported objects
+  box01:
+    status: rejected
+    rejection_code: OBJECT_TOO_WIDE_FOR_GRIPPER
+    reason: too wide for the gripper aperture
+
+  beer00:
+    status: unsupported
+    reason: tall cylindrical grasp/placement failed
+
+  potato00:
+    status: unsupported
+    reason: irregular shape grasp/placement failed
+
+  wbottle01:
+    status: unsupported
+    reason: bottle grasp/placement failed

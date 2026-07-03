@@ -1,0 +1,1926 @@
+===== asynchvla_ws/stage8_ultimate/logs/flowtrace_medium_bob.log
+[stage8] job flowtrace_medium_bob attempt 1 start 2026-05-15T22:58:14+02:00
+Activated AsyncVLA Bob SimVLA env
+  PYTHON_BIN=/usr/bin/python3
+  SIMVLA_SITE_PACKAGES=/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages
+  REDA_WS=/media/rootalkhatib/My Passport/reda_ws
+  LIBERO_CONFIG_PATH=/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/config/libero
+Python 3.10.12
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+`torch_dtype` is deprecated! Use `dtype` instead!
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+train 25
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+train 50
+train 75
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+train 100
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+train 125
+train 150
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+train 175
+train 200
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+train 225
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+train 250
+train 275
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+train 300
+saved /media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/data/processed_stage7_flow/stage8_flowtrace_medium/flowtrace_multiseed_trace_train.pt 300
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+calib 25
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+calib 50
+calib 75
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+calib 100
+saved /media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/data/processed_stage7_flow/stage8_flowtrace_medium/flowtrace_multiseed_trace_calib.pt 100
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+test_id 25
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+test_id 50
+test_id 75
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+test_id 100
+saved /media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/data/processed_stage7_flow/stage8_flowtrace_medium/flowtrace_multiseed_trace_test_id.pt 100
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+test_ood 25
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+test_ood 50
+test_ood 75
+[SmolVLM Dataset] Image size: 384x384
+[SmolVLM Dataset] Action mode: libero_joint
+== dataset libero_hdf5 with 1 trajs
+test_ood 100
+saved /media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/data/processed_stage7_flow/stage8_flowtrace_medium/flowtrace_multiseed_trace_test_ood.pt 100
+done_sec 344.8463203907013
+<stdin>:6: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+[stage8] job flowtrace_medium_bob exit 0 at 2026-05-15T23:04:06+02:00
+===== asynchvla_ws/stage8_ultimate/logs/libero_pro_expanded_30eps_bob.log
+  ep7 mode=C_random_seed success=True steps=550
+  ep8 mode=C_random_seed success=True steps=329
+  ep9 mode=C_random_seed success=True steps=216
+  ep10 mode=C_random_seed success=True steps=198
+  ep11 mode=C_random_seed success=True steps=225
+  ep12 mode=C_random_seed success=True steps=219
+  ep13 mode=C_random_seed success=True steps=253
+  ep14 mode=C_random_seed success=True steps=451
+  ep15 mode=C_random_seed success=False steps=600
+  ep16 mode=C_random_seed success=True steps=246
+  ep17 mode=C_random_seed success=True steps=224
+  ep18 mode=C_random_seed success=True steps=497
+  ep19 mode=C_random_seed success=True steps=217
+  ep20 mode=C_random_seed success=True steps=298
+  ep21 mode=C_random_seed success=True steps=229
+  ep22 mode=C_random_seed success=False steps=600
+  ep23 mode=C_random_seed success=True steps=263
+  ep24 mode=C_random_seed success=True steps=206
+  ep25 mode=C_random_seed success=True steps=245
+  ep26 mode=C_random_seed success=True steps=296
+  ep27 mode=C_random_seed success=True steps=214
+  ep28 mode=C_random_seed success=True steps=215
+  ep29 mode=C_random_seed success=True steps=280
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=236
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=302
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=239
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=229
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=204
+  ep5 mode=D_low_uncertainty_reject_log success=True steps=278
+  ep6 mode=D_low_uncertainty_reject_log success=True steps=217
+  ep7 mode=D_low_uncertainty_reject_log success=True steps=376
+  ep8 mode=D_low_uncertainty_reject_log success=True steps=309
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=269
+  ep10 mode=D_low_uncertainty_reject_log success=True steps=194
+  ep11 mode=D_low_uncertainty_reject_log success=True steps=243
+  ep12 mode=D_low_uncertainty_reject_log success=True steps=198
+  ep13 mode=D_low_uncertainty_reject_log success=True steps=256
+  ep14 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep15 mode=D_low_uncertainty_reject_log success=True steps=206
+  ep16 mode=D_low_uncertainty_reject_log success=True steps=284
+  ep17 mode=D_low_uncertainty_reject_log success=True steps=220
+  ep18 mode=D_low_uncertainty_reject_log success=True steps=220
+  ep19 mode=D_low_uncertainty_reject_log success=True steps=279
+  ep20 mode=D_low_uncertainty_reject_log success=True steps=206
+  ep21 mode=D_low_uncertainty_reject_log success=True steps=200
+  ep22 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep23 mode=D_low_uncertainty_reject_log success=True steps=236
+  ep24 mode=D_low_uncertainty_reject_log success=True steps=216
+  ep25 mode=D_low_uncertainty_reject_log success=True steps=278
+  ep26 mode=D_low_uncertainty_reject_log success=True steps=325
+  ep27 mode=D_low_uncertainty_reject_log success=True steps=273
+  ep28 mode=D_low_uncertainty_reject_log success=True steps=476
+  ep29 mode=D_low_uncertainty_reject_log success=True steps=249
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_30eps/libero_10_with_mug_task3.json
+[stage8] LIBERO-PRO expanded episodes=30 suite=libero_10_with_mug task=4 out=asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_30eps/libero_10_with_mug_task4.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_10_with_mug' (10 tasks).
+[task] 'put the white mug on the left plate and put the yellow and white mug on the right plate', 50 init states
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=220
+  ep1 mode=A_passive success=True steps=221
+  ep2 mode=A_passive success=True steps=214
+  ep3 mode=A_passive success=True steps=223
+  ep4 mode=A_passive success=True steps=224
+  ep5 mode=A_passive success=True steps=215
+  ep6 mode=A_passive success=True steps=212
+  ep7 mode=A_passive success=True steps=209
+  ep8 mode=A_passive success=True steps=274
+  ep9 mode=A_passive success=True steps=201
+  ep10 mode=A_passive success=True steps=238
+  ep11 mode=A_passive success=True steps=222
+  ep12 mode=A_passive success=True steps=208
+  ep13 mode=A_passive success=True steps=269
+  ep14 mode=A_passive success=True steps=230
+  ep15 mode=A_passive success=True steps=207
+  ep16 mode=A_passive success=True steps=219
+  ep17 mode=A_passive success=True steps=232
+  ep18 mode=A_passive success=True steps=218
+  ep19 mode=A_passive success=True steps=230
+  ep20 mode=A_passive success=True steps=236
+  ep21 mode=A_passive success=True steps=231
+  ep22 mode=A_passive success=True steps=271
+  ep23 mode=A_passive success=True steps=221
+  ep24 mode=A_passive success=True steps=245
+  ep25 mode=A_passive success=True steps=207
+  ep26 mode=A_passive success=True steps=219
+  ep27 mode=A_passive success=True steps=247
+  ep28 mode=A_passive success=True steps=207
+  ep29 mode=A_passive success=True steps=218
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=225
+  ep1 mode=B_deliberation success=True steps=218
+  ep2 mode=B_deliberation success=True steps=223
+  ep3 mode=B_deliberation success=True steps=251
+  ep4 mode=B_deliberation success=True steps=227
+  ep5 mode=B_deliberation success=True steps=216
+  ep6 mode=B_deliberation success=True steps=223
+  ep7 mode=B_deliberation success=True steps=206
+  ep8 mode=B_deliberation success=True steps=233
+  ep9 mode=B_deliberation success=True steps=216
+  ep10 mode=B_deliberation success=True steps=242
+  ep11 mode=B_deliberation success=True steps=264
+  ep12 mode=B_deliberation success=True steps=211
+  ep13 mode=B_deliberation success=True steps=232
+  ep14 mode=B_deliberation success=True steps=220
+  ep15 mode=B_deliberation success=True steps=210
+  ep16 mode=B_deliberation success=True steps=222
+  ep17 mode=B_deliberation success=True steps=207
+  ep18 mode=B_deliberation success=True steps=220
+  ep19 mode=B_deliberation success=True steps=258
+  ep20 mode=B_deliberation success=True steps=221
+  ep21 mode=B_deliberation success=True steps=226
+  ep22 mode=B_deliberation success=True steps=207
+  ep23 mode=B_deliberation success=False steps=600
+  ep24 mode=B_deliberation success=False steps=600
+  ep25 mode=B_deliberation success=True steps=219
+  ep26 mode=B_deliberation success=True steps=214
+  ep27 mode=B_deliberation success=True steps=346
+  ep28 mode=B_deliberation success=True steps=203
+  ep29 mode=B_deliberation success=True steps=254
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=222
+  ep1 mode=C_random_seed success=True steps=217
+  ep2 mode=C_random_seed success=True steps=239
+  ep3 mode=C_random_seed success=True steps=261
+  ep4 mode=C_random_seed success=True steps=221
+  ep5 mode=C_random_seed success=True steps=215
+  ep6 mode=C_random_seed success=True steps=212
+  ep7 mode=C_random_seed success=True steps=204
+  ep8 mode=C_random_seed success=True steps=219
+  ep9 mode=C_random_seed success=True steps=216
+  ep10 mode=C_random_seed success=True steps=218
+  ep11 mode=C_random_seed success=True steps=230
+  ep12 mode=C_random_seed success=True steps=238
+  ep13 mode=C_random_seed success=True steps=218
+  ep14 mode=C_random_seed success=True steps=233
+  ep15 mode=C_random_seed success=True steps=214
+  ep16 mode=C_random_seed success=True steps=229
+  ep17 mode=C_random_seed success=True steps=240
+  ep18 mode=C_random_seed success=True steps=217
+  ep19 mode=C_random_seed success=True steps=245
+  ep20 mode=C_random_seed success=True steps=222
+  ep21 mode=C_random_seed success=True steps=224
+  ep22 mode=C_random_seed success=True steps=409
+  ep23 mode=C_random_seed success=True steps=207
+  ep24 mode=C_random_seed success=True steps=326
+  ep25 mode=C_random_seed success=True steps=207
+  ep26 mode=C_random_seed success=False steps=600
+  ep27 mode=C_random_seed success=True steps=229
+  ep28 mode=C_random_seed success=True steps=203
+  ep29 mode=C_random_seed success=True steps=312
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=220
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=221
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=214
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=223
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=224
+  ep5 mode=D_low_uncertainty_reject_log success=True steps=215
+  ep6 mode=D_low_uncertainty_reject_log success=True steps=212
+  ep7 mode=D_low_uncertainty_reject_log success=True steps=209
+  ep8 mode=D_low_uncertainty_reject_log success=True steps=274
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=201
+  ep10 mode=D_low_uncertainty_reject_log success=True steps=238
+  ep11 mode=D_low_uncertainty_reject_log success=True steps=222
+  ep12 mode=D_low_uncertainty_reject_log success=True steps=208
+  ep13 mode=D_low_uncertainty_reject_log success=True steps=269
+  ep14 mode=D_low_uncertainty_reject_log success=True steps=230
+  ep15 mode=D_low_uncertainty_reject_log success=True steps=207
+  ep16 mode=D_low_uncertainty_reject_log success=True steps=219
+  ep17 mode=D_low_uncertainty_reject_log success=True steps=232
+  ep18 mode=D_low_uncertainty_reject_log success=True steps=218
+  ep19 mode=D_low_uncertainty_reject_log success=True steps=230
+  ep20 mode=D_low_uncertainty_reject_log success=True steps=236
+  ep21 mode=D_low_uncertainty_reject_log success=True steps=231
+  ep22 mode=D_low_uncertainty_reject_log success=True steps=271
+  ep23 mode=D_low_uncertainty_reject_log success=True steps=221
+  ep24 mode=D_low_uncertainty_reject_log success=True steps=245
+  ep25 mode=D_low_uncertainty_reject_log success=True steps=207
+  ep26 mode=D_low_uncertainty_reject_log success=True steps=219
+  ep27 mode=D_low_uncertainty_reject_log success=True steps=247
+  ep28 mode=D_low_uncertainty_reject_log success=True steps=207
+  ep29 mode=D_low_uncertainty_reject_log success=True steps=218
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_30eps/libero_10_with_mug_task4.json
+asynchvla_ws/stage8_ultimate/reports/stage8_libero_pro_expanded_rollout_results.md
+[stage8] job libero_pro_expanded_30eps_bob exit 0 at 2026-05-17T00:27:45+02:00
+===== asynchvla_ws/stage8_ultimate/logs/libero_pro_expanded_rollout_bob.log
+[task] 'put both the alphabet soup and the tomato sauce in the basket', 50 init states
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=235
+  ep1 mode=A_passive success=True steps=254
+  ep2 mode=A_passive success=True steps=302
+  ep3 mode=A_passive success=True steps=246
+  ep4 mode=A_passive success=True steps=241
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=237
+  ep1 mode=B_deliberation success=True steps=250
+  ep2 mode=B_deliberation success=True steps=257
+  ep3 mode=B_deliberation success=True steps=252
+  ep4 mode=B_deliberation success=True steps=249
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=238
+  ep1 mode=C_random_seed success=False steps=600
+  ep2 mode=C_random_seed success=True steps=295
+  ep3 mode=C_random_seed success=True steps=252
+  ep4 mode=C_random_seed success=True steps=246
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=235
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=254
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=302
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=246
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=241
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_5eps/libero_10_with_mug_task0.json
+[stage8] LIBERO-PRO expanded episodes=5 suite=libero_10_with_mug task=1 out=asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_5eps/libero_10_with_mug_task1.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_10_with_mug' (10 tasks).
+[task] 'put both the cream cheese box and the butter in the basket', 50 init states
+[mode] A_passive
+  ep0 mode=A_passive success=False steps=600
+  ep1 mode=A_passive success=True steps=244
+  ep2 mode=A_passive success=True steps=244
+  ep3 mode=A_passive success=True steps=230
+  ep4 mode=A_passive success=False steps=600
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=False steps=600
+  ep1 mode=B_deliberation success=True steps=271
+  ep2 mode=B_deliberation success=True steps=264
+  ep3 mode=B_deliberation success=True steps=236
+  ep4 mode=B_deliberation success=True steps=253
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=False steps=600
+  ep1 mode=C_random_seed success=True steps=256
+  ep2 mode=C_random_seed success=True steps=249
+  ep3 mode=C_random_seed success=True steps=243
+  ep4 mode=C_random_seed success=True steps=249
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=244
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=244
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=230
+  ep4 mode=D_low_uncertainty_reject_log success=False steps=600
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_5eps/libero_10_with_mug_task1.json
+[stage8] LIBERO-PRO expanded episodes=5 suite=libero_10_with_mug task=2 out=asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_5eps/libero_10_with_mug_task2.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_10_with_mug' (10 tasks).
+[task] 'turn on the stove and put the moka pot on it', 50 init states
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=225
+  ep1 mode=A_passive success=True steps=239
+  ep2 mode=A_passive success=True steps=215
+  ep3 mode=A_passive success=True steps=226
+  ep4 mode=A_passive success=True steps=258
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=236
+  ep1 mode=B_deliberation success=False steps=600
+  ep2 mode=B_deliberation success=True steps=222
+  ep3 mode=B_deliberation success=True steps=235
+  ep4 mode=B_deliberation success=True steps=262
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=225
+  ep1 mode=C_random_seed success=True steps=227
+  ep2 mode=C_random_seed success=True steps=211
+  ep3 mode=C_random_seed success=True steps=237
+  ep4 mode=C_random_seed success=True steps=232
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=225
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=239
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=215
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=226
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=258
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_5eps/libero_10_with_mug_task2.json
+[stage8] LIBERO-PRO expanded episodes=5 suite=libero_10_with_mug task=3 out=asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_5eps/libero_10_with_mug_task3.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_10_with_mug' (10 tasks).
+[task] 'put the black bowl in the bottom drawer of the cabinet and close it', 50 init states
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=236
+  ep1 mode=A_passive success=True steps=302
+  ep2 mode=A_passive success=True steps=239
+  ep3 mode=A_passive success=True steps=229
+  ep4 mode=A_passive success=True steps=204
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=219
+  ep1 mode=B_deliberation success=True steps=245
+  ep2 mode=B_deliberation success=True steps=285
+  ep3 mode=B_deliberation success=True steps=203
+  ep4 mode=B_deliberation success=True steps=295
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=221
+  ep1 mode=C_random_seed success=True steps=273
+  ep2 mode=C_random_seed success=True steps=315
+  ep3 mode=C_random_seed success=True steps=222
+  ep4 mode=C_random_seed success=True steps=222
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=236
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=302
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=239
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=229
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=204
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_5eps/libero_10_with_mug_task3.json
+[stage8] LIBERO-PRO expanded episodes=5 suite=libero_10_with_mug task=4 out=asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_5eps/libero_10_with_mug_task4.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_10_with_mug' (10 tasks).
+[task] 'put the white mug on the left plate and put the yellow and white mug on the right plate', 50 init states
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=220
+  ep1 mode=A_passive success=True steps=221
+  ep2 mode=A_passive success=True steps=214
+  ep3 mode=A_passive success=True steps=223
+  ep4 mode=A_passive success=True steps=224
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=225
+  ep1 mode=B_deliberation success=True steps=218
+  ep2 mode=B_deliberation success=True steps=223
+  ep3 mode=B_deliberation success=True steps=251
+  ep4 mode=B_deliberation success=True steps=227
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=222
+  ep1 mode=C_random_seed success=True steps=217
+  ep2 mode=C_random_seed success=True steps=239
+  ep3 mode=C_random_seed success=True steps=261
+  ep4 mode=C_random_seed success=True steps=221
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=220
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=221
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=214
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=223
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=224
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_5eps/libero_10_with_mug_task4.json
+asynchvla_ws/stage8_ultimate/reports/stage8_libero_pro_expanded_rollout_results.md
+[stage8] job libero_pro_expanded_rollout_bob exit 0 at 2026-05-15T22:48:19+02:00
+===== asynchvla_ws/stage8_ultimate/logs/libero_pro_pilot_bob.log
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 659, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 640, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/init_files/libero_goal_lan/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init'
+[stage8] WARN failed suite=libero_goal_lan task=2
+[stage8] LIBERO-PRO pilot suite=libero_goal_object task=0 out=asynchvla_ws/stage8_ultimate/results/libero_pro_pilot/libero_goal_object_task0.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Traceback (most recent call last):
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 410, in <module>
+    main()
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 359, in main
+    initial_states = b.get_task_init_states(args.task_id)
+  File "/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py", line 273, in get_task_init_states
+    init_states = torch.load(init_states_path)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 1319, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 659, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 640, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/init_files/libero_goal_object/open_the_middle_drawer_of_the_cabinet.pruned_init'
+[stage8] WARN failed suite=libero_goal_object task=0
+[stage8] LIBERO-PRO pilot suite=libero_goal_object task=1 out=asynchvla_ws/stage8_ultimate/results/libero_pro_pilot/libero_goal_object_task1.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Traceback (most recent call last):
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 410, in <module>
+    main()
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 359, in main
+    initial_states = b.get_task_init_states(args.task_id)
+  File "/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py", line 273, in get_task_init_states
+    init_states = torch.load(init_states_path)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 1319, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 659, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 640, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/init_files/libero_goal_object/put_the_bowl_on_the_stove.pruned_init'
+[stage8] WARN failed suite=libero_goal_object task=1
+[stage8] LIBERO-PRO pilot suite=libero_goal_object task=2 out=asynchvla_ws/stage8_ultimate/results/libero_pro_pilot/libero_goal_object_task2.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_goal_object' (10 tasks).
+Traceback (most recent call last):
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 410, in <module>
+    main()
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 359, in main
+    initial_states = b.get_task_init_states(args.task_id)
+  File "/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py", line 273, in get_task_init_states
+    init_states = torch.load(init_states_path)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 1319, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 659, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 640, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/init_files/libero_goal_object/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init'
+[stage8] WARN failed suite=libero_goal_object task=2
+[stage8] LIBERO-PRO pilot suite=libero_object_env task=0 out=asynchvla_ws/stage8_ultimate/results/libero_pro_pilot/libero_object_env_task0.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_object_env' (10 tasks).
+Traceback (most recent call last):
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 410, in <module>
+    main()
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 359, in main
+    initial_states = b.get_task_init_states(args.task_id)
+  File "/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py", line 273, in get_task_init_states
+    init_states = torch.load(init_states_path)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 1319, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 659, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 640, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/init_files/libero_object_env/pick_up_the_alphabet_soup_and_place_it_in_the_basket.pruned_init'
+[stage8] WARN failed suite=libero_object_env task=0
+[stage8] LIBERO-PRO pilot suite=libero_object_env task=1 out=asynchvla_ws/stage8_ultimate/results/libero_pro_pilot/libero_object_env_task1.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_object_env' (10 tasks).
+Traceback (most recent call last):
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 410, in <module>
+    main()
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 359, in main
+    initial_states = b.get_task_init_states(args.task_id)
+  File "/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py", line 273, in get_task_init_states
+    init_states = torch.load(init_states_path)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 1319, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 659, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 640, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/init_files/libero_object_env/pick_up_the_cream_cheese_and_place_it_in_the_basket.pruned_init'
+[stage8] WARN failed suite=libero_object_env task=1
+[stage8] LIBERO-PRO pilot suite=libero_object_env task=2 out=asynchvla_ws/stage8_ultimate/results/libero_pro_pilot/libero_object_env_task2.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_object_env' (10 tasks).
+Traceback (most recent call last):
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 410, in <module>
+    main()
+  File "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/src/eval_stage7/libero_execution_uncertainty_eval.py", line 359, in main
+    initial_states = b.get_task_init_states(args.task_id)
+  File "/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py", line 273, in get_task_init_states
+    init_states = torch.load(init_states_path)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 1319, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 659, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/usr/local/lib/python3.10/dist-packages/torch/serialization.py", line 640, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/init_files/libero_object_env/pick_up_the_salad_dressing_and_place_it_in_the_basket.pruned_init'
+[stage8] WARN failed suite=libero_object_env task=2
+asynchvla_ws/stage8_ultimate/reports/stage8_libero_pro_pilot_results.md
+[stage8] job libero_pro_pilot_bob exit 0 at 2026-05-15T15:59:50+02:00
+===== asynchvla_ws/stage8_ultimate/logs/normal_libero_hard_30eps_bob.log
+  ep9 mode=C_random_seed success=True steps=262
+  ep10 mode=C_random_seed success=True steps=237
+  ep11 mode=C_random_seed success=True steps=234
+  ep12 mode=C_random_seed success=True steps=254
+  ep13 mode=C_random_seed success=True steps=236
+  ep14 mode=C_random_seed success=True steps=245
+  ep15 mode=C_random_seed success=True steps=248
+  ep16 mode=C_random_seed success=True steps=259
+  ep17 mode=C_random_seed success=True steps=218
+  ep18 mode=C_random_seed success=True steps=222
+  ep19 mode=C_random_seed success=True steps=236
+  ep20 mode=C_random_seed success=True steps=295
+  ep21 mode=C_random_seed success=True steps=248
+  ep22 mode=C_random_seed success=True steps=239
+  ep23 mode=C_random_seed success=True steps=233
+  ep24 mode=C_random_seed success=True steps=265
+  ep25 mode=C_random_seed success=True steps=241
+  ep26 mode=C_random_seed success=True steps=254
+  ep27 mode=C_random_seed success=True steps=250
+  ep28 mode=C_random_seed success=True steps=234
+  ep29 mode=C_random_seed success=True steps=244
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=222
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=244
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=243
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=238
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=238
+  ep5 mode=D_low_uncertainty_reject_log success=True steps=232
+  ep6 mode=D_low_uncertainty_reject_log success=True steps=233
+  ep7 mode=D_low_uncertainty_reject_log success=True steps=236
+  ep8 mode=D_low_uncertainty_reject_log success=True steps=232
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=254
+  ep10 mode=D_low_uncertainty_reject_log success=True steps=235
+  ep11 mode=D_low_uncertainty_reject_log success=True steps=228
+  ep12 mode=D_low_uncertainty_reject_log success=True steps=239
+  ep13 mode=D_low_uncertainty_reject_log success=True steps=226
+  ep14 mode=D_low_uncertainty_reject_log success=True steps=241
+  ep15 mode=D_low_uncertainty_reject_log success=True steps=235
+  ep16 mode=D_low_uncertainty_reject_log success=True steps=242
+  ep17 mode=D_low_uncertainty_reject_log success=True steps=224
+  ep18 mode=D_low_uncertainty_reject_log success=True steps=227
+  ep19 mode=D_low_uncertainty_reject_log success=True steps=233
+  ep20 mode=D_low_uncertainty_reject_log success=True steps=234
+  ep21 mode=D_low_uncertainty_reject_log success=True steps=239
+  ep22 mode=D_low_uncertainty_reject_log success=True steps=337
+  ep23 mode=D_low_uncertainty_reject_log success=True steps=224
+  ep24 mode=D_low_uncertainty_reject_log success=True steps=227
+  ep25 mode=D_low_uncertainty_reject_log success=True steps=235
+  ep26 mode=D_low_uncertainty_reject_log success=True steps=241
+  ep27 mode=D_low_uncertainty_reject_log success=True steps=239
+  ep28 mode=D_low_uncertainty_reject_log success=True steps=241
+  ep29 mode=D_low_uncertainty_reject_log success=True steps=235
+[done] wrote asynchvla_ws/stage8_ultimate/results/normal_libero_hard_30eps/libero_10_task1.json
+[stage8] normal LIBERO hard episodes=30 suite=libero_object task=0 out=asynchvla_ws/stage8_ultimate/results/normal_libero_hard_30eps/libero_object_task0.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/data/LIBERO/libero/libero/benchmark/__init__.py:164: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/data/LIBERO/libero/libero/../datasets does not exist!
+[task] 'pick up the alphabet soup and place it in the basket', 50 init states
+[Warning]: datasets path /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/data/LIBERO/libero/libero/../datasets does not exist!
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=132
+  ep1 mode=A_passive success=True steps=142
+  ep2 mode=A_passive success=True steps=137
+  ep3 mode=A_passive success=True steps=133
+  ep4 mode=A_passive success=True steps=133
+  ep5 mode=A_passive success=True steps=203
+  ep6 mode=A_passive success=True steps=139
+  ep7 mode=A_passive success=True steps=138
+  ep8 mode=A_passive success=True steps=133
+  ep9 mode=A_passive success=True steps=151
+  ep10 mode=A_passive success=True steps=133
+  ep11 mode=A_passive success=True steps=227
+  ep12 mode=A_passive success=True steps=137
+  ep13 mode=A_passive success=True steps=133
+  ep14 mode=A_passive success=True steps=132
+  ep15 mode=A_passive success=True steps=133
+  ep16 mode=A_passive success=True steps=134
+  ep17 mode=A_passive success=True steps=130
+  ep18 mode=A_passive success=True steps=141
+  ep19 mode=A_passive success=True steps=138
+  ep20 mode=A_passive success=True steps=161
+  ep21 mode=A_passive success=True steps=138
+  ep22 mode=A_passive success=True steps=141
+  ep23 mode=A_passive success=True steps=130
+  ep24 mode=A_passive success=True steps=140
+  ep25 mode=A_passive success=True steps=143
+  ep26 mode=A_passive success=True steps=141
+  ep27 mode=A_passive success=True steps=141
+  ep28 mode=A_passive success=True steps=133
+  ep29 mode=A_passive success=True steps=136
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=187
+  ep1 mode=B_deliberation success=True steps=130
+  ep2 mode=B_deliberation success=True steps=138
+  ep3 mode=B_deliberation success=True steps=135
+  ep4 mode=B_deliberation success=True steps=135
+  ep5 mode=B_deliberation success=True steps=166
+  ep6 mode=B_deliberation success=True steps=154
+  ep7 mode=B_deliberation success=True steps=148
+  ep8 mode=B_deliberation success=True steps=141
+  ep9 mode=B_deliberation success=True steps=143
+  ep10 mode=B_deliberation success=True steps=138
+  ep11 mode=B_deliberation success=True steps=137
+  ep12 mode=B_deliberation success=True steps=138
+  ep13 mode=B_deliberation success=True steps=133
+  ep14 mode=B_deliberation success=True steps=132
+  ep15 mode=B_deliberation success=True steps=137
+  ep16 mode=B_deliberation success=True steps=175
+  ep17 mode=B_deliberation success=True steps=129
+  ep18 mode=B_deliberation success=True steps=143
+  ep19 mode=B_deliberation success=True steps=197
+  ep20 mode=B_deliberation success=True steps=138
+  ep21 mode=B_deliberation success=True steps=138
+  ep22 mode=B_deliberation success=True steps=143
+  ep23 mode=B_deliberation success=True steps=137
+  ep24 mode=B_deliberation success=True steps=138
+  ep25 mode=B_deliberation success=True steps=138
+  ep26 mode=B_deliberation success=True steps=133
+  ep27 mode=B_deliberation success=True steps=133
+  ep28 mode=B_deliberation success=True steps=137
+  ep29 mode=B_deliberation success=True steps=133
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=195
+  ep1 mode=C_random_seed success=True steps=173
+  ep2 mode=C_random_seed success=True steps=138
+  ep3 mode=C_random_seed success=True steps=135
+  ep4 mode=C_random_seed success=True steps=129
+  ep5 mode=C_random_seed success=True steps=123
+  ep6 mode=C_random_seed success=True steps=143
+  ep7 mode=C_random_seed success=True steps=140
+  ep8 mode=C_random_seed success=True steps=134
+  ep9 mode=C_random_seed success=True steps=142
+  ep10 mode=C_random_seed success=True steps=133
+  ep11 mode=C_random_seed success=True steps=138
+  ep12 mode=C_random_seed success=True steps=138
+  ep13 mode=C_random_seed success=True steps=132
+  ep14 mode=C_random_seed success=True steps=125
+  ep15 mode=C_random_seed success=True steps=134
+  ep16 mode=C_random_seed success=True steps=130
+  ep17 mode=C_random_seed success=True steps=143
+  ep18 mode=C_random_seed success=True steps=143
+  ep19 mode=C_random_seed success=True steps=135
+  ep20 mode=C_random_seed success=True steps=142
+  ep21 mode=C_random_seed success=True steps=137
+  ep22 mode=C_random_seed success=True steps=138
+  ep23 mode=C_random_seed success=True steps=136
+  ep24 mode=C_random_seed success=True steps=271
+  ep25 mode=C_random_seed success=True steps=143
+  ep26 mode=C_random_seed success=True steps=150
+  ep27 mode=C_random_seed success=True steps=129
+  ep28 mode=C_random_seed success=True steps=133
+  ep29 mode=C_random_seed success=True steps=126
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=132
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=142
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=137
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep5 mode=D_low_uncertainty_reject_log success=True steps=203
+  ep6 mode=D_low_uncertainty_reject_log success=True steps=139
+  ep7 mode=D_low_uncertainty_reject_log success=True steps=138
+  ep8 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=151
+  ep10 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep11 mode=D_low_uncertainty_reject_log success=True steps=227
+  ep12 mode=D_low_uncertainty_reject_log success=True steps=137
+  ep13 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep14 mode=D_low_uncertainty_reject_log success=True steps=132
+  ep15 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep16 mode=D_low_uncertainty_reject_log success=True steps=134
+  ep17 mode=D_low_uncertainty_reject_log success=True steps=130
+  ep18 mode=D_low_uncertainty_reject_log success=True steps=141
+  ep19 mode=D_low_uncertainty_reject_log success=True steps=138
+  ep20 mode=D_low_uncertainty_reject_log success=True steps=161
+  ep21 mode=D_low_uncertainty_reject_log success=True steps=138
+  ep22 mode=D_low_uncertainty_reject_log success=True steps=141
+  ep23 mode=D_low_uncertainty_reject_log success=True steps=130
+  ep24 mode=D_low_uncertainty_reject_log success=True steps=140
+  ep25 mode=D_low_uncertainty_reject_log success=True steps=143
+  ep26 mode=D_low_uncertainty_reject_log success=True steps=141
+  ep27 mode=D_low_uncertainty_reject_log success=True steps=141
+  ep28 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep29 mode=D_low_uncertainty_reject_log success=True steps=136
+[done] wrote asynchvla_ws/stage8_ultimate/results/normal_libero_hard_30eps/libero_object_task0.json
+asynchvla_ws/stage8_ultimate/reports/stage8_normal_libero_hard_task_results.md
+[stage8] job normal_libero_hard_30eps_bob exit 0 at 2026-05-16T07:16:27+02:00
+===== asynchvla_ws/stage8_ultimate/logs/normal_libero_hard_baseline_bob.log
+  ep9 mode=A_passive success=True steps=115
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=False steps=600
+  ep1 mode=B_deliberation success=True steps=131
+  ep2 mode=B_deliberation success=True steps=150
+  ep3 mode=B_deliberation success=False steps=600
+  ep4 mode=B_deliberation success=True steps=134
+  ep5 mode=B_deliberation success=True steps=120
+  ep6 mode=B_deliberation success=False steps=600
+  ep7 mode=B_deliberation success=True steps=116
+  ep8 mode=B_deliberation success=True steps=154
+  ep9 mode=B_deliberation success=True steps=121
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=132
+  ep1 mode=C_random_seed success=True steps=120
+  ep2 mode=C_random_seed success=True steps=147
+  ep3 mode=C_random_seed success=True steps=134
+  ep4 mode=C_random_seed success=True steps=119
+  ep5 mode=C_random_seed success=True steps=133
+  ep6 mode=C_random_seed success=False steps=600
+  ep7 mode=C_random_seed success=True steps=117
+  ep8 mode=C_random_seed success=True steps=139
+  ep9 mode=C_random_seed success=True steps=113
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=131
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=120
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=140
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=124
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=137
+  ep5 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep6 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep7 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep8 mode=D_low_uncertainty_reject_log success=True steps=140
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=115
+[mode] E_conservative_switch_proxy
+  ep0 mode=E_conservative_switch_proxy success=True steps=140
+  ep1 mode=E_conservative_switch_proxy success=True steps=127
+  ep2 mode=E_conservative_switch_proxy success=True steps=139
+  ep3 mode=E_conservative_switch_proxy success=False steps=600
+  ep4 mode=E_conservative_switch_proxy success=True steps=121
+  ep5 mode=E_conservative_switch_proxy success=True steps=120
+  ep6 mode=E_conservative_switch_proxy success=False steps=600
+  ep7 mode=E_conservative_switch_proxy success=True steps=121
+  ep8 mode=E_conservative_switch_proxy success=True steps=398
+  ep9 mode=E_conservative_switch_proxy success=True steps=122
+[done] wrote asynchvla_ws/stage8_ultimate/results/normal_libero_hard/libero_goal_task9.json
+[stage8] normal LIBERO hard baseline suite=libero_goal task=2 out=asynchvla_ws/stage8_ultimate/results/normal_libero_hard/libero_goal_task2.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/data/LIBERO/libero/libero/benchmark/__init__.py:164: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/data/LIBERO/libero/libero/../datasets does not exist!
+[task] 'put the wine bottle on top of the cabinet', 50 init states
+[Warning]: datasets path /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/data/LIBERO/libero/libero/../datasets does not exist!
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=75
+  ep1 mode=A_passive success=True steps=91
+  ep2 mode=A_passive success=True steps=91
+  ep3 mode=A_passive success=True steps=83
+  ep4 mode=A_passive success=True steps=91
+  ep5 mode=A_passive success=True steps=82
+  ep6 mode=A_passive success=False steps=600
+  ep7 mode=A_passive success=True steps=86
+  ep8 mode=A_passive success=False steps=600
+  ep9 mode=A_passive success=True steps=83
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=76
+  ep1 mode=B_deliberation success=True steps=93
+  ep2 mode=B_deliberation success=True steps=93
+  ep3 mode=B_deliberation success=True steps=90
+  ep4 mode=B_deliberation success=True steps=95
+  ep5 mode=B_deliberation success=True steps=83
+  ep6 mode=B_deliberation success=True steps=87
+  ep7 mode=B_deliberation success=True steps=95
+  ep8 mode=B_deliberation success=True steps=90
+  ep9 mode=B_deliberation success=True steps=92
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=77
+  ep1 mode=C_random_seed success=True steps=92
+  ep2 mode=C_random_seed success=True steps=88
+  ep3 mode=C_random_seed success=True steps=86
+  ep4 mode=C_random_seed success=True steps=93
+  ep5 mode=C_random_seed success=True steps=83
+  ep6 mode=C_random_seed success=False steps=600
+  ep7 mode=C_random_seed success=True steps=87
+  ep8 mode=C_random_seed success=True steps=89
+  ep9 mode=C_random_seed success=True steps=87
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=75
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=91
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=91
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=83
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=91
+  ep5 mode=D_low_uncertainty_reject_log success=True steps=82
+  ep6 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep7 mode=D_low_uncertainty_reject_log success=True steps=86
+  ep8 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=83
+[mode] E_conservative_switch_proxy
+  ep0 mode=E_conservative_switch_proxy success=True steps=80
+  ep1 mode=E_conservative_switch_proxy success=True steps=94
+  ep2 mode=E_conservative_switch_proxy success=True steps=97
+  ep3 mode=E_conservative_switch_proxy success=True steps=90
+  ep4 mode=E_conservative_switch_proxy success=True steps=99
+  ep5 mode=E_conservative_switch_proxy success=True steps=84
+  ep6 mode=E_conservative_switch_proxy success=False steps=600
+  ep7 mode=E_conservative_switch_proxy success=True steps=95
+  ep8 mode=E_conservative_switch_proxy success=True steps=94
+  ep9 mode=E_conservative_switch_proxy success=True steps=95
+[done] wrote asynchvla_ws/stage8_ultimate/results/normal_libero_hard/libero_goal_task2.json
+[stage8] normal LIBERO hard baseline suite=libero_object task=0 out=asynchvla_ws/stage8_ultimate/results/normal_libero_hard/libero_object_task0.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/data/LIBERO/libero/libero/benchmark/__init__.py:164: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/data/LIBERO/libero/libero/../datasets does not exist!
+[task] 'pick up the alphabet soup and place it in the basket', 50 init states
+[Warning]: datasets path /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/data/LIBERO/libero/libero/../datasets does not exist!
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=132
+  ep1 mode=A_passive success=True steps=142
+  ep2 mode=A_passive success=True steps=137
+  ep3 mode=A_passive success=True steps=133
+  ep4 mode=A_passive success=True steps=133
+  ep5 mode=A_passive success=True steps=203
+  ep6 mode=A_passive success=True steps=139
+  ep7 mode=A_passive success=True steps=138
+  ep8 mode=A_passive success=True steps=133
+  ep9 mode=A_passive success=True steps=151
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=187
+  ep1 mode=B_deliberation success=True steps=130
+  ep2 mode=B_deliberation success=True steps=138
+  ep3 mode=B_deliberation success=True steps=135
+  ep4 mode=B_deliberation success=True steps=135
+  ep5 mode=B_deliberation success=True steps=166
+  ep6 mode=B_deliberation success=True steps=154
+  ep7 mode=B_deliberation success=True steps=148
+  ep8 mode=B_deliberation success=True steps=141
+  ep9 mode=B_deliberation success=True steps=143
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=195
+  ep1 mode=C_random_seed success=True steps=173
+  ep2 mode=C_random_seed success=True steps=138
+  ep3 mode=C_random_seed success=True steps=135
+  ep4 mode=C_random_seed success=True steps=129
+  ep5 mode=C_random_seed success=True steps=123
+  ep6 mode=C_random_seed success=True steps=143
+  ep7 mode=C_random_seed success=True steps=140
+  ep8 mode=C_random_seed success=True steps=134
+  ep9 mode=C_random_seed success=True steps=142
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=132
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=142
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=137
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep5 mode=D_low_uncertainty_reject_log success=True steps=203
+  ep6 mode=D_low_uncertainty_reject_log success=True steps=139
+  ep7 mode=D_low_uncertainty_reject_log success=True steps=138
+  ep8 mode=D_low_uncertainty_reject_log success=True steps=133
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=151
+[mode] E_conservative_switch_proxy
+  ep0 mode=E_conservative_switch_proxy success=True steps=282
+  ep1 mode=E_conservative_switch_proxy success=True steps=140
+  ep2 mode=E_conservative_switch_proxy success=True steps=136
+  ep3 mode=E_conservative_switch_proxy success=True steps=133
+  ep4 mode=E_conservative_switch_proxy success=True steps=134
+  ep5 mode=E_conservative_switch_proxy success=True steps=215
+  ep6 mode=E_conservative_switch_proxy success=True steps=139
+  ep7 mode=E_conservative_switch_proxy success=True steps=146
+  ep8 mode=E_conservative_switch_proxy success=True steps=144
+  ep9 mode=E_conservative_switch_proxy success=True steps=138
+[done] wrote asynchvla_ws/stage8_ultimate/results/normal_libero_hard/libero_object_task0.json
+asynchvla_ws/stage8_ultimate/reports/stage8_normal_libero_hard_task_baseline.md
+[stage8] job normal_libero_hard_baseline_bob exit 0 at 2026-05-15T19:36:32+02:00
+===== asynchvla_ws/stage8_ultimate/logs/smoke_bob_cpu.log
+[stage8] job smoke_bob_cpu attempt 1 start 2026-05-15T15:09:40+02:00
+[stage8] job smoke_bob_cpu exit 0 at 2026-05-15T15:09:40+02:00
+===== asynchvla_ws/stage8_ultimate/logs/smoke_dependency_child.log
+[stage8] job smoke_dependency_child attempt 1 start 2026-05-15T15:09:49+02:00
+[stage8] job smoke_dependency_child exit 0 at 2026-05-15T15:09:49+02:00
+===== asynchvla_ws/stage8_ultimate/logs/smoke_retry_failure.log
+[stage8] job smoke_retry_failure attempt 2 start 2026-05-15T15:10:16+02:00
+[stage8] job smoke_retry_failure exit 0 at 2026-05-15T15:10:16+02:00
+===== asynchvla_ws/stage8_ultimate/logs/stage8_final_report_bob.log
+[stage8] job stage8_final_report_bob attempt 1 start 2026-05-17T00:34:00+02:00
+find: ‘/home/redafrix/tests/internship/codex_reports/stage8’: No such file or directory
+/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/ASYNCVLA_SIMVLA_STAGE8_ULTIMATE_EXPERIMENT_REPORT.md
+[stage8] job stage8_final_report_bob exit 0 at 2026-05-17T00:34:03+02:00
+===== asynchvla_ws/stage8_ultimate/logs/stage8_libero_pro_20eps_bob.log
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_10_with_mug' (10 tasks).
+[task] 'put the black bowl in the bottom drawer of the cabinet and close it', 50 init states
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=236
+  ep1 mode=A_passive success=True steps=302
+  ep2 mode=A_passive success=True steps=239
+  ep3 mode=A_passive success=True steps=229
+  ep4 mode=A_passive success=True steps=204
+  ep5 mode=A_passive success=True steps=278
+  ep6 mode=A_passive success=True steps=217
+  ep7 mode=A_passive success=True steps=376
+  ep8 mode=A_passive success=True steps=309
+  ep9 mode=A_passive success=True steps=269
+  ep10 mode=A_passive success=True steps=194
+  ep11 mode=A_passive success=True steps=243
+  ep12 mode=A_passive success=True steps=198
+  ep13 mode=A_passive success=True steps=256
+  ep14 mode=A_passive success=False steps=600
+  ep15 mode=A_passive success=True steps=206
+  ep16 mode=A_passive success=True steps=284
+  ep17 mode=A_passive success=True steps=220
+  ep18 mode=A_passive success=True steps=220
+  ep19 mode=A_passive success=True steps=279
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=219
+  ep1 mode=B_deliberation success=True steps=245
+  ep2 mode=B_deliberation success=True steps=285
+  ep3 mode=B_deliberation success=True steps=203
+  ep4 mode=B_deliberation success=True steps=295
+  ep5 mode=B_deliberation success=True steps=235
+  ep6 mode=B_deliberation success=True steps=200
+  ep7 mode=B_deliberation success=True steps=190
+  ep8 mode=B_deliberation success=False steps=600
+  ep9 mode=B_deliberation success=True steps=237
+  ep10 mode=B_deliberation success=True steps=198
+  ep11 mode=B_deliberation success=True steps=248
+  ep12 mode=B_deliberation success=True steps=259
+  ep13 mode=B_deliberation success=True steps=214
+  ep14 mode=B_deliberation success=True steps=225
+  ep15 mode=B_deliberation success=True steps=289
+  ep16 mode=B_deliberation success=True steps=291
+  ep17 mode=B_deliberation success=True steps=236
+  ep18 mode=B_deliberation success=True steps=211
+  ep19 mode=B_deliberation success=True steps=205
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=221
+  ep1 mode=C_random_seed success=True steps=273
+  ep2 mode=C_random_seed success=True steps=315
+  ep3 mode=C_random_seed success=True steps=222
+  ep4 mode=C_random_seed success=True steps=222
+  ep5 mode=C_random_seed success=True steps=285
+  ep6 mode=C_random_seed success=True steps=261
+  ep7 mode=C_random_seed success=True steps=550
+  ep8 mode=C_random_seed success=True steps=329
+  ep9 mode=C_random_seed success=True steps=216
+  ep10 mode=C_random_seed success=True steps=198
+  ep11 mode=C_random_seed success=True steps=225
+  ep12 mode=C_random_seed success=True steps=219
+  ep13 mode=C_random_seed success=True steps=253
+  ep14 mode=C_random_seed success=True steps=451
+  ep15 mode=C_random_seed success=False steps=600
+  ep16 mode=C_random_seed success=True steps=246
+  ep17 mode=C_random_seed success=True steps=224
+  ep18 mode=C_random_seed success=True steps=497
+  ep19 mode=C_random_seed success=True steps=217
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=236
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=302
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=239
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=229
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=204
+  ep5 mode=D_low_uncertainty_reject_log success=True steps=278
+  ep6 mode=D_low_uncertainty_reject_log success=True steps=217
+  ep7 mode=D_low_uncertainty_reject_log success=True steps=376
+  ep8 mode=D_low_uncertainty_reject_log success=True steps=309
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=269
+  ep10 mode=D_low_uncertainty_reject_log success=True steps=194
+  ep11 mode=D_low_uncertainty_reject_log success=True steps=243
+  ep12 mode=D_low_uncertainty_reject_log success=True steps=198
+  ep13 mode=D_low_uncertainty_reject_log success=True steps=256
+  ep14 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep15 mode=D_low_uncertainty_reject_log success=True steps=206
+  ep16 mode=D_low_uncertainty_reject_log success=True steps=284
+  ep17 mode=D_low_uncertainty_reject_log success=True steps=220
+  ep18 mode=D_low_uncertainty_reject_log success=True steps=220
+  ep19 mode=D_low_uncertainty_reject_log success=True steps=279
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_20eps/libero_10_with_mug_task3.json
+[stage8] LIBERO-PRO expanded episodes=20 suite=libero_10_with_mug task=4 out=asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_20eps/libero_10_with_mug_task4.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_10_with_mug' (10 tasks).
+[task] 'put the white mug on the left plate and put the yellow and white mug on the right plate', 50 init states
+[mode] A_passive
+  ep0 mode=A_passive success=True steps=220
+  ep1 mode=A_passive success=True steps=221
+  ep2 mode=A_passive success=True steps=214
+  ep3 mode=A_passive success=True steps=223
+  ep4 mode=A_passive success=True steps=224
+  ep5 mode=A_passive success=True steps=215
+  ep6 mode=A_passive success=True steps=212
+  ep7 mode=A_passive success=True steps=209
+  ep8 mode=A_passive success=True steps=274
+  ep9 mode=A_passive success=True steps=201
+  ep10 mode=A_passive success=True steps=238
+  ep11 mode=A_passive success=True steps=222
+  ep12 mode=A_passive success=True steps=208
+  ep13 mode=A_passive success=True steps=269
+  ep14 mode=A_passive success=True steps=230
+  ep15 mode=A_passive success=True steps=207
+  ep16 mode=A_passive success=True steps=219
+  ep17 mode=A_passive success=True steps=232
+  ep18 mode=A_passive success=True steps=218
+  ep19 mode=A_passive success=True steps=230
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=True steps=225
+  ep1 mode=B_deliberation success=True steps=218
+  ep2 mode=B_deliberation success=True steps=223
+  ep3 mode=B_deliberation success=True steps=251
+  ep4 mode=B_deliberation success=True steps=227
+  ep5 mode=B_deliberation success=True steps=216
+  ep6 mode=B_deliberation success=True steps=223
+  ep7 mode=B_deliberation success=True steps=206
+  ep8 mode=B_deliberation success=True steps=233
+  ep9 mode=B_deliberation success=True steps=216
+  ep10 mode=B_deliberation success=True steps=242
+  ep11 mode=B_deliberation success=True steps=264
+  ep12 mode=B_deliberation success=True steps=211
+  ep13 mode=B_deliberation success=True steps=232
+  ep14 mode=B_deliberation success=True steps=220
+  ep15 mode=B_deliberation success=True steps=210
+  ep16 mode=B_deliberation success=True steps=222
+  ep17 mode=B_deliberation success=True steps=207
+  ep18 mode=B_deliberation success=True steps=220
+  ep19 mode=B_deliberation success=True steps=258
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=True steps=222
+  ep1 mode=C_random_seed success=True steps=217
+  ep2 mode=C_random_seed success=True steps=239
+  ep3 mode=C_random_seed success=True steps=261
+  ep4 mode=C_random_seed success=True steps=221
+  ep5 mode=C_random_seed success=True steps=215
+  ep6 mode=C_random_seed success=True steps=212
+  ep7 mode=C_random_seed success=True steps=204
+  ep8 mode=C_random_seed success=True steps=219
+  ep9 mode=C_random_seed success=True steps=216
+  ep10 mode=C_random_seed success=True steps=218
+  ep11 mode=C_random_seed success=True steps=230
+  ep12 mode=C_random_seed success=True steps=238
+  ep13 mode=C_random_seed success=True steps=218
+  ep14 mode=C_random_seed success=True steps=233
+  ep15 mode=C_random_seed success=True steps=214
+  ep16 mode=C_random_seed success=True steps=229
+  ep17 mode=C_random_seed success=True steps=240
+  ep18 mode=C_random_seed success=True steps=217
+  ep19 mode=C_random_seed success=True steps=245
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=220
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=221
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=214
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=223
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=224
+  ep5 mode=D_low_uncertainty_reject_log success=True steps=215
+  ep6 mode=D_low_uncertainty_reject_log success=True steps=212
+  ep7 mode=D_low_uncertainty_reject_log success=True steps=209
+  ep8 mode=D_low_uncertainty_reject_log success=True steps=274
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=201
+  ep10 mode=D_low_uncertainty_reject_log success=True steps=238
+  ep11 mode=D_low_uncertainty_reject_log success=True steps=222
+  ep12 mode=D_low_uncertainty_reject_log success=True steps=208
+  ep13 mode=D_low_uncertainty_reject_log success=True steps=269
+  ep14 mode=D_low_uncertainty_reject_log success=True steps=230
+  ep15 mode=D_low_uncertainty_reject_log success=True steps=207
+  ep16 mode=D_low_uncertainty_reject_log success=True steps=219
+  ep17 mode=D_low_uncertainty_reject_log success=True steps=232
+  ep18 mode=D_low_uncertainty_reject_log success=True steps=218
+  ep19 mode=D_low_uncertainty_reject_log success=True steps=230
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_20eps/libero_10_with_mug_task4.json
+asynchvla_ws/stage8_ultimate/reports/stage8_libero_pro_expanded_rollout_results.md
+[stage8] job stage8_libero_pro_20eps_bob exit 0 at 2026-05-17T11:59:02+02:00
+===== asynchvla_ws/stage8_ultimate/logs/stage8_libero_pro_50eps_backup_bob.log
+  ep28 mode=C_random_seed success=True steps=236
+  ep29 mode=C_random_seed success=True steps=262
+  ep30 mode=C_random_seed success=True steps=249
+  ep31 mode=C_random_seed success=True steps=247
+  ep32 mode=C_random_seed success=True steps=256
+  ep33 mode=C_random_seed success=True steps=229
+  ep34 mode=C_random_seed success=True steps=256
+  ep35 mode=C_random_seed success=True steps=245
+  ep36 mode=C_random_seed success=True steps=240
+  ep37 mode=C_random_seed success=False steps=600
+  ep38 mode=C_random_seed success=True steps=372
+  ep39 mode=C_random_seed success=True steps=246
+  ep40 mode=C_random_seed success=True steps=242
+  ep41 mode=C_random_seed success=True steps=246
+  ep42 mode=C_random_seed success=True steps=260
+  ep43 mode=C_random_seed success=True steps=237
+  ep44 mode=C_random_seed success=True steps=267
+  ep45 mode=C_random_seed success=True steps=250
+  ep46 mode=C_random_seed success=True steps=310
+  ep47 mode=C_random_seed success=True steps=264
+  ep48 mode=C_random_seed success=True steps=246
+  ep49 mode=C_random_seed success=True steps=253
+[mode] D_low_uncertainty_reject_log
+  ep0 mode=D_low_uncertainty_reject_log success=True steps=235
+  ep1 mode=D_low_uncertainty_reject_log success=True steps=254
+  ep2 mode=D_low_uncertainty_reject_log success=True steps=302
+  ep3 mode=D_low_uncertainty_reject_log success=True steps=246
+  ep4 mode=D_low_uncertainty_reject_log success=True steps=241
+  ep5 mode=D_low_uncertainty_reject_log success=True steps=236
+  ep6 mode=D_low_uncertainty_reject_log success=True steps=254
+  ep7 mode=D_low_uncertainty_reject_log success=True steps=249
+  ep8 mode=D_low_uncertainty_reject_log success=True steps=249
+  ep9 mode=D_low_uncertainty_reject_log success=True steps=275
+  ep10 mode=D_low_uncertainty_reject_log success=True steps=238
+  ep11 mode=D_low_uncertainty_reject_log success=True steps=237
+  ep12 mode=D_low_uncertainty_reject_log success=True steps=233
+  ep13 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep14 mode=D_low_uncertainty_reject_log success=True steps=244
+  ep15 mode=D_low_uncertainty_reject_log success=True steps=248
+  ep16 mode=D_low_uncertainty_reject_log success=True steps=235
+  ep17 mode=D_low_uncertainty_reject_log success=True steps=257
+  ep18 mode=D_low_uncertainty_reject_log success=True steps=239
+  ep19 mode=D_low_uncertainty_reject_log success=True steps=247
+  ep20 mode=D_low_uncertainty_reject_log success=True steps=248
+  ep21 mode=D_low_uncertainty_reject_log success=True steps=235
+  ep22 mode=D_low_uncertainty_reject_log success=True steps=256
+  ep23 mode=D_low_uncertainty_reject_log success=True steps=240
+  ep24 mode=D_low_uncertainty_reject_log success=True steps=246
+  ep25 mode=D_low_uncertainty_reject_log success=True steps=222
+  ep26 mode=D_low_uncertainty_reject_log success=True steps=254
+  ep27 mode=D_low_uncertainty_reject_log success=True steps=235
+  ep28 mode=D_low_uncertainty_reject_log success=True steps=243
+  ep29 mode=D_low_uncertainty_reject_log success=True steps=275
+  ep30 mode=D_low_uncertainty_reject_log success=True steps=254
+  ep31 mode=D_low_uncertainty_reject_log success=True steps=240
+  ep32 mode=D_low_uncertainty_reject_log success=True steps=263
+  ep33 mode=D_low_uncertainty_reject_log success=True steps=273
+  ep34 mode=D_low_uncertainty_reject_log success=True steps=261
+  ep35 mode=D_low_uncertainty_reject_log success=True steps=243
+  ep36 mode=D_low_uncertainty_reject_log success=True steps=241
+  ep37 mode=D_low_uncertainty_reject_log success=True steps=242
+  ep38 mode=D_low_uncertainty_reject_log success=True steps=250
+  ep39 mode=D_low_uncertainty_reject_log success=False steps=600
+  ep40 mode=D_low_uncertainty_reject_log success=True steps=238
+  ep41 mode=D_low_uncertainty_reject_log success=True steps=249
+  ep42 mode=D_low_uncertainty_reject_log success=True steps=239
+  ep43 mode=D_low_uncertainty_reject_log success=True steps=237
+  ep44 mode=D_low_uncertainty_reject_log success=True steps=274
+  ep45 mode=D_low_uncertainty_reject_log success=True steps=243
+  ep46 mode=D_low_uncertainty_reject_log success=True steps=285
+  ep47 mode=D_low_uncertainty_reject_log success=True steps=248
+  ep48 mode=D_low_uncertainty_reject_log success=True steps=250
+  ep49 mode=D_low_uncertainty_reject_log success=True steps=256
+[done] wrote asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_50eps/libero_10_with_mug_task0.json
+[stage8] LIBERO-PRO expanded episodes=50 suite=libero_10_with_mug task=1 out=asynchvla_ws/stage8_ultimate/results/libero_pro_expanded_50eps/libero_10_with_mug_task1.json
+/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[setup] device=cuda
+[setup] loading SimVLA
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[setup] loaded norm_stats from /media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/code/SimVLA_modified/norm_stats/libero_norm.json
+[setup] loading rater
+[setup] rater feature_mode=M3_gated_base kind=gated in_dim=1456
+/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/assets/repos/LIBERO-PRO/libero/libero/benchmark/__init__.py:273: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  init_states = torch.load(init_states_path)
+[info] Using default task order for benchmark 'libero_10_with_mug' (10 tasks).
+[task] 'put both the cream cheese box and the butter in the basket', 50 init states
+[mode] A_passive
+  ep0 mode=A_passive success=False steps=600
+  ep1 mode=A_passive success=True steps=244
+  ep2 mode=A_passive success=True steps=244
+  ep3 mode=A_passive success=True steps=230
+  ep4 mode=A_passive success=False steps=600
+  ep5 mode=A_passive success=True steps=242
+  ep6 mode=A_passive success=True steps=248
+  ep7 mode=A_passive success=True steps=245
+  ep8 mode=A_passive success=True steps=243
+  ep9 mode=A_passive success=True steps=245
+  ep10 mode=A_passive success=True steps=234
+  ep11 mode=A_passive success=True steps=223
+  ep12 mode=A_passive success=True steps=243
+  ep13 mode=A_passive success=True steps=257
+  ep14 mode=A_passive success=True steps=232
+  ep15 mode=A_passive success=True steps=240
+  ep16 mode=A_passive success=True steps=259
+  ep17 mode=A_passive success=True steps=237
+  ep18 mode=A_passive success=True steps=233
+  ep19 mode=A_passive success=True steps=254
+  ep20 mode=A_passive success=True steps=263
+  ep21 mode=A_passive success=False steps=600
+  ep22 mode=A_passive success=True steps=236
+  ep23 mode=A_passive success=True steps=238
+  ep24 mode=A_passive success=True steps=244
+  ep25 mode=A_passive success=True steps=302
+  ep26 mode=A_passive success=True steps=234
+  ep27 mode=A_passive success=True steps=233
+  ep28 mode=A_passive success=True steps=305
+  ep29 mode=A_passive success=True steps=238
+  ep30 mode=A_passive success=True steps=236
+  ep31 mode=A_passive success=True steps=302
+  ep32 mode=A_passive success=True steps=236
+  ep33 mode=A_passive success=False steps=600
+  ep34 mode=A_passive success=True steps=237
+  ep35 mode=A_passive success=True steps=235
+  ep36 mode=A_passive success=True steps=238
+  ep37 mode=A_passive success=True steps=220
+  ep38 mode=A_passive success=True steps=268
+  ep39 mode=A_passive success=True steps=249
+  ep40 mode=A_passive success=True steps=232
+  ep41 mode=A_passive success=True steps=254
+  ep42 mode=A_passive success=True steps=239
+  ep43 mode=A_passive success=True steps=238
+  ep44 mode=A_passive success=True steps=255
+  ep45 mode=A_passive success=True steps=239
+  ep46 mode=A_passive success=True steps=221
+  ep47 mode=A_passive success=True steps=238
+  ep48 mode=A_passive success=True steps=236
+  ep49 mode=A_passive success=True steps=228
+[mode] B_deliberation
+  ep0 mode=B_deliberation success=False steps=600
+  ep1 mode=B_deliberation success=True steps=271
+  ep2 mode=B_deliberation success=True steps=264
+  ep3 mode=B_deliberation success=True steps=236
+  ep4 mode=B_deliberation success=True steps=253
+  ep5 mode=B_deliberation success=True steps=246
+  ep6 mode=B_deliberation success=True steps=276
+  ep7 mode=B_deliberation success=True steps=245
+  ep8 mode=B_deliberation success=True steps=246
+  ep9 mode=B_deliberation success=True steps=249
+  ep10 mode=B_deliberation success=True steps=238
+  ep11 mode=B_deliberation success=True steps=290
+  ep12 mode=B_deliberation success=True steps=256
+  ep13 mode=B_deliberation success=True steps=247
+  ep14 mode=B_deliberation success=True steps=243
+  ep15 mode=B_deliberation success=True steps=243
+  ep16 mode=B_deliberation success=True steps=270
+  ep17 mode=B_deliberation success=True steps=268
+  ep18 mode=B_deliberation success=True steps=263
+  ep19 mode=B_deliberation success=True steps=251
+  ep20 mode=B_deliberation success=True steps=245
+  ep21 mode=B_deliberation success=False steps=600
+  ep22 mode=B_deliberation success=True steps=242
+  ep23 mode=B_deliberation success=True steps=267
+  ep24 mode=B_deliberation success=True steps=250
+  ep25 mode=B_deliberation success=True steps=314
+  ep26 mode=B_deliberation success=True steps=246
+  ep27 mode=B_deliberation success=True steps=233
+  ep28 mode=B_deliberation success=True steps=312
+  ep29 mode=B_deliberation success=True steps=230
+  ep30 mode=B_deliberation success=True steps=245
+  ep31 mode=B_deliberation success=True steps=241
+  ep32 mode=B_deliberation success=True steps=241
+  ep33 mode=B_deliberation success=True steps=251
+  ep34 mode=B_deliberation success=True steps=334
+  ep35 mode=B_deliberation success=True steps=249
+  ep36 mode=B_deliberation success=True steps=239
+  ep37 mode=B_deliberation success=True steps=231
+  ep38 mode=B_deliberation success=True steps=291
+  ep39 mode=B_deliberation success=True steps=253
+  ep40 mode=B_deliberation success=True steps=242
+  ep41 mode=B_deliberation success=True steps=252
+  ep42 mode=B_deliberation success=True steps=252
+  ep43 mode=B_deliberation success=True steps=244
+  ep44 mode=B_deliberation success=True steps=248
+  ep45 mode=B_deliberation success=True steps=270
+  ep46 mode=B_deliberation success=True steps=231
+  ep47 mode=B_deliberation success=True steps=234
+  ep48 mode=B_deliberation success=True steps=244
+  ep49 mode=B_deliberation success=True steps=241
+[mode] C_random_seed
+  ep0 mode=C_random_seed success=False steps=600
+  ep1 mode=C_random_seed success=True steps=256
+  ep2 mode=C_random_seed success=True steps=249
+  ep3 mode=C_random_seed success=True steps=243
+  ep4 mode=C_random_seed success=True steps=249
+===== asynchvla_ws/stage8_ultimate/logs/stage8_scheduler_loop.log
+target_sweep_sam: DONE
+architecture_loss_sweep_sam: DONE
+normal_libero_hard_baseline_bob: DONE
+libero_pro_expanded_rollout_bob: RUNNING
+flowtrace_medium_bob: GPU busy on bob
+calibration_mega_sam: DONE
+normal_libero_hard_30eps_bob: waiting for dependencies
+libero_pro_expanded_30eps_bob: waiting for dependencies
+history_models_sam: DONE
+switch_policy_analysis_bob: waiting for dependencies
+stage8_final_report_bob: waiting for dependencies
+
+## scheduler tick 2026-05-15T21:03:40+02:00
+[
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T15:09:43+02:00",
+    "job_id": "smoke_bob_cpu",
+    "machine": "bob",
+    "missing_outputs": [],
+    "pid": "614539",
+    "state": "DONE",
+    "updated_at": "2026-05-15T15:09:43+02:00"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T15:09:44+02:00",
+    "job_id": "smoke_sam_cpu",
+    "machine": "sam",
+    "missing_outputs": [],
+    "pid": "2122302",
+    "state": "DONE",
+    "updated_at": "2026-05-15T15:09:44+02:00"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T15:09:51+02:00",
+    "job_id": "smoke_dependency_child",
+    "machine": "bob",
+    "missing_outputs": [],
+    "pid": "614763",
+    "state": "DONE",
+    "updated_at": "2026-05-15T15:09:51+02:00"
+  },
+  {
+    "attempt": 2,
+    "completed_at": "2026-05-15T15:10:18+02:00",
+    "job_id": "smoke_retry_failure",
+    "machine": "bob",
+    "missing_outputs": [],
+    "pid": "615217",
+    "state": "DONE",
+    "updated_at": "2026-05-15T15:10:18+02:00"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T16:00:59+02:00",
+    "job_id": "libero_pro_pilot_bob",
+    "machine": "bob",
+    "missing_outputs": [],
+    "pid": "629034",
+    "state": "DONE",
+    "updated_at": "2026-05-15T16:00:59+02:00"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T15:39:23+02:00",
+    "job_id": "stage8_sam_model_sweep",
+    "machine": "sam",
+    "missing_outputs": [],
+    "pid": "2132768",
+    "state": "DONE",
+    "updated_at": "2026-05-15T15:39:23+02:00"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T15:39:35+02:00",
+    "job_id": "stage8_sam_calibration_sweep",
+    "machine": "sam",
+    "missing_outputs": [],
+    "pid": "2142583",
+    "state": "DONE",
+    "updated_at": "2026-05-15T15:39:35+02:00"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T16:14:44+02:00",
+    "job_id": "flowtrace_experiments_sam",
+    "machine": "sam",
+    "missing_outputs": [],
+    "pid": "2164506",
+    "state": "DONE",
+    "updated_at": "2026-05-15T16:14:44+02:00"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T16:14:55+02:00",
+    "job_id": "target_sweep_sam",
+    "machine": "sam",
+    "missing_outputs": [],
+    "pid": "2164866",
+    "state": "DONE",
+    "updated_at": "2026-05-15T16:14:55+02:00"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T16:49:59+02:00",
+    "job_id": "architecture_loss_sweep_sam",
+    "machine": "sam",
+    "missing_outputs": [],
+    "pid": "2167999",
+    "state": "DONE",
+    "updated_at": "2026-05-15T16:49:59+02:00"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T19:41:31+02:00",
+    "job_id": "normal_libero_hard_baseline_bob",
+    "machine": "bob",
+    "missing_outputs": [],
+    "pid": "649690",
+    "state": "DONE",
+    "updated_at": "2026-05-15T19:41:31+02:00"
+  },
+  {
+    "attempt": 1,
+    "command_file": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/jobs/libero_pro_expanded_rollout_bob.sh",
+    "job_id": "libero_pro_expanded_rollout_bob",
+    "log_path": "/media/rootalkhatib/My Passport/reda_ws/asynchvla_ws/stage8_ultimate/logs/libero_pro_expanded_rollout_bob.log",
+    "machine": "bob",
+    "pid": "776740",
+    "started_at": "2026-05-15T19:41:33+02:00",
+    "state": "RUNNING",
+    "updated_at": "2026-05-15T19:41:33+02:00"
+  },
+  {
+    "job_id": "flowtrace_medium_bob",
+    "machine": "bob",
+    "state": "PENDING"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T16:50:11+02:00",
+    "job_id": "calibration_mega_sam",
+    "machine": "sam",
+    "missing_outputs": [],
+    "pid": "2203428",
+    "state": "DONE",
+    "updated_at": "2026-05-15T16:50:11+02:00"
+  },
+  {
+    "job_id": "normal_libero_hard_30eps_bob",
+    "machine": "bob",
+    "state": "PENDING"
+  },
+  {
+    "job_id": "libero_pro_expanded_30eps_bob",
+    "machine": "bob",
+    "state": "PENDING"
+  },
+  {
+    "attempt": 1,
+    "completed_at": "2026-05-15T16:15:03+02:00",
+    "job_id": "history_models_sam",
+    "machine": "sam",
+    "missing_outputs": [],
+    "pid": "2168517",
+    "state": "DONE",
+    "updated_at": "2026-05-15T16:15:03+02:00"
+  },
+  {
+    "job_id": "switch_policy_analysis_bob",
+    "machine": "bob",
+    "state": "PENDING"
+  },
+  {
+    "job_id": "stage8_final_report_bob",
+    "machine": "bob",
+    "state": "PENDING"
+  }
+]
+smoke_bob_cpu: DONE
+smoke_sam_cpu: DONE
+smoke_dependency_child: DONE
+smoke_retry_failure: DONE
+libero_pro_pilot_bob: DONE
+stage8_sam_model_sweep: DONE
+stage8_sam_calibration_sweep: DONE
+flowtrace_experiments_sam: DONE
+target_sweep_sam: DONE
+architecture_loss_sweep_sam: DONE
+normal_libero_hard_baseline_bob: DONE
+libero_pro_expanded_rollout_bob: RUNNING
+flowtrace_medium_bob: GPU busy on bob
+calibration_mega_sam: DONE
+normal_libero_hard_30eps_bob: waiting for dependencies
+libero_pro_expanded_30eps_bob: waiting for dependencies
+history_models_sam: DONE
+switch_policy_analysis_bob: waiting for dependencies
+stage8_final_report_bob: waiting for dependencies
+===== asynchvla_ws/stage8_ultimate/logs/stage8_scheduler_loop.nohup.log
+===== asynchvla_ws/stage8_ultimate/logs/stage8_switch_policy_extended_bob.log
+[stage8] job stage8_switch_policy_extended_bob attempt 1 start 2026-05-17T12:00:44+02:00
+asynchvla_ws/stage8_ultimate/reports/stage8_switch_policy_results.md
+[stage8] job stage8_switch_policy_extended_bob exit 0 at 2026-05-17T12:00:52+02:00
+===== asynchvla_ws/stage8_ultimate/logs/stage8_watchdog.log
+[2026-05-17T04:46:32] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T04:56:38] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T05:06:44] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T05:16:50] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T05:26:55] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T05:37:01] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T05:47:07] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T05:57:13] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T06:07:19] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T06:17:25] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T06:27:31] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T06:37:37] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T06:47:42] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T06:57:48] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T07:07:54] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T07:18:00] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T07:28:06] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T07:38:12] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T07:48:17] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T07:58:23] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T08:08:29] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T08:18:35] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T08:28:41] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T08:38:47] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T08:48:52] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T08:58:58] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T09:09:04] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T09:19:10] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T09:29:16] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T09:39:22] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T09:49:28] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T09:59:34] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T10:09:39] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T10:19:45] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T10:29:51] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T10:39:57] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T10:50:03] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T11:00:09] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T11:10:15] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T11:20:21] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T11:30:26] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T11:40:32] watchdog tick ok pending=3 running=1 added=[]
+[2026-05-17T11:50:38] watchdog tick ok pending=3 running=1 added=[]
+
+[2026-05-17T12:00:44] launch-ready for bob
+smoke_bob_cpu: DONE
+smoke_sam_cpu: DONE
+smoke_dependency_child: DONE
+smoke_retry_failure: DONE
+libero_pro_pilot_bob: DONE
+stage8_sam_model_sweep: DONE
+stage8_sam_calibration_sweep: DONE
+stage8_sam_flowtrace_real: DONE
+stage8_sam_target_real: DONE
+stage8_sam_arch_big: DONE
+flowtrace_experiments_sam: DONE
+stage8_sam_calibration_real: DONE
+stage8_sam_history_real: DONE
+target_sweep_sam: DONE
+architecture_loss_sweep_sam: DONE
+normal_libero_hard_baseline_bob: DONE
+libero_pro_expanded_rollout_bob: DONE
+flowtrace_medium_bob: DONE
+calibration_mega_sam: DONE
+normal_libero_hard_30eps_bob: DONE
+libero_pro_expanded_30eps_bob: DONE
+history_models_sam: DONE
+switch_policy_analysis_bob: DONE
+stage8_libero_pro_20eps_bob: DONE
+stage8_libero_pro_50eps_backup_bob: launched pid=2072443 on bob
+stage8_normal_libero_50eps_backup_bob: GPU busy on bob
+stage8_switch_policy_extended_bob: launched pid=2072525 on bob
+
+[2026-05-17T12:00:50] watchdog tick ok pending=1 running=2 added=[]
+[2026-05-17T12:10:56] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T12:21:02] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T12:31:08] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T12:41:14] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T12:51:19] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T13:01:25] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T13:11:31] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T13:21:37] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T13:31:43] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T13:41:49] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T13:51:55] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T14:02:00] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T14:12:06] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T14:22:12] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T14:32:18] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T14:42:24] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T14:52:30] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T15:02:36] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T15:12:42] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T15:22:47] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T15:32:53] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T15:42:59] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T15:53:05] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T16:03:11] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T16:13:17] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T16:23:22] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T16:33:28] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T16:43:34] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T16:53:40] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T17:03:46] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T17:13:52] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T17:23:58] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T17:34:04] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T17:44:09] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T17:54:15] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T18:04:21] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T18:14:27] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T18:24:33] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T18:34:39] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T18:44:45] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T18:54:50] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T19:04:56] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T19:15:02] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T19:25:08] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T19:35:14] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T19:45:20] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T19:55:25] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T20:05:31] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T20:15:37] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T20:25:43] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T20:35:49] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T20:45:54] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T20:56:00] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T21:06:06] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T21:16:12] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T21:26:18] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T21:36:24] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T21:46:30] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T21:56:36] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T22:06:42] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T22:16:47] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T22:26:53] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T22:36:59] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T22:47:05] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T22:57:11] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T23:07:16] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T23:17:22] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T23:27:28] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T23:37:34] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T23:47:40] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-17T23:57:46] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T00:07:51] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T00:17:57] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T00:28:03] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T00:38:09] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T00:48:15] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T00:58:21] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T01:08:27] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T01:18:33] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T01:28:38] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T01:38:44] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T01:48:50] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T01:58:56] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T02:09:02] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T02:19:08] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T02:29:14] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T02:39:20] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T02:49:25] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T02:59:31] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T03:09:37] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T03:19:43] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T03:29:49] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T03:39:55] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T03:50:01] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T04:00:07] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T04:10:13] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T04:20:18] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T04:30:24] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T04:40:30] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T04:50:36] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T05:00:42] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T05:10:48] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T05:20:54] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T05:31:00] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T05:41:05] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T05:51:11] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T06:01:17] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T06:11:23] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T06:21:29] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T06:31:35] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T06:41:41] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T06:51:47] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T07:01:53] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T07:11:58] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T07:22:04] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T07:32:10] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T07:42:16] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T07:52:22] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T08:02:28] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T08:12:34] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T08:22:40] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T08:32:45] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T08:42:51] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T08:52:57] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T09:03:03] watchdog tick ok pending=1 running=1 added=[]
+[2026-05-18T09:13:09] watchdog tick ok pending=1 running=1 added=[]
+===== asynchvla_ws/stage8_ultimate/logs/stage8_watchdog.nohup.log
+===== asynchvla_ws/stage8_ultimate/logs/switch_policy_analysis_bob.log
+[stage8] job switch_policy_analysis_bob attempt 1 start 2026-05-16T07:23:55+02:00
+asynchvla_ws/stage8_ultimate/reports/stage8_switch_policy_results.md
+[stage8] job switch_policy_analysis_bob exit 0 at 2026-05-16T07:23:59+02:00

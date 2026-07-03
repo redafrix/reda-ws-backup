@@ -1,0 +1,4118 @@
+{
+  "hashes": {
+    "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/original_simvla_libero/YuankaiLuo_SimVLA-LIBERO/model.safetensors": {
+      "sha256": "9d3b1767773da86906d771b1eca2c2911087371bf8b3890a7336b6773270f6be",
+      "size": 3245529028
+    },
+    "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/simvla_libero_uncertainty/ckpt-60000/model.safetensors": {
+      "sha256": "3fab12d94c963f530ddce9f66aed4bf2623b2a2bbd527c85918fce2fcf8aec71",
+      "size": 3245557952
+    },
+    "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/base/model.pt": {
+      "sha256": "802413d2b4acfd1e5094da726ad5b0489315efbdf1bd91cc962e73fe8149f702",
+      "size": 2598868
+    },
+    "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8/model.pt": {
+      "sha256": "687b5d35eed65abfe63b5ff600e52c2228318ad94209e379e73fbaad981dbb2d",
+      "size": 2602964
+    },
+    "/tmp/ood_ckpt60000/model.safetensors": {
+      "sha256": "3fab12d94c963f530ddce9f66aed4bf2623b2a2bbd527c85918fce2fcf8aec71",
+      "size": 3245557952
+    }
+  },
+  "host": "PCROBOTUBUNTU02",
+  "roots": [
+    {
+      "aggregate_by_policy": {
+        "risk_base": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 300,
+          "max_seed": 2142599694,
+          "mean_steps": 201.8767,
+          "min_seed": 8520812,
+          "success_rate": 0.513333,
+          "successes": 154,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 300
+        },
+        "risk_topk8": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 202,
+          "max_seed": 2142599694,
+          "mean_steps": 236.4059,
+          "min_seed": 8520812,
+          "success_rate": 0.376238,
+          "successes": 76,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 202
+        },
+        "simvla_only": {
+          "duplicate_reset_seeds": 205,
+          "episodes": 505,
+          "max_seed": 2142599694,
+          "mean_steps": 215.3089,
+          "min_seed": 8520812,
+          "success_rate": 0.465347,
+          "successes": 235,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 300
+        },
+        "worker_0": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 35018,
+          "max_seed": null,
+          "mean_steps": 65.4689,
+          "min_seed": null,
+          "success_rate": 0.804501,
+          "successes": 28172,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 0
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task3": {
+          "risk_base": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 2111915840,
+            "mean_steps": 290.14,
+            "min_seed": 8520812,
+            "success_rate": 0.12,
+            "successes": 12,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 2111915840,
+            "mean_steps": 278.12,
+            "min_seed": 8520812,
+            "success_rate": 0.17,
+            "successes": 17,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 2111915840,
+            "mean_steps": 284.09,
+            "min_seed": 8520812,
+            "success_rate": 0.145,
+            "successes": 29,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task6": {
+          "risk_base": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 2142599694,
+            "mean_steps": 208.57,
+            "min_seed": 47766804,
+            "success_rate": 0.51,
+            "successes": 51,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 2142599694,
+            "mean_steps": 197.97,
+            "min_seed": 47766804,
+            "success_rate": 0.57,
+            "successes": 57,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 2142599694,
+            "mean_steps": 203.385,
+            "min_seed": 47766804,
+            "success_rate": 0.55,
+            "successes": 110,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task8": {
+          "risk_base": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 2139768119,
+            "mean_steps": 106.92,
+            "min_seed": 28472471,
+            "success_rate": 0.91,
+            "successes": 91,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 2,
+            "max_seed": 901501224,
+            "mean_steps": 72.5,
+            "min_seed": 42431854,
+            "success_rate": 1.0,
+            "successes": 2,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 2
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 5,
+            "episodes": 105,
+            "max_seed": 2139768119,
+            "mean_steps": 107.0095,
+            "min_seed": 28472471,
+            "success_rate": 0.914286,
+            "successes": 96,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "unknown_task": {
+          "worker_0": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 35018,
+            "max_seed": null,
+            "mean_steps": 65.4689,
+            "min_seed": null,
+            "success_rate": 0.804501,
+            "successes": 28172,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 0
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {},
+        "config_count": 2,
+        "execution_horizons": {
+          "None": 2
+        },
+        "risk_dirs": {},
+        "seed_lengths": {},
+        "suite_values": {
+          "None": 2
+        },
+        "task_ids": [],
+        "threshold_values": {}
+      },
+      "episode_files": {
+        "inputs/datasets/continuous_chunk10/worker_0/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 17409,
+          "max_seed": null,
+          "mean_steps": 0.0,
+          "min_seed": null,
+          "success_rate": 0.804469,
+          "successes": 14005,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 0
+        },
+        "inputs/datasets/continuous_chunk10_flat/worker_0/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 17409,
+          "max_seed": null,
+          "mean_steps": 131.69,
+          "min_seed": null,
+          "success_rate": 0.804469,
+          "successes": 14005,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 0
+        },
+        "inputs/datasets/exact_200_chunk10/worker_0/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 200,
+          "max_seed": null,
+          "mean_steps": 0.0,
+          "min_seed": null,
+          "success_rate": 0.81,
+          "successes": 162,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 0
+        },
+        "runs/online/task3/modified_h10_risk_topk8/shard_0/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2084640018,
+          "mean_steps": 278.1,
+          "min_seed": 9561061,
+          "success_rate": 0.18,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task3/modified_h10_risk_topk8/shard_1/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2111915840,
+          "mean_steps": 278.14,
+          "min_seed": 8520812,
+          "success_rate": 0.16,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task3/modified_simvla/shard_0/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2084640018,
+          "mean_steps": 278.06,
+          "min_seed": 9561061,
+          "success_rate": 0.18,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task3/modified_simvla/shard_1/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2111915840,
+          "mean_steps": 278.14,
+          "min_seed": 8520812,
+          "success_rate": 0.16,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task3/original_h10_risk_base/shard_0/risk_base/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2084640018,
+          "mean_steps": 293.64,
+          "min_seed": 9561061,
+          "success_rate": 0.1,
+          "successes": 5,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task3/original_h10_risk_base/shard_1/risk_base/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2111915840,
+          "mean_steps": 286.64,
+          "min_seed": 8520812,
+          "success_rate": 0.14,
+          "successes": 7,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task3/original_simvla/shard_0/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2084640018,
+          "mean_steps": 293.64,
+          "min_seed": 9561061,
+          "success_rate": 0.1,
+          "successes": 5,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task3/original_simvla/shard_1/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2111915840,
+          "mean_steps": 286.52,
+          "min_seed": 8520812,
+          "success_rate": 0.14,
+          "successes": 7,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/modified_h10_risk_topk8/shard_0/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2142599694,
+          "mean_steps": 195.82,
+          "min_seed": 57394074,
+          "success_rate": 0.58,
+          "successes": 29,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/modified_h10_risk_topk8/shard_1/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2119628664,
+          "mean_steps": 200.12,
+          "min_seed": 47766804,
+          "success_rate": 0.56,
+          "successes": 28,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/modified_simvla/shard_0/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2142599694,
+          "mean_steps": 195.96,
+          "min_seed": 57394074,
+          "success_rate": 0.62,
+          "successes": 31,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/modified_simvla/shard_1/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2119628664,
+          "mean_steps": 205.58,
+          "min_seed": 47766804,
+          "success_rate": 0.52,
+          "successes": 26,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/original_h10_risk_base/shard_0/risk_base/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2142599694,
+          "mean_steps": 208.06,
+          "min_seed": 57394074,
+          "success_rate": 0.54,
+          "successes": 27,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/original_h10_risk_base/shard_1/risk_base/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2119628664,
+          "mean_steps": 209.08,
+          "min_seed": 47766804,
+          "success_rate": 0.48,
+          "successes": 24,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/original_simvla/shard_0/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2142599694,
+          "mean_steps": 205.46,
+          "min_seed": 57394074,
+          "success_rate": 0.56,
+          "successes": 28,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/original_simvla/shard_1/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2119628664,
+          "mean_steps": 206.54,
+          "min_seed": 47766804,
+          "success_rate": 0.5,
+          "successes": 25,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task8/modified_h10_risk_topk8/shard_0/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 42431854,
+          "mean_steps": 73.0,
+          "min_seed": 42431854,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs/online/task8/modified_h10_risk_topk8/shard_1/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 901501224,
+          "mean_steps": 72.0,
+          "min_seed": 901501224,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs/online/task8/modified_simvla/shard_0/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 3,
+          "max_seed": 1748468229,
+          "mean_steps": 67.6667,
+          "min_seed": 42431854,
+          "success_rate": 1.0,
+          "successes": 3,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 3
+        },
+        "runs/online/task8/modified_simvla/shard_1/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 2,
+          "max_seed": 901501224,
+          "mean_steps": 125.5,
+          "min_seed": 616823035,
+          "success_rate": 1.0,
+          "successes": 2,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/online/task8/original_h10_risk_base/shard_0/risk_base/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2107022322,
+          "mean_steps": 116.6,
+          "min_seed": 28472471,
+          "success_rate": 0.86,
+          "successes": 43,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task8/original_h10_risk_base/shard_1/risk_base/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2139768119,
+          "mean_steps": 97.24,
+          "min_seed": 49625667,
+          "success_rate": 0.96,
+          "successes": 48,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task8/original_simvla/shard_0/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2107022322,
+          "mean_steps": 114.34,
+          "min_seed": 28472471,
+          "success_rate": 0.88,
+          "successes": 44,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task8/original_simvla/shard_1/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2139768119,
+          "mean_steps": 101.3,
+          "min_seed": 49625667,
+          "success_rate": 0.94,
+          "successes": 47,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608"
+    },
+    {
+      "aggregate_by_policy": {
+        "risk_topk8": {
+          "duplicate_reset_seeds": 3,
+          "episodes": 203,
+          "max_seed": 2142599694,
+          "mean_steps": 232.0049,
+          "min_seed": 8520812,
+          "success_rate": 0.403941,
+          "successes": 82,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 200
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task3": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 2111915840,
+            "mean_steps": 276.69,
+            "min_seed": 8520812,
+            "success_rate": 0.19,
+            "successes": 19,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task3_aggressive": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 1,
+            "episodes": 2,
+            "max_seed": 790875758,
+            "mean_steps": 150.0,
+            "min_seed": 790875758,
+            "success_rate": 0.0,
+            "successes": 0,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 1
+          }
+        },
+        "task6": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 2142599694,
+            "mean_steps": 190.44,
+            "min_seed": 47766804,
+            "success_rate": 0.62,
+            "successes": 62,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task6_aggressive": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 1,
+            "max_seed": 1546683890,
+            "mean_steps": 84.0,
+            "min_seed": 1546683890,
+            "success_rate": 1.0,
+            "successes": 1,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 1
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {},
+        "config_count": 0,
+        "execution_horizons": {},
+        "risk_dirs": {},
+        "seed_lengths": {},
+        "suite_values": {},
+        "task_ids": [],
+        "threshold_values": {}
+      },
+      "episode_files": {
+        "runs/online/task3/modified_h10_risk_topk8/shard_0/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2084640018,
+          "mean_steps": 276.28,
+          "min_seed": 9561061,
+          "success_rate": 0.2,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task3/modified_h10_risk_topk8/shard_1/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2111915840,
+          "mean_steps": 277.1,
+          "min_seed": 8520812,
+          "success_rate": 0.18,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/modified_h10_risk_topk8/shard_0/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2142599694,
+          "mean_steps": 188.78,
+          "min_seed": 57394074,
+          "success_rate": 0.66,
+          "successes": 33,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/modified_h10_risk_topk8/shard_1/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2119628664,
+          "mean_steps": 192.1,
+          "min_seed": 47766804,
+          "success_rate": 0.58,
+          "successes": 29,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online_smoke/task3_aggressive/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 1,
+          "episodes": 2,
+          "max_seed": 790875758,
+          "mean_steps": 150.0,
+          "min_seed": 790875758,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs/online_smoke/task6_aggressive/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 1546683890,
+          "mean_steps": 84.0,
+          "min_seed": 1546683890,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_topk8_aggressive_task3_20260608"
+    },
+    {
+      "aggregate_by_policy": {
+        "risk_topk8": {
+          "duplicate_reset_seeds": 1,
+          "episodes": 101,
+          "max_seed": 2142599694,
+          "mean_steps": 195.0099,
+          "min_seed": 47766804,
+          "success_rate": 0.60396,
+          "successes": 61,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task6": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 2142599694,
+            "mean_steps": 194.82,
+            "min_seed": 47766804,
+            "success_rate": 0.6,
+            "successes": 60,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task6_aggressive_old_detector": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 1,
+            "max_seed": 1546683890,
+            "mean_steps": 214.0,
+            "min_seed": 1546683890,
+            "success_rate": 1.0,
+            "successes": 1,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 1
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {},
+        "config_count": 0,
+        "execution_horizons": {},
+        "risk_dirs": {},
+        "seed_lengths": {},
+        "suite_values": {},
+        "task_ids": [],
+        "threshold_values": {}
+      },
+      "episode_files": {
+        "runs/online/task6/modified_h10_risk_topk8/shard_0/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2142599694,
+          "mean_steps": 182.62,
+          "min_seed": 57394074,
+          "success_rate": 0.66,
+          "successes": 33,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online/task6/modified_h10_risk_topk8/shard_1/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 50,
+          "max_seed": 2119628664,
+          "mean_steps": 207.02,
+          "min_seed": 47766804,
+          "success_rate": 0.54,
+          "successes": 27,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 50
+        },
+        "runs/online_smoke/task6_aggressive_old_detector/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 1546683890,
+          "mean_steps": 214.0,
+          "min_seed": 1546683890,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_task6_old_topk8_aggressive_20260608"
+    },
+    {
+      "aggregate_by_policy": {
+        "risk_topk8": {
+          "duplicate_reset_seeds": 4,
+          "episodes": 306,
+          "max_seed": 998367114,
+          "mean_steps": 298.0523,
+          "min_seed": 12345,
+          "success_rate": 0.03268,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 302
+        },
+        "simvla_only": {
+          "duplicate_reset_seeds": 312,
+          "episodes": 614,
+          "max_seed": 998367114,
+          "mean_steps": 295.873,
+          "min_seed": 12345,
+          "success_rate": 0.045603,
+          "successes": 28,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 302
+        }
+      },
+      "aggregate_by_task_policy": {
+        "unknown_task": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 4,
+            "episodes": 306,
+            "max_seed": 998367114,
+            "mean_steps": 298.0523,
+            "min_seed": 12345,
+            "success_rate": 0.03268,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 302
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 312,
+            "episodes": 614,
+            "max_seed": 998367114,
+            "mean_steps": 295.873,
+            "min_seed": 12345,
+            "success_rate": 0.045603,
+            "successes": 28,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 302
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {},
+        "config_count": 0,
+        "execution_horizons": {},
+        "risk_dirs": {},
+        "seed_lengths": {},
+        "suite_values": {},
+        "task_ids": [],
+        "threshold_values": {}
+      },
+      "episode_files": {
+        "runs/online/libero_goal_swap/bowl_on_plate/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 2,
+          "max_seed": 67890,
+          "mean_steps": 300.0,
+          "min_seed": 12345,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/online/libero_goal_swap/bowl_on_plate/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 2,
+          "max_seed": 67890,
+          "mean_steps": 300.0,
+          "min_seed": 12345,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/online/libero_goal_swap/bowl_on_plate/risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 2,
+          "max_seed": 67890,
+          "mean_steps": 300.0,
+          "min_seed": 12345,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/online/libero_goal_swap/cream_cheese_bowl/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 2,
+          "max_seed": 67890,
+          "mean_steps": 300.0,
+          "min_seed": 12345,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/online/libero_goal_swap/cream_cheese_bowl/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 2,
+          "max_seed": 67890,
+          "mean_steps": 300.0,
+          "min_seed": 12345,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/online/libero_goal_swap/cream_cheese_bowl/risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 2,
+          "max_seed": 67890,
+          "mean_steps": 300.0,
+          "min_seed": 12345,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/online/libero_goal_swap/top_drawer_bowl/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 2,
+          "max_seed": 67890,
+          "mean_steps": 300.0,
+          "min_seed": 12345,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/online/libero_goal_swap/top_drawer_bowl/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 2,
+          "episodes": 4,
+          "max_seed": 67890,
+          "mean_steps": 150.0,
+          "min_seed": 12345,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/online/libero_goal_swap/top_drawer_bowl/risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 2,
+          "max_seed": 67890,
+          "mean_steps": 300.0,
+          "min_seed": 12345,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 2
+        },
+        "runs/production_goal_swap_100ep_20260608/bowl_on_plate/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 998367114,
+          "mean_steps": 297.52,
+          "min_seed": 264954,
+          "success_rate": 0.03,
+          "successes": 3,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/production_goal_swap_100ep_20260608/bowl_on_plate/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 998367114,
+          "mean_steps": 299.63,
+          "min_seed": 264954,
+          "success_rate": 0.01,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/production_goal_swap_100ep_20260608/bowl_on_plate/risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 998367114,
+          "mean_steps": 298.51,
+          "min_seed": 264954,
+          "success_rate": 0.02,
+          "successes": 2,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/production_goal_swap_100ep_20260608/cream_cheese_bowl/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 995446492,
+          "mean_steps": 300.0,
+          "min_seed": 10657942,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/production_goal_swap_100ep_20260608/cream_cheese_bowl/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 995446492,
+          "mean_steps": 300.0,
+          "min_seed": 10657942,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/production_goal_swap_100ep_20260608/cream_cheese_bowl/risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 995446492,
+          "mean_steps": 300.0,
+          "min_seed": 10657942,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/production_goal_swap_100ep_20260608/top_drawer_bowl/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 997583945,
+          "mean_steps": 294.16,
+          "min_seed": 2382881,
+          "success_rate": 0.09,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/production_goal_swap_100ep_20260608/top_drawer_bowl/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 997583945,
+          "mean_steps": 289.35,
+          "min_seed": 2382881,
+          "success_rate": 0.15,
+          "successes": 15,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/production_goal_swap_100ep_20260608/top_drawer_bowl/risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 997583945,
+          "mean_steps": 295.53,
+          "min_seed": 2382881,
+          "success_rate": 0.08,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_ood_goal_object_and_swap_20260608"
+    },
+    {
+      "aggregate_by_policy": {
+        "risk_topk8": {
+          "duplicate_reset_seeds": 2,
+          "episodes": 11,
+          "max_seed": 8,
+          "mean_steps": 141.8182,
+          "min_seed": 0,
+          "success_rate": 0.727273,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 9
+        },
+        "simvla_only": {
+          "duplicate_reset_seeds": 10,
+          "episodes": 20,
+          "max_seed": 9,
+          "mean_steps": 183.25,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 16,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "smoke_test_offline": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 4,
+          "max_seed": null,
+          "mean_steps": 1.5,
+          "min_seed": null,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 0
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task0": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 1,
+            "episodes": 10,
+            "max_seed": 8,
+            "mean_steps": 155.7,
+            "min_seed": 0,
+            "success_rate": 0.8,
+            "successes": 8,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 9
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 183.25,
+            "min_seed": 0,
+            "success_rate": 0.8,
+            "successes": 16,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task17": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 1,
+            "max_seed": 0,
+            "mean_steps": 3.0,
+            "min_seed": 0,
+            "success_rate": 0.0,
+            "successes": 0,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 1
+          }
+        },
+        "unknown_task": {
+          "smoke_test_offline": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 4,
+            "max_seed": null,
+            "mean_steps": 1.5,
+            "min_seed": null,
+            "success_rate": 0.0,
+            "successes": 0,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 0
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {
+          "/tmp/ood_ckpt60000": 38,
+          "/tmp/vanilla-simvla": 18
+        },
+        "config_count": 56,
+        "execution_horizons": {
+          "10": 56
+        },
+        "risk_dirs": {
+          "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8": 56
+        },
+        "seed_lengths": {
+          "1": 2,
+          "10": 54
+        },
+        "suite_values": {
+          "libero_goal_object_ood": 56
+        },
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "threshold_values": {}
+      },
+      "episode_files": {
+        "runs/smoke/task0/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 3.0,
+          "min_seed": 0,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs/smoke/task17/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 3.0,
+          "min_seed": 0,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs/task0/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 9,
+          "max_seed": 8,
+          "mean_steps": 172.6667,
+          "min_seed": 0,
+          "success_rate": 0.888889,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 9
+        },
+        "runs/task0/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 180.8,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task0/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 185.7,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "smoke_test_offline/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 4,
+          "max_seed": null,
+          "mean_steps": 1.5,
+          "min_seed": null,
+          "success_rate": 0.0,
+          "successes": 0,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 0
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_20260609"
+    },
+    {
+      "aggregate_by_policy": {
+        "risk_topk8": {
+          "duplicate_reset_seeds": 170,
+          "episodes": 180,
+          "max_seed": 9,
+          "mean_steps": 118.4889,
+          "min_seed": 0,
+          "success_rate": 0.955556,
+          "successes": 172,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "simvla_only": {
+          "duplicate_reset_seeds": 350,
+          "episodes": 360,
+          "max_seed": 9,
+          "mean_steps": 124.7833,
+          "min_seed": 0,
+          "success_rate": 0.936111,
+          "successes": 337,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task0": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 162.5,
+            "min_seed": 0,
+            "success_rate": 0.8,
+            "successes": 8,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 183.25,
+            "min_seed": 0,
+            "success_rate": 0.8,
+            "successes": 16,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task1": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 179.1,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 182.9,
+            "min_seed": 0,
+            "success_rate": 0.95,
+            "successes": 19,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task10": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 84.3,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 85.75,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 20,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task11": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 93.9,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 103.7,
+            "min_seed": 0,
+            "success_rate": 0.95,
+            "successes": 19,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task12": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 97.3,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 109.05,
+            "min_seed": 0,
+            "success_rate": 0.95,
+            "successes": 19,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task13": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 161.9,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 188.95,
+            "min_seed": 0,
+            "success_rate": 0.7,
+            "successes": 14,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task14": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 132.2,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 150.4,
+            "min_seed": 0,
+            "success_rate": 0.95,
+            "successes": 19,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task15": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 93.6,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 101.15,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 20,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task16": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 108.6,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 101.4,
+            "min_seed": 0,
+            "success_rate": 0.95,
+            "successes": 19,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task17": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 102.8,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 131.05,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 18,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task2": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 193.6,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 195.05,
+            "min_seed": 0,
+            "success_rate": 0.85,
+            "successes": 17,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task3": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 117.4,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 116.05,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 20,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task4": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 123.3,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 121.1,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 20,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task5": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 92.1,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 93.4,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 20,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task6": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 82.6,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 83.55,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 20,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task7": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 112.9,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 113.7,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 18,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task8": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 86.8,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 87.75,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 20,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task9": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 107.9,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 10,
+            "episodes": 20,
+            "max_seed": 9,
+            "mean_steps": 97.9,
+            "min_seed": 0,
+            "success_rate": 0.95,
+            "successes": 19,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {
+          "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/original_simvla_libero/YuankaiLuo_SimVLA-LIBERO": 18,
+          "/tmp/ood_ckpt60000": 36
+        },
+        "config_count": 54,
+        "execution_horizons": {
+          "10": 54
+        },
+        "risk_dirs": {
+          "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8": 18
+        },
+        "seed_lengths": {
+          "10": 54
+        },
+        "suite_values": {
+          "libero_goal_object_ood": 54
+        },
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "threshold_values": {
+          "selection_main_threshold": {
+            "0.3": 18
+          },
+          "selection_min_margin": {
+            "0.02": 18
+          },
+          "selection_streak_threshold": {
+            "0.3": 18
+          },
+          "selection_strong_margin": {
+            "0.05": 18
+          }
+        }
+      },
+      "episode_files": {
+        "runs/task0/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 162.5,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task0/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 180.8,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task0/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 185.7,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task1/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 179.1,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task1/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 179.1,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task1/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 186.7,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task10/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 84.3,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task10/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 84.3,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task10/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 87.2,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task11/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 93.9,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task11/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 91.3,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task11/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 116.1,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task12/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 97.3,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task12/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 101.9,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task12/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 116.2,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task13/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 161.9,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task13/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 168.0,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task13/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 209.9,
+          "min_seed": 0,
+          "success_rate": 0.6,
+          "successes": 6,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task14/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 132.2,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task14/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 145.7,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task14/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 155.1,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task15/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 93.6,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task15/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 93.6,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task15/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 108.7,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task16/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 108.6,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task16/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 108.6,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task16/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 94.2,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task17/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 102.8,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task17/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 131.0,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task17/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 131.1,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task2/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 193.6,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task2/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 197.0,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task2/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 193.1,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task3/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 117.4,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task3/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 118.4,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task3/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 113.7,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task4/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 123.3,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task4/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 123.3,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task4/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 118.9,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task5/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 92.1,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task5/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 92.8,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task5/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 94.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task6/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 82.6,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task6/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 82.6,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task6/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 84.5,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task7/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 112.9,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task7/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 110.2,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task7/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 117.2,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task8/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 86.8,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task8/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 86.8,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task8/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 88.7,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task9/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 107.9,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task9/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 107.9,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task9/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 87.9,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "logs": {
+        "sweep_supervisor.log": {
+          "keyboard_interrupt_count": 0,
+          "oom_count": 0,
+          "tail": "hatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_aggressive_fixed_20260609/configs/task17_modified_h10_risk_topk8.json checkpoint=/tmp/ood_ckpt60000\n`torch_dtype` is deprecated! Use `dtype` instead!\n[LiberoJointActionSpace] Loaded state norm stats, dim=8\n[LiberoJointActionSpace] Loaded actions norm stats, dim=7\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=0 seed=0 outcome=success steps=74 mods=0 time=8.7s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=1 seed=1 outcome=success steps=77 mods=0 time=7.5s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=2 seed=2 outcome=success steps=134 mods=2 time=11.8s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=3 seed=3 outcome=success steps=73 mods=0 time=7.4s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=4 seed=4 outcome=success steps=141 mods=2 time=12.5s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=5 seed=5 outcome=success steps=75 mods=0 time=7.5s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=6 seed=6 outcome=success steps=141 mods=3 time=12.6s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=7 seed=7 outcome=success steps=122 mods=1 time=11.2s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=8 seed=8 outcome=success steps=113 mods=5 time=10.4s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=9 seed=9 outcome=success steps=78 mods=0 time=7.6s\n",
+          "traceback_count": 0
+        }
+      },
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_aggressive_fixed_20260609"
+    },
+    {
+      "aggregate_by_policy": {
+        "risk_topk8": {
+          "duplicate_reset_seeds": 1700,
+          "episodes": 1800,
+          "max_seed": 109,
+          "mean_steps": 120.0806,
+          "min_seed": 10,
+          "success_rate": 0.951667,
+          "successes": 1713,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "simvla_only": {
+          "duplicate_reset_seeds": 3500,
+          "episodes": 3600,
+          "max_seed": 109,
+          "mean_steps": 123.7547,
+          "min_seed": 10,
+          "success_rate": 0.940556,
+          "successes": 3386,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task0": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 165.51,
+            "min_seed": 10,
+            "success_rate": 0.85,
+            "successes": 85,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 176.0,
+            "min_seed": 10,
+            "success_rate": 0.835,
+            "successes": 167,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task1": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 172.4,
+            "min_seed": 10,
+            "success_rate": 0.98,
+            "successes": 98,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 180.615,
+            "min_seed": 10,
+            "success_rate": 0.955,
+            "successes": 191,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task10": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 83.9,
+            "min_seed": 10,
+            "success_rate": 1.0,
+            "successes": 100,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 85.17,
+            "min_seed": 10,
+            "success_rate": 1.0,
+            "successes": 200,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task11": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 107.35,
+            "min_seed": 10,
+            "success_rate": 0.95,
+            "successes": 95,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 107.84,
+            "min_seed": 10,
+            "success_rate": 0.95,
+            "successes": 190,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task12": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 111.54,
+            "min_seed": 10,
+            "success_rate": 0.95,
+            "successes": 95,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 103.065,
+            "min_seed": 10,
+            "success_rate": 0.975,
+            "successes": 195,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task13": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 151.91,
+            "min_seed": 10,
+            "success_rate": 0.91,
+            "successes": 91,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 184.055,
+            "min_seed": 10,
+            "success_rate": 0.765,
+            "successes": 153,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task14": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 142.83,
+            "min_seed": 10,
+            "success_rate": 0.94,
+            "successes": 94,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 153.055,
+            "min_seed": 10,
+            "success_rate": 0.915,
+            "successes": 183,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task15": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 103.98,
+            "min_seed": 10,
+            "success_rate": 0.97,
+            "successes": 97,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 109.69,
+            "min_seed": 10,
+            "success_rate": 0.95,
+            "successes": 190,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task16": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 89.16,
+            "min_seed": 10,
+            "success_rate": 0.99,
+            "successes": 99,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 91.04,
+            "min_seed": 10,
+            "success_rate": 0.995,
+            "successes": 199,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task17": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 96.09,
+            "min_seed": 10,
+            "success_rate": 0.98,
+            "successes": 98,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 105.76,
+            "min_seed": 10,
+            "success_rate": 0.935,
+            "successes": 187,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task2": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 200.42,
+            "min_seed": 10,
+            "success_rate": 0.83,
+            "successes": 83,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 201.945,
+            "min_seed": 10,
+            "success_rate": 0.83,
+            "successes": 166,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task3": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 128.53,
+            "min_seed": 10,
+            "success_rate": 0.97,
+            "successes": 97,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 125.585,
+            "min_seed": 10,
+            "success_rate": 0.98,
+            "successes": 196,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task4": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 131.39,
+            "min_seed": 10,
+            "success_rate": 0.98,
+            "successes": 98,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 127.215,
+            "min_seed": 10,
+            "success_rate": 0.99,
+            "successes": 198,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task5": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 91.48,
+            "min_seed": 10,
+            "success_rate": 1.0,
+            "successes": 100,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 92.645,
+            "min_seed": 10,
+            "success_rate": 1.0,
+            "successes": 200,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task6": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 83.71,
+            "min_seed": 10,
+            "success_rate": 1.0,
+            "successes": 100,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 84.85,
+            "min_seed": 10,
+            "success_rate": 1.0,
+            "successes": 200,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task7": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 111.76,
+            "min_seed": 10,
+            "success_rate": 0.89,
+            "successes": 89,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 110.72,
+            "min_seed": 10,
+            "success_rate": 0.905,
+            "successes": 181,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task8": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 94.57,
+            "min_seed": 10,
+            "success_rate": 0.96,
+            "successes": 96,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 94.515,
+            "min_seed": 10,
+            "success_rate": 0.97,
+            "successes": 194,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task9": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 94.92,
+            "min_seed": 10,
+            "success_rate": 0.98,
+            "successes": 98,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          },
+          "simvla_only": {
+            "duplicate_reset_seeds": 100,
+            "episodes": 200,
+            "max_seed": 109,
+            "mean_steps": 93.82,
+            "min_seed": 10,
+            "success_rate": 0.98,
+            "successes": 196,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {
+          "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/original_simvla_libero/YuankaiLuo_SimVLA-LIBERO": 18,
+          "/tmp/ood_ckpt60000": 36
+        },
+        "config_count": 54,
+        "execution_horizons": {
+          "10": 54
+        },
+        "risk_dirs": {
+          "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8": 18
+        },
+        "seed_lengths": {
+          "100": 54
+        },
+        "suite_values": {
+          "libero_goal_object_ood": 54
+        },
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "threshold_values": {
+          "selection_main_threshold": {
+            "0.3": 18
+          },
+          "selection_min_margin": {
+            "0.02": 18
+          },
+          "selection_streak_threshold": {
+            "0.3": 18
+          },
+          "selection_strong_margin": {
+            "0.05": 18
+          }
+        }
+      },
+      "episode_files": {
+        "runs/task0/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 165.51,
+          "min_seed": 10,
+          "success_rate": 0.85,
+          "successes": 85,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task0/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 173.85,
+          "min_seed": 10,
+          "success_rate": 0.85,
+          "successes": 85,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task0/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 178.15,
+          "min_seed": 10,
+          "success_rate": 0.82,
+          "successes": 82,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task1/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 172.4,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task1/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 173.27,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task1/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 187.96,
+          "min_seed": 10,
+          "success_rate": 0.93,
+          "successes": 93,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task10/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 83.9,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task10/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 83.97,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task10/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 86.37,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task11/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 107.35,
+          "min_seed": 10,
+          "success_rate": 0.95,
+          "successes": 95,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task11/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 100.36,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task11/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 115.32,
+          "min_seed": 10,
+          "success_rate": 0.92,
+          "successes": 92,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task12/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 111.54,
+          "min_seed": 10,
+          "success_rate": 0.95,
+          "successes": 95,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task12/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 99.9,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task12/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 106.23,
+          "min_seed": 10,
+          "success_rate": 0.97,
+          "successes": 97,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task13/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 151.91,
+          "min_seed": 10,
+          "success_rate": 0.91,
+          "successes": 91,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task13/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 155.03,
+          "min_seed": 10,
+          "success_rate": 0.9,
+          "successes": 90,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task13/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 213.08,
+          "min_seed": 10,
+          "success_rate": 0.63,
+          "successes": 63,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task14/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 142.83,
+          "min_seed": 10,
+          "success_rate": 0.94,
+          "successes": 94,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task14/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 142.31,
+          "min_seed": 10,
+          "success_rate": 0.93,
+          "successes": 93,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task14/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 163.8,
+          "min_seed": 10,
+          "success_rate": 0.9,
+          "successes": 90,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task15/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 103.98,
+          "min_seed": 10,
+          "success_rate": 0.97,
+          "successes": 97,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task15/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 103.98,
+          "min_seed": 10,
+          "success_rate": 0.97,
+          "successes": 97,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task15/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 115.4,
+          "min_seed": 10,
+          "success_rate": 0.93,
+          "successes": 93,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task16/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 89.16,
+          "min_seed": 10,
+          "success_rate": 0.99,
+          "successes": 99,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task16/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 89.16,
+          "min_seed": 10,
+          "success_rate": 0.99,
+          "successes": 99,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task16/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 92.92,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task17/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 96.09,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task17/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 98.34,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task17/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 113.18,
+          "min_seed": 10,
+          "success_rate": 0.89,
+          "successes": 89,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task2/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 200.42,
+          "min_seed": 10,
+          "success_rate": 0.83,
+          "successes": 83,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task2/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 199.52,
+          "min_seed": 10,
+          "success_rate": 0.84,
+          "successes": 84,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task2/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 204.37,
+          "min_seed": 10,
+          "success_rate": 0.82,
+          "successes": 82,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task3/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 128.53,
+          "min_seed": 10,
+          "success_rate": 0.97,
+          "successes": 97,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task3/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 127.46,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task3/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 123.71,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task4/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 131.39,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task4/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 130.79,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task4/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 123.64,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task5/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 91.48,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task5/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 91.91,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task5/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 93.38,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task6/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 83.71,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task6/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 83.62,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task6/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 86.08,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task7/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 111.76,
+          "min_seed": 10,
+          "success_rate": 0.89,
+          "successes": 89,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task7/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 111.12,
+          "min_seed": 10,
+          "success_rate": 0.9,
+          "successes": 90,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task7/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 110.32,
+          "min_seed": 10,
+          "success_rate": 0.91,
+          "successes": 91,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task8/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 94.57,
+          "min_seed": 10,
+          "success_rate": 0.96,
+          "successes": 96,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task8/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 98.06,
+          "min_seed": 10,
+          "success_rate": 0.95,
+          "successes": 95,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task8/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 90.97,
+          "min_seed": 10,
+          "success_rate": 0.99,
+          "successes": 99,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task9/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 94.92,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task9/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 95.31,
+          "min_seed": 10,
+          "success_rate": 0.97,
+          "successes": 97,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task9/original_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 92.33,
+          "min_seed": 10,
+          "success_rate": 0.99,
+          "successes": 99,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "logs": {
+        "sweep_supervisor.log": {
+          "keyboard_interrupt_count": 0,
+          "oom_count": 0,
+          "tail": " task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=88 seed=98 outcome=success steps=70 mods=0 time=6.9s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=89 seed=99 outcome=success steps=157 mods=2 time=13.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=90 seed=100 outcome=success steps=155 mods=3 time=13.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=91 seed=101 outcome=success steps=78 mods=0 time=7.5s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=92 seed=102 outcome=success steps=72 mods=0 time=7.4s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=93 seed=103 outcome=success steps=77 mods=0 time=7.6s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=94 seed=104 outcome=success steps=78 mods=0 time=7.6s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=95 seed=105 outcome=success steps=75 mods=0 time=7.6s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=96 seed=106 outcome=success steps=73 mods=0 time=7.5s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=97 seed=107 outcome=success steps=81 mods=0 time=8.2s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=98 seed=108 outcome=success steps=153 mods=3 time=13.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=99 seed=109 outcome=success steps=77 mods=0 time=7.6s\n",
+          "traceback_count": 0
+        }
+      },
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_100ep_aggressive_fixed_20260609"
+    },
+    {
+      "aggregate_by_policy": {
+        "risk_topk8": {
+          "duplicate_reset_seeds": 1700,
+          "episodes": 1800,
+          "max_seed": 109,
+          "mean_steps": 120.2933,
+          "min_seed": 10,
+          "success_rate": 0.954444,
+          "successes": 1718,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task0": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 168.35,
+            "min_seed": 10,
+            "success_rate": 0.89,
+            "successes": 89,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task1": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 172.07,
+            "min_seed": 10,
+            "success_rate": 0.99,
+            "successes": 99,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task10": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 83.92,
+            "min_seed": 10,
+            "success_rate": 1.0,
+            "successes": 100,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task11": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 109.34,
+            "min_seed": 10,
+            "success_rate": 0.93,
+            "successes": 93,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task12": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 106.41,
+            "min_seed": 10,
+            "success_rate": 0.96,
+            "successes": 96,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task13": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 152.8,
+            "min_seed": 10,
+            "success_rate": 0.94,
+            "successes": 94,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task14": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 141.81,
+            "min_seed": 10,
+            "success_rate": 0.93,
+            "successes": 93,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task15": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 103.98,
+            "min_seed": 10,
+            "success_rate": 0.97,
+            "successes": 97,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task16": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 89.16,
+            "min_seed": 10,
+            "success_rate": 0.99,
+            "successes": 99,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task17": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 97.49,
+            "min_seed": 10,
+            "success_rate": 0.98,
+            "successes": 98,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task2": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 200.58,
+            "min_seed": 10,
+            "success_rate": 0.83,
+            "successes": 83,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task3": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 128.4,
+            "min_seed": 10,
+            "success_rate": 0.97,
+            "successes": 97,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task4": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 131.5,
+            "min_seed": 10,
+            "success_rate": 0.98,
+            "successes": 98,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task5": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 93.43,
+            "min_seed": 10,
+            "success_rate": 0.99,
+            "successes": 99,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task6": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 83.71,
+            "min_seed": 10,
+            "success_rate": 1.0,
+            "successes": 100,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task7": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 112.28,
+            "min_seed": 10,
+            "success_rate": 0.89,
+            "successes": 89,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task8": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 93.79,
+            "min_seed": 10,
+            "success_rate": 0.97,
+            "successes": 97,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task9": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 96.26,
+            "min_seed": 10,
+            "success_rate": 0.97,
+            "successes": 97,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {
+          "/tmp/ood_ckpt60000": 18
+        },
+        "config_count": 18,
+        "execution_horizons": {
+          "10": 18
+        },
+        "risk_dirs": {
+          "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8": 18
+        },
+        "seed_lengths": {
+          "100": 18
+        },
+        "suite_values": {
+          "libero_goal_object_ood": 18
+        },
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "threshold_values": {
+          "selection_main_threshold": {
+            "0.5": 18
+          },
+          "selection_min_margin": {
+            "0.02": 18
+          },
+          "selection_streak_threshold": {
+            "0.5": 18
+          },
+          "selection_strong_margin": {
+            "0.05": 18
+          }
+        }
+      },
+      "episode_files": {
+        "runs/task0/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 168.35,
+          "min_seed": 10,
+          "success_rate": 0.89,
+          "successes": 89,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task1/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 172.07,
+          "min_seed": 10,
+          "success_rate": 0.99,
+          "successes": 99,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task10/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 83.92,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task11/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 109.34,
+          "min_seed": 10,
+          "success_rate": 0.93,
+          "successes": 93,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task12/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 106.41,
+          "min_seed": 10,
+          "success_rate": 0.96,
+          "successes": 96,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task13/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 152.8,
+          "min_seed": 10,
+          "success_rate": 0.94,
+          "successes": 94,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task14/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 141.81,
+          "min_seed": 10,
+          "success_rate": 0.93,
+          "successes": 93,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task15/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 103.98,
+          "min_seed": 10,
+          "success_rate": 0.97,
+          "successes": 97,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task16/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 89.16,
+          "min_seed": 10,
+          "success_rate": 0.99,
+          "successes": 99,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task17/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 97.49,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task2/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 200.58,
+          "min_seed": 10,
+          "success_rate": 0.83,
+          "successes": 83,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task3/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 128.4,
+          "min_seed": 10,
+          "success_rate": 0.97,
+          "successes": 97,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task4/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 131.5,
+          "min_seed": 10,
+          "success_rate": 0.98,
+          "successes": 98,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task5/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 93.43,
+          "min_seed": 10,
+          "success_rate": 0.99,
+          "successes": 99,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task6/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 83.71,
+          "min_seed": 10,
+          "success_rate": 1.0,
+          "successes": 100,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task7/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 112.28,
+          "min_seed": 10,
+          "success_rate": 0.89,
+          "successes": 89,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task8/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 93.79,
+          "min_seed": 10,
+          "success_rate": 0.97,
+          "successes": 97,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task9/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 96.26,
+          "min_seed": 10,
+          "success_rate": 0.97,
+          "successes": 97,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "logs": {
+        "sweep_supervisor.log": {
+          "keyboard_interrupt_count": 0,
+          "oom_count": 0,
+          "tail": " task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=88 seed=98 outcome=success steps=70 mods=0 time=6.8s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=89 seed=99 outcome=success steps=157 mods=1 time=13.4s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=90 seed=100 outcome=success steps=155 mods=3 time=13.4s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=91 seed=101 outcome=success steps=78 mods=0 time=7.6s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=92 seed=102 outcome=success steps=72 mods=0 time=7.5s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=93 seed=103 outcome=success steps=77 mods=0 time=7.6s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=94 seed=104 outcome=success steps=78 mods=0 time=7.5s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=95 seed=105 outcome=success steps=75 mods=0 time=7.5s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=96 seed=106 outcome=success steps=73 mods=0 time=7.4s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=97 seed=107 outcome=success steps=81 mods=0 time=8.2s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=98 seed=108 outcome=success steps=138 mods=0 time=12.0s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=99 seed=109 outcome=success steps=77 mods=0 time=7.6s\n",
+          "traceback_count": 0
+        }
+      },
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_100ep_threshold_0.5_20260610"
+    },
+    {
+      "aggregate_by_policy": {
+        "risk_topk8": {
+          "duplicate_reset_seeds": 77,
+          "episodes": 177,
+          "max_seed": 109,
+          "mean_steps": 172.452,
+          "min_seed": 10,
+          "success_rate": 0.909605,
+          "successes": 161,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task0": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 100,
+            "max_seed": 109,
+            "mean_steps": 172.6,
+            "min_seed": 10,
+            "success_rate": 0.86,
+            "successes": 86,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 100
+          }
+        },
+        "task1": {
+          "risk_topk8": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 77,
+            "max_seed": 86,
+            "mean_steps": 172.2597,
+            "min_seed": 10,
+            "success_rate": 0.974026,
+            "successes": 75,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 77
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {
+          "/tmp/ood_ckpt60000": 18
+        },
+        "config_count": 18,
+        "execution_horizons": {
+          "10": 18
+        },
+        "risk_dirs": {
+          "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8": 18
+        },
+        "seed_lengths": {
+          "100": 18
+        },
+        "suite_values": {
+          "libero_goal_object_ood": 18
+        },
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "threshold_values": {
+          "selection_main_threshold": {
+            "0.6155413389205933": 18
+          },
+          "selection_min_margin": {
+            "0.02": 18
+          },
+          "selection_streak_threshold": {
+            "0.6155413389205933": 18
+          },
+          "selection_strong_margin": {
+            "0.05": 18
+          }
+        }
+      },
+      "episode_files": {
+        "runs/task0/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 100,
+          "max_seed": 109,
+          "mean_steps": 172.6,
+          "min_seed": 10,
+          "success_rate": 0.86,
+          "successes": 86,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 100
+        },
+        "runs/task1/modified_h10_risk_topk8/risk_topk8/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 77,
+          "max_seed": 86,
+          "mean_steps": 172.2597,
+          "min_seed": 10,
+          "success_rate": 0.974026,
+          "successes": 75,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 77
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "logs": {
+        "sweep_supervisor.log": {
+          "keyboard_interrupt_count": 0,
+          "oom_count": 0,
+          "tail": "der for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=65 seed=75 outcome=success steps=165 mods=0 time=14.1s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=66 seed=76 outcome=success steps=171 mods=0 time=14.9s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=67 seed=77 outcome=success steps=165 mods=1 time=14.1s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=68 seed=78 outcome=success steps=161 mods=0 time=14.0s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=69 seed=79 outcome=success steps=167 mods=0 time=14.2s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=70 seed=80 outcome=success steps=176 mods=0 time=15.0s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=71 seed=81 outcome=success steps=170 mods=0 time=14.2s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=72 seed=82 outcome=success steps=178 mods=0 time=15.0s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=73 seed=83 outcome=success steps=171 mods=1 time=14.8s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=74 seed=84 outcome=success steps=179 mods=0 time=14.9s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=75 seed=85 outcome=success steps=158 mods=0 time=13.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=risk_topk8 ep=76 seed=86 outcome=success steps=167 mods=0 time=14.1s\n",
+          "traceback_count": 0
+        }
+      },
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_100ep_threshold_q95_20260610"
+    },
+    {
+      "exists": false,
+      "root": "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2_adaptive_horizon_20260610"
+    },
+    {
+      "exists": false,
+      "root": "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2b_feature_preserving_adaptive_horizon_20260610"
+    },
+    {
+      "exists": false,
+      "root": "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2c_h5_adaptive_horizon_20260610"
+    },
+    {
+      "exists": false,
+      "root": "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2d_commit_gate_20260610"
+    }
+  ]
+}

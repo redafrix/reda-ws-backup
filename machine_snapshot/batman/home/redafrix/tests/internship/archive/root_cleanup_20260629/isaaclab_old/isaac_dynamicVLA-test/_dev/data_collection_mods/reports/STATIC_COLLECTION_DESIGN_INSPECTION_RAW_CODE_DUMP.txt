@@ -1,0 +1,2889 @@
+## Git state
+a27a06d2ca74d0e987a5e552e01013073e93cfd8
+ M scripts/replay_dataset_seq.py
+ M scripts/translate_dataset_seq.py
+?? scripts/replay_dataset_seq.py.bak_stage3_translate_fix
+?? scripts/translate_dataset_seq.py.bak_stage3_translate_fix
+
+## Main files
+scripts:
+total 176K
+drwxrwxr-x 2 redafrix redafrix 4.0K Jun 11 11:50 .
+drwxrwxr-x 9 redafrix redafrix 4.0K Jun 11 11:06 ..
+-rw-rw-r-- 1 redafrix redafrix  20K Jun 11 11:06 create_lerobot_dataset.py
+-rw-rw-r-- 1 redafrix redafrix 4.0K Jun 11 11:06 create_libero_dataset.py
+-rw-rw-r-- 1 redafrix redafrix 4.9K Jun 11 11:06 create_object_collision.py
+-rw-rw-r-- 1 redafrix redafrix  11K Jun 11 11:06 create_scene_collision.py
+-rw-rw-r-- 1 redafrix redafrix 3.5K Jun 11 11:06 create_usd_objects.py
+-rw-rw-r-- 1 redafrix redafrix  17K Jun 11 11:06 create_usd_scenes.py
+-rw-rw-r-- 1 redafrix redafrix 7.7K Jun 11 11:06 eval_checkpoints.py
+-rw-rw-r-- 1 redafrix redafrix 7.5K Jun 11 11:06 eval_libero_dataset.py
+-rw-rw-r-- 1 redafrix redafrix 7.8K Jun 11 11:06 fix_error_scenes.py
+-rw-rw-r-- 1 redafrix redafrix 4.0K Jun 11 11:06 fix_lerobot_videos.py
+-rw-rw-r-- 1 redafrix redafrix  16K Jun 11 11:06 inference.py
+-rw-rw-r-- 1 redafrix redafrix 5.2K Jun 11 11:50 replay_dataset_seq.py
+-rw-rw-r-- 1 redafrix redafrix 5.3K Jun 11 11:50 replay_dataset_seq.py.bak_stage3_translate_fix
+-rw-rw-r-- 1 redafrix redafrix  13K Jun 11 11:50 translate_dataset_seq.py
+-rw-rw-r-- 1 redafrix redafrix  13K Jun 11 11:50 translate_dataset_seq.py.bak_stage3_translate_fix
+-rw-rw-r-- 1 redafrix redafrix 2.8K Jun 11 11:06 update_usd_tex_loc.py
+-rw-rw-r-- 1 redafrix redafrix 1.2K Jun 11 11:06 visualze_dataset_seq.py
+
+simulations:
+total 112K
+drwxrwxr-x 6 redafrix redafrix 4.0K Jun 11 11:07 .
+drwxrwxr-x 9 redafrix redafrix 4.0K Jun 11 11:06 ..
+drwxrwxr-x 3 redafrix redafrix 4.0K Jun 11 11:12 configs
+-rw-rw-r-- 1 redafrix redafrix  23K Jun 11 11:06 evaluate.py
+-rw-rw-r-- 1 redafrix redafrix  12K Jun 11 11:06 helpers.py
+-rw-rw-r-- 1 redafrix redafrix  205 Jun 11 11:06 __init__.py
+drwxrwxr-x 2 redafrix redafrix 4.0K Jun 11 11:34 __pycache__
+drwxrwxr-x 4 redafrix redafrix 4.0K Jun 11 11:12 robots
+-rw-rw-r-- 1 redafrix redafrix  47K Jun 11 11:06 simulate.py
+drwxrwxr-x 3 redafrix redafrix 4.0K Jun 11 11:12 state_machines
+
+simulations/configs:
+total 64K
+drwxrwxr-x 3 redafrix redafrix 4.0K Jun 11 11:12 .
+drwxrwxr-x 6 redafrix redafrix 4.0K Jun 11 11:07 ..
+-rw-rw-r-- 1 redafrix redafrix 5.1K Jun 11 11:06 env_cfg.py
+-rw-rw-r-- 1 redafrix redafrix 3.1K Jun 11 11:06 event_cfg.py
+-rw-rw-r-- 1 redafrix redafrix  205 Jun 11 11:06 __init__.py
+-rw-rw-r-- 1 redafrix redafrix 3.2K Jun 11 11:06 object_cfg.py
+drwxrwxr-x 2 redafrix redafrix 4.0K Jun 11 11:12 __pycache__
+-rw-rw-r-- 1 redafrix redafrix 5.3K Jun 11 11:06 robot_cfg.py
+-rw-rw-r-- 1 redafrix redafrix  12K Jun 11 11:06 scene_cfg.py
+-rw-rw-r-- 1 redafrix redafrix 3.3K Jun 11 11:06 sim_cfg.yaml
+-rw-rw-r-- 1 redafrix redafrix 7.2K Jun 11 11:06 termination_cfg.py
+
+## Relevant function locations
+simulations/robots/piper.py:27:    spawn=sim_utils.UsdFileCfg(
+simulations/robots/piper.py:91:AGILEX_PIPER_HIGH_PD_CFG.spawn.rigid_props.disable_gravity = True
+simulations/robots/franka.py:26:    spawn=sim_utils.UsdFileCfg(
+simulations/robots/franka.py:88:FRANKA_PANDA_HIGH_PD_CFG.spawn.rigid_props.disable_gravity = True
+simulations/helpers.py:20:    for i in range(8):  # Support up to 8 background objects/containers
+simulations/helpers.py:93:    container_position: torch.Tensor,
+simulations/helpers.py:94:    container_projected_size: torch.Tensor,
+simulations/helpers.py:98:    container_relative_size = container_projected_size / 2 + tolerance
+simulations/helpers.py:99:    container_axis_lengths = torch.norm(container_relative_size, dim=2)
+simulations/helpers.py:100:    container_axis_dirs = container_relative_size / container_axis_lengths.unsqueeze(2)
+simulations/helpers.py:102:    object_container_rela = object_position - container_position
+simulations/helpers.py:103:    object_container_projections = torch.matmul(
+simulations/helpers.py:104:        container_axis_dirs, object_container_rela.unsqueeze(-1)
+simulations/helpers.py:107:    object_container_projections_xy = object_container_projections[:, :2]
+simulations/helpers.py:108:    container_axis_lengths_xy = container_axis_lengths[:, :2]
+simulations/helpers.py:109:    is_horizonal_in_container = torch.all(
+simulations/helpers.py:110:        torch.abs(object_container_projections_xy) <= container_axis_lengths_xy, dim=1
+simulations/helpers.py:118:    container_highest_z = container_position[:, 2] + torch.sum(
+simulations/helpers.py:119:        torch.abs(container_relative_size[:, :, 2]), dim=1
+simulations/helpers.py:121:    is_vertical_in_container = object_lowest_z <= container_highest_z
+simulations/helpers.py:123:    return torch.logical_and(is_horizonal_in_container, is_vertical_in_container)
+simulations/helpers.py:141:        "containers",
+simulations/helpers.py:158:    # Remove duplicate tags (causing confusion in instruction generation)
+simulations/simulate.py:38:def get_object_metadata(object_dir, target_categories=[]):
+simulations/simulate.py:41:    object_sizes = _get_object_sizes(args.object_dir, target_categories)
+simulations/simulate.py:49:            "tags": [object_category],  # Default tag for instruction generation
+simulations/simulate.py:53:    metadata_file = os.path.join(object_dir, "metadata.json")
+simulations/simulate.py:67:def _get_object_sizes(object_dir, target_categories=None):
+simulations/simulate.py:69:    categories = sorted([f for f in os.listdir(object_dir)])
+simulations/simulate.py:71:        if target_categories and c not in target_categories:
+simulations/simulate.py:75:            f for f in os.listdir(os.path.join(object_dir, c)) if f.endswith(".usd")
+simulations/simulate.py:78:            usd_path = os.path.join(object_dir, c, o)
+simulations/simulate.py:100:def get_env_cfg(sim_cfg, task, robot, object_metadata, scene_dir):
+simulations/simulate.py:122:    scenes = [f for f in os.listdir(scene_dir) if f.endswith(".usd")]
+simulations/simulate.py:126:        usd_file = os.path.join(scene_dir, scene)
+simulations/simulate.py:129:            env_cfg.scene, os.path.join(scene_dir, usd_file)
+simulations/simulate.py:157:    # Determine the poses of objects and containers
+simulations/simulate.py:167:    # Dynamically add containers to the scene
+simulations/simulate.py:168:    if "containers" in object_states and object_states["containers"]:
+simulations/simulate.py:169:        env_cfg.scene = _set_up_scene_containers(
+simulations/simulate.py:170:            env_cfg.scene, object_states["containers"]
+simulations/simulate.py:182:            os.path.basename(getattr(env_cfg.scene, o).spawn.usd_path),
+simulations/simulate.py:200:    if hasattr(env_cfg.scene, "container"):
+simulations/simulate.py:201:        terimation_args["container_size"] = get_object_size(
+simulations/simulate.py:202:            os.path.basename(env_cfg.scene.container.spawn.usd_path),
+simulations/simulate.py:214:    # Return the unique tags of target object and container (if any)
+simulations/simulate.py:220:            ["VELOCITY"] if k == "containers" else None,
+simulations/simulate.py:287:    object_states = {"objects": [], "containers": []}
+simulations/simulate.py:290:    object_categories = object_cfg["categories"]
+simulations/simulate.py:291:    if not object_categories:
+simulations/simulate.py:292:        object_categories = list(set([v["category"] for v in object_metadata.values()]))
+simulations/simulate.py:297:        if v["category"] in object_categories
+simulations/simulate.py:323:    # Generate the poses of containers (The first container is the target container)
+simulations/simulate.py:324:    container_cfg = sim_cfg["scene"]["containers"]
+simulations/simulate.py:325:    container_categories = container_cfg["categories"]
+simulations/simulate.py:329:    if not container_categories:
+simulations/simulate.py:330:        container_categories = list(
+simulations/simulate.py:334:    container_candidates = [
+simulations/simulate.py:337:        if v["category"] in container_categories
+simulations/simulate.py:339:    for _ in range(container_cfg["n_containers"]):
+simulations/simulate.py:341:        while _state is None and container_candidates:
+simulations/simulate.py:342:            _container = random.choice(container_candidates).copy()
+simulations/simulate.py:343:            _state = _get_container_state(
+simulations/simulate.py:344:                _container["size"],
+simulations/simulate.py:350:                # The container cannot be placed without occlusion
+simulations/simulate.py:351:                container_candidates.remove(_container)
+simulations/simulate.py:355:            container_candidates.remove(_container)
+simulations/simulate.py:356:            object_states["containers"].append(
+simulations/simulate.py:358:                    **_container,
+simulations/simulate.py:360:                    "mass": container_cfg.get("mass", 0.1),
+simulations/simulate.py:466:    random_position = tbl_ctr + random_ratio * (robot_position - tbl_ctr)
+simulations/simulate.py:467:    random_position[2] = object_z
+simulations/simulate.py:470:    object_direction = random_position - object_position
+simulations/simulate.py:471:    object_velocity = (
+simulations/simulate.py:472:        object_direction
+simulations/simulate.py:473:        / np.linalg.norm(object_direction)
+simulations/simulate.py:476:    object_quat = configs.object_cfg.get_object_init_quat(object_velocity)
+simulations/simulate.py:481:        "lin_vel": object_velocity,
+simulations/simulate.py:486:def _get_container_state(
+simulations/simulate.py:487:    container_size, object_range_bbox, random_orientation, existing_objects
+simulations/simulate.py:493:    container_position = None
+simulations/simulate.py:494:    while container_position is None and n_tries < N_MAX_TRIES:
+simulations/simulate.py:496:        container_position = np.array(
+simulations/simulate.py:500:                _get_object_z(object_range_bbox.max[2], container_size),
+simulations/simulate.py:503:        container_quat = np.array([1.0, 0.0, 0.0, 0.0])
+simulations/simulate.py:505:            container_quat = configs.object_cfg.get_object_init_quat(
+simulations/simulate.py:508:        # Check whether the container is occluding with existing objects/containers
+simulations/simulate.py:509:        for eo in existing_objects["objects"] + existing_objects["containers"]:
+simulations/simulate.py:511:                _get_object_bbox(container_position, container_size, container_quat),
+simulations/simulate.py:516:                container_position = None
+simulations/simulate.py:519:    if container_position is not None:
+simulations/simulate.py:520:        return {"pos": container_position, "quat": container_quat}
+simulations/simulate.py:567:            configs.object_cfg.get_spawner_cfg(
+simulations/simulate.py:584:                configs.object_cfg.get_spawner_cfg(
+simulations/simulate.py:595:def _set_up_scene_containers(scene_cfg, container_states):
+simulations/simulate.py:599:    assert container_states, "No container states provided."
+simulations/simulate.py:600:    for i, o in enumerate(container_states):
+simulations/simulate.py:601:        logging.info("Using container object: %s" % os.path.basename(o["file_path"]))
+simulations/simulate.py:605:            "container%02d" % i if i != 0 else "container",
+simulations/simulate.py:609:                configs.object_cfg.get_spawner_cfg(
+simulations/simulate.py:657:def set_object_material(target_object, n_envs=1):
+simulations/simulate.py:672:    container_state=None,
+simulations/simulate.py:673:    container_size=None,
+simulations/simulate.py:712:    if container_state is not None:
+simulations/simulate.py:713:        curr_state["container"] = {
+simulations/simulate.py:715:                container_state.root_pos_w - env_origins, robot_quat
+simulations/simulate.py:718:                container_state.root_quat_w, robot_quat
+simulations/simulate.py:721:    if container_size is not None:
+simulations/simulate.py:722:        if "container" not in curr_state:
+simulations/simulate.py:723:            curr_state["container"] = {}
+simulations/simulate.py:725:        curr_state["container"]["size"] = helpers.get_object_relative_bbox(
+simulations/simulate.py:726:            container_size, container_state.root_quat_w, robot_quat
+simulations/simulate.py:794:def get_next_object(scene_objects, scene, env_idx=None):
+simulations/simulate.py:821:        "object_vel": ("curr_state", "object", "velocity"),
+simulations/simulate.py:864:def simulate(sim_cfg, task, robot, scene_dir, object_metadata, seed):
+simulations/simulate.py:873:        scene_dir,
+simulations/simulate.py:879:        sim_cfg["scene"]["containers"]["n_containers"] > 0
+simulations/simulate.py:880:        and not object_tags["containers"]
+simulations/simulate.py:882:        raise ValueError("No container tags found. Skipping simulation.")
+simulations/simulate.py:889:    if "container" in env.unwrapped.scene.keys():
+simulations/simulate.py:890:        container_data = env.unwrapped.scene["container"].data
+simulations/simulate.py:891:        container_size = get_object_size(
+simulations/simulate.py:892:            os.path.basename(env_cfg.scene.container.spawn.usd_path),
+simulations/simulate.py:897:        container_data, container_size = None, None
+simulations/simulate.py:919:    set_object_material(
+simulations/simulate.py:944:            container_data,
+simulations/simulate.py:945:            container_size,
+simulations/simulate.py:954:                curr_state["container"]["pos"],
+simulations/simulate.py:955:                curr_state["container"]["size"],
+simulations/simulate.py:1007:def is_object_stopped(scene_cfg, object_velocity, n_steps=25):
+simulations/simulate.py:1010:    for i in range(min(n_steps, len(object_velocity))):
+simulations/simulate.py:1011:        if init_speed > 1e-2 and np.linalg.norm(object_velocity[i]) < 1e-2:
+simulations/simulate.py:1017:def is_object_direction_changed(scene_cfg, object_velocity, n_steps=25):
+simulations/simulate.py:1022:    for i in range(min(n_steps, len(object_velocity))):
+simulations/simulate.py:1023:        dir_idx = helpers.get_direction_index(object_velocity[i])
+simulations/simulate.py:1040:    object_vel = np.linalg.norm(scene_cfg["object"]["init_state"]["lin_vel"])
+simulations/simulate.py:1042:        os.path.basename(scene_cfg["object"]["spawn"]["usd_path"][:-4])
+simulations/simulate.py:1043:        if "usd_path" in scene_cfg["object"]["spawn"]
+simulations/simulate.py:1053:        "d" if object_vel > 1e-3 else "s",
+simulations/simulate.py:1083:    env_state, state_keys=["sm_state", "ee_pos", "object_pos", "object_vel"]
+simulations/simulate.py:1227:    object_categories = sim_cfg["scene"]["objects"]["categories"]
+simulations/simulate.py:1228:    container_categories = sim_cfg["scene"]["containers"].get("categories", [])
+simulations/simulate.py:1230:        args.object_dir, object_categories + container_categories
+simulations/simulate.py:1246:                args.scene_dir,
+simulations/simulate.py:1262:            if is_object_stopped(env_cfg["scene"], es["object_vel"]):
+simulations/simulate.py:1264:            if is_object_direction_changed(env_cfg["scene"], es["object_vel"]):
+simulations/simulate.py:1282:                    env_cfg["instruction"] = {"task": args.task, **object_tags}
+simulations/simulate.py:1333:        "--scene_dir", default=os.path.join(PROJECT_HOME, os.pardir, "scenes")
+simulations/simulate.py:1336:        "--object_dir", default=os.path.join(PROJECT_HOME, os.pardir, "objects")
+simulations/configs/sim_cfg.yaml:48:  containers: # Configure containers
+simulations/configs/sim_cfg.yaml:49:    n_containers: 1 # number of containers
+simulations/configs/sim_cfg.yaml:50:    mass: 0.1 # mass of container
+simulations/configs/sim_cfg.yaml:51:    categories: # configure available categories of containers. Must exist in the objects directory.
+simulations/configs/scene_cfg.py:27:from isaaclab.sim.spawners.from_files.from_files_cfg import GroundPlaneCfg, UsdFileCfg
+simulations/configs/scene_cfg.py:52:        spawn=sim_utils.DomeLightCfg(
+simulations/configs/scene_cfg.py:64:        spawn=GroundPlaneCfg(visible=False, color=(0.0, 0.0, 0.0)),
+simulations/configs/scene_cfg.py:86:        spawn=sim_utils.PinholeCameraCfg(
+simulations/configs/scene_cfg.py:117:        spawn=sim_utils.DistantLightCfg(
+simulations/configs/scene_cfg.py:168:        spawn=UsdFileCfg(usd_path=scene_asset_usd_file),
+simulations/configs/termination_cfg.py:47:def are_objects_placed(
+simulations/configs/termination_cfg.py:52:    container_size: torch.Tensor,
+simulations/configs/termination_cfg.py:54:    container_cfg: SceneEntityCfg = SceneEntityCfg("container"),
+simulations/configs/termination_cfg.py:58:    objects_placed = torch.ones(env.num_envs, dtype=torch.bool, device=env.device)
+simulations/configs/termination_cfg.py:59:    container = env.scene[container_cfg.name]
+simulations/configs/termination_cfg.py:64:    container_position = helpers.get_robot_relative_position(
+simulations/configs/termination_cfg.py:65:        container.data.root_pos_w - env_origins, robot_quat
+simulations/configs/termination_cfg.py:68:        container_size, container.data.root_quat_w, robot_quat
+simulations/configs/termination_cfg.py:78:        objects_placed = torch.logical_and(
+simulations/configs/termination_cfg.py:79:            objects_placed,
+simulations/configs/termination_cfg.py:83:                container_position,
+simulations/configs/termination_cfg.py:93:    return torch.logical_and(objects_placed, eef_goal_dist < tolerance)
+simulations/configs/termination_cfg.py:135:    DONE_TERMS = ["object_picked", "objects_placed"]
+simulations/configs/termination_cfg.py:149:    object_dropping = TerminationTermCfg(
+simulations/configs/termination_cfg.py:182:    objects_placed = TerminationTermCfg(
+simulations/configs/termination_cfg.py:183:        func=are_objects_placed,
+simulations/configs/termination_cfg.py:188:            "container_size": None,
+simulations/configs/termination_cfg.py:193:    container_dropping = TerminationTermCfg(
+simulations/configs/termination_cfg.py:197:            "asset_cfg": SceneEntityCfg("container"),
+simulations/configs/termination_cfg.py:210:        done_term = cfg.objects_placed
+simulations/configs/termination_cfg.py:215:        if k in cfg.object_dropping.params:
+simulations/configs/termination_cfg.py:216:            cfg.object_dropping.params[k] = v
+simulations/configs/object_cfg.py:14:from isaaclab.sim.spawners import SpawnerCfg
+simulations/configs/object_cfg.py:15:from isaaclab.sim.spawners.from_files.from_files_cfg import UsdFileCfg
+simulations/configs/object_cfg.py:19:    prim_path: str, obj_cfg: dict, spawner_cfg: SpawnerCfg
+simulations/configs/object_cfg.py:34:        spawn=spawner_cfg,
+simulations/configs/object_cfg.py:38:def get_spawner_cfg(
+simulations/configs/object_cfg.py:45:        spawner_cfg = UsdFileCfg(
+simulations/configs/object_cfg.py:65:        # spawner_cfg = sim_utils.SphereCfg(
+simulations/configs/object_cfg.py:66:        spawner_cfg = sim_utils.CylinderCfg(
+simulations/configs/object_cfg.py:75:        spawner_cfg.rigid_props.angular_damping = friction
+simulations/configs/object_cfg.py:77:        spawner_cfg.semantic_tags = semantic_tags
+simulations/configs/object_cfg.py:79:    return spawner_cfg
+simulations/configs/robot_cfg.py:98:    cfg.spawn.semantic_tags = [("class", "ROBOT")]
+simulations/evaluate.py:31:from utils.instruction_generator import InstructionGenerator
+simulations/evaluate.py:49:    scene_dir,
+simulations/evaluate.py:50:    object_dir,
+simulations/evaluate.py:61:        cfg, num_envs, scene_dir, object_dir, tolerance, device, disable_fabric
+simulations/evaluate.py:67:    sim.set_object_material(
+simulations/evaluate.py:80:    cfg, num_envs, scene_dir, object_dir, tolerance, device, disable_fabric
+simulations/evaluate.py:113:        scene_dir, os.path.basename(cfg["scene"]["house"]["spawn"]["usd_path"])
+simulations/evaluate.py:117:        env_cfg.scene, os.path.join(scene_dir, scene_usd_path)
+simulations/evaluate.py:124:        cfg["scene"]["robot"]["spawn"]["usd_path"]
+simulations/evaluate.py:143:    # Dynamically add objects / containers to scene
+simulations/evaluate.py:144:    env_cfg.scene = _set_up_scene_objects(env_cfg.scene, cfg["scene"], object_dir)
+simulations/evaluate.py:154:    elif "objects_placed" in cfg:
+simulations/evaluate.py:156:        args = cfg["objects_placed"]["params"]
+simulations/evaluate.py:213:                    "focal_length": v["spawn"]["focal_length"],
+simulations/evaluate.py:214:                    "focus_distance": v["spawn"]["focus_distance"],
+simulations/evaluate.py:215:                    "horizontal_aperture": v["spawn"]["horizontal_aperture"],
+simulations/evaluate.py:217:                        "near": v["spawn"]["clipping_range"][0],
+simulations/evaluate.py:218:                        "far": v["spawn"]["clipping_range"][1],
+simulations/evaluate.py:236:        temperature=cfg["spawn"]["color_temperature"],
+simulations/evaluate.py:237:        intensity=cfg["spawn"]["intensity"],
+simulations/evaluate.py:242:def _set_up_scene_objects(scene_cfg, cfg, object_dir):
+simulations/evaluate.py:255:        if "usd_path" in v["spawn"]:
+simulations/evaluate.py:256:            usd_folder = os.path.basename(os.path.dirname(v["spawn"]["usd_path"]))
+simulations/evaluate.py:258:                object_dir, usd_folder, os.path.basename(v["spawn"]["usd_path"])
+simulations/evaluate.py:274:            configs.object_cfg.get_spawner_cfg(
+simulations/evaluate.py:276:                v["spawn"]["mass_props"]["mass"],
+simulations/evaluate.py:277:                v["spawn"]["rigid_props"]["angular_damping"],
+simulations/evaluate.py:278:                v["spawn"]["semantic_tags"],
+simulations/evaluate.py:318:def simulate(env, obs_socket, act_socket, init_poses):
+simulations/evaluate.py:371:                env.unwrapped.scene["robot"].cfg.spawn.usd_path
+simulations/evaluate.py:441:            sim_cfg["scene_dir"],
+simulations/evaluate.py:442:            sim_cfg["object_dir"],
+simulations/evaluate.py:453:    # Randomize the task instruction before fixing the random seed
+simulations/evaluate.py:454:    instruction = InstructionGenerator.generate_instruction(env_cfg["instruction"])
+simulations/evaluate.py:461:    # Send the task instruction at the beginning of the simulation
+simulations/evaluate.py:462:    obs_socket.send_pyobj({"task": instruction})
+simulations/evaluate.py:511:        "scene_dir": args.scene_dir,
+simulations/evaluate.py:512:        "object_dir": args.object_dir,
+simulations/evaluate.py:631:        "--scene_dir", default=os.path.join(PROJECT_HOME, os.pardir, "scenes")
+simulations/evaluate.py:634:        "--object_dir", default=os.path.join(PROJECT_HOME, os.pardir, "objects")
+simulations/state_machines/sm_utils.py:34:def is_object_static(object_velocity: torch.Tensor) -> torch.Tensor:
+simulations/state_machines/sm_utils.py:36:    return torch.norm(object_velocity, dim=1) < STATIC_VELOCITY_THRESHOLD
+simulations/state_machines/sm_utils.py:42:    object_velocity: torch.Tensor,
+simulations/state_machines/sm_utils.py:48:    grasp_position = object_position.clone() + object_velocity * WAITING_TIME
+simulations/state_machines/sm_utils.py:75:    object_velocity: torch.Tensor,
+simulations/state_machines/sm_utils.py:89:    is_static = is_object_static(object_velocity)
+simulations/state_machines/sm_utils.py:118:        grasp_direction[~is_static] = object_velocity[~is_static, :2]
+simulations/state_machines/sm_utils.py:159:    offset: wp.vec3, threshold: wp.vec3, object_vel: wp.vec3
+simulations/state_machines/sm_utils.py:161:    is_static = wp.length(object_vel) < 0.05
+simulations/state_machines/place_sm.py:146:        container_position: torch.Tensor,
+simulations/state_machines/place_sm.py:149:        place_position = container_position.clone()
+simulations/state_machines/place_sm.py:182:            curr_state["container"]["pos"],
+simulations/state_machines/place_sm.py:187:            curr_state["container"]["pos"],
+simulations/state_machines/place_sm.py:188:            curr_state["container"]["size"],
+simulations/state_machines/place_sm.py:197:        object_vel_wp = wp.from_torch(curr_state["object"]["velocity"], wp.vec3)
+simulations/state_machines/place_sm.py:214:                object_vel_wp,
+simulations/state_machines/place_sm.py:253:    object_vel: wp.array(dtype=wp.vec3),
+simulations/state_machines/place_sm.py:326:                offset_object_ee, thres_object_ee, object_vel[tid]
+simulations/state_machines/place_sm.py:390:            offset_ee_target, thres_target_ee, object_vel[tid]
+simulations/state_machines/pick_sm.py:164:        object_vel_wp = wp.from_torch(curr_state["object"]["velocity"], wp.vec3)
+simulations/state_machines/pick_sm.py:178:                object_vel_wp,
+simulations/state_machines/pick_sm.py:214:    object_vel: wp.array(dtype=wp.vec3),
+simulations/state_machines/pick_sm.py:278:                offset_object_ee, thres_object_ee, object_vel[tid]
+scripts/eval_libero_dataset.py:60:def get_observation(cfg, obs, instruction):
+scripts/eval_libero_dataset.py:91:        "task": instruction,
+scripts/eval_libero_dataset.py:143:    env, task_instruction = get_libero_env(env_name, task_id, seed)
+scripts/eval_libero_dataset.py:161:            get_observation(vla_model.config.input_features, obs, task_instruction),
+scripts/eval_libero_dataset.py:191:                    "inst": task_instruction,
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:60:def simulate(env, sim_states, debug=False):
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:161:    assert object_type in ["object", "container"]
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:235:                args.sim_cfg_file, env_cfg["scene"]["robot"]["spawn"]["usd_path"]
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:244:        # Set up the instruction and environment
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:248:            args.scene_dir,
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:249:            args.object_dir,
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:265:                and not is_object_occluded(env_cfg["scene"], env_state, "container")
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:266:                and len(env_cfg["instruction"]["objects"]) != 0
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:286:                        is_object_occluded(env_cfg["scene"], env_state, "container"),
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:290:                    sim.get_frames(env_state, ["ee_pos", "object_pos", "object_vel"]),
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:335:        "--scene_dir", default=os.path.join(PROJECT_HOME, os.pardir, "scenes")
+scripts/translate_dataset_seq.py.bak_stage3_translate_fix:338:        "--object_dir", default=os.path.join(PROJECT_HOME, os.pardir, "objects")
+scripts/replay_dataset_seq.py.bak_stage3_translate_fix:48:def simulate(env, env_states):
+scripts/replay_dataset_seq.py.bak_stage3_translate_fix:91:    # Set up the instruction and environment
+scripts/replay_dataset_seq.py.bak_stage3_translate_fix:95:        args.scene_dir,
+scripts/replay_dataset_seq.py.bak_stage3_translate_fix:96:        args.object_dir,
+scripts/replay_dataset_seq.py.bak_stage3_translate_fix:153:        "--scene_dir", default=os.path.join(PROJECT_HOME, os.pardir, "scenes")
+scripts/replay_dataset_seq.py.bak_stage3_translate_fix:156:        "--object_dir", default=os.path.join(PROJECT_HOME, os.pardir, "objects")
+scripts/replay_dataset_seq.py:48:def simulate(env, env_states):
+scripts/replay_dataset_seq.py:91:    # Set up the instruction and environment
+scripts/replay_dataset_seq.py:95:        args.scene_dir,
+scripts/replay_dataset_seq.py:96:        args.object_dir,
+scripts/replay_dataset_seq.py:152:        "--scene_dir", default=os.path.join(PROJECT_HOME, os.pardir, "scenes")
+scripts/replay_dataset_seq.py:155:        "--object_dir", default=os.path.join(PROJECT_HOME, os.pardir, "objects")
+scripts/translate_dataset_seq.py:60:def simulate(env, sim_states, debug=False):
+scripts/translate_dataset_seq.py:161:    assert object_type in ["object", "container"]
+scripts/translate_dataset_seq.py:235:                args.sim_cfg_file, env_cfg["scene"]["robot"]["spawn"]["usd_path"]
+scripts/translate_dataset_seq.py:244:        # Set up the instruction and environment
+scripts/translate_dataset_seq.py:248:            args.scene_dir,
+scripts/translate_dataset_seq.py:249:            args.object_dir,
+scripts/translate_dataset_seq.py:264:                and not is_object_occluded(env_cfg["scene"], env_state, "container")
+scripts/translate_dataset_seq.py:265:                and len(env_cfg["instruction"]["objects"]) != 0
+scripts/translate_dataset_seq.py:285:                        is_object_occluded(env_cfg["scene"], env_state, "container"),
+scripts/translate_dataset_seq.py:289:                    sim.get_frames(env_state, ["ee_pos", "object_pos", "object_vel"]),
+scripts/translate_dataset_seq.py:334:        "--scene_dir", default=os.path.join(PROJECT_HOME, os.pardir, "scenes")
+scripts/translate_dataset_seq.py:337:        "--object_dir", default=os.path.join(PROJECT_HOME, os.pardir, "objects")
+scripts/inference.py:141:    instruction = None
+scripts/inference.py:182:            instruction = observation["task"]
+scripts/inference.py:184:                "[Test%02d] Received new task: %s" % (n_tests, instruction.strip())
+
+## simulate.py key sections
+     1	# -*- coding: utf-8 -*-
+     2	#
+     3	# @File:   simulate.py
+     4	# @Author: Haozhe Xie
+     5	# @Date:   2025-03-22 20:59:36
+     6	# @Last Modified by: Haozhe Xie
+     7	# @Last Modified at: 2026-01-28 15:35:12
+     8	# @Email:  root@haozhexie.com
+     9	
+    10	import argparse
+    11	import ast
+    12	import copy
+    13	import importlib
+    14	import json
+    15	import logging
+    16	import os
+    17	import random
+    18	import sys
+    19	import uuid
+    20	
+    21	import cv2
+    22	import gymnasium as gym
+    23	import h5py
+    24	import imageio.v3
+    25	import numpy as np
+    26	import torch
+    27	import yaml
+    28	from isaaclab.app import AppLauncher
+    29	from scipy.spatial.transform import Rotation as R
+    30	from shapely.geometry import Polygon
+    31	
+    32	PROJECT_HOME = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
+    33	sys.path.append(PROJECT_HOME)
+    34	
+    35	from simulations import helpers
+    36	
+    37	
+    38	def get_object_metadata(object_dir, target_categories=[]):
+    39	    object_metadata = {}
+    40	    # Get the sizes of all objects (for grasping)
+    41	    object_sizes = _get_object_sizes(args.object_dir, target_categories)
+    42	    for k, v in object_sizes.items():
+    43	        object_name = os.path.basename(k)
+    44	        object_category = os.path.basename(os.path.dirname(k))
+    45	        object_metadata[object_name] = {
+    46	            "file_path": k,
+    47	            "size": v,
+    48	            "category": object_category,
+    49	            "tags": [object_category],  # Default tag for instruction generation
+    50	        }
+    51	
+    52	    # Load additional metadata if available
+    53	    metadata_file = os.path.join(object_dir, "metadata.json")
+    54	    if os.path.exists(metadata_file):
+    55	        with open(metadata_file, "r") as f:
+    56	            metadata = json.load(f)
+    57	        for file_name, _metadata in metadata.items():
+    58	            if file_name in object_metadata:
+    59	                for k, v in _metadata.items():
+    60	                    object_metadata[file_name][k] = v
+    61	            else:
+    62	                logging.warning("Metadata found for unknown object %s." % file_name)
+    63	
+    64	    return object_metadata
+    65	
+    66	
+    67	def _get_object_sizes(object_dir, target_categories=None):
+    68	    object_sizes = {}
+    69	    categories = sorted([f for f in os.listdir(object_dir)])
+    70	    for c in categories:
+    71	        if target_categories and c not in target_categories:
+    72	            continue
+    73	
+    74	        objects = [
+    75	            f for f in os.listdir(os.path.join(object_dir, c)) if f.endswith(".usd")
+    76	        ]
+    77	        for o in objects:
+    78	            usd_path = os.path.join(object_dir, c, o)
+    79	            object_sizes[usd_path] = _get_object_size(usd_path)
+    80	
+    81	    return object_sizes
+    82	
+    83	
+    84	def _get_object_size(usd_path):
+    85	    import omni.usd
+    86	    import pxr
+    87	
+    88	    usd_context = omni.usd.get_context()
+    89	    usd_context.open_stage(usd_path)
+    90	    stage = usd_context.get_stage()
+    91	    default_prim = stage.GetDefaultPrim()
+    92	    bbox_cache = pxr.UsdGeom.BBoxCache(
+    93	        pxr.Usd.TimeCode.Default(), [pxr.UsdGeom.Tokens.default_]
+    94	    )
+    95	    bbox = bbox_cache.ComputeWorldBound(default_prim).ComputeAlignedBox()
+    96	    usd_context.new_stage()
+    97	    return np.array(bbox.GetSize(), dtype=np.float32)
+    98	
+    99	
+   100	def get_env_cfg(sim_cfg, task, robot, object_metadata, scene_dir):
+   101	    import configs.event_cfg
+   102	    import configs.scene_cfg
+   103	    import configs.termination_cfg
+   104	    import isaaclab_tasks
+   105	
+   106	    gym.register(
+   107	        id="Robot-Env-Cfg-v0",
+   108	        entry_point="isaaclab.envs:ManagerBasedRLEnv",
+   109	        kwargs={
+   110	            "env_cfg_entry_point": "configs.env_cfg:EnvCfg",
+   111	        },
+   112	        disable_env_checker=True,
+   113	    )
+   114	    env_cfg = isaaclab_tasks.utils.parse_cfg.parse_env_cfg(
+   115	        "Robot-Env-Cfg-v0",
+   116	        device=sim_cfg["device"],
+   117	        num_envs=sim_cfg["num_envs"],
+   118	        use_fabric=not sim_cfg["disable_fabric"],
+   119	    )
+   120	
+   121	    table = None
+   122	    scenes = [f for f in os.listdir(scene_dir) if f.endswith(".usd")]
+   123	    while table is None:
+   124	        # Dynamically create basic scene from USD files
+   125	        scene = random.choice(scenes)
+   126	        usd_file = os.path.join(scene_dir, scene)
+   127	        logging.info("Loading scene from %s", usd_file)
+   128	        env_cfg.scene = configs.scene_cfg.set_house_asset(
+   129	            env_cfg.scene, os.path.join(scene_dir, usd_file)
+   130	        )
+   131	        tables = configs.scene_cfg.get_table_assets(
+   132	            usd_file, sim_cfg["scene"]["cameras"]
+   133	        )
+   134	        if len(tables) < 1:
+   135	            scenes.remove(scene)
+   136	            logging.info("No table found in %s. Trying another scene." % scene)
+   137	        else:
+   138	            table = random.choice(tables)
+   139	            logging.info("Using table %s." % table["name"])
+   140	
+   141	    # Determine the robot pose
+   142	    robot_pose = random.choice([a for a in table["anchors"] if a["side"] == "long"])
+   143	    # Set up the robot arm
+   144	    env_cfg = configs.env_cfg.set_robot(robot, env_cfg, robot_pose)
+   145	    # Set up cameras in the scene
+   146	    if sim_cfg["enable_cameras"]:
+   147	        env_cfg.scene = _set_up_scene_cameras(env_cfg.scene, sim_cfg, robot)
+   148	
+   149	    # Set the light intensity and color
+   150	    light_cfg = _get_light_cfg(sim_cfg["lighting"])
+   151	    logging.info(
+   152	        "Setting light temperature to %d and intensity to %d"
+   153	        % (light_cfg["temperature"], light_cfg["intensity"])
+   154	    )
+   155	    env_cfg.scene = configs.scene_cfg.set_light_asset(env_cfg.scene, **light_cfg)
+   156	
+   157	    # Determine the poses of objects and containers
+   158	    object_states = _get_object_states(
+   159	        sim_cfg,
+   160	        robot_pose,
+   161	        table["bbox"],
+   162	        object_metadata,
+   163	        sim_cfg["robots"][robot]["max_reach_dist"],
+   164	    )
+   165	    # Dynamically add objects to the scene
+   166	    env_cfg.scene = _set_up_scene_objects(env_cfg.scene, object_states["objects"])
+   167	    # Dynamically add containers to the scene
+   168	    if "containers" in object_states and object_states["containers"]:
+   169	        env_cfg.scene = _set_up_scene_containers(
+   170	            env_cfg.scene, object_states["containers"]
+   171	        )
+   172	
+   173	    # Determine the objects to be used in the task
+   174	    objects = []
+   175	    if task == "long-horizon":
+   176	        objects = [key for key in vars(env_cfg.scene) if key.startswith("object")]
+   177	    else:
+   178	        objects = ["object"]
+   179	
+   180	    object_sizes = {
+   181	        o: get_object_size(
+   182	            os.path.basename(getattr(env_cfg.scene, o).spawn.usd_path),
+   183	            object_metadata,
+   184	            device=sim_cfg["device"],
+   185	        )
+   186	        for o in objects
+   187	    }
+   188	    # Modify task-specific parameters
+   189	    env_cfg.episode_length_s = sim_cfg["tasks"][task]["episode_length"]
+   190	    terimation_args = {
+   191	        "goal_position": torch.tensor(
+   192	            sim_cfg["robots"][robot]["final_pose"][:3],
+   193	            dtype=torch.float32,
+   194	            device=sim_cfg["device"],
+   195	        ),
+   196	        "objects": objects,
+   197	        "object_sizes": object_sizes,
+   198	        "max_reach_dist": sim_cfg["robots"][robot]["max_reach_dist"],
+   199	    }
+   200	    if hasattr(env_cfg.scene, "container"):
+   201	        terimation_args["container_size"] = get_object_size(
+   202	            os.path.basename(env_cfg.scene.container.spawn.usd_path),
+   203	            object_metadata,
+   204	            device=sim_cfg["device"],
+   205	        )
+   206	
+   207	    # Set up event and termination configurations
+   208	    env_cfg.events = configs.event_cfg.get_event_cfg(
+   209	        sim_cfg["scene"]["objects"]["perturbation"]
+   210	    )
+   211	    env_cfg.terminations = configs.termination_cfg.get_termination_cfg(
+   212	        task, terimation_args
+   213	    )
+   214	    # Return the unique tags of target object and container (if any)
+   215	    object_tags = {
+   216	        k: helpers.get_object_tags(
+   217	            k,
+   218	            v,
+   219	            robot_pose,
+   220	            ["VELOCITY"] if k == "containers" else None,
+   221	            sim_cfg["scene"]["objects"]["tag_thresholds"],
+   222	        )
+   223	        for k, v in object_states.items()
+   224	    }
+   225	    if task == "long-horizon":
+   226	        object_tags["objects"] = ["entire set of objects"]
+   227	
+   228	    logging.debug("Object tags: %s" % object_tags)
+   229	    return env_cfg, object_tags, objects, object_sizes
+   230	
+   231	
+   232	def _set_up_scene_cameras(scene_cfg, sim_cfg, robot):
+   233	    import configs.robot_cfg
+   234	    import configs.scene_cfg
+   235	
+   236	    # Set up the wrist camera on the robot arm
+   237	    scene_cfg = configs.scene_cfg.add_scene_camera(
+   238	        scene_cfg,
+   239	        "wrist_cam",
+   240	        configs.scene_cfg.get_camera_cfg(
+   241	            sim_cfg["camera"].copy(), configs.robot_cfg.get_wrist_camera_cfg(robot)
+   242	        ),
+   243	    )
+   244	    # Set up the cameras according to relative position in the config file
+   245	    for cam in sim_cfg["scene"]["cameras"]:
+   246	        scene_cfg = configs.scene_cfg.add_scene_camera(
+   247	            scene_cfg,
+   248	            cam["name"],
+   249	            configs.scene_cfg.get_camera_cfg(
+   250	                sim_cfg["camera"].copy(),
+   251	                get_camera_pose(cam),
+   252	            ),
+   253	        )
+   254	    return scene_cfg
+   255	
+   256	
+   257	def get_camera_pose(cam):
+   258	    # scalar_first is not supported in scipy < 1.12.0 (required by Isaac Lab)
+   259	    quat = R.from_euler("XYZ", cam["rotation"], degrees=True).as_quat()
+   260	
+
+   260	
+   261	    return {
+   262	        "prim_path": cam["prim_path"],
+   263	        "pos": cam["position"],
+   264	        "quat": [quat[3], quat[0], quat[1], quat[2]],  # wxyz
+   265	        "convention": "opengl",
+   266	    }
+   267	
+   268	
+   269	def _get_light_cfg(light_cfg):
+   270	    light_position = [
+   271	        random.randint(*light_cfg["position"]["x"]),
+   272	        random.randint(*light_cfg["position"]["y"]),
+   273	        random.randint(*light_cfg["position"]["z"]),
+   274	    ]
+   275	    light_temperature = random.randint(*light_cfg["temperature"])
+   276	    light_intensity = random.randint(*light_cfg["intensity"])
+   277	    return {
+   278	        "position": light_position,
+   279	        "temperature": light_temperature,
+   280	        "intensity": light_intensity,
+   281	    }
+   282	
+   283	
+   284	def _get_object_states(
+   285	    sim_cfg, robot_pose, table_bbox, object_metadata, robot_reach_dist
+   286	):
+   287	    object_states = {"objects": [], "containers": []}
+   288	    # Generate the poses of objects (The first object is the target object)
+   289	    object_cfg = sim_cfg["scene"]["objects"]
+   290	    object_categories = object_cfg["categories"]
+   291	    if not object_categories:
+   292	        object_categories = list(set([v["category"] for v in object_metadata.values()]))
+   293	
+   294	    object_candidates = [
+   295	        copy.deepcopy(v)
+   296	        for v in object_metadata.values()
+   297	        if v["category"] in object_categories
+   298	    ]
+   299	    object_range_bbox = _get_object_range_bbox(table_bbox)
+   300	    for oi in range(object_cfg["n_objects"]):
+   301	        _object = random.choice(object_candidates).copy()
+   302	        random_orientation = random.random() < object_cfg.get("prob_rnd_quat", 0.5)
+   303	        random_static = (
+   304	            random.random() < object_cfg.get("prob_static", 0.5) if oi != 0 else False
+   305	        )  # The first object is always dynamic
+   306	        random_friction = np.random.uniform(*object_cfg.get("friction", [0, 0]))
+   307	        _state = _get_object_state(
+   308	            _get_object_z(object_range_bbox.max[2], _object["size"]),
+   309	            robot_pose["pos"],
+   310	            object_range_bbox,
+   311	            None if random_static else object_cfg.get("moving_speed", None),
+   312	            random_friction,
+   313	            random_orientation,
+   314	        )
+   315	        object_states["objects"].append(
+   316	            {
+   317	                **_object,
+   318	                **_state,
+   319	                "mass": object_cfg.get("mass", 0.05),
+   320	            }
+   321	        )
+   322	
+   323	    # Generate the poses of containers (The first container is the target container)
+   324	    container_cfg = sim_cfg["scene"]["containers"]
+   325	    container_categories = container_cfg["categories"]
+   326	    cntr_range_bbox = _get_object_range_bbox(
+   327	        table_bbox, robot_pose["pos"], robot_reach_dist
+   328	    )
+   329	    if not container_categories:
+   330	        container_categories = list(
+   331	            set([v["category"] for v in object_metadata.values()])
+   332	        )
+   333	
+   334	    container_candidates = [
+   335	        copy.deepcopy(v)
+   336	        for v in object_metadata.values()
+   337	        if v["category"] in container_categories
+   338	    ]
+   339	    for _ in range(container_cfg["n_containers"]):
+   340	        _state = None
+   341	        while _state is None and container_candidates:
+   342	            _container = random.choice(container_candidates).copy()
+   343	            _state = _get_container_state(
+   344	                _container["size"],
+   345	                cntr_range_bbox,
+   346	                random_orientation,
+   347	                object_states,
+   348	            )
+   349	            if _state is None:
+   350	                # The container cannot be placed without occlusion
+   351	                container_candidates.remove(_container)
+   352	
+   353	        # Remove from the candidates to avoid duplication
+   354	        if _state is not None:
+   355	            container_candidates.remove(_container)
+   356	            object_states["containers"].append(
+   357	                {
+   358	                    **_container,
+   359	                    **_state,
+   360	                    "mass": container_cfg.get("mass", 0.1),
+   361	                }
+   362	            )
+   363	
+   364	    return object_states
+   365	
+   366	
+   367	def _get_object_range_bbox(table_bbox, robot_position=None, robot_reach_dist=None):
+   368	    from pxr import Gf
+   369	
+   370	    object_range_min_0 = table_bbox.min[0] * 3 / 4 + table_bbox.max[0] / 4
+   371	    object_range_max_0 = table_bbox.min[0] / 4 + table_bbox.max[0] * 3 / 4
+   372	    object_range_min_1 = table_bbox.min[1] * 3 / 4 + table_bbox.max[1] / 4
+   373	    object_range_max_1 = table_bbox.min[1] / 4 + table_bbox.max[1] * 3 / 4
+   374	    table_z = table_bbox.max[2]
+   375	    object_valid_range = Gf.Range3d(
+   376	        Gf.Vec3d(object_range_min_0, object_range_min_1, table_z),
+   377	        Gf.Vec3d(object_range_max_0, object_range_max_1, table_z),
+   378	    )
+   379	    if robot_position is None and robot_reach_dist is None:
+   380	        return object_valid_range
+   381	    else:
+   382	        # Consider whether the object is within the robot reach
+   383	        robot_reach_bbox = Gf.Range3d(
+   384	            Gf.Vec3d(
+   385	                robot_position[0] - robot_reach_dist,
+   386	                table_bbox.min[1] - robot_reach_dist,
+   387	                table_z,
+   388	            ),
+   389	            Gf.Vec3d(
+   390	                robot_position[0] + robot_reach_dist,
+   391	                table_bbox.min[1] + robot_reach_dist,
+   392	                table_z,
+   393	            ),
+   394	        )
+   395	        return robot_reach_bbox.IntersectWith(object_valid_range)
+   396	
+   397	
+   398	def _get_object_z(table_z, object_size=None):
+   399	    PADDING = 0.02
+   400	    return (
+   401	        table_z + np.max(object_size) / 2
+   402	        if object_size is not None
+   403	        else table_z + PADDING
+   404	    )
+   405	
+   406	
+   407	def _get_object_state(
+   408	    object_z,
+   409	    robot_position,
+   410	    object_range_bbox,
+   411	    moving_speed,
+   412	    friction,
+   413	    random_orientation,
+   414	):
+   415	    if moving_speed is None:
+   416	        object_state = _get_static_object_state(
+   417	            object_range_bbox, object_z, random_orientation
+   418	        )
+   419	    else:
+   420	        object_state = _get_dynamic_object_state(
+   421	            object_range_bbox,
+   422	            object_z,
+   423	            moving_speed,
+   424	            friction,
+   425	            robot_position,
+   426	        )
+   427	
+   428	    return object_state
+   429	
+   430	
+   431	def _get_static_object_state(object_range_bbox, object_z, random_orientation):
+   432	    import configs.object_cfg
+   433	
+   434	    object_position = np.array(
+   435	        [
+   436	            random.uniform(object_range_bbox.min[0], object_range_bbox.max[0]),
+   437	            random.uniform(object_range_bbox.min[1], object_range_bbox.max[1]),
+   438	            object_z,
+   439	        ]
+   440	    )
+   441	    object_quat = np.array([1.0, 0.0, 0.0, 0.0])
+   442	    if random_orientation:
+   443	        object_quat = configs.object_cfg.get_object_init_quat(
+   444	            np.random.uniform(-0.1, 0.1, size=3)
+   445	        )
+   446	
+   447	    return {"pos": object_position, "quat": object_quat}
+   448	
+   449	
+   450	def _get_dynamic_object_state(
+   451	    object_range_bbox, object_z, moving_speed, friction, robot_position
+   452	):
+   453	    import configs.object_cfg
+   454	
+   455	    object_position = np.array(
+   456	        [
+   457	            random.uniform(object_range_bbox.min[0], object_range_bbox.max[0]),
+   458	            random.uniform(object_range_bbox.min[1], object_range_bbox.max[1]),
+   459	            object_z,
+   460	        ]
+   461	    )
+   462	    assert robot_position is not None
+   463	    # Generate a random position between the table center and the robot arm
+   464	    tbl_ctr = (object_range_bbox.min + object_range_bbox.max) / 2.0
+   465	    random_ratio = random.uniform(-0.5, 0.5)
+   466	    random_position = tbl_ctr + random_ratio * (robot_position - tbl_ctr)
+   467	    random_position[2] = object_z
+   468	    # Determine the linear velocity of the object
+   469	    assert moving_speed is not None and len(moving_speed) == 2
+   470	    object_direction = random_position - object_position
+   471	    object_velocity = (
+   472	        object_direction
+   473	        / np.linalg.norm(object_direction)
+   474	        * random.uniform(*moving_speed)
+   475	    )
+   476	    object_quat = configs.object_cfg.get_object_init_quat(object_velocity)
+   477	
+   478	    return {
+   479	        "pos": object_position,
+   480	        "quat": object_quat,
+   481	        "lin_vel": object_velocity,
+   482	        "friction": friction,
+   483	    }
+   484	
+   485	
+   486	def _get_container_state(
+   487	    container_size, object_range_bbox, random_orientation, existing_objects
+   488	):
+   489	    import configs.object_cfg
+   490	
+   491	    N_MAX_TRIES = 100
+   492	    n_tries = 0
+   493	    container_position = None
+   494	    while container_position is None and n_tries < N_MAX_TRIES:
+   495	        n_tries += 1
+   496	        container_position = np.array(
+   497	            [
+   498	                random.uniform(object_range_bbox.min[0], object_range_bbox.max[0]),
+   499	                random.uniform(object_range_bbox.min[1], object_range_bbox.max[1]),
+   500	                _get_object_z(object_range_bbox.max[2], container_size),
+   501	            ]
+   502	        )
+   503	        container_quat = np.array([1.0, 0.0, 0.0, 0.0])
+   504	        if random_orientation:
+   505	            container_quat = configs.object_cfg.get_object_init_quat(
+   506	                np.random.uniform(-0.1, 0.1, size=3), upright=True
+   507	            )
+   508	        # Check whether the container is occluding with existing objects/containers
+   509	        for eo in existing_objects["objects"] + existing_objects["containers"]:
+   510	            if _is_bbox_overlap(
+   511	                _get_object_bbox(container_position, container_size, container_quat),
+   512	                _get_object_bbox(
+   513	                    eo["pos"], eo["size"], eo["quat"], eo.get("lin_vel", None)
+   514	                ),
+   515	            ):
+   516	                container_position = None
+   517	                break
+   518	
+   519	    if container_position is not None:
+   520	        return {"pos": container_position, "quat": container_quat}
+   521	    else:
+   522	        return None
+   523	
+   524	
+   525	def _get_object_bbox(position, size, quat, lin_vel=None):
+   526	    # TODO: Consider the velocity of the object
+   527	    dx, dy, dz = size / 2.0
+   528	    corners = np.array(
+   529	        [
+   530	            [-dx, -dy, -dz],
+   531	            [dx, -dy, -dz],
+   532	            [dx, dy, -dz],
+   533	            [-dx, dy, -dz],
+   534	            [-dx, -dy, dz],
+   535	            [dx, -dy, dz],
+   536	            [dx, dy, dz],
+   537	            [-dx, dy, dz],
+   538	        ]
+   539	    )
+   540	    rotated_corners = R.from_quat(quat[[1, 2, 3, 0]]).apply(corners)
+   541	
+   542	    bbox = rotated_corners + position
+   543	    return Polygon(bbox[np.argsort(bbox[:, 2])[:4], :2])
+   544	
+   545	
+   546	def _is_bbox_overlap(bbox1, bbox2):
+   547	    return bbox1.intersects(bbox2)
+   548	
+   549	
+   550	def _set_up_scene_objects(scene_cfg, object_states):
+   551	    import configs.object_cfg
+   552	    import configs.scene_cfg
+   553	
+   554	    assert object_states, "No object states provided."
+   555	    target_object = object_states[0]
+   556	    other_objects = object_states[1:]
+   557	
+   558	    # Set the target object (the object to be manipulated)
+   559	    logging.info(
+   560	        "Using target object: %s" % os.path.basename(target_object["file_path"])
+   561	    )
+   562	    scene_cfg = configs.scene_cfg.set_target_object(
+   563	        scene_cfg,
+   564	        configs.object_cfg.get_object_cfg(
+   565	            "/Object",
+   566	            target_object,
+   567	            configs.object_cfg.get_spawner_cfg(
+   568	                file_path=target_object["file_path"],
+   569	                mass=target_object["mass"],
+   570	                friction=target_object.get("friction", 0.0),
+   571	                semantic_tags=[("class", "OBJECT_MAIN")],
+   572	            ),
+   573	        ),
+   574	    )
+   575	    # Add more objects to the scene
+   576	    for i, o in enumerate(other_objects):
+   577	        logging.info("Using BG object: %s" % os.path.basename(o["file_path"]))
+   578	        scene_cfg = configs.scene_cfg.add_object(
+   579	            scene_cfg,
+   580	            "object%02d" % (i + 1),
+   581	            configs.object_cfg.get_object_cfg(
+   582	                "/Object%02d" % (i + 1),
+   583	                o,
+   584	                configs.object_cfg.get_spawner_cfg(
+   585	                    file_path=o["file_path"],
+   586	                    mass=o["mass"],
+   587	                    friction=o.get("friction", 0.0),
+   588	                    semantic_tags=[("class", "OBJECT%02d" % (i + 1))],
+   589	                ),
+   590	            ),
+   591	        )
+   592	    return scene_cfg
+   593	
+   594	
+   595	def _set_up_scene_containers(scene_cfg, container_states):
+   596	    import configs.object_cfg
+   597	    import configs.scene_cfg
+   598	
+   599	    assert container_states, "No container states provided."
+   600	    for i, o in enumerate(container_states):
+   601	        logging.info("Using container object: %s" % os.path.basename(o["file_path"]))
+   602	        cntr_class = "CONTAINER%02d" % (i + 1) if i != 0 else "CONTAINER_MAIN"
+   603	        scene_cfg = configs.scene_cfg.add_object(
+   604	            scene_cfg,
+   605	            "container%02d" % i if i != 0 else "container",
+   606	            configs.object_cfg.get_object_cfg(
+   607	                "/Container%02d" % i if i != 0 else "/Container",
+   608	                o,
+   609	                configs.object_cfg.get_spawner_cfg(
+   610	                    file_path=o["file_path"],
+   611	                    mass=o["mass"],
+   612	                    semantic_tags=[("class", cntr_class)],
+   613	                ),
+   614	            ),
+   615	        )
+   616	    return scene_cfg
+   617	
+   618	
+   619	def get_object_size(object_name, object_metadata, device="cpu"):
+   620	    if object_name in object_metadata:
+
+   620	    if object_name in object_metadata:
+   621	        object_size = object_metadata[object_name]["size"]
+   622	    else:
+   623	        object_size = [0.05, 0.05, 0.05]
+   624	        logging.warning(
+   625	            "Object size for %s not found. Using default size %s."
+   626	            % (object_name, object_size)
+   627	        )
+   628	
+   629	    return _get_tensor(object_size, device=device, unsqueeze=True)
+   630	
+   631	
+   632	def get_state_machine(task_cfg, robot_cfg, sm_args={}):
+   633	    state_machine = _get_class(task_cfg["sm"])
+   634	    for k, v in robot_cfg.items():
+   635	        sm_args[k] = _get_tensor(v, sm_args.get("device"))
+   636	
+   637	    return state_machine(**sm_args)
+   638	
+   639	
+   640	def _get_tensor(array, device="cpu", unsqueeze=True):
+   641	    if not isinstance(array, list) and not isinstance(array, np.ndarray):
+   642	        return array
+   643	
+   644	    tensor = torch.tensor(array, dtype=torch.float32, device=device)
+   645	    if unsqueeze:
+   646	        tensor = tensor.unsqueeze(0)
+   647	
+   648	    return tensor
+   649	
+   650	
+   651	def _get_class(class_path):
+   652	    module_path, class_name = class_path.rsplit(".", 1)
+   653	    module = importlib.import_module(module_path)
+   654	    return getattr(module, class_name)
+   655	
+   656	
+   657	def set_object_material(target_object, n_envs=1):
+   658	    materials = target_object.root_physx_view.get_material_properties()
+   659	    materials[..., 0] = 0.9  # Static friction.
+   660	    materials[..., 1] = 1.0  # Dynamic friction.
+   661	    materials[..., 2] = 0.0  # Restitution
+   662	    target_object.root_physx_view.set_material_properties(
+   663	        materials, torch.arange(n_envs)
+   664	    )
+   665	
+   666	
+   667	def get_curr_state(
+   668	    ee_state,
+   669	    robot_joint_pos=None,
+   670	    object_state=None,
+   671	    object_size=None,
+   672	    container_state=None,
+   673	    container_size=None,
+   674	    env_origins=None,
+   675	    robot_quat=None,
+   676	    device="cpu",
+   677	):
+   678	    # _get_merged_object_state = lambda object_state, key: torch.cat(
+   679	    #     [getattr(os, key)[i:i+1] for i, os in enumerate(object_state)], dim=0
+   680	    # )
+   681	    curr_state = {}
+   682	    if ee_state is not None:
+   683	        curr_state["end_effector"] = {
+   684	            "pos": helpers.get_robot_relative_position(
+   685	                ee_state.target_pos_w[..., 0, :] - env_origins, robot_quat
+   686	            ),
+   687	            "quat": _get_robot_relative_quaternion(
+   688	                ee_state.target_quat_w[..., 0, :], robot_quat
+   689	            ),
+   690	        }
+   691	    if robot_joint_pos is not None:
+   692	        curr_state["joints"] = robot_joint_pos
+   693	    if object_state is not None:
+   694	        # object_root_pos_w = _get_merged_object_state(object_state, "root_pos_w")
+   695	        # object_root_quat_w = _get_merged_object_state(object_state, "root_quat_w")
+   696	        # object_root_lin_vel_w = _get_merged_object_state(object_state, "root_lin_vel_w")
+   697	        curr_state["object"] = {
+   698	            "pos": helpers.get_robot_relative_position(
+   699	                object_state.root_pos_w - env_origins, robot_quat
+   700	            ),
+   701	            "quat": _get_robot_relative_quaternion(
+   702	                object_state.root_quat_w, robot_quat
+   703	            ),
+   704	            "velocity": helpers.get_robot_relative_position(
+   705	                object_state.root_lin_vel_w, robot_quat
+   706	            ),
+   707	        }
+   708	        if object_size is not None:
+   709	            curr_state["object"]["size"] = helpers.get_object_relative_bbox(
+   710	                object_size, object_state.root_quat_w, robot_quat
+   711	            )
+   712	    if container_state is not None:
+   713	        curr_state["container"] = {
+   714	            "pos": helpers.get_robot_relative_position(
+   715	                container_state.root_pos_w - env_origins, robot_quat
+   716	            ),
+   717	            "quat": _get_robot_relative_quaternion(
+   718	                container_state.root_quat_w, robot_quat
+   719	            ),
+   720	        }
+   721	    if container_size is not None:
+   722	        if "container" not in curr_state:
+   723	            curr_state["container"] = {}
+   724	
+   725	        curr_state["container"]["size"] = helpers.get_object_relative_bbox(
+   726	            container_size, container_state.root_quat_w, robot_quat
+   727	        )
+   728	    if device == "cpu":
+   729	        for csk, csv in curr_state.items():
+   730	            if isinstance(csv, dict):
+   731	                for k, v in csv.items():
+   732	                    if isinstance(v, torch.Tensor):
+   733	                        curr_state[csk][k] = v.cpu().numpy()
+   734	            elif isinstance(csv, torch.Tensor):
+   735	                curr_state[csk] = csv.cpu().numpy()
+   736	
+   737	    return curr_state
+   738	
+   739	
+   740	def _get_robot_relative_quaternion(w_quat, robot_quat):
+   741	    from isaaclab.utils.math import quat_inv, quat_mul
+   742	
+   743	    return quat_mul(quat_inv(robot_quat), w_quat)
+   744	
+   745	
+   746	def get_camera_views(sensors, views=["rgb"]):
+   747	    # NOTE: import isaaclab.utils does not work
+   748	    from isaaclab.utils import convert_dict_to_backend
+   749	
+   750	    cam_views = {}
+   751	    for name, sensor in sensors.items():
+   752	        if type(sensor).__name__ == "Camera":
+   753	            cam_views[name] = convert_dict_to_backend(
+   754	                {k: v for k, v in sensor.data.output.items()}, backend="numpy"
+   755	            )
+   756	            # Make semantic segmentation consistent in all views
+   757	            if "semantic_segmentation" in cam_views[name]:
+   758	                cam_views[name]["seg"] = _get_semantic_segmentation(
+   759	                    cam_views[name]["semantic_segmentation"],
+   760	                    [
+   761	                        i["semantic_segmentation"]["idToLabels"]
+   762	                        for i in sensor.data.info
+   763	                    ],
+   764	                )
+   765	                # Remove the original semantic segmentation (with New Key: "seg")
+   766	                del cam_views[name]["semantic_segmentation"]
+   767	
+   768	            cam_views[name] = {k: v for k, v in cam_views[name].items() if k in views}
+   769	
+   770	    return cam_views
+   771	
+   772	
+   773	def _get_semantic_segmentation(rgba_seg_maps, semantic_tags):
+   774	    known_tags = helpers.get_semantic_tags()
+   775	    seg_maps = np.zeros_like(rgba_seg_maps[..., :1], dtype=np.uint8)
+   776	
+   777	    # Iterate over each image (since the tags may not be the same for each image)
+   778	    for si, st in enumerate(semantic_tags):
+   779	        for color, tag in st.items():
+   780	            tag_name = tag["class"].upper()
+   781	            if tag_name in ["BACKGROUND", "UNLABELLED"]:
+   782	                continue
+   783	            elif tag_name not in known_tags.keys():
+   784	                logging.warning("Unknown semantic tag %s.", tag_name)
+   785	                continue
+   786	
+   787	            # Convert the color string to a tuple (Unbelievable string here!)
+   788	            mask = np.all(rgba_seg_maps[si] == ast.literal_eval(color), axis=-1)
+   789	            seg_maps[si][mask] = known_tags[tag_name]
+   790	
+   791	    return seg_maps
+   792	
+   793	
+   794	def get_next_object(scene_objects, scene, env_idx=None):
+   795	    next_object = []  # next object index for each environment
+   796	    n_envs = len(scene_objects)
+   797	    for i in range(n_envs):
+   798	        if len(scene_objects[i]) == 0 or (env_idx is not None and i != env_idx):
+   799	            next_object.append(None)
+   800	            continue
+   801	
+   802	        objects = scene_objects[i]
+   803	        objects_velocity = torch.cat(
+   804	            [scene[o].data.root_lin_vel_w[i : i + 1] for o in objects], dim=0
+   805	        )
+   806	        speed = torch.norm(objects_velocity, dim=-1)
+   807	        fastest_index = torch.argmax(speed, dim=0).item()
+   808	        next_object.append(fastest_index)
+   809	
+   810	    return next_object if env_idx is None else next_object[env_idx]
+   811	
+   812	
+   813	def get_env_states(states, n_envs=1):
+   814	    KEYS = {
+   815	        "sm_state": ("next_state", "sm_state"),
+   816	        "ee_pos": ("curr_state", "end_effector", "pos"),
+   817	        "ee_quat": ("curr_state", "end_effector", "quat"),
+   818	        "joints": ("curr_state", "joints"),
+   819	        "object_pos": ("curr_state", "object", "pos"),
+   820	        "object_quat": ("curr_state", "object", "quat"),
+   821	        "object_vel": ("curr_state", "object", "velocity"),
+   822	        "action": ("next_state", "action"),
+   823	    }
+   824	    if not states:
+   825	        return []
+   826	
+   827	    env_states = [{} for _ in range(n_envs)]
+   828	    for es in states:
+   829	        # es = {"cam_views": dict, "curr_state": dict, "next_state": dict, "is_done": Tensor}
+   830	        for eid in range(n_envs):
+   831	            # Predefined keys
+   832	            for k, v in KEYS.items():
+   833	                value = None
+   834	                if v[0] not in es:
+   835	                    continue
+   836	                # Retrieve the value based on the key path
+   837	                if len(v) == 1:
+   838	                    value = es[v[0]][eid].cpu().numpy()
+   839	                elif len(v) == 2 and v[1] in es[v[0]]:
+   840	                    value = es[v[0]][v[1]][eid].cpu().numpy()
+   841	                elif len(v) == 3 and v[1] in es[v[0]] and v[2] in es[v[0]][v[1]]:
+   842	                    value = es[v[0]][v[1]][v[2]][eid].cpu().numpy()
+   843	
+   844	                if value is None:
+   845	                    continue
+   846	                if k not in env_states[eid]:
+   847	                    env_states[eid][k] = []
+   848	
+   849	                env_states[eid][k].append(value)
+   850	
+   851	            # Camera views
+   852	            if "cam_views" in es:
+   853	                for cam, imgs in es["cam_views"].items():
+   854	                    for k, v in imgs.items():
+   855	                        cam_key = "%s_%s" % (cam, k)
+   856	                        if cam_key not in env_states[eid]:
+   857	                            env_states[eid][cam_key] = []
+   858	
+   859	                        env_states[eid][cam_key].append(v[eid])
+   860	
+   861	    return env_states
+   862	
+   863	
+   864	def simulate(sim_cfg, task, robot, scene_dir, object_metadata, seed):
+   865	    import configs.termination_cfg
+   866	
+   867	    # Create a new environment
+   868	    env_cfg, object_tags, objects, object_sizes = get_env_cfg(
+   869	        sim_cfg,
+   870	        task,
+   871	        robot,
+   872	        object_metadata,
+   873	        scene_dir,
+   874	    )
+   875	    # Check whether the object tags are empty
+   876	    if not object_tags["objects"]:
+   877	        raise ValueError("No object tags found. Skipping simulation.")
+   878	    if (
+   879	        sim_cfg["scene"]["containers"]["n_containers"] > 0
+   880	        and not object_tags["containers"]
+   881	    ):
+   882	        raise ValueError("No container tags found. Skipping simulation.")
+   883	
+   884	    env = gym.make("Robot-Env-Cfg-v0", cfg=env_cfg, seed=seed)
+   885	    # Reset environment at start
+   886	    env.reset(seed=seed)
+   887	
+   888	    # Determine the object size (without transformation)
+   889	    if "container" in env.unwrapped.scene.keys():
+   890	        container_data = env.unwrapped.scene["container"].data
+   891	        container_size = get_object_size(
+   892	            os.path.basename(env_cfg.scene.container.spawn.usd_path),
+   893	            object_metadata,
+   894	            env.unwrapped.device,
+   895	        )
+   896	    else:
+   897	        container_data, container_size = None, None
+   898	
+   899	    # Enable Path Tracing
+   900	    if sim_cfg["enable_cameras"] and sim_cfg["path_tracing"]:
+   901	        import omni.replicator.core as rep
+   902	
+   903	        rep.settings.set_render_pathtraced()
+   904	
+   905	    # Initialize the state machine
+   906	    assert task in sim_cfg["tasks"], "Unknown task: %s." % task
+   907	    assert robot in sim_cfg["robots"], "Unknown robot: %s." % robot
+   908	    state_machine = get_state_machine(
+   909	        sim_cfg["tasks"][task],
+   910	        sim_cfg["robots"][robot],
+   911	        {
+   912	            "dt": env_cfg.sim.dt * env_cfg.decimation,
+   913	            "num_envs": env.unwrapped.num_envs,
+   914	            "device": env.unwrapped.device,
+   915	        },
+   916	    )
+   917	
+   918	    # Set the rotation, height, and physical material of the object
+   919	    set_object_material(
+   920	        env.unwrapped.scene["object"],
+   921	        n_envs=env.unwrapped.num_envs,
+   922	    )
+   923	
+   924	    # Simulation loop
+   925	    env_states = []
+   926	    term_mgr = env.env.termination_manager
+   927	    done_term = configs.termination_cfg.get_done_term(term_mgr.active_terms)
+   928	
+   929	    scene_objects = [copy.deepcopy(objects) for _ in range(env.unwrapped.num_envs)]
+   930	    curr_object_idx = get_next_object(scene_objects, env.unwrapped.scene)
+   931	    curr_object = [so[coi] for so, coi in zip(scene_objects, curr_object_idx)]
+   932	    while not term_mgr.dones.all():
+   933	        # Add an option to disable the state machine to accelerate the simulation
+   934	        if sim_cfg["disable_sm"]:
+   935	            env.step(torch.from_numpy(env.action_space.sample()))
+   936	            continue
+   937	
+   938	        # Determine the current object to manipulate
+   939	        curr_state = get_curr_state(
+   940	            env.unwrapped.scene["ee_frame"].data,
+   941	            env.unwrapped.scene.state["articulation"]["robot"]["joint_position"],
+   942	            [env.unwrapped.scene[co].data for co in curr_object][0],  # TODO: remove [0]
+   943	            [object_sizes[co] for co in curr_object][0],  # TODO: remove [0]
+   944	            container_data,
+   945	            container_size,
+   946	            env.unwrapped.scene["robot"].data.root_pos_w,
+   947	            env.unwrapped.scene["robot"].data.root_quat_w,
+   948	            env.unwrapped.device,
+   949	        )
+   950	        if task == "long-horizon":
+   951	            object_placed = helpers.is_object_placed(
+   952	                curr_state["object"]["pos"],
+   953	                curr_state["object"]["size"],
+   954	                curr_state["container"]["pos"],
+   955	                curr_state["container"]["size"],
+   956	            )
+   957	            if object_placed.any():
+   958	                for env_idx, op in enumerate(object_placed):
+   959	                    if not op or len(scene_objects[env_idx]) < 2:
+   960	                        continue
+   961	
+   962	                    scene_objects[env_idx].remove(curr_object[env_idx])
+   963	                    curr_object_idx[env_idx] = get_next_object(
+   964	                        scene_objects, env.unwrapped.scene, env_idx
+   965	                    )
+   966	                    _curr_object = curr_object[env_idx]
+   967	                    _next_object = scene_objects[env_idx][curr_object_idx[env_idx]]
+   968	                    curr_object[env_idx] = _next_object
+   969	                    logging.debug(
+   970	                        "[Env%02d] Object %s placed. Next object: %s."
+   971	                        % (env_idx, _curr_object, _next_object)
+   972	                    )
+   973	
+   974	        # NOTE: state format in xyz, quat (wxyz), gripper (-1/1)
+   975	        next_state = state_machine.compute(curr_state)
+   976	
+   977	        cam_views = get_camera_views(
+   978	            env.unwrapped.scene.sensors, ["rgb", "depth", "seg"]
+   979	        )
+   980	        env.step(next_state["action"])
+   981	        env_states.append(
+   982	            {
+   983	                "cam_views": cam_views,
+   984	                "curr_state": curr_state,
+   985	                "next_state": next_state,
+   986	                "curr_obj_idx": curr_object_idx,
+   987	                "is_done": term_mgr.dones,
+   988	            }
+   989	        )
+   990	
+   991	    env_states = get_env_states(env_states, env.unwrapped.num_envs)
+   992	    env.close()
+   993	    # Ignore the simulation if the task is not finished
+   994	    # If in debug mode, save all simulation data even if the task is not finishedq
+   995	    is_done = term_mgr.get_term(done_term)
+   996	    return (
+   997	        env_cfg,
+   998	        object_tags,
+   999	        [
+  1000	            es
+  1001	            for env_id, es in enumerate(env_states)
+  1002	            if is_done[env_id].item() or sim_cfg["debug"]
+  1003	        ],
+  1004	    )
+  1005	
+  1006	
+  1007	def is_object_stopped(scene_cfg, object_velocity, n_steps=25):
+  1008	    init_speed = np.linalg.norm(scene_cfg["object"]["init_state"]["lin_vel"])
+  1009	    # The object is stopped within n_steps
+  1010	    for i in range(min(n_steps, len(object_velocity))):
+  1011	        if init_speed > 1e-2 and np.linalg.norm(object_velocity[i]) < 1e-2:
+  1012	            return True
+  1013	
+  1014	    return False
+  1015	
+  1016	
+  1017	def is_object_direction_changed(scene_cfg, object_velocity, n_steps=25):
+  1018	    robot_quat = np.array(scene_cfg["robot"]["init_state"]["rot"])[[1, 2, 3, 0]]
+  1019	    init_velocity = scene_cfg["object"]["init_state"]["lin_vel"]
+  1020	    init_dir_idx = helpers.get_direction_index(init_velocity, robot_quat)
+  1021	    # The object velocity is too different from the initial velocity
+  1022	    for i in range(min(n_steps, len(object_velocity))):
+  1023	        dir_idx = helpers.get_direction_index(object_velocity[i])
+  1024	        if dir_idx != init_dir_idx:
+  1025	            return True
+  1026	
+  1027	    return False
+  1028	
+  1029	
+  1030	def get_episode_name(task, robot, seed, scene_cfg):
+  1031	    n_objects = len(
+  1032	        [
+  1033	            v["class_type"]
+  1034	            for v in scene_cfg.values()
+  1035	            if isinstance(v, dict)
+  1036	            and v["class_type"]
+  1037	            == "isaaclab.assets.rigid_object.rigid_object:RigidObject"
+  1038	        ]
+  1039	    )
+  1040	    object_vel = np.linalg.norm(scene_cfg["object"]["init_state"]["lin_vel"])
+
+  1040	    object_vel = np.linalg.norm(scene_cfg["object"]["init_state"]["lin_vel"])
+  1041	    object_type = (
+  1042	        os.path.basename(scene_cfg["object"]["spawn"]["usd_path"][:-4])
+  1043	        if "usd_path" in scene_cfg["object"]["spawn"]
+  1044	        else "cylinder"  # default object type
+  1045	    )
+  1046	    random_suffix = str(uuid.uuid4())[-4:]
+  1047	
+  1048	    # Generate a unique name for the episode
+  1049	    return "%s_%s_%s%s_O%02d_%08d_%s" % (
+  1050	        task,
+  1051	        robot,
+  1052	        object_type,
+  1053	        "d" if object_vel > 1e-3 else "s",
+  1054	        n_objects,
+  1055	        seed,
+  1056	        random_suffix,
+  1057	    )
+  1058	
+  1059	
+  1060	def get_object_without_numpy(obj):
+  1061	    if obj is None:
+  1062	        return obj
+  1063	    elif isinstance(obj, (str, int, float, bool)):
+  1064	        return obj
+  1065	    elif isinstance(obj, dict):
+  1066	        return {k: get_object_without_numpy(v) for k, v in obj.items()}
+  1067	    elif isinstance(obj, list):
+  1068	        return [get_object_without_numpy(item) for item in obj]
+  1069	    elif isinstance(obj, tuple):
+  1070	        return tuple(get_object_without_numpy(item) for item in obj)
+  1071	    elif isinstance(obj, torch.Tensor):
+  1072	        return obj.cpu().numpy().tolist()
+  1073	    elif isinstance(obj, np.ndarray):
+  1074	        return obj.tolist()
+  1075	    elif isinstance(obj, (np.int32, np.float64)):
+  1076	        return obj.item()
+  1077	    else:
+  1078	        # logging.warning("Unknown data type: %s" % type(obj))
+  1079	        return str(obj)
+  1080	
+  1081	
+  1082	def get_frames(
+  1083	    env_state, state_keys=["sm_state", "ee_pos", "object_pos", "object_vel"]
+  1084	):
+  1085	    MAX_DEPTH = 25
+  1086	
+  1087	    cam_name = None
+  1088	    cam_frames = {}
+  1089	    for st_key, frames in env_state.items():
+  1090	        cam_idx = st_key.find("_cam_")
+  1091	        if cam_idx == -1:
+  1092	            continue
+  1093	
+  1094	        cam_name = st_key[:cam_idx]
+  1095	        img_name = st_key[cam_idx + 5 :]
+  1096	        if cam_name not in cam_frames:
+  1097	            cam_frames[cam_name] = {}
+  1098	        if img_name not in cam_frames[cam_name]:
+  1099	            cam_frames[cam_name][img_name] = []
+  1100	
+  1101	        for frame in frames:
+  1102	            if frame.ndim == 2:
+  1103	                frame = np.repeat(frame[:, :, None], 3, axis=-1)
+  1104	            elif frame.ndim == 3:
+  1105	                if frame.shape[-1] == 1:
+  1106	                    frame = np.repeat(frame, 3, axis=-1)
+  1107	                elif frame.shape[-1] >= 3:
+  1108	                    frame = frame[:, :, :3]
+  1109	            else:
+  1110	                raise ValueError("Unknown camera data shape: %s" % (frame.shape,))
+  1111	
+  1112	            # Normalize the depth image to 0-255
+  1113	            if img_name in ["depth", "distance_to_image_plane", "distance_to_camera"]:
+  1114	                frame = np.clip(frame, 0, MAX_DEPTH)
+  1115	                frame = (frame / np.max(frame) * 255).astype(np.uint8)
+  1116	            if img_name in ["seg", "semantic_segmentation"]:
+  1117	                # Assign a color to each semantic class
+  1118	                frame = helpers.get_semantic_map(frame[..., 0])
+  1119	
+  1120	            cam_frames[cam_name][img_name].append(frame)
+  1121	
+  1122	    if cam_name is None:
+  1123	        raise ValueError("No camera frames found in the environment state.")
+  1124	
+  1125	    n_frames = len(cam_frames[cam_name][img_name])
+  1126	    frames = [[[] for _ in range(len(cam_frames))] for _ in range(n_frames)]
+  1127	    for cam_idx, cam_imgs in enumerate(cam_frames.values()):
+  1128	        for img in cam_imgs.values():
+  1129	            for frame_idx in range(n_frames):
+  1130	                frames[frame_idx][cam_idx].append(img[frame_idx])
+  1131	
+  1132	    for frame_idx in range(n_frames):
+  1133	        frame = np.concatenate(
+  1134	            [np.concatenate(r, axis=0) for r in frames[frame_idx]], axis=1
+  1135	        )
+  1136	        if state_keys:
+  1137	            frame = _print_state_on_frame(
+  1138	                frame,
+  1139	                {k: env_state[k][frame_idx] for k in state_keys if k in env_state},
+  1140	            )
+  1141	
+  1142	        frames[frame_idx] = frame
+  1143	
+  1144	    return frames
+  1145	
+  1146	
+  1147	def _print_state_on_frame(frame, state):
+  1148	    TEXT_MARGIN = 10
+  1149	    TEXT_SCALE = 0.5
+  1150	    TEXT_THICKNESS = 1
+  1151	    TEXT_COLOR = (255, 255, 255)
+  1152	    TEXT_FONT = cv2.FONT_HERSHEY_SIMPLEX
+  1153	
+  1154	    lines = _get_state_text(state).split("\n")
+  1155	    _, img_width = frame.shape[:2]
+  1156	    # Print the text on the image
+  1157	    y = TEXT_MARGIN
+  1158	    for line in lines:
+  1159	        (text_width, text_height), _ = cv2.getTextSize(
+  1160	            line, TEXT_FONT, TEXT_SCALE, TEXT_THICKNESS
+  1161	        )
+  1162	        x = img_width - text_width - TEXT_MARGIN
+  1163	        frame = cv2.putText(
+  1164	            np.ascontiguousarray(frame),
+  1165	            line,
+  1166	            (x, y + text_height),
+  1167	            TEXT_FONT,
+  1168	            TEXT_SCALE,
+  1169	            TEXT_COLOR,
+  1170	            TEXT_THICKNESS,
+  1171	            cv2.LINE_AA,
+  1172	        )
+  1173	        y += text_height + TEXT_MARGIN
+  1174	
+  1175	    return frame
+  1176	
+  1177	
+  1178	def _get_state_text(state):
+  1179	    text = ""
+  1180	    for k, v in state.items():
+  1181	        k = k.replace("_", " ").title()
+  1182	        if isinstance(v, (int, np.int32, np.int64)) or v.ndim == 0:
+  1183	            text += "%s: %d\n" % (k, v)
+  1184	        elif isinstance(v, np.ndarray):
+  1185	            # Convert all quaternions to Euler angles
+  1186	            if k.find("Quat") != -1:
+  1187	                k = k.replace("Quat", "Rot")
+  1188	                v = R.from_quat(v).as_euler("xyz", degrees=True)
+  1189	
+  1190	            text += "%s: " % k
+  1191	            text += " ".join(["%.3f" % i for i in v]) + "\n"
+  1192	        else:
+  1193	            raise ValueError("Unknown State Value Type: %s" % (type(v),))
+  1194	
+  1195	    return text
+  1196	
+  1197	
+  1198	def dump_video(frames, output_path, fps=24):
+  1199	    if len(frames) == 0:
+  1200	        return
+  1201	
+  1202	    imageio.v3.imwrite(
+  1203	        str(output_path),
+  1204	        frames,
+  1205	        fps=fps,
+  1206	        codec="libx264",
+  1207	        macro_block_size=1,
+  1208	    )
+  1209	
+  1210	
+  1211	def main(args):
+  1212	    with open(args.sim_cfg_file) as fp:
+  1213	        sim_cfg = yaml.load(fp, Loader=yaml.FullLoader)
+  1214	
+  1215	    sim_cfg.update(
+  1216	        {
+  1217	            "debug": args.debug,
+  1218	            "device": args.device,
+  1219	            "disable_fabric": args.disable_fabric,
+  1220	            "disable_sm": args.disable_sm,
+  1221	            "enable_cameras": args.enable_cameras,
+  1222	            "num_envs": args.num_envs,
+  1223	            "path_tracing": args.path_tracing,
+  1224	        }
+  1225	    )
+  1226	    # Get metadata for the objects (size, description, orientation)
+  1227	    object_categories = sim_cfg["scene"]["objects"]["categories"]
+  1228	    container_categories = sim_cfg["scene"]["containers"].get("categories", [])
+  1229	    object_metadata = get_object_metadata(
+  1230	        args.object_dir, object_categories + container_categories
+  1231	    )
+  1232	    # Perform simulations in the environment
+  1233	    n_simulations = 0
+  1234	    seed = args.seed if args.seed is not None else random.randint(0, 65535)
+  1235	    while n_simulations < args.n_simulations:
+  1236	        logging.info("Running simulation with seed: %d" % seed)
+  1237	        random.seed(seed)
+  1238	        np.random.seed(seed)
+  1239	        torch.manual_seed(seed)
+  1240	
+  1241	        try:
+  1242	            env_cfg, object_tags, env_states = simulate(
+  1243	                sim_cfg,
+  1244	                args.task,
+  1245	                args.robot,
+  1246	                args.scene_dir,
+  1247	                object_metadata,
+  1248	                seed,
+  1249	            )
+  1250	        except Exception as ex:
+  1251	            logging.exception(ex)
+  1252	            seed += 1
+  1253	            n_simulations += 1
+  1254	            continue
+  1255	
+  1256	        # Save the simulation data
+  1257	        for es in env_states:
+  1258	            # Check whether the initial state is changed
+  1259	            # 1) The object is stopped within a few steps due to collision
+  1260	            # 2) The initial object velocity is changed due to collision
+  1261	            env_cfg = env_cfg.to_dict()
+  1262	            if is_object_stopped(env_cfg["scene"], es["object_vel"]):
+  1263	                continue
+  1264	            if is_object_direction_changed(env_cfg["scene"], es["object_vel"]):
+  1265	                # Remove direction tags
+  1266	                object_tags["objects"] = [
+  1267	                    t for t in object_tags["objects"] if not t.endswith("direction")
+  1268	                ]
+  1269	
+  1270	            episode_name = get_episode_name(
+  1271	                args.task, args.robot, seed, env_cfg["scene"]
+  1272	            )
+  1273	            logging.info(
+  1274	                "Saving episode %s with %d frames."
+  1275	                % (episode_name, len(es["sm_state"]))
+  1276	            )
+  1277	            if args.save:
+  1278	                with open(
+  1279	                    os.path.join(args.output_dir, "%s.json" % episode_name), "w"
+  1280	                ) as fp:
+  1281	                    env_cfg["seed"] = seed
+  1282	                    env_cfg["instruction"] = {"task": args.task, **object_tags}
+  1283	                    json.dump(get_object_without_numpy(env_cfg), fp, indent=2)
+  1284	
+  1285	                with h5py.File(
+  1286	                    os.path.join(args.output_dir, "%s.h5" % episode_name), "w"
+  1287	                ) as fp:
+  1288	                    for k, v in es.items():
+  1289	                        fp.create_dataset(k, data=v, compression="gzip")
+  1290	
+  1291	            if args.debug and args.enable_cameras:
+  1292	                dump_video(
+  1293	                    get_frames(es),
+  1294	                    os.path.join(args.output_dir, "%s.mp4" % episode_name),
+  1295	                )
+  1296	                logging.debug(object_tags)
+  1297	
+  1298	        # Increment the seed for the next simulation
+  1299	        seed += 1
+  1300	        n_simulations += 1
+  1301	
+  1302	
+  1303	if __name__ == "__main__":
+  1304	    logging.basicConfig(
+  1305	        format="[%(levelname)s] %(asctime)s %(message)s",
+  1306	        level=logging.INFO,
+  1307	    )
+  1308	    SHARED_PARAMETERS = ["num_envs", "save"]
+  1309	
+  1310	    parser = argparse.ArgumentParser(description="Isaac Simulation Runner")
+  1311	    # Arguments for the IsaacLab
+  1312	    parser.add_argument(
+  1313	        "--disable_fabric",
+  1314	        action="store_true",
+  1315	        default=False,
+  1316	        help="Disable fabric and use USD I/O operations.",
+  1317	    )
+  1318	    parser.add_argument(
+  1319	        "--num_envs", type=int, default=1, help="Number of environments to simulate."
+  1320	    )
+  1321	    parser.add_argument(
+  1322	        "--save",
+  1323	        action="store_true",
+  1324	        default=False,
+  1325	        help="Save the data from camera at index specified by ``--camera_id``.",
+  1326	    )
+  1327	    AppLauncher.add_app_launcher_args(parser)
+  1328	    isaaclab_args, script_args = parser.parse_known_args()
+  1329	
+  1330	    # Arguments for the script
+  1331	    parser.add_argument("--robot", default="franka")
+  1332	    parser.add_argument(
+  1333	        "--scene_dir", default=os.path.join(PROJECT_HOME, os.pardir, "scenes")
+  1334	    )
+  1335	    parser.add_argument(
+  1336	        "--object_dir", default=os.path.join(PROJECT_HOME, os.pardir, "objects")
+  1337	    )
+  1338	    parser.add_argument(
+  1339	        "-o", "--output_dir", default=os.path.join(PROJECT_HOME, os.pardir, "datasets")
+  1340	    )
+  1341	    parser.add_argument("--task", default="pick")
+  1342	    parser.add_argument(
+  1343	        "-c",
+  1344	        "--sim_cfg_file",
+  1345	        default=os.path.join(PROJECT_HOME, "simulations", "configs", "sim_cfg.yaml"),
+  1346	    )
+  1347	    parser.add_argument("--debug", action="store_true", default=False)
+  1348	    parser.add_argument("--disable_sm", action="store_true", default=False)
+  1349	    parser.add_argument("--path_tracing", action="store_true", default=False)
+  1350	    parser.add_argument("--seed", type=int, default=None)
+  1351	    parser.add_argument("-n", "--n_simulations", type=int, default=10_000)
+  1352	    args = parser.parse_args(script_args)
+  1353	    # Copy the shared parameters from isaaclab_args to args
+  1354	    for sp in SHARED_PARAMETERS:
+  1355	        if sp in isaaclab_args:
+  1356	            setattr(args, sp, getattr(isaaclab_args, sp))
+  1357	
+  1358	    app_launcher = AppLauncher(isaaclab_args)
+  1359	    # Pass "enable_cameras" to this script
+  1360	    # Ref: https://isaac-sim.github.io/IsaacLab/main/_modules/isaaclab/app/app_launcher.html
+  1361	    args.enable_cameras = app_launcher._enable_cameras
+  1362	    if not args.enable_cameras:
+  1363	        logging.warning(
+  1364	            "Cameras are disabled. No images will be produced during simulation."
+  1365	        )
+  1366	        answer = input("Do you want to continue? (y/N) ").strip().lower()
+  1367	        if answer != "y":
+  1368	            exit(0)
+  1369	
+  1370	    main(args)
+  1371	    app_launcher.app.close()
+
+## config files
+simulations/configs/env_cfg.py
+simulations/configs/event_cfg.py
+simulations/configs/__init__.py
+simulations/configs/object_cfg.py
+simulations/configs/__pycache__/env_cfg.cpython-310.pyc
+simulations/configs/__pycache__/event_cfg.cpython-310.pyc
+simulations/configs/__pycache__/__init__.cpython-310.pyc
+simulations/configs/__pycache__/object_cfg.cpython-310.pyc
+simulations/configs/__pycache__/robot_cfg.cpython-310.pyc
+simulations/configs/__pycache__/scene_cfg.cpython-310.pyc
+simulations/configs/__pycache__/termination_cfg.cpython-310.pyc
+simulations/configs/robot_cfg.py
+simulations/configs/scene_cfg.py
+simulations/configs/sim_cfg.yaml
+simulations/configs/termination_cfg.py
+
+
+### FILE: simulations/configs/env_cfg.py
+     1	# -*- coding: utf-8 -*-
+     2	#
+     3	# @File:   env_cfg.py
+     4	# @Author: Haozhe Xie
+     5	# @Date:   2025-03-22 21:04:28
+     6	# @Last Modified by: Haozhe Xie
+     7	# @Last Modified at: 2026-01-11 10:31:55
+     8	# @Email:  root@haozhexie.com
+     9	
+    10	from dataclasses import MISSING
+    11	
+    12	import configs.robot_cfg
+    13	import isaaclab.envs.mdp as mdp
+    14	from configs.event_cfg import EventCfg
+    15	from configs.scene_cfg import SceneCfg
+    16	from configs.termination_cfg import TerminationsCfg
+    17	from isaaclab.envs import ManagerBasedRLEnvCfg
+    18	from isaaclab.managers import (
+    19	    CurriculumTermCfg,
+    20	    ObservationGroupCfg,
+    21	    ObservationTermCfg,
+    22	    RewardTermCfg,
+    23	    SceneEntityCfg,
+    24	)
+    25	from isaaclab.utils import configclass
+    26	from isaaclab_tasks.manager_based.manipulation.lift import mdp
+    27	
+    28	
+    29	@configclass
+    30	class CommandsCfg:
+    31	    """Command terms for the MDP."""
+    32	
+    33	    object_pose = mdp.UniformPoseCommandCfg(
+    34	        asset_name="robot",
+    35	        body_name=MISSING,  # will be set by agent env cfg
+    36	        resampling_time_range=(5.0, 5.0),
+    37	        debug_vis=False,
+    38	        ranges=mdp.UniformPoseCommandCfg.Ranges(
+    39	            pos_x=(0.4, 0.6),
+    40	            pos_y=(-0.25, 0.25),
+    41	            pos_z=(0.25, 0.5),
+    42	            roll=(0.0, 0.0),
+    43	            pitch=(0.0, 0.0),
+    44	            yaw=(0.0, 0.0),
+    45	        ),
+    46	    )
+    47	
+    48	
+    49	@configclass
+    50	class ObservationsCfg:
+    51	    """Observation specifications for the MDP."""
+    52	
+    53	    @configclass
+    54	    class PolicyCfg(ObservationGroupCfg):
+    55	        """Observations for policy group."""
+    56	
+    57	        joint_pos = ObservationTermCfg(func=mdp.joint_pos_rel)
+    58	        joint_vel = ObservationTermCfg(func=mdp.joint_vel_rel)
+    59	        object_position = ObservationTermCfg(
+    60	            func=mdp.object_position_in_robot_root_frame
+    61	        )
+    62	        target_object_position = ObservationTermCfg(
+    63	            func=mdp.generated_commands, params={"command_name": "object_pose"}
+    64	        )
+    65	        actions = ObservationTermCfg(func=mdp.last_action)
+    66	
+    67	        def __post_init__(self):
+    68	            self.enable_corruption = True
+    69	            self.concatenate_terms = True
+    70	
+    71	    # observation groups
+    72	    policy: PolicyCfg = PolicyCfg()
+    73	
+    74	
+    75	@configclass
+    76	class RewardsCfg:
+    77	    """Reward terms for the MDP."""
+    78	
+    79	    reaching_object = RewardTermCfg(
+    80	        func=mdp.object_ee_distance, params={"std": 0.1}, weight=1.0
+    81	    )
+    82	    lifting_object = RewardTermCfg(
+    83	        func=mdp.object_is_lifted, params={"minimal_height": 0.04}, weight=15.0
+    84	    )
+    85	    object_goal_tracking = RewardTermCfg(
+    86	        func=mdp.object_goal_distance,
+    87	        params={"std": 0.3, "minimal_height": 0.04, "command_name": "object_pose"},
+    88	        weight=16.0,
+    89	    )
+    90	    object_goal_tracking_fine_grained = RewardTermCfg(
+    91	        func=mdp.object_goal_distance,
+    92	        params={"std": 0.05, "minimal_height": 0.04, "command_name": "object_pose"},
+    93	        weight=5.0,
+    94	    )
+    95	    # action penalty
+    96	    action_rate = RewardTermCfg(func=mdp.action_rate_l2, weight=-1e-4)
+    97	    joint_vel = RewardTermCfg(
+    98	        func=mdp.joint_vel_l2,
+    99	        weight=-1e-4,
+   100	        params={"asset_cfg": SceneEntityCfg("robot")},
+   101	    )
+   102	
+   103	
+   104	@configclass
+   105	class CurriculumCfg:
+   106	    """Curriculum terms for the MDP."""
+   107	
+   108	    action_rate = CurriculumTermCfg(
+   109	        func=mdp.modify_reward_weight,
+   110	        params={"term_name": "action_rate", "weight": -1e-1, "num_steps": 10000},
+   111	    )
+   112	    joint_vel = CurriculumTermCfg(
+   113	        func=mdp.modify_reward_weight,
+   114	        params={"term_name": "joint_vel", "weight": -1e-1, "num_steps": 10000},
+   115	    )
+   116	
+   117	
+   118	@configclass
+   119	class EnvCfg(ManagerBasedRLEnvCfg):
+   120	    """Configuration for the environment."""
+   121	
+   122	    # Scene settings
+   123	    scene: SceneCfg = SceneCfg(num_envs=1, env_spacing=25)
+   124	    # Robot settings
+   125	    actions: configs.robot_cfg.ActionCfg = MISSING
+   126	    # Basic settings
+   127	    observations: ObservationsCfg = ObservationsCfg()
+   128	    commands: CommandsCfg = CommandsCfg()
+   129	    # MDP settings
+   130	    curriculum: CurriculumCfg = CurriculumCfg()
+   131	    events: EventCfg = MISSING
+   132	    rewards: RewardsCfg = RewardsCfg()
+   133	    terminations: TerminationsCfg = MISSING
+   134	
+   135	    def __post_init__(self):
+   136	        """Post initialization."""
+   137	        # number of simulation steps per environment step
+   138	        self.decimation = 1
+   139	        # the length of the episode in seconds (will be overridden)
+   140	        self.episode_length_s = 5.0
+   141	        # simulation settings
+   142	        self.sim.dt = 0.04  # 25Hz
+   143	        self.sim.render_interval = self.decimation
+   144	        self.sim.physx.bounce_threshold_velocity = 0.2
+   145	        self.sim.physx.bounce_threshold_velocity = 0.01
+   146	        self.sim.physx.gpu_found_lost_aggregate_pairs_capacity = 1024 * 1024 * 4
+   147	        self.sim.physx.gpu_total_aggregate_pairs_capacity = 16 * 1024
+   148	        self.sim.physx.friction_correlation_distance = 0.00625
+   149	
+   150	
+   151	def set_robot(robot: str, env_cfg: EnvCfg, robot_pose: list) -> EnvCfg:
+   152	    assert robot in ["franka", "piper"], "Unknown robot: %s" % robot
+   153	    env_cfg.commands.object_pose.body_name = configs.robot_cfg.get_body_name(robot)
+   154	    env_cfg.scene.ee_frame = configs.robot_cfg.get_ee_frame_cfg(robot)
+   155	    env_cfg.scene.robot = configs.robot_cfg.get_robot_cfg(robot)
+   156	    env_cfg.scene.robot.init_state.pos = robot_pose["pos"]
+   157	    env_cfg.scene.robot.init_state.rot = robot_pose["quat"]
+   158	    env_cfg.actions = configs.robot_cfg.get_robot_action_cfg(robot)
+   159	    return env_cfg
+
+### FILE: simulations/configs/event_cfg.py
+     1	# -*- coding: utf-8 -*-
+     2	#
+     3	# @File:   event_cfg.py
+     4	# @Author: Haozhe Xie
+     5	# @Date:   2026-01-11 08:01:18
+     6	# @Last Modified by: Haozhe Xie
+     7	# @Last Modified at: 2026-01-11 14:43:41
+     8	# @Email:  root@haozhexie.com
+     9	
+    10	import isaaclab.envs.mdp as mdp
+    11	import isaaclab.utils.math as math_utils
+    12	import torch
+    13	from isaaclab.envs import ManagerBasedEnv
+    14	from isaaclab.managers import EventTermCfg, SceneEntityCfg
+    15	from isaaclab.utils import configclass
+    16	
+    17	
+    18	def apply_external_force_torque_xy(
+    19	    env: ManagerBasedEnv,
+    20	    env_ids: torch.Tensor,
+    21	    force_range: tuple[float, float],
+    22	    torque_range: tuple[float, float],
+    23	    asset_cfg: SceneEntityCfg,
+    24	    robot_cfg: SceneEntityCfg = SceneEntityCfg("robot"),
+    25	):
+    26	    asset = env.scene[asset_cfg.name]
+    27	    asset_position = asset.data.root_pos_w
+    28	    robot_position = env.scene[robot_cfg.name].data.root_pos_w
+    29	    is_lifted = abs(robot_position[:, 2] - asset_position[:, 2]) > 0.05
+    30	
+    31	    if env_ids is None:
+    32	        env_ids = torch.arange(env.scene.num_envs, device=asset.device)
+    33	
+    34	    num_bodies = (
+    35	        len(asset_cfg.body_ids)
+    36	        if isinstance(asset_cfg.body_ids, list)
+    37	        else asset.num_bodies
+    38	    )
+    39	    size = (len(env_ids), num_bodies, 3)
+    40	    random_fdir = math_utils.sample_uniform(-1.0, 1.0, size, asset.device).sign()
+    41	    forces = math_utils.sample_uniform(*force_range, size, asset.device) * random_fdir
+    42	    random_tdir = math_utils.sample_uniform(-1.0, 1.0, size, asset.device).sign()
+    43	    torques = math_utils.sample_uniform(*torque_range, size, asset.device) * random_tdir
+    44	    forces[:, :, 2] = 0.0
+    45	    torques[:, :, 0] = 0.0
+    46	
+    47	    # set the forces and torques into the buffers
+    48	    asset.set_external_force_and_torque(
+    49	        forces, torques, env_ids=env_ids[~is_lifted], body_ids=asset_cfg.body_ids
+    50	    )
+    51	
+    52	
+    53	@configclass
+    54	class EventCfg:
+    55	    """Configuration for events."""
+    56	
+    57	    reset_all = EventTermCfg(func=mdp.reset_scene_to_default, mode="reset")
+    58	    reset_object_position = EventTermCfg(
+    59	        func=mdp.reset_root_state_uniform,
+    60	        mode="reset",
+    61	        params={
+    62	            "pose_range": {"x": (0.0, 0.0), "y": (0.0, 0.0), "z": (0.0, 0.0)},
+    63	            "velocity_range": {},
+    64	            "asset_cfg": SceneEntityCfg("object", body_names="Object"),
+    65	        },
+    66	    )
+    67	
+    68	
+    69	@configclass
+    70	class PertubationEventCfg(EventCfg):
+    71	    perturbation = EventTermCfg(
+    72	        func=apply_external_force_torque_xy,
+    73	        mode="interval",
+    74	        interval_range_s=(0.5, 1),  # interval is sampled uniformly from this range
+    75	        params={
+    76	            "asset_cfg": SceneEntityCfg("object", body_names="Object"),
+    77	            "force_range": (-0.0, 0.0),
+    78	            "torque_range": (-0.0, 0.0),
+    79	        },
+    80	    )
+    81	
+    82	
+    83	def get_event_cfg(perturbation_cfg) -> EventCfg:
+    84	    if (
+    85	        perturbation_cfg is not None
+    86	        and "force" in perturbation_cfg
+    87	        and "torque" in perturbation_cfg
+    88	    ):
+    89	        cfg = PertubationEventCfg()
+    90	        cfg.perturbation.params["force_range"] = perturbation_cfg["force"]
+    91	        cfg.perturbation.params["torque_range"] = perturbation_cfg["torque"]
+    92	    else:
+    93	        cfg = EventCfg()
+    94	
+    95	    return cfg
+
+### FILE: simulations/configs/__init__.py
+     1	# -*- coding: utf-8 -*-
+     2	#
+     3	# @File:   __init__.py
+     4	# @Author: Haozhe Xie
+     5	# @Date:   2025-03-22 19:57:53
+     6	# @Last Modified by: Haozhe Xie
+     7	# @Last Modified at: 2025-03-22 19:57:54
+     8	# @Email:  root@haozhexie.com
+
+### FILE: simulations/configs/object_cfg.py
+     1	# -*- coding: utf-8 -*-
+     2	#
+     3	# @File:   object_cfg.py
+     4	# @Author: Haozhe Xie
+     5	# @Date:   2025-04-16 14:38:58
+     6	# @Last Modified by: Haozhe Xie
+     7	# @Last Modified at: 2025-11-06 09:38:17
+     8	# @Email:  root@haozhexie.com
+     9	
+    10	import isaaclab.sim as sim_utils
+    11	import numpy as np
+    12	import scipy.spatial.transform
+    13	from isaaclab.assets import DeformableObjectCfg, RigidObjectCfg
+    14	from isaaclab.sim.spawners import SpawnerCfg
+    15	from isaaclab.sim.spawners.from_files.from_files_cfg import UsdFileCfg
+    16	
+    17	
+    18	def get_object_cfg(
+    19	    prim_path: str, obj_cfg: dict, spawner_cfg: SpawnerCfg
+    20	) -> RigidObjectCfg | DeformableObjectCfg:
+    21	    assert prim_path.startswith("/")
+    22	
+    23	    init_state = RigidObjectCfg.InitialStateCfg(pos=obj_cfg["pos"])
+    24	    if "lin_vel" in obj_cfg:
+    25	        init_state.lin_vel = obj_cfg["lin_vel"]
+    26	    if "ang_vel" in obj_cfg:
+    27	        init_state.ang_vel = obj_cfg["ang_vel"]
+    28	    if "quat" in obj_cfg:
+    29	        init_state.rot = obj_cfg["quat"]
+    30	
+    31	    return RigidObjectCfg(
+    32	        prim_path="{ENV_REGEX_NS}%s" % prim_path,
+    33	        init_state=init_state,
+    34	        spawn=spawner_cfg,
+    35	    )
+    36	
+    37	
+    38	def get_spawner_cfg(
+    39	    file_path: str = None,
+    40	    mass: int = 0.05,
+    41	    friction: float | None = None,
+    42	    semantic_tags=None,
+    43	) -> SpawnerCfg:
+    44	    if file_path is not None:
+    45	        spawner_cfg = UsdFileCfg(
+    46	            usd_path=file_path,
+    47	            rigid_props=sim_utils.RigidBodyPropertiesCfg(
+    48	                solver_position_iteration_count=16,
+    49	                solver_velocity_iteration_count=1,
+    50	                max_angular_velocity=1000.0,
+    51	                max_linear_velocity=1000.0,
+    52	                max_depenetration_velocity=5.0,
+    53	                disable_gravity=False,
+    54	            ),
+    55	            mass_props=sim_utils.MassPropertiesCfg(mass=mass),
+    56	            collision_props=sim_utils.CollisionPropertiesCfg(
+    57	                collision_enabled=True,
+    58	                contact_offset=0.01,
+    59	                rest_offset=0.0,
+    60	                min_torsional_patch_radius=0.01,
+    61	                torsional_patch_radius=0.01,
+    62	            ),
+    63	        )
+    64	    else:
+    65	        # spawner_cfg = sim_utils.SphereCfg(
+    66	        spawner_cfg = sim_utils.CylinderCfg(
+    67	            radius=0.03,
+    68	            height=0.1,
+    69	            rigid_props=sim_utils.RigidBodyPropertiesCfg(),
+    70	            mass_props=sim_utils.MassPropertiesCfg(mass=mass),
+    71	            collision_props=sim_utils.CollisionPropertiesCfg(),
+    72	            visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(1.0, 1.0, 0.0)),
+    73	        )
+    74	    if friction is not None:
+    75	        spawner_cfg.rigid_props.angular_damping = friction
+    76	    if semantic_tags is not None:
+    77	        spawner_cfg.semantic_tags = semantic_tags
+    78	
+    79	    return spawner_cfg
+    80	
+    81	
+    82	def get_object_init_quat(
+    83	    init_lin_vel: list[float], upright=False, perturbation=None
+    84	) -> list[float]:
+    85	
+    86	    lin_vel_angle = np.arctan2(init_lin_vel[1], init_lin_vel[0])
+    87	    verticle_angle = np.pi / 2 * np.random.choice([-1, 1])
+    88	    if perturbation is not None:
+    89	        lin_vel_angle += np.deg2rad(perturbation)
+    90	        verticle_angle += np.deg2rad(perturbation)
+    91	
+    92	    quat = scipy.spatial.transform.Rotation.from_euler(
+    93	        "xyz",
+    94	        [
+    95	            0 if upright else verticle_angle,
+    96	            0,
+    97	            lin_vel_angle,
+    98	        ],
+    99	    ).as_quat()
+   100	    return quat[[3, 0, 1, 2]]
+
+### FILE: simulations/configs/robot_cfg.py
+     1	# -*- coding: utf-8 -*-
+     2	#
+     3	# @File:   robot_cfg.py
+     4	# @Author: Haozhe Xie
+     5	# @Date:   2025-03-24 16:59:09
+     6	# @Last Modified by: Haozhe Xie
+     7	# @Last Modified at: 2025-09-26 09:18:44
+     8	# @Email:  root@haozhexie.com
+     9	
+    10	from dataclasses import MISSING
+    11	
+    12	from isaaclab.assets.articulation import ArticulationCfg
+    13	from isaaclab.controllers.differential_ik_cfg import DifferentialIKControllerCfg
+    14	from isaaclab.envs.mdp.actions.actions_cfg import DifferentialInverseKinematicsActionCfg
+    15	from isaaclab.sensors import FrameTransformerCfg
+    16	from isaaclab.sensors.frame_transformer.frame_transformer_cfg import OffsetCfg
+    17	from isaaclab.utils import configclass
+    18	from isaaclab_tasks.manager_based.manipulation.lift import mdp
+    19	
+    20	##
+    21	# Pre-defined configs
+    22	##
+    23	from isaaclab.markers.config import FRAME_MARKER_CFG  # isort: skip
+    24	from robots.franka import FRANKA_PANDA_HIGH_PD_CFG  # isort: skip
+    25	from robots.piper import AGILEX_PIPER_HIGH_PD_CFG  # isort: skip
+    26	
+    27	
+    28	@configclass
+    29	class ActionCfg:
+    30	    """Action specifications for the MDP."""
+    31	
+    32	    # will be set by agent env cfg
+    33	    arm_action: (
+    34	        mdp.JointPositionActionCfg | mdp.DifferentialInverseKinematicsActionCfg
+    35	    ) = MISSING
+    36	    gripper_action: mdp.BinaryJointPositionActionCfg = MISSING
+    37	
+    38	
+    39	@configclass
+    40	class FrankaActionCfg(ActionCfg):
+    41	    arm_action = DifferentialInverseKinematicsActionCfg(
+    42	        asset_name="robot",
+    43	        joint_names=["panda_joint.*"],
+    44	        body_name="panda_hand",
+    45	        controller=DifferentialIKControllerCfg(
+    46	            command_type="pose", use_relative_mode=False, ik_method="dls"
+    47	        ),
+    48	        body_offset=DifferentialInverseKinematicsActionCfg.OffsetCfg(
+    49	            pos=[0.0, 0.0, 0.107]
+    50	        ),
+    51	    )
+    52	    gripper_action = mdp.BinaryJointPositionActionCfg(
+    53	        asset_name="robot",
+    54	        joint_names=["panda_finger.*"],
+    55	        open_command_expr={"panda_finger_.*": 0.04},
+    56	        close_command_expr={"panda_finger_.*": 0.0},
+    57	    )
+    58	
+    59	
+    60	@configclass
+    61	class PiperActionCfg(ActionCfg):
+    62	    arm_action = DifferentialInverseKinematicsActionCfg(
+    63	        asset_name="robot",
+    64	        joint_names=["joint[1-6]"],
+    65	        body_name="gripper_base",
+    66	        controller=DifferentialIKControllerCfg(
+    67	            command_type="pose", use_relative_mode=False, ik_method="dls"
+    68	        ),
+    69	        body_offset=DifferentialInverseKinematicsActionCfg.OffsetCfg(
+    70	            pos=[0.0, 0.0, 0.137]
+    71	        ),
+    72	    )
+    73	    gripper_action = mdp.BinaryJointPositionActionCfg(
+    74	        asset_name="robot",
+    75	        joint_names=["joint8", "joint7"],
+    76	        open_command_expr={"joint8": -0.035, "joint7": 0.035},
+    77	        close_command_expr={"joint8": 0.0, "joint7": 0.0},
+    78	    )
+    79	
+    80	
+    81	def get_body_name(robot: str) -> str:
+    82	    if robot == "franka":
+    83	        return "panda_hand"
+    84	    elif robot == "piper":
+    85	        return "gripper_base"
+    86	    else:
+    87	        raise ValueError("Unknown robot: %s" % robot)
+    88	
+    89	
+    90	def get_robot_cfg(robot: str) -> ArticulationCfg:
+    91	    if robot == "franka":
+    92	        cfg = FRANKA_PANDA_HIGH_PD_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
+    93	    elif robot == "piper":
+    94	        cfg = AGILEX_PIPER_HIGH_PD_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
+    95	    else:
+    96	        raise ValueError("Unknown robot: %s" % robot)
+    97	
+    98	    cfg.spawn.semantic_tags = [("class", "ROBOT")]
+    99	    return cfg
+   100	
+   101	
+   102	def get_robot_action_cfg(robot: str) -> ActionCfg:
+   103	    if robot == "franka":
+   104	        return FrankaActionCfg()
+   105	    elif robot == "piper":
+   106	        return PiperActionCfg()
+   107	    else:
+   108	        raise ValueError("Unknown robot: %s" % robot)
+   109	
+   110	
+   111	def get_ee_frame_cfg(robot: str) -> FrameTransformerCfg:
+   112	    marker_cfg = FRAME_MARKER_CFG.copy()
+   113	    marker_cfg.markers["frame"].scale = (0.1, 0.1, 0.1)
+   114	    marker_cfg.prim_path = "/Visuals/FrameTransformer"
+   115	
+   116	    if robot == "franka":
+   117	        return FrameTransformerCfg(
+   118	            prim_path="{ENV_REGEX_NS}/Robot/panda_link0",
+   119	            debug_vis=False,
+   120	            visualizer_cfg=marker_cfg,
+   121	            target_frames=[
+   122	                FrameTransformerCfg.FrameCfg(
+   123	                    prim_path="{ENV_REGEX_NS}/Robot/panda_hand",
+   124	                    name="end_effector",
+   125	                    offset=OffsetCfg(pos=[0.0, 0.0, 0.1034]),
+   126	                ),
+   127	            ],
+   128	        )
+   129	    elif robot == "piper":
+   130	        return FrameTransformerCfg(
+   131	            prim_path="{ENV_REGEX_NS}/Robot/base_link",
+   132	            debug_vis=False,
+   133	            visualizer_cfg=marker_cfg,
+   134	            target_frames=[
+   135	                FrameTransformerCfg.FrameCfg(
+   136	                    prim_path="{ENV_REGEX_NS}/Robot/gripper_base",
+   137	                    name="end_effector",
+   138	                    offset=OffsetCfg(pos=[0.0, 0.0, 0.1334]),
+   139	                ),
+   140	            ],
+   141	        )
+   142	    else:
+   143	        raise ValueError("Unknown robot: %s" % robot)
+   144	
+   145	
+   146	def get_wrist_camera_cfg(robot: str) -> dict:
+   147	    if robot == "franka":
+   148	        prim_path = "/Robot/panda_hand/WristCamera"
+   149	    elif robot == "piper":
+   150	        prim_path = "/Robot/gripper_base/WristCamera"
+   151	    else:
+   152	        raise ValueError("Unknown robot: %s" % robot)
+   153	
+   154	    return {
+   155	        "prim_path": prim_path,
+   156	        "pos": [0.065, 0.0, 0.0],
+   157	        "quat": [0, 0.7071068, 0.7071068, 0],
+   158	        "convention": "opengl",
+   159	    }
+   160	
+   161	
+   162	def get_robot_name(usd_path: str) -> str:
+   163	    if usd_path.endswith("panda_instanceable.usd"):
+   164	        return "franka"
+   165	    elif usd_path.endswith("piper.usd"):
+   166	        return "piper"
+   167	    else:
+   168	        raise ValueError("Unknown robot name: %s" % usd_path)
+
+### FILE: simulations/configs/scene_cfg.py
+     1	# -*- coding: utf-8 -*-
+     2	#
+     3	# @File:   scene_cfg.py
+     4	# @Author: Haozhe Xie
+     5	# @Date:   2025-03-23 12:28:24
+     6	# @Last Modified by: Haozhe Xie
+     7	# @Last Modified at: 2025-10-04 23:29:24
+     8	# @Email:  root@haozhexie.com
+     9	
+    10	import logging
+    11	from dataclasses import MISSING
+    12	
+    13	import isaaclab.sim as sim_utils
+    14	import numpy as np
+    15	import omni.usd
+    16	import pxr
+    17	import scipy.spatial.transform
+    18	from isaaclab.assets import (
+    19	    ArticulationCfg,
+    20	    AssetBaseCfg,
+    21	    DeformableObjectCfg,
+    22	    RigidObjectCfg,
+    23	)
+    24	from isaaclab.scene import InteractiveSceneCfg
+    25	from isaaclab.sensors import CameraCfg
+    26	from isaaclab.sensors.frame_transformer.frame_transformer_cfg import FrameTransformerCfg
+    27	from isaaclab.sim.spawners.from_files.from_files_cfg import GroundPlaneCfg, UsdFileCfg
+    28	from isaaclab.utils import configclass
+    29	
+    30	
+    31	@configclass
+    32	class SceneCfg(InteractiveSceneCfg):
+    33	    """Configuration for the lift scene with a robot and a object.
+    34	    This is the abstract base implementation, the exact scene is defined in the derived classes
+    35	    which need to set the target object, robot and end-effector frames
+    36	    """
+    37	
+    38	    # robots: will be populated by agent env cfg
+    39	    robot: ArticulationCfg = MISSING
+    40	    # end-effector sensor: will be populated by agent env cfg
+    41	    ee_frame: FrameTransformerCfg = MISSING
+    42	    # target object: placeholder. Can be replaced by calling `set_target_object`
+    43	    # more objects can be added to the scene by calling `add_object`
+    44	    object: RigidObjectCfg | DeformableObjectCfg = MISSING
+    45	
+    46	    # Default house asset (as background): will be populated by agent env cfg
+    47	    house: AssetBaseCfg = MISSING
+    48	
+    49	    # Default lightings
+    50	    dome_light: AssetBaseCfg = AssetBaseCfg(
+    51	        prim_path="/World/DomeLight",
+    52	        spawn=sim_utils.DomeLightCfg(
+    53	            enable_color_temperature=True,
+    54	            color_temperature=6500,
+    55	            intensity=350,
+    56	        ),
+    57	    )
+    58	    distant_light: AssetBaseCfg = MISSING
+    59	
+    60	    # Default ground plane assets
+    61	    ground: AssetBaseCfg = AssetBaseCfg(
+    62	        prim_path="/World/GroundPlane",
+    63	        init_state=AssetBaseCfg.InitialStateCfg(pos=[0, 0, -0.1]),
+    64	        spawn=GroundPlaneCfg(visible=False, color=(0.0, 0.0, 0.0)),
+    65	    )
+    66	
+    67	
+    68	def get_camera_cfg(cam_cfg: dict, cam_extra_cfg: dict = {}) -> SceneCfg:
+    69	    for k, v in cam_extra_cfg.items():
+    70	        cam_cfg[k] = v
+    71	
+    72	    # Set default values
+    73	    if "pos" not in cam_cfg:
+    74	        cam_cfg["pos"] = [0, 0, 0]
+    75	    if "quat" not in cam_cfg:
+    76	        cam_cfg["quat"] = [1, 0, 0, 0]
+    77	    if "convention" not in cam_cfg:
+    78	        cam_cfg["convention"] = "ros"
+    79	
+    80	    camera_cfg = CameraCfg(
+    81	        prim_path="{ENV_REGEX_NS}" + cam_cfg["prim_path"],
+    82	        update_period=1 / cam_cfg["fps"],
+    83	        height=cam_cfg["height"],
+    84	        width=cam_cfg["width"],
+    85	        data_types=cam_cfg["data_types"],
+    86	        spawn=sim_utils.PinholeCameraCfg(
+    87	            focal_length=cam_cfg["focal_length"],
+    88	            focus_distance=cam_cfg["focus_distance"],
+    89	            horizontal_aperture=cam_cfg["horizontal_aperture"],
+    90	            clipping_range=(cam_cfg["clip"]["near"], cam_cfg["clip"]["far"]),
+    91	        ),
+    92	        offset=CameraCfg.OffsetCfg(
+    93	            pos=cam_cfg["pos"], rot=cam_cfg["quat"], convention=cam_cfg["convention"]
+    94	        ),
+    95	    )
+    96	    return camera_cfg
+    97	
+    98	
+    99	def add_scene_camera(
+   100	    scene_cfg: SceneCfg, cam_name: str, cam_cfg: CameraCfg
+   101	) -> SceneCfg:
+   102	    scene_cfg.__setattr__(cam_name, cam_cfg)
+   103	    return scene_cfg
+   104	
+   105	
+   106	def set_light_asset(
+   107	    scene_cfg: SceneCfg,
+   108	    position: list = [0.0, 0.0, 0.0],
+   109	    temperature: int = 6500,
+   110	    intensity: float = 1000,
+   111	) -> SceneCfg:
+   112	    quat = get_quat_from_look_at(position, [0.0, 0.0, 0.0])
+   113	
+   114	    scene_cfg.distant_light = AssetBaseCfg(
+   115	        prim_path="/World/DistantLight",
+   116	        init_state=AssetBaseCfg.InitialStateCfg(pos=position, rot=quat),
+   117	        spawn=sim_utils.DistantLightCfg(
+   118	            enable_color_temperature=True,
+   119	            color_temperature=temperature,
+   120	            intensity=intensity,
+   121	        ),
+   122	    )
+   123	    return scene_cfg
+   124	
+   125	
+   126	def get_quat_from_look_at(cam_pos, cam_look_at):
+   127	    fwd_vec = np.array(
+   128	        [
+   129	            cam_look_at[0] - cam_pos[0],
+   130	            cam_look_at[1] - cam_pos[1],
+   131	            cam_look_at[2] - cam_pos[2],
+   132	        ]
+   133	    )
+   134	    fwd_vec /= np.linalg.norm(fwd_vec)
+   135	    up_vec = np.array([0, 0, 1])
+   136	    right_vec = np.cross(up_vec, fwd_vec)
+   137	    right_vec /= np.linalg.norm(right_vec)
+   138	    up_vec = np.cross(fwd_vec, right_vec)
+   139	    R = np.stack([fwd_vec, right_vec, up_vec], axis=1)
+   140	    quat = scipy.spatial.transform.Rotation.from_matrix(R).as_quat()
+   141	    return [quat[3], quat[0], quat[1], quat[2]]
+   142	
+   143	
+   144	def add_object(
+   145	    scene_cfg: SceneCfg,
+   146	    object_name: str,
+   147	    object_cfg: RigidObjectCfg | DeformableObjectCfg,
+   148	) -> SceneCfg:
+   149	    scene_cfg.__setattr__(object_name, object_cfg)
+   150	    return scene_cfg
+   151	
+   152	
+   153	def set_target_object(
+   154	    scene_cfg: SceneCfg, object_cfg: RigidObjectCfg | DeformableObjectCfg
+   155	) -> SceneCfg:
+   156	    scene_cfg.object = object_cfg
+   157	    return scene_cfg
+   158	
+   159	
+   160	def set_house_asset(
+   161	    scene_cfg: SceneCfg, scene_asset_usd_file: str, scene_offset: list = [0, 0, 0]
+   162	) -> SceneCfg:
+   163	    scene_cfg.house = AssetBaseCfg(
+   164	        prim_path="{ENV_REGEX_NS}/House",
+   165	        init_state=AssetBaseCfg.InitialStateCfg(
+   166	            pos=scene_offset, rot=[0.7071068, 0.7071068, 0, 0]
+   167	        ),
+   168	        spawn=UsdFileCfg(usd_path=scene_asset_usd_file),
+   169	    )
+   170	    return scene_cfg
+   171	
+   172	
+   173	def get_table_assets(scene_asset_usd_file: str, cameras: list[dict]) -> list:
+   174	    TABLE_ASSET_KEYWORD = "Table"
+   175	    TABLE_ASSET_GRP_NAME = "/house/furniture"
+   176	    WALL_ASSET_GRP_NAME = "/house/structure"
+   177	
+   178	    usd_context = omni.usd.get_context()
+   179	    # Make current stage as the temporary stage to get the table assets
+   180	    usd_context.open_stage(scene_asset_usd_file)
+   181	    stage = usd_context.get_stage()
+   182	    # Set z-axis as the up axis
+   183	    default_prim = stage.GetDefaultPrim()
+   184	    xform = pxr.UsdGeom.Xformable(default_prim)
+   185	    xform.AddOrientOp().Set(pxr.Gf.Quatf(0.7071068, 0.7071068, 0, 0))
+   186	    # Get the table assets
+   187	    tables = []
+   188	    bbox_cache = pxr.UsdGeom.BBoxCache(
+   189	        pxr.Usd.TimeCode.Default(), [pxr.UsdGeom.Tokens.default_]
+   190	    )
+   191	    structure_primtives = stage.GetPrimAtPath(WALL_ASSET_GRP_NAME).GetChildren()
+   192	    furniture_primtives = stage.GetPrimAtPath(TABLE_ASSET_GRP_NAME).GetChildren()
+   193	    for prim in furniture_primtives:
+   194	        # There may be some assets on the table top
+   195	        if TABLE_ASSET_KEYWORD in prim.GetName() and prim.HasAttribute("height"):
+   196	            bbox = bbox_cache.ComputeWorldBound(prim).ComputeAlignedBox()
+   197	            # Check whether the table contains at least one anchor point for long sides
+   198	            table_height = prim.GetAttribute("height").Get()
+   199	            table_anchors = _get_table_anchors(bbox, bbox.GetSize(), table_height)
+   200	            table_anchors = _get_uncollided_anchors(
+   201	                prim.GetName(),
+   202	                table_anchors,
+   203	                cameras,
+   204	                [fp for fp in furniture_primtives if fp != prim] + structure_primtives,
+   205	                bbox_cache,
+   206	            )
+   207	            long_side_anchors = [a for a in table_anchors if a["side"] == "long"]
+   208	            if len(long_side_anchors) > 0:
+   209	                bbox.SetMax(
+   210	                    pxr.Gf.Vec3d(bbox.max[0], bbox.max[1], table_height)
+   211	                )  # Replace table height values in bbox
+   212	                tables.append(
+   213	                    {"name": prim.GetName(), "anchors": table_anchors, "bbox": bbox}
+   214	                )
+   215	
+   216	    # Create a new stage for the subsequent simulations
+   217	    usd_context.new_stage()
+   218	    return tables
+   219	
+   220	
+   221	def _get_table_anchors(bbox: pxr.Gf.BBox3d, size: pxr.Gf.Vec3d, height: float) -> dict:
+   222	    # NOTE: The corner points (0-3) and anchor points (A-D) of the table are defined as:
+   223	    #   0   A   1
+   224	    #   +-------+
+   225	    # D |       | B
+   226	    #   +-------+
+   227	    #   3   C   2
+   228	    _get_mid_point = lambda pt1, pt2: [(pt1[0] + pt2[0]) / 2, (pt1[1] + pt2[1]) / 2]
+   229	
+   230	    # z is replaced by the height of the table (generated in create_scene_collision.py)
+   231	    # z = max(bbox.min[2], bbox.max[2])
+   232	    corners = [
+   233	        (bbox.min[0], bbox.min[1]),
+   234	        (bbox.max[0], bbox.min[1]),
+   235	        (bbox.max[0], bbox.max[1]),
+   236	        (bbox.min[0], bbox.max[1]),
+   237	    ]
+   238	    anchors = [
+   239	        {
+   240	            "pos": np.array(_get_mid_point(corners[0], corners[1]) + [height]),
+   241	            "quat": np.array([0.7071068, 0, 0, 0.7071068]),
+   242	            "side": "long" if size[0] > size[1] else "short",
+   243	            "collision": False,
+   244	        },
+   245	        {
+   246	            "pos": np.array(_get_mid_point(corners[1], corners[2]) + [height]),
+   247	            "quat": np.array([0, 0, 0, 1]),
+   248	            "side": "short" if size[0] > size[1] else "long",
+   249	            "collision": False,
+   250	        },
+   251	        {
+   252	            "pos": np.array(_get_mid_point(corners[2], corners[3]) + [height]),
+   253	            "quat": np.array([-0.7071068, 0, 0, 0.7071068]),
+   254	            "side": "long" if size[0] > size[1] else "short",
+   255	            "collision": False,
+   256	        },
+   257	        {
+   258	            "pos": np.array(_get_mid_point(corners[3], corners[0]) + [height]),
+   259	            "quat": np.array([1, 0, 0, 0]),
+   260	            "side": "short" if size[0] > size[1] else "long",
+
+### FILE: simulations/configs/termination_cfg.py
+     1	# -*- coding: utf-8 -*-
+     2	#
+     3	# @File:   termination_cfg.py
+     4	# @Author: Haozhe Xie
+     5	# @Date:   2025-09-26 10:24:59
+     6	# @Last Modified by: Haozhe Xie
+     7	# @Last Modified at: 2025-12-11 06:53:23
+     8	# @Email:  root@haozhexie.com
+     9	
+    10	from typing import Dict
+    11	
+    12	import torch
+    13	from isaaclab.envs import ManagerBasedRLEnv
+    14	from isaaclab.managers import SceneEntityCfg, TerminationTermCfg
+    15	from isaaclab.utils import configclass
+    16	from isaaclab_tasks.manager_based.manipulation.lift import mdp
+    17	
+    18	from simulations import helpers
+    19	
+    20	
+    21	def is_object_picked(
+    22	    env: ManagerBasedRLEnv,
+    23	    goal_position: torch.Tensor,
+    24	    tolerance: float,
+    25	    objects: list[str] = ["object"],
+    26	    ee_frame_cfg: SceneEntityCfg = SceneEntityCfg("ee_frame"),
+    27	    robot_cfg: SceneEntityCfg = SceneEntityCfg("robot"),
+    28	) -> torch.Tensor:
+    29	    assert len(objects) == 1, "Only single object picking is supported."
+    30	    object = env.scene[objects[0]]
+    31	    ee_frame = env.scene[ee_frame_cfg.name]
+    32	    robot = env.scene[robot_cfg.name]
+    33	
+    34	    object_position_w = object.data.root_pos_w
+    35	    eef_position_w = ee_frame.data.target_pos_w[..., 0, :]
+    36	
+    37	    object_eef_dist = torch.norm(eef_position_w - object_position_w, dim=1)
+    38	    goal_position_r = goal_position.to(device=robot.data.root_pos_w.device)
+    39	    eef_position_r = helpers.get_robot_relative_position(
+    40	        ee_frame.data.target_pos_w[..., 0, :] - robot.data.root_pos_w,
+    41	        robot.data.root_quat_w,
+    42	    )
+    43	    eef_goal_dist = torch.norm(goal_position_r - eef_position_r, dim=1)
+    44	    return object_eef_dist < tolerance and eef_goal_dist < tolerance
+    45	
+    46	
+    47	def are_objects_placed(
+    48	    env: ManagerBasedRLEnv,
+    49	    goal_position: torch.Tensor,
+    50	    objects: list[str],
+    51	    object_sizes: Dict[str, torch.Tensor],
+    52	    container_size: torch.Tensor,
+    53	    tolerance: float,
+    54	    container_cfg: SceneEntityCfg = SceneEntityCfg("container"),
+    55	    ee_frame_cfg: SceneEntityCfg = SceneEntityCfg("ee_frame"),
+    56	    robot_cfg: SceneEntityCfg = SceneEntityCfg("robot"),
+    57	) -> torch.Tensor:
+    58	    objects_placed = torch.ones(env.num_envs, dtype=torch.bool, device=env.device)
+    59	    container = env.scene[container_cfg.name]
+    60	    ee_frame = env.scene[ee_frame_cfg.name]
+    61	    robot = env.scene[robot_cfg.name]
+    62	    env_origins = robot.data.root_pos_w
+    63	    robot_quat = robot.data.root_quat_w
+    64	    container_position = helpers.get_robot_relative_position(
+    65	        container.data.root_pos_w - env_origins, robot_quat
+    66	    )
+    67	    containier_size = helpers.get_object_relative_bbox(
+    68	        container_size, container.data.root_quat_w, robot_quat
+    69	    )
+    70	    for obj in objects:
+    71	        object = env.scene[obj]
+    72	        object_position = helpers.get_robot_relative_position(
+    73	            object.data.root_pos_w - env_origins, robot_quat
+    74	        )
+    75	        object_size = helpers.get_object_relative_bbox(
+    76	            object_sizes[obj], object.data.root_quat_w, robot_quat
+    77	        )
+    78	        objects_placed = torch.logical_and(
+    79	            objects_placed,
+    80	            helpers.is_object_placed(
+    81	                object_position,
+    82	                object_size,
+    83	                container_position,
+    84	                containier_size,
+    85	            ),
+    86	        )
+    87	
+    88	    goal_position_r = goal_position.to(device=env_origins.device)
+    89	    eef_position_r = helpers.get_robot_relative_position(
+    90	        ee_frame.data.target_pos_w[..., 0, :] - env_origins, robot_quat
+    91	    )
+    92	    eef_goal_dist = torch.norm(goal_position_r - eef_position_r, dim=1)
+    93	    return torch.logical_and(objects_placed, eef_goal_dist < tolerance)
+    94	
+    95	
+    96	def are_objects_dropped(
+    97	    env: ManagerBasedRLEnv,
+    98	    minimum_height: float,
+    99	    objects: list[str],
+   100	) -> torch.Tensor:
+   101	    object_dropped = torch.zeros(env.num_envs, dtype=torch.bool, device=env.device)
+   102	    for obj in objects:
+   103	        _dropped = mdp.root_height_below_minimum(
+   104	            env, minimum_height, SceneEntityCfg(obj)
+   105	        )
+   106	        object_dropped = torch.logical_or(object_dropped, _dropped)
+   107	
+   108	    return object_dropped
+   109	
+   110	
+   111	def are_objects_unreachable(
+   112	    env: ManagerBasedRLEnv,
+   113	    max_reach_dist: float,
+   114	    objects: list[str],
+   115	    robot_cfg: SceneEntityCfg = SceneEntityCfg("robot"),
+   116	) -> torch.Tensor:
+   117	    object_unreachable = torch.zeros(env.num_envs, dtype=torch.bool, device=env.device)
+   118	    robot = env.scene[robot_cfg.name]
+   119	    env_origins = robot.data.root_pos_w
+   120	    robot_quat = robot.data.root_quat_w
+   121	    for obj in objects:
+   122	        object = env.scene[obj]
+   123	        object_position = helpers.get_robot_relative_position(
+   124	            object.data.root_pos_w - env_origins, robot_quat
+   125	        )
+   126	        obj_dist = torch.norm(object_position)
+   127	        object_unreachable = torch.logical_or(
+   128	            object_unreachable, obj_dist > max_reach_dist
+   129	        )
+   130	
+   131	    return object_unreachable
+   132	
+   133	
+   134	def get_done_term(terms: list[str]) -> str | None:
+   135	    DONE_TERMS = ["object_picked", "objects_placed"]
+   136	
+   137	    for term in DONE_TERMS:
+   138	        if term in terms:
+   139	            return term
+   140	
+   141	    return None
+   142	
+   143	
+   144	@configclass
+   145	class TerminationsCfg:
+   146	    """Termination terms for the MDP."""
+   147	
+   148	    time_out = TerminationTermCfg(func=mdp.time_out, time_out=True)
+   149	    object_dropping = TerminationTermCfg(
+   150	        func=are_objects_dropped,
+   151	        params={
+   152	            "minimum_height": 0.1,
+   153	            "objects": ["object"],
+   154	        },
+   155	        time_out=True,
+   156	    )
+   157	    # object_unreachable = TerminationTermCfg(
+   158	    #     func=are_objects_unreachable,
+   159	    #     params={
+   160	    #         "max_reach_dist": 0,
+   161	    #         "objects": ["object"],
+   162	    #     },
+   163	    #     time_out=True,
+   164	    # )
+   165	
+   166	
+   167	@configclass
+   168	class PickTerminationsCfg(TerminationsCfg):
+   169	    """Termination terms for the Pick task."""
+   170	
+   171	    object_picked = TerminationTermCfg(
+   172	        func=is_object_picked,
+   173	        params={"goal_position": None, "tolerance": 0.015},
+   174	        time_out=False,
+   175	    )
+   176	
+   177	
+   178	@configclass
+   179	class PlaceTerminationsCfg(TerminationsCfg):
+   180	    """Termination terms for the Pick task."""
+   181	
+   182	    objects_placed = TerminationTermCfg(
+   183	        func=are_objects_placed,
+   184	        params={
+   185	            "goal_position": None,
+   186	            "objects": None,
+   187	            "object_sizes": None,
+   188	            "container_size": None,
+   189	            "tolerance": 0.015,
+   190	        },
+   191	        time_out=False,
+   192	    )
+   193	    container_dropping = TerminationTermCfg(
+   194	        func=mdp.root_height_below_minimum,
+   195	        params={
+   196	            "minimum_height": 0.1,
+   197	            "asset_cfg": SceneEntityCfg("container"),
+   198	        },
+   199	        time_out=True,
+   200	    )
+   201	
+   202	
+   203	def get_termination_cfg(task: str, args: dict = {}) -> TerminationsCfg:
+   204	    done_term = None
+   205	    if task == "pick":
+   206	        cfg = PickTerminationsCfg()
+   207	        done_term = cfg.object_picked
+   208	    elif task in ["place", "long-horizon"]:
+   209	        cfg = PlaceTerminationsCfg()
+   210	        done_term = cfg.objects_placed
+   211	    else:
+   212	        cfg = TerminationsCfg()
+   213	
+   214	    for k, v in args.items():
+   215	        if k in cfg.object_dropping.params:
+   216	            cfg.object_dropping.params[k] = v
+   217	        # if k in cfg.object_unreachable.params:
+   218	        #     cfg.object_unreachable.params[k] = v
+   219	
+   220	    # Update the parameters of the done term
+   221	    if done_term is not None:
+   222	        for k, v in args.items():
+   223	            if k in done_term.params:
+   224	                done_term.params[k] = v
+   225	
+   226	    return cfg
+
+### FILE: simulations/configs/sim_cfg.yaml
+     1	scene:
+     2	  cameras: # Configure camera position and pose
+     3	    - name: "opst_cam"
+     4	      position: [1, 0, 0.6]
+     5	      rotation: [0, 60, 90]
+     6	      prim_path: "/Robot/OppositeCamera"
+     7	    - name: "side_cam"
+     8	      position: [0.5, 1, 0.35]
+     9	      rotation: [-90, 0, 180]
+    10	      prim_path: "/Robot/SideCamera"
+    11	  objects: # Configure object
+    12	    n_objects: 1 # number of objects in simulation
+    13	    mass: 0.05 # mass of object
+    14	    prob_rnd_quat: 0.85 # probability of object having random orientation. Otherwise it will have default orientation.
+    15	    prob_static: 0.5 # probability of object being static. Otherwise it will be moving.
+    16	    moving_speed: [0.15, 0.75] # range of speed for moving objects, generated uniformly random
+    17	    # moving_speed: [0.05, 0.25]
+    18	    friction: [0.5, 1.5] # range of friction for objects, generated uniformly random
+    19	    perturbation: # configure perturbation for objects. Delete this if you don't intend to introduce perturbation for objects.
+    20	      # force: [0.001, 0.005]
+    21	      # torque: [0.0005, 0.0025]
+    22	    tag_thresholds: # configure thresholds for tag generation. If the value difference between two objects is less than the threshold, the value is considered same, thus also the rank.
+    23	      height: 0.1
+    24	      area: 0.1
+    25	      volume: 0.1
+    26	      position_from_left: 0.1
+    27	      position_from_bottom: 0.1
+    28	      distance_from_robot: 0.3
+    29	      velocity: 0.2
+    30	    categories: # configure available categories of objects. All objects are randomly selected from available items whose category is in this list. Must exist in the objects directory.
+    31	      - apple
+    32	      - avocado
+    33	      - beer
+    34	      - bottle
+    35	      - can
+    36	      - cup
+    37	      - egg
+    38	      - kiwi
+    39	      - lemon
+    40	      - lime
+    41	      - onion
+    42	      - orange
+    43	      - peach
+    44	      - potato
+    45	      - tangerine
+    46	      - tomato
+    47	      # - unseen
+    48	  containers: # Configure containers
+    49	    n_containers: 1 # number of containers
+    50	    mass: 0.1 # mass of container
+    51	    categories: # configure available categories of containers. Must exist in the objects directory.
+    52	      - bowl
+    53	      - box
+    54	      - plate
+    55	      - placemat
+    56	      - tray
+    57	
+    58	camera:
+    59	  width: 480
+    60	  height: 360
+    61	  fps: 25
+    62	  focal_length: 2.3
+    63	  focus_distance: 400
+    64	  horizontal_aperture: 4.6
+    65	  clip:
+    66	    near: 0.01
+    67	    far: 10000
+    68	  data_types:
+    69	    - rgb
+    70	    - semantic_segmentation
+    71	    # - depth
+    72	
+    73	lighting:  # lighting configuration, config for each scene is selected randomly in the respective range.
+    74	  temperature: [4000, 8000]
+    75	  intensity: [150, 750]
+    76	  position:
+    77	    x: [-50, 50]
+    78	    y: [-50, 50]
+    79	    z: [10, 20]
+    80	
+    81	tasks: # configure task behaviour
+    82	  pick:
+    83	    sm: "state_machines.pick_sm.PickStateMachine" # selects the state machine to run when generating scenes executing the respective task
+    84	    episode_length: 10 # max episode length, terminating with failure if exceeded
+    85	  place:
+    86	    sm: "state_machines.place_sm.PlaceStateMachine"
+    87	    episode_length: 12
+    88	  long-horizon:
+    89	    sm: "state_machines.place_sm.PlaceStateMachine"
+    90	    episode_length: 20
+    91	
+    92	robots: # configure robots in simulation
+    93	  franka:
+    94	    init_pose: [0.465906, 0.0, 0.382970, 0.008583, 0.921765, 0.020404, 0.387116]
+    95	    final_pose: [0.3, 0, 0.3, -1, 0, 0, 0]
+    96	    gripper_length: 0.045
+    97	    max_reach_dist: 0.75
+    98	  piper:
+    99	    init_pose: [0.373, 0.0, 0.271, 0.0, 0.9739, 0.0, 0.227]
+   100	    final_pose: [0.373, 0.0, 0.271, -1, 0, 0, 0]
+   101	    gripper_length: 0.09
+   102	    max_reach_dist: 0.55

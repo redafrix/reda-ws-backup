@@ -1,0 +1,26 @@
+Activated AsyncVLA Bob SimVLA env
+  PYTHON_BIN=/usr/bin/python3
+  SIMVLA_SITE_PACKAGES=/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages
+  REDA_WS=/media/rootalkhatib/My Passport/reda_ws
+  LIBERO_CONFIG_PATH=/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/config/libero
+Python 3.10.12
+Testing SimVLA-only evaluator with dummy predictions...
+Evaluating on 250 SimVLA candidates...
+
+--- Perfect Prediction Dummy ---
+pearson: 1.0
+spearman: 0.9999999999999998
+auroc: 1.0
+pairwise_acc: 1.0
+best_seed: {'predicted_best': np.float64(1.4491374170780182), 'seed0': np.float64(1.5280561125278473), 'random': np.float64(1.5098998937606811), 'oracle_best': np.float64(1.4491374170780182), 'gap_to_oracle': np.float64(0.0), 'improvement_over_seed0': np.float64(0.0789186954498291)}
+risk_coverage: {0.1: np.float64(0.3530481505393982), 0.25: np.float64(0.5843330573651099), 0.5: np.float64(0.9584817171096802), 0.75: np.float64(1.2532591577519707), 1.0: np.float64(1.5098998937606811)}
+switch_proxy: {0.1: {'accepted_mean': np.float64(1.390042249891493), 'rejected_mean': np.float64(2.588618688583374), 'acceptance_rate': 0.9}, 0.25: {'accepted_mean': np.float64(1.2532591577519707), 'rejected_mean': np.float64(2.2716747768341548), 'acceptance_rate': 0.75}, 0.5: {'accepted_mean': np.float64(0.9584817171096802), 'rejected_mean': np.float64(2.0613180704116822), 'acceptance_rate': 0.5}, 0.75: {'accepted_mean': np.float64(0.5843330573651099), 'rejected_mean': np.float64(1.815140020657093), 'acceptance_rate': 0.25}}
+
+--- Random Prediction Dummy ---
+pearson: 0.04871928287878838
+spearman: 0.05138117409878557
+auroc: 0.52
+pairwise_acc: 0.448
+best_seed: {'predicted_best': np.float64(1.5104452204704284), 'seed0': np.float64(1.5280561125278473), 'random': np.float64(1.5098998937606811), 'oracle_best': np.float64(1.4491374170780182), 'gap_to_oracle': np.float64(0.061307803392410154), 'improvement_over_seed0': np.float64(0.017610892057418948)}
+risk_coverage: {0.1: np.float64(1.5353981828689576), 0.25: np.float64(1.492614883568979), 0.5: np.float64(1.4874600188732148), 0.75: np.float64(1.5054178669809657), 1.0: np.float64(1.5098998937606811)}
+switch_proxy: {0.1: {'accepted_mean': np.float64(1.4964275330967374), 'rejected_mean': np.float64(1.6311511397361755), 'acceptance_rate': 0.9}, 0.25: {'accepted_mean': np.float64(1.5054178669809657), 'rejected_mean': np.float64(1.5232036875353918), 'acceptance_rate': 0.75}, 0.5: {'accepted_mean': np.float64(1.4874600188732148), 'rejected_mean': np.float64(1.5323397686481477), 'acceptance_rate': 0.5}, 0.75: {'accepted_mean': np.float64(1.492614883568979), 'rejected_mean': np.float64(1.5156002694622), 'acceptance_rate': 0.25}}

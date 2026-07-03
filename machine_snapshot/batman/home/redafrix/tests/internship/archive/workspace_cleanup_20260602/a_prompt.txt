@@ -1,0 +1,198 @@
+You are continuing the same Stage 9 / FIPER Gemini session.
+
+Work only on Sam. Ignore Bob for now.
+
+Do NOT start data collection.
+Do NOT use official LIBERO data.
+Do NOT run Bob.
+
+Goal:
+Run the first strict OOD stress test on Sam using the prepared split refs.
+
+Choose OOD TASK first:
+
+```text
+experiments/prepared_20260526/01_ood_task_8_9/
+```
+
+Meaning:
+- Train/calib only on seen task IDs.
+- Task IDs 8 and 9 must be excluded from train and calibration.
+- Evaluate on seen success, OOD task success, seen failures, OOD task failures.
+
+Workspace:
+
+```bash
+cd /home/rootalkhatib/test/reda_ws/fiper_ws
+source ../asynchvla_ws/scripts/activate_simvla_sam.sh
+```
+
+============================================================
+0. PREFLIGHT
+============================================================
+
+Verify refs exist under:
+
+```text
+experiments/prepared_20260526/01_ood_task_8_9/datasets/refs/
+```
+
+Expected:
+
+```text
+success_train_seen.rows.jsonl
+success_calib_seen.rows.jsonl
+success_test_seen.rows.jsonl
+success_test_ood.rows.jsonl
+failure_eval_seen.rows.jsonl
+failure_eval_ood.rows.jsonl
+failure_eval_ood_late.rows.jsonl
+failure_eval_ood_near_end.rows.jsonl
+```
+
+Verify:
+- train/calib contain only success rows
+- train/calib contain no task_id 8 or 9
+- OOD success/failure refs contain only task_id 8 or 9
+- `libero_10_with_milk` task 3 and task 4 are absent
+
+If this fails, stop and report.
+
+============================================================
+1. PATCH/GENERALIZE SCRIPT IF NEEDED
+============================================================
+
+Current script:
+
+```text
+scripts/run_receding_only_fiper_train_eval.py
+```
+
+Patch it only if needed so it can accept:
+
+```text
+--refs-dir experiments/prepared_20260526/01_ood_task_8_9/datasets/refs
+--split-prefix-mode ood_task
+```
+
+or any clean equivalent.
+
+It must support these split names:
+
+```text
+success_train_seen
+success_calib_seen
+success_test_seen
+success_test_ood
+failure_eval_seen
+failure_eval_ood
+failure_eval_ood_late
+failure_eval_ood_near_end
+```
+
+RND train split:
+
+```text
+success_train_seen
+```
+
+RND/ACE calibration split:
+
+```text
+success_calib_seen
+```
+
+Main eval splits:
+
+```text
+success_test_seen
+success_test_ood
+failure_eval_seen
+failure_eval_ood
+failure_eval_ood_late
+failure_eval_ood_near_end
+```
+
+============================================================
+2. RUN OOD TASK TRAIN/EVAL ON SAM
+============================================================
+
+Create experiment:
+
+```text
+experiments/fiper_ood_task_8_9_v1_20260526/
+```
+
+Run:
+
+```bash
+python3 -m py_compile scripts/run_receding_only_fiper_train_eval.py
+python3 scripts/run_receding_only_fiper_train_eval.py \
+  --experiment-dir experiments/fiper_ood_task_8_9_v1_20260526 \
+  --refs-dir experiments/prepared_20260526/01_ood_task_8_9/datasets/refs \
+  --train-split success_train_seen \
+  --calib-split success_calib_seen \
+  --success-eval-splits success_test_seen success_test_ood \
+  --failure-eval-splits failure_eval_seen failure_eval_ood failure_eval_ood_late failure_eval_ood_near_end \
+  --device cuda \
+  --epochs 20 \
+  --batch-size 256 \
+  --seed 42 2>&1 | tee experiments/fiper_ood_task_8_9_v1_20260526/logs/train_eval.log
+```
+
+If the current script CLI differs, adapt cleanly, but keep the same semantics.
+
+============================================================
+3. REPORT
+============================================================
+
+Write:
+
+```text
+experiments/fiper_ood_task_8_9_v1_20260526/reports/FIPER_OOD_TASK_8_9_V1_REPORT.md
+```
+
+Report must include:
+
+1. Train/calib/eval row and episode counts.
+2. Proof task IDs 8/9 were excluded from train/calib.
+3. RND and ACE thresholds q90/q95/q99.
+4. Success false alarm:
+   - seen success
+   - OOD task success
+5. Failure detection:
+   - seen failures
+   - OOD task failures
+   - OOD task late failures
+   - OOD task near-end failures
+6. Early detection for OOD task failures:
+   - RND q95
+   - ACE q95
+   - OR q95
+   - AND q95
+   - detected first 10%, 25%, 50%
+   - never detected
+7. Debounce check for OR q95:
+   - K=1
+   - K=2
+   - K=3
+8. Compare to global main result:
+   - Did OOD task performance degrade?
+   - Are false alarms too high?
+   - Does early detection still work?
+
+Decision fields:
+
+```text
+OOD_TASK_PIPELINE_WORKS = YES/NO
+OOD_TASK_SUCCESS_FALSE_ALARM_ACCEPTABLE = YES/NO
+OOD_TASK_FAILURE_DETECTION_USEFUL = YES/NO
+OOD_TASK_EARLY_DETECTION_USEFUL = YES/NO
+RND_GENERALIZES_TO_TASK_8_9 = YES/NO
+ACE_GENERALIZES_TO_TASK_8_9 = YES/NO
+COMBINED_OR_GENERALIZES_TO_TASK_8_9 = YES/NO
+READY_FOR_OOD_PERTURBATION_TESTS = YES/NO
+```
+
+At the end, print the full report.
+

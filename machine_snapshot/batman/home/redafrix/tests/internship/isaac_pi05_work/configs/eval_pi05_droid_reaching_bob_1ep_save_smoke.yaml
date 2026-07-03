@@ -1,0 +1,18 @@
+collection_config: configs/collect_reaching_episodes.yaml
+output_dir: data/raw/pi05_droid_reaching_1ep_save_smoke
+start_episode_id: 0
+num_episodes: 1
+num_envs: 1
+max_steps: 60
+settle_time_s: 1.0
+record_cameras: true
+record_depth: false
+camera_width: 300
+camera_height: 300
+camera_fps: 15
+state_record_fps: 15
+
+pi05:
+  eval_config: configs/eval_pi05_droid_bob.yaml
+
+notes: Short Pi0.5 DROID save-path smoke only; real evaluation configs use collection-length failure limits.

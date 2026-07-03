@@ -1,0 +1,45 @@
+{
+  "suite": "libero_goal_task",
+  "task_count": 10,
+  "task_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "policies": [
+    "pi05_basic_h10"
+  ],
+  "episodes_per_task": 1,
+  "seed_start": 77801,
+  "seed_list": [
+    77801
+  ],
+  "init_state_policy": "init_state_idx = episode_index % len(initial_states); with 100 episodes and 50 LIBERO init states, each init state is used exactly twice.",
+  "max_steps": 300,
+  "risk_model_path": "/media/rootalkhatib/My Passport/reda_ws/pi05_libero_risk_ws_20260623/offline_risk_experiments/pi05_goal_object_h10_risk_20260625/models/model.pt",
+  "risk_thresholds": {
+    "best_val_f1": 0.48000000000000004,
+    "q90": 0.4817194908857345,
+    "q95": 0.7218163013458249,
+    "q99": 0.9586104476451873
+  },
+  "selected_cap_controls": {
+    "policy": "q95_mass_then_configurable_selection",
+    "mass_threshold": 1.0,
+    "selection_main_threshold": 0.7218163013458249,
+    "selection_min_margin": 0.005,
+    "selection_strong_margin": 0.02,
+    "selection_max_selected_score": 0.95,
+    "selection_mode": "selected_cap",
+    "rollout_start": 0
+  },
+  "created_at": "2026-06-25 19:59:21",
+  "smoke": false
+}

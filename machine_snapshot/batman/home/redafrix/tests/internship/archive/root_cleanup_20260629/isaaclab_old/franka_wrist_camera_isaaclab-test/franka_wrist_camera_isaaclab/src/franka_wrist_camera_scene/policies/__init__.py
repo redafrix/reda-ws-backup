@@ -1,0 +1,3 @@
+from .pick_place_scripted import PickPlaceScriptedPolicy
+from .reaching_scripted import ReachingScriptedPolicy
+

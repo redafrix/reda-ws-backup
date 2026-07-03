@@ -1,0 +1,69 @@
+{
+  "description": "Leave-two-target-objects-out benchmark for object-family pick/place-in-basket tasks.",
+  "episodes_used": 1261,
+  "folds": [
+    {
+      "fold_name": "fold_00_holdout_alphabet_soup_bbq_sauce",
+      "heldout_objects": [
+        "alphabet_soup",
+        "bbq_sauce"
+      ],
+      "refs_dir": "experiments/prepared_20260527/08_target_object_pick_basket_loto_v1/fold_00_holdout_alphabet_soup_bbq_sauce/datasets/refs",
+      "status": "READY_STRONG"
+    },
+    {
+      "fold_name": "fold_01_holdout_butter_chocolate_pudding",
+      "heldout_objects": [
+        "butter",
+        "chocolate_pudding"
+      ],
+      "refs_dir": "experiments/prepared_20260527/08_target_object_pick_basket_loto_v1/fold_01_holdout_butter_chocolate_pudding/datasets/refs",
+      "status": "READY_STRONG"
+    },
+    {
+      "fold_name": "fold_02_holdout_cream_cheese_ketchup",
+      "heldout_objects": [
+        "cream_cheese",
+        "ketchup"
+      ],
+      "refs_dir": "experiments/prepared_20260527/08_target_object_pick_basket_loto_v1/fold_02_holdout_cream_cheese_ketchup/datasets/refs",
+      "status": "READY_STRONG"
+    },
+    {
+      "fold_name": "fold_03_holdout_milk_orange_juice",
+      "heldout_objects": [
+        "milk",
+        "orange_juice"
+      ],
+      "refs_dir": "experiments/prepared_20260527/08_target_object_pick_basket_loto_v1/fold_03_holdout_milk_orange_juice/datasets/refs",
+      "status": "READY_STRONG"
+    },
+    {
+      "fold_name": "fold_04_holdout_salad_dressing_tomato_sauce",
+      "heldout_objects": [
+        "salad_dressing",
+        "tomato_sauce"
+      ],
+      "refs_dir": "experiments/prepared_20260527/08_target_object_pick_basket_loto_v1/fold_04_holdout_salad_dressing_tomato_sauce/datasets/refs",
+      "status": "LOW_OOD_FAILURE_SUPPORT"
+    }
+  ],
+  "name": "08_target_object_pick_basket_loto_v1",
+  "object_labels": [
+    "alphabet_soup",
+    "bbq_sauce",
+    "butter",
+    "chocolate_pudding",
+    "cream_cheese",
+    "ketchup",
+    "milk",
+    "orange_juice",
+    "salad_dressing",
+    "tomato_sauce"
+  ],
+  "raw_rows_scanned": 734266,
+  "rows_used": 216018,
+  "skipped": {
+    "non_object_family_suite": 518248
+  }
+}

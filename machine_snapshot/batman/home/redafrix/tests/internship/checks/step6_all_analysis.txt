@@ -1,0 +1,122 @@
+
+=== Rates for Task 3 Aggressive TopK8 ===
+  Total episodes: 100
+  Total queries: 2776
+  Total actual modifications (interventions): 29
+  Modifications per episode: 0.2900
+  Modified query rate: 0.0104 (1.04%)
+  Episodes with at least one modification: 14 / 100 (14.0%)
+
+=== Rates for Task 6 Aggressive TopK8 ===
+  Total episodes: 100
+  Total queries: 1928
+  Total actual modifications (interventions): 443
+  Modifications per episode: 4.4300
+  Modified query rate: 0.2298 (22.98%)
+  Episodes with at least one modification: 94 / 100 (94.0%)
+
+==================== Threshold Grid: Task 3 ====================
+| T | Allowed Interventions | Preserved Int % (Rescues) | Preserved Int % (Regressions) | Rescue Eps Touched | Regress Eps Fully Untouched | Rescue/Regress Sep Quality |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| 0.2000 | 29 | 100.0% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.2500 | 29 | 100.0% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.3000 | 29 | 100.0% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.3500 | 28 | 100.0% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.4000 | 27 | 100.0% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.4500 | 20 | 57.1% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.5000 | 19 | 57.1% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.5500 | 19 | 57.1% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.6000 | 18 | 57.1% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.6155 | 17 | 57.1% | 0.0% | 2 / 2 | 0 / 0 | 2 |
+| 0.6500 | 10 | 14.3% | 0.0% | 1 / 2 | 0 / 0 | 1 |
+| 0.7000 | 6 | 14.3% | 0.0% | 1 / 2 | 0 / 0 | 1 |
+| 0.8000 | 1 | 0.0% | 0.0% | 0 / 2 | 0 / 0 | 0 |
+| 0.9000 | 1 | 0.0% | 0.0% | 0 / 2 | 0 / 0 | 0 |
+
+==================== Threshold Grid: Task 6 ====================
+| T | Allowed Interventions | Preserved Int % (Rescues) | Preserved Int % (Regressions) | Rescue Eps Touched | Regress Eps Fully Untouched | Rescue/Regress Sep Quality |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| 0.2000 | 443 | 100.0% | 100.0% | 19 / 19 | 0 / 14 | 5 |
+| 0.2500 | 443 | 100.0% | 100.0% | 19 / 19 | 0 / 14 | 5 |
+| 0.3000 | 443 | 100.0% | 100.0% | 19 / 19 | 0 / 14 | 5 |
+| 0.3500 | 413 | 92.0% | 98.7% | 19 / 19 | 0 / 14 | 5 |
+| 0.4000 | 377 | 86.4% | 94.7% | 19 / 19 | 0 / 14 | 5 |
+| 0.4500 | 328 | 77.3% | 81.6% | 19 / 19 | 1 / 14 | 6 |
+| 0.5000 | 282 | 63.6% | 72.4% | 19 / 19 | 1 / 14 | 6 |
+| 0.5500 | 211 | 47.7% | 53.9% | 18 / 19 | 1 / 14 | 5 |
+| 0.6000 | 125 | 29.5% | 35.5% | 12 / 19 | 1 / 14 | -1 |
+| 0.6155 | 98 | 20.5% | 26.3% | 10 / 19 | 2 / 14 | -2 |
+| 0.6500 | 54 | 9.1% | 15.8% | 7 / 19 | 6 / 14 | -1 |
+| 0.7000 | 17 | 1.1% | 6.6% | 1 / 19 | 10 / 14 | -3 |
+| 0.8000 | 4 | 0.0% | 3.9% | 0 / 19 | 11 / 14 | -3 |
+| 0.9000 | 3 | 0.0% | 2.6% | 0 / 19 | 12 / 14 | -2 |
+
+==================== Smarter Gates Evaluation (Task 6) ====================
+| Gate | Rescue Queries Preserved | Regress Queries Blocked | Rescue Eps Touched | Regress Eps Untouched | Shared-Succ Preserved/Blocked | Shared-Fail Preserved/Blocked |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| selected_risk <= 0.4 | 22 / 88 (25.0%) | 58 / 76 (76.3%) | 12 / 19 | 7 / 14 | 64 / 122 | 26 / 67 |
+| selected_risk <= 0.5 | 51 / 88 (58.0%) | 33 / 76 (43.4%) | 15 / 19 | 4 / 14 | 109 / 77 | 49 / 44 |
+| selected_risk <= 0.6 | 83 / 88 (94.3%) | 6 / 76 (7.9%) | 19 / 19 | 0 / 14 | 181 / 5 | 88 / 5 |
+| selected_risk <= 0.7 | 88 / 88 (100.0%) | 2 / 76 (2.6%) | 19 / 19 | 0 / 14 | 185 / 1 | 93 / 0 |
+| selected_risk <= 0.8 | 88 / 88 (100.0%) | 2 / 76 (2.6%) | 19 / 19 | 0 / 14 | 185 / 1 | 93 / 0 |
+| risk_reduction >= 0.02 | 88 / 88 (100.0%) | 0 / 76 (0.0%) | 19 / 19 | 0 / 14 | 186 / 0 | 93 / 0 |
+| risk_reduction >= 0.05 | 43 / 88 (48.9%) | 24 / 76 (31.6%) | 16 / 19 | 0 / 14 | 96 / 90 | 49 / 44 |
+| risk_reduction >= 0.08 | 24 / 88 (27.3%) | 50 / 76 (65.8%) | 14 / 19 | 3 / 14 | 54 / 132 | 25 / 68 |
+| risk_reduction >= 0.1 | 13 / 88 (14.8%) | 58 / 76 (76.3%) | 10 / 19 | 5 / 14 | 34 / 152 | 17 / 76 |
+| risk_reduction >= 0.15 | 2 / 88 (2.3%) | 70 / 76 (92.1%) | 2 / 19 | 10 / 14 | 13 / 173 | 8 / 85 |
+| main_risk in 0.3-0.8 | 88 / 88 (100.0%) | 3 / 76 (3.9%) | 19 / 19 | 0 / 14 | 185 / 1 | 93 / 0 |
+| main_risk in 0.4-0.8 | 76 / 88 (86.4%) | 7 / 76 (9.2%) | 19 / 19 | 0 / 14 | 149 / 37 | 79 / 14 |
+| main_risk in 0.5-0.8 | 56 / 88 (63.6%) | 24 / 76 (31.6%) | 19 / 19 | 1 / 14 | 108 / 78 | 62 / 31 |
+| main_risk in 0.3-0.9 | 88 / 88 (100.0%) | 2 / 76 (2.6%) | 19 / 19 | 0 / 14 | 185 / 1 | 93 / 0 |
+| main_risk in 0.4-0.9 | 76 / 88 (86.4%) | 6 / 76 (7.9%) | 19 / 19 | 0 / 14 | 149 / 37 | 79 / 14 |
+| main_risk < 0.95 | 88 / 88 (100.0%) | 2 / 76 (2.6%) | 19 / 19 | 0 / 14 | 185 / 1 | 93 / 0 |
+| query_index >= 1 | 77 / 88 (87.5%) | 8 / 76 (10.5%) | 19 / 19 | 1 / 14 | 167 / 19 | 77 / 16 |
+| query_index >= 2 | 65 / 88 (73.9%) | 15 / 76 (19.7%) | 18 / 19 | 3 / 14 | 147 / 39 | 66 / 27 |
+| query_index >= 3 | 58 / 88 (65.9%) | 21 / 76 (27.6%) | 18 / 19 | 3 / 14 | 128 / 58 | 61 / 32 |
+| risk_lower AND sel <= 0.6 AND red >= 0.05 | 41 / 88 (46.6%) | 29 / 76 (38.2%) | 16 / 19 | 0 / 14 | 92 / 94 | 48 / 45 |
+| risk_lower AND sel <= 0.6 AND red >= 0.08 | 23 / 88 (26.1%) | 52 / 76 (68.4%) | 14 / 19 | 3 / 14 | 51 / 135 | 25 / 68 |
+| risk_lower AND sel <= 0.7 AND red >= 0.05 | 43 / 88 (48.9%) | 26 / 76 (34.2%) | 16 / 19 | 0 / 14 | 95 / 91 | 49 / 44 |
+| risk_lower AND sel <= 0.7 AND red >= 0.08 | 24 / 88 (27.3%) | 50 / 76 (65.8%) | 14 / 19 | 3 / 14 | 53 / 133 | 25 / 68 |
+| first 1 mods only | 19 / 88 (21.6%) | 62 / 76 (81.6%) | 19 / 19 | 0 / 14 | 39 / 147 | 22 / 71 |
+| first 2 mods only | 37 / 88 (42.0%) | 49 / 76 (64.5%) | 19 / 19 | 0 / 14 | 78 / 108 | 39 / 54 |
+| first 3 mods only | 55 / 88 (62.5%) | 39 / 76 (51.3%) | 19 / 19 | 0 / 14 | 114 / 72 | 53 / 40 |
+| first 5 mods only | 76 / 88 (86.4%) | 22 / 76 (28.9%) | 19 / 19 | 0 / 14 | 162 / 24 | 70 / 23 |
+
+==================== Critical Intervention Timing (Task 6) ====================
+
+--- Rescues ---
+  Seed 273198307: FirstMod Q3 | main_r=0.5208, sel_r=0.4734, red=0.0474 | TotalMods=3 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:True
+  Seed 287547146: FirstMod Q0 | main_r=0.5763, sel_r=0.5257, red=0.0506 | TotalMods=5 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 287639521: FirstMod Q0 | main_r=0.5953, sel_r=0.5707, red=0.0245 | TotalMods=5 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 352560642: FirstMod Q6 | main_r=0.3231, sel_r=0.2942, red=0.0289 | TotalMods=4 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:True
+  Seed 368480630: FirstMod Q0 | main_r=0.5832, sel_r=0.5494, red=0.0338 | TotalMods=6 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 386737046: FirstMod Q0 | main_r=0.6320, sel_r=0.4996, red=0.1324 | TotalMods=6 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 430862118: FirstMod Q1 | main_r=0.6832, sel_r=0.6002, red=0.0830 | TotalMods=3 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:False, red>=0.05:True, q>=2:False
+  Seed 448048899: FirstMod Q1 | main_r=0.5251, sel_r=0.4967, red=0.0284 | TotalMods=3 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 767279481: FirstMod Q0 | main_r=0.5552, sel_r=0.5281, red=0.0271 | TotalMods=3 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 1173749532: FirstMod Q0 | main_r=0.6267, sel_r=0.5964, red=0.0303 | TotalMods=3 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 1291487306: FirstMod Q0 | main_r=0.6029, sel_r=0.5560, red=0.0469 | TotalMods=4 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 1345465790: FirstMod Q0 | main_r=0.4947, sel_r=0.3942, red=0.1005 | TotalMods=7 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 1481978104: FirstMod Q0 | main_r=0.6092, sel_r=0.5723, red=0.0368 | TotalMods=10 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 1501306169: FirstMod Q1 | main_r=0.6975, sel_r=0.5926, red=0.1049 | TotalMods=4 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 1546683890: FirstMod Q0 | main_r=0.5355, sel_r=0.4953, red=0.0402 | TotalMods=7 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 1717619211: FirstMod Q1 | main_r=0.5783, sel_r=0.5289, red=0.0495 | TotalMods=1 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 1720788673: FirstMod Q1 | main_r=0.5011, sel_r=0.4308, red=0.0702 | TotalMods=6 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 2038011754: FirstMod Q4 | main_r=0.6604, sel_r=0.6127, red=0.0477 | TotalMods=4 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:False, red>=0.05:False, q>=2:True
+  Seed 2060901849: FirstMod Q0 | main_r=0.5707, sel_r=0.5340, red=0.0367 | TotalMods=4 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+
+--- Regressions ---
+  Seed 57394074: FirstMod Q1 | main_r=0.7454, sel_r=0.5484, red=0.1970 | TotalMods=12 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 143160192: FirstMod Q2 | main_r=0.4227, sel_r=0.3990, red=0.0237 | TotalMods=9 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:True
+  Seed 212142211: FirstMod Q0 | main_r=0.6089, sel_r=0.5224, red=0.0864 | TotalMods=4 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 286956518: FirstMod Q3 | main_r=0.4283, sel_r=0.4046, red=0.0238 | TotalMods=2 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:True
+  Seed 305916219: FirstMod Q0 | main_r=0.5825, sel_r=0.5524, red=0.0301 | TotalMods=4 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 402897139: FirstMod Q0 | main_r=0.6016, sel_r=0.5373, red=0.0643 | TotalMods=1 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 438935613: FirstMod Q3 | main_r=0.6863, sel_r=0.5512, red=0.1350 | TotalMods=5 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:True
+  Seed 740482034: FirstMod Q0 | main_r=0.6152, sel_r=0.5589, red=0.0563 | TotalMods=14 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 831403058: FirstMod Q0 | main_r=0.5978, sel_r=0.4534, red=0.1444 | TotalMods=2 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 834120148: FirstMod Q1 | main_r=0.6010, sel_r=0.5431, red=0.0579 | TotalMods=5 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:True, q>=2:False
+  Seed 996418799: FirstMod Q0 | main_r=0.5617, sel_r=0.5168, red=0.0449 | TotalMods=7 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 1505471023: FirstMod Q0 | main_r=0.5803, sel_r=0.5594, red=0.0209 | TotalMods=2 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False
+  Seed 1557548213: FirstMod Q0 | main_r=0.6332, sel_r=0.6024, red=0.0308 | TotalMods=4 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:False, red>=0.05:False, q>=2:False
+  Seed 2078809338: FirstMod Q1 | main_r=0.4964, sel_r=0.4536, red=0.0428 | TotalMods=5 | Allowed: T=0.3:True, sel<=0.7:True, sel<=0.6:True, red>=0.05:False, q>=2:False

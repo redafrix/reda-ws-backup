@@ -1,0 +1,2293 @@
+{
+  "libero_pro_mode_summary": {
+    "A_passive": {
+      "episodes": 400,
+      "tasks": 20,
+      "success_rate": 0.945,
+      "avg_steps": 176.085,
+      "avg_unc": 1.57625,
+      "avg_rejects": 9.78,
+      "min_task_success": 0.75,
+      "max_task_success": 1.0
+    },
+    "B_deliberation": {
+      "episodes": 400,
+      "tasks": 20,
+      "success_rate": 0.955,
+      "avg_steps": 177.205,
+      "avg_unc": 1.5884500000000004,
+      "avg_rejects": 9.8875,
+      "min_task_success": 0.7,
+      "max_task_success": 1.0
+    },
+    "C_random_seed": {
+      "episodes": 400,
+      "tasks": 20,
+      "success_rate": 0.9575,
+      "avg_steps": 176.2975,
+      "avg_unc": 1.5898500000000002,
+      "avg_rejects": 10.2825,
+      "min_task_success": 0.8,
+      "max_task_success": 1.0
+    },
+    "D_low_uncertainty_reject_log": {
+      "episodes": 400,
+      "tasks": 20,
+      "success_rate": 0.945,
+      "avg_steps": 176.0825,
+      "avg_unc": 1.5762,
+      "avg_rejects": 9.78,
+      "min_task_success": 0.75,
+      "max_task_success": 1.0
+    }
+  },
+  "libero_pro_worst_A": [
+    [
+      0.75,
+      221.45,
+      "libero_spatial_with_mug",
+      "0",
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.750",
+        "avg_steps": "221.45",
+        "avg_unc": "1.732",
+        "max_unc": "3.039",
+        "avg_rejects": "14.60",
+        "reward_sum": "15.000"
+      }
+    ],
+    [
+      0.85,
+      166.05,
+      "libero_goal_with_mug",
+      "2",
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.850",
+        "avg_steps": "166.05",
+        "avg_unc": "2.123",
+        "max_unc": "4.368",
+        "avg_rejects": "15.10",
+        "reward_sum": "17.000"
+      }
+    ],
+    [
+      0.85,
+      234.2,
+      "libero_goal_with_mug",
+      "0",
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.850",
+        "avg_steps": "234.20",
+        "avg_unc": "2.146",
+        "max_unc": "3.250",
+        "avg_rejects": "22.15",
+        "reward_sum": "17.000"
+      }
+    ],
+    [
+      0.85,
+      288.9,
+      "libero_10_with_mug",
+      "2",
+      {
+        "suite": "libero_10_with_mug",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.850",
+        "avg_steps": "288.90",
+        "avg_unc": "1.564",
+        "max_unc": "3.701",
+        "avg_rejects": "17.15",
+        "reward_sum": "17.000"
+      }
+    ],
+    [
+      0.9,
+      219.25,
+      "libero_goal_with_mug",
+      "3",
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "3",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.900",
+        "avg_steps": "219.25",
+        "avg_unc": "1.592",
+        "max_unc": "3.219",
+        "avg_rejects": "13.05",
+        "reward_sum": "18.000"
+      }
+    ],
+    [
+      0.9,
+      277.65,
+      "libero_10_with_mug",
+      "1",
+      {
+        "suite": "libero_10_with_mug",
+        "task": "1",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.900",
+        "avg_steps": "277.65",
+        "avg_unc": "1.365",
+        "max_unc": "2.305",
+        "avg_rejects": "8.90",
+        "reward_sum": "18.000"
+      }
+    ],
+    [
+      0.95,
+      121.3,
+      "libero_spatial_with_mug",
+      "2",
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "121.30",
+        "avg_unc": "1.579",
+        "max_unc": "2.848",
+        "avg_rejects": "8.60",
+        "reward_sum": "19.000"
+      }
+    ],
+    [
+      0.95,
+      194.0,
+      "libero_object_with_mug",
+      "2",
+      {
+        "suite": "libero_object_with_mug",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "194.00",
+        "avg_unc": "1.339",
+        "max_unc": "2.079",
+        "avg_rejects": "3.70",
+        "reward_sum": "19.000"
+      }
+    ]
+  ],
+  "libero_pro_best_deltas": [
+    [
+      0.15000000000000002,
+      52.79999999999998,
+      [
+        "libero_10_with_mug",
+        "2"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_10_with_mug",
+        "task": "2",
+        "mode": "C_random_seed",
+        "episodes": "20",
+        "success_rate": "1.000",
+        "avg_steps": "236.10",
+        "avg_unc": "1.656",
+        "max_unc": "3.910",
+        "avg_rejects": "16.95",
+        "reward_sum": "20.000"
+      },
+      {
+        "suite": "libero_10_with_mug",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.850",
+        "avg_steps": "288.90",
+        "avg_unc": "1.564",
+        "max_unc": "3.701",
+        "avg_rejects": "17.15",
+        "reward_sum": "17.000"
+      }
+    ],
+    [
+      0.09999999999999998,
+      47.250000000000014,
+      [
+        "libero_goal_with_mug",
+        "2"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "2",
+        "mode": "C_random_seed",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "118.80",
+        "avg_unc": "2.247",
+        "max_unc": "4.334",
+        "avg_rejects": "13.95",
+        "reward_sum": "19.000"
+      },
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.850",
+        "avg_steps": "166.05",
+        "avg_unc": "2.123",
+        "max_unc": "4.368",
+        "avg_rejects": "15.10",
+        "reward_sum": "17.000"
+      }
+    ],
+    [
+      0.09999999999999998,
+      41.099999999999994,
+      [
+        "libero_goal_with_mug",
+        "3"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "3",
+        "mode": "B_deliberation",
+        "episodes": "20",
+        "success_rate": "1.000",
+        "avg_steps": "178.15",
+        "avg_unc": "1.634",
+        "max_unc": "3.301",
+        "avg_rejects": "15.30",
+        "reward_sum": "20.000"
+      },
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "3",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.900",
+        "avg_steps": "219.25",
+        "avg_unc": "1.592",
+        "max_unc": "3.219",
+        "avg_rejects": "13.05",
+        "reward_sum": "18.000"
+      }
+    ],
+    [
+      0.09999999999999998,
+      24.599999999999994,
+      [
+        "libero_goal_with_mug",
+        "0"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "0",
+        "mode": "C_random_seed",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "209.60",
+        "avg_unc": "2.147",
+        "max_unc": "3.297",
+        "avg_rejects": "22.15",
+        "reward_sum": "19.000"
+      },
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.850",
+        "avg_steps": "234.20",
+        "avg_unc": "2.146",
+        "max_unc": "3.250",
+        "avg_rejects": "22.15",
+        "reward_sum": "17.000"
+      }
+    ],
+    [
+      0.09999999999999998,
+      23.649999999999977,
+      [
+        "libero_10_with_mug",
+        "2"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_10_with_mug",
+        "task": "2",
+        "mode": "B_deliberation",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "265.25",
+        "avg_unc": "1.680",
+        "max_unc": "4.147",
+        "avg_rejects": "20.40",
+        "reward_sum": "19.000"
+      },
+      {
+        "suite": "libero_10_with_mug",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.850",
+        "avg_steps": "288.90",
+        "avg_unc": "1.564",
+        "max_unc": "3.701",
+        "avg_rejects": "17.15",
+        "reward_sum": "17.000"
+      }
+    ],
+    [
+      0.050000000000000044,
+      25.950000000000017,
+      [
+        "libero_goal_with_mug",
+        "2"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "2",
+        "mode": "B_deliberation",
+        "episodes": "20",
+        "success_rate": "0.900",
+        "avg_steps": "140.10",
+        "avg_unc": "2.273",
+        "max_unc": "4.275",
+        "avg_rejects": "16.85",
+        "reward_sum": "18.000"
+      },
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.850",
+        "avg_steps": "166.05",
+        "avg_unc": "2.123",
+        "max_unc": "4.368",
+        "avg_rejects": "15.10",
+        "reward_sum": "17.000"
+      }
+    ],
+    [
+      0.050000000000000044,
+      17.899999999999977,
+      [
+        "libero_10_with_mug",
+        "0"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_10_with_mug",
+        "task": "0",
+        "mode": "B_deliberation",
+        "episodes": "20",
+        "success_rate": "1.000",
+        "avg_steps": "248.05",
+        "avg_unc": "1.230",
+        "max_unc": "2.412",
+        "avg_rejects": "7.50",
+        "reward_sum": "20.000"
+      },
+      {
+        "suite": "libero_10_with_mug",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "265.95",
+        "avg_unc": "1.237",
+        "max_unc": "2.393",
+        "avg_rejects": "7.60",
+        "reward_sum": "19.000"
+      }
+    ],
+    [
+      0.050000000000000044,
+      12.199999999999989,
+      [
+        "libero_spatial_with_mug",
+        "0"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "0",
+        "mode": "C_random_seed",
+        "episodes": "20",
+        "success_rate": "0.800",
+        "avg_steps": "209.25",
+        "avg_unc": "1.779",
+        "max_unc": "3.054",
+        "avg_rejects": "17.90",
+        "reward_sum": "16.000"
+      },
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.750",
+        "avg_steps": "221.45",
+        "avg_unc": "1.732",
+        "max_unc": "3.039",
+        "avg_rejects": "14.60",
+        "reward_sum": "15.000"
+      }
+    ]
+  ],
+  "libero_pro_bad_deltas": [
+    [
+      -0.09999999999999998,
+      -40.599999999999994,
+      [
+        "libero_object_with_mug",
+        "2"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_object_with_mug",
+        "task": "2",
+        "mode": "C_random_seed",
+        "episodes": "20",
+        "success_rate": "0.850",
+        "avg_steps": "234.60",
+        "avg_unc": "1.307",
+        "max_unc": "2.084",
+        "avg_rejects": "4.60",
+        "reward_sum": "17.000"
+      },
+      {
+        "suite": "libero_object_with_mug",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "194.00",
+        "avg_unc": "1.339",
+        "max_unc": "2.079",
+        "avg_rejects": "3.70",
+        "reward_sum": "19.000"
+      }
+    ],
+    [
+      -0.050000000000000044,
+      -30.950000000000017,
+      [
+        "libero_object_with_mug",
+        "1"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_object_with_mug",
+        "task": "1",
+        "mode": "C_random_seed",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "165.90",
+        "avg_unc": "1.316",
+        "max_unc": "2.198",
+        "avg_rejects": "3.75",
+        "reward_sum": "19.000"
+      },
+      {
+        "suite": "libero_object_with_mug",
+        "task": "1",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "1.000",
+        "avg_steps": "134.95",
+        "avg_unc": "1.316",
+        "max_unc": "2.226",
+        "avg_rejects": "3.40",
+        "reward_sum": "20.000"
+      }
+    ],
+    [
+      -0.050000000000000044,
+      -27.75,
+      [
+        "libero_goal_with_mug",
+        "1"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "1",
+        "mode": "B_deliberation",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "109.15",
+        "avg_unc": "1.544",
+        "max_unc": "3.083",
+        "avg_rejects": "5.50",
+        "reward_sum": "19.000"
+      },
+      {
+        "suite": "libero_goal_with_mug",
+        "task": "1",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "1.000",
+        "avg_steps": "81.40",
+        "avg_unc": "1.554",
+        "max_unc": "2.117",
+        "avg_rejects": "4.45",
+        "reward_sum": "20.000"
+      }
+    ],
+    [
+      -0.050000000000000044,
+      -26.549999999999997,
+      [
+        "libero_spatial_with_mug",
+        "3"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "3",
+        "mode": "B_deliberation",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "114.05",
+        "avg_unc": "1.753",
+        "max_unc": "2.794",
+        "avg_rejects": "10.35",
+        "reward_sum": "19.000"
+      },
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "3",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "1.000",
+        "avg_steps": "87.50",
+        "avg_unc": "1.793",
+        "max_unc": "2.787",
+        "avg_rejects": "10.35",
+        "reward_sum": "20.000"
+      }
+    ],
+    [
+      -0.050000000000000044,
+      -25.44999999999999,
+      [
+        "libero_spatial_with_mug",
+        "1"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "1",
+        "mode": "B_deliberation",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "132.95",
+        "avg_unc": "1.775",
+        "max_unc": "2.924",
+        "avg_rejects": "10.20",
+        "reward_sum": "19.000"
+      },
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "1",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "1.000",
+        "avg_steps": "107.50",
+        "avg_unc": "1.794",
+        "max_unc": "2.863",
+        "avg_rejects": "9.60",
+        "reward_sum": "20.000"
+      }
+    ],
+    [
+      -0.050000000000000044,
+      -17.30000000000001,
+      [
+        "libero_spatial_with_mug",
+        "0"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "0",
+        "mode": "B_deliberation",
+        "episodes": "20",
+        "success_rate": "0.700",
+        "avg_steps": "238.75",
+        "avg_unc": "1.741",
+        "max_unc": "3.087",
+        "avg_rejects": "16.50",
+        "reward_sum": "14.000"
+      },
+      {
+        "suite": "libero_spatial_with_mug",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.750",
+        "avg_steps": "221.45",
+        "avg_unc": "1.732",
+        "max_unc": "3.039",
+        "avg_rejects": "14.60",
+        "reward_sum": "15.000"
+      }
+    ],
+    [
+      -0.04999999999999993,
+      -24.0,
+      [
+        "libero_10_with_mug",
+        "0"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_10_with_mug",
+        "task": "0",
+        "mode": "C_random_seed",
+        "episodes": "20",
+        "success_rate": "0.900",
+        "avg_steps": "289.95",
+        "avg_unc": "1.216",
+        "max_unc": "2.354",
+        "avg_rejects": "7.80",
+        "reward_sum": "18.000"
+      },
+      {
+        "suite": "libero_10_with_mug",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "265.95",
+        "avg_unc": "1.237",
+        "max_unc": "2.393",
+        "avg_rejects": "7.60",
+        "reward_sum": "19.000"
+      }
+    ],
+    [
+      0.0,
+      -33.25,
+      [
+        "libero_10_with_mug",
+        "3"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_10_with_mug",
+        "task": "3",
+        "mode": "C_random_seed",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "301.20",
+        "avg_unc": "1.747",
+        "max_unc": "4.316",
+        "avg_rejects": "27.80",
+        "reward_sum": "19.000"
+      },
+      {
+        "suite": "libero_10_with_mug",
+        "task": "3",
+        "mode": "A_passive",
+        "episodes": "20",
+        "success_rate": "0.950",
+        "avg_steps": "267.95",
+        "avg_unc": "1.739",
+        "max_unc": "4.156",
+        "avg_rejects": "24.55",
+        "reward_sum": "19.000"
+      }
+    ]
+  ],
+  "hard_mode_summary": {
+    "A_passive": {
+      "episodes": 210,
+      "tasks": 7,
+      "success_rate": 0.8332857142857143,
+      "avg_steps": 242.10571428571427,
+      "avg_unc": 1.7919999999999996,
+      "avg_rejects": 14.457142857142857,
+      "min_task_success": 0.133,
+      "max_task_success": 1.0
+    },
+    "B_deliberation": {
+      "episodes": 210,
+      "tasks": 7,
+      "success_rate": 0.8144285714285714,
+      "avg_steps": 259.77714285714285,
+      "avg_unc": 1.771142857142857,
+      "avg_rejects": 15.165714285714287,
+      "min_task_success": 0.133,
+      "max_task_success": 1.0
+    },
+    "C_random_seed": {
+      "episodes": 210,
+      "tasks": 7,
+      "success_rate": 0.8428571428571429,
+      "avg_steps": 241.25285714285712,
+      "avg_unc": 1.8064285714285715,
+      "avg_rejects": 15.452857142857143,
+      "min_task_success": 0.133,
+      "max_task_success": 1.0
+    },
+    "D_low_uncertainty_reject_log": {
+      "episodes": 210,
+      "tasks": 7,
+      "success_rate": 0.8332857142857143,
+      "avg_steps": 242.10571428571427,
+      "avg_unc": 1.7919999999999996,
+      "avg_rejects": 14.455714285714286,
+      "min_task_success": 0.133,
+      "max_task_success": 1.0
+    }
+  },
+  "hard_worst_A": [
+    [
+      0.133,
+      540.93,
+      "libero_spatial",
+      "5",
+      {
+        "suite": "libero_spatial",
+        "task": "5",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.133",
+        "avg_steps": "540.93",
+        "avg_unc": "1.459",
+        "max_unc": "3.218",
+        "avg_rejects": "23.17",
+        "reward_sum": "4.000"
+      }
+    ],
+    [
+      0.9,
+      136.97,
+      "libero_goal",
+      "2",
+      {
+        "suite": "libero_goal",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.900",
+        "avg_steps": "136.97",
+        "avg_unc": "2.180",
+        "max_unc": "4.342",
+        "avg_rejects": "15.20",
+        "reward_sum": "27.000"
+      }
+    ],
+    [
+      0.9,
+      175.23,
+      "libero_goal",
+      "9",
+      {
+        "suite": "libero_goal",
+        "task": "9",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.900",
+        "avg_steps": "175.23",
+        "avg_unc": "2.674",
+        "max_unc": "5.546",
+        "avg_rejects": "20.80",
+        "reward_sum": "27.000"
+      }
+    ],
+    [
+      0.9,
+      214.5,
+      "libero_goal",
+      "0",
+      {
+        "suite": "libero_goal",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.900",
+        "avg_steps": "214.50",
+        "avg_unc": "2.175",
+        "max_unc": "3.407",
+        "avg_rejects": "21.83",
+        "reward_sum": "27.000"
+      }
+    ],
+    [
+      1.0,
+      142.77,
+      "libero_object",
+      "0",
+      {
+        "suite": "libero_object",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "142.77",
+        "avg_unc": "1.376",
+        "max_unc": "2.518",
+        "avg_rejects": "3.03",
+        "reward_sum": "30.000"
+      }
+    ],
+    [
+      1.0,
+      238.47,
+      "libero_10",
+      "1",
+      {
+        "suite": "libero_10",
+        "task": "1",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "238.47",
+        "avg_unc": "1.423",
+        "max_unc": "2.312",
+        "avg_rejects": "9.20",
+        "reward_sum": "30.000"
+      }
+    ],
+    [
+      1.0,
+      245.87,
+      "libero_10",
+      "0",
+      {
+        "suite": "libero_10",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "245.87",
+        "avg_unc": "1.257",
+        "max_unc": "2.355",
+        "avg_rejects": "7.97",
+        "reward_sum": "30.000"
+      }
+    ]
+  ],
+  "hard_best_deltas": [
+    [
+      0.06699999999999995,
+      24.769999999999996,
+      [
+        "libero_goal",
+        "2"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_goal",
+        "task": "2",
+        "mode": "B_deliberation",
+        "episodes": "30",
+        "success_rate": "0.967",
+        "avg_steps": "112.20",
+        "avg_unc": "2.284",
+        "max_unc": "4.436",
+        "avg_rejects": "14.80",
+        "reward_sum": "29.000"
+      },
+      {
+        "suite": "libero_goal",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.900",
+        "avg_steps": "136.97",
+        "avg_unc": "2.180",
+        "max_unc": "4.342",
+        "avg_rejects": "15.20",
+        "reward_sum": "27.000"
+      }
+    ],
+    [
+      0.06699999999999995,
+      15.159999999999997,
+      [
+        "libero_goal",
+        "9"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_goal",
+        "task": "9",
+        "mode": "C_random_seed",
+        "episodes": "30",
+        "success_rate": "0.967",
+        "avg_steps": "160.07",
+        "avg_unc": "2.731",
+        "max_unc": "5.693",
+        "avg_rejects": "21.00",
+        "reward_sum": "29.000"
+      },
+      {
+        "suite": "libero_goal",
+        "task": "9",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.900",
+        "avg_steps": "175.23",
+        "avg_unc": "2.674",
+        "max_unc": "5.546",
+        "avg_rejects": "20.80",
+        "reward_sum": "27.000"
+      }
+    ],
+    [
+      0.03300000000000003,
+      7.699999999999989,
+      [
+        "libero_goal",
+        "2"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_goal",
+        "task": "2",
+        "mode": "C_random_seed",
+        "episodes": "30",
+        "success_rate": "0.933",
+        "avg_steps": "129.27",
+        "avg_unc": "2.225",
+        "max_unc": "4.330",
+        "avg_rejects": "14.90",
+        "reward_sum": "28.000"
+      },
+      {
+        "suite": "libero_goal",
+        "task": "2",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.900",
+        "avg_steps": "136.97",
+        "avg_unc": "2.180",
+        "max_unc": "4.342",
+        "avg_rejects": "15.20",
+        "reward_sum": "27.000"
+      }
+    ],
+    [
+      0.0,
+      3.6299999999999955,
+      [
+        "libero_spatial",
+        "5"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_spatial",
+        "task": "5",
+        "mode": "C_random_seed",
+        "episodes": "30",
+        "success_rate": "0.133",
+        "avg_steps": "537.30",
+        "avg_unc": "1.516",
+        "max_unc": "3.258",
+        "avg_rejects": "30.50",
+        "reward_sum": "4.000"
+      },
+      {
+        "suite": "libero_spatial",
+        "task": "5",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.133",
+        "avg_steps": "540.93",
+        "avg_unc": "1.459",
+        "max_unc": "3.218",
+        "avg_rejects": "23.17",
+        "reward_sum": "4.000"
+      }
+    ],
+    [
+      0.0,
+      -0.6999999999999886,
+      [
+        "libero_object",
+        "0"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_object",
+        "task": "0",
+        "mode": "B_deliberation",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "143.47",
+        "avg_unc": "1.383",
+        "max_unc": "2.616",
+        "avg_rejects": "3.90",
+        "reward_sum": "30.000"
+      },
+      {
+        "suite": "libero_object",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "142.77",
+        "avg_unc": "1.376",
+        "max_unc": "2.518",
+        "avg_rejects": "3.03",
+        "reward_sum": "30.000"
+      }
+    ],
+    [
+      0.0,
+      -0.8299999999999841,
+      [
+        "libero_object",
+        "0"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_object",
+        "task": "0",
+        "mode": "C_random_seed",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "143.60",
+        "avg_unc": "1.388",
+        "max_unc": "2.817",
+        "avg_rejects": "3.90",
+        "reward_sum": "30.000"
+      },
+      {
+        "suite": "libero_object",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "142.77",
+        "avg_unc": "1.376",
+        "max_unc": "2.518",
+        "avg_rejects": "3.03",
+        "reward_sum": "30.000"
+      }
+    ],
+    [
+      0.0,
+      -2.530000000000001,
+      [
+        "libero_10",
+        "0"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_10",
+        "task": "0",
+        "mode": "C_random_seed",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "248.40",
+        "avg_unc": "1.257",
+        "max_unc": "2.615",
+        "avg_rejects": "8.50",
+        "reward_sum": "30.000"
+      },
+      {
+        "suite": "libero_10",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "245.87",
+        "avg_unc": "1.257",
+        "max_unc": "2.355",
+        "avg_rejects": "7.97",
+        "reward_sum": "30.000"
+      }
+    ],
+    [
+      0.0,
+      -5.060000000000002,
+      [
+        "libero_10",
+        "1"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_10",
+        "task": "1",
+        "mode": "C_random_seed",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "243.53",
+        "avg_unc": "1.400",
+        "max_unc": "2.298",
+        "avg_rejects": "8.40",
+        "reward_sum": "30.000"
+      },
+      {
+        "suite": "libero_10",
+        "task": "1",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "238.47",
+        "avg_unc": "1.423",
+        "max_unc": "2.312",
+        "avg_rejects": "9.20",
+        "reward_sum": "30.000"
+      }
+    ]
+  ],
+  "hard_bad_deltas": [
+    [
+      -0.09999999999999998,
+      -43.329999999999984,
+      [
+        "libero_goal",
+        "0"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_goal",
+        "task": "0",
+        "mode": "B_deliberation",
+        "episodes": "30",
+        "success_rate": "0.800",
+        "avg_steps": "257.83",
+        "avg_unc": "2.116",
+        "max_unc": "3.307",
+        "avg_rejects": "20.20",
+        "reward_sum": "24.000"
+      },
+      {
+        "suite": "libero_goal",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.900",
+        "avg_steps": "214.50",
+        "avg_unc": "2.175",
+        "max_unc": "3.407",
+        "avg_rejects": "21.83",
+        "reward_sum": "27.000"
+      }
+    ],
+    [
+      -0.03300000000000003,
+      -50.140000000000015,
+      [
+        "libero_goal",
+        "9"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_goal",
+        "task": "9",
+        "mode": "B_deliberation",
+        "episodes": "30",
+        "success_rate": "0.867",
+        "avg_steps": "225.37",
+        "avg_unc": "2.530",
+        "max_unc": "5.551",
+        "avg_rejects": "23.30",
+        "reward_sum": "26.000"
+      },
+      {
+        "suite": "libero_goal",
+        "task": "9",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.900",
+        "avg_steps": "175.23",
+        "avg_unc": "2.674",
+        "max_unc": "5.546",
+        "avg_rejects": "20.80",
+        "reward_sum": "27.000"
+      }
+    ],
+    [
+      -0.03300000000000003,
+      -29.130000000000024,
+      [
+        "libero_10",
+        "1"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_10",
+        "task": "1",
+        "mode": "B_deliberation",
+        "episodes": "30",
+        "success_rate": "0.967",
+        "avg_steps": "267.60",
+        "avg_unc": "1.380",
+        "max_unc": "2.387",
+        "avg_rejects": "8.83",
+        "reward_sum": "29.000"
+      },
+      {
+        "suite": "libero_10",
+        "task": "1",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "238.47",
+        "avg_unc": "1.423",
+        "max_unc": "2.312",
+        "avg_rejects": "9.20",
+        "reward_sum": "30.000"
+      }
+    ],
+    [
+      -0.03300000000000003,
+      -15.399999999999977,
+      [
+        "libero_10",
+        "0"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_10",
+        "task": "0",
+        "mode": "B_deliberation",
+        "episodes": "30",
+        "success_rate": "0.967",
+        "avg_steps": "261.27",
+        "avg_unc": "1.250",
+        "max_unc": "2.561",
+        "avg_rejects": "8.80",
+        "reward_sum": "29.000"
+      },
+      {
+        "suite": "libero_10",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "245.87",
+        "avg_unc": "1.257",
+        "max_unc": "2.355",
+        "avg_rejects": "7.97",
+        "reward_sum": "30.000"
+      }
+    ],
+    [
+      -0.03300000000000003,
+      -12.099999999999994,
+      [
+        "libero_goal",
+        "0"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_goal",
+        "task": "0",
+        "mode": "C_random_seed",
+        "episodes": "30",
+        "success_rate": "0.867",
+        "avg_steps": "226.60",
+        "avg_unc": "2.128",
+        "max_unc": "3.277",
+        "avg_rejects": "20.97",
+        "reward_sum": "26.000"
+      },
+      {
+        "suite": "libero_goal",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.900",
+        "avg_steps": "214.50",
+        "avg_unc": "2.175",
+        "max_unc": "3.407",
+        "avg_rejects": "21.83",
+        "reward_sum": "27.000"
+      }
+    ],
+    [
+      0.0,
+      -9.770000000000095,
+      [
+        "libero_spatial",
+        "5"
+      ],
+      "B_deliberation",
+      {
+        "suite": "libero_spatial",
+        "task": "5",
+        "mode": "B_deliberation",
+        "episodes": "30",
+        "success_rate": "0.133",
+        "avg_steps": "550.70",
+        "avg_unc": "1.455",
+        "max_unc": "2.969",
+        "avg_rejects": "26.33",
+        "reward_sum": "4.000"
+      },
+      {
+        "suite": "libero_spatial",
+        "task": "5",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "0.133",
+        "avg_steps": "540.93",
+        "avg_unc": "1.459",
+        "max_unc": "3.218",
+        "avg_rejects": "23.17",
+        "reward_sum": "4.000"
+      }
+    ],
+    [
+      0.0,
+      -5.060000000000002,
+      [
+        "libero_10",
+        "1"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_10",
+        "task": "1",
+        "mode": "C_random_seed",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "243.53",
+        "avg_unc": "1.400",
+        "max_unc": "2.298",
+        "avg_rejects": "8.40",
+        "reward_sum": "30.000"
+      },
+      {
+        "suite": "libero_10",
+        "task": "1",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "238.47",
+        "avg_unc": "1.423",
+        "max_unc": "2.312",
+        "avg_rejects": "9.20",
+        "reward_sum": "30.000"
+      }
+    ],
+    [
+      0.0,
+      -2.530000000000001,
+      [
+        "libero_10",
+        "0"
+      ],
+      "C_random_seed",
+      {
+        "suite": "libero_10",
+        "task": "0",
+        "mode": "C_random_seed",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "248.40",
+        "avg_unc": "1.257",
+        "max_unc": "2.615",
+        "avg_rejects": "8.50",
+        "reward_sum": "30.000"
+      },
+      {
+        "suite": "libero_10",
+        "task": "0",
+        "mode": "A_passive",
+        "episodes": "30",
+        "success_rate": "1.000",
+        "avg_steps": "245.87",
+        "avg_unc": "1.257",
+        "max_unc": "2.355",
+        "avg_rejects": "7.97",
+        "reward_sum": "30.000"
+      }
+    ]
+  ],
+  "best_pairwise": {
+    "('holdout_object_bowl', 'test_ood')": {
+      "split": "holdout_object_bowl",
+      "variant": "context_gated_action",
+      "part": "test_ood",
+      "pairwise": 0.9252,
+      "improve": 0.06420164418220509,
+      "pred_best": 1.5551206340789796,
+      "seed0": 1.6193222782611847,
+      "oracle": 1.5511432602405548,
+      "auroc": 0.9972053333333333,
+      "spearman": 0.98754689046201,
+      "all_auroc": 0.9962011428571429
+    },
+    "('holdout_object_bowl', 'test_id')": {
+      "split": "holdout_object_bowl",
+      "variant": "full_engineered_simvla_focused",
+      "part": "test_id",
+      "pairwise": 0.9364,
+      "improve": 0.08168078660964961,
+      "pred_best": 1.725467794775963,
+      "seed0": 1.8071485813856125,
+      "oracle": 1.7238868001699448,
+      "auroc": 0.9814156190476191,
+      "spearman": 0.9604721390541692,
+      "all_auroc": 0.9864449523809524
+    },
+    "('holdout_libero_goal', 'test_ood')": {
+      "split": "holdout_libero_goal",
+      "variant": "seed_relative_pairwise",
+      "part": "test_ood",
+      "pairwise": 0.9175,
+      "improve": 0.08382021099329018,
+      "pred_best": 2.2428122052550314,
+      "seed0": 2.3266324162483216,
+      "oracle": 2.2414105245471,
+      "auroc": 0.9938761904761904,
+      "spearman": 0.979950115950116,
+      "all_auroc": 0.9939476190476191
+    },
+    "('holdout_libero_goal', 'test_id')": {
+      "split": "holdout_libero_goal",
+      "variant": "seed_relative_pairwise",
+      "part": "test_id",
+      "pairwise": 0.9424,
+      "improve": 0.10750306320190428,
+      "pred_best": 1.759391058921814,
+      "seed0": 1.8668941221237183,
+      "oracle": 1.7580343310832978,
+      "auroc": 0.9951055238095238,
+      "spearman": 0.985903602882306,
+      "all_auroc": 0.9919779047619048
+    },
+    "('id_task_split', 'test_id')": {
+      "split": "id_task_split",
+      "variant": "full_engineered_simvla_focused",
+      "part": "test_id",
+      "pairwise": 0.912,
+      "improve": 0.07137446391582492,
+      "pred_best": 1.4106847448348998,
+      "seed0": 1.4820592087507247,
+      "oracle": 1.4014565162658692,
+      "auroc": 0.9905859047619048,
+      "spearman": 0.9574412158983783,
+      "all_auroc": 0.9929942857142857
+    },
+    "('holdout_libero_object', 'test_ood')": {
+      "split": "holdout_libero_object",
+      "variant": "full_engineered_mlp",
+      "part": "test_ood",
+      "pairwise": 0.9164,
+      "improve": 0.06380770349502551,
+      "pred_best": 1.5979434244632722,
+      "seed0": 1.6617511279582977,
+      "oracle": 1.592023931980133,
+      "auroc": 0.9688655238095238,
+      "spearman": 0.9654737576152049,
+      "all_auroc": 0.9846590476190475
+    },
+    "('holdout_libero_object', 'test_id')": {
+      "split": "holdout_libero_object",
+      "variant": "full_engineered_mlp",
+      "part": "test_id",
+      "pairwise": 0.9068,
+      "improve": 0.07349361908435803,
+      "pred_best": 1.5836495233774186,
+      "seed0": 1.6571431424617766,
+      "oracle": 1.579897521495819,
+      "auroc": 0.9767801904761904,
+      "spearman": 0.985210387206648,
+      "all_auroc": 0.982272
+    },
+    "('holdout_libero_spatial', 'test_ood')": {
+      "split": "holdout_libero_spatial",
+      "variant": "heteroscedastic_simvla_focused",
+      "part": "test_ood",
+      "pairwise": 0.9295,
+      "improve": 0.0622312608361244,
+      "pred_best": 1.8639988026022911,
+      "seed0": 1.9262300634384155,
+      "oracle": 1.863301387131214,
+      "auroc": 0.9729761904761904,
+      "spearman": 0.9301728421728424,
+      "all_auroc": 0.9712154761904763
+    },
+    "('holdout_libero_spatial', 'test_id')": {
+      "split": "holdout_libero_spatial",
+      "variant": "context_gated_action",
+      "part": "test_id",
+      "pairwise": 0.9368,
+      "improve": 0.10247520112991348,
+      "pred_best": 1.741125684738159,
+      "seed0": 1.8436008858680726,
+      "oracle": 1.7398507182598113,
+      "auroc": 0.979928380952381,
+      "spearman": 0.9786882520557466,
+      "all_auroc": 0.9917340952380953
+    },
+    "('holdout_object_cabinet', 'test_ood')": {
+      "split": "holdout_object_cabinet",
+      "variant": "seed_relative_simvla_focused",
+      "part": "test_ood",
+      "pairwise": 0.9336,
+      "improve": 0.0429623001813888,
+      "pred_best": 1.6636277945041658,
+      "seed0": 1.7065900946855546,
+      "oracle": 1.6618489359617232,
+      "auroc": 0.9918811428571428,
+      "spearman": 0.9881610205190533,
+      "all_auroc": 0.995232
+    },
+    "('holdout_object_cabinet', 'test_id')": {
+      "split": "holdout_object_cabinet",
+      "variant": "seed_relative_rater",
+      "part": "test_id",
+      "pairwise": 0.9316,
+      "improve": 0.0883541383743287,
+      "pred_best": 1.8929926537275314,
+      "seed0": 1.9813467921018602,
+      "oracle": 1.892046400785446,
+      "auroc": 0.9980007619047618,
+      "spearman": 0.99219618726156,
+      "all_auroc": 0.9930598095238096
+    },
+    "('holdout_scene_kitchen_scene2', 'test_ood')": {
+      "split": "holdout_scene_kitchen_scene2",
+      "variant": "full_engineered_mlp",
+      "part": "test_ood",
+      "pairwise": 0.9328571428571428,
+      "improve": 0.08229466080665593,
+      "pred_best": 1.6154078202588218,
+      "seed0": 1.6977024810654777,
+      "oracle": 1.6144805014133454,
+      "auroc": 0.9708260447035957,
+      "spearman": 0.9710157775832194,
+      "all_auroc": 0.9913678328474248
+    },
+    "('holdout_scene_kitchen_scene2', 'test_id')": {
+      "split": "holdout_scene_kitchen_scene2",
+      "variant": "seed_relative_pairwise",
+      "part": "test_id",
+      "pairwise": 0.9396,
+      "improve": 0.07397535264492028,
+      "pred_best": 1.654024881720543,
+      "seed0": 1.7280002343654632,
+      "oracle": 1.6515287026166916,
+      "auroc": 0.9994544761904762,
+      "spearman": 0.9951036036503064,
+      "all_auroc": 0.998472380952381
+    }
+  },
+  "best_improvement": {
+    "('holdout_object_bowl', 'test_ood')": {
+      "split": "holdout_object_bowl",
+      "variant": "seed_relative_simvla_focused",
+      "part": "test_ood",
+      "pairwise": 0.9172,
+      "improve": 0.06532284379005437,
+      "pred_best": 1.5539994344711303,
+      "seed0": 1.6193222782611847,
+      "oracle": 1.5511432602405548,
+      "auroc": 0.9975771428571428,
+      "spearman": 0.988359477990066,
+      "all_auroc": 0.9968754285714285
+    },
+    "('holdout_object_bowl', 'test_id')": {
+      "split": "holdout_object_bowl",
+      "variant": "context_gated_action_no_flow",
+      "part": "test_id",
+      "pairwise": 0.89375,
+      "improve": 0.10099463835358602,
+      "pred_best": 2.0658317506313324,
+      "seed0": 2.1668263889849184,
+      "oracle": 2.0627124555408956,
+      "auroc": 0.9668749999999999,
+      "spearman": 0.8293039956499727,
+      "all_auroc": 0.9404538690476191,
+      "source": "flowtrace"
+    },
+    "('holdout_libero_goal', 'test_ood')": {
+      "split": "holdout_libero_goal",
+      "variant": "seed_relative_pairwise",
+      "part": "test_ood",
+      "pairwise": 0.9175,
+      "improve": 0.08382021099329018,
+      "pred_best": 2.2428122052550314,
+      "seed0": 2.3266324162483216,
+      "oracle": 2.2414105245471,
+      "auroc": 0.9938761904761904,
+      "spearman": 0.979950115950116,
+      "all_auroc": 0.9939476190476191
+    },
+    "('holdout_libero_goal', 'test_id')": {
+      "split": "holdout_libero_goal",
+      "variant": "seed_relative_pairwise",
+      "part": "test_id",
+      "pairwise": 0.9424,
+      "improve": 0.10750306320190428,
+      "pred_best": 1.759391058921814,
+      "seed0": 1.8668941221237183,
+      "oracle": 1.7580343310832978,
+      "auroc": 0.9951055238095238,
+      "spearman": 0.985903602882306,
+      "all_auroc": 0.9919779047619048
+    },
+    "('id_task_split', 'test_id')": {
+      "split": "id_task_split",
+      "variant": "heteroscedastic_simvla_focused",
+      "part": "test_id",
+      "pairwise": 0.8988,
+      "improve": 0.0748788105249405,
+      "pred_best": 1.4071803982257842,
+      "seed0": 1.4820592087507247,
+      "oracle": 1.4014565162658692,
+      "auroc": 0.9961843809523809,
+      "spearman": 0.9755075427248274,
+      "all_auroc": 0.994432
+    },
+    "('holdout_libero_object', 'test_ood')": {
+      "split": "holdout_libero_object",
+      "variant": "context_gated_action_no_flow",
+      "part": "test_ood",
+      "pairwise": 0.865,
+      "improve": 0.07568303048610692,
+      "pred_best": 1.6015464678406715,
+      "seed0": 1.6772294983267784,
+      "oracle": 1.6010722801089288,
+      "auroc": 0.8727976190476191,
+      "spearman": 0.8227450171563573,
+      "all_auroc": 0.9683556547619048,
+      "source": "flowtrace"
+    },
+    "('holdout_libero_object', 'test_id')": {
+      "split": "holdout_libero_object",
+      "variant": "seed_relative_plus_flow",
+      "part": "test_id",
+      "pairwise": 0.86625,
+      "improve": 0.09919326156377806,
+      "pred_best": 1.946242581307888,
+      "seed0": 2.045435842871666,
+      "oracle": 1.9431253403425217,
+      "auroc": 0.8952380952380953,
+      "spearman": 0.8495794348714679,
+      "all_auroc": 0.9369196428571428,
+      "source": "flowtrace"
+    },
+    "('holdout_libero_spatial', 'test_ood')": {
+      "split": "holdout_libero_spatial",
+      "variant": "heteroscedastic_simvla_focused",
+      "part": "test_ood",
+      "pairwise": 0.9295,
+      "improve": 0.0622312608361244,
+      "pred_best": 1.8639988026022911,
+      "seed0": 1.9262300634384155,
+      "oracle": 1.863301387131214,
+      "auroc": 0.9729761904761904,
+      "spearman": 0.9301728421728424,
+      "all_auroc": 0.9712154761904763
+    },
+    "('holdout_libero_spatial', 'test_id')": {
+      "split": "holdout_libero_spatial",
+      "variant": "action_only_plus_flow",
+      "part": "test_id",
+      "pairwise": 0.83,
+      "improve": 0.11366665214300165,
+      "pred_best": 1.8978563621640205,
+      "seed0": 2.011523014307022,
+      "oracle": 1.8912434473633766,
+      "auroc": 0.8513988095238095,
+      "spearman": 0.669657247857799,
+      "all_auroc": 0.9154166666666667,
+      "source": "flowtrace"
+    },
+    "('holdout_object_cabinet', 'test_ood')": {
+      "split": "holdout_object_cabinet",
+      "variant": "context_gated_action",
+      "part": "test_ood",
+      "pairwise": 0.9212,
+      "improve": 0.043689548611641094,
+      "pred_best": 1.6629005460739135,
+      "seed0": 1.7065900946855546,
+      "oracle": 1.6618489359617232,
+      "auroc": 0.9597348571428571,
+      "spearman": 0.9707384931446357,
+      "all_auroc": 0.987648
+    },
+    "('holdout_object_cabinet', 'test_id')": {
+      "split": "holdout_object_cabinet",
+      "variant": "seed_relative_rater",
+      "part": "test_id",
+      "pairwise": 0.9316,
+      "improve": 0.0883541383743287,
+      "pred_best": 1.8929926537275314,
+      "seed0": 1.9813467921018602,
+      "oracle": 1.892046400785446,
+      "auroc": 0.9980007619047618,
+      "spearman": 0.99219618726156,
+      "all_auroc": 0.9930598095238096
+    },
+    "('holdout_scene_kitchen_scene2', 'test_ood')": {
+      "split": "holdout_scene_kitchen_scene2",
+      "variant": "full_engineered_mlp",
+      "part": "test_ood",
+      "pairwise": 0.9328571428571428,
+      "improve": 0.08229466080665593,
+      "pred_best": 1.6154078202588218,
+      "seed0": 1.6977024810654777,
+      "oracle": 1.6144805014133454,
+      "auroc": 0.9708260447035957,
+      "spearman": 0.9710157775832194,
+      "all_auroc": 0.9913678328474248
+    },
+    "('holdout_scene_kitchen_scene2', 'test_id')": {
+      "split": "holdout_scene_kitchen_scene2",
+      "variant": "heteroscedastic_head",
+      "part": "test_id",
+      "pairwise": 0.9304,
+      "improve": 0.07514530801773067,
+      "pred_best": 1.6528549263477326,
+      "seed0": 1.7280002343654632,
+      "oracle": 1.6515287026166916,
+      "auroc": 0.9976076190476191,
+      "spearman": 0.9892996088957499,
+      "all_auroc": 0.998728380952381
+    }
+  },
+  "calibration_context_gated_q90_simvla": [
+    {
+      "split": "id_task_split",
+      "eval": "test_id_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.896,
+      "mean_width": 0.1473727583885192,
+      "auroc": 0.9978758095238096,
+      "brier": 0.0899123583002297
+    },
+    {
+      "split": "id_task_split",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.8696,
+      "mean_width": 0.12954434423557554,
+      "auroc": 0.9978758095238096,
+      "brier": 0.08991235829993342
+    },
+    {
+      "split": "id_task_split",
+      "eval": "test_id_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.916,
+      "mean_width": 0.18164880275726322,
+      "auroc": 0.9978758095238096,
+      "brier": 0.0899123583002297
+    },
+    {
+      "split": "id_task_split",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.8696,
+      "mean_width": 0.13045578393414112,
+      "auroc": 0.9978758095238096,
+      "brier": 0.0899123582997153
+    },
+    {
+      "split": "holdout_libero_object",
+      "eval": "test_id_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.8632,
+      "mean_width": 0.09705488681793209,
+      "auroc": 0.9827687619047618,
+      "brier": 0.11492878996049767
+    },
+    {
+      "split": "holdout_libero_object",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.8656,
+      "mean_width": 0.13901080812431119,
+      "auroc": 0.9827687619047618,
+      "brier": 0.11492878995977997
+    },
+    {
+      "split": "holdout_libero_object",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.924,
+      "mean_width": 0.0970548868179321,
+      "auroc": 0.9727634285714285,
+      "brier": 0.19634004977485686
+    },
+    {
+      "split": "holdout_libero_object",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.8912,
+      "mean_width": 0.13901080812431113,
+      "auroc": 0.9727634285714285,
+      "brier": 0.19634004976935462
+    },
+    {
+      "split": "holdout_libero_object",
+      "eval": "test_id_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.8696,
+      "mean_width": 0.1014031171798706,
+      "auroc": 0.9827687619047618,
+      "brier": 0.11492878996049767
+    },
+    {
+      "split": "holdout_libero_object",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.8848,
+      "mean_width": 0.14958934407962698,
+      "auroc": 0.9827687619047618,
+      "brier": 0.11492878995943097
+    },
+    {
+      "split": "holdout_libero_object",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.9336,
+      "mean_width": 0.1014031171798706,
+      "auroc": 0.9727634285714285,
+      "brier": 0.19634004977485686
+    },
+    {
+      "split": "holdout_libero_object",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.936,
+      "mean_width": 0.14958934407962698,
+      "auroc": 0.9727634285714285,
+      "brier": 0.19634004976667907
+    },
+    {
+      "split": "holdout_object_bowl",
+      "eval": "test_id_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.6496,
+      "mean_width": 0.0830333173274993,
+      "auroc": 0.9824152380952381,
+      "brier": 0.13832651375343183
+    },
+    {
+      "split": "holdout_object_bowl",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.6464,
+      "mean_width": 0.10798433532283534,
+      "auroc": 0.9824152380952381,
+      "brier": 0.13832651375345084
+    },
+    {
+      "split": "holdout_object_bowl",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.9216,
+      "mean_width": 0.0830333173274993,
+      "auroc": 0.9972053333333333,
+      "brier": 0.1079456725381016
+    },
+    {
+      "split": "holdout_object_bowl",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.9208,
+      "mean_width": 0.10798433532283534,
+      "auroc": 0.9972053333333333,
+      "brier": 0.10794567253805515
+    },
+    {
+      "split": "holdout_object_bowl",
+      "eval": "test_id_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.6528,
+      "mean_width": 0.08801834583282471,
+      "auroc": 0.9824152380952381,
+      "brier": 0.13832651375343183
+    },
+    {
+      "split": "holdout_object_bowl",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.648,
+      "mean_width": 0.10670158029152167,
+      "auroc": 0.9824152380952381,
+      "brier": 0.13832651375365798
+    },
+    {
+      "split": "holdout_object_bowl",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.9248,
+      "mean_width": 0.0880183458328247,
+      "auroc": 0.9972053333333333,
+      "brier": 0.1079456725381016
+    },
+    {
+      "split": "holdout_object_bowl",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.9264,
+      "mean_width": 0.10670158029152164,
+      "auroc": 0.9972053333333333,
+      "brier": 0.10794567253754958
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "eval": "test_id_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.7896,
+      "mean_width": 0.09704231023788448,
+      "auroc": 0.979928380952381,
+      "brier": 0.17226869355663538
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.7904,
+      "mean_width": 0.10079835400563328,
+      "auroc": 0.979928380952381,
+      "brier": 0.17226869355677088
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_all",
+      "n": 1000,
+      "coverage": 0.629,
+      "mean_width": 0.09704231023788447,
+      "auroc": 0.9728619047619047,
+      "brier": 0.17089901599725413
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1000,
+      "coverage": 0.634,
+      "mean_width": 0.10079835400563329,
+      "auroc": 0.9728619047619047,
+      "brier": 0.17089901599761606
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "eval": "test_id_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.8088,
+      "mean_width": 0.12447345256805452,
+      "auroc": 0.979928380952381,
+      "brier": 0.17226869355663538
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.8056,
+      "mean_width": 0.1225308851980175,
+      "auroc": 0.979928380952381,
+      "brier": 0.17226869355856164
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_simvla",
+      "n": 1000,
+      "coverage": 0.68,
+      "mean_width": 0.12447345256805453,
+      "auroc": 0.9728619047619047,
+      "brier": 0.17089901599725413
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1000,
+      "coverage": 0.704,
+      "mean_width": 0.12253088519801748,
+      "auroc": 0.9728619047619047,
+      "brier": 0.17089901600239882
+    },
+    {
+      "split": "holdout_libero_goal",
+      "eval": "test_id_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.8816,
+      "mean_width": 0.1111747503280639,
+      "auroc": 0.983384380952381,
+      "brier": 0.18335768810930744
+    },
+    {
+      "split": "holdout_libero_goal",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.8792,
+      "mean_width": 0.12691131532086264,
+      "auroc": 0.983384380952381,
+      "brier": 0.1833576881090623
+    },
+    {
+      "split": "holdout_libero_goal",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_all",
+      "n": 1000,
+      "coverage": 0.848,
+      "mean_width": 0.11117475032806388,
+      "auroc": 0.9958761904761905,
+      "brier": 0.09272161685846923
+    },
+    {
+      "split": "holdout_libero_goal",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1000,
+      "coverage": 0.846,
+      "mean_width": 0.12691131532086264,
+      "auroc": 0.9958761904761905,
+      "brier": 0.09272161685844389
+    },
+    {
+      "split": "holdout_libero_goal",
+      "eval": "test_id_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.9144,
+      "mean_width": 0.13776116371154803,
+      "auroc": 0.983384380952381,
+      "brier": 0.18335768810930744
+    },
+    {
+      "split": "holdout_libero_goal",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.9192,
+      "mean_width": 0.14494113111938445,
+      "auroc": 0.983384380952381,
+      "brier": 0.18335768811024977
+    },
+    {
+      "split": "holdout_libero_goal",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_simvla",
+      "n": 1000,
+      "coverage": 0.854,
+      "mean_width": 0.137761163711548,
+      "auroc": 0.9958761904761905,
+      "brier": 0.09272161685846923
+    },
+    {
+      "split": "holdout_libero_goal",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1000,
+      "coverage": 0.867,
+      "mean_width": 0.1449411311193845,
+      "auroc": 0.9958761904761905,
+      "brier": 0.09272161685856659
+    },
+    {
+      "split": "holdout_object_cabinet",
+      "eval": "test_id_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.8128,
+      "mean_width": 0.1213216781616211,
+      "auroc": 0.9982384761904761,
+      "brier": 0.17175790280312309
+    },
+    {
+      "split": "holdout_object_cabinet",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.8176,
+      "mean_width": 0.10274115075149923,
+      "auroc": 0.9982384761904761,
+      "brier": 0.17175790280513753
+    },
+    {
+      "split": "holdout_object_cabinet",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.96,
+      "mean_width": 0.1213216781616211,
+      "auroc": 0.9597348571428571,
+      "brier": 0.13180354746663875
+    },
+    {
+      "split": "holdout_object_cabinet",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.9656,
+      "mean_width": 0.10274115075149926,
+      "auroc": 0.9597348571428571,
+      "brier": 0.1318035474668122
+    },
+    {
+      "split": "holdout_object_cabinet",
+      "eval": "test_id_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.8216,
+      "mean_width": 0.14981107711792008,
+      "auroc": 0.9982384761904761,
+      "brier": 0.17175790280312309
+    },
+    {
+      "split": "holdout_object_cabinet",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.8232,
+      "mean_width": 0.10921622800598696,
+      "auroc": 0.9982384761904761,
+      "brier": 0.1717579028064461
+    },
+    {
+      "split": "holdout_object_cabinet",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.9664,
+      "mean_width": 0.14981107711792005,
+      "auroc": 0.9597348571428571,
+      "brier": 0.13180354746663875
+    },
+    {
+      "split": "holdout_object_cabinet",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.9704,
+      "mean_width": 0.10921622800598693,
+      "auroc": 0.9597348571428571,
+      "brier": 0.13180354746692488
+    },
+    {
+      "split": "holdout_scene_kitchen_scene2",
+      "eval": "test_id_simvla",
+      "method": "global_residual_all",
+      "n": 1250,
+      "coverage": 0.8056,
+      "mean_width": 0.15554017499089234,
+      "auroc": 0.999872,
+      "brier": 0.11444273224727881
+    },
+    {
+      "split": "holdout_scene_kitchen_scene2",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 1250,
+      "coverage": 0.8208,
+      "mean_width": 0.11499144188154906,
+      "auroc": 0.999872,
+      "brier": 0.11444273224975884
+    },
+    {
+      "split": "holdout_scene_kitchen_scene2",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_all",
+      "n": 700,
+      "coverage": 1.0,
+      "mean_width": 0.1555401749908924,
+      "auroc": 0.9508066083576288,
+      "brier": 0.18327374900678398
+    },
+    {
+      "split": "holdout_scene_kitchen_scene2",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_all",
+      "n": 700,
+      "coverage": 1.0,
+      "mean_width": 0.11499144188154907,
+      "auroc": 0.9508066083576288,
+      "brier": 0.18327374901124732
+    },
+    {
+      "split": "holdout_scene_kitchen_scene2",
+      "eval": "test_id_simvla",
+      "method": "global_residual_simvla",
+      "n": 1250,
+      "coverage": 0.8288,
+      "mean_width": 0.2183765888214113,
+      "auroc": 0.999872,
+      "brier": 0.11444273224727881
+    },
+    {
+      "split": "holdout_scene_kitchen_scene2",
+      "eval": "test_id_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 1250,
+      "coverage": 0.8256,
+      "mean_width": 0.14550288847378848,
+      "auroc": 0.999872,
+      "brier": 0.11444273225194813
+    },
+    {
+      "split": "holdout_scene_kitchen_scene2",
+      "eval": "test_ood_simvla",
+      "method": "global_residual_simvla",
+      "n": 700,
+      "coverage": 1.0,
+      "mean_width": 0.21837658882141128,
+      "auroc": 0.9508066083576288,
+      "brier": 0.18327374900678398
+    },
+    {
+      "split": "holdout_scene_kitchen_scene2",
+      "eval": "test_ood_simvla",
+      "method": "affine_plus_residual_simvla",
+      "n": 700,
+      "coverage": 1.0,
+      "mean_width": 0.14550288847378848,
+      "auroc": 0.9508066083576288,
+      "brier": 0.18327374901518736
+    }
+  ],
+  "model_row_count": 229
+}

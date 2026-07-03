@@ -1,0 +1,2181 @@
+{
+  "hashes": {
+    "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8/model.pt": {
+      "sha256": "687b5d35eed65abfe63b5ff600e52c2228318ad94209e379e73fbaad981dbb2d",
+      "size": 2602964
+    },
+    "/home/rootalkhatib/test/reda_ws/intern_ship_ws/outputs/runs/simvla_libero_uncertainty/ckpt-60000/model.safetensors": {
+      "sha256": "3fab12d94c963f530ddce9f66aed4bf2623b2a2bbd527c85918fce2fcf8aec71",
+      "size": 3245557952
+    }
+  },
+  "host": "PCROBOTUBUNTU05",
+  "roots": [
+    {
+      "exists": false,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608"
+    },
+    {
+      "exists": false,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_topk8_aggressive_task3_20260608"
+    },
+    {
+      "exists": false,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_task6_old_topk8_aggressive_20260608"
+    },
+    {
+      "exists": false,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_ood_goal_object_and_swap_20260608"
+    },
+    {
+      "exists": false,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_20260609"
+    },
+    {
+      "exists": false,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_aggressive_fixed_20260609"
+    },
+    {
+      "exists": false,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_100ep_aggressive_fixed_20260609"
+    },
+    {
+      "exists": false,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_100ep_threshold_0.5_20260610"
+    },
+    {
+      "exists": false,
+      "root": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_100ep_threshold_q95_20260610"
+    },
+    {
+      "aggregate_by_policy": {
+        "simvla_only": {
+          "duplicate_reset_seeds": 2,
+          "episodes": 12,
+          "max_seed": 9,
+          "mean_steps": 176.4167,
+          "min_seed": 0,
+          "success_rate": 0.833333,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "topk8_v2_adaptive_horizon": {
+          "duplicate_reset_seeds": 2,
+          "episodes": 3,
+          "max_seed": 0,
+          "mean_steps": 137.3333,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 3,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task0": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 1,
+            "episodes": 11,
+            "max_seed": 9,
+            "mean_steps": 185.5455,
+            "min_seed": 0,
+            "success_rate": 0.818182,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2_adaptive_horizon": {
+            "duplicate_reset_seeds": 1,
+            "episodes": 2,
+            "max_seed": 0,
+            "mean_steps": 168.0,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 2,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 1
+          }
+        },
+        "task17": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 1,
+            "max_seed": 0,
+            "mean_steps": 76.0,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 1,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 1
+          },
+          "topk8_v2_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 1,
+            "max_seed": 0,
+            "mean_steps": 76.0,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 1,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 1
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {
+          "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2_adaptive_horizon_20260610/checkpoints/ckpt-60000": 40
+        },
+        "config_count": 40,
+        "execution_horizons": {
+          "10": 40
+        },
+        "risk_dirs": {
+          "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8": 20
+        },
+        "seed_lengths": {
+          "1": 4,
+          "10": 36
+        },
+        "suite_values": {
+          "libero_goal_object_ood": 40
+        },
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "threshold_values": {}
+      },
+      "episode_files": {
+        "runs/task0/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 187.3,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task0/topk8_v2_adaptive_horizon/topk8_v2_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 168.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs_smoke/task0/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 168.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs_smoke/task0/topk8_v2_adaptive_horizon/topk8_v2_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 168.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs_smoke/task17/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 76.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs_smoke/task17/topk8_v2_adaptive_horizon/topk8_v2_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 76.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "logs": {
+        "sweep_supervisor.log": {
+          "keyboard_interrupt_count": 0,
+          "oom_count": 0,
+          "tail": "ation.\n/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/transformers/utils/hub.py:105: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.\n  warnings.warn(\n[startup] policy=topk8_v2_adaptive_horizon config=/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2_adaptive_horizon_20260610/configs/task0_topk8_v2_adaptive_horizon.json checkpoint=/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2_adaptive_horizon_20260610/checkpoints/ckpt-60000\n/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2_adaptive_horizon_20260610/src/run_policy_matrix_adaptive_horizon_v2.py:283: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.\n  state = torch.load(model_dir / \"model.pt\", map_location=device)\n[LiberoJointActionSpace] Loaded state norm stats, dim=8\n[LiberoJointActionSpace] Loaded actions norm stats, dim=7\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2_adaptive_horizon ep=0 seed=0 outcome=success steps=168 mods=0 time=14.9s\n",
+          "traceback_count": 0
+        }
+      },
+      "root": "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2_adaptive_horizon_20260610"
+    },
+    {
+      "aggregate_by_policy": {
+        "simvla_only": {
+          "duplicate_reset_seeds": 172,
+          "episodes": 182,
+          "max_seed": 9,
+          "mean_steps": 121.1868,
+          "min_seed": 0,
+          "success_rate": 0.950549,
+          "successes": 173,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "topk8_v2b_adaptive_horizon": {
+          "duplicate_reset_seeds": 172,
+          "episodes": 182,
+          "max_seed": 9,
+          "mean_steps": 126.4615,
+          "min_seed": 0,
+          "success_rate": 0.928571,
+          "successes": 169,
+          "total_mods_or_adaptive_events": 4581,
+          "unique_reset_seeds": 10
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task0": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 1,
+            "episodes": 11,
+            "max_seed": 9,
+            "mean_steps": 185.5455,
+            "min_seed": 0,
+            "success_rate": 0.818182,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 1,
+            "episodes": 11,
+            "max_seed": 9,
+            "mean_steps": 185.5455,
+            "min_seed": 0,
+            "success_rate": 0.727273,
+            "successes": 8,
+            "total_mods_or_adaptive_events": 439,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task1": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 175.6,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 182.3,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 944,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task10": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 83.2,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 83.2,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task11": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 113.3,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 137.9,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 603,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task12": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 115.6,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 155.5,
+            "min_seed": 0,
+            "success_rate": 0.7,
+            "successes": 7,
+            "total_mods_or_adaptive_events": 586,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task13": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 150.4,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 150.4,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 140,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task14": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 153.0,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 152.8,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 220,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task15": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 102.7,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 102.7,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task16": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 88.4,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 88.4,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task17": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 1,
+            "episodes": 11,
+            "max_seed": 9,
+            "mean_steps": 101.6364,
+            "min_seed": 0,
+            "success_rate": 0.909091,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 1,
+            "episodes": 11,
+            "max_seed": 9,
+            "mean_steps": 101.6364,
+            "min_seed": 0,
+            "success_rate": 0.909091,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 190,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task2": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 183.9,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 195.1,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 1070,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task3": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 130.6,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 131.1,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 24,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task4": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 132.8,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 133.3,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 3,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task5": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 86.5,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 86.4,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 3,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task6": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 83.0,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 83.0,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task7": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 109.3,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 109.4,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 194,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task8": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 95.6,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 107.8,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 108,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task9": {
+          "simvla_only": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 85.8,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          },
+          "topk8_v2b_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 86.4,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 57,
+            "unique_reset_seeds": 10
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {
+          "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2b_feature_preserving_adaptive_horizon_20260610/checkpoints/ckpt-60000": 40
+        },
+        "config_count": 40,
+        "execution_horizons": {
+          "10": 40
+        },
+        "risk_dirs": {
+          "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8": 20
+        },
+        "seed_lengths": {
+          "1": 4,
+          "10": 36
+        },
+        "suite_values": {
+          "libero_goal_object_ood": 40
+        },
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "threshold_values": {}
+      },
+      "episode_files": {
+        "runs/task0/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 187.3,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task0/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 187.3,
+          "min_seed": 0,
+          "success_rate": 0.7,
+          "successes": 7,
+          "total_mods_or_adaptive_events": 439,
+          "unique_reset_seeds": 10
+        },
+        "runs/task1/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 175.6,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task1/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 182.3,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 944,
+          "unique_reset_seeds": 10
+        },
+        "runs/task10/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 83.2,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task10/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 83.2,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task11/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 113.3,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task11/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 137.9,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 603,
+          "unique_reset_seeds": 10
+        },
+        "runs/task12/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 115.6,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task12/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 155.5,
+          "min_seed": 0,
+          "success_rate": 0.7,
+          "successes": 7,
+          "total_mods_or_adaptive_events": 586,
+          "unique_reset_seeds": 10
+        },
+        "runs/task13/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 150.4,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task13/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 150.4,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 140,
+          "unique_reset_seeds": 10
+        },
+        "runs/task14/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 153.0,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task14/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 152.8,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 220,
+          "unique_reset_seeds": 10
+        },
+        "runs/task15/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 102.7,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task15/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 102.7,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task16/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 88.4,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task16/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 88.4,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task17/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 104.2,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task17/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 104.2,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 190,
+          "unique_reset_seeds": 10
+        },
+        "runs/task2/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 183.9,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task2/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 195.1,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 1070,
+          "unique_reset_seeds": 10
+        },
+        "runs/task3/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 130.6,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task3/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 131.1,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 24,
+          "unique_reset_seeds": 10
+        },
+        "runs/task4/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 132.8,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task4/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 133.3,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 3,
+          "unique_reset_seeds": 10
+        },
+        "runs/task5/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 86.5,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task5/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 86.4,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 3,
+          "unique_reset_seeds": 10
+        },
+        "runs/task6/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 83.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task6/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 83.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task7/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 109.3,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task7/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 109.4,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 194,
+          "unique_reset_seeds": 10
+        },
+        "runs/task8/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 95.6,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task8/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 107.8,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 108,
+          "unique_reset_seeds": 10
+        },
+        "runs/task9/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 85.8,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task9/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 86.4,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 57,
+          "unique_reset_seeds": 10
+        },
+        "runs_smoke/task0/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 168.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs_smoke/task0/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 168.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs_smoke/task17/modified_simvla/simvla_only/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 76.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs_smoke/task17/topk8_v2b_adaptive_horizon/topk8_v2b_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 76.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "logs": {
+        "sweep_supervisor.log": {
+          "keyboard_interrupt_count": 0,
+          "oom_count": 0,
+          "tail": "e = torch.load(model_dir / \"model.pt\", map_location=device)\n[LiberoJointActionSpace] Loaded state norm stats, dim=8\n[LiberoJointActionSpace] Loaded actions norm stats, dim=7\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=0 seed=0 outcome=success steps=76 mods=0 time=8.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=1 seed=1 outcome=success steps=75 mods=0 time=7.1s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=2 seed=2 outcome=success steps=92 mods=0 time=8.5s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=3 seed=3 outcome=success steps=75 mods=0 time=7.2s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=4 seed=4 outcome=success steps=75 mods=0 time=7.2s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=5 seed=5 outcome=success steps=78 mods=0 time=7.2s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=6 seed=6 outcome=failure_or_timeout steps=300 mods=0 time=129.1s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=7 seed=7 outcome=success steps=115 mods=0 time=10.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=8 seed=8 outcome=success steps=78 mods=0 time=7.4s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2b_adaptive_horizon ep=9 seed=9 outcome=success steps=78 mods=0 time=7.3s\n",
+          "traceback_count": 0
+        }
+      },
+      "root": "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2b_feature_preserving_adaptive_horizon_20260610"
+    },
+    {
+      "aggregate_by_policy": {
+        "topk8_v2c_h5_adaptive_horizon": {
+          "duplicate_reset_seeds": 170,
+          "episodes": 180,
+          "max_seed": 9,
+          "mean_steps": 123.8167,
+          "min_seed": 0,
+          "success_rate": 0.938889,
+          "successes": 169,
+          "total_mods_or_adaptive_events": 1023,
+          "unique_reset_seeds": 10
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task0": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 186.0,
+            "min_seed": 0,
+            "success_rate": 0.8,
+            "successes": 8,
+            "total_mods_or_adaptive_events": 98,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task1": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 170.3,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 240,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task10": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 83.2,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task11": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 113.1,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 84,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task12": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 138.9,
+            "min_seed": 0,
+            "success_rate": 0.8,
+            "successes": 8,
+            "total_mods_or_adaptive_events": 134,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task13": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 150.4,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 28,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task14": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 152.7,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 44,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task15": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 102.7,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task16": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 88.4,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task17": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 104.2,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 28,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task2": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 198.3,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 265,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task3": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 130.9,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 8,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task4": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 133.0,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 1,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task5": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 86.5,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 1,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task6": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 83.0,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task7": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 109.3,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 45,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task8": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 112.2,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 40,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task9": {
+          "topk8_v2c_h5_adaptive_horizon": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 85.6,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 7,
+            "unique_reset_seeds": 10
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {
+          "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2c_h5_adaptive_horizon_20260610/checkpoints/ckpt-60000": 18
+        },
+        "config_count": 18,
+        "execution_horizons": {
+          "10": 18
+        },
+        "risk_dirs": {
+          "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8": 18
+        },
+        "seed_lengths": {
+          "10": 18
+        },
+        "suite_values": {
+          "libero_goal_object_ood": 18
+        },
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "threshold_values": {}
+      },
+      "episode_files": {
+        "runs/task0/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 186.0,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 98,
+          "unique_reset_seeds": 10
+        },
+        "runs/task1/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 170.3,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 240,
+          "unique_reset_seeds": 10
+        },
+        "runs/task10/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 83.2,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task11/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 113.1,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 84,
+          "unique_reset_seeds": 10
+        },
+        "runs/task12/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 138.9,
+          "min_seed": 0,
+          "success_rate": 0.8,
+          "successes": 8,
+          "total_mods_or_adaptive_events": 134,
+          "unique_reset_seeds": 10
+        },
+        "runs/task13/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 150.4,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 28,
+          "unique_reset_seeds": 10
+        },
+        "runs/task14/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 152.7,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 44,
+          "unique_reset_seeds": 10
+        },
+        "runs/task15/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 102.7,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task16/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 88.4,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task17/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 104.2,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 28,
+          "unique_reset_seeds": 10
+        },
+        "runs/task2/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 198.3,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 265,
+          "unique_reset_seeds": 10
+        },
+        "runs/task3/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 130.9,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 8,
+          "unique_reset_seeds": 10
+        },
+        "runs/task4/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 133.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 1,
+          "unique_reset_seeds": 10
+        },
+        "runs/task5/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 86.5,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 1,
+          "unique_reset_seeds": 10
+        },
+        "runs/task6/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 83.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task7/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 109.3,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 45,
+          "unique_reset_seeds": 10
+        },
+        "runs/task8/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 112.2,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 40,
+          "unique_reset_seeds": 10
+        },
+        "runs/task9/topk8_v2c_h5_adaptive_horizon/topk8_v2c_h5_adaptive_horizon/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 85.6,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 7,
+          "unique_reset_seeds": 10
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "logs": {
+        "sweep_supervisor.log": {
+          "keyboard_interrupt_count": 0,
+          "oom_count": 0,
+          "tail": "odel.pt\", map_location=device)\n[LiberoJointActionSpace] Loaded state norm stats, dim=8\n[LiberoJointActionSpace] Loaded actions norm stats, dim=7\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=0 seed=0 outcome=success steps=76 mods=0 time=8.4s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=1 seed=1 outcome=success steps=75 mods=0 time=7.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=2 seed=2 outcome=success steps=92 mods=0 time=8.7s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=3 seed=3 outcome=success steps=75 mods=0 time=7.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=4 seed=4 outcome=success steps=75 mods=0 time=7.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=5 seed=5 outcome=success steps=78 mods=0 time=7.3s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=6 seed=6 outcome=failure_or_timeout steps=300 mods=0 time=32.1s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=7 seed=7 outcome=success steps=115 mods=0 time=10.2s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=8 seed=8 outcome=success steps=78 mods=0 time=7.4s\n[info] Using default task order for benchmark 'libero_goal_object_ood' (18 tasks).\n[episode] policy=topk8_v2c_h5_adaptive_horizon ep=9 seed=9 outcome=success steps=78 mods=0 time=7.4s\n",
+          "traceback_count": 0
+        }
+      },
+      "root": "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2c_h5_adaptive_horizon_20260610"
+    },
+    {
+      "aggregate_by_policy": {
+        "topk8_v2d_commit_gate": {
+          "duplicate_reset_seeds": 152,
+          "episodes": 162,
+          "max_seed": 9,
+          "mean_steps": 125.4444,
+          "min_seed": 0,
+          "success_rate": 0.932099,
+          "successes": 151,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        }
+      },
+      "aggregate_by_task_policy": {
+        "task0": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 1,
+            "episodes": 11,
+            "max_seed": 9,
+            "mean_steps": 176.1818,
+            "min_seed": 0,
+            "success_rate": 0.727273,
+            "successes": 8,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task1": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 181.9,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task10": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 84.0,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task11": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 102.8,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task12": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 122.4,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task13": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 197.6,
+            "min_seed": 0,
+            "success_rate": 0.6,
+            "successes": 6,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task14": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 163.5,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task15": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 95.8,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task17": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 1,
+            "max_seed": 0,
+            "mean_steps": 75.0,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 1,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 1
+          }
+        },
+        "task2": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 191.6,
+            "min_seed": 0,
+            "success_rate": 0.9,
+            "successes": 9,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task3": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 132.1,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task4": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 125.4,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task5": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 88.5,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task6": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 84.5,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task7": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 88.7,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task8": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 86.7,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        },
+        "task9": {
+          "topk8_v2d_commit_gate": {
+            "duplicate_reset_seeds": 0,
+            "episodes": 10,
+            "max_seed": 9,
+            "mean_steps": 85.4,
+            "min_seed": 0,
+            "success_rate": 1.0,
+            "successes": 10,
+            "total_mods_or_adaptive_events": 0,
+            "unique_reset_seeds": 10
+          }
+        }
+      },
+      "configs": {
+        "checkpoints": {
+          "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2d_commit_gate_20260610/checkpoints/ckpt-60000": 20
+        },
+        "config_count": 20,
+        "execution_horizons": {
+          "10": 20
+        },
+        "risk_dirs": {
+          "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608/models/h10_continuous/all_tasks_random/unc_topk8": 20
+        },
+        "seed_lengths": {
+          "1": 2,
+          "10": 18
+        },
+        "suite_values": {
+          "libero_goal_object_ood": 20
+        },
+        "task_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "threshold_values": {}
+      },
+      "episode_files": {
+        "runs/task0/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 180.5,
+          "min_seed": 0,
+          "success_rate": 0.7,
+          "successes": 7,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task1/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 181.9,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task10/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 84.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task11/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 102.8,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task12/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 122.4,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task13/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 197.6,
+          "min_seed": 0,
+          "success_rate": 0.6,
+          "successes": 6,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task14/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 163.5,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task15/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 95.8,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task2/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 191.6,
+          "min_seed": 0,
+          "success_rate": 0.9,
+          "successes": 9,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task3/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 132.1,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task4/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 125.4,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task5/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 88.5,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task6/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 84.5,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task7/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 88.7,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task8/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 86.7,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs/task9/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 10,
+          "max_seed": 9,
+          "mean_steps": 85.4,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 10,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 10
+        },
+        "runs_smoke/task0/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 133.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        },
+        "runs_smoke/task17/topk8_v2d_commit_gate/topk8_v2d_commit_gate/episode_summaries.jsonl": {
+          "duplicate_reset_seeds": 0,
+          "episodes": 1,
+          "max_seed": 0,
+          "mean_steps": 75.0,
+          "min_seed": 0,
+          "success_rate": 1.0,
+          "successes": 1,
+          "total_mods_or_adaptive_events": 0,
+          "unique_reset_seeds": 1
+        }
+      },
+      "exists": true,
+      "jsonl_parse_errors": 0,
+      "root": "/home/rootalkhatib/test/reda_ws/fiper_ws/trash/h10_goal_object_ood_all_tasks_10ep_topk8_v2d_commit_gate_20260610"
+    }
+  ]
+}

@@ -1,0 +1,666 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DOM Object Mesh Visual Review</title>
+<style>
+body { font-family: Arial, sans-serif; background: #111; color: #eee; margin: 24px; }
+h1 { margin-bottom: 4px; }
+.note { color: #bbb; margin-bottom: 24px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+.card { background: #1d1d1d; border: 1px solid #333; border-radius: 12px; padding: 12px; }
+.card img { width: 100%; height: 220px; object-fit: contain; background: #fff; border-radius: 8px; }
+.name { font-weight: bold; margin-top: 10px; color: #fff; }
+.meta { font-size: 13px; color: #bbb; margin-top: 6px; line-height: 1.35; }
+.good { color: #7CFC98; }
+.medium { color: #FFD56A; }
+.unclear { color: #FF9F6A; }
+.checklist { background:#181818; border:1px solid #333; padding:14px; border-radius:10px; margin-bottom:24px; }
+</style>
+</head>
+<body>
+<h1>DOM Object Mesh Visual Review</h1>
+<div class="note">Open this in a browser. Check if object shapes are realistic, correctly scaled-looking, textured, and not primitive placeholders.</div>
+
+<div class="checklist">
+<b>Manual visual checklist:</b>
+<ul>
+<li>Does the silhouette look like the intended object?</li>
+<li>Does the texture align correctly with the geometry?</li>
+<li>Does it look like a real mesh, not just a cylinder/cube/sphere?</li>
+<li>Are cups/bowls hollow-looking enough for manipulation tasks?</li>
+<li>Are cans/bottles/boxes acceptable even if simpler?</li>
+<li>Mark bad assets manually after inspection.</li>
+</ul>
+</div>
+
+<div class="grid">
+
+
+<div class="card">
+  <img src="../object_thumbnails/apple__apple09.png">
+  <div class="name">apple__apple09</div>
+  <div class="meta">
+    category: apple<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 120214<br>
+    faces: 199912<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/apple__apple11.png">
+  <div class="name">apple__apple11</div>
+  <div class="meta">
+    category: apple<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 54672<br>
+    faces: 107490<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/apple__apple15.png">
+  <div class="name">apple__apple15</div>
+  <div class="meta">
+    category: apple<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 55274<br>
+    faces: 99994<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/avocado__avocado00.png">
+  <div class="name">avocado__avocado00</div>
+  <div class="meta">
+    category: avocado<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 313495<br>
+    faces: 500000<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/avocado__avocado04.png">
+  <div class="name">avocado__avocado04</div>
+  <div class="meta">
+    category: avocado<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 69005<br>
+    faces: 100000<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/avocado__avocado05.png">
+  <div class="name">avocado__avocado05</div>
+  <div class="meta">
+    category: avocado<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 201891<br>
+    faces: 299936<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/beer__beer05.png">
+  <div class="name">beer__beer05</div>
+  <div class="meta">
+    category: beer<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 3475<br>
+    faces: 5856<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/beer__beer07.png">
+  <div class="name">beer__beer07</div>
+  <div class="meta">
+    category: beer<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 16272<br>
+    faces: 32256<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/beer__beer19.png">
+  <div class="name">beer__beer19</div>
+  <div class="meta">
+    category: beer<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 4762<br>
+    faces: 9000<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/bottle__dbottle04.png">
+  <div class="name">bottle__dbottle04</div>
+  <div class="meta">
+    category: bottle<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 84243<br>
+    faces: 143548<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/bottle__wbottle02.png">
+  <div class="name">bottle__wbottle02</div>
+  <div class="meta">
+    category: bottle<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 35145<br>
+    faces: 63232<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/bottle__wbottle17.png">
+  <div class="name">bottle__wbottle17</div>
+  <div class="meta">
+    category: bottle<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 163454<br>
+    faces: 302720<br>
+    textures: 0 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/bowl__bowl04.png">
+  <div class="name">bowl__bowl04</div>
+  <div class="meta">
+    category: bowl<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 133201<br>
+    faces: 253952<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/bowl__bowl09.png">
+  <div class="name">bowl__bowl09</div>
+  <div class="meta">
+    category: bowl<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 72139<br>
+    faces: 31360<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/bowl__bowl17.png">
+  <div class="name">bowl__bowl17</div>
+  <div class="meta">
+    category: bowl<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 90444<br>
+    faces: 177158<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/box__box00.png">
+  <div class="name">box__box00</div>
+  <div class="meta">
+    category: box<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 5960<br>
+    faces: 7102<br>
+    textures: 0 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/box__box01.png">
+  <div class="name">box__box01</div>
+  <div class="meta">
+    category: box<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 5960<br>
+    faces: 7102<br>
+    textures: 0 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/box__box02.png">
+  <div class="name">box__box02</div>
+  <div class="meta">
+    category: box<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 5960<br>
+    faces: 7102<br>
+    textures: 0 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/can__can11.png">
+  <div class="name">can__can11</div>
+  <div class="meta">
+    category: can<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 6287<br>
+    faces: 7402<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/can__fcan05.png">
+  <div class="name">can__fcan05</div>
+  <div class="meta">
+    category: can<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 33100<br>
+    faces: 64480<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/cup__cup05.png">
+  <div class="name">cup__cup05</div>
+  <div class="meta">
+    category: cup<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 1631<br>
+    faces: 2640<br>
+    textures: 0 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/cup__cup06.png">
+  <div class="name">cup__cup06</div>
+  <div class="meta">
+    category: cup<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 1631<br>
+    faces: 2640<br>
+    textures: 0 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/cup__cup07.png">
+  <div class="name">cup__cup07</div>
+  <div class="meta">
+    category: cup<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 1631<br>
+    faces: 2640<br>
+    textures: 0 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/egg__egg04.png">
+  <div class="name">egg__egg04</div>
+  <div class="meta">
+    category: egg<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 7480<br>
+    faces: 13440<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/egg__egg05.png">
+  <div class="name">egg__egg05</div>
+  <div class="meta">
+    category: egg<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 78476<br>
+    faces: 40316<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/egg__egg10.png">
+  <div class="name">egg__egg10</div>
+  <div class="meta">
+    category: egg<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 35617<br>
+    faces: 68530<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/kiwi__kiwi00.png">
+  <div class="name">kiwi__kiwi00</div>
+  <div class="meta">
+    category: kiwi<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 179923<br>
+    faces: 60000<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/kiwi__kiwi05.png">
+  <div class="name">kiwi__kiwi05</div>
+  <div class="meta">
+    category: kiwi<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 74339<br>
+    faces: 131198<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/kiwi__kiwi07.png">
+  <div class="name">kiwi__kiwi07</div>
+  <div class="meta">
+    category: kiwi<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 4945<br>
+    faces: 9082<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/lemon__lemon01.png">
+  <div class="name">lemon__lemon01</div>
+  <div class="meta">
+    category: lemon<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 87730<br>
+    faces: 157696<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/lemon__lemon02.png">
+  <div class="name">lemon__lemon02</div>
+  <div class="meta">
+    category: lemon<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 228744<br>
+    faces: 76248<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/lemon__lemon06.png">
+  <div class="name">lemon__lemon06</div>
+  <div class="meta">
+    category: lemon<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 103431<br>
+    faces: 167370<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/orange__orange09.png">
+  <div class="name">orange__orange09</div>
+  <div class="meta">
+    category: orange<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 225471<br>
+    faces: 394170<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/orange__orange12.png">
+  <div class="name">orange__orange12</div>
+  <div class="meta">
+    category: orange<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 1986<br>
+    faces: 3626<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/orange__orange13.png">
+  <div class="name">orange__orange13</div>
+  <div class="meta">
+    category: orange<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 95850<br>
+    faces: 31950<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/peach__peach01.png">
+  <div class="name">peach__peach01</div>
+  <div class="meta">
+    category: peach<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 40255<br>
+    faces: 57770<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/peach__peach05.png">
+  <div class="name">peach__peach05</div>
+  <div class="meta">
+    category: peach<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 121216<br>
+    faces: 200000<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/peach__peach06.png">
+  <div class="name">peach__peach06</div>
+  <div class="meta">
+    category: peach<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 9126<br>
+    faces: 15872<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/tangerine__tangerine03.png">
+  <div class="name">tangerine__tangerine03</div>
+  <div class="meta">
+    category: tangerine<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 25942<br>
+    faces: 50000<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/tangerine__tangerine04.png">
+  <div class="name">tangerine__tangerine04</div>
+  <div class="meta">
+    category: tangerine<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 6274<br>
+    faces: 12288<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/tangerine__tangerine05.png">
+  <div class="name">tangerine__tangerine05</div>
+  <div class="meta">
+    category: tangerine<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 8467<br>
+    faces: 15840<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/tomato__tomato02.png">
+  <div class="name">tomato__tomato02</div>
+  <div class="meta">
+    category: tomato<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 2421<br>
+    faces: 3464<br>
+    textures: 0 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/tomato__tomato03.png">
+  <div class="name">tomato__tomato03</div>
+  <div class="meta">
+    category: tomato<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 43447<br>
+    faces: 79468<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/tomato__tomato07.png">
+  <div class="name">tomato__tomato07</div>
+  <div class="meta">
+    category: tomato<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 141188<br>
+    faces: 249254<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/tray__tray05.png">
+  <div class="name">tray__tray05</div>
+  <div class="meta">
+    category: tray<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 1158<br>
+    faces: 1736<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/tray__tray06.png">
+  <div class="name">tray__tray06</div>
+  <div class="meta">
+    category: tray<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 1158<br>
+    faces: 1736<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/tray__tray07.png">
+  <div class="name">tray__tray07</div>
+  <div class="meta">
+    category: tray<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 1158<br>
+    faces: 1736<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+<div class="card">
+  <img src="../object_thumbnails/unseen__can99.png">
+  <div class="name">unseen__can99</div>
+  <div class="meta">
+    category: unseen<br>
+    quality_guess: <span class="good">GOOD_TEXTURED_MESH</span><br>
+    points: 6287<br>
+    faces: 7402<br>
+    textures: 1 / nearby_tex=True
+  </div>
+</div>
+
+
+</div>
+</body>
+</html>

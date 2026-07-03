@@ -1,0 +1,42 @@
+Activated AsyncVLA Bob SimVLA env
+  PYTHON_BIN=/usr/bin/python3
+  SIMVLA_SITE_PACKAGES=/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages
+  REDA_WS=/media/rootalkhatib/My Passport/reda_ws
+  LIBERO_CONFIG_PATH=/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/config/libero
+Python 3.10.12
+Debug (50, 500)
+File size: 2.80 MB
+Number of contexts: 50
+Number of candidate rows: 500
+
+Candidate types and counts:
+  expert_action: count=50, mean_err=0.0000, min=0.0000, max=0.0000
+  simvla_seed0: count=50, mean_err=1.5281, min=0.3198, max=2.7826
+  simvla_seed1: count=50, mean_err=1.5119, min=0.3313, max=2.6603
+  simvla_seed2: count=50, mean_err=1.4843, min=0.3338, max=2.5982
+  simvla_seed3: count=50, mean_err=1.5402, min=0.3443, max=2.7052
+  simvla_seed4: count=50, mean_err=1.4850, min=0.3455, max=2.5581
+  perturb_small: count=50, mean_err=0.2575, min=0.2154, max=0.3056
+  perturb_large: count=50, mean_err=1.9046, min=1.6185, max=2.2654
+  same_task_far: count=50, mean_err=0.6348, min=0.2505, max=0.9860
+  other_demo_or_other_task: count=50, mean_err=0.7795, min=0.2670, max=1.2516
+
+Same-context proof table:
+
+Context: debug_ctx_0000017
+  Types found: ['expert_action', 'simvla_seed0', 'simvla_seed1', 'simvla_seed2', 'simvla_seed3', 'simvla_seed4', 'perturb_small', 'perturb_large', 'same_task_far', 'other_demo_or_other_task']
+  pooled VLM identical across candidates: True
+  proprio identical across candidates: True
+  target expert action identical across candidates: True
+
+Context: debug_ctx_0000024
+  Types found: ['expert_action', 'simvla_seed0', 'simvla_seed1', 'simvla_seed2', 'simvla_seed3', 'simvla_seed4', 'perturb_small', 'perturb_large', 'same_task_far', 'other_demo_or_other_task']
+  pooled VLM identical across candidates: True
+  proprio identical across candidates: True
+  target expert action identical across candidates: True
+
+Context: debug_ctx_0000002
+  Types found: ['expert_action', 'simvla_seed0', 'simvla_seed1', 'simvla_seed2', 'simvla_seed3', 'simvla_seed4', 'perturb_small', 'perturb_large', 'same_task_far', 'other_demo_or_other_task']
+  pooled VLM identical across candidates: True
+  proprio identical across candidates: True
+  target expert action identical across candidates: True

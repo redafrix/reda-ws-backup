@@ -1,0 +1,127 @@
+=== Command: df -hT ===
+Filesystem     Type      Size  Used Avail Use% Mounted on
+tmpfs          tmpfs     3.2G  4.6M  3.2G   1% /run
+/dev/sda2      ext4      469G  408G   38G  92% /
+tmpfs          tmpfs      16G   27M   16G   1% /dev/shm
+tmpfs          tmpfs     5.0M  4.0K  5.0M   1% /run/lock
+efivarfs       efivarfs  374K  180K  190K  49% /sys/firmware/efi/efivars
+/dev/sda1      vfat      548M  6.2M  542M   2% /boot/efi
+tmpfs          tmpfs     3.2G  160K  3.2G   1% /run/user/1000
+tmpfs          tmpfs     3.2G   72K  3.2G   1% /run/user/1001
+
+=== Command: df -ih ===
+Filesystem     Inodes IUsed IFree IUse% Mounted on
+tmpfs            3.9M  1.6K  3.9M    1% /run
+/dev/sda2         30M  3.1M   27M   11% /
+tmpfs            3.9M   183  3.9M    1% /dev/shm
+tmpfs            3.9M     4  3.9M    1% /run/lock
+efivarfs            0     0     0     - /sys/firmware/efi/efivars
+/dev/sda1           0     0     0     - /boot/efi
+tmpfs            796K   175  796K    1% /run/user/1000
+tmpfs            796K    75  796K    1% /run/user/1001
+
+=== Command: lsblk -o NAME,MODEL,SIZE,FSTYPE,TYPE,MOUNTPOINTS,ROTA,TRAN ===
+NAME        MODEL                      SIZE FSTYPE   TYPE MOUNTPOINTS                         ROTA TRAN
+loop0                                    4K squashfs loop /snap/bare/5                           1 
+loop1                                145.4M squashfs loop /snap/blue-recorder/126                1 
+loop2                                 13.4M squashfs loop /snap/canonical-livepatch/393          1 
+loop3                                 13.5M squashfs loop /snap/canonical-livepatch/406          1 
+loop4                                 55.5M squashfs loop /snap/core18/2979                      1 
+loop5                                 55.5M squashfs loop /snap/core18/2999                      1 
+loop6                                 63.8M squashfs loop /snap/core20/2769                      1 
+loop7                                 63.8M squashfs loop /snap/core20/2866                      1 
+loop8                                   74M squashfs loop /snap/core22/2292                      1 
+loop9                                   74M squashfs loop /snap/core22/2411                      1 
+loop10                                66.8M squashfs loop /snap/core24/1587                      1 
+loop11                                66.8M squashfs loop /snap/core24/1643                      1 
+loop13                               248.4M squashfs loop /snap/firefox/8462                     1 
+loop14                               164.8M squashfs loop /snap/gnome-3-28-1804/198              1 
+loop15                               346.3M squashfs loop /snap/gnome-3-38-2004/119              1 
+loop16                               349.7M squashfs loop /snap/gnome-3-38-2004/143              1 
+loop17                               516.2M squashfs loop /snap/gnome-42-2204/226                1 
+loop18                               531.4M squashfs loop /snap/gnome-42-2204/247                1 
+loop19                                91.7M squashfs loop /snap/gtk-common-themes/1535           1 
+loop20                               606.1M squashfs loop /snap/gnome-46-2404/153                1 
+loop21                                 395M squashfs loop /snap/mesa-2404/1165                   1 
+loop22                                 128M squashfs loop /snap/obsidian/56                      1 
+loop23                               127.4M squashfs loop /snap/obsidian/62                      1 
+loop24                                12.2M squashfs loop /snap/snap-store/1216                  1 
+loop25                                45.9M squashfs loop /snap/snap-store/638                   1 
+loop26                                48.4M squashfs loop /snap/snapd/26382                      1 
+loop27                                49.3M squashfs loop /snap/snapd/26865                      1 
+loop28                               252.4M squashfs loop /snap/firefox/8504                     1 
+loop29                                 580K squashfs loop /snap/snapd-desktop-integration/361    1 
+loop30                                20.5M squashfs loop /snap/tectonic/43                      1 
+loop31                                 828K squashfs loop /snap/snapd-desktop-integration/387    1 
+sda         2GB SSD                  476.9G          disk                                        1 usb
+├─sda1                                 549M vfat     part /boot/efi                              1 
+└─sda2                               476.4G ext4     part /                                      1 
+sdb         SD/MMC CRW                   0B          disk                                        1 usb
+nvme0n1     PM9A1 NVMe Samsung 512GB 476.9G          disk                                        0 nvme
+├─nvme0n1p1                            925M vfat     part                                        0 nvme
+├─nvme0n1p2                              8G vfat     part                                        0 nvme
+└─nvme0n1p3                            468G ext4     part                                        0 nvme
+
+=== Command: findmnt -D ===
+SOURCE           FSTYPE        SIZE   USED  AVAIL USE% TARGET
+udev             devtmpfs     15.5G      0  15.5G   0% /dev
+tmpfs            tmpfs         3.1G   4.5M   3.1G   0% /run
+/dev/sda2        ext4        468.4G   407G  37.5G  87% /
+tmpfs            tmpfs        15.5G  26.4M  15.5G   0% /dev/shm
+tmpfs            tmpfs           5M     4K     5M   0% /run/lock
+/dev/loop0       squashfs      128K   128K      0 100% /snap/bare/5
+/dev/loop3       squashfs     13.5M  13.5M      0 100% /snap/canonical-livepatch/406
+/dev/loop1       squashfs    145.4M 145.4M      0 100% /snap/blue-recorder/126
+/dev/loop2       squashfs     13.5M  13.5M      0 100% /snap/canonical-livepatch/393
+/dev/loop4       squashfs     55.5M  55.5M      0 100% /snap/core18/2979
+/dev/loop5       squashfs     55.5M  55.5M      0 100% /snap/core18/2999
+/dev/loop6       squashfs     63.9M  63.9M      0 100% /snap/core20/2769
+/dev/loop7       squashfs     63.9M  63.9M      0 100% /snap/core20/2866
+/dev/loop8       squashfs       74M    74M      0 100% /snap/core22/2292
+/dev/loop9       squashfs       74M    74M      0 100% /snap/core22/2411
+/dev/loop11      squashfs     66.9M  66.9M      0 100% /snap/core24/1643
+/dev/loop10      squashfs     66.9M  66.9M      0 100% /snap/core24/1587
+/dev/loop15      squashfs    346.4M 346.4M      0 100% /snap/gnome-3-38-2004/119
+/dev/loop14      squashfs    164.9M 164.9M      0 100% /snap/gnome-3-28-1804/198
+/dev/loop16      squashfs    349.8M 349.8M      0 100% /snap/gnome-3-38-2004/143
+/dev/loop17      squashfs    516.3M 516.3M      0 100% /snap/gnome-42-2204/226
+/dev/loop18      squashfs    531.4M 531.4M      0 100% /snap/gnome-42-2204/247
+/dev/loop19      squashfs     91.8M  91.8M      0 100% /snap/gtk-common-themes/1535
+/dev/loop21      squashfs      395M   395M      0 100% /snap/mesa-2404/1165
+/dev/loop20      squashfs    606.1M 606.1M      0 100% /snap/gnome-46-2404/153
+/dev/loop22      squashfs    128.1M 128.1M      0 100% /snap/obsidian/56
+/dev/loop23      squashfs    127.5M 127.5M      0 100% /snap/obsidian/62
+/dev/loop24      squashfs     12.3M  12.3M      0 100% /snap/snap-store/1216
+/dev/loop25      squashfs       46M    46M      0 100% /snap/snap-store/638
+/dev/loop26      squashfs     48.4M  48.4M      0 100% /snap/snapd/26382
+/dev/loop27      squashfs     49.4M  49.4M      0 100% /snap/snapd/26865
+/dev/loop29      squashfs      640K   640K      0 100% /snap/snapd-desktop-integration/361
+/dev/loop30      squashfs     20.5M  20.5M      0 100% /snap/tectonic/43
+/dev/sda1        vfat        547.9M   6.2M 541.7M   1% /boot/efi
+tmpfs[/snapd/ns] tmpfs         3.1G   4.5M   3.1G   0% /run/snapd/ns
+tmpfs            tmpfs         3.1G   160K   3.1G   0% /run/user/1000
+portal           fuse.portal                           /run/user/1000/doc
+/dev/loop13      squashfs    248.5M 248.5M      0 100% /snap/firefox/8462
+/dev/loop31      squashfs      896K   896K      0 100% /snap/snapd-desktop-integration/387
+/dev/loop28      squashfs    252.5M 252.5M      0 100% /snap/firefox/8504
+tmpfs            tmpfs         3.1G    72K   3.1G   0% /run/user/1001
+portal           fuse.portal                           /run/user/1001/doc
+
+=== Command: findmnt -T /home/dean ===
+TARGET SOURCE    FSTYPE OPTIONS
+/      /dev/sda2 ext4   rw,relatime,errors=remount-ro
+
+=== Command: findmnt -T /tmp ===
+TARGET SOURCE    FSTYPE OPTIONS
+/      /dev/sda2 ext4   rw,relatime,errors=remount-ro
+
+=== Command: du -sh /home/dean 2>/dev/null ===
+58G	/home/dean
+
+=== Command: quota -s 2>/dev/null || true ===
+
+
+=== Command: df -h /dev/shm ===
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs            16G   27M   16G   1% /dev/shm
+

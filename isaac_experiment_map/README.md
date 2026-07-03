@@ -9,6 +9,7 @@ This folder is a documentation map for the Isaac Sim / IsaacLab experiments we h
 Included here:
 
 - SimVLA basic checkpoint Isaac deployment tests.
+- SimVLA fine-tuned `ckpt-50000` Isaac deployment tests.
 - Camera-rotation / no-flip validation for Isaac camera inputs.
 - OpenPI Pi0.5 LIBERO checkpoint Isaac deployment tests.
 - OpenPI Pi0.5 DROID checkpoint Isaac deployment tests.
@@ -27,6 +28,8 @@ Not included as primary Isaac experiments:
 | Pi0.5 LIBERO, Isaac 5 reaching + 5 pick-place | Completed, all failed | `vids/pi05_libero_10_tests_agent_view_4x_labeled.mp4`; configs under `isaac_pi05_work/configs/` | [experiments/002_pi05_libero_isaac.md](experiments/002_pi05_libero_isaac.md) |
 | Pi0.5 DROID, Isaac 5 reaching + 5 pick-place | Completed, all failed | `vids/pi05_droid_10_tests_agent_view_4x_labeled.mp4`; DROID configs/scripts under `isaac_pi05_work/` | [experiments/003_pi05_droid_isaac.md](experiments/003_pi05_droid_isaac.md) |
 | Combined video speed + readable task labels | Completed | `*_4x_labeled.mp4` files in `vids/` | [experiments/004_video_outputs_and_labels.md](experiments/004_video_outputs_and_labels.md) |
+| SimVLA fine-tuned ckpt-50000, Isaac no-rotation 10 tests | Completed, all failed | `vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled.mp4` | [experiments/005_simvla_finetuned_ckpt50000_isaac.md](experiments/005_simvla_finetuned_ckpt50000_isaac.md) |
+| SimVLA fine-tuned ckpt-50000, 5000-step no-rotation 10 tests | Completed, 1 success | `vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled_5000.mp4` | [experiments/006_simvla_finetuned_ckpt50000_isaac_5000.md](experiments/006_simvla_finetuned_ckpt50000_isaac_5000.md) |
 
 ## Shared Task Sequence
 
@@ -60,7 +63,8 @@ The 10-test Isaac evaluation sequence used by these recent combined videos is:
 - [experiments/002_pi05_libero_isaac.md](experiments/002_pi05_libero_isaac.md)
 - [experiments/003_pi05_droid_isaac.md](experiments/003_pi05_droid_isaac.md)
 - [experiments/004_video_outputs_and_labels.md](experiments/004_video_outputs_and_labels.md)
+- [experiments/005_simvla_finetuned_ckpt50000_isaac.md](experiments/005_simvla_finetuned_ckpt50000_isaac.md)
+- [experiments/006_simvla_finetuned_ckpt50000_isaac_5000.md](experiments/006_simvla_finetuned_ckpt50000_isaac_5000.md)
 - [inventory/artifacts.md](inventory/artifacts.md)
 - [inventory/experiment_index.json](inventory/experiment_index.json)
 - [rerun_notes.md](rerun_notes.md)
-

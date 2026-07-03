@@ -1,0 +1,66 @@
+task: pick_place
+output_dir: /home/redafrix/tests/internship/franka_wrist_camera_isaaclab-test/outputs/clutter_02_lime_box
+start_episode_id: 0
+num_episodes: 1
+max_steps: 4800
+settle_time_s: 1.0
+
+record_cameras: true
+camera_fps: 30
+record_depth: true
+
+seed: 802
+top_grasp_depth_m: 0.025
+
+target_object:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: lime
+  variant_id: lime00
+  split: train
+  role: target
+  required_affordances: [pickable]
+  required_grasp_strategy: center_top
+
+placement_target:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: box
+  variant_id: box00
+  split: train
+  role: target
+  required_affordances: [container]
+  required_grasp_strategy: unsupported
+
+clutter:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  count: 3
+  split: train
+  role: clutter
+  required_affordances: [reachable]
+  required_grasp_strategy: unsupported
+  xy_range:
+    x: [0.34, 0.90]
+    y: [-0.45, 0.45]
+  object_margin_m: 0.035
+  placement_target_margin_m: 0.035
+  clutter_margin_m: 0.025
+  max_footprint_radius_m: 0.17
+  max_asset_sampling_attempts: 128
+  max_layout_sampling_attempts: 128
+  max_sampling_attempts: 256
+  grid_step_m: 0.015
+
+pose_randomization:
+  object_xy_range:
+    x: [-0.02, 0.02]
+    y: [-0.02, 0.02]
+  place_xy_range:
+    x: [-0.03, 0.03]
+    y: [-0.03, 0.03]
+
+lighting_randomization:
+  dome_light_intensity_range: [800.0, 800.0]
+  dome_light_color_options:
+    - [1.0, 1.0, 1.0]

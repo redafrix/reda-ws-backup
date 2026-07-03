@@ -69,6 +69,48 @@
         "vids/pi05_libero_10_tests_agent_view_4x_labeled.mp4"
       ],
       "details": "experiments/004_video_outputs_and_labels.md"
+    },
+    {
+      "id": "005",
+      "name": "SimVLA fine-tuned ckpt-50000 Isaac no-rotation tests",
+      "status": "completed_all_failed",
+      "tasks": {
+        "reaching": 5,
+        "pick_place": 5
+      },
+      "max_steps": {
+        "reaching": 800,
+        "pick_place": 800
+      },
+      "checkpoint_local_zip": "/home/redafrix/Downloads/ckpt-50000 (1).zip",
+      "checkpoint_bob_runtime": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/simvla_finetuned_isaac_20260703/ckpt-50000-finetuned-action-decoder",
+      "local_evidence": [
+        "vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled.mp4",
+        "vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled.json",
+        "scripts/generated/create_simvla_ft_labeled_video_20260703.py"
+      ],
+      "details": "experiments/005_simvla_finetuned_ckpt50000_isaac.md"
+    },
+    {
+      "id": "006",
+      "name": "SimVLA fine-tuned ckpt-50000 Isaac 5000-step no-rotation tests",
+      "status": "completed_1_success",
+      "tasks": {
+        "reaching": 5,
+        "pick_place": 5
+      },
+      "max_steps": {
+        "reaching": 5000,
+        "pick_place": 5000
+      },
+      "checkpoint_local_zip": "/home/redafrix/Downloads/ckpt-50000 (1).zip",
+      "checkpoint_bob_runtime": "/media/rootalkhatib/My Passport/reda_ws/fiper_ws/checkpoints/simvla_finetuned_isaac_20260703/ckpt-50000-finetuned-action-decoder",
+      "local_evidence": [
+        "vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled_5000.mp4",
+        "vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled_5000.json",
+        "scripts/generated/create_simvla_ft_labeled_video_20260703.py"
+      ],
+      "details": "experiments/006_simvla_finetuned_ckpt50000_isaac_5000.md"
     }
   ],
   "task_sequence": [

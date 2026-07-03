@@ -1,0 +1,48 @@
+task: pick_place
+output_dir: /home/redafrix/tests/internship/franka_wrist_camera_isaaclab-test/outputs/receptacle_tray_tray04_apple01_integrated
+start_episode_id: 0
+num_episodes: 1
+max_steps: 4800
+settle_time_s: 1.0
+
+record_cameras: true
+camera_fps: 30
+record_depth: true
+
+seed: 123
+top_grasp_depth_m: 0.045
+
+target_object:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: apple
+  variant_id: apple01
+  split: train
+  role: target
+  required_affordances: [pickable]
+  required_grasp_strategy: center_top
+
+placement_target:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: tray
+  variant_id: tray04
+  split: train
+  role: target
+  required_affordances: [container]
+  required_grasp_strategy: unsupported
+
+pose_randomization:
+  object_xy_range:
+    x: [0.0, 0.0]
+    y: [0.0, 0.0]
+  place_xy_range:
+    x: [0.0, 0.0]
+    y: [0.0, 0.0]
+
+lighting_randomization:
+  dome_light_intensity_range: [650.0, 1200.0]
+  dome_light_color_options:
+    - [0.90, 0.90, 0.90]
+    - [1.00, 0.92, 0.84]
+    - [0.82, 0.88, 1.00]

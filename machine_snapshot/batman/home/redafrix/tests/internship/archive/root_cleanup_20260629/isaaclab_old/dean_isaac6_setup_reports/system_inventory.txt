@@ -1,0 +1,581 @@
+=== Identity - hostnamectl ===
+Command: hostnamectl
+Static hostname: Batman
+       Icon name: computer-desktop
+         Chassis: desktop
+      Machine ID: bf0b794293c742508ed708c37fe9551c
+         Boot ID: b2dd43690faf4686b4764ae03f2a5e5d
+Operating System: Ubuntu 22.04.5 LTS
+          Kernel: Linux 6.8.0-111-generic
+    Architecture: x86-64
+ Hardware Vendor: Dell Inc.
+  Hardware Model: Precision 3650 Tower
+
+=== Identity - whoami ===
+Command: whoami
+dean
+
+=== Identity - id ===
+Command: id
+uid=1001(dean) gid=1001(dean) groups=1001(dean),27(sudo)
+
+=== Identity - date ===
+Command: date --iso-8601=seconds
+2026-06-17T16:03:28+02:00
+
+=== Identity - uptime ===
+Command: uptime
+16:03:28 up 19 days,  6:19,  2 users,  load average: 0.14, 0.15, 0.17
+
+=== Identity - last reboot ===
+Command: last reboot | head -n 10
+reboot   system boot  6.8.0-111-generi Fri May 29 09:44   still running
+reboot   system boot  6.8.0-111-generi Tue May 26 16:09 - 16:28  (00:18)
+reboot   system boot  6.8.0-111-generi Thu May 21 09:06 - 15:45 (5+06:39)
+reboot   system boot  6.8.0-111-generi Wed May 20 13:40 - 09:05  (19:25)
+reboot   system boot  6.8.0-111-generi Tue May 19 16:32 - 10:07  (17:34)
+reboot   system boot  6.8.0-111-generi Fri May 15 10:08 - 10:07 (4+23:58)
+reboot   system boot  6.8.0-111-generi Fri May 15 09:17 - 10:07 (5+00:49)
+reboot   system boot  6.8.0-111-generi Tue May 12 08:46 - 10:07 (8+01:21)
+reboot   system boot  6.8.0-111-generi Mon May 11 08:57 - 10:07 (9+01:10)
+reboot   system boot  6.8.0-111-generi Thu May  7 14:33 - 10:07 (12+19:33)
+
+=== Workloads - Processes sorted by CPU ===
+Command: ps -eo user,pid,ppid,%cpu,%mem,etime,cmd --sort=-%cpu | head -80
+USER         PID    PPID %CPU %MEM     ELAPSED CMD
+redafrix 1700966 1461835  4.0  0.3       00:02 /opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=1461824 --enable-crash-reporter=, --extension-process --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=x11 --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9387 --time-ticks-at-unix-epoch=-1780040654985786 --launch-time-ticks=1664351420089 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,5705133032599105270,15629095797889812466,2097152 --field-trial-handle=3,i,14818721220092946172,8790986477023536877,262144 --variations-seed-version=20260609-170110.383000-production --trace-process-track-uuid=3190717782323708057
+dean     1700781 1700769  2.3  0.0       00:03 /snap/snapd-desktop-integration/387/usr/bin/user-session-helper /snap/snapd-desktop-integration/387/usr/bin/snapd-desktop-integration
+dean     1700769       1  2.0  0.0       00:03 /lib/systemd/systemd --user
+redafrix  540055    2501  0.4  0.8 14-04:22:38 /usr/bin/gnome-shell
+redafrix 1461816  540055  0.3  1.2  5-04:39:04 /opt/google/chrome/chrome
+redafrix 1698973 1461835  0.2  0.6       29:26 /opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=1461824 --enable-crash-reporter=, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=x11 --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9343 --time-ticks-at-unix-epoch=-1780040654985786 --launch-time-ticks=1662587187582 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,15995179515740618804,299843908028828283,2097152 --field-trial-handle=3,i,14818721220092946172,8790986477023536877,262144 --variations-seed-version=20260609-170110.383000-production --trace-process-track-uuid=3190717741093866701
+root        1337       1  0.1  0.1 19-06:19:04 /usr/sbin/tailscaled --state=/var/lib/tailscale/tailscaled.state --socket=/run/tailscale/tailscaled.sock --port=41641
+redafrix  539836  539834  0.1  0.4 14-04:22:40 /usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3
+root           1       0  0.0  0.0 19-06:19:13 /lib/systemd/systemd --system --deserialize 66 splash
+root           2       0  0.0  0.0 19-06:19:13 [kthreadd]
+root           3       2  0.0  0.0 19-06:19:13 [pool_workqueue_release]
+root           4       2  0.0  0.0 19-06:19:13 [kworker/R-rcu_g]
+root           5       2  0.0  0.0 19-06:19:13 [kworker/R-rcu_p]
+root           6       2  0.0  0.0 19-06:19:13 [kworker/R-slub_]
+root           7       2  0.0  0.0 19-06:19:13 [kworker/R-netns]
+root           9       2  0.0  0.0 19-06:19:13 [kworker/0:0H-events_highpri]
+root          12       2  0.0  0.0 19-06:19:13 [kworker/R-mm_pe]
+root          13       2  0.0  0.0 19-06:19:13 [rcu_tasks_kthread]
+root          14       2  0.0  0.0 19-06:19:13 [rcu_tasks_rude_kthread]
+root          15       2  0.0  0.0 19-06:19:13 [rcu_tasks_trace_kthread]
+root          16       2  0.0  0.0 19-06:19:13 [ksoftirqd/0]
+root          17       2  0.0  0.0 19-06:19:13 [rcu_preempt]
+root          18       2  0.0  0.0 19-06:19:13 [migration/0]
+root          19       2  0.0  0.0 19-06:19:13 [idle_inject/0]
+root          20       2  0.0  0.0 19-06:19:13 [cpuhp/0]
+root          21       2  0.0  0.0 19-06:19:13 [cpuhp/1]
+root          22       2  0.0  0.0 19-06:19:13 [idle_inject/1]
+root          23       2  0.0  0.0 19-06:19:13 [migration/1]
+root          24       2  0.0  0.0 19-06:19:13 [ksoftirqd/1]
+root          26       2  0.0  0.0 19-06:19:13 [kworker/1:0H-events_highpri]
+root          27       2  0.0  0.0 19-06:19:13 [cpuhp/2]
+root          28       2  0.0  0.0 19-06:19:13 [idle_inject/2]
+root          29       2  0.0  0.0 19-06:19:13 [migration/2]
+root          30       2  0.0  0.0 19-06:19:13 [ksoftirqd/2]
+root          32       2  0.0  0.0 19-06:19:13 [kworker/2:0H-events_highpri]
+root          33       2  0.0  0.0 19-06:19:13 [cpuhp/3]
+root          34       2  0.0  0.0 19-06:19:13 [idle_inject/3]
+root          35       2  0.0  0.0 19-06:19:13 [migration/3]
+root          36       2  0.0  0.0 19-06:19:13 [ksoftirqd/3]
+root          38       2  0.0  0.0 19-06:19:13 [kworker/3:0H-events_highpri]
+root          39       2  0.0  0.0 19-06:19:13 [cpuhp/4]
+root          40       2  0.0  0.0 19-06:19:13 [idle_inject/4]
+root          41       2  0.0  0.0 19-06:19:13 [migration/4]
+root          42       2  0.0  0.0 19-06:19:13 [ksoftirqd/4]
+root          44       2  0.0  0.0 19-06:19:13 [kworker/4:0H-events_highpri]
+root          45       2  0.0  0.0 19-06:19:13 [cpuhp/5]
+root          46       2  0.0  0.0 19-06:19:13 [idle_inject/5]
+root          47       2  0.0  0.0 19-06:19:13 [migration/5]
+root          48       2  0.0  0.0 19-06:19:13 [ksoftirqd/5]
+root          50       2  0.0  0.0 19-06:19:13 [kworker/5:0H-events_highpri]
+root          51       2  0.0  0.0 19-06:19:13 [cpuhp/6]
+root          52       2  0.0  0.0 19-06:19:13 [idle_inject/6]
+root          53       2  0.0  0.0 19-06:19:13 [migration/6]
+root          54       2  0.0  0.0 19-06:19:13 [ksoftirqd/6]
+root          56       2  0.0  0.0 19-06:19:13 [kworker/6:0H-events_highpri]
+root          57       2  0.0  0.0 19-06:19:13 [cpuhp/7]
+root          58       2  0.0  0.0 19-06:19:13 [idle_inject/7]
+root          59       2  0.0  0.0 19-06:19:13 [migration/7]
+root          60       2  0.0  0.0 19-06:19:13 [ksoftirqd/7]
+root          62       2  0.0  0.0 19-06:19:13 [kworker/7:0H-events_highpri]
+root          63       2  0.0  0.0 19-06:19:13 [cpuhp/8]
+root          64       2  0.0  0.0 19-06:19:13 [idle_inject/8]
+root          65       2  0.0  0.0 19-06:19:13 [migration/8]
+root          66       2  0.0  0.0 19-06:19:13 [ksoftirqd/8]
+root          68       2  0.0  0.0 19-06:19:13 [kworker/8:0H-events_highpri]
+root          69       2  0.0  0.0 19-06:19:13 [cpuhp/9]
+root          70       2  0.0  0.0 19-06:19:13 [idle_inject/9]
+root          71       2  0.0  0.0 19-06:19:13 [migration/9]
+root          72       2  0.0  0.0 19-06:19:13 [ksoftirqd/9]
+root          74       2  0.0  0.0 19-06:19:13 [kworker/9:0H-events_highpri]
+root          75       2  0.0  0.0 19-06:19:13 [cpuhp/10]
+root          76       2  0.0  0.0 19-06:19:13 [idle_inject/10]
+root          77       2  0.0  0.0 19-06:19:13 [migration/10]
+root          78       2  0.0  0.0 19-06:19:13 [ksoftirqd/10]
+root          80       2  0.0  0.0 19-06:19:13 [kworker/10:0H-events_highpri]
+root          81       2  0.0  0.0 19-06:19:13 [cpuhp/11]
+root          82       2  0.0  0.0 19-06:19:13 [idle_inject/11]
+root          83       2  0.0  0.0 19-06:19:13 [migration/11]
+root          84       2  0.0  0.0 19-06:19:13 [ksoftirqd/11]
+
+=== Workloads - Matching process search ===
+Command: pgrep -a -f 'isaac|kit|omniverse|python|train|collect|jupyter|docker|ros|gazebo' || true
+1087 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+1104 /usr/libexec/polkitd --no-debug
+1338 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+1559 /usr/libexec/rtkit-daemon
+1928 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+2008 /usr/libexec/packagekitd
+543937 /usr/bin/python3 /usr/bin/gnome-terminal --wait
+747080 /usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
+1701058 python3 /home/dean/isaac6_master_setup_audit/remote_audit.py
+1701076 /bin/sh -c pgrep -a -f 'isaac|kit|omniverse|python|train|collect|jupyter|docker|ros|gazebo' || true
+
+=== Workloads - Tmux ===
+Command: tmux ls || true
+--- STDERR ---
+no server running on /tmp/tmux-1001/default
+
+=== Workloads - Screen ===
+Command: screen -ls || true
+--- STDERR ---
+/bin/sh: 1: screen: not found
+
+=== Workloads - Docker ps ===
+Command: docker ps --no-trunc 2>/dev/null || true
+
+
+=== OS - Release ===
+Command: cat /etc/os-release
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+
+=== OS - uname ===
+Command: uname -a
+Linux Batman 6.8.0-111-generic #111~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Apr 14 17:13:45 UTC  x86_64 x86_64 x86_64 GNU/Linux
+
+=== OS - architecture ===
+Command: uname -m
+x86_64
+
+=== OS - libc version ===
+Command: ldd --version | head -1
+ldd (Ubuntu GLIBC 2.35-0ubuntu3.13) 2.35
+
+=== OS - glibc check ===
+Command: getconf GNU_LIBC_VERSION
+glibc 2.35
+
+=== OS - virtualization ===
+Command: systemd-detect-virt || true
+none
+
+=== OS - secure boot status ===
+Command: mokutil --sb-state 2>/dev/null || true
+SecureBoot disabled
+
+=== Hardware - lscpu ===
+Command: lscpu
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           39 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  16
+On-line CPU(s) list:                     0-15
+Vendor ID:                               GenuineIntel
+Model name:                              11th Gen Intel(R) Core(TM) i9-11900 @ 2.50GHz
+CPU family:                              6
+Model:                                   167
+Thread(s) per core:                      2
+Core(s) per socket:                      8
+Socket(s):                               1
+Stepping:                                1
+CPU max MHz:                             5200.0000
+CPU min MHz:                             800.0000
+BogoMIPS:                                4992.00
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx avx512f avx512dq rdseed adx smap avx512ifma clflushopt intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm md_clear flush_l1d arch_capabilities
+Virtualization:                          VT-x
+L1d cache:                               384 KiB (8 instances)
+L1i cache:                               256 KiB (8 instances)
+L2 cache:                                4 MiB (8 instances)
+L3 cache:                                16 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-15
+Vulnerability Gather data sampling:      Mitigation; Microcode
+Vulnerability Indirect target selection: Mitigation; Aligned branch/return thunks
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Mitigation; Enhanced IBRS
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Not affected
+
+=== Hardware - nproc ===
+Command: nproc
+16
+
+=== Hardware - cpu flags ===
+Command: grep -m1 '^flags' /proc/cpuinfo
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx avx512f avx512dq rdseed adx smap avx512ifma clflushopt intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm md_clear flush_l1d arch_capabilities
+
+=== Hardware - free memory ===
+Command: free -h
+total        used        free      shared  buff/cache   available
+Mem:            31Gi       4.8Gi       4.6Gi       309Mi        21Gi        25Gi
+Swap:          2.0Gi       162Mi       1.8Gi
+
+=== Hardware - swap details ===
+Command: swapon --show
+NAME      TYPE SIZE   USED PRIO
+/swapfile file   2G 162.4M   -2
+
+=== Hardware - meminfo ===
+Command: cat /proc/meminfo
+MemTotal:       32584052 kB
+MemFree:         4785376 kB
+MemAvailable:   26715528 kB
+Buffers:          794292 kB
+Cached:         19543484 kB
+SwapCached:        24232 kB
+Active:          4513064 kB
+Inactive:       19459288 kB
+Active(anon):    3145728 kB
+Inactive(anon):   805552 kB
+Active(file):    1367336 kB
+Inactive(file): 18653736 kB
+Unevictable:      145608 kB
+Mlocked:              32 kB
+SwapTotal:       2097148 kB
+SwapFree:        1930864 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:              6584 kB
+Writeback:             0 kB
+AnonPages:       3758608 kB
+Mapped:           951168 kB
+Shmem:            316660 kB
+KReclaimable:    2378752 kB
+Slab:            2860820 kB
+SReclaimable:    2378752 kB
+SUnreclaim:       482068 kB
+KernelStack:       18316 kB
+PageTables:        44416 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    18389172 kB
+Committed_AS:   13638812 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      115752 kB
+VmallocChunk:          0 kB
+Percpu:            41472 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:   225280 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+Unaccepted:            0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:     7335372 kB
+DirectMap2M:    25937920 kB
+DirectMap1G:     1048576 kB
+
+=== GPU - nvidia-smi command location ===
+Command: command -v nvidia-smi
+/usr/bin/nvidia-smi
+
+=== GPU - nvidia-smi general ===
+Command: nvidia-smi
+Wed Jun 17 16:03:29 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A5000               On  |   00000000:01:00.0 Off |                  Off |
+| 30%   43C    P8             16W /  230W |      15MiB /  24564MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A          539836      G   /usr/lib/xorg/Xorg                        4MiB |
++-----------------------------------------------------------------------------------------+
+
+=== GPU - nvidia-smi List ===
+Command: nvidia-smi -L
+GPU 0: NVIDIA RTX A5000 (UUID: GPU-3eac415d-9d28-ec1e-122a-5eba4af44039)
+
+=== GPU - nvidia-smi detailed query ===
+Command: nvidia-smi --query-gpu=index,name,uuid,driver_version,memory.total,memory.used,memory.free,temperature.gpu,pstate,power.draw,power.limit,utilization.gpu,compute_cap --format=csv,noheader
+0, NVIDIA RTX A5000, GPU-3eac415d-9d28-ec1e-122a-5eba4af44039, 580.95.05, 24564 MiB, 15 MiB, 24098 MiB, 44, P5, 18.29 W, 230.00 W, 0 %, 8.6
+
+=== GPU - driver version proc ===
+Command: cat /proc/driver/nvidia/version 2>/dev/null || true
+NVRM version: NVIDIA UNIX Open Kernel Module for x86_64  580.95.05  Release Build  (dvs-builder@U22-I3-B17-02-5)  Tue Sep 23 09:55:41 UTC 2025
+GCC version:  gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3)
+
+=== GPU - modinfo nvidia ===
+Command: modinfo nvidia 2>/dev/null | grep -E '^(version|filename):' || true
+filename:       /lib/modules/6.8.0-111-generic/updates/dkms/nvidia.ko
+version:        580.95.05
+
+=== GPU - lspci lookup ===
+Command: lspci -nnk | grep -A4 -Ei 'VGA|3D|Display'
+00:02.0 VGA compatible controller [0300]: Intel Corporation RocketLake-S GT1 [UHD Graphics 750] [8086:4c8a] (rev 04)
+	DeviceName: OnBoard - Video
+	Subsystem: Dell RocketLake-S GT1 [UHD Graphics 750] [1028:0a58]
+	Kernel driver in use: i915
+	Kernel modules: i915, xe
+--
+00:17.0 SATA controller [0106]: Intel Corporation Device [8086:43d2] (rev 11)
+	Subsystem: Dell Device [1028:0a58]
+	Kernel driver in use: ahci
+	Kernel modules: ahci
+00:1f.0 ISA bridge [0601]: Intel Corporation Device [8086:438f] (rev 11)
+--
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GA102GL [RTX A5000] [10de:2231] (rev a1)
+	Subsystem: Dell GA102GL [RTX A5000] [1028:147e]
+	Kernel driver in use: nvidia
+	Kernel modules: nvidiafb, nouveau, nvidia_drm, nvidia
+01:00.1 Audio device [0403]: NVIDIA Corporation GA102 High Definition Audio Controller [10de:1aef] (rev a1)
+
+=== GPU - nvidia-smi active consumers pmon ===
+Command: nvidia-smi pmon -c 1 || true
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command 
+# Idx           #    C/G      %      %      %      %      %      %    name 
+    0     539836     G      -      -      -      -      -      -    Xorg
+
+=== GPU - nvidia-smi active compute apps ===
+Command: nvidia-smi --query-compute-apps=pid,process_name,used_memory --format=csv || true
+pid, process_name, used_gpu_memory [MiB]
+
+=== GPU - nvcc version ===
+Command: command -v nvcc && nvcc --version || true
+
+
+=== GPU - cuda folders /usr/local ===
+Command: ls -ld /usr/local/cuda* 2>/dev/null || true
+lrwxrwxrwx  1 root root   22 Oct 23  2025 /usr/local/cuda -> /etc/alternatives/cuda
+lrwxrwxrwx  1 root root   25 Oct 23  2025 /usr/local/cuda-13 -> /etc/alternatives/cuda-13
+drwxr-xr-x 14 root root 4096 Oct 23  2025 /usr/local/cuda-13.0
+
+=== Vulkan - vulkaninfo summary ===
+Command: command -v vulkaninfo && vulkaninfo --summary || true
+
+
+=== Vulkan - icd.d list ===
+Command: ls /usr/share/vulkan/icd.d 2>/dev/null || true
+intel_hasvk_icd.x86_64.json
+intel_icd.x86_64.json
+lvp_icd.x86_64.json
+nvidia_icd.json
+radeon_icd.x86_64.json
+virtio_icd.x86_64.json
+
+=== Vulkan - icd.d files ===
+Command: find /usr/share/vulkan/icd.d -maxdepth 1 -type f -printf '%f\n' 2>/dev/null || true
+intel_icd.x86_64.json
+radeon_icd.x86_64.json
+intel_hasvk_icd.x86_64.json
+lvp_icd.x86_64.json
+nvidia_icd.json
+virtio_icd.x86_64.json
+
+=== Vulkan - libraries in ldconfig ===
+Command: ldconfig -p | grep -Ei 'libvulkan|libGLX_nvidia|libcuda' || true
+libvulkan_virtio.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_virtio.so
+	libvulkan_radeon.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_radeon.so
+	libvulkan_lvp.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_lvp.so
+	libvulkan_intel_hasvk.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_intel_hasvk.so
+	libvulkan_intel.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_intel.so
+	libvulkan.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan.so.1
+	libvulkan.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan.so
+	libcudart.so.13 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcudart.so.13
+	libcudart.so (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcudart.so
+	libcudadebugger.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudadebugger.so.1
+	libcuda.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcuda.so.1
+	libcuda.so.1 (libc6) => /lib/i386-linux-gnu/libcuda.so.1
+	libcuda.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libcuda.so
+	libcuda.so (libc6) => /lib/i386-linux-gnu/libcuda.so
+	libGLX_nvidia.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGLX_nvidia.so.0
+	libGLX_nvidia.so.0 (libc6) => /lib/i386-linux-gnu/libGLX_nvidia.so.0
+
+=== Vulkan - environment variables DISPLAY ===
+Command: echo DISPLAY=${DISPLAY:-unset}
+DISPLAY=unset
+
+=== Vulkan - environment variables WAYLAND_DISPLAY ===
+Command: echo WAYLAND_DISPLAY=${WAYLAND_DISPLAY:-unset}
+WAYLAND_DISPLAY=unset
+
+=== Python - python ===
+Command: command -v python || true
+/usr/bin/python
+
+=== Python - python3 ===
+Command: command -v python3 || true
+/usr/bin/python3
+
+=== Python - python3 version ===
+Command: python3 --version
+Python 3.10.12
+
+=== Python - python3.12 version ===
+Command: command -v python3.12 && python3.12 --version || true
+
+
+=== Python - uv version ===
+Command: command -v uv && uv --version || true
+
+
+=== Python - conda version ===
+Command: command -v conda && conda --version || true
+
+
+=== Python - micromamba version ===
+Command: command -v micromamba && micromamba --version || true
+
+
+=== Python - mamba version ===
+Command: command -v mamba && mamba --version || true
+
+
+=== Python - conda environments ===
+Command: conda env list 2>/dev/null || true
+
+
+=== Python - virtual environments pyvenv.cfg ===
+Command: find /home/dean -maxdepth 4 -type f -name pyvenv.cfg -print 2>/dev/null
+
+
+=== Omniverse/Isaac installations ===
+Command: find /home/dean /opt /usr/local -maxdepth 5 \( -iname '*isaac*sim*' -o -iname '*isaaclab*' -o -iname '*omniverse*' \) -print 2>/dev/null | head -300
+
+
+=== Caches sizes ===
+Command: du -sh /home/dean/.cache/ov /home/dean/.local/share/ov /home/dean/.nvidia-omniverse /home/dean/.cache/pip /home/dean/.cache/uv /home/dean/.cache/huggingface /home/dean/.cache/torch /home/dean/.nv/ComputeCache 2>/dev/null || true
+261M	/home/dean/.cache/pip
+973M	/home/dean/.cache/huggingface
+4.0K	/home/dean/.nv/ComputeCache
+
+=== Development Tools ===
+git                /usr/bin/git                             (git version 2.34.1)
+git-lfs            /usr/bin/git-lfs                         (git-lfs/3.0.2 (GitHub; linux amd64; go 1.18.1))
+curl               /usr/bin/curl                            (curl 7.81.0 (x86_64-pc-linux-gnu) libcurl/7.81.0 OpenSSL/3.0.2 zlib/1.2.11 brotli/1.0.9 zstd/1.4.8 libidn2/2.3.2 libpsl/0.21.0 (+libidn2/2.3.2) libssh/0.9.6/openssl/zlib nghttp2/1.43.0 librtmp/2.3 OpenLDAP/2.5.19)
+wget               /usr/bin/wget                            (GNU Wget 1.21.2 built on linux-gnu.)
+unzip              /usr/bin/unzip                           (AVAILABLE)
+tar                /usr/bin/tar                             (tar (GNU tar) 1.34)
+rsync              /usr/bin/rsync                           (rsync  version 3.2.7  protocol version 31)
+gcc                /usr/bin/gcc                             (11)
+g++                /usr/bin/g++                             (11)
+make               /usr/bin/make                            (GNU Make 4.3)
+cmake              /usr/bin/cmake                           (cmake version 3.22.1)
+ninja              MISSING
+pkg-config         /usr/bin/pkg-config                      (AVAILABLE)
+python3            /usr/bin/python3                         (Python 3.10.12)
+python3.12         MISSING
+uv                 MISSING
+conda              MISSING
+vulkaninfo         MISSING
+glxinfo            MISSING
+
+=== Network - hosts github.com ===
+Command: getent hosts github.com
+140.82.121.3    github.com
+
+=== Network - hosts pypi.nvidia.com ===
+Command: getent hosts pypi.nvidia.com
+2.16.165.195    e33907.d.akamaiedge.net pypi.nvidia.com pypi.nvidia.com.edgekey.net
+2.16.165.211    e33907.d.akamaiedge.net pypi.nvidia.com pypi.nvidia.com.edgekey.net
+
+=== Network - hosts docs.isaacsim ===
+Command: getent hosts docs.isaacsim.omniverse.nvidia.com
+3.175.86.90     docs.isaacsim.omniverse.nvidia.com
+3.175.86.52     docs.isaacsim.omniverse.nvidia.com
+3.175.86.6      docs.isaacsim.omniverse.nvidia.com
+3.175.86.112    docs.isaacsim.omniverse.nvidia.com
+
+=== Network - ping HTTPS github.com ===
+Command: curl -LIs --max-time 20 https://github.com | head
+HTTP/2 200 
+date: Wed, 17 Jun 2026 14:03:42 GMT
+content-type: text/html; charset=utf-8
+vary: X-PJAX, X-PJAX-Container, Turbo-Visit, Turbo-Frame, X-Requested-With, Accept-Language, Sec-Fetch-Site,Accept-Encoding, Accept, X-Requested-With
+content-language: en-US
+etag: W/"db89c918c1e7a3f8a1d5378115f2eb3c"
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+
+=== Network - ping HTTPS pypi.nvidia.com ===
+Command: curl -LIs --max-time 20 https://pypi.nvidia.com | head
+HTTP/2 200 
+content-type: text/html
+content-length: 39657
+x-amz-replication-status: PENDING
+last-modified: Wed, 17 Jun 2026 09:24:21 GMT
+x-amz-server-side-encryption: AES256
+x-amz-version-id: ELcyPg6MbG386abzuPWN4A6fCONI90pF
+accept-ranges: bytes
+server: AmazonS3
+etag: "a87a2bd13a24fa82efde69d638de5e6b"
+
+=== Network - ping HTTPS docs.isaacsim ===
+Command: curl -LIs --max-time 20 https://docs.isaacsim.omniverse.nvidia.com/6.0.0/ | head
+HTTP/2 200 
+content-type: text/html
+content-length: 143938
+last-modified: Fri, 05 Jun 2026 21:22:33 GMT
+x-amz-server-side-encryption: AES256
+accept-ranges: bytes
+server: AmazonS3
+date: Wed, 17 Jun 2026 14:03:45 GMT
+etag: "f20b0c6a224bbcf7a967a94e8bf8bd45"
+x-cache: RefreshHit from cloudfront
+
+=== Git - Remote project SHA ===
+Command: git ls-remote https://github.com/Gontary101/franka_wrist_camera_isaaclab.git refs/heads/master
+b1e3ff35d2cea67a15bca15cf0ac598b6eefa233	refs/heads/master
+
+=== Git - Remote IsaacLab SHA ===
+Command: git ls-remote https://github.com/isaac-sim/IsaacLab.git refs/heads/release/3.0.0-beta2
+28a37cecdd433c22d9eabd6a5954add9f13a8951	refs/heads/release/3.0.0-beta2
+

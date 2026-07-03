@@ -1,0 +1,1051 @@
+[3gH    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H   [INFO] Using python from: /home/redafrix/tests/internship/isaac_dynamicVLA-test/IsaacLab/_isaac_sim/python.sh
+Loading user config located at: '/home/redafrix/isaacsim/kit/data/Kit/Isaac-Sim/4.5/user.config.json'
+[Info] [carb] Logging to file: /home/redafrix/isaacsim/kit/logs/Kit/Isaac-Sim/4.5/kit_20260612_110610.log
+2026-06-12 09:06:10 [0ms] [Warning] [omni.kit.app.plugin] No crash reporter present, dumps uploading isn't available.
+2026-06-12 09:06:10 [2ms] [Warning] [omni.ext.plugin] [ext: rendering_modes] Extensions config 'extension.toml' doesn't exist '/home/redafrix/tests/internship/isaac_dynamicVLA-test/IsaacLab/apps/isaacsim_4_5/rendering_modes' or '/home/redafrix/tests/internship/isaac_dynamicVLA-test/IsaacLab/apps/isaacsim_4_5/rendering_modes/config'
+2026-06-12 09:06:10 [302ms] [Warning] [omni.datastore] OmniHub is inaccessible
+2026-06-12 09:06:12 [2,519ms] [Warning] [gpu.foundation.plugin] Skipping unsupported non-NVIDIA GPU: Intel(R) Graphics (ADL GT2)
+2026-06-12 09:06:12 [2,519ms] [Warning] [gpu.foundation.plugin] Skipping unsupported non-NVIDIA GPU: Intel(R) Graphics (ADL GT2)
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.95.05     | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 4060 Laptop.. | Yes: 0 |     | 8188    MB | 10de      | 0          |
+|     |                                  |        |     |            | 28e0      | 0c5e72a5.. |
+|     |                                  |        |     |            | 1         |            |
+|---------------------------------------------------------------------------------------------|
+| 1   | Intel(R) Graphics (ADL GT2)      |        |     | 23785   MB | 8086      | 0          |
+|     |                                  |        |     |            | 46a6      | 8680a646.. |
+|     |                                  |        |     |            | 0         |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-85-generic
+| XServer Vendor: The X.Org Foundation, XServer Version: 12101004 (1.21.1.4)
+| Processor: 12th Gen Intel(R) Core(TM) i7-12700H
+| Bare Metal Cores: 14 | Bare Metal Logical Cores: 28
+| Available Cores:  20 
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 31713 | Free Memory: 16976
+| Total Page/Swap (MB): 2047 | Free Page/Swap: 30
+|---------------------------------------------------------------------------------------------|
+2026-06-12 09:06:12 [2,810ms] [Warning] [gpu.foundation.plugin] IOMMU is enabled.
+2026-06-12 09:06:12 [2,811ms] [Warning] [gpu.foundation.plugin] Detected IOMMU is enabled. Running CUDA peer-to-peer bandwidth and latency validation.
+Unidirectional P2P=Enabled Bandwidth (P2P Writes) Matrix (GB/s)
+   D\D     0 
+     0 226.15 
+P2P=Enabled Latency (P2P Writes) Matrix (us)
+   GPU     0 
+     0   1.48 
+
+   CPU     0 
+     0   1.79 
+2026-06-12 09:06:13 [3,721ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+2026-06-12 09:06:14 [4,233ms] [Warning] [omni.log] Source: omni.hydra was already registered.
+2026-06-12 09:06:14 [4,785ms] [Warning] [omni.replicator.core.scripts.extension] No material configuration file, adding configuration to material settings directly.
+2026-06-12 09:06:17 [7,253ms] [Warning] [omni.usd-abi.plugin] No setting was found for '/rtx-defaults/ambientOcclusion/enabled'
+2026-06-12 09:06:17 [7,253ms] [Warning] [omni.usd-abi.plugin] No setting was found for '/rtx-defaults/directLighting/sampledLighting/sitecustomize: pre-importing torch to avoid PyTorch/Isaac Sim conflict...
+[INFO][AppLauncher]: Using device: cuda:0
+[INFO][AppLauncher]: Loading experience file: /home/redafrix/tests/internship/isaac_dynamicVLA-test/IsaacLab/apps/isaacsim_4_5/isaaclab.python.headless.rendering.kit
+[DEBUG] Step 0 (move_to_pregrasp): ee=[4.8944771e-01 7.6834112e-08 1.5078231e+00], obj=[ 0.58 -0.16  1.08], cmd_finger=0.04
+[DEBUG] Step 1 (move_to_pregrasp): ee=[4.8977089e-01 1.9114232e-06 1.5076077e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 2 (move_to_pregrasp): ee=[4.9040729e-01 2.6155263e-05 1.5091066e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 3 (move_to_pregrasp): ee=[4.9115658e-01 5.9871469e-05 1.5115514e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 4 (move_to_pregrasp): ee=[4.9193910e-01 9.2834351e-05 1.5144739e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 5 (move_to_pregrasp): ee=[4.9272132e-01 1.2229709e-04 1.5175835e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 6 (move_to_pregrasp): ee=[4.9348968e-01 1.4645047e-04 1.5207177e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 7 (move_to_pregrasp): ee=[4.9423993e-01 1.6470125e-04 1.5237727e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 8 (move_to_pregrasp): ee=[4.9496776e-01 1.7734931e-04 1.5266757e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 9 (move_to_pregrasp): ee=[4.9567029e-01 1.8296519e-04 1.5293801e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 10 (move_to_pregrasp): ee=[4.9634561e-01 1.8143514e-04 1.5318578e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 11 (move_to_pregrasp): ee=[4.9699220e-01 1.7246301e-04 1.5340927e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 12 (move_to_pregrasp): ee=[4.9760595e-01 1.5495601e-04 1.5360672e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 13 (move_to_pregrasp): ee=[4.9818796e-01 1.2827537e-04 1.5377859e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 14 (move_to_pregrasp): ee=[4.9873492e-01 9.2045055e-05 1.5392438e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 15 (move_to_pregrasp): ee=[4.9924824e-01 4.5654480e-05 1.5404526e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 16 (move_to_pregrasp): ee=[ 4.9972397e-01 -1.1544558e-05  1.5414112e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 17 (move_to_pregrasp): ee=[ 5.0016266e-01 -7.9527497e-05  1.5421332e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 18 (move_to_pregrasp): ee=[ 5.0056106e-01 -1.5914754e-04  1.5426221e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 19 (move_to_pregrasp): ee=[ 5.0091577e-01 -2.5058305e-04  1.5428855e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 20 (move_to_pregrasp): ee=[ 5.0122303e-01 -3.5413331e-04  1.5429274e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 21 (move_to_pregrasp): ee=[ 5.0148028e-01 -4.7016412e-04  1.5427581e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 22 (move_to_pregrasp): ee=[ 5.0168729e-01 -5.9929560e-04  1.5423903e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 23 (move_to_pregrasp): ee=[ 5.0184339e-01 -7.4126245e-04  1.5418353e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 24 (move_to_pregrasp): ee=[ 5.0194609e-01 -8.9617691e-04  1.5411048e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 25 (move_to_pregrasp): ee=[ 5.0199258e-01 -1.0647128e-03  1.5402068e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 26 (move_to_pregrasp): ee=[ 5.0200814e-01 -1.2467311e-03  1.5391924e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 27 (move_to_pregrasp): ee=[ 5.0202262e-01 -1.4429995e-03  1.5381190e+00], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 28 (move_to_pregrasp): ee=[ 0.5020405  -0.00165359  1.5370047 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 29 (move_to_pregrasp): ee=[ 0.5020626  -0.00187858  1.5358618 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 30 (move_to_pregrasp): ee=[ 0.5020893  -0.00211785  1.5346992 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 31 (move_to_pregrasp): ee=[ 0.5021201 -0.002372   1.5335224], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 32 (move_to_pregrasp): ee=[ 0.5021554  -0.00264103  1.5323371 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 33 (move_to_pregrasp): ee=[ 0.5021946  -0.00292506  1.5311455 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 34 (move_to_pregrasp): ee=[ 0.50223804 -0.00322399  1.5299507 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 35 (move_to_pregrasp): ee=[ 0.5022859 -0.0035385  1.5287547], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 36 (move_to_pregrasp): ee=[ 0.5023384  -0.00386797  1.5275594 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 37 (move_to_pregrasp): ee=[ 0.502396   -0.00421301  1.5263655 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 38 (move_to_pregrasp): ee=[ 0.5024586 -0.0045735  1.5251744], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 39 (move_to_pregrasp): ee=[ 0.50252676 -0.00494965  1.5239865 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 40 (move_to_pregrasp): ee=[ 0.50260067 -0.00534179  1.5228025 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 41 (move_to_pregrasp): ee=[ 0.50268084 -0.00574977  1.5216222 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 42 (move_to_pregrasp): ee=[ 0.50276726 -0.00617371  1.5204457 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 43 (move_to_pregrasp): ee=[ 0.5028613  -0.00661404  1.5192739 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 44 (move_to_pregrasp): ee=[ 0.5029624  -0.00707082  1.5181059 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 45 (move_to_pregrasp): ee=[ 0.5030714 -0.0075437  1.5169419], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 46 (move_to_pregrasp): ee=[ 0.5031884  -0.00803354  1.5157816 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 47 (move_to_pregrasp): ee=[ 0.5033137  -0.00854006  1.5146246 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 48 (move_to_pregrasp): ee=[ 0.50344795 -0.00906331  1.51347   ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 49 (move_to_pregrasp): ee=[ 0.5035913  -0.00960385  1.5123184 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 50 (move_to_pregrasp): ee=[ 0.5037442  -0.01016124  1.5111691 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 51 (move_to_pregrasp): ee=[ 0.5039068  -0.01073599  1.5100213 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 52 (move_to_pregrasp): ee=[ 0.5040795  -0.01132815  1.5088743 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 53 (move_to_pregrasp): ee=[ 0.50426245 -0.01193781  1.5077283 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 54 (move_to_pregrasp): ee=[ 0.50445634 -0.01256502  1.5065819 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 55 (move_to_pregrasp): ee=[ 0.5046608  -0.01320988  1.5054346 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 56 (move_to_pregrasp): ee=[ 0.5048766  -0.01387261  1.504287  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 57 (move_to_pregrasp): ee=[ 0.50510377 -0.01455344  1.5031376 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 58 (move_to_pregrasp): ee=[ 0.5053423 -0.0152521  1.5019859], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 59 (move_to_pregrasp): ee=[ 0.5055929  -0.01596877  1.5008317 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 60 (move_to_pregrasp): ee=[ 0.5058553  -0.01670378  1.4996738 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 61 (move_to_pregrasp): ee=[ 0.50612956 -0.01745697  1.4985121 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 62 (move_to_pregrasp): ee=[ 0.50641537 -0.01822798  1.497346  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 63 (move_to_pregrasp): ee=[ 0.50671244 -0.01901645  1.4961753 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 64 (move_to_pregrasp): ee=[ 0.5070205  -0.01982187  1.4950005 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 65 (move_to_pregrasp): ee=[ 0.5073391  -0.02064358  1.4938204 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 66 (move_to_pregrasp): ee=[ 0.5076682  -0.02148095  1.4926366 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 67 (move_to_pregrasp): ee=[ 0.50800735 -0.02233374  1.4914494 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 68 (move_to_pregrasp): ee=[ 0.50835633 -0.02320064  1.4902573 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 69 (move_to_pregrasp): ee=[ 0.5087146  -0.02408141  1.4890615 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 70 (move_to_pregrasp): ee=[ 0.50908214 -0.02497576  1.4878623 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 71 (move_to_pregrasp): ee=[ 0.50945896 -0.02588264  1.4866607 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 72 (move_to_pregrasp): ee=[ 0.5098446  -0.02680166  1.485456  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 73 (move_to_pregrasp): ee=[ 0.5102386  -0.02773235  1.4842486 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 74 (move_to_pregrasp): ee=[ 0.510641   -0.02867432  1.4830385 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 75 (move_to_pregrasp): ee=[ 0.5110513  -0.02962686  1.4818262 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 76 (move_to_pregrasp): ee=[ 0.5114694  -0.03058931  1.4806118 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 77 (move_to_pregrasp): ee=[ 0.5118952  -0.03156162  1.4793948 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 78 (move_to_pregrasp): ee=[ 0.5123284  -0.03254332  1.4781762 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 79 (move_to_pregrasp): ee=[ 0.51276875 -0.03353382  1.4769562 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 80 (move_to_pregrasp): ee=[ 0.5132159 -0.0345326  1.4757342], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 81 (move_to_pregrasp): ee=[ 0.5136704  -0.03553966  1.4745114 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 82 (move_to_pregrasp): ee=[ 0.51413125 -0.03655447  1.473287  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 83 (move_to_pregrasp): ee=[ 0.5145984  -0.03757638  1.4720608 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 84 (move_to_pregrasp): ee=[ 0.5150723  -0.03860572  1.4708345 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 85 (move_to_pregrasp): ee=[ 0.51555175 -0.0396416   1.469607  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 86 (move_to_pregrasp): ee=[ 0.5160376  -0.04068381  1.4683781 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 87 (move_to_pregrasp): ee=[ 0.5165288  -0.04173255  1.4671485 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 88 (move_to_pregrasp): ee=[ 0.51702553 -0.04278655  1.4659183 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 89 (move_to_pregrasp): ee=[ 0.51752764 -0.04384642  1.4646863 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 90 (move_to_pregrasp): ee=[ 0.5180352  -0.04491194  1.4634547 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 91 (move_to_pregrasp): ee=[ 0.51854753 -0.04598254  1.4622225 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 92 (move_to_pregrasp): ee=[ 0.5190652  -0.04705797  1.4609889 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 93 (move_to_pregrasp): ee=[ 0.51958746 -0.04813803  1.4597555 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 94 (move_to_pregrasp): ee=[ 0.5201144  -0.04922257  1.4585216 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 95 (move_to_pregrasp): ee=[ 0.52064586 -0.05031155  1.4572871 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 96 (move_to_pregrasp): ee=[ 0.52118164 -0.05140433  1.4560521 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 97 (move_to_pregrasp): ee=[ 0.5217216  -0.05250124  1.4548163 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 98 (move_to_pregrasp): ee=[ 0.5222658  -0.05360159  1.4535804 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 99 (move_to_pregrasp): ee=[ 0.52281386 -0.0547057   1.4523442 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 100 (move_to_pregrasp): ee=[ 0.52336603 -0.05581319  1.4511081 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 101 (move_to_pregrasp): ee=[ 0.5239217  -0.05692384  1.4498713 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 102 (move_to_pregrasp): ee=[ 0.5244812  -0.05803785  1.4486346 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 103 (move_to_pregrasp): ee=[ 0.5250443  -0.05915444  1.4473977 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 104 (move_to_pregrasp): ee=[ 0.5256108  -0.06027405  1.4461604 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 105 (move_to_pregrasp): ee=[ 0.52618045 -0.06139646  1.4449227 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 106 (move_to_pregrasp): ee=[ 0.5267535  -0.06252126  1.4436848 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 107 (move_to_pregrasp): ee=[ 0.5273297  -0.06364869  1.4424477 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 108 (move_to_pregrasp): ee=[ 0.52790856 -0.06477857  1.4412097 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 109 (move_to_pregrasp): ee=[ 0.5284908  -0.06591046  1.4399718 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 110 (move_to_pregrasp): ee=[ 0.5290756  -0.06704485  1.4387336 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 111 (move_to_pregrasp): ee=[ 0.5296633  -0.06818102  1.4374956 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 112 (move_to_pregrasp): ee=[ 0.53025347 -0.06931927  1.4362569 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 113 (move_to_pregrasp): ee=[ 0.5308462  -0.07045922  1.4350185 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 114 (move_to_pregrasp): ee=[ 0.5314414 -0.0716012  1.43378  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 115 (move_to_pregrasp): ee=[ 0.53203917 -0.07274491  1.4325416 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 116 (move_to_pregrasp): ee=[ 0.5326391  -0.07389011  1.4313031 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 117 (move_to_pregrasp): ee=[ 0.53324145 -0.07503692  1.4300642 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 118 (move_to_pregrasp): ee=[ 0.5338458  -0.07618518  1.4288259 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 119 (move_to_pregrasp): ee=[ 0.5344525  -0.07733501  1.427587  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 120 (move_to_pregrasp): ee=[ 0.53506124 -0.07848606  1.4263482 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 121 (move_to_pregrasp): ee=[ 0.53567183 -0.07963859  1.4251097 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 122 (move_to_pregrasp): ee=[ 0.5362842  -0.08079203  1.4238707 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 123 (move_to_pregrasp): ee=[ 0.5368986  -0.08194691  1.4226316 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 124 (move_to_pregrasp): ee=[ 0.53751475 -0.08310297  1.4213927 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 125 (move_to_pregrasp): ee=[ 0.53813255 -0.08425988  1.4201539 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 126 (move_to_pregrasp): ee=[ 0.5387521  -0.08541804  1.418915  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 127 (move_to_pregrasp): ee=[ 0.5393733  -0.08657686  1.4176757 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 128 (move_to_pregrasp): ee=[ 0.5399959  -0.08773688  1.4164369 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 129 (move_to_pregrasp): ee=[ 0.5406201  -0.08889782  1.4151978 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 130 (move_to_pregrasp): ee=[ 0.5412459  -0.09005966  1.4139594 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 131 (move_to_pregrasp): ee=[ 0.541873   -0.09122206  1.4127201 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 132 (move_to_pregrasp): ee=[ 0.5425014  -0.09238545  1.4114813 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 133 (move_to_pregrasp): ee=[ 0.5431311  -0.09354968  1.4102422 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 134 (move_to_pregrasp): ee=[ 0.5437623  -0.09471435  1.4090035 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 135 (move_to_pregrasp): ee=[ 0.5443944 -0.0958799  1.4077644], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 136 (move_to_pregrasp): ee=[ 0.5450276  -0.09704582  1.4065251 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 137 (move_to_pregrasp): ee=[ 0.54566246 -0.09821252  1.4052863 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 138 (move_to_pregrasp): ee=[ 0.5462981  -0.09937964  1.4040477 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 139 (move_to_pregrasp): ee=[ 0.5469334  -0.10054699  1.4028091 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 140 (move_to_pregrasp): ee=[ 0.5475685  -0.10171402  1.4015706 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 141 (move_to_pregrasp): ee=[ 0.54820246 -0.10287988  1.4003334 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 142 (move_to_pregrasp): ee=[ 0.5488353  -0.10404463  1.3990979 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 143 (move_to_pregrasp): ee=[ 0.5494656  -0.10520726  1.3978647 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 144 (move_to_pregrasp): ee=[ 0.55009365 -0.10636698  1.3966349 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 145 (move_to_pregrasp): ee=[ 0.5507186  -0.10752354  1.3954082 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 146 (move_to_pregrasp): ee=[ 0.5513404  -0.10867599  1.3941861 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 147 (move_to_pregrasp): ee=[ 0.55195844 -0.10982416  1.3929697 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 148 (move_to_pregrasp): ee=[ 0.55257225 -0.11096678  1.3917587 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 149 (move_to_pregrasp): ee=[ 0.55318195 -0.11210397  1.3905545 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 150 (move_to_pregrasp): ee=[ 0.553787   -0.11323429  1.3893574 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 151 (move_to_pregrasp): ee=[ 0.55438715 -0.1143576   1.388168  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 152 (move_to_pregrasp): ee=[ 0.5549821  -0.11547376  1.3869872 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 153 (move_to_pregrasp): ee=[ 0.55557173 -0.11658165  1.3858157 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 154 (move_to_pregrasp): ee=[ 0.55615586 -0.11768071  1.3846539 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 155 (move_to_pregrasp): ee=[ 0.55673385 -0.11877105  1.3835021 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 156 (move_to_pregrasp): ee=[ 0.5573058 -0.1198514  1.3823612], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 157 (move_to_pregrasp): ee=[ 0.5578717  -0.12092192  1.3812313 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 158 (move_to_pregrasp): ee=[ 0.55843085 -0.12198188  1.3801131 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 159 (move_to_pregrasp): ee=[ 0.55898345 -0.12303057  1.3790075 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 160 (move_to_pregrasp): ee=[ 0.55952924 -0.12406825  1.3779141 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 161 (move_to_pregrasp): ee=[ 0.5600682  -0.12509415  1.376834  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 162 (move_to_pregrasp): ee=[ 0.56059986 -0.1261076   1.3757669 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 163 (move_to_pregrasp): ee=[ 0.56112415 -0.12710865  1.3747139 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 164 (move_to_pregrasp): ee=[ 0.56164086 -0.1280969   1.3736746 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 165 (move_to_pregrasp): ee=[ 0.5621503  -0.12907176  1.3726501 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 166 (move_to_pregrasp): ee=[ 0.56265193 -0.13003299  1.3716406 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 167 (move_to_pregrasp): ee=[ 0.56314546 -0.13098036  1.3706458 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 168 (move_to_pregrasp): ee=[ 0.5636312 -0.1319135  1.3696665], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 169 (move_to_pregrasp): ee=[ 0.5641088 -0.1328321  1.3687029], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 170 (move_to_pregrasp): ee=[ 0.564578   -0.13373604  1.3677553 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 171 (move_to_pregrasp): ee=[ 0.56503904 -0.13462476  1.3668238 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 172 (move_to_pregrasp): ee=[ 0.5654916  -0.13549815  1.3659091 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 173 (move_to_pregrasp): ee=[ 0.5659359  -0.13635607  1.3650111 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 174 (move_to_pregrasp): ee=[ 0.56637126 -0.1371978   1.3641292 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 175 (move_to_pregrasp): ee=[ 0.566798  -0.1380238  1.3632649], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 176 (move_to_pregrasp): ee=[ 0.567216   -0.13883345  1.3624175 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 177 (move_to_pregrasp): ee=[ 0.56762505 -0.13962676  1.3615881 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 178 (move_to_pregrasp): ee=[ 0.56802547 -0.14040332  1.3607765 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 179 (move_to_pregrasp): ee=[ 0.56841666 -0.14116287  1.3599823 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 180 (move_to_pregrasp): ee=[ 0.5687988  -0.14190519  1.3592061 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 181 (move_to_pregrasp): ee=[ 0.56917167 -0.14263065  1.3584484 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 182 (move_to_pregrasp): ee=[ 0.56953526 -0.14333831  1.3577088 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 183 (move_to_pregrasp): ee=[ 0.56988984 -0.14402859  1.3569878 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 184 (move_to_pregrasp): ee=[ 0.5702349  -0.14470115  1.3562849 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 185 (move_to_pregrasp): ee=[ 0.5705706  -0.14535594  1.3556014 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 186 (move_to_pregrasp): ee=[ 0.57089657 -0.14599258  1.3549359 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 187 (move_to_pregrasp): ee=[ 0.57121307 -0.146611    1.3542897 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 188 (move_to_pregrasp): ee=[ 0.57152003 -0.14721136  1.3536625 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 189 (move_to_pregrasp): ee=[ 0.5718175  -0.14779347  1.3530545 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 190 (move_to_pregrasp): ee=[ 0.5721052  -0.14835684  1.3524659 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 191 (move_to_pregrasp): ee=[ 0.5723831  -0.14890209  1.3518966 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 192 (move_to_pregrasp): ee=[ 0.57265145 -0.1494282   1.3513469 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 193 (move_to_pregrasp): ee=[ 0.57290965 -0.14993574  1.3508162 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 194 (move_to_pregrasp): ee=[ 0.5731582  -0.15042444  1.3503053 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 195 (move_to_grasp): ee=[ 0.5733966  -0.15089405  1.3498139 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 196 (move_to_grasp): ee=[ 0.57362515 -0.15134495  1.3493423 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 197 (move_to_grasp): ee=[ 0.5736196  -0.15168282  1.3489014 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 198 (move_to_grasp): ee=[ 0.5734734 -0.1519159  1.3485558], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 199 (move_to_grasp): ee=[ 0.5733232  -0.15209958  1.3483074 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 200 (move_to_grasp): ee=[ 0.57319885 -0.15225008  1.3481376 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 201 (move_to_grasp): ee=[ 0.5731026  -0.15237461  1.3480289 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 202 (move_to_grasp): ee=[ 0.5730309  -0.15247598  1.3479648 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 203 (move_to_grasp): ee=[ 0.57297945 -0.15255766  1.3479332 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 204 (move_to_grasp): ee=[ 0.5729441 -0.1526215  1.3479242], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 205 (move_to_grasp): ee=[ 0.5729218  -0.15266944  1.3479302 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 206 (move_to_grasp): ee=[ 0.57290995 -0.15270384  1.3479459 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 207 (move_to_grasp): ee=[ 0.5729068  -0.15272608  1.3479674 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 208 (move_to_grasp): ee=[ 0.5729106 -0.152738   1.3479911], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 209 (move_to_grasp): ee=[ 0.57292    -0.15274078  1.3480133 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 210 (move_to_grasp): ee=[ 0.57293415 -0.15273613  1.3480337 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 211 (move_to_grasp): ee=[ 0.57295173 -0.15272485  1.3480494 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 212 (move_to_grasp): ee=[ 0.5729728  -0.15270847  1.3480601 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 213 (move_to_grasp): ee=[ 0.572996  -0.1526873  1.3480641], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 214 (move_to_grasp): ee=[ 0.57302105 -0.15266241  1.3480604 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 215 (move_to_grasp): ee=[ 0.5730481  -0.15263474  1.348049  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 216 (move_to_grasp): ee=[ 0.5730762  -0.15260513  1.3480295 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 217 (move_to_grasp): ee=[ 0.57310545 -0.15257367  1.348001  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 218 (move_to_grasp): ee=[ 0.57313484 -0.15254103  1.3479624 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 219 (move_to_grasp): ee=[ 0.5731656  -0.15250784  1.347915  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 220 (move_to_grasp): ee=[ 0.5731967  -0.15247457  1.3478575 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 221 (move_to_grasp): ee=[ 0.57322747 -0.15244111  1.3477895 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 222 (move_to_grasp): ee=[ 0.5732585  -0.15240815  1.3477113 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 223 (move_to_grasp): ee=[ 0.5732898  -0.15237588  1.3476223 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 224 (move_to_grasp): ee=[ 0.57332146 -0.15234458  1.3475231 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 225 (move_to_grasp): ee=[ 0.5733531  -0.15231434  1.3474126 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 226 (move_to_grasp): ee=[ 0.57338446 -0.1522855   1.347292  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 227 (move_to_grasp): ee=[ 0.57341576 -0.15225783  1.3471591 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 228 (move_to_grasp): ee=[ 0.5734469  -0.15223163  1.347015  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 229 (move_to_grasp): ee=[ 0.573478   -0.15220734  1.3468599 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 230 (move_to_grasp): ee=[ 0.5735085 -0.1521844  1.3466926], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 231 (move_to_grasp): ee=[ 0.57353884 -0.15216331  1.346514  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 232 (move_to_grasp): ee=[ 0.5735689  -0.15214388  1.3463234 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 233 (move_to_grasp): ee=[ 0.5735986  -0.15212616  1.3461207 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 234 (move_to_grasp): ee=[ 0.57362825 -0.15211026  1.3459059 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 235 (move_to_grasp): ee=[ 0.57365733 -0.1520961   1.3456788 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 236 (move_to_grasp): ee=[ 0.5736861  -0.15208359  1.3454392 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 237 (move_to_grasp): ee=[ 0.5737149  -0.15207297  1.3451878 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 238 (move_to_grasp): ee=[ 0.5737434  -0.15206452  1.3449241 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 239 (move_to_grasp): ee=[ 0.5737716  -0.15205742  1.3446475 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 240 (move_to_grasp): ee=[ 0.57379985 -0.15205233  1.344359  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 241 (move_to_grasp): ee=[ 0.5738279  -0.15204878  1.3440576 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 242 (move_to_grasp): ee=[ 0.57385606 -0.15204681  1.3437439 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 243 (move_to_grasp): ee=[ 0.57388383 -0.15204664  1.343417  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 244 (move_to_grasp): ee=[ 0.5739114  -0.15204822  1.343078  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 245 (move_to_grasp): ee=[ 0.57393926 -0.1520513   1.3427259 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 246 (move_to_grasp): ee=[ 0.5739672  -0.15205635  1.3423615 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 247 (move_to_grasp): ee=[ 0.57399505 -0.15206239  1.3419844 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 248 (move_to_grasp): ee=[ 0.5740225  -0.15207003  1.341595  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 249 (move_to_grasp): ee=[ 0.5740495 -0.152079   1.3411926], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 250 (move_to_grasp): ee=[ 0.57407594 -0.15208913  1.3407787 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 251 (move_to_grasp): ee=[ 0.57410157 -0.1521003   1.3403525 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 252 (move_to_grasp): ee=[ 0.5741272 -0.1521125  1.3399159], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 253 (move_to_grasp): ee=[ 0.57415223 -0.15212579  1.339468  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 254 (move_to_grasp): ee=[ 0.5741766  -0.15213993  1.3390101 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 255 (move_to_grasp): ee=[ 0.5742009  -0.15215519  1.3385423 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 256 (move_to_grasp): ee=[ 0.57422435 -0.15217131  1.3380653 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 257 (move_to_grasp): ee=[ 0.5742477 -0.1521881  1.3375793], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 258 (move_to_grasp): ee=[ 0.5742708  -0.15220587  1.3370845 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 259 (move_to_grasp): ee=[ 0.57429314 -0.1522241   1.3365815 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 260 (move_to_grasp): ee=[ 0.5743154 -0.1522433  1.3360708], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 261 (move_to_grasp): ee=[ 0.5743372  -0.15226324  1.3355525 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 262 (move_to_grasp): ee=[ 0.5743591  -0.15228343  1.3350272 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 263 (move_to_grasp): ee=[ 0.57438093 -0.15230429  1.3344955 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 264 (move_to_grasp): ee=[ 0.5744024  -0.15232596  1.3339573 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 265 (move_to_grasp): ee=[ 0.57442355 -0.15234824  1.3334125 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 266 (move_to_grasp): ee=[ 0.5744443 -0.152371   1.3328623], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 267 (move_to_grasp): ee=[ 0.57446486 -0.15239403  1.3323056 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 268 (move_to_grasp): ee=[ 0.5744857  -0.15241778  1.3317449 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 269 (move_to_grasp): ee=[ 0.57450634 -0.15244167  1.3311781 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 270 (move_to_grasp): ee=[ 0.574527  -0.1524662  1.3306074], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 271 (move_to_grasp): ee=[ 0.57454723 -0.1524911   1.3300315 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 272 (move_to_grasp): ee=[ 0.5745677  -0.15251634  1.3294518 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 273 (move_to_grasp): ee=[ 0.5745877  -0.15254189  1.3288672 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 274 (move_to_grasp): ee=[ 0.5746081  -0.15256798  1.3282789 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 275 (move_to_grasp): ee=[ 0.5746283  -0.15259428  1.327687  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 276 (move_to_grasp): ee=[ 0.5746487  -0.15262084  1.3270916 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 277 (move_to_grasp): ee=[ 0.5746687 -0.1526478  1.3264927], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 278 (move_to_grasp): ee=[ 0.5746888  -0.15267509  1.3258908 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 279 (move_to_grasp): ee=[ 0.57470924 -0.1527028   1.3252854 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 280 (move_to_grasp): ee=[ 0.57472944 -0.15273066  1.324678  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 281 (move_to_grasp): ee=[ 0.57474995 -0.15275852  1.3240668 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 282 (move_to_grasp): ee=[ 0.5747702  -0.15278679  1.3234533 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 283 (move_to_grasp): ee=[ 0.5747905  -0.15281539  1.3228374 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 284 (move_to_grasp): ee=[ 0.57481086 -0.15284406  1.3222188 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 285 (move_to_grasp): ee=[ 0.5748313  -0.15287317  1.3215985 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 286 (move_to_grasp): ee=[ 0.5748518  -0.15290214  1.3209755 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 287 (move_to_grasp): ee=[ 0.5748722  -0.15293156  1.32035   ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 288 (move_to_grasp): ee=[ 0.57489294 -0.15296124  1.3197238 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 289 (move_to_grasp): ee=[ 0.5749139  -0.15299086  1.3190954 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 290 (move_to_grasp): ee=[ 0.57493454 -0.15302077  1.3184648 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 291 (move_to_grasp): ee=[ 0.5749553  -0.15305063  1.3178322 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 292 (move_to_grasp): ee=[ 0.574976   -0.15308096  1.3171985 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 293 (move_to_grasp): ee=[ 0.57499725 -0.15311126  1.3165631 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 294 (move_to_grasp): ee=[ 0.5750182  -0.15314159  1.3159261 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 295 (move_to_grasp): ee=[ 0.5750396  -0.15317261  1.3152885 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 296 (move_to_grasp): ee=[ 0.57506067 -0.15320341  1.314649  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 297 (move_to_grasp): ee=[ 0.57508206 -0.15323417  1.3140081 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 298 (move_to_grasp): ee=[ 0.57510304 -0.15326497  1.3133657 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 299 (move_to_grasp): ee=[ 0.57512426 -0.15329602  1.3127226 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 300 (move_to_grasp): ee=[ 0.57514566 -0.15332742  1.3120785 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 301 (move_to_grasp): ee=[ 0.57516736 -0.1533589   1.3114333 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 302 (move_to_grasp): ee=[ 0.5751891  -0.15339004  1.310787  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 303 (move_to_grasp): ee=[ 0.5752109  -0.15342179  1.3101403 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 304 (move_to_grasp): ee=[ 0.575233  -0.1534534  1.3094923], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 305 (move_to_grasp): ee=[ 0.5752551 -0.1534853  1.3088436], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 306 (move_to_grasp): ee=[ 0.5752771  -0.15351698  1.3081937 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 307 (move_to_grasp): ee=[ 0.57529926 -0.15354906  1.3075435 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 308 (move_to_grasp): ee=[ 0.57532114 -0.15358092  1.3068922 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 309 (move_to_grasp): ee=[ 0.5753431  -0.15361272  1.3062398 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 310 (move_to_grasp): ee=[ 0.5753652  -0.15364476  1.3055874 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 311 (move_to_grasp): ee=[ 0.57538736 -0.15367688  1.3049339 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 312 (move_to_grasp): ee=[ 0.5754096 -0.1537089  1.30428  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 313 (move_to_grasp): ee=[ 0.57543194 -0.15374143  1.3036255 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 314 (move_to_grasp): ee=[ 0.57545424 -0.15377364  1.3029704 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 315 (move_to_grasp): ee=[ 0.5754767 -0.1538061  1.3023146], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 316 (move_to_grasp): ee=[ 0.5754993  -0.15383846  1.3016586 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 317 (move_to_grasp): ee=[ 0.57552207 -0.15387088  1.3010024 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 318 (move_to_grasp): ee=[ 0.57554483 -0.15390383  1.3003457 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 319 (move_to_grasp): ee=[ 0.57556766 -0.15393624  1.2996886 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 320 (move_to_grasp): ee=[ 0.5755905 -0.1539689  1.2990308], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 321 (move_to_grasp): ee=[ 0.5756136  -0.15400161  1.2983731 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 322 (move_to_grasp): ee=[ 0.5756368  -0.15403455  1.297715  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 323 (move_to_grasp): ee=[ 0.57566    -0.15406719  1.297056  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 324 (move_to_grasp): ee=[ 0.5756831  -0.15410015  1.2963969 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 325 (move_to_grasp): ee=[ 0.5757064  -0.15413326  1.2957379 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 326 (move_to_grasp): ee=[ 0.57572967 -0.15416604  1.295078  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 327 (move_to_grasp): ee=[ 0.57575315 -0.15419899  1.2944181 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 328 (move_to_grasp): ee=[ 0.57577664 -0.15423203  1.293758  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 329 (move_to_grasp): ee=[ 0.5758004  -0.15426506  1.2930981 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 330 (move_to_grasp): ee=[ 0.5758239  -0.15429826  1.2924373 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 331 (move_to_grasp): ee=[ 0.57584745 -0.15433158  1.2917765 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 332 (move_to_grasp): ee=[ 0.57587117 -0.15436463  1.2911154 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 333 (move_to_grasp): ee=[ 0.5758949  -0.15439783  1.2904541 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 334 (move_to_grasp): ee=[ 0.57591885 -0.15443102  1.289793  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 335 (move_to_grasp): ee=[ 0.5759428  -0.15446436  1.2891314 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 336 (move_to_grasp): ee=[ 0.5759666  -0.15449764  1.2884693 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 337 (move_to_grasp): ee=[ 0.57599056 -0.15453064  1.2878073 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 338 (move_to_grasp): ee=[ 0.57601476 -0.15456416  1.2871451 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 339 (move_to_grasp): ee=[ 0.57603854 -0.15459761  1.2864829 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 340 (move_to_grasp): ee=[ 0.5760627  -0.15463085  1.2858204 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 341 (move_to_grasp): ee=[ 0.5760869 -0.1546642  1.2851579], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 342 (move_to_grasp): ee=[ 0.5761111  -0.15469766  1.2844951 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 343 (move_to_grasp): ee=[ 0.57613534 -0.15473115  1.2838326 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 344 (move_to_grasp): ee=[ 0.57615954 -0.15476455  1.2831695 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 345 (move_to_grasp): ee=[ 0.5761839  -0.15479806  1.2825062 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 346 (move_to_grasp): ee=[ 0.57620823 -0.15483148  1.2818432 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 347 (move_to_grasp): ee=[ 0.57623255 -0.15486501  1.2811799 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 348 (move_to_grasp): ee=[ 0.5762568  -0.15489858  1.280516  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 349 (move_to_grasp): ee=[ 0.5762813  -0.15493198  1.2798527 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 350 (move_to_grasp): ee=[ 0.5763057  -0.15496549  1.279189  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 351 (move_to_grasp): ee=[ 0.57633036 -0.15499899  1.2785256 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 352 (move_to_grasp): ee=[ 0.57635474 -0.15503268  1.2778621 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 353 (move_to_grasp): ee=[ 0.5763793  -0.15506634  1.2771982 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 354 (move_to_grasp): ee=[ 0.57640386 -0.15509978  1.2765341 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 355 (move_to_grasp): ee=[ 0.57642835 -0.15513352  1.27587   ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 356 (move_to_grasp): ee=[ 0.576453   -0.15516706  1.275206  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 357 (move_to_grasp): ee=[ 0.5764776  -0.15520072  1.2745419 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 358 (move_to_grasp): ee=[ 0.57650226 -0.15523429  1.2738776 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 359 (move_to_grasp): ee=[ 0.5765271  -0.15526792  1.2732135 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 360 (move_to_grasp): ee=[ 0.57655156 -0.15530154  1.2725489 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 361 (move_to_grasp): ee=[ 0.57657635 -0.15533516  1.2718847 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 362 (move_to_grasp): ee=[ 0.57660115 -0.15536897  1.2712203 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 363 (move_to_grasp): ee=[ 0.5766259  -0.15540253  1.2705557 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 364 (move_to_grasp): ee=[ 0.5766506  -0.15543635  1.2698913 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 365 (move_to_grasp): ee=[ 0.5766753  -0.15547004  1.2692266 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 366 (move_to_grasp): ee=[ 0.57670003 -0.15550384  1.268562  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 367 (move_to_grasp): ee=[ 0.57672477 -0.1555372   1.2678969 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 368 (move_to_grasp): ee=[ 0.5767497  -0.15557134  1.2672325 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 369 (move_to_grasp): ee=[ 0.57677436 -0.15560476  1.2665675 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 370 (move_to_grasp): ee=[ 0.57679933 -0.15563868  1.2659029 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 371 (move_to_grasp): ee=[ 0.5768242 -0.1556725  1.2652383], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 372 (move_to_grasp): ee=[ 0.5768491  -0.15570599  1.2645733 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 373 (move_to_grasp): ee=[ 0.57687426 -0.1557398   1.2639087 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 374 (move_to_grasp): ee=[ 0.57689905 -0.15577371  1.2632438 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 375 (move_to_grasp): ee=[ 0.57692397 -0.15580747  1.2625787 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 376 (move_to_grasp): ee=[ 0.5769488  -0.15584114  1.2619138 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 377 (move_to_grasp): ee=[ 0.57697386 -0.15587503  1.2612491 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 378 (move_to_grasp): ee=[ 0.57699895 -0.15590864  1.2605841 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 379 (move_to_grasp): ee=[ 0.57702386 -0.15594241  1.2599192 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 380 (move_to_grasp): ee=[ 0.577049   -0.15597627  1.259254  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 381 (move_to_grasp): ee=[ 0.577074   -0.15601012  1.258589  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 382 (move_to_grasp): ee=[ 0.5770991  -0.15604407  1.2579242 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 383 (move_to_grasp): ee=[ 0.57712406 -0.15607783  1.257259  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 384 (move_to_grasp): ee=[ 0.57714915 -0.15611169  1.2565941 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 385 (move_to_grasp): ee=[ 0.57717407 -0.15614547  1.2559288 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 386 (move_to_grasp): ee=[ 0.5771993  -0.15617925  1.2552637 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 387 (move_to_grasp): ee=[ 0.5772244  -0.15621299  1.2545985 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 388 (move_to_grasp): ee=[ 0.57724965 -0.15624677  1.2539334 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 389 (move_to_grasp): ee=[ 0.5772745  -0.15628067  1.2532682 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 390 (move_to_grasp): ee=[ 0.57729954 -0.15631458  1.252603  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 391 (move_to_grasp): ee=[ 0.5773246  -0.15634836  1.2519377 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 392 (move_to_grasp): ee=[ 0.5773497 -0.1563822  1.2512727], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 393 (move_to_grasp): ee=[ 0.57737476 -0.15641607  1.2506071 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 394 (move_to_grasp): ee=[ 0.57739985 -0.15644985  1.2499418 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 395 (move_to_grasp): ee=[ 0.57742494 -0.15648372  1.2492768 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 396 (move_to_grasp): ee=[ 0.5774503 -0.1565175  1.2486116], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 397 (move_to_grasp): ee=[ 0.57747513 -0.15655163  1.2479463 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 398 (move_to_grasp): ee=[ 0.57750046 -0.15658541  1.247281  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 399 (move_to_grasp): ee=[ 0.57752556 -0.15661916  1.2466158 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 400 (move_to_grasp): ee=[ 0.57755053 -0.15665324  1.2459502 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 401 (move_to_grasp): ee=[ 0.5775757  -0.15668683  1.245285  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 402 (move_to_grasp): ee=[ 0.577601   -0.15672088  1.2446198 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 403 (move_to_grasp): ee=[ 0.57762605 -0.15675469  1.2439542 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 404 (move_to_grasp): ee=[ 0.57765126 -0.15678874  1.243289  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 405 (move_to_grasp): ee=[ 0.5776763  -0.15682235  1.2426236 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 406 (move_to_grasp): ee=[ 0.57770145 -0.1568563   1.2419581 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 407 (move_to_grasp): ee=[ 0.5777262  -0.15689024  1.2412927 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 408 (move_to_grasp): ee=[ 0.57775134 -0.15692374  1.2406273 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 409 (move_to_grasp): ee=[ 0.57777625 -0.15695794  1.2399616 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 410 (move_to_grasp): ee=[ 0.5778013  -0.15699188  1.2392963 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 411 (move_to_grasp): ee=[ 0.57782644 -0.15702564  1.2386309 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 412 (move_to_grasp): ee=[ 0.57785136 -0.15705945  1.2379652 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 413 (move_to_grasp): ee=[ 0.5778764  -0.15709332  1.2372997 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 414 (move_to_grasp): ee=[ 0.5779012  -0.15712711  1.236634  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 415 (move_to_grasp): ee=[ 0.5779263  -0.15716109  1.2359686 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 416 (move_to_grasp): ee=[ 0.57795143 -0.15719493  1.235303  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 417 (move_to_grasp): ee=[ 0.5779766  -0.15722874  1.2346375 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 418 (move_to_grasp): ee=[ 0.5780018  -0.15726262  1.2339722 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 419 (move_to_grasp): ee=[ 0.57802695 -0.15729676  1.2333066 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 420 (move_to_grasp): ee=[ 0.5780521  -0.15733057  1.2326416 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 421 (move_to_grasp): ee=[ 0.5780772  -0.15736464  1.2319764 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 422 (move_to_grasp): ee=[ 0.5781026  -0.15739852  1.2313108 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 423 (move_to_grasp): ee=[ 0.5781278  -0.15743259  1.2306455 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 424 (move_to_grasp): ee=[ 0.5781532  -0.15746643  1.2299801 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 425 (move_to_grasp): ee=[ 0.5781781 -0.1575003  1.2293144], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 426 (move_to_grasp): ee=[ 0.57820356 -0.15753442  1.2286494 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 427 (move_to_grasp): ee=[ 0.578229   -0.15756835  1.2279842 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 428 (move_to_grasp): ee=[ 0.57825434 -0.15760243  1.227319  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 429 (move_to_grasp): ee=[ 0.5782798  -0.15763624  1.2266533 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 430 (move_to_grasp): ee=[ 0.578305   -0.15767054  1.2259881 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 431 (move_to_grasp): ee=[ 0.5783305 -0.1577045  1.2253227], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 432 (move_to_grasp): ee=[ 0.5783559  -0.15773846  1.2246578 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 433 (move_to_grasp): ee=[ 0.57838124 -0.15777239  1.2239922 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 434 (move_to_grasp): ee=[ 0.57840663 -0.15780656  1.2233273 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 435 (move_to_grasp): ee=[ 0.57843167 -0.15784037  1.2226615 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 436 (move_to_grasp): ee=[ 0.5784569  -0.15787451  1.2219961 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 437 (move_to_grasp): ee=[ 0.5784821  -0.15790859  1.221331  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 438 (move_to_grasp): ee=[ 0.57850707 -0.15794243  1.2206651 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 439 (move_to_grasp): ee=[ 0.57853204 -0.15797667  1.2199996 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 440 (move_to_grasp): ee=[ 0.57855725 -0.15801021  1.2193342 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 441 (move_to_grasp): ee=[ 0.57858235 -0.15804441  1.2186686 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 442 (move_to_grasp): ee=[ 0.57860756 -0.15807858  1.2180032 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 443 (move_to_grasp): ee=[ 0.57863265 -0.1581124   1.2173375 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 444 (move_to_grasp): ee=[ 0.5786581  -0.15814663  1.2166724 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 445 (move_to_grasp): ee=[ 0.5786833  -0.15818062  1.2160069 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 446 (move_to_grasp): ee=[ 0.57870847 -0.15821488  1.2153416 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 447 (move_to_grasp): ee=[ 0.57873374 -0.1582487   1.214676  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 448 (move_to_grasp): ee=[ 0.57875913 -0.15828264  1.2140108 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 449 (move_to_grasp): ee=[ 0.5787846  -0.15831679  1.2133456 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 450 (move_to_grasp): ee=[ 0.57881004 -0.15835093  1.2126802 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 451 (move_to_grasp): ee=[ 0.57883507 -0.15838486  1.2120149 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 452 (move_to_grasp): ee=[ 0.5788598  -0.15841891  1.21135   ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 453 (move_to_grasp): ee=[ 0.5788841  -0.15845263  1.2106853 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 454 (move_to_grasp): ee=[ 0.5789074  -0.15848632  1.2100209 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 455 (move_to_grasp): ee=[ 0.5789305  -0.15851954  1.2093586 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 456 (move_to_grasp): ee=[ 0.5789527  -0.15855259  1.2086982 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 457 (move_to_grasp): ee=[ 0.578974   -0.15858528  1.2080394 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 458 (move_to_grasp): ee=[ 0.57899463 -0.15861775  1.2073834 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 459 (move_to_grasp): ee=[ 0.5790144  -0.15864986  1.2067305 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 460 (move_to_grasp): ee=[ 0.5790333  -0.15868169  1.2060812 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 461 (move_to_grasp): ee=[ 0.57905126 -0.15871295  1.2054359 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 462 (move_to_grasp): ee=[ 0.5790689  -0.15874402  1.2047949 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 463 (move_to_grasp): ee=[ 0.5790853  -0.15877469  1.2041587 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 464 (move_to_grasp): ee=[ 0.579101  -0.1588047  1.2035278], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 465 (move_to_grasp): ee=[ 0.57911646 -0.15883453  1.2029024 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 466 (move_to_grasp): ee=[ 0.579131   -0.15886408  1.2022835 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 467 (move_to_grasp): ee=[ 0.5791447  -0.15889294  1.2016705 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 468 (move_to_grasp): ee=[ 0.5791578  -0.15892188  1.2010647 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 469 (move_to_grasp): ee=[ 0.57917064 -0.15894985  1.2004663 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 470 (move_to_grasp): ee=[ 0.5791825  -0.15897748  1.1998744 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 471 (move_to_grasp): ee=[ 0.5791942  -0.15900508  1.1992911 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 472 (move_to_grasp): ee=[ 0.57920533 -0.1590318   1.1987153 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 473 (move_to_grasp): ee=[ 0.579216   -0.15905838  1.198148  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 474 (move_to_grasp): ee=[ 0.57922643 -0.15908457  1.1975894 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 475 (move_to_grasp): ee=[ 0.5792361  -0.15910992  1.1970395 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 476 (move_to_grasp): ee=[ 0.5792458  -0.15913504  1.1964991 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 477 (move_to_grasp): ee=[ 0.57925457 -0.15915996  1.1959676 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 478 (move_to_grasp): ee=[ 0.5792634  -0.15918401  1.195446  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 479 (move_to_grasp): ee=[ 0.57927144 -0.15920784  1.1949337 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 480 (move_to_grasp): ee=[ 0.57927907 -0.1592311   1.1944313 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 481 (move_to_grasp): ee=[ 0.57928663 -0.15925394  1.1939396 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 482 (move_to_grasp): ee=[ 0.57929397 -0.15927632  1.193458  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 483 (move_to_grasp): ee=[ 0.57930094 -0.1592981   1.1929867 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 484 (move_to_grasp): ee=[ 0.57930744 -0.15931952  1.1925266 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 485 (move_to_grasp): ee=[ 0.5793136  -0.15934055  1.1920769 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 486 (move_to_grasp): ee=[ 0.5793195  -0.15936092  1.191638  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 487 (move_to_grasp): ee=[ 0.5793251  -0.15938076  1.1912103 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 488 (move_to_grasp): ee=[ 0.57933027 -0.1593999   1.1907939 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 489 (move_to_grasp): ee=[ 0.57933503 -0.15941884  1.1903889 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 490 (move_to_grasp): ee=[ 0.5793397  -0.15943687  1.1899952 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 491 (move_to_grasp): ee=[ 0.5793437 -0.1594547  1.1896133], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 492 (move_to_grasp): ee=[ 0.5793477  -0.15947175  1.1892428 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 493 (move_to_grasp): ee=[ 0.57935137 -0.15948829  1.1888845 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 494 (move_to_grasp): ee=[ 0.57935494 -0.15950438  1.1885382 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 495 (move_to_grasp): ee=[ 0.5793578  -0.15951958  1.1882033 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 496 (move_to_grasp): ee=[ 0.5793605 -0.1595347  1.187881 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 497 (close): ee=[ 0.5793632 -0.159549   1.1875709], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.04
+[DEBUG] Step 498 (close): ee=[ 0.57936525 -0.15956281  1.1872728 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.0
+[DEBUG] Step 499 (close): ee=[ 0.57936734 -0.15957598  1.186987  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.0
+[DEBUG] Step 500 (close): ee=[ 0.5793695  -0.15958875  1.1867137 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.0
+[DEBUG] Step 501 (close): ee=[ 0.57937187 -0.15960103  1.1864522 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.0
+[DEBUG] Step 502 (close): ee=[ 0.5793746  -0.15961306  1.1862023 ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.0
+[DEBUG] Step 503 (close): ee=[ 0.5793777  -0.15962446  1.185964  ], obj=[ 0.58      -0.16       1.0812374], cmd_finger=0.0
+[DEBUG] Step 504 (close): ee=[ 0.5793822  -0.15963691  1.1857376 ], obj=[ 0.58000034 -0.15998667  1.0812374 ], cmd_finger=0.0
+[DEBUG] Step 505 (close): ee=[ 0.5794005  -0.15967533  1.1855469 ], obj=[ 0.5800193  -0.15984556  1.0812374 ], cmd_finger=0.0
+[DEBUG] Step 506 (close): ee=[ 0.5794393  -0.15970923  1.1853998 ], obj=[ 0.58006763 -0.15971892  1.0812368 ], cmd_finger=0.0
+[DEBUG] Step 507 (close): ee=[ 0.57949686 -0.15973754  1.1852864 ], obj=[ 0.5801434 -0.1596322  1.0812365], cmd_finger=0.0
+[DEBUG] Step 508 (close): ee=[ 0.5795701  -0.15976194  1.1851991 ], obj=[ 0.5802415  -0.15957208  1.0812362 ], cmd_finger=0.0
+[DEBUG] Step 509 (close): ee=[ 0.5796563  -0.15978317  1.1851326 ], obj=[ 0.5803573  -0.15953162  1.0812358 ], cmd_finger=0.0
+[DEBUG] Step 510 (close): ee=[ 0.57975346 -0.15980141  1.1850816 ], obj=[ 0.5804871 -0.1595055  1.0812353], cmd_finger=0.0
+[DEBUG] Step 511 (close): ee=[ 0.57985926 -0.15981758  1.1850427 ], obj=[ 0.58062756 -0.15948963  1.0812347 ], cmd_finger=0.0
+[DEBUG] Step 512 (close): ee=[ 0.5799725  -0.15983137  1.1850121 ], obj=[ 0.58077544 -0.15948032  1.0812339 ], cmd_finger=0.0
+[DEBUG] Step 513 (close): ee=[ 0.58009136 -0.15984371  1.1849878 ], obj=[ 0.5809265  -0.15947367  1.0812329 ], cmd_finger=0.0
+[DEBUG] Step 514 (close): ee=[ 0.58021396 -0.15985394  1.1849668 ], obj=[ 0.5810807  -0.15946645  1.0812318 ], cmd_finger=0.0
+[DEBUG] Step 515 (close): ee=[ 0.5803396 -0.1598624  1.184948 ], obj=[ 0.5812372  -0.15946051  1.0812308 ], cmd_finger=0.0
+[DEBUG] Step 516 (close): ee=[ 0.58046764 -0.15986902  1.1849297 ], obj=[ 0.58139485 -0.15945491  1.0812297 ], cmd_finger=0.0
+[DEBUG] Step 517 (close): ee=[ 0.58059734 -0.15987408  1.1849117 ], obj=[ 0.58155376 -0.15945017  1.0812285 ], cmd_finger=0.0
+[DEBUG] Step 518 (close): ee=[ 0.58072907 -0.15987827  1.1848971 ], obj=[ 0.58170885 -0.15944596  1.081235  ], cmd_finger=0.0
+[DEBUG] Step 519 (close): ee=[ 0.58085734 -0.15988073  1.1848766 ], obj=[ 0.58185893 -0.15944155  1.0812339 ], cmd_finger=0.0
+[DEBUG] Step 520 (close): ee=[ 0.5809854  -0.15988241  1.184855  ], obj=[ 0.5820067  -0.15943836  1.0812328 ], cmd_finger=0.0
+[DEBUG] Step 521 (close): ee=[ 0.5811153  -0.15988356  1.1848342 ], obj=[ 0.582155   -0.15943426  1.0812316 ], cmd_finger=0.0
+[DEBUG] Step 522 (close): ee=[ 0.58124584 -0.15988417  1.1848139 ], obj=[ 0.582304   -0.15943022  1.0812304 ], cmd_finger=0.0
+[DEBUG] Step 523 (close): ee=[ 0.5813778  -0.15988444  1.1847956 ], obj=[ 0.5824529  -0.15942651  1.0812327 ], cmd_finger=0.0
+[DEBUG] Step 524 (close): ee=[ 0.581509   -0.15988402  1.1847754 ], obj=[ 0.58260053 -0.15942281  1.0812314 ], cmd_finger=0.0
+[DEBUG] Step 525 (close): ee=[ 0.5816402  -0.15988319  1.1847544 ], obj=[ 0.58274686 -0.15941955  1.0812302 ], cmd_finger=0.0
+[DEBUG] Step 526 (close): ee=[ 0.58177215 -0.15988207  1.1847343 ], obj=[ 0.5828937  -0.15941595  1.0812289 ], cmd_finger=0.0
+[DEBUG] Step 527 (close): ee=[ 0.581905   -0.15988033  1.1847142 ], obj=[ 0.5830412  -0.15941249  1.0812275 ], cmd_finger=0.0
+[DEBUG] Step 528 (close): ee=[ 0.58203924 -0.15987921  1.1846964 ], obj=[ 0.5831884  -0.15940925  1.0812294 ], cmd_finger=0.0
+[DEBUG] Step 529 (close): ee=[ 0.582172   -0.15987676  1.1846769 ], obj=[ 0.58333343 -0.15940598  1.0812281 ], cmd_finger=0.0
+[DEBUG] Step 530 (close): ee=[ 0.5823048  -0.15987438  1.1846563 ], obj=[ 0.58347696 -0.1594032   1.0812267 ], cmd_finger=0.0
+[DEBUG] Step 531 (close): ee=[ 0.58243835 -0.15987168  1.1846364 ], obj=[ 0.58362097 -0.15940012  1.0812253 ], cmd_finger=0.0
+[DEBUG] Step 532 (close): ee=[ 0.58257294 -0.15986864  1.1846175 ], obj=[ 0.5837655  -0.15939711  1.0812238 ], cmd_finger=0.0
+[DEBUG] Step 533 (close): ee=[ 0.582708   -0.15986577  1.1846    ], obj=[ 0.5839097 -0.1593943  1.0812255], cmd_finger=0.0
+[DEBUG] Step 534 (close): ee=[ 0.58284163 -0.15986231  1.1845807 ], obj=[ 0.5840526  -0.15939121  1.0812241 ], cmd_finger=0.0
+[DEBUG] Step 535 (close): ee=[ 0.58297515 -0.159859    1.1845608 ], obj=[ 0.5841945  -0.15938817  1.0812225 ], cmd_finger=0.0
+[DEBUG] Step 536 (close): ee=[ 0.5831094  -0.15985526  1.1845415 ], obj=[ 0.5843367  -0.15938546  1.081221  ], cmd_finger=0.0
+[DEBUG] Step 537 (close): ee=[ 0.58324414 -0.15985139  1.1845231 ], obj=[ 0.58447945 -0.15938282  1.0812194 ], cmd_finger=0.0
+[DEBUG] Step 538 (close): ee=[ 0.5833799 -0.1598478  1.1845064], obj=[ 0.5846217 -0.1593803  1.081221 ], cmd_finger=0.0
+[DEBUG] Step 539 (close): ee=[ 0.5835135  -0.15984367  1.1844871 ], obj=[ 0.58476245 -0.15937734  1.0812193 ], cmd_finger=0.0
+[DEBUG] Step 540 (close): ee=[ 0.58364725 -0.1598395   1.1844679 ], obj=[ 0.5849016  -0.15937413  1.0812176 ], cmd_finger=0.0
+[DEBUG] Step 541 (close): ee=[ 0.5837812  -0.15983532  1.1844493 ], obj=[ 0.58504087 -0.15937182  1.0812161 ], cmd_finger=0.0
+[DEBUG] Step 542 (close): ee=[ 0.5839159  -0.15983103  1.1844313 ], obj=[ 0.58518046 -0.15936948  1.0812143 ], cmd_finger=0.0
+[DEBUG] Step 543 (close): ee=[ 0.5840508  -0.15982683  1.1844149 ], obj=[ 0.58531964 -0.15936728  1.0812156 ], cmd_finger=0.0
+[DEBUG] Step 544 (close): ee=[ 0.58418417 -0.15982243  1.1843963 ], obj=[ 0.58545727 -0.15936458  1.081214  ], cmd_finger=0.0
+[DEBUG] Step 545 (close): ee=[ 0.5843173  -0.15981805  1.1843776 ], obj=[ 0.5855941  -0.15936139  1.0812122 ], cmd_finger=0.0
+[DEBUG] Step 546 (close): ee=[ 0.5844505  -0.15981333  1.1843594 ], obj=[ 0.58573127 -0.15935877  1.0812105 ], cmd_finger=0.0
+[DEBUG] Step 547 (close): ee=[ 0.5845841  -0.15980871  1.1843414 ], obj=[ 0.58586866 -0.15935613  1.0812087 ], cmd_finger=0.0
+[DEBUG] Step 548 (close): ee=[ 0.5847185  -0.15980443  1.1843255 ], obj=[ 0.5860058  -0.15935391  1.0812098 ], cmd_finger=0.0
+[DEBUG] Step 549 (close): ee=[ 0.5848508  -0.15979946  1.1843073 ], obj=[ 0.58614093 -0.15935133  1.081208  ], cmd_finger=0.0
+[DEBUG] Step 550 (close): ee=[ 0.58498275 -0.15979491  1.1842891 ], obj=[ 0.5862755  -0.15934823  1.0812061 ], cmd_finger=0.0
+[DEBUG] Step 551 (close): ee=[ 0.5851148  -0.15978996  1.1842711 ], obj=[ 0.5864104 -0.1593451  1.0812043], cmd_finger=0.0
+[DEBUG] Step 552 (close): ee=[ 0.585247  -0.1597855  1.1842539], obj=[ 0.58654475 -0.15934195  1.0812024 ], cmd_finger=0.0
+[DEBUG] Step 553 (close): ee=[ 0.58538014 -0.15978076  1.1842384 ], obj=[ 0.5866789  -0.15933964  1.0812032 ], cmd_finger=0.0
+[DEBUG] Step 554 (close): ee=[ 0.58551145 -0.15977593  1.1842213 ], obj=[ 0.58681107 -0.15933704  1.0812014 ], cmd_finger=0.0
+[DEBUG] Step 555 (close): ee=[ 0.58564705 -0.15977317  1.1842113 ], obj=[ 0.58694744 -0.1593425   1.0811994 ], cmd_finger=0.0
+[DEBUG] Step 556 (close): ee=[ 0.5857788  -0.15976892  1.1841954 ], obj=[ 0.5870806  -0.15934035  1.0811975 ], cmd_finger=0.0
+[DEBUG] Step 557 (close): ee=[ 0.5859161  -0.15976635  1.1841885 ], obj=[ 0.5872197  -0.15934066  1.0811952 ], cmd_finger=0.0
+[DEBUG] Step 558 (close): ee=[ 0.586049   -0.15976283  1.1841751 ], obj=[ 0.5873539 -0.1593379  1.0811961], cmd_finger=0.0
+[DEBUG] Step 559 (close): ee=[ 0.5861838  -0.15976024  1.1841654 ], obj=[ 0.5874885  -0.15934247  1.081194  ], cmd_finger=0.0
+[DEBUG] Step 560 (close): ee=[ 0.58631426 -0.1597562   1.1841494 ], obj=[ 0.5876193  -0.15934029  1.081192  ], cmd_finger=0.0
+[DEBUG] Step 561 (close): ee=[ 0.58645046 -0.15975438  1.1841425 ], obj=[ 0.58775693 -0.15934117  1.0811898 ], cmd_finger=0.0
+[DEBUG] Step 562 (close): ee=[ 0.58658206 -0.15975077  1.1841276 ], obj=[ 0.5878888  -0.15933843  1.0811877 ], cmd_finger=0.0
+[DEBUG] Step 563 (close): ee=[ 0.58671767 -0.15974869  1.1841204 ], obj=[ 0.58802557 -0.15933952  1.0811883 ], cmd_finger=0.0
+[DEBUG] Step 564 (close): ee=[ 0.5868474  -0.15974478  1.1841049 ], obj=[ 0.58815455 -0.1593376   1.0811862 ], cmd_finger=0.0
+[DEBUG] Step 565 (close): ee=[ 0.5869817  -0.15974319  1.1840968 ], obj=[ 0.5882888  -0.15933855  1.0811839 ], cmd_finger=0.0
+[DEBUG] Step 566 (close): ee=[ 0.5871118  -0.15973946  1.184082  ], obj=[ 0.5884181 -0.1593359  1.0811819], cmd_finger=0.0
+[DEBUG] Step 567 (close): ee=[ 0.58724654 -0.15973756  1.1840743 ], obj=[ 0.5885524  -0.15933669  1.0811795 ], cmd_finger=0.0
+[DEBUG] Step 568 (close): ee=[ 0.5873774  -0.15973455  1.184062  ], obj=[ 0.5886826  -0.15933421  1.08118   ], cmd_finger=0.0
+[DEBUG] Step 569 (close): ee=[ 0.58751154 -0.1597329   1.1840551 ], obj=[ 0.58881444 -0.15933466  1.0811777 ], cmd_finger=0.0
+[DEBUG] Step 570 (close): ee=[ 0.5876406  -0.15972938  1.1840405 ], obj=[ 0.58894193 -0.15933214  1.0811756 ], cmd_finger=0.0
+[DEBUG] Step 571 (close): ee=[ 0.5877736  -0.15972771  1.1840329 ], obj=[ 0.5890739  -0.15933272  1.0811732 ], cmd_finger=0.0
+[DEBUG] Step 572 (close): ee=[ 0.58790255 -0.15972415  1.1840181 ], obj=[ 0.5892016  -0.15933025  1.0811709 ], cmd_finger=0.0
+[DEBUG] Step 573 (close): ee=[ 0.5880358  -0.15972233  1.1840116 ], obj=[ 0.58933383 -0.1593312   1.0811712 ], cmd_finger=0.0
+[DEBUG] Step 574 (close): ee=[ 0.5881634  -0.15971886  1.1839968 ], obj=[ 0.58945954 -0.15932943  1.0811689 ], cmd_finger=0.0
+[DEBUG] Step 575 (close): ee=[ 0.5882946 -0.1597171  1.1839885], obj=[ 0.58958936 -0.15933006  1.0811665 ], cmd_finger=0.0
+[DEBUG] Step 576 (close): ee=[ 0.5884222  -0.15971383  1.1839741 ], obj=[ 0.5897148  -0.15932778  1.0811642 ], cmd_finger=0.0
+[DEBUG] Step 577 (close): ee=[ 0.5885538  -0.15971206  1.1839668 ], obj=[ 0.5898434  -0.15932776  1.0811617 ], cmd_finger=0.0
+[DEBUG] Step 578 (close): ee=[ 0.5886814  -0.15970886  1.183954  ], obj=[ 0.58996964 -0.15932567  1.081162  ], cmd_finger=0.0
+[DEBUG] Step 579 (close): ee=[ 0.58881325 -0.15970741  1.1839483 ], obj=[ 0.59009707 -0.15932608  1.0811595 ], cmd_finger=0.0
+[DEBUG] Step 580 (close): ee=[ 0.5889393  -0.15970403  1.1839345 ], obj=[ 0.59022087 -0.15932383  1.0811572 ], cmd_finger=0.0
+[DEBUG] Step 581 (close): ee=[ 0.5890685 -0.1597022  1.1839257], obj=[ 0.5903464  -0.15932359  1.0811547 ], cmd_finger=0.0
+[DEBUG] Step 582 (close): ee=[ 0.58919436 -0.1596988   1.1839116 ], obj=[ 0.59047014 -0.15932135  1.0811523 ], cmd_finger=0.0
+[DEBUG] Step 583 (close): ee=[ 0.58932424 -0.15969726  1.1839049 ], obj=[ 0.59059674 -0.15932187  1.0811522 ], cmd_finger=0.0
+[DEBUG] Step 584 (close): ee=[ 0.58944863 -0.15969382  1.1838906 ], obj=[ 0.5907186  -0.15932019  1.0811498 ], cmd_finger=0.0
+[DEBUG] Step 585 (close): ee=[ 0.58957636 -0.15969174  1.1838822 ], obj=[ 0.5908425  -0.15932019  1.0811473 ], cmd_finger=0.0
+[DEBUG] Step 586 (close): ee=[ 0.58970046 -0.1596885   1.1838682 ], obj=[ 0.59096426 -0.15931794  1.0811449 ], cmd_finger=0.0
+[DEBUG] Step 587 (close): ee=[ 0.58982855 -0.15968673  1.1838605 ], obj=[ 0.5910884  -0.15931772  1.0811423 ], cmd_finger=0.0
+[DEBUG] Step 588 (close): ee=[ 0.58995277 -0.15968332  1.1838473 ], obj=[ 0.59121054 -0.1593156   1.0811399 ], cmd_finger=0.0
+[DEBUG] Step 589 (close): ee=[ 0.5900797 -0.1596813  1.18384  ], obj=[ 0.5913341  -0.15931565  1.0811402 ], cmd_finger=0.0
+[DEBUG] Step 590 (close): ee=[ 0.5902021  -0.15967812  1.1838259 ], obj=[ 0.59145343 -0.15931402  1.0811377 ], cmd_finger=0.0
+[DEBUG] Step 591 (close): ee=[ 0.59032786 -0.15967618  1.1838173 ], obj=[ 0.5915746 -0.159314   1.081135 ], cmd_finger=0.0
+[DEBUG] Step 592 (close): ee=[ 0.59045017 -0.15967278  1.183804  ], obj=[ 0.59169394 -0.15931195  1.0811325 ], cmd_finger=0.0
+[DEBUG] Step 593 (close): ee=[ 0.590575   -0.15967071  1.1837956 ], obj=[ 0.59181494 -0.15931174  1.0811299 ], cmd_finger=0.0
+[DEBUG] Step 594 (close): ee=[ 0.59069693 -0.1596673   1.1837823 ], obj=[ 0.5919344  -0.15930988  1.0811274 ], cmd_finger=0.0
+[DEBUG] Step 595 (close): ee=[ 0.59082234 -0.15966581  1.1837758 ], obj=[ 0.5920549  -0.15930918  1.0811275 ], cmd_finger=0.0
+[DEBUG] Step 596 (close): ee=[ 0.5909428 -0.1596625  1.1837624], obj=[ 0.59217215 -0.15930764  1.0811249 ], cmd_finger=0.0
+[DEBUG] Step 597 (close): ee=[ 0.5910659  -0.15966068  1.1837536 ], obj=[ 0.59229046 -0.15930761  1.0811224 ], cmd_finger=0.0
+[DEBUG] Step 598 (close): ee=[ 0.5911854  -0.15965731  1.1837397 ], obj=[ 0.5924072 -0.1593057  1.0811198], cmd_finger=0.0
+[DEBUG] Step 599 (close): ee=[ 0.5913088  -0.15965547  1.1837325 ], obj=[ 0.5925262  -0.15930547  1.0811172 ], cmd_finger=0.0
+[DEBUG] Step 600 (close): ee=[ 0.5914287  -0.15965202  1.1837195 ], obj=[ 0.5926434  -0.15930367  1.0811145 ], cmd_finger=0.0
+[DEBUG] Step 601 (close): ee=[ 0.5915509  -0.15965016  1.183712  ], obj=[ 0.5927614  -0.15930296  1.0811144 ], cmd_finger=0.0
+[DEBUG] Step 602 (close): ee=[ 0.591669   -0.15964732  1.1836989 ], obj=[ 0.5928762 -0.1593016  1.0811118], cmd_finger=0.0
+[DEBUG] Step 603 (close): ee=[ 0.59178936 -0.15964527  1.1836896 ], obj=[ 0.5929916  -0.15930147  1.0811092 ], cmd_finger=0.0
+[DEBUG] Step 604 (close): ee=[ 0.5919066  -0.15964212  1.1836764 ], obj=[ 0.5931058  -0.15929961  1.0811065 ], cmd_finger=0.0
+[DEBUG] Step 605 (close): ee=[ 0.59202725 -0.1596404   1.1836683 ], obj=[ 0.59322184 -0.15929942  1.0811038 ], cmd_finger=0.0
+[DEBUG] Step 606 (close): ee=[ 0.5921448  -0.15963732  1.183656  ], obj=[ 0.5933363  -0.15929765  1.0811012 ], cmd_finger=0.0
+[DEBUG] Step 607 (close): ee=[ 0.59226453 -0.15963519  1.183648  ], obj=[ 0.5934516 -0.159297   1.081101 ], cmd_finger=0.0
+[DEBUG] Step 608 (close): ee=[ 0.59237987 -0.15963235  1.1836351 ], obj=[ 0.593564   -0.15929523  1.0810983 ], cmd_finger=0.0
+[DEBUG] Step 609 (close): ee=[ 0.59249765 -0.15963024  1.1836257 ], obj=[ 0.59367675 -0.15929487  1.0810956 ], cmd_finger=0.0
+[DEBUG] Step 610 (close): ee=[ 0.5926129  -0.15962738  1.1836127 ], obj=[ 0.5937886  -0.15929312  1.081093  ], cmd_finger=0.0
+[DEBUG] Step 611 (close): ee=[ 0.5927311  -0.15962559  1.1836046 ], obj=[ 0.5939028  -0.15929276  1.0810902 ], cmd_finger=0.0
+[DEBUG] Step 612 (close): ee=[ 0.59284604 -0.15962252  1.183592  ], obj=[ 0.5940148 -0.1592911  1.0810875], cmd_finger=0.0
+[DEBUG] Step 613 (close): ee=[ 0.59296364 -0.15962055  1.1835841 ], obj=[ 0.5941287  -0.15929076  1.0810847 ], cmd_finger=0.0
+[DEBUG] Step 614 (close): ee=[ 0.5930788  -0.15961732  1.1835723 ], obj=[ 0.5942409  -0.15928918  1.081082  ], cmd_finger=0.0
+[DEBUG] Step 615 (close): ee=[ 0.5931961  -0.15961508  1.1835638 ], obj=[ 0.59435475 -0.15928894  1.0810791 ], cmd_finger=0.0
+[DEBUG] Step 616 (close): ee=[ 0.59331083 -0.15961182  1.1835525 ], obj=[ 0.5944668  -0.15928742  1.0810764 ], cmd_finger=0.0
+[DEBUG] Step 617 (lift): ee=[ 0.5934285  -0.15960947  1.183545  ], obj=[ 0.59458    -0.15928705  1.0810735 ], cmd_finger=0.0
+[DEBUG] Step 618 (lift): ee=[ 0.59354335 -0.15960588  1.1835337 ], obj=[ 0.5946921  -0.15928562  1.0810708 ], cmd_finger=0.0
+[DEBUG] Step 619 (lift): ee=[ 0.5936162  -0.15959358  1.1835394 ], obj=[ 0.59475166 -0.15928645  1.0810713 ], cmd_finger=0.0
+[DEBUG] Step 620 (lift): ee=[ 0.5936463  -0.15957373  1.1835463 ], obj=[ 0.5947622  -0.15928891  1.0810732 ], cmd_finger=0.0
+[DEBUG] Step 621 (lift): ee=[ 0.5936547  -0.15955335  1.1835393 ], obj=[ 0.594748   -0.15928963  1.0810745 ], cmd_finger=0.0
+[DEBUG] Step 622 (lift): ee=[ 0.5936649  -0.15953788  1.1835419 ], obj=[ 0.5947378  -0.15929191  1.0810745 ], cmd_finger=0.0
+[DEBUG] Step 623 (lift): ee=[ 0.59367216 -0.1595248   1.1835455 ], obj=[ 0.59472483 -0.15929435  1.081075  ], cmd_finger=0.0
+[DEBUG] Step 624 (lift): ee=[ 0.5936731  -0.15951324  1.183544  ], obj=[ 0.59470475 -0.15929595  1.0810757 ], cmd_finger=0.0
+[DEBUG] Step 625 (lift): ee=[ 0.5936735  -0.15950345  1.183545  ], obj=[ 0.5946846 -0.159298   1.081076 ], cmd_finger=0.0
+[DEBUG] Step 626 (lift): ee=[ 0.59367126 -0.15949503  1.1835479 ], obj=[ 0.59466237 -0.15930021  1.0810766 ], cmd_finger=0.0
+[DEBUG] Step 627 (lift): ee=[ 0.59366477 -0.15948679  1.1835493 ], obj=[ 0.59463435 -0.15930204  1.0810775 ], cmd_finger=0.0
+[DEBUG] Step 628 (lift): ee=[ 0.5936537  -0.15947865  1.1835505 ], obj=[ 0.59460247 -0.15930387  1.0810783 ], cmd_finger=0.0
+[DEBUG] Step 629 (lift): ee=[ 0.5936394  -0.15947106  1.1835537 ], obj=[ 0.59456563 -0.1593061   1.0810792 ], cmd_finger=0.0
+[DEBUG] Step 630 (lift): ee=[ 0.59361976 -0.15946323  1.1835555 ], obj=[ 0.59452313 -0.1593083   1.0810803 ], cmd_finger=0.0
+[DEBUG] Step 631 (lift): ee=[ 0.59359586 -0.15945534  1.1835574 ], obj=[ 0.59447664 -0.15931052  1.0810814 ], cmd_finger=0.0
+[DEBUG] Step 632 (lift): ee=[ 0.593569  -0.1594472  1.1835632], obj=[ 0.5944256  -0.15931308  1.0810827 ], cmd_finger=0.0
+[DEBUG] Step 633 (lift): ee=[ 0.5935335  -0.15943816  1.1835651 ], obj=[ 0.5943631 -0.1593138  1.0810889], cmd_finger=0.0
+[DEBUG] Step 634 (lift): ee=[ 0.5934924  -0.15942821  1.1835665 ], obj=[ 0.5942941  -0.15931143  1.0810909 ], cmd_finger=0.0
+[DEBUG] Step 635 (lift): ee=[ 0.5934457  -0.15941747  1.1835694 ], obj=[ 0.5942174 -0.1593022  1.0810932], cmd_finger=0.0
+[DEBUG] Step 636 (lift): ee=[ 0.5933946 -0.1594064  1.1835754], obj=[ 0.5941338  -0.15928674  1.0810988 ], cmd_finger=0.0
+[DEBUG] Step 637 (lift): ee=[ 0.593341   -0.15939485  1.1835872 ], obj=[ 0.59404844 -0.15927061  1.08111   ], cmd_finger=0.0
+[DEBUG] Step 638 (lift): ee=[ 0.5932858  -0.15938295  1.1836059 ], obj=[ 0.5939626  -0.15925497  1.0811281 ], cmd_finger=0.0
+[DEBUG] Step 639 (lift): ee=[ 0.59322953 -0.15937099  1.1836333 ], obj=[ 0.5938765  -0.15923926  1.0811546 ], cmd_finger=0.0
+[DEBUG] Step 640 (lift): ee=[ 0.59317297 -0.15935959  1.1836703 ], obj=[ 0.59379023 -0.1592237   1.081194  ], cmd_finger=0.0
+[DEBUG] Step 641 (lift): ee=[ 0.59311664 -0.15934785  1.183718  ], obj=[ 0.59370404 -0.15920936  1.0812546 ], cmd_finger=0.0
+[DEBUG] Step 642 (lift): ee=[ 0.59306157 -0.15933622  1.183778  ], obj=[ 0.59362185 -0.15919295  1.081303  ], cmd_finger=0.0
+[DEBUG] Step 643 (lift): ee=[ 0.5930084  -0.15932554  1.1838518 ], obj=[ 0.5935423  -0.15917566  1.0813704 ], cmd_finger=0.0
+[DEBUG] Step 644 (lift): ee=[ 0.59295624 -0.15931435  1.1839378 ], obj=[ 0.59346133 -0.1591605   1.0814666 ], cmd_finger=0.0
+[DEBUG] Step 645 (lift): ee=[ 0.5929051  -0.15930334  1.1840372 ], obj=[ 0.59338385 -0.15914644  1.0815606 ], cmd_finger=0.0
+[DEBUG] Step 646 (lift): ee=[ 0.59285605 -0.15929334  1.1841516 ], obj=[ 0.5933098  -0.15913048  1.0816694 ], cmd_finger=0.0
+[DEBUG] Step 647 (lift): ee=[ 0.5928082  -0.15928295  1.1842794 ], obj=[ 0.5932359  -0.15911622  1.0818055 ], cmd_finger=0.0
+[DEBUG] Step 648 (lift): ee=[ 0.59276116 -0.15927269  1.1844203 ], obj=[ 0.59316576 -0.159103    1.0819494 ], cmd_finger=0.0
+[DEBUG] Step 649 (lift): ee=[ 0.5927164  -0.15926339  1.1845776 ], obj=[ 0.59309965 -0.15908816  1.0820959 ], cmd_finger=0.0
+[DEBUG] Step 650 (lift): ee=[ 0.59267277 -0.15925361  1.184748  ], obj=[ 0.5930326  -0.15907508  1.0822802 ], cmd_finger=0.0
+[DEBUG] Step 651 (lift): ee=[ 0.59263045 -0.1592441   1.1849333 ], obj=[ 0.59297055 -0.15906292  1.0824517 ], cmd_finger=0.0
+[DEBUG] Step 652 (lift): ee=[ 0.5925902  -0.15923543  1.1851348 ], obj=[ 0.59291047 -0.15904883  1.0826509 ], cmd_finger=0.0
+[DEBUG] Step 653 (lift): ee=[ 0.5925508  -0.15922631  1.1853505 ], obj=[ 0.59285015 -0.15903637  1.0828754 ], cmd_finger=0.0
+[DEBUG] Step 654 (lift): ee=[ 0.5925126  -0.15921745  1.1855805 ], obj=[ 0.59279174 -0.15902494  1.0831094 ], cmd_finger=0.0
+[DEBUG] Step 655 (lift): ee=[ 0.5924764  -0.15920927  1.1858277 ], obj=[ 0.592738   -0.15901197  1.0833458 ], cmd_finger=0.0
+[DEBUG] Step 656 (lift): ee=[ 0.592441   -0.15920077  1.1860884 ], obj=[ 0.59268284 -0.15900064  1.0836214 ], cmd_finger=0.0
+[DEBUG] Step 657 (lift): ee=[ 0.5924069  -0.15919243  1.1863652 ], obj=[ 0.5926334  -0.15899032  1.083881  ], cmd_finger=0.0
+[DEBUG] Step 658 (lift): ee=[ 0.59237427 -0.1591848   1.1866583 ], obj=[ 0.59258515 -0.15897785  1.084175  ], cmd_finger=0.0
+[DEBUG] Step 659 (lift): ee=[ 0.5923428  -0.15917693  1.1869665 ], obj=[ 0.59253716 -0.15896696  1.0844909 ], cmd_finger=0.0
+[DEBUG] Step 660 (lift): ee=[ 0.592312   -0.15916899  1.1872896 ], obj=[ 0.5924912 -0.1589572  1.0848185], cmd_finger=0.0
+[DEBUG] Step 661 (lift): ee=[ 0.59228325 -0.15916178  1.1876302 ], obj=[ 0.59244907 -0.15894578  1.0851482 ], cmd_finger=0.0
+[DEBUG] Step 662 (lift): ee=[ 0.59225506 -0.1591544   1.1879855 ], obj=[ 0.59240496 -0.15893598  1.0855191 ], cmd_finger=0.0
+[DEBUG] Step 663 (lift): ee=[ 0.5922279  -0.15914701  1.1883569 ], obj=[ 0.5923649  -0.15892714  1.0858778 ], cmd_finger=0.0
+[DEBUG] Step 664 (lift): ee=[ 0.5922026  -0.15914033  1.1887455 ], obj=[ 0.5923266 -0.1589163  1.086262 ], cmd_finger=0.0
+[DEBUG] Step 665 (lift): ee=[ 0.5921779  -0.15913329  1.1891493 ], obj=[ 0.5922877 -0.1589069  1.0866745], cmd_finger=0.0
+[DEBUG] Step 666 (lift): ee=[ 0.59215385 -0.1591261   1.189569  ], obj=[ 0.5922512  -0.15889852  1.0870969 ], cmd_finger=0.0
+[DEBUG] Step 667 (lift): ee=[ 0.59213185 -0.1591199   1.190006  ], obj=[ 0.5922183  -0.15888834  1.0875242 ], cmd_finger=0.0
+[DEBUG] Step 668 (lift): ee=[ 0.5921098  -0.15911326  1.1904578 ], obj=[ 0.592184   -0.15887989  1.0879902 ], cmd_finger=0.0
+[DEBUG] Step 669 (lift): ee=[ 0.592089   -0.15910657  1.1909268 ], obj=[ 0.5921538 -0.1588724  1.0884429], cmd_finger=0.0
+[DEBUG] Step 670 (lift): ee=[ 0.5920696 -0.1591006  1.1914128], obj=[ 0.5921249  -0.15886264  1.0889289 ], cmd_finger=0.0
+[DEBUG] Step 671 (lift): ee=[ 0.59205055 -0.15909448  1.1919144 ], obj=[ 0.592095   -0.15885442  1.089439  ], cmd_finger=0.0
+[DEBUG] Step 672 (lift): ee=[ 0.59203255 -0.15908797  1.1924323 ], obj=[ 0.59206617 -0.1588473   1.0899606 ], cmd_finger=0.0
+[DEBUG] Step 673 (lift): ee=[ 0.59201616 -0.15908252  1.1929682 ], obj=[ 0.5920415  -0.15883827  1.0904859 ], cmd_finger=0.0
+[DEBUG] Step 674 (lift): ee=[ 0.59200025 -0.15907653  1.1935191 ], obj=[ 0.5920143  -0.15883105  1.091052  ], cmd_finger=0.0
+[DEBUG] Step 675 (lift): ee=[ 0.59198475 -0.15907075  1.1940871 ], obj=[ 0.59199184 -0.15882462  1.0916045 ], cmd_finger=0.0
+[DEBUG] Step 676 (lift): ee=[ 0.5919706  -0.15906529  1.1946727 ], obj=[ 0.5919697 -0.1588161  1.0921893], cmd_finger=0.0
+[DEBUG] Step 677 (lift): ee=[ 0.59195673 -0.15905982  1.1952736 ], obj=[ 0.5919471  -0.15880887  1.0927988 ], cmd_finger=0.0
+[DEBUG] Step 678 (lift): ee=[ 0.59194344 -0.15905386  1.1958908 ], obj=[ 0.5919261  -0.15880278  1.0934196 ], cmd_finger=0.0
+[DEBUG] Step 679 (lift): ee=[ 0.59193265 -0.159049    1.1965264 ], obj=[ 0.59190905 -0.15879475  1.0940442 ], cmd_finger=0.0
+[DEBUG] Step 680 (lift): ee=[ 0.59192216 -0.15904392  1.1971766 ], obj=[ 0.5918909  -0.15878859  1.0947098 ], cmd_finger=0.0
+[DEBUG] Step 681 (lift): ee=[ 0.59191364 -0.15903878  1.1978428 ], obj=[ 0.591877   -0.15878347  1.0953623 ], cmd_finger=0.0
+[DEBUG] Step 682 (lift): ee=[ 0.5919069  -0.15903486  1.1985255 ], obj=[ 0.5918659  -0.15877633  1.0960416 ], cmd_finger=0.0
+[DEBUG] Step 683 (lift): ee=[ 0.5919012 -0.1590308  1.1992221], obj=[ 0.5918542  -0.15877119  1.0967468 ], cmd_finger=0.0
+[DEBUG] Step 684 (lift): ee=[ 0.59189683 -0.1590266   1.1999322 ], obj=[ 0.591845   -0.15876734  1.0974607 ], cmd_finger=0.0
+[DEBUG] Step 685 (lift): ee=[ 0.5918946  -0.15902333  1.2006576 ], obj=[ 0.5918403  -0.15876186  1.0981759 ], cmd_finger=0.0
+[DEBUG] Step 686 (lift): ee=[ 0.59189314 -0.15902008  1.2013944 ], obj=[ 0.59183437 -0.15875818  1.0989276 ], cmd_finger=0.0
+[DEBUG] Step 687 (lift): ee=[ 0.5918933  -0.15901704  1.2021444 ], obj=[ 0.5918336 -0.1587558  1.099662 ], cmd_finger=0.0
+[DEBUG] Step 688 (lift): ee=[ 0.5918956 -0.1590149  1.2029077], obj=[ 0.59183466 -0.15875147  1.1004237 ], cmd_finger=0.0
+[DEBUG] Step 689 (lift): ee=[ 0.59189826 -0.1590124   1.2036809 ], obj=[ 0.5918357  -0.15874897  1.1012057 ], cmd_finger=0.0
+[DEBUG] Step 690 (lift): ee=[ 0.59190214 -0.15901013  1.204465  ], obj=[ 0.59183794 -0.15874751  1.1019946 ], cmd_finger=0.0
+[DEBUG] Step 691 (lift): ee=[ 0.5919081  -0.15900885  1.2052611 ], obj=[ 0.59184444 -0.15874465  1.10278   ], cmd_finger=0.0
+[DEBUG] Step 692 (lift): ee=[ 0.59191436 -0.15900718  1.2060661 ], obj=[ 0.5918488  -0.15874374  1.1036003 ], cmd_finger=0.0
+[DEBUG] Step 693 (lift): ee=[ 0.5919213  -0.15900563  1.2068803 ], obj=[ 0.59185714 -0.15874346  1.1044066 ], cmd_finger=0.0
+[DEBUG] Step 694 (lift): ee=[ 0.5919301  -0.15900499  1.2077051 ], obj=[ 0.59186715 -0.15874137  1.1052217 ], cmd_finger=0.0
+[DEBUG] Step 695 (lift): ee=[ 0.59193903 -0.15900384  1.2085372 ], obj=[ 0.5918755  -0.15874107  1.1060655 ], cmd_finger=0.0
+[DEBUG] Step 696 (lift): ee=[ 0.59194857 -0.1590029   1.2093774 ], obj=[ 0.5918871  -0.15874174  1.1068985 ], cmd_finger=0.0
+[DEBUG] Step 697 (lift): ee=[ 0.5919595  -0.15900287  1.210227  ], obj=[ 0.5919005  -0.15874046  1.1077431 ], cmd_finger=0.0
+[DEBUG] Step 698 (lift): ee=[ 0.5919705 -0.1590023  1.2110826], obj=[ 0.59191257 -0.15874079  1.108607  ], cmd_finger=0.0
+[DEBUG] Step 699 (lift): ee=[ 0.59198195 -0.15900159  1.2119448 ], obj=[ 0.5919253  -0.15874194  1.1094753 ], cmd_finger=0.0
+[DEBUG] Step 700 (lift): ee=[ 0.5919946 -0.159002   1.2128156], obj=[ 0.59194154 -0.15874134  1.1103348 ], cmd_finger=0.0
+[DEBUG] Step 701 (lift): ee=[ 0.59200686 -0.15900181  1.2136909 ], obj=[ 0.5919546  -0.15874264  1.111226  ], cmd_finger=0.0
+[DEBUG] Step 702 (lift): ee=[ 0.5920198  -0.15900174  1.2145731 ], obj=[ 0.5919701  -0.15874408  1.1121039 ], cmd_finger=0.0
+[DEBUG] Step 703 (lift): ee=[ 0.59203357 -0.15900221  1.2154617 ], obj=[ 0.5919873 -0.158744   1.1129829], cmd_finger=0.0
+[DEBUG] Step 704 (lift): ee=[ 0.5920468  -0.15900217  1.2163544 ], obj=[ 0.59200156 -0.15874557  1.1138903 ], cmd_finger=0.0
+[DEBUG] Step 705 (lift): ee=[ 0.592061   -0.15900233  1.2172531 ], obj=[ 0.5920178  -0.15874685  1.1147894 ], cmd_finger=0.0
+[DEBUG] Step 706 (lift): ee=[ 0.5920753  -0.15900308  1.2181568 ], obj=[ 0.5920353  -0.15874776  1.1156918 ], cmd_finger=0.0
+[DEBUG] Step 707 (lift): ee=[ 0.59208953 -0.15900318  1.219065  ], obj=[ 0.5920535  -0.15874985  1.1165911 ], cmd_finger=0.0
+[DEBUG] Step 708 (lift): ee=[ 0.5921048  -0.15900429  1.2199786 ], obj=[ 0.5920729  -0.15874986  1.1174951 ], cmd_finger=0.0
+[DEBUG] Step 709 (lift): ee=[ 0.5921196  -0.15900476  1.2208956 ], obj=[ 0.59208953 -0.15875159  1.1184226 ], cmd_finger=0.0
+[DEBUG] Step 710 (lift): ee=[ 0.592134   -0.15900503  1.2218161 ], obj=[ 0.5921077  -0.15875408  1.1193401 ], cmd_finger=0.0
+[DEBUG] Step 711 (lift): ee=[ 0.5921498  -0.15900636  1.2227421 ], obj=[ 0.5921273  -0.15875436  1.1202581 ], cmd_finger=0.0
+[DEBUG] Step 712 (lift): ee=[ 0.5921647  -0.15900676  1.2236705 ], obj=[ 0.5921445  -0.15875624  1.1211954 ], cmd_finger=0.0
+[DEBUG] Step 713 (lift): ee=[ 0.5921796  -0.15900715  1.2246021 ], obj=[ 0.59216154 -0.1587586   1.1221313 ], cmd_finger=0.0
+[DEBUG] Step 714 (lift): ee=[ 0.5921952  -0.15900834  1.2255384 ], obj=[ 0.59218144 -0.15875906  1.123057  ], cmd_finger=0.0
+[DEBUG] Step 715 (lift): ee=[ 0.59221023 -0.15900883  1.2264761 ], obj=[ 0.5921974  -0.15876113  1.12401   ], cmd_finger=0.0
+[DEBUG] Step 716 (lift): ee=[ 0.5922251  -0.15900928  1.2274173 ], obj=[ 0.59221697 -0.15876368  1.1249378 ], cmd_finger=0.0
+[DEBUG] Step 717 (lift): ee=[ 0.59224087 -0.15901059  1.2283628 ], obj=[ 0.5922363  -0.15876381  1.1258787 ], cmd_finger=0.0
+[DEBUG] Step 718 (lift): ee=[ 0.59225595 -0.15901121  1.2293096 ], obj=[ 0.5922537  -0.15876554  1.1268336 ], cmd_finger=0.0
+[DEBUG] Step 719 (lift): ee=[ 0.5922704  -0.15901165  1.230258  ], obj=[ 0.59227073 -0.15876786  1.1277899 ], cmd_finger=0.0
+[DEBUG] Step 720 (lift): ee=[ 0.5922862  -0.15901278  1.2312111 ], obj=[ 0.59229016 -0.15876843  1.1287316 ], cmd_finger=0.0
+[DEBUG] Step 721 (lift): ee=[ 0.5923006  -0.15901339  1.2321644 ], obj=[ 0.59230655 -0.15877055  1.1297002 ], cmd_finger=0.0
+[DEBUG] Step 722 (lift): ee=[ 0.59231544 -0.15901423  1.2331206 ], obj=[ 0.59232384 -0.15877233  1.130657  ], cmd_finger=0.0
+[DEBUG] Step 723 (lift): ee=[ 0.59233034 -0.15901507  1.2340791 ], obj=[ 0.59234136 -0.15877374  1.1316143 ], cmd_finger=0.0
+[DEBUG] Step 724 (lift): ee=[ 0.59234524 -0.1590158   1.23504   ], obj=[ 0.5923595  -0.15877587  1.1325665 ], cmd_finger=0.0
+[DEBUG] Step 725 (lift): ee=[ 0.5923604  -0.15901728  1.236003  ], obj=[ 0.5923789  -0.15877625  1.13352   ], cmd_finger=0.0
+[DEBUG] Step 726 (lift): ee=[ 0.59237456 -0.15901795  1.236967  ], obj=[ 0.59239453 -0.15877819  1.1344948 ], cmd_finger=0.0
+[DEBUG] Step 727 (lift): ee=[ 0.59238875 -0.15901814  1.2379324 ], obj=[ 0.59241164 -0.15878074  1.1354557 ], cmd_finger=0.0
+[DEBUG] Step 728 (lift): ee=[ 0.5924038  -0.15901946  1.2389009 ], obj=[ 0.59243035 -0.15878075  1.1364169 ], cmd_finger=0.0
+[DEBUG] Step 729 (lift): ee=[ 0.5924179  -0.15902022  1.2398697 ], obj=[ 0.59244627 -0.15878233  1.137394  ], cmd_finger=0.0
+[DEBUG] Step 730 (lift): ee=[ 0.5924314  -0.15902059  1.2408395 ], obj=[ 0.5924618 -0.1587846  1.1383704], cmd_finger=0.0
+[DEBUG] Step 731 (lift): ee=[ 0.592446   -0.15902159  1.2418121 ], obj=[ 0.59247965 -0.15878491  1.1393323 ], cmd_finger=0.0
+[DEBUG] Step 732 (lift): ee=[ 0.5924593  -0.15902232  1.2427844 ], obj=[ 0.5924938  -0.15878668  1.1403196 ], cmd_finger=0.0
+[DEBUG] Step 733 (lift): ee=[ 0.5924729  -0.15902258  1.2437586 ], obj=[ 0.5925095  -0.15878852  1.1412925 ], cmd_finger=0.0
+[DEBUG] Step 734 (lift): ee=[ 0.5924868  -0.15902364  1.2447348 ], obj=[ 0.5925264  -0.15878889  1.1422607 ], cmd_finger=0.0
+[DEBUG] Step 735 (lift): ee=[ 0.5925     -0.15902415  1.2457108 ], obj=[ 0.5925411  -0.15879086  1.143241  ], cmd_finger=0.0
+[DEBUG] Step 736 (lift): ee=[ 0.59251374 -0.15902507  1.2466896 ], obj=[ 0.59255844 -0.1587911   1.1442083 ], cmd_finger=0.0
+[DEBUG] Step 737 (lift): ee=[ 0.59252644 -0.15902561  1.2476677 ], obj=[ 0.5925716  -0.15879261  1.1452014 ], cmd_finger=0.0
+[DEBUG] Step 738 (lift): ee=[ 0.59253925 -0.15902598  1.2486469 ], obj=[ 0.5925877  -0.15879475  1.1461686 ], cmd_finger=0.0
+[DEBUG] Step 739 (lift): ee=[ 0.59255266 -0.159027    1.2496285 ], obj=[ 0.59260404 -0.15879449  1.1471446 ], cmd_finger=0.0
+[DEBUG] Step 740 (lift): ee=[ 0.5925654  -0.15902749  1.25061   ], obj=[ 0.5926176  -0.15879562  1.148134  ], cmd_finger=0.0
+[DEBUG] Step 741 (lift): ee=[ 0.5925777  -0.15902779  1.2515913 ], obj=[ 0.59263086 -0.15879738  1.1491237 ], cmd_finger=0.0
+[DEBUG] Step 742 (lift): ee=[ 0.59259087 -0.15902871  1.2525755 ], obj=[ 0.5926467  -0.15879749  1.1500968 ], cmd_finger=0.0
+[DEBUG] Step 743 (lift): ee=[ 0.5926026 -0.1590286  1.2535585], obj=[ 0.59265894 -0.15879902  1.1510944 ], cmd_finger=0.0
+[DEBUG] Step 744 (lift): ee=[ 0.592615   -0.15902926  1.254543  ], obj=[ 0.5926725 -0.1587998  1.1520789], cmd_finger=0.0
+[DEBUG] Step 745 (lift): ee=[ 0.5926274  -0.15902995  1.2555283 ], obj=[ 0.59268636 -0.15880066  1.153064  ], cmd_finger=0.0
+[DEBUG] Step 746 (lift): ee=[ 0.59263945 -0.15903017  1.2565141 ], obj=[ 0.5927     -0.15880176  1.1540508 ], cmd_finger=0.0
+[DEBUG] Step 747 (lift): ee=[ 0.5926516  -0.15903075  1.2575011 ], obj=[ 0.59271383 -0.15880221  1.1550351 ], cmd_finger=0.0
+[DEBUG] Step 748 (lift): ee=[ 0.5926632  -0.15903138  1.2584878 ], obj=[ 0.59272814 -0.15880364  1.1560138 ], cmd_finger=0.0
+[DEBUG] Step 749 (lift): ee=[ 0.59267586 -0.15903214  1.2594768 ], obj=[ 0.5927432  -0.15880343  1.1569928 ], cmd_finger=0.0
+[DEBUG] Step 750 (lift): ee=[ 0.5926873  -0.15903246  1.2604648 ], obj=[ 0.5927552 -0.1588044  1.1579908], cmd_finger=0.0
+[DEBUG] Step 751 (lift): ee=[ 0.5926982 -0.1590325  1.2614526], obj=[ 0.59276754 -0.15880606  1.1589799 ], cmd_finger=0.0
+[DEBUG] Step 752 (lift): ee=[ 0.59271026 -0.15903324  1.2624425 ], obj=[ 0.59278184 -0.1588055   1.1599594 ], cmd_finger=0.0
+[DEBUG] Step 753 (lift): ee=[ 0.5927214  -0.15903354  1.2634319 ], obj=[ 0.5927926  -0.15880641  1.1609601 ], cmd_finger=0.0
+[DEBUG] Step 754 (lift): ee=[ 0.59273213 -0.15903357  1.2644212 ], obj=[ 0.5928052  -0.15880808  1.161945  ], cmd_finger=0.0
+[DEBUG] Step 755 (lift): ee=[ 0.59274375 -0.15903442  1.2654126 ], obj=[ 0.5928189  -0.15880744  1.1629289 ], cmd_finger=0.0
+[DEBUG] Step 756 (lift): ee=[ 0.59275466 -0.15903448  1.2664032 ], obj=[ 0.59282964 -0.1588082   1.1639274 ], cmd_finger=0.0
+[DEBUG] Step 757 (lift): ee=[ 0.59276485 -0.15903465  1.2673934 ], obj=[ 0.5928405  -0.15880942  1.1649255 ], cmd_finger=0.0
+[DEBUG] Step 758 (lift): ee=[ 0.592776   -0.15903525  1.2683855 ], obj=[ 0.59285367 -0.1588091   1.1659069 ], cmd_finger=0.0
+[DEBUG] Step 759 (lift): ee=[ 0.5927864 -0.1590353  1.2693764], obj=[ 0.5928632  -0.15881015  1.1669122 ], cmd_finger=0.0
+[DEBUG] Step 760 (lift): ee=[ 0.5927968  -0.15903556  1.2703685 ], obj=[ 0.5928748 -0.1588108  1.1679045], cmd_finger=0.0
+[DEBUG] Step 761 (lift): ee=[ 0.59280735 -0.15903585  1.2713609 ], obj=[ 0.5928862  -0.15881106  1.168896  ], cmd_finger=0.0
+[DEBUG] Step 762 (lift): ee=[ 0.59281766 -0.1590359   1.2723532 ], obj=[ 0.5928981  -0.15881199  1.1698819 ], cmd_finger=0.0
+[DEBUG] Step 763 (lift): ee=[ 0.5928286  -0.15903655  1.2733469 ], obj=[ 0.59291106 -0.15881117  1.1708649 ], cmd_finger=0.0
+[DEBUG] Step 764 (lift): ee=[ 0.59283847 -0.15903658  1.2743397 ], obj=[ 0.5929201  -0.15881191  1.1718707 ], cmd_finger=0.0
+[DEBUG] Step 765 (lift): ee=[ 0.5928485  -0.15903635  1.2753327 ], obj=[ 0.5929316  -0.15881327  1.1728547 ], cmd_finger=0.0
+[DEBUG] Step 766 (lift): ee=[ 0.5928592  -0.15903717  1.2763275 ], obj=[ 0.5929441  -0.15881215  1.1738437 ], cmd_finger=0.0
+[DEBUG] Step 767 (lift): ee=[ 0.5928689 -0.1590373  1.277321 ], obj=[ 0.5929536  -0.15881269  1.1748451 ], cmd_finger=0.0
+[DEBUG] Step 768 (lift): ee=[ 0.59287864 -0.15903708  1.2783144 ], obj=[ 0.5929626  -0.15881377  1.1758473 ], cmd_finger=0.0
+[DEBUG] Step 769 (lift): ee=[ 0.59288925 -0.15903746  1.2793097 ], obj=[ 0.5929749 -0.1588132  1.1768326], cmd_finger=0.0
+[DEBUG] Step 770 (lift): ee=[ 0.59289855 -0.15903741  1.280303  ], obj=[ 0.59298366 -0.15881397  1.1778404 ], cmd_finger=0.0
+[DEBUG] Step 771 (lift): ee=[ 0.59290874 -0.15903763  1.2812983 ], obj=[ 0.5929945  -0.15881406  1.1788312 ], cmd_finger=0.0
+[DEBUG] Step 772 (lift): ee=[ 0.592918   -0.15903741  1.2822927 ], obj=[ 0.5930057  -0.15881497  1.1798184 ], cmd_finger=0.0
+[DEBUG] Step 773 (lift): ee=[ 0.5929284  -0.15903835  1.2832888 ], obj=[ 0.59301746 -0.1588138   1.1808051 ], cmd_finger=0.0
+[DEBUG] Step 774 (lift): ee=[ 0.59293765 -0.1590382   1.2842836 ], obj=[ 0.59302616 -0.15881443  1.1818095 ], cmd_finger=0.0
+[DEBUG] Step 775 (lift): ee=[ 0.59294695 -0.159038    1.2852784 ], obj=[ 0.5930354  -0.15881547  1.1828064 ], cmd_finger=0.0
+[DEBUG] Step 776 (lift): ee=[ 0.592957   -0.15903842  1.2862743 ], obj=[ 0.5930473  -0.15881449  1.1837925 ], cmd_finger=0.0
+[DEBUG] Step 777 (lift): ee=[ 0.59296626 -0.15903848  1.2872696 ], obj=[ 0.59305525 -0.1588149   1.1847999 ], cmd_finger=0.0
+[DEBUG] Step 778 (lift): ee=[ 0.59297514 -0.15903838  1.2882652 ], obj=[ 0.5930656  -0.15881613  1.1857874 ], cmd_finger=0.0
+[DEBUG] Step 779 (lift): ee=[ 0.59298533 -0.15903875  1.2892619 ], obj=[ 0.5930769  -0.15881501  1.1867782 ], cmd_finger=0.0
+[DEBUG] Step 780 (lift): ee=[ 0.59299463 -0.1590387   1.2902575 ], obj=[ 0.59308547 -0.15881516  1.1877816 ], cmd_finger=0.0
+[DEBUG] Step 781 (lift): ee=[ 0.5930033  -0.15903836  1.291253  ], obj=[ 0.5930939  -0.15881597  1.1887856 ], cmd_finger=0.0
+[DEBUG] Step 782 (lift): ee=[ 0.59301263 -0.15903866  1.2922492 ], obj=[ 0.5931049  -0.15881515  1.1897727 ], cmd_finger=0.0
+[DEBUG] Step 783 (lift): ee=[ 0.59302133 -0.1590382   1.2932445 ], obj=[ 0.593112  -0.1588157  1.1907812], cmd_finger=0.0
+[DEBUG] Step 784 (lift): ee=[ 0.59303063 -0.15903856  1.2942408 ], obj=[ 0.59312147 -0.15881541  1.1917757 ], cmd_finger=0.0
+[DEBUG] Step 785 (lift): ee=[ 0.59303933 -0.15903814  1.2952368 ], obj=[ 0.59313154 -0.15881614  1.1927646 ], cmd_finger=0.0
+[DEBUG] Step 786 (lift): ee=[ 0.59304905 -0.15903866  1.2962343 ], obj=[ 0.59314245 -0.15881479  1.1937516 ], cmd_finger=0.0
+[DEBUG] Step 787 (lift): ee=[ 0.5930576  -0.15903841  1.2972301 ], obj=[ 0.59314984 -0.15881509  1.1947596 ], cmd_finger=0.0
+[DEBUG] Step 788 (lift): ee=[ 0.5930663  -0.15903807  1.2982261 ], obj=[ 0.59315914 -0.158816    1.1957499 ], cmd_finger=0.0
+[DEBUG] Step 789 (lift): ee=[ 0.593076  -0.1590384  1.299224 ], obj=[ 0.59317005 -0.15881464  1.19674   ], cmd_finger=0.0
+[DEBUG] Step 790 (lift): ee=[ 0.5930848  -0.15903836  1.3002206 ], obj=[ 0.5931779  -0.15881464  1.197745  ], cmd_finger=0.0
+[DEBUG] Step 791 (lift): ee=[ 0.5930933  -0.15903811  1.3012168 ], obj=[ 0.59318584 -0.1588154   1.1987484 ], cmd_finger=0.0
+[DEBUG] Step 792 (lift): ee=[ 0.59310275 -0.15903817  1.3022141 ], obj=[ 0.59319663 -0.15881446  1.1997355 ], cmd_finger=0.0
+[DEBUG] Step 793 (lift): ee=[ 0.593111   -0.15903795  1.3032105 ], obj=[ 0.5932036  -0.15881476  1.2007456 ], cmd_finger=0.0
+[DEBUG] Step 794 (lift): ee=[ 0.59311974 -0.15903778  1.3042066 ], obj=[ 0.5932121  -0.15881492  1.2017434 ], cmd_finger=0.0
+[DEBUG] Step 795 (lift): ee=[ 0.5931285  -0.15903763  1.3052037 ], obj=[ 0.59322166 -0.15881446  1.2027355 ], cmd_finger=0.0
+[DEBUG] Step 796 (lift): ee=[ 0.5931369  -0.15903746  1.3062009 ], obj=[ 0.59323066 -0.15881488  1.2037259 ], cmd_finger=0.0
+[DEBUG] Step 797 (lift): ee=[ 0.5931463  -0.15903753  1.307199  ], obj=[ 0.5932414 -0.1588135  1.2047154], cmd_finger=0.0
+[DEBUG] Step 798 (lift): ee=[ 0.59315485 -0.1590372   1.3081956 ], obj=[ 0.59324855 -0.15881333  1.2057216 ], cmd_finger=0.0
+[DEBUG] Step 799 (lift): ee=[ 0.5931631  -0.15903679  1.3091921 ], obj=[ 0.5932566  -0.15881388  1.2067211 ], cmd_finger=0.0
+[DEBUG] Step 800 (lift): ee=[ 0.5931721 -0.1590372  1.3101901], obj=[ 0.59326714 -0.15881254  1.2077086 ], cmd_finger=0.0
+[DEBUG] Step 801 (lift): ee=[ 0.59318066 -0.15903664  1.3111867 ], obj=[ 0.59327346 -0.15881282  1.2087188 ], cmd_finger=0.0
+[DEBUG] Step 802 (lift): ee=[ 0.5931888  -0.15903617  1.3121836 ], obj=[ 0.59328324 -0.15881348  1.2097055 ], cmd_finger=0.0
+[DEBUG] Step 803 (lift): ee=[ 0.593198   -0.15903664  1.3131819 ], obj=[ 0.5932932  -0.15881181  1.2106982 ], cmd_finger=0.0
+[DEBUG] Step 804 (lift): ee=[ 0.5932067  -0.15903634  1.314179  ], obj=[ 0.59330046 -0.1588117   1.2117028 ], cmd_finger=0.0
+[DEBUG] Step 805 (lift): ee=[ 0.59321463 -0.15903583  1.3151755 ], obj=[ 0.5933078  -0.15881215  1.2127092 ], cmd_finger=0.0
+[DEBUG] Step 806 (lift): ee=[ 0.59322375 -0.15903595  1.3161737 ], obj=[ 0.59331757 -0.1588111   1.213698  ], cmd_finger=0.0
+[DEBUG] Step 807 (lift): ee=[ 0.5932313  -0.15903528  1.3171698 ], obj=[ 0.5933246  -0.15881145  1.2147052 ], cmd_finger=0.0
+[DEBUG] Step 808 (lift): ee=[ 0.5932404  -0.15903544  1.3181678 ], obj=[ 0.5933338 -0.1588104  1.2156943], cmd_finger=0.0
+[DEBUG] Step 809 (lift): ee=[ 0.5932486  -0.15903507  1.3191649 ], obj=[ 0.5933416  -0.15881085  1.2166952 ], cmd_finger=0.0
+[DEBUG] Step 810 (lift): ee=[ 0.59325767 -0.15903515  1.3201632 ], obj=[ 0.59335214 -0.15880962  1.2176824 ], cmd_finger=0.0
+[DEBUG] Step 811 (lift): ee=[ 0.5932657  -0.15903468  1.32116   ], obj=[ 0.59335834 -0.15880966  1.218694  ], cmd_finger=0.0
+[DEBUG] Step 812 (lift): ee=[ 0.5932738  -0.15903425  1.3221571 ], obj=[ 0.5933676  -0.15881026  1.2196802 ], cmd_finger=0.0
+[DEBUG] Step 813 (lift): ee=[ 0.5932829  -0.15903439  1.3231552 ], obj=[ 0.5933776  -0.15880857  1.220672  ], cmd_finger=0.0
+[DEBUG] Step 814 (lift): ee=[ 0.5932912  -0.15903407  1.3241528 ], obj=[ 0.5933844  -0.15880823  1.2216768 ], cmd_finger=0.0
+[DEBUG] Step 815 (lift): ee=[ 0.593299   -0.15903346  1.3251495 ], obj=[ 0.5933915  -0.15880859  1.2226824 ], cmd_finger=0.0
+[DEBUG] Step 816 (lift): ee=[ 0.5933079  -0.15903333  1.3261476 ], obj=[ 0.5934011  -0.15880732  1.2236706 ], cmd_finger=0.0
+[DEBUG] Step 817 (lift): ee=[ 0.59331566 -0.15903284  1.3271441 ], obj=[ 0.59340745 -0.15880731  1.2246808 ], cmd_finger=0.0
+[DEBUG] Step 818 (lift): ee=[ 0.59332466 -0.15903269  1.3281418 ], obj=[ 0.59341604 -0.15880685  1.2256769 ], cmd_finger=0.0
+[DEBUG] Step 819 (lift): ee=[ 0.5933332 -0.1590325  1.3291394], obj=[ 0.59342575 -0.1588069   1.2266723 ], cmd_finger=0.0
+[DEBUG] Step 820 (lift): ee=[ 0.5933427  -0.15903275  1.3301362 ], obj=[ 0.5934368  -0.15880595  1.2276608 ], cmd_finger=0.0
+[DEBUG] Step 821 (lift): ee=[ 0.5933522 -0.1590327  1.3311316], obj=[ 0.5934454  -0.15880653  1.2286674 ], cmd_finger=0.0
+[DEBUG] Step 822 (lift): ee=[ 0.5933628 -0.1590334  1.3321264], obj=[ 0.5934579  -0.15880644  1.2296565 ], cmd_finger=0.0
+[DEBUG] Step 823 (lift): ee=[ 0.5933728  -0.15903373  1.3331177 ], obj=[ 0.5934706  -0.15880787  1.2306447 ], cmd_finger=0.0
+[DEBUG] Step 824 (lift): ee=[ 0.5933848 -0.1590349  1.3341081], obj=[ 0.5934855  -0.15880762  1.231625  ], cmd_finger=0.0
+[DEBUG] Step 825 (lift): ee=[ 0.5933965  -0.15903619  1.3350945 ], obj=[ 0.593498  -0.1588089  1.2326198], cmd_finger=0.0
+[DEBUG] Step 826 (lift): ee=[ 0.5934083  -0.15903704  1.3360763 ], obj=[ 0.5935122  -0.15881148  1.2336067 ], cmd_finger=0.0
+[DEBUG] Step 827 (lift): ee=[ 0.59342164 -0.15903907  1.3370556 ], obj=[ 0.59352976 -0.15881227  1.2345748 ], cmd_finger=0.0
+[DEBUG] Step 828 (lift): ee=[ 0.5934343  -0.15904057  1.3380281 ], obj=[ 0.59354407 -0.1588149   1.2355621 ], cmd_finger=0.0
+[DEBUG] Step 829 (lift): ee=[ 0.5934472 -0.1590421  1.3389957], obj=[ 0.59356225 -0.15881836  1.2365191 ], cmd_finger=0.0
+[DEBUG] Step 830 (lift): ee=[ 0.5934616  -0.15904482  1.3399585 ], obj=[ 0.5935813  -0.15881962  1.237475  ], cmd_finger=0.0
+[DEBUG] Step 831 (lift): ee=[ 0.5934754  -0.15904719  1.3409133 ], obj=[ 0.5935981  -0.15882273  1.238438  ], cmd_finger=0.0
+[DEBUG] Step 832 (lift): ee=[ 0.593489  -0.1590493  1.3418605], obj=[ 0.59361535 -0.1588268   1.2393942 ], cmd_finger=0.0
+[DEBUG] Step 833 (lift): ee=[ 0.59350365 -0.1590524   1.3428016 ], obj=[ 0.59363574 -0.15882948  1.2403256 ], cmd_finger=0.0
+[DEBUG] Step 834 (lift): ee=[ 0.5935177  -0.15905496  1.3437332 ], obj=[ 0.59365284 -0.15883374  1.2412703 ], cmd_finger=0.0
+[DEBUG] Step 835 (lift): ee=[ 0.5935327  -0.15905808  1.3446577 ], obj=[ 0.5936727  -0.15883741  1.2421905 ], cmd_finger=0.0
+[DEBUG] Step 836 (lift): ee=[ 0.59354705 -0.15906104  1.3455722 ], obj=[ 0.593693   -0.15884212  1.243099  ], cmd_finger=0.0
+[DEBUG] Step 837 (lift): ee=[ 0.59356284 -0.15906474  1.346479  ], obj=[ 0.5937146  -0.15884507  1.2439959 ], cmd_finger=0.0
+[DEBUG] Step 838 (lift): ee=[ 0.5935774  -0.15906793  1.3473748 ], obj=[ 0.59373325 -0.15884957  1.244901  ], cmd_finger=0.0
+[DEBUG] Step 839 (lift): ee=[ 0.59359187 -0.15907113  1.3482599 ], obj=[ 0.5937525  -0.15885478  1.2457902 ], cmd_finger=0.0
+[DEBUG] Step 840 (lift): ee=[ 0.5936077  -0.15907507  1.3491368 ], obj=[ 0.59377456 -0.1588583   1.2466555 ], cmd_finger=0.0
+[DEBUG] Step 841 (lift): ee=[ 0.5936224  -0.15907845  1.3500015 ], obj=[ 0.59379303 -0.1588633   1.2475334 ], cmd_finger=0.0
+[DEBUG] Step 842 (lift): ee=[ 0.5936371  -0.15908167  1.3508546 ], obj=[ 0.59381413 -0.15886897  1.2483783 ], cmd_finger=0.0
+[DEBUG] Step 843 (lift): ee=[ 0.5936524  -0.15908585  1.3516977 ], obj=[ 0.5938361  -0.15887229  1.2492144 ], cmd_finger=0.0
+[DEBUG] Step 844 (lift): ee=[ 0.5936669  -0.15908925  1.3525279 ], obj=[ 0.59385455 -0.15887709  1.2500517 ], cmd_finger=0.0
+[DEBUG] Step 845 (lift): ee=[ 0.5936813  -0.15909256  1.3533454 ], obj=[ 0.59387267 -0.15888233  1.250881  ], cmd_finger=0.0
+[DEBUG] Step 846 (lift): ee=[ 0.59369576 -0.1590967   1.354152  ], obj=[ 0.59389365 -0.15888649  1.2516799 ], cmd_finger=0.0
+[DEBUG] Step 847 (lift): ee=[ 0.59370965 -0.15909971  1.3549448 ], obj=[ 0.5939123  -0.15889207  1.2524742 ], cmd_finger=0.0
+[DEBUG] Step 848 (lift): ee=[ 0.5937245  -0.15910372  1.3557266 ], obj=[ 0.59393346 -0.15889536  1.253245  ], cmd_finger=0.0
+[DEBUG] Step 849 (lift): ee=[ 0.59373814 -0.15910731  1.3564941 ], obj=[ 0.5939507  -0.15890017  1.2540238 ], cmd_finger=0.0
+[DEBUG] Step 850 (lift): ee=[ 0.5937513  -0.15911047  1.3572476 ], obj=[ 0.5939698  -0.15890574  1.2547736 ], cmd_finger=0.0
+[DEBUG] Step 851 (lift): ee=[ 0.5937656  -0.15911452  1.35799   ], obj=[ 0.5939899  -0.15890889  1.2555065 ], cmd_finger=0.0
+[DEBUG] Step 852 (lift): ee=[ 0.59377885 -0.15911779  1.3587171 ], obj=[ 0.5940067  -0.15891352  1.2562424 ], cmd_finger=0.0
+[DEBUG] Step 853 (lift): ee=[ 0.5937913  -0.15912092  1.3594297 ], obj=[ 0.59402347 -0.15891856  1.256963  ], cmd_finger=0.0
+[DEBUG] Step 854 (lift): ee=[ 0.59380513 -0.15912467  1.3601307 ], obj=[ 0.5940425  -0.15892202  1.2576528 ], cmd_finger=0.0
+[DEBUG] Step 855 (lift): ee=[ 0.5938174  -0.15912767  1.360815  ], obj=[ 0.5940583  -0.15892668  1.2583513 ], cmd_finger=0.0
+[DEBUG] Step 856 (lift): ee=[ 0.5938298  -0.15913093  1.3614864 ], obj=[ 0.5940753 -0.1589309  1.259022 ], cmd_finger=0.0
+[DEBUG] Step 857 (lift): ee=[ 0.5938424  -0.15913409  1.3621432 ], obj=[ 0.594092   -0.15893486  1.2596782 ], cmd_finger=0.0
+[DEBUG] Step 858 (lift): ee=[ 0.5938544  -0.15913707  1.3627853 ], obj=[ 0.5941085  -0.15893899  1.2603207 ], cmd_finger=0.0
+[DEBUG] Step 859 (lift): ee=[ 0.59386694 -0.15914045  1.3634133 ], obj=[ 0.5941257  -0.15894228  1.2609416 ], cmd_finger=0.0
+[DEBUG] Step 860 (lift): ee=[ 0.59387815 -0.1591433   1.3640256 ], obj=[ 0.5941416  -0.15894681  1.261554  ], cmd_finger=0.0
+[DEBUG] Step 861 (lift): ee=[ 0.59389055 -0.15914656  1.3646243 ], obj=[ 0.5941589 -0.1589494  1.2621422], cmd_finger=0.0
+[DEBUG] Step 862 (lift): ee=[ 0.5939016 -0.1591494  1.3652066], obj=[ 0.5941727 -0.1589532  1.2627349], cmd_finger=0.0
+[DEBUG] Step 863 (lift): ee=[ 0.593912   -0.15915157  1.365773  ], obj=[ 0.5941876  -0.15895772  1.2633    ], cmd_finger=0.0
+[DEBUG] Step 864 (lift): ee=[ 0.5939238  -0.15915477  1.3663263 ], obj=[ 0.5942038  -0.15895969  1.263843  ], cmd_finger=0.0
+[DEBUG] Step 865 (lift): ee=[ 0.59393424 -0.15915738  1.3668627 ], obj=[ 0.59421676 -0.15896311  1.2643887 ], cmd_finger=0.0
+[DEBUG] Step 866 (lift): ee=[ 0.59394383 -0.15915962  1.3673826 ], obj=[ 0.59423    -0.15896714  1.2649145 ], cmd_finger=0.0
+[DEBUG] Step 867 (lift): ee=[ 0.5939546  -0.15916239  1.3678894 ], obj=[ 0.5942449  -0.15896928  1.2654094 ], cmd_finger=0.0
+[DEBUG] Step 868 (lift): ee=[ 0.59396404 -0.15916455  1.3683784 ], obj=[ 0.5942563  -0.15897259  1.2659125 ], cmd_finger=0.0
+[DEBUG] Step 869 (lift): ee=[ 0.5939734  -0.15916696  1.3688521 ], obj=[ 0.5942699  -0.15897627  1.2663786 ], cmd_finger=0.0
+[DEBUG] Step 870 (lift): ee=[ 0.5939834  -0.15916927  1.3693113 ], obj=[ 0.59428436 -0.15897802  1.2668284 ], cmd_finger=0.0
+[DEBUG] Step 871 (lift): ee=[ 0.5939926  -0.15917145  1.3697535 ], obj=[ 0.594295   -0.15898064  1.2672795 ], cmd_finger=0.0
+[DEBUG] Step 872 (lift): ee=[ 0.59400094 -0.15917328  1.3701792 ], obj=[ 0.59430647 -0.15898407  1.26771   ], cmd_finger=0.0
+[DEBUG] Step 873 (lift): ee=[ 0.5940101  -0.15917553  1.3705902 ], obj=[ 0.5943198  -0.15898563  1.26811   ], cmd_finger=0.0
+[DEBUG] Step 874 (move_to_place): ee=[ 0.5940182  -0.15917745  1.3709837 ], obj=[ 0.594329  -0.1589883  1.2685171], cmd_finger=0.0
+[DEBUG] Step 875 (move_to_place): ee=[ 0.5940259 -0.1591789  1.371361 ], obj=[ 0.5943406  -0.15899165  1.2688856 ], cmd_finger=0.0
+[DEBUG] Step 876 (move_to_place): ee=[ 0.5940868 -0.1592     1.3716918], obj=[ 0.5944801  -0.15900394  1.2692096 ], cmd_finger=0.0
+[DEBUG] Step 877 (move_to_place): ee=[ 0.59413654 -0.15922037  1.3719158 ], obj=[ 0.59458774 -0.15903358  1.2694366 ], cmd_finger=0.0
+[DEBUG] Step 878 (move_to_place): ee=[ 0.59416676 -0.15923621  1.3720548 ], obj=[ 0.59465605 -0.15906405  1.2695869 ], cmd_finger=0.0
+[DEBUG] Step 879 (move_to_place): ee=[ 0.5941796  -0.15924624  1.372128  ], obj=[ 0.5946946  -0.15908954  1.2696594 ], cmd_finger=0.0
+[DEBUG] Step 880 (move_to_place): ee=[ 0.5941787  -0.15925238  1.3721527 ], obj=[ 0.594709   -0.15910533  1.2696722 ], cmd_finger=0.0
+[DEBUG] Step 881 (move_to_place): ee=[ 0.5941657  -0.15925215  1.3721373 ], obj=[ 0.5946993  -0.15911481  1.2696685 ], cmd_finger=0.0
+[DEBUG] Step 882 (move_to_place): ee=[ 0.5941431  -0.15924668  1.3720938 ], obj=[ 0.59467626 -0.15911692  1.2696224 ], cmd_finger=0.0
+[DEBUG] Step 883 (move_to_place): ee=[ 0.59411454 -0.15923604  1.3720316 ], obj=[ 0.594642   -0.15910956  1.2695493 ], cmd_finger=0.0
+[DEBUG] Step 884 (move_to_place): ee=[ 0.59407866 -0.15921886  1.3719525 ], obj=[ 0.594595  -0.1590961  1.269481 ], cmd_finger=0.0
+[DEBUG] Step 885 (move_to_place): ee=[ 0.59403753 -0.15919441  1.3718626 ], obj=[ 0.5945416  -0.15907593  1.2693913 ], cmd_finger=0.0
+[DEBUG] Step 886 (move_to_place): ee=[ 0.5939939 -0.159164   1.371768 ], obj=[ 0.59448415 -0.15904567  1.2692857 ], cmd_finger=0.0
+[DEBUG] Step 887 (move_to_place): ee=[ 0.5939456  -0.15912469  1.3716679 ], obj=[ 0.594419   -0.15900894  1.2691958 ], cmd_finger=0.0
+[DEBUG] Step 888 (move_to_place): ee=[ 0.5938939  -0.15907672  1.3715651 ], obj=[ 0.5943516  -0.15896402  1.2690934 ], cmd_finger=0.0
+[DEBUG] Step 889 (move_to_place): ee=[ 0.59384084 -0.15902022  1.3714644 ], obj=[ 0.59428287 -0.1589079   1.2689815 ], cmd_finger=0.0
+[DEBUG] Step 890 (move_to_place): ee=[ 0.5937846  -0.15895319  1.3713622 ], obj=[ 0.5942084  -0.15884328  1.2688905 ], cmd_finger=0.0
+[DEBUG] Step 891 (move_to_place): ee=[ 0.59372574 -0.15887515  1.3712621 ], obj=[ 0.5941336  -0.15876892  1.2687894 ], cmd_finger=0.0
+[DEBUG] Step 892 (move_to_place): ee=[ 0.5936661  -0.15878606  1.3711661 ], obj=[ 0.59405875 -0.15868126  1.2686831 ], cmd_finger=0.0
+[DEBUG] Step 893 (move_to_place): ee=[ 0.593604   -0.15868416  1.3710722 ], obj=[ 0.5939786  -0.15858273  1.2685989 ], cmd_finger=0.0
+[DEBUG] Step 894 (move_to_place): ee=[ 0.59353906 -0.15856911  1.3709806 ], obj=[ 0.59389883 -0.15847217  1.2685094 ], cmd_finger=0.0
+[DEBUG] Step 895 (move_to_place): ee=[ 0.59347427 -0.15844074  1.3708948 ], obj=[ 0.59381914 -0.15834622  1.268412  ], cmd_finger=0.0
+[DEBUG] Step 896 (move_to_place): ee=[ 0.5934063  -0.15829733  1.370811  ], obj=[ 0.5937353  -0.15820718  1.2683394 ], cmd_finger=0.0
+[DEBUG] Step 897 (move_to_place): ee=[ 0.5933361  -0.15813813  1.3707303 ], obj=[ 0.5936518  -0.15805386  1.268257  ], cmd_finger=0.0
+[DEBUG] Step 898 (move_to_place): ee=[ 0.59326583 -0.15796381  1.3706563 ], obj=[ 0.59356874 -0.15788254  1.2681724 ], cmd_finger=0.0
+[DEBUG] Step 899 (move_to_place): ee=[ 0.59319246 -0.15777218  1.370584  ], obj=[ 0.5934816 -0.157696   1.2681094], cmd_finger=0.0
+[DEBUG] Step 900 (move_to_place): ee=[ 0.5931172  -0.15756278  1.370515  ], obj=[ 0.5933935  -0.15749286  1.2680466 ], cmd_finger=0.0
+[DEBUG] Step 901 (move_to_place): ee=[ 0.5930411 -0.1573356  1.3704511], obj=[ 0.5933071 -0.1572701  1.2679712], cmd_finger=0.0
+[DEBUG] Step 902 (move_to_place): ee=[ 0.59296215 -0.15708937  1.3703899 ], obj=[ 0.59321517 -0.15702978  1.2679244 ], cmd_finger=0.0
+[DEBUG] Step 903 (move_to_place): ee=[ 0.59288156 -0.15682346  1.3703325 ], obj=[ 0.59312475 -0.15677062  1.2678596 ], cmd_finger=0.0
+[DEBUG] Step 904 (move_to_place): ee=[ 0.59280026 -0.15653835  1.3702797 ], obj=[ 0.5930344  -0.15648963  1.2677963 ], cmd_finger=0.0
+[DEBUG] Step 905 (move_to_place): ee=[ 0.5927163  -0.15623191  1.3702291 ], obj=[ 0.59293884 -0.15618941  1.2677552 ], cmd_finger=0.0
+[DEBUG] Step 906 (move_to_place): ee=[ 0.59262943 -0.15590405  1.3701813 ], obj=[ 0.5928431  -0.15586865  1.2677115 ], cmd_finger=0.0
+[DEBUG] Step 907 (move_to_place): ee=[ 0.59254277 -0.15555522  1.3701386 ], obj=[ 0.5927479  -0.15552433  1.2676567 ], cmd_finger=0.0
+[DEBUG] Step 908 (move_to_place): ee=[ 0.59245265 -0.15518355  1.3700969 ], obj=[ 0.59264827 -0.15515916  1.2676289 ], cmd_finger=0.0
+[DEBUG] Step 909 (move_to_place): ee=[ 0.5923606  -0.15478897  1.3700585 ], obj=[ 0.59254926 -0.15477167  1.2675849 ], cmd_finger=0.0
+[DEBUG] Step 910 (move_to_place): ee=[ 0.5922678  -0.15437177  1.3700247 ], obj=[ 0.59245026 -0.15435904  1.2675409 ], cmd_finger=0.0
+[DEBUG] Step 911 (move_to_place): ee=[ 0.5921722 -0.1539307  1.3699921], obj=[ 0.5923461 -0.1539238  1.2675172], cmd_finger=0.0
+[DEBUG] Step 912 (move_to_place): ee=[ 0.5920739  -0.15346493  1.3699619 ], obj=[ 0.5922408  -0.15346515  1.2674943 ], cmd_finger=0.0
+[DEBUG] Step 913 (move_to_place): ee=[ 0.5919754  -0.15297559  1.369936  ], obj=[ 0.59213644 -0.15298021  1.2674562 ], cmd_finger=0.0
+[DEBUG] Step 914 (move_to_place): ee=[ 0.5918733 -0.1524606  1.3699105], obj=[ 0.5920269  -0.15247168  1.2674465 ], cmd_finger=0.0
+[DEBUG] Step 915 (move_to_place): ee=[ 0.5917694  -0.15192032  1.3698882 ], obj=[ 0.59191763 -0.15193774  1.2674202 ], cmd_finger=0.0
+[DEBUG] Step 916 (move_to_place): ee=[ 0.5916646  -0.15135503  1.3698702 ], obj=[ 0.59180814 -0.1513766   1.2673886 ], cmd_finger=0.0
+[DEBUG] Step 917 (move_to_place): ee=[ 0.5915566  -0.15076314  1.3698521 ], obj=[ 0.59169304 -0.15079072  1.267386  ], cmd_finger=0.0
+[DEBUG] Step 918 (move_to_place): ee=[ 0.5914465  -0.15014489  1.3698366 ], obj=[ 0.591579   -0.15017869  1.2673643 ], cmd_finger=0.0
+[DEBUG] Step 919 (move_to_place): ee=[ 0.5913355  -0.14950077  1.369825  ], obj=[ 0.5914646  -0.14953823  1.2673411 ], cmd_finger=0.0
+[DEBUG] Step 920 (move_to_place): ee=[ 0.59122133 -0.14882964  1.369814  ], obj=[ 0.5913445  -0.14887202  1.2673397 ], cmd_finger=0.0
+[DEBUG] Step 921 (move_to_place): ee=[ 0.59110445 -0.14813071  1.3698044 ], obj=[ 0.5912235 -0.1481794  1.2673355], cmd_finger=0.0
+[DEBUG] Step 922 (move_to_place): ee=[ 0.59098685 -0.14740542  1.3697989 ], obj=[ 0.59110296 -0.14745735  1.267317  ], cmd_finger=0.0
+[DEBUG] Step 923 (move_to_place): ee=[ 0.59086573 -0.14665157  1.3697932 ], obj=[ 0.59097654 -0.146709    1.2673259 ], cmd_finger=0.0
+[DEBUG] Step 924 (move_to_place): ee=[ 0.5907426 -0.14587    1.3697895], obj=[ 0.5908504 -0.1459328  1.2673177], cmd_finger=0.0
+[DEBUG] Step 925 (move_to_place): ee=[ 0.5906184  -0.14506109  1.3697898 ], obj=[ 0.59072393 -0.14512676  1.2673056 ], cmd_finger=0.0
+[DEBUG] Step 926 (move_to_place): ee=[ 0.59049094 -0.14422345  1.3697902 ], obj=[ 0.59059167 -0.14429358  1.2673161 ], cmd_finger=0.0
+[DEBUG] Step 927 (move_to_place): ee=[ 0.59036046 -0.14335726  1.3697916 ], obj=[ 0.59045833 -0.14343242  1.2673228 ], cmd_finger=0.0
+[DEBUG] Step 928 (move_to_place): ee=[ 0.59022945 -0.14246307  1.369797  ], obj=[ 0.59032524 -0.14254095  1.267315  ], cmd_finger=0.0
+[DEBUG] Step 929 (move_to_place): ee=[ 0.5900947  -0.14153937  1.369802  ], obj=[ 0.59018636 -0.14162184  1.2673342 ], cmd_finger=0.0
+[DEBUG] Step 930 (move_to_place): ee=[ 0.5899577  -0.14058706  1.3698095 ], obj=[ 0.59004754 -0.14067385  1.2673365 ], cmd_finger=0.0
+[DEBUG] Step 931 (move_to_place): ee=[ 0.58981955 -0.13960648  1.3698194 ], obj=[ 0.5899085  -0.13969524  1.2673354 ], cmd_finger=0.0
+[DEBUG] Step 932 (move_to_place): ee=[ 0.58967793 -0.13859579  1.3698295 ], obj=[ 0.5897632  -0.13868865  1.267355  ], cmd_finger=0.0
+[DEBUG] Step 933 (move_to_place): ee=[ 0.5895334  -0.13755548  1.3698406 ], obj=[ 0.5896163  -0.13765284  1.2673721 ], cmd_finger=0.0
+[DEBUG] Step 934 (move_to_place): ee=[ 0.5893878  -0.13648671  1.3698549 ], obj=[ 0.58946985 -0.13658585  1.2673734 ], cmd_finger=0.0
+[DEBUG] Step 935 (move_to_place): ee=[ 0.5892386  -0.13538769  1.3698696 ], obj=[ 0.58931684 -0.13549058  1.267402  ], cmd_finger=0.0
+[DEBUG] Step 936 (move_to_place): ee=[ 0.5890867  -0.13425894  1.369885  ], obj=[ 0.58916456 -0.13436578  1.2674133 ], cmd_finger=0.0
+[DEBUG] Step 937 (move_to_place): ee=[ 0.58893454 -0.13310203  1.3699042 ], obj=[ 0.58901143 -0.13320963  1.2674198 ], cmd_finger=0.0
+[DEBUG] Step 938 (move_to_place): ee=[ 0.5887789  -0.13191545  1.3699225 ], obj=[ 0.5888534  -0.13202548  1.2674485 ], cmd_finger=0.0
+[DEBUG] Step 939 (move_to_place): ee=[ 0.5886218  -0.13070013  1.3699423 ], obj=[ 0.58869445 -0.13081278  1.2674732 ], cmd_finger=0.0
+[DEBUG] Step 940 (move_to_place): ee=[ 0.5884649  -0.12945747  1.3699653 ], obj=[ 0.58853745 -0.12956992  1.2674834 ], cmd_finger=0.0
+[DEBUG] Step 941 (move_to_place): ee=[ 0.58830553 -0.12818702  1.3699878 ], obj=[ 0.58837557 -0.12830028  1.2675202 ], cmd_finger=0.0
+[DEBUG] Step 942 (move_to_place): ee=[ 0.58814543 -0.12688977  1.3700114 ], obj=[ 0.58821523 -0.1270037   1.2675394 ], cmd_finger=0.0
+[DEBUG] Step 943 (move_to_place): ee=[ 0.58798605 -0.1255673   1.3700385 ], obj=[ 0.588056   -0.12567887  1.2675542 ], cmd_finger=0.0
+[DEBUG] Step 944 (move_to_place): ee=[ 0.58782464 -0.12421922  1.3700649 ], obj=[ 0.5878927  -0.12432945  1.2675904 ], cmd_finger=0.0
+[DEBUG] Step 945 (move_to_place): ee=[ 0.5876624  -0.12284678  1.3700918 ], obj=[ 0.58772933 -0.12295558  1.267623  ], cmd_finger=0.0
+[DEBUG] Step 946 (move_to_place): ee=[ 0.58750117 -0.12145142  1.3701218 ], obj=[ 0.5875686  -0.12155619  1.2676401 ], cmd_finger=0.0
+[DEBUG] Step 947 (move_to_place): ee=[ 0.58733815 -0.1200328   1.3701509 ], obj=[ 0.5874034  -0.12013486  1.2676839 ], cmd_finger=0.0
+[DEBUG] Step 948 (move_to_place): ee=[ 0.58717465 -0.11859255  1.3701819 ], obj=[ 0.58724064 -0.11869147  1.267708  ], cmd_finger=0.0
+[DEBUG] Step 949 (move_to_place): ee=[ 0.58701235 -0.11713167  1.3702149 ], obj=[ 0.58707887 -0.11722507  1.2677307 ], cmd_finger=0.0
+[DEBUG] Step 950 (move_to_place): ee=[ 0.58684826 -0.11565068  1.3702472 ], obj=[ 0.5869136 -0.1157392  1.2677724], cmd_finger=0.0
+[DEBUG] Step 951 (move_to_place): ee=[ 0.58668333 -0.11414968  1.3702797 ], obj=[ 0.5867484 -0.1142345  1.2678105], cmd_finger=0.0
+[DEBUG] Step 952 (move_to_place): ee=[ 0.58651936 -0.1126312   1.3703148 ], obj=[ 0.5865854  -0.11270906  1.2678332 ], cmd_finger=0.0
+[DEBUG] Step 953 (move_to_place): ee=[ 0.5863536  -0.11109456  1.3703486 ], obj=[ 0.5864181  -0.11116716  1.2678821 ], cmd_finger=0.0
+[DEBUG] Step 954 (move_to_place): ee=[ 0.58618754 -0.10954122  1.370384  ], obj=[ 0.5862529  -0.10960852  1.2679095 ], cmd_finger=0.0
+[DEBUG] Step 955 (move_to_place): ee=[ 0.58602214 -0.10797234  1.3704214 ], obj=[ 0.58608866 -0.10803208  1.2679368 ], cmd_finger=0.0
+[DEBUG] Step 956 (move_to_place): ee=[ 0.58585495 -0.10638776  1.3704573 ], obj=[ 0.5859204  -0.10644133  1.2679827 ], cmd_finger=0.0
+[DEBUG] Step 957 (move_to_place): ee=[ 0.58568674 -0.10478875  1.3704932 ], obj=[ 0.5857521  -0.10483649  1.2680241 ], cmd_finger=0.0
+[DEBUG] Step 958 (move_to_place): ee=[ 0.58551943 -0.10317681  1.3705319 ], obj=[ 0.5855859  -0.10321629  1.2680504 ], cmd_finger=0.0
+[DEBUG] Step 959 (move_to_place): ee=[ 0.5853501  -0.10155103  1.3705691 ], obj=[ 0.5854152  -0.10158457  1.2681029 ], cmd_finger=0.0
+[DEBUG] Step 960 (move_to_place): ee=[ 0.5851803  -0.09991308  1.3706077 ], obj=[ 0.58524686 -0.09994057  1.268132  ], cmd_finger=0.0
+[DEBUG] Step 961 (move_to_place): ee=[ 0.5850108  -0.09826391  1.3706471 ], obj=[ 0.5850789 -0.0982832  1.2681634], cmd_finger=0.0
+[DEBUG] Step 962 (move_to_place): ee=[ 0.58483976 -0.09660348  1.3706859 ], obj=[ 0.58490646 -0.09661596  1.2682104 ], cmd_finger=0.0
+[DEBUG] Step 963 (move_to_place): ee=[ 0.58466744 -0.09493268  1.3707248 ], obj=[ 0.58473414 -0.09493896  1.2682562 ], cmd_finger=0.0
+[DEBUG] Step 964 (move_to_place): ee=[ 0.5844957 -0.093252   1.3707656], obj=[ 0.5845637  -0.09325088  1.268286  ], cmd_finger=0.0
+[DEBUG] Step 965 (move_to_place): ee=[ 0.584322   -0.09156229  1.370805  ], obj=[ 0.5843887 -0.0915546  1.26834  ], cmd_finger=0.0
+[DEBUG] Step 966 (move_to_place): ee=[ 0.5841475  -0.08986349  1.3708447 ], obj=[ 0.5842151  -0.08984996  1.2683792 ], cmd_finger=0.0
+[DEBUG] Step 967 (move_to_place): ee=[ 0.58397317 -0.08815741  1.3708866 ], obj=[ 0.5840415  -0.08813608  1.2684113 ], cmd_finger=0.0
+[DEBUG] Step 968 (move_to_place): ee=[ 0.58379674 -0.08644285  1.3709267 ], obj=[ 0.58386517 -0.08641621  1.2684593 ], cmd_finger=0.0
+[DEBUG] Step 969 (move_to_place): ee=[ 0.58362067 -0.0847215   1.3709686 ], obj=[ 0.5836904  -0.08468775  1.2684904 ], cmd_finger=0.0
+[DEBUG] Step 970 (move_to_place): ee=[ 0.58344233 -0.08299292  1.3710091 ], obj=[ 0.5835111  -0.08295388  1.2685448 ], cmd_finger=0.0
+[DEBUG] Step 971 (move_to_place): ee=[ 0.58326375 -0.08125839  1.3710502 ], obj=[ 0.5833328  -0.08121338  1.2685865 ], cmd_finger=0.0
+[DEBUG] Step 972 (move_to_place): ee=[ 0.5830845 -0.0795179  1.3710921], obj=[ 0.5831537  -0.07946705  1.2686275 ], cmd_finger=0.0
+[DEBUG] Step 973 (move_to_place): ee=[ 0.58290434 -0.07777168  1.3711338 ], obj=[ 0.582974   -0.07771564  1.2686689 ], cmd_finger=0.0
+[DEBUG] Step 974 (move_to_place): ee=[ 0.5827235  -0.07602067  1.3711767 ], obj=[ 0.5827945  -0.07595849  1.2687032 ], cmd_finger=0.0
+[DEBUG] Step 975 (move_to_place): ee=[ 0.5825414  -0.07426424  1.3712186 ], obj=[ 0.582612  -0.0741979  1.2687483], cmd_finger=0.0
+[DEBUG] Step 976 (move_to_place): ee=[ 0.58235914 -0.07250394  1.3712616 ], obj=[ 0.5824319  -0.07243139  1.2687801 ], cmd_finger=0.0
+[DEBUG] Step 977 (move_to_place): ee=[ 0.58217514 -0.07073897  1.3713033 ], obj=[ 0.5822461  -0.07066215  1.2688352 ], cmd_finger=0.0
+[DEBUG] Step 978 (move_to_place): ee=[ 0.5819902  -0.06896994  1.3713456 ], obj=[ 0.58206296 -0.06888966  1.2688684 ], cmd_finger=0.0
+[DEBUG] Step 979 (move_to_place): ee=[ 0.58180547 -0.06719774  1.3713892 ], obj=[ 0.5818795  -0.06711176  1.2689054 ], cmd_finger=0.0
+[DEBUG] Step 980 (move_to_place): ee=[ 0.58161914 -0.06542179  1.371432  ], obj=[ 0.581692   -0.06533181  1.2689553 ], cmd_finger=0.0
+[DEBUG] Step 981 (move_to_place): ee=[ 0.5814314  -0.06364257  1.3714737 ], obj=[ 0.58150405 -0.06354935  1.2690071 ], cmd_finger=0.0
+[DEBUG] Step 982 (move_to_place): ee=[ 0.5812443  -0.06186096  1.3715178 ], obj=[ 0.5813179  -0.06176296  1.2690408 ], cmd_finger=0.0
+[DEBUG] Step 983 (move_to_place): ee=[ 0.58105505 -0.06007605  1.3715596 ], obj=[ 0.58112794 -0.0599753   1.2690965 ], cmd_finger=0.0
+[DEBUG] Step 984 (move_to_place): ee=[ 0.5808655  -0.05828904  1.3716029 ], obj=[ 0.58093935 -0.05818452  1.2691352 ], cmd_finger=0.0
+[DEBUG] Step 985 (move_to_place): ee=[ 0.58067495 -0.0564994   1.3716458 ], obj=[ 0.58074963 -0.05639247  1.2691718 ], cmd_finger=0.0
+[DEBUG] Step 986 (move_to_place): ee=[ 0.580485  -0.0547076  1.37169  ], obj=[ 0.5805609  -0.05459685  1.2692062 ], cmd_finger=0.0
+[DEBUG] Step 987 (move_to_place): ee=[ 0.5802929  -0.05291363  1.3717327 ], obj=[ 0.5803681  -0.05280031  1.2692587 ], cmd_finger=0.0
+[DEBUG] Step 988 (move_to_place): ee=[ 0.58010006 -0.05111798  1.3717754 ], obj=[ 0.58017534 -0.0510026   1.2693032 ], cmd_finger=0.0
+[DEBUG] Step 989 (move_to_place): ee=[ 0.57990754 -0.0493208   1.3718196 ], obj=[ 0.5799844 -0.0492019  1.2693373], cmd_finger=0.0
+[DEBUG] Step 990 (move_to_place): ee=[ 0.5797136  -0.04752169  1.3718625 ], obj=[ 0.57978874 -0.04740095  1.2693927 ], cmd_finger=0.0
+[DEBUG] Step 991 (move_to_place): ee=[ 0.57951856 -0.04572101  1.3719054 ], obj=[ 0.57959545 -0.04559918  1.2694285 ], cmd_finger=0.0
+[DEBUG] Step 992 (move_to_place): ee=[ 0.5793241  -0.04391907  1.3719498 ], obj=[ 0.57940215 -0.04379436  1.269466  ], cmd_finger=0.0
+[DEBUG] Step 993 (move_to_place): ee=[ 0.5791281  -0.04211643  1.371993  ], obj=[ 0.5792051  -0.04198928  1.2695167 ], cmd_finger=0.0
+[DEBUG] Step 994 (move_to_place): ee=[ 0.5789309 -0.0403117  1.3720353], obj=[ 0.57900757 -0.04018417  1.2695682 ], cmd_finger=0.0
+[DEBUG] Step 995 (move_to_place): ee=[ 0.5787346  -0.03850659  1.3720794 ], obj=[ 0.5788121  -0.03837653  1.2696023 ], cmd_finger=0.0
+[DEBUG] Step 996 (move_to_place): ee=[ 0.57853675 -0.03669992  1.3721222 ], obj=[ 0.5786129 -0.0365693  1.2696583], cmd_finger=0.0
+[DEBUG] Step 997 (move_to_place): ee=[ 0.5783387  -0.03489271  1.3721659 ], obj=[ 0.57841563 -0.03476056  1.2697    ], cmd_finger=0.0
+[DEBUG] Step 998 (move_to_place): ee=[ 0.5781397  -0.03308455  1.372209  ], obj=[ 0.578218   -0.03295187  1.2697351 ], cmd_finger=0.0
+[DEBUG] Step 999 (move_to_place): ee=[ 0.5779417  -0.03127567  1.3722535 ], obj=[ 0.578021   -0.03114106  1.2697698 ], cmd_finger=0.0

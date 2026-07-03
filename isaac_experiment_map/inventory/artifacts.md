@@ -8,6 +8,8 @@ This inventory lists known local artifacts for the recent Isaac work. Paths are 
 | --- | --- |
 | `vids/pi05_droid_10_tests_agent_view_4x_labeled.mp4` | Final readable fast DROID combined video |
 | `vids/pi05_libero_10_tests_agent_view_4x_labeled.mp4` | Final readable fast LIBERO combined video |
+| `vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled.mp4` | Final readable fast fine-tuned SimVLA ckpt-50000 combined video |
+| `vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled_5000.mp4` | Final readable fast fine-tuned SimVLA ckpt-50000 5000-step combined video |
 
 ## Archived / Older Local Videos
 
@@ -24,6 +26,8 @@ This inventory lists known local artifacts for the recent Isaac work. Paths are 
 | Path | Meaning |
 | --- | --- |
 | `vids/simvla_basic_10_tests_agent_view_2x_no_rotation_summary.json` | Summary for SimVLA 10-test Isaac run |
+| `vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled.json` | Summary for fine-tuned SimVLA ckpt-50000 10-test video |
+| `vids/simvla_finetuned_ckpt50000_10_tests_agent_view_4x_labeled_5000.json` | Summary for fine-tuned SimVLA ckpt-50000 5000-step 10-test video |
 | `vids/simvla_paper_reaching_dense_smoke_no_rotation_videos/` | no-rotation camera input smoke videos |
 | `vids/simvla_paper_reaching_dense_smoke_videos/` | rotate-180 camera comparison smoke videos |
 
@@ -66,4 +70,3 @@ These paths were used on Bob and are recorded here for rerun/reference. They may
 | `/home/rootalkhatib/isaaclab_repo/franka_wrist_camera_isaaclab/data/raw/pi05_libero_pick_place_5ep_collection_limit` | LIBERO pick-place raw episodes |
 | `/home/rootalkhatib/isaaclab_repo/franka_wrist_camera_isaaclab/data/raw/pi05_droid_reaching_5ep_collection_limit` | DROID reaching raw episodes |
 | `/home/rootalkhatib/isaaclab_repo/franka_wrist_camera_isaaclab/data/raw/pi05_droid_pick_place_5ep_collection_limit` | DROID pick-place raw episodes |
-

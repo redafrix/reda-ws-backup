@@ -1,0 +1,14 @@
+pi05:
+  host: 127.0.0.1
+  port: 8006
+  action_horizon: 15
+  action_dim: 8
+  observation_schema: droid
+  replan_steps: 8
+  droid_control_fps: 15.0
+  joint_velocity_scale_rad_s: 1.0
+  open_finger_m: 0.04
+  closed_finger_m: 0.0
+  gripper_open_threshold: 0.5
+
+notes: Official OpenPI pi05_droid served remotely. IsaacLab cameras are already upright, so no image flip is applied.

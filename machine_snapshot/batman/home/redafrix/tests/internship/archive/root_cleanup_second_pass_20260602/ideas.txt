@@ -1,0 +1,593 @@
+FIRST 20 PRIORITY IDEAS TO ADD TO THE TEST LIST
+
+Context:
+Current best deployable quick test:
+- Mamba_history_k8 / clean_binary / deployable_only
+- Calib AUROC ≈ 0.865
+- Unseen task weaker
+- Unseen perturbation very weak
+- Action_specific weaker than state_context
+
+Main goal:
+Train a deployable action-risk detector:
+history + current deployable context + candidate SimVLA action → calibrated risk score
+
+Do not use:
+reward, success flag, true object positions, object-goal distance, task id, suite id, seed, perturbation metadata, label evidence, future outcome.
+
+1. Deployable-only full Mamba rerun
+Baseline: Mamba_history_k8 / clean_binary / deployable_only quick run.
+Change: rerun with full training schedule, more epochs, early stopping, best checkpoint selection, and calibration.
+Why: quick run proved deployable-only works; now we need the proper stronger version.
+
+2. Deployable-only residual_mlp_large soft-label rerun
+Baseline: residual_mlp_large / soft_labels from previous campaign.
+Change: train again with deployable_only features only.
+Why: it was the best safer/fast model before; we need to know if it stays good without oracle inputs.
+
+3. Deployable-only small_history_transformer_k8
+Baseline: small_history_transformer_k8.
+Change: train with deployable_only inputs only.
+Why: Transformer history was strong earlier; compare directly with deployable Mamba.
+
+4. Deployable-only context_action_mlp
+Baseline: context_action_mlp.
+Change: train with deployable_only features only.
+Why: simple strong baseline; complex models must beat it clearly.
+
+5. Action ablation test
+Baseline: best deployable Mamba.
+Change: evaluate with candidate action zeroed, shuffled, or replaced by random same-batch action.
+Why: checks if the model is really judging the action, not only the state/history.
+
+6. History ablation test
+Baseline: best deployable Mamba.
+Change: evaluate with history removed or zeroed, keeping current action/proprio.
+Why: measures how much history contributes.
+
+7. Context ablation test
+Baseline: best deployable Mamba.
+Change: evaluate with current/history context removed, keeping only candidate action.
+Why: checks if the model is relying too much on action patterns alone.
+
+8. Dual-score risk model
+Baseline: Mamba_history_k8 with one risk output.
+Change: output state_context_risk, action_specific_risk, and final_risk.
+Use bad_subtype supervision:
+- state_context BAD trains state head
+- action_specific BAD trains action head
+- all BAD trains final head
+Why: our labels already separate action_specific and state_context; the model should learn both.
+
+9. Action-specific residual risk model
+Baseline: context/history risk model.
+Change: predict final_risk = state_risk + action_delta_risk.
+State encoder predicts baseline risk; action-context head predicts how this candidate action changes risk.
+Why: helps prevent the model from learning only state risk.
+
+10. Bilinear compatibility head
+Baseline: context_action_mlp.
+Change: encode context/history into c, action chunk into a, then include cᵀ W a in the risk score.
+Why: explicit action-context compatibility, fast and deployable.
+
+11. Energy-based compatibility head
+Baseline: Mamba_history_k8 + MLP risk head.
+Change: replace risk head with energy score:
+low energy = compatible/safe, high energy = incompatible/risky.
+Train with BCE or contrastive safe/bad objective.
+Why: better for action-state compatibility than plain classification.
+
+12. Action-to-history cross-attention risk head
+Baseline: history_action_cross_attention_transformer already tested generally.
+Change: make the risk head itself cross-attention: action-step tokens query history/context tokens, then pool action tokens for risk.
+Why: directly tests whether this action fits recent history.
+
+13. Risk-token Transformer head
+Baseline: small_history_transformer_k8.
+Change: tokens = history tokens + action step tokens + current proprio token + [RISK] token.
+The [RISK] token attends to everything and outputs risk.
+Why: clean Transformer-style risk head instead of simple pooling.
+
+14. FiLM / gated action-risk head
+Baseline: gated_context_action_mlp.
+Change: context/history produces gamma and beta; apply action_emb = gamma * action_emb + beta, then risk head.
+Why: same action can be safe or risky depending on phase/context.
+
+15. Mixture-of-experts risk head
+Baseline: single risk head.
+Change: several small heads:
+- approach expert
+- grasp/lift expert
+- transport expert
+- place expert
+- stuck/no-progress expert
+Router uses deployable features only, not task metadata.
+Why: different phases have different risk logic; may reduce false-safe errors.
+
+16. Prototype-distance risk head
+Baseline: MLP risk head.
+Change: learn safe prototypes and bad prototypes in embedding space.
+Risk = closer to bad prototypes than safe prototypes.
+Why: interpretable and may generalize better to unseen tasks.
+
+17. Contrastive same-state training
+Baseline: clean_binary BCE.
+Change: for same-state groups where some candidates are GOOD_STRONG and some are VALIDATED_BAD, add contrastive/ranking loss:
+GOOD action risk < BAD action risk.
+Why: forces action-specific learning instead of only state-risk learning.
+
+18. False-safe weighted loss
+Baseline: clean_binary BCE.
+Change: increase penalty when VALIDATED_BAD is predicted low risk.
+False-safe errors cost more than false alarms.
+Why: deployment danger is accepting BAD actions.
+
+19. Focal loss for BAD detection
+Baseline: clean_binary BCE.
+Change: use focal loss focused on hard VALIDATED_BAD samples.
+Why: helps with hard/risky minority cases and may reduce BAD leakage.
+
+20. Accept-risk optimized training objective
+Baseline: standard BCE / AUROC optimization.
+Change: add objective or validation selection focused on BAD leakage among accepted actions at accept 90%, 75%, 50%, 25%.
+Why: AUROC is not the real deployment goal; accepted BAD leakage is.
+
+Recommended first batch order:
+1, 2, 3, 5, 8, 9, 10, 12, 18, 20
+
+Reason:
+First confirm deployable-only baselines, then verify the model uses the candidate action, then test the strongest action-risk heads, then optimize the real safety metric.
+
+
+
+NEXT 20 IDEAS TO ADD TO THE TEST LIST
+
+21. Deployable-only K=16 history test
+Baseline: Mamba_history_k8 / deployable_only.
+Change: increase history from K=8 to K=16.
+Why: current risk may depend on longer past context, especially stuck/no-progress and transport failures.
+
+22. Deployable-only K=32 history test
+Baseline: Mamba_history_k8 / deployable_only.
+Change: increase history to K=32.
+Why: tests if long history improves state_context BAD detection. Compare latency carefully.
+
+23. Short-history comparison K=2 / K=4
+Baseline: Mamba_history_k8 / deployable_only.
+Change: train K=2 and K=4 versions.
+Why: checks if K=8 is really needed or if smaller/faster history is enough.
+
+24. Mamba + action cross-attention hybrid
+Baseline: Mamba_history_k8.
+Change: use Mamba for history encoding, then action tokens cross-attend to the Mamba history embedding/tokens.
+Why: combines long-history compression with action-specific risk reasoning.
+
+25. Transformer + bilinear head hybrid
+Baseline: small_history_transformer_k8.
+Change: keep Transformer history encoder but replace simple risk head with bilinear context-action compatibility head.
+Why: tests if the risk head, not the encoder, was the bottleneck.
+
+26. Mamba + dual-score head
+Baseline: Mamba_history_k8.
+Change: Mamba encodes history, then output state_risk, action_risk, final_risk.
+Why: current Mamba is strong, but needs separation of state_context vs action_specific risk.
+
+27. TCN + dual-score head
+Baseline: TCN_history_k8.
+Change: add state_risk/action_risk/final_risk outputs.
+Why: TCN is faster than Mamba/Transformer and may be enough for deployment.
+
+28. LSTM + attention pooling
+Baseline: history_lstm_k8.
+Change: instead of using last hidden state, use attention pooling over all K history steps.
+Why: last hidden state may miss important earlier events like recent grasp/lift/drop.
+
+29. GRU + action-conditioned attention
+Baseline: history_gru_k8.
+Change: candidate action embedding queries the GRU history states.
+Why: makes the GRU model more action-aware without full Transformer cost.
+
+30. Per-step action encoder
+Baseline: flatten candidate action chunk.
+Change: encode the 10 action steps as sequence tokens using small Transformer/GRU/TCN before fusion.
+Why: risk may be in action trajectory shape, not just flattened values.
+
+31. Gripper-specific action branch
+Baseline: action encoder uses all 7 action dims together.
+Change: split action into arm motion branch and gripper branch, then fuse.
+Why: gripper mistakes can cause drops/loss; this lets model focus on gripper pattern separately.
+
+32. Action smoothness / dynamics auxiliary features
+Baseline: raw candidate action only.
+Change: add deployable action-derived features: norm, delta norm, smoothness, max step, gripper open/close transitions.
+Why: bad actions may have abnormal jumps or wrong gripper timing.
+
+33. Auxiliary bad_subtype classifier
+Baseline: risk-only model.
+Change: add auxiliary head predicting action_specific vs state_context for VALIDATED_BAD samples.
+Why: improves representation and gives better analysis, even if final output remains one risk score.
+
+34. Auxiliary phase prediction from deployable inputs
+Baseline: risk-only model.
+Change: add auxiliary head predicting inferred phase: approach/grasp/transport/place/stuck, but only from deployable signals.
+Why: phase awareness helps risk logic without using task metadata.
+
+35. Multi-task risk + reason classifier
+Baseline: risk-only model.
+Change: add auxiliary head predicting bad reason group: no_progress, terminal_failure, object_drop-like, state_context, action_specific.
+Why: encourages model to learn different risk mechanisms.
+
+36. Hard false-safe replay weighting
+Baseline: false-safe weighted BCE.
+Change: after first training, identify false-safe VALIDATED_BAD on calib/train, retrain with these samples weighted 3x–5x.
+Why: directly targets the most dangerous deployment error.
+
+37. Balanced subtype sampler
+Baseline: normal balanced GOOD/BAD sampler.
+Change: ensure batches contain both action_specific and state_context BAD.
+Why: prevents the model from mostly learning state_context risk.
+
+38. Balanced phase sampler
+Baseline: random training batches.
+Change: balance batches by phase metadata during training, but do not feed phase as input.
+Why: avoids overfitting to dominant phases and improves rare phase performance.
+
+39. Unseen-task robustness sampler
+Baseline: normal train sampler.
+Change: upweight tasks that are visually/behaviorally different from the majority.
+Why: current unseen-task result is weak; training should not be dominated by easy/common tasks.
+
+40. Unseen-perturbation robustness sampler
+Baseline: normal train sampler.
+Change: upweight perturbation families that are underrepresented or weak in validation, but keep metadata out of model input.
+Why: unseen perturbation AUROC was very weak, so the model needs better perturbation diversity during training.
+
+Recommended second batch order:
+21, 24, 26, 30, 31, 32, 33, 36, 37, 40
+
+Reason:
+These directly attack the current weaknesses: action-specific risk, long-history risk, subtype imbalance, gripper/action-pattern errors, false-safe leakage, and unseen perturbation failure.
+
+
+
+
+NEXT 20 IDEAS TO ADD TO THE TEST LIST
+
+41. Deployable visual-feature only model
+Baseline: deployable Mamba using all deployable numeric features.
+Change: train using only deployable visual/VLM features + candidate action.
+Why: checks if vision representation alone carries enough risk information.
+
+42. Deployable proprio-action only model
+Baseline: deployable context_action_mlp.
+Change: use only proprio + history proprio + actions + candidate action. No visual features.
+Why: tells us how much risk can be predicted from robot motion/action state alone.
+
+43. Visual + action cross-attention model
+Baseline: deployable visual-feature model.
+Change: action tokens attend to visual/VLM tokens before risk prediction.
+Why: directly tests whether the candidate action fits the visual scene.
+
+44. History image-feature temporal model
+Baseline: current history model.
+Change: use sequence of visual/VLM features over K steps, not only current visual feature.
+Why: risk may depend on visual change over time, not current frame only.
+
+45. Late-fusion model
+Baseline: one fused feature vector.
+Change: separate encoders for visual, proprio, history actions, candidate action, then fuse near the end.
+Why: prevents one feature group from dominating too early.
+
+46. Early-fusion model
+Baseline: late-fusion.
+Change: concatenate everything early and pass through one shared encoder.
+Why: simple comparison to know whether fusion strategy matters.
+
+47. Hierarchical history encoder
+Baseline: flat K-step history encoder.
+Change: encode short windows first, then encode window summaries.
+Why: useful for longer K=16/K=32 without huge Transformer cost.
+
+48. Candidate-action autoencoder pretraining
+Baseline: supervised risk training from scratch.
+Change: pretrain action encoder to reconstruct/encode action chunks, then fine-tune for risk.
+Why: may improve action representation with limited labeled risk data.
+
+49. History-action masked modeling pretraining
+Baseline: supervised training from scratch.
+Change: pretrain by masking parts of history/action and predicting them.
+Why: helps model understand normal action/history dynamics before risk training.
+
+50. Safe/bad prototype pretraining
+Baseline: normal BCE training.
+Change: first learn embeddings where GOOD_STRONG and VALIDATED_BAD clusters separate, then train risk head.
+Why: may improve generalization and make risk space more structured.
+
+51. Supervised contrastive learning
+Baseline: clean_binary BCE.
+Change: add supervised contrastive loss:
+GOOD_STRONG samples close together, VALIDATED_BAD samples close together, different labels far apart.
+Why: stronger representation learning than BCE alone.
+
+52. Same-state group contrastive learning
+Baseline: supervised contrastive.
+Change: only contrast samples from the same state group when possible.
+Why: forces the model to learn action-specific differences under identical context.
+
+53. State-context invariance penalty
+Baseline: dual-score model.
+Change: penalize action-risk head if it predicts same risk for all actions in mixed same-state groups.
+Why: forces candidate action to matter.
+
+54. Action-sensitivity regularization
+Baseline: deployable Mamba.
+Change: small action perturbations should produce smooth risk changes, not random jumps.
+Why: improves stability for deployment.
+
+55. Conservative calibration loss
+Baseline: normal BCE + calibration after training.
+Change: during training, add penalty when BAD samples receive low predicted risk.
+Why: directly reduces false-safe errors.
+
+56. Precision-at-acceptance objective
+Baseline: AUROC/AUPRC model selection.
+Change: select checkpoints by BAD leakage at accept 75% or 50%, not AUROC.
+Why: deployment cares about safe accepted actions, not ranking only.
+
+57. Recall-constrained training
+Baseline: BCE.
+Change: tune class weights so VALIDATED_BAD recall must stay above a target.
+Why: avoids models that look accurate but miss risky actions.
+
+58. BAD subtype balanced loss
+Baseline: class-balanced BCE.
+Change: equalize loss contribution from action_specific and state_context BAD.
+Why: prevents state_context from dominating action-specific risk learning.
+
+59. GOOD_STRONG phase-balanced loss
+Baseline: normal GOOD_STRONG negatives.
+Change: balance GOOD_STRONG by phase, so safe examples cover approach/grasp/transport/place.
+Why: avoids model thinking only early approach is safe.
+
+60. Ambiguous-as-boundary training
+Baseline: ignore AMBIGUOUS.
+Change: train AMBIGUOUS as low-weight middle-risk boundary samples.
+Why: teaches model uncertainty region instead of only hard safe/bad separation.
+
+Recommended third batch order:
+43, 45, 51, 52, 53, 55, 56, 58, 60, 44
+
+Reason:
+These focus on the most important current issue: action-aware deployable risk, false-safe reduction, better representation, and using ambiguous data without corrupting labels.
+
+
+
+NEXT 20 IDEAS TO ADD TO THE TEST LIST
+
+61. Deployable-only probability calibration rerun
+Baseline: best deployable Mamba / clean_binary.
+Change: rerun calibration only, testing beta, isotonic, Platt, temperature, and conformal thresholding on the final deployable-only predictions.
+Why: maybe the model ranking is okay but the probability/threshold is bad.
+
+62. Accept-50 conservative gate optimization
+Baseline: best deployable Mamba threshold table.
+Change: optimize specifically for accept 50% instead of accept 90%.
+Why: current accept 50% BAD leakage was much better. This may be the first realistic deployment mode.
+
+63. Accept-75 balanced gate optimization
+Baseline: accept 50% conservative gate.
+Change: tune threshold to accept around 75% while keeping BAD leakage low.
+Why: accept 50% may reject too much; accept 75% is a better practical compromise.
+
+64. Two-threshold deployment policy
+Baseline: single risk threshold.
+Change:
+- low risk → execute VLA
+- medium risk → ask heavy model / re-evaluate / slow mode
+- high risk → switch to WM
+Why: avoids forcing every action into binary safe/unsafe.
+
+65. Fast-light + heavy-checker cascade
+Baseline: single Mamba model.
+Change:
+- fast residual MLP checks every action
+- if uncertain, heavy Mamba/Transformer checks again
+Why: gives real-time speed while keeping strong safety on hard cases.
+
+66. Ensemble disagreement rejection
+Baseline: ensemble_top3.
+Change: reject/switch if models disagree strongly, even if average risk is moderate.
+Why: disagreement is useful uncertainty signal.
+
+67. Multi-calibrator by bad_subtype
+Baseline: one global calibrator.
+Change: calibrate separately for action_specific and state_context predictions.
+Why: these two risks behave differently and may need different thresholds.
+
+68. Multi-calibrator by split difficulty
+Baseline: one global calibrator.
+Change: calibrate threshold separately for seen-task-like, unseen-task-like, unseen-perturbation-like validation groups, but do not feed metadata at runtime.
+Why: analysis tells us where calibration breaks.
+
+69. Worst-split model selection
+Baseline: select model by average AUROC.
+Change: select model by worst split performance, especially unseen_task and unseen_perturbation.
+Why: average metrics hide failures.
+
+70. BAD leakage first model selection
+Baseline: select by AUROC/AUPRC.
+Change: select checkpoint/model by lowest BAD leakage at accept 75% and 50%.
+Why: this is closer to deployment safety.
+
+71. Unseen-task adversarial validation
+Baseline: normal unseen_task eval.
+Change: train a small domain classifier to see if train/test tasks are too separable in feature space.
+Why: if domain classifier is strong, the model may fail because train/test distribution gap is too large.
+
+72. Feature leakage audit model
+Baseline: deployable_only feature filter.
+Change: train simple classifiers to predict task/suite/perturbation metadata from deployable features.
+Why: checks if model indirectly learns dataset shortcuts.
+
+73. State-only vs action-aware gap test
+Baseline: best deployable model.
+Change: train explicit state_only model and compare to full state+action model.
+Why: if full model barely beats state_only, action-risk learning is weak.
+
+74. Action-only vs action-context interaction test
+Baseline: action_only_mlp and context_action_mlp.
+Change: add interaction terms/cross-attention and measure gain over independent state/action models.
+Why: proves whether action-context compatibility matters.
+
+75. Same-state mixed-group only training
+Baseline: train on all GOOD_STRONG vs VALIDATED_BAD.
+Change: train only on same-state groups containing both good and bad candidates.
+Why: strongest possible action-specific supervision.
+
+76. Same-state all-fail group only training
+Baseline: train on all data.
+Change: train/evaluate specifically on all-fail state_context groups.
+Why: isolates VLA state-context risk detection.
+
+77. Mixed-group + all-fail dual curriculum
+Baseline: normal random training.
+Change:
+- first train on clean mixed action-specific groups
+- then add state_context all-fail groups
+Why: teaches action-risk first, then state-risk.
+
+78. Curriculum by label confidence
+Baseline: train all samples from start.
+Change:
+- start with highest-confidence GOOD_STRONG and VALIDATED_BAD
+- gradually add weaker/ambiguous samples
+Why: avoids early noise hurting representation.
+
+79. Curriculum by task difficulty
+Baseline: random all tasks.
+Change:
+- train easy/stable tasks first
+- add failed/timeout/risky tasks later
+Why: may stabilize risk learning.
+
+80. Curriculum by phase
+Baseline: random all phases.
+Change:
+- train approach/grasp first
+- then transport/place
+- then stuck/failure-tail states
+Why: phases have different risk semantics; curriculum may help.
+
+Recommended fourth batch order:
+61, 62, 64, 65, 69, 70, 73, 75, 77, 80
+
+Reason:
+These focus on deployment behavior, conservative thresholds, action-vs-state separation, and robust model selection instead of only better AUROC.
+
+
+
+FINAL 20 IDEAS TO ADD TO THE TEST LIST
+
+81. Optimizer sweep
+Baseline: AdamW default.
+Change: test AdamW, Lion, RAdam, Adafactor.
+Why: risk training may be sensitive to optimizer; could improve generalization without changing model.
+
+82. Learning-rate schedule sweep
+Baseline: fixed/cosine LR.
+Change: test cosine decay, one-cycle, warmup+cosine, ReduceLROnPlateau.
+Why: better schedule can reduce overfitting and improve unseen-task performance.
+
+83. Weight decay sweep
+Baseline: current weight decay.
+Change: test low/medium/high weight decay.
+Why: unseen perturbation weakness may come from overfitting.
+
+84. Dropout sweep
+Baseline: current dropout.
+Change: test dropout 0.0 / 0.1 / 0.2 / 0.4 in head and encoder.
+Why: improves robustness and calibration.
+
+85. Batch size sweep
+Baseline: current batch size.
+Change: test smaller and larger batches.
+Why: batch size changes generalization and calibration.
+
+86. Class-weight sweep
+Baseline: balanced BCE.
+Change: test BAD weight 1x / 2x / 3x / 5x.
+Why: reduce false-safe errors by making missed BAD more expensive.
+
+87. Label-weight sweep
+Baseline: fixed soft-label weights.
+Change: vary GOOD_WEAK and AMBIGUOUS weights:
+GOOD_WEAK 0.1/0.3/0.5
+AMBIGUOUS 0/0.05/0.1/0.2.
+Why: find best use of weak labels without adding noise.
+
+88. Early stopping metric sweep
+Baseline: stop by validation loss/AUROC.
+Change: stop by AUPRC, BAD leakage at accept 75%, BAD leakage at accept 50%, worst-split AUROC.
+Why: choose checkpoints by deployment safety, not generic accuracy.
+
+89. Random seed robustness
+Baseline: one training seed.
+Change: train top models with 5 different random seeds.
+Why: verify result is stable, not lucky.
+
+90. Checkpoint averaging
+Baseline: best single checkpoint.
+Change: average top N checkpoints from same run.
+Why: often improves calibration and stability.
+
+91. SWA / EMA weights
+Baseline: normal final weights.
+Change: use stochastic weight averaging or exponential moving average.
+Why: improves generalization with little architecture change.
+
+92. Gradient clipping sweep
+Baseline: current clipping or none.
+Change: test clip norm 0.5 / 1.0 / 5.0.
+Why: stabilizes sequence models like Mamba/Transformer/LSTM.
+
+93. Mixed precision vs full precision test
+Baseline: current training precision.
+Change: compare AMP fp16/bf16 vs fp32 for best model.
+Why: confirm speed gains do not hurt calibration/safety.
+
+94. Latency benchmark
+Baseline: no runtime measurement.
+Change: measure inference time per model on Bob/Sam GPU and CPU if possible.
+Why: final deployment model must be fast enough.
+
+95. Memory benchmark
+Baseline: no memory report.
+Change: report GPU memory for each top model.
+Why: needed for real-time deployment planning.
+
+96. Quantization test
+Baseline: fp32/fp16 model.
+Change: test dynamic quantization or ONNX/TorchScript export if possible.
+Why: see if model can run faster for deployment.
+
+97. TorchScript / ONNX export test
+Baseline: PyTorch checkpoint only.
+Change: export best model to TorchScript/ONNX and verify identical predictions.
+Why: required later for deployment.
+
+98. Online threshold smoothing
+Baseline: per-step independent threshold.
+Change: use moving average risk over last N predictions.
+Why: prevents unstable switch/no-switch flickering.
+
+99. Consecutive-risk trigger
+Baseline: switch immediately if risk above threshold.
+Change: switch only after N consecutive high-risk predictions, except emergency high threshold.
+Why: reduces false alarms while keeping safety.
+
+100. Final integrated offline deployment simulation
+Baseline: metric-only evaluation.
+Change: replay saved sequences with the full policy:
+risk model → calibrator → threshold → accept/reject decision.
+Report accepted BAD leakage, rejected BAD enrichment, GOOD kept rate, and switch frequency.
+Why: this is closest to the final VLA/WM deployment logic.

@@ -1,0 +1,76 @@
+{
+  "num_results": 640,
+  "by_model": {
+    "Qwen/Qwen3-VL-2B-Instruct": 320,
+    "Qwen/Qwen2.5-VL-3B-Instruct": 320
+  },
+  "by_status": {
+    "ok": 640
+  },
+  "by_category": {
+    "bad_no_raw_local_bad": 80,
+    "bad_terminal_alt_only": 160,
+    "bad_terminal_timeout": 80,
+    "bad_with_local_good_progress": 80,
+    "ambiguous_random": 80,
+    "good_strong_random": 80,
+    "validated_bad_random": 80
+  },
+  "behavior_by_label": {
+    "VALIDATED_BAD": {
+      "bad": 478,
+      "missing": 2
+    },
+    "AMBIGUOUS": {
+      "bad": 80
+    },
+    "GOOD_STRONG": {
+      "good": 55,
+      "bad": 25
+    }
+  },
+  "suggested_action_by_label": {
+    "VALIDATED_BAD": {
+      "manual_review": 309,
+      "keep": 104,
+      "downgrade_to_ambiguous": 8,
+      "missing": 2,
+      "upgrade_to_review": 57
+    },
+    "AMBIGUOUS": {
+      "downgrade_to_ambiguous": 69,
+      "upgrade_to_review": 11
+    },
+    "GOOD_STRONG": {
+      "keep": 59,
+      "downgrade_to_ambiguous": 20,
+      "upgrade_to_review": 1
+    }
+  },
+  "failure_types": {
+    "terminal_failure": 130,
+    "terminal_failure_with_successful_same_state_alternative": 50,
+    "object_drop": 241,
+    "misplacement": 13,
+    "terminal_timeout": 2,
+    "missing": 2,
+    "moved_away": 1,
+    "no_progress": 146,
+    "none": 55
+  },
+  "suspicious_count": 481,
+  "suspicious_by_label": {
+    "VALIDATED_BAD": 376,
+    "AMBIGUOUS": 80,
+    "GOOD_STRONG": 25
+  },
+  "suspicious_by_category": {
+    "bad_no_raw_local_bad": 80,
+    "bad_terminal_alt_only": 110,
+    "bad_terminal_timeout": 77,
+    "bad_with_local_good_progress": 80,
+    "validated_bad_random": 29,
+    "ambiguous_random": 80,
+    "good_strong_random": 25
+  }
+}

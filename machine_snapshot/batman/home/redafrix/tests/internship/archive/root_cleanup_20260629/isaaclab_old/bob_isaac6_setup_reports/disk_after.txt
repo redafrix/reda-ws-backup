@@ -1,0 +1,98 @@
+=== Command: df -hT ===
+Filesystem     Type      Size  Used Avail Use% Mounted on
+tmpfs          tmpfs     3.1G  2.9M  3.1G   1% /run
+/dev/nvme0n1p2 ext4      468G   95G  350G  22% /
+tmpfs          tmpfs      16G   76K   16G   1% /dev/shm
+tmpfs          tmpfs     5.0M  4.0K  5.0M   1% /run/lock
+efivarfs       efivarfs  432K  367K   61K  86% /sys/firmware/efi/efivars
+/dev/nvme0n1p1 vfat      511M  8.2M  503M   2% /boot/efi
+tmpfs          tmpfs     3.1G  104K  3.1G   1% /run/user/1001
+/dev/sda1      exfat     1.9T  1.4T  490G  74% /media/rootalkhatib/My Passport
+
+=== Command: df -ih ===
+Filesystem     Inodes IUsed IFree IUse% Mounted on
+tmpfs            3.9M  1.3K  3.9M    1% /run
+/dev/nvme0n1p2    30M  721K   30M    3% /
+tmpfs            3.9M    21  3.9M    1% /dev/shm
+tmpfs            3.9M     4  3.9M    1% /run/lock
+efivarfs            0     0     0     - /sys/firmware/efi/efivars
+/dev/nvme0n1p1      0     0     0     - /boot/efi
+tmpfs            784K   141  784K    1% /run/user/1001
+/dev/sda1           0     0     0     - /media/rootalkhatib/My Passport
+
+=== Command: lsblk -o NAME,MODEL,SIZE,FSTYPE,TYPE,MOUNTPOINTS,ROTA,TRAN ===
+NAME        MODEL                            SIZE FSTYPE   TYPE MOUNTPOINTS                         ROTA TRAN
+loop0                                          4K squashfs loop /snap/bare/5                           0 
+loop1                                         74M squashfs loop /snap/core22/2339                      0 
+loop2                                         74M squashfs loop /snap/core22/2411                      0 
+loop3                                       66.8M squashfs loop /snap/core24/1587                      0 
+loop4                                      248.4M squashfs loop /snap/firefox/8462                     0 
+loop6                                      516.2M squashfs loop /snap/gnome-42-2204/226                0 
+loop7                                      531.4M squashfs loop /snap/gnome-42-2204/247                0 
+loop8                                      606.1M squashfs loop /snap/gnome-46-2404/153                0 
+loop9                                       91.7M squashfs loop /snap/gtk-common-themes/1535           0 
+loop10                                       395M squashfs loop /snap/mesa-2404/1165                   0 
+loop11                                      12.9M squashfs loop /snap/snap-store/1113                  0 
+loop12                                      12.2M squashfs loop /snap/snap-store/1216                  0 
+loop13                                      48.1M squashfs loop /snap/snapd/25935                      0 
+loop14                                      49.3M squashfs loop /snap/snapd/26865                      0 
+loop15                                       576K squashfs loop /snap/snapd-desktop-integration/343    0 
+loop16                                       580K squashfs loop /snap/snapd-desktop-integration/361    0 
+loop17                                      66.8M squashfs loop /snap/core24/1643                      0 
+loop18                                     248.6M squashfs loop /snap/firefox/8417                     0 
+sda         My Passport 2680                 1.8T          disk                                        0 usb
+└─sda1                                       1.8T exfat    part /media/rootalkhatib/My Passport        0 
+sr0         HL-DT-ST DVD+/-RW GU90N         1024M          rom                                         1 sata
+nvme0n1     KXG80ZNV512G NVMe KIOXIA 512GB 476.9G          disk                                        0 nvme
+├─nvme0n1p1                                  512M vfat     part /boot/efi                              0 nvme
+└─nvme0n1p2                                476.4G ext4     part /                                      0 nvme
+
+=== Command: findmnt -D ===
+SOURCE           FSTYPE        SIZE   USED  AVAIL USE% TARGET
+udev             devtmpfs     15.3G      0  15.3G   0% /dev
+tmpfs            tmpfs         3.1G   2.9M   3.1G   0% /run
+/dev/nvme0n1p2   ext4        467.9G  94.5G 349.6G  20% /
+tmpfs            tmpfs        15.3G    76K  15.3G   0% /dev/shm
+tmpfs            tmpfs           5M     4K     5M   0% /run/lock
+/dev/loop0       squashfs      128K   128K      0 100% /snap/bare/5
+/dev/loop1       squashfs       74M    74M      0 100% /snap/core22/2339
+/dev/loop2       squashfs       74M    74M      0 100% /snap/core22/2411
+/dev/loop3       squashfs     66.9M  66.9M      0 100% /snap/core24/1587
+/dev/loop6       squashfs    516.3M 516.3M      0 100% /snap/gnome-42-2204/226
+/dev/loop7       squashfs    531.4M 531.4M      0 100% /snap/gnome-42-2204/247
+/dev/loop8       squashfs    606.1M 606.1M      0 100% /snap/gnome-46-2404/153
+/dev/loop9       squashfs     91.8M  91.8M      0 100% /snap/gtk-common-themes/1535
+/dev/loop10      squashfs      395M   395M      0 100% /snap/mesa-2404/1165
+/dev/loop11      squashfs       13M    13M      0 100% /snap/snap-store/1113
+/dev/loop12      squashfs     12.3M  12.3M      0 100% /snap/snap-store/1216
+/dev/loop13      squashfs     48.1M  48.1M      0 100% /snap/snapd/25935
+/dev/loop14      squashfs     49.4M  49.4M      0 100% /snap/snapd/26865
+/dev/loop15      squashfs      640K   640K      0 100% /snap/snapd-desktop-integration/343
+/dev/loop16      squashfs      640K   640K      0 100% /snap/snapd-desktop-integration/361
+/dev/nvme0n1p1   vfat          511M   8.1M 502.9M   2% /boot/efi
+tmpfs            tmpfs         3.1G   104K   3.1G   0% /run/user/1001
+portal           fuse.portal                           /run/user/1001/doc
+tmpfs[/snapd/ns] tmpfs         3.1G   2.9M   3.1G   0% /run/snapd/ns
+/dev/sda1        exfat         1.8T   1.3T 489.8G  74% /media/rootalkhatib/My Passport
+/dev/loop17      squashfs     66.9M  66.9M      0 100% /snap/core24/1643
+/dev/loop18      squashfs    248.6M 248.6M      0 100% /snap/firefox/8417
+/dev/loop4       squashfs    248.5M 248.5M      0 100% /snap/firefox/8462
+
+=== Command: findmnt -T /home/rootalkhatib ===
+TARGET SOURCE         FSTYPE OPTIONS
+/      /dev/nvme0n1p2 ext4   rw,relatime,errors=remount-ro
+
+=== Command: findmnt -T /tmp ===
+TARGET SOURCE         FSTYPE OPTIONS
+/      /dev/nvme0n1p2 ext4   rw,relatime,errors=remount-ro
+
+=== Command: du -sh /home/rootalkhatib 2>/dev/null ===
+40G	/home/rootalkhatib
+
+=== Command: quota -s 2>/dev/null || true ===
+
+
+=== Command: df -h /dev/shm ===
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs            16G   76K   16G   1% /dev/shm
+

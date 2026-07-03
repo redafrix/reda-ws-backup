@@ -1,0 +1,100 @@
+[3gH    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H   [INFO] Using python from: /home/redafrix/tests/internship/isaac_dynamicVLA-test/IsaacLab/_isaac_sim/python.sh
+Loading user config located at: '/home/redafrix/isaacsim/kit/data/Kit/Isaac-Sim/4.5/user.config.json'
+[Info] [carb] Logging to file: /home/redafrix/isaacsim/kit/logs/Kit/Isaac-Sim/4.5/kit_20260612_110435.log
+2026-06-12 09:04:35 [0ms] [Warning] [omni.kit.app.plugin] No crash reporter present, dumps uploading isn't available.
+2026-06-12 09:04:35 [4ms] [Warning] [omni.ext.plugin] [ext: rendering_modes] Extensions config 'extension.toml' doesn't exist '/home/redafrix/tests/internship/isaac_dynamicVLA-test/IsaacLab/apps/isaacsim_4_5/rendering_modes' or '/home/redafrix/tests/internship/isaac_dynamicVLA-test/IsaacLab/apps/isaacsim_4_5/rendering_modes/config'
+2026-06-12 09:04:36 [654ms] [Warning] [omni.datastore] OmniHub is inaccessible
+2026-06-12 09:04:38 [2,942ms] [Warning] [gpu.foundation.plugin] Skipping unsupported non-NVIDIA GPU: Intel(R) Graphics (ADL GT2)
+2026-06-12 09:04:38 [2,942ms] [Warning] [gpu.foundation.plugin] Skipping unsupported non-NVIDIA GPU: Intel(R) Graphics (ADL GT2)
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.95.05     | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 4060 Laptop.. | Yes: 0 |     | 8188    MB | 10de      | 0          |
+|     |                                  |        |     |            | 28e0      | 0c5e72a5.. |
+|     |                                  |        |     |            | 1         |            |
+|---------------------------------------------------------------------------------------------|
+| 1   | Intel(R) Graphics (ADL GT2)      |        |     | 23785   MB | 8086      | 0          |
+|     |                                  |        |     |            | 46a6      | 8680a646.. |
+|     |                                  |        |     |            | 0         |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-85-generic
+| XServer Vendor: The X.Org Foundation, XServer Version: 12101004 (1.21.1.4)
+| Processor: 12th Gen Intel(R) Core(TM) i7-12700H
+| Bare Metal Cores: 14 | Bare Metal Logical Cores: 28
+| Available Cores:  20 
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 31713 | Free Memory: 17737
+| Total Page/Swap (MB): 2047 | Free Page/Swap: 5
+|---------------------------------------------------------------------------------------------|
+2026-06-12 09:04:38 [3,244ms] [Warning] [gpu.foundation.plugin] IOMMU is enabled.
+2026-06-12 09:04:38 [3,244ms] [Warning] [gpu.foundation.plugin] Detected IOMMU is enabled. Running CUDA peer-to-peer bandwidth and latency validation.
+Unidirectional P2P=Enabled Bandwidth (P2P Writes) Matrix (GB/s)
+   D\D     0 
+     0 225.79 
+P2P=Enabled Latency (P2P Writes) Matrix (us)
+   GPU     0 
+     0   1.50 
+
+   CPU     0 
+     0   1.71 
+2026-06-12 09:04:39 [4,320ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+2026-06-12 09:04:40 [4,920ms] [Warning] [omni.log] Source: omni.hydra was already registered.
+2026-06-12 09:04:41 [5,570ms] [Warning] [omni.replicator.core.scripts.extension] No material configuration file, adding configuration to material settings directly.
+2026-06-12 09:04:43 [8,446ms] [Warning] [omni.usd-abi.plugin] No setting was found for '/rtx-defaults/ambientOcclusion/enabled'
+2026-06-12 09:04:43 [8,446ms] [Warning] [omni.usd-abi.plugin] No setting was found for '/rtx-defaults/directLighting/sampledLighting/esitecustomize: pre-importing torch to avoid PyTorch/Isaac Sim conflict...
+[WARN][AppLauncher]: There are no arguments attached to the ArgumentParser object. If you have your own arguments, please load your own arguments before calling the `AppLauncher.add_app_launcher_args` method. This allows the method to check the validity of the arguments and perform checks for argument names.
+[INFO][AppLauncher]: Using device: cuda:0
+[INFO][AppLauncher]: Loading experience file: /home/redafrix/tests/internship/isaac_dynamicVLA-test/IsaacLab/apps/isaacsim_4_5/isaaclab.python.headless.rendering.kit
+--- Prim Info ---
+Prim Path: /World/envs/env_0/TargetCube
+Is valid: True
+Prim Type: Xform
+Has UsdPhysics.RigidBodyAPI: True
+Has UsdPhysics.CollisionAPI: False
+UsdPhysics.RigidBodyAPI Attribute physics:rigidBodyEnabled: True
+UsdPhysics.RigidBodyAPI Attribute physics:kinematicEnabled: False
+UsdPhysics.RigidBodyAPI Attribute physics:startsAsleep: False
+UsdPhysics.RigidBodyAPI Attribute physics:velocity: (0, 0, 0)
+UsdPhysics.RigidBodyAPI Attribute physics:angularVelocity: (0, 0, 0)
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:linearDamping: 0.0
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:angularDamping: 0.05000000074505806
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:maxLinearVelocity: inf
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:maxAngularVelocity: 5729.580078125
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:sleepThreshold: 4.999999873689376e-05
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:stabilizationThreshold: 9.999999747378752e-06
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:maxDepenetrationVelocity: 3.0
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:maxContactImpulse: inf
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:solverPositionIterationCount: 16
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:solverVelocityIterationCount: 1
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:enableCCD: False
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:enableSpeculativeCCD: False
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:retainAccelerations: False
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:enableGyroscopicForces: True
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:disableGravity: False
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:solveContact: True
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:lockedPosAxis: 0
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:lockedRotAxis: 0
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:contactSlopCoefficient: 0.0
+PhysxSchema.PhysxRigidBodyAPI Attribute physxRigidBody:cfmScale: 0.02500000037252903
+Property physics:angularVelocity: (0, 0, 0)
+Property physics:velocity: (0, 0, 0)
+Property physxRigidBody:disableGravity: False
+Property physxRigidBody:maxAngularVelocity: 5729.580078125
+Property physxRigidBody:maxDepenetrationVelocity: 3.0
+Property physxRigidBody:maxLinearVelocity: inf
+Property physxRigidBody:solverVelocityIterationCount: 1
+Step 0: pos=[ 0.58 -0.16  1.15], vel=[ 0.0000000e+00  0.0000000e+00 -1.1920929e-07  0.0000000e+00
+  0.0000000e+00  0.0000000e+00]
+Step 1: pos=[ 0.58  -0.16   1.175], vel=[0.000000e+00 0.000000e+00 6.437302e-07 0.000000e+00 0.000000e+00
+ 0.000000e+00]
+Step 2: pos=[ 0.58      -0.16       1.1999999], vel=[ 0.0000000e+00  0.0000000e+00 -1.1920929e-07  0.0000000e+00
+  0.0000000e+00  0.0000000e+00]
+Step 3: pos=[ 0.58      -0.16       1.2249999], vel=[ 0.0000000e+00  0.0000000e+00 -1.1920929e-07  0.0000000e+00
+  0.0000000e+00  0.0000000e+00]
+Step 4: pos=[ 0.58      -0.16       1.2499999], vel=[ 0.0000000e+00  0.0000000e+00 -1.1920929e-07  0.0000000e+00
+  0.0000000e+00  0.0000000e+00]

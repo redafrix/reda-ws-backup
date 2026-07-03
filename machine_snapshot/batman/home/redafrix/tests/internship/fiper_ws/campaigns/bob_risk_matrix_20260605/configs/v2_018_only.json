@@ -1,0 +1,26 @@
+{
+  "campaign_name": "bob_risk_matrix_v2_018_only",
+  "created": "2026-06-05",
+  "stop_on_error": true,
+  "jobs": [
+    {
+      "name": "v2_018_transformer_k16",
+      "mode": "supervised",
+      "model": "seq_transformer",
+      "history_steps": 16,
+      "include_action": true,
+      "action_repr": "stats",
+      "include_ace": true,
+      "include_ace_history": true,
+      "include_proprio": true,
+      "include_objects": false,
+      "width": 128,
+      "layers": 3,
+      "heads": 4,
+      "max_epochs": 120,
+      "patience": 18,
+      "batch_size": 256,
+      "seed": 20260605
+    }
+  ]
+}

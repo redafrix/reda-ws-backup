@@ -1,0 +1,46 @@
+task: pick_place
+output_dir: /home/redafrix/tests/internship/franka_wrist_camera_isaaclab-test/outputs/fcan03_diag_B_deeper_grasp
+start_episode_id: 0
+num_episodes: 1
+max_steps: 4800
+settle_time_s: 1.0
+
+record_cameras: true
+camera_fps: 30
+record_depth: true
+
+seed: 401
+top_grasp_depth_m: 0.04
+
+target_object:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: can
+  variant_id: fcan03
+  split: train
+  role: target
+  required_affordances: [pickable]
+  required_grasp_strategy: center_top
+
+placement_target:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: tray
+  variant_id: tray04
+  split: train
+  role: clutter
+  required_affordances: [support]
+  required_grasp_strategy: unsupported
+
+pose_randomization:
+  object_xy_range:
+    x: [0.02, 0.02]
+    y: [-0.02, -0.02]
+  place_xy_range:
+    x: [-0.04, -0.04]
+    y: [0.03, 0.03]
+
+lighting_randomization:
+  dome_light_intensity_range: [800.0, 800.0]
+  dome_light_color_options:
+    - [1.0, 1.0, 1.0]

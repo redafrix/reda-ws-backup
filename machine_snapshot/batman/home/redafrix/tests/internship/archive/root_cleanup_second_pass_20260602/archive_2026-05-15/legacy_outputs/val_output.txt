@@ -1,0 +1,63 @@
+Activated AsyncVLA Bob SimVLA env
+  PYTHON_BIN=/usr/bin/python3
+  SIMVLA_SITE_PACKAGES=/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages
+  REDA_WS=/media/rootalkhatib/My Passport/reda_ws
+  LIBERO_CONFIG_PATH=/media/rootalkhatib/My Passport/reda_ws/intern_ship_ws/simvla/config/libero
+Python 3.10.12
+File size: 0.63 MB
+Number of contexts: 50
+
+Keys and shapes (first sample):
+  sample_id: str
+  context_id: str
+  task_name: str
+  source_hdf5: str
+  source_local_index: int
+  language_instruction: str
+  proprio: [8] torch.float32
+  expert_normalized_action: [10, 7] torch.float32
+  expert_postprocessed_action: [10, 7] torch.float32
+  split: str
+  pooled_vlm_features: [960] torch.float32
+  simvla_seed0_normalized_action: [10, 7] torch.float32
+  simvla_seed0_postprocessed_action: [10, 7] torch.float32
+  simvla_seed0_per_step_l2_error: [10] torch.float32
+  simvla_seed0_chunk_l2_error: float
+  simvla_seed1_normalized_action: [10, 7] torch.float32
+  simvla_seed1_postprocessed_action: [10, 7] torch.float32
+  simvla_seed1_per_step_l2_error: [10] torch.float32
+  simvla_seed1_chunk_l2_error: float
+  simvla_seed2_normalized_action: [10, 7] torch.float32
+  simvla_seed2_postprocessed_action: [10, 7] torch.float32
+  simvla_seed2_per_step_l2_error: [10] torch.float32
+  simvla_seed2_chunk_l2_error: float
+  simvla_seed3_normalized_action: [10, 7] torch.float32
+  simvla_seed3_postprocessed_action: [10, 7] torch.float32
+  simvla_seed3_per_step_l2_error: [10] torch.float32
+  simvla_seed3_chunk_l2_error: float
+  simvla_seed4_normalized_action: [10, 7] torch.float32
+  simvla_seed4_postprocessed_action: [10, 7] torch.float32
+  simvla_seed4_per_step_l2_error: [10] torch.float32
+  simvla_seed4_chunk_l2_error: float
+
+No NaN/Inf found in tensors.
+
+Error stats per seed:
+  Seed 0: mean=1.5281, std=0.6913, min=0.3198, max=2.7826
+  Seed 1: mean=1.5119, std=0.6578, min=0.3313, max=2.6603
+  Seed 2: mean=1.4843, std=0.6614, min=0.3338, max=2.5982
+  Seed 3: mean=1.5402, std=0.6643, min=0.3443, max=2.7052
+  Seed 4: mean=1.4850, std=0.6422, min=0.3455, max=2.5581
+
+Seed diversity:
+Contexts where all seeds are nearly identical (dist < 1e-4): 0 / 50 (0.0%)
+
+Examples of LOW seed diversity:
+  debug_ctx_0000021 (put the white bowl on the plate): mean pairwise distance =  0.101694
+  debug_ctx_0000020 (put the white bowl on the plate): mean pairwise distance =  0.104640
+  debug_ctx_0000022 (put the white bowl on the plate): mean pairwise distance =  0.109290
+
+Examples of HIGH seed diversity:
+  debug_ctx_0000033 (put the white bowl on the plate): mean pairwise distance =  0.354466
+  debug_ctx_0000034 (put the white bowl on the plate): mean pairwise distance =  0.360265
+  debug_ctx_0000035 (put the white bowl on the plate): mean pairwise distance =  0.361625

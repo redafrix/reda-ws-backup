@@ -1,0 +1,842 @@
+{
+  "total_episodes": 540,
+  "seed_parity_pass": true,
+  "tasks": {
+    "0": {
+      "original_simvla": {
+        "success_rate": 0.8,
+        "success_count": 8,
+        "mean_steps": 185.7
+      },
+      "modified_simvla": {
+        "success_rate": 0.8,
+        "success_count": 8,
+        "mean_steps": 180.8
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 0.8,
+        "success_count": 8,
+        "mean_steps": 162.5
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 1,
+          "regressions": 1,
+          "both_success": 7,
+          "both_fail": 1
+        },
+        "risk_vs_mod": {
+          "rescues": 2,
+          "regressions": 2,
+          "both_success": 6,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 1,
+          "regressions": 1,
+          "both_success": 7,
+          "both_fail": 1
+        }
+      },
+      "mods": {
+        "total_mods": 31,
+        "episodes_with_mods": 7,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "1": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 186.7
+      },
+      "modified_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 179.1
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 179.1
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 1,
+          "both_success": 9,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 1
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 1,
+          "both_success": 9,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 13,
+        "episodes_with_mods": 9,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "2": {
+      "original_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 193.1
+      },
+      "modified_simvla": {
+        "success_rate": 0.8,
+        "success_count": 8,
+        "mean_steps": 197.0
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 193.6
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 1,
+          "regressions": 2,
+          "both_success": 7,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 1,
+          "regressions": 0,
+          "both_success": 8,
+          "both_fail": 1
+        },
+        "risk_vs_orig": {
+          "rescues": 1,
+          "regressions": 1,
+          "both_success": 8,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 22,
+        "episodes_with_mods": 8,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "3": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 113.7
+      },
+      "modified_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 118.4
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 117.4
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 1,
+        "episodes_with_mods": 1,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "4": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 118.9
+      },
+      "modified_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 123.3
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 123.3
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 0,
+        "episodes_with_mods": 0,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "5": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 94.0
+      },
+      "modified_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 92.8
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 92.1
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 3,
+        "episodes_with_mods": 2,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "6": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 84.5
+      },
+      "modified_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 82.6
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 82.6
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 3,
+        "episodes_with_mods": 3,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "7": {
+      "original_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 117.2
+      },
+      "modified_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 110.2
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 112.9
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 1,
+          "regressions": 1,
+          "both_success": 8,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 1
+        },
+        "risk_vs_orig": {
+          "rescues": 1,
+          "regressions": 1,
+          "both_success": 8,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 6,
+        "episodes_with_mods": 5,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "8": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 88.7
+      },
+      "modified_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 86.8
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 86.8
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 0,
+        "episodes_with_mods": 0,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "9": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 87.9
+      },
+      "modified_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 107.9
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 107.9
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 1,
+          "both_success": 9,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 1
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 1,
+          "both_success": 9,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 6,
+        "episodes_with_mods": 5,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "10": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 87.2
+      },
+      "modified_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 84.3
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 84.3
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 1,
+        "episodes_with_mods": 1,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "11": {
+      "original_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 116.1
+      },
+      "modified_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 91.3
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 93.9
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 1,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 1,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 45,
+        "episodes_with_mods": 10,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "12": {
+      "original_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 116.2
+      },
+      "modified_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 101.9
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 97.3
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 1,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 1,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 57,
+        "episodes_with_mods": 10,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "13": {
+      "original_simvla": {
+        "success_rate": 0.6,
+        "success_count": 6,
+        "mean_steps": 209.9
+      },
+      "modified_simvla": {
+        "success_rate": 0.8,
+        "success_count": 8,
+        "mean_steps": 168.0
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 161.9
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 2,
+          "regressions": 0,
+          "both_success": 6,
+          "both_fail": 2
+        },
+        "risk_vs_mod": {
+          "rescues": 1,
+          "regressions": 0,
+          "both_success": 8,
+          "both_fail": 1
+        },
+        "risk_vs_orig": {
+          "rescues": 3,
+          "regressions": 0,
+          "both_success": 6,
+          "both_fail": 1
+        }
+      },
+      "mods": {
+        "total_mods": 28,
+        "episodes_with_mods": 7,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "14": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 155.1
+      },
+      "modified_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 145.7
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 132.2
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 1,
+          "both_success": 9,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 1,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 23,
+        "episodes_with_mods": 6,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "15": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 108.7
+      },
+      "modified_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 93.6
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 93.6
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 10,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 0,
+        "episodes_with_mods": 0,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "16": {
+      "original_simvla": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 94.2
+      },
+      "modified_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 108.6
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 108.6
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 0,
+          "regressions": 1,
+          "both_success": 9,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 0,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 1
+        },
+        "risk_vs_orig": {
+          "rescues": 0,
+          "regressions": 1,
+          "both_success": 9,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 2,
+        "episodes_with_mods": 1,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    },
+    "17": {
+      "original_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 131.1
+      },
+      "modified_simvla": {
+        "success_rate": 0.9,
+        "success_count": 9,
+        "mean_steps": 131.0
+      },
+      "modified_h10_risk_topk8": {
+        "success_rate": 1.0,
+        "success_count": 10,
+        "mean_steps": 102.8
+      },
+      "paired": {
+        "mod_vs_orig": {
+          "rescues": 1,
+          "regressions": 1,
+          "both_success": 8,
+          "both_fail": 0
+        },
+        "risk_vs_mod": {
+          "rescues": 1,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 0
+        },
+        "risk_vs_orig": {
+          "rescues": 1,
+          "regressions": 0,
+          "both_success": 9,
+          "both_fail": 0
+        }
+      },
+      "mods": {
+        "total_mods": 13,
+        "episodes_with_mods": 5,
+        "total_queries": 113,
+        "modified_queries": 6,
+        "query_modification_rate": 0.05309734513274336
+      }
+    }
+  },
+  "overall": {
+    "original_simvla": {
+      "success_rate": 0.9388888888888889,
+      "success_count": 169,
+      "mean_steps": 127.16111111111111
+    },
+    "modified_simvla": {
+      "success_rate": 0.9333333333333333,
+      "success_count": 168,
+      "mean_steps": 122.40555555555555
+    },
+    "modified_h10_risk_topk8": {
+      "success_rate": 0.9555555555555556,
+      "success_count": 172,
+      "mean_steps": 118.4888888888889
+    },
+    "paired": {
+      "mod_vs_orig": {
+        "rescues": 8,
+        "regressions": 9,
+        "both_success": 160,
+        "both_fail": 3
+      },
+      "risk_vs_mod": {
+        "rescues": 6,
+        "regressions": 2,
+        "both_success": 166,
+        "both_fail": 6
+      },
+      "risk_vs_orig": {
+        "rescues": 9,
+        "regressions": 6,
+        "both_success": 163,
+        "both_fail": 2
+      }
+    },
+    "mods": {
+      "total_mods": 254,
+      "episodes_with_mods": 80,
+      "total_queries": 2034,
+      "modified_queries": 108,
+      "query_modification_rate": 0.05309734513274336
+    }
+  }
+}

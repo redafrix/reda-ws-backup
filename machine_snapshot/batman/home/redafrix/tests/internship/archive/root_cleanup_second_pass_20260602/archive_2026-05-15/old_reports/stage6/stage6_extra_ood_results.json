@@ -1,0 +1,44 @@
+{
+  "rows": [
+    {
+      "split": "holdout_libero_spatial",
+      "variant": "action_only_baseline",
+      "part": "test_ood",
+      "pairwise": 0.7075,
+      "improvement": 0.04107837587594987,
+      "gap_oracle": 0.02185030043125158,
+      "auroc": 0.767747619047619,
+      "acc50": 1.778692656517029,
+      "rej50": 2.0508307375907897,
+      "all_pearson": 0.7645924352197622,
+      "anti_expert_other": 0.495
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "variant": "full_old_baseline",
+      "part": "test_ood",
+      "pairwise": 0.8715,
+      "improvement": 0.05808874934911734,
+      "gap_oracle": 0.0048399269580841064,
+      "auroc": 0.9572809523809525,
+      "acc50": 1.6485292596817016,
+      "rej50": 2.180994134426117,
+      "all_pearson": 0.9727928697890436,
+      "anti_expert_other": 0.995
+    },
+    {
+      "split": "holdout_libero_spatial",
+      "variant": "context_gated_action",
+      "part": "test_ood",
+      "pairwise": 0.917,
+      "improvement": 0.06136318057775503,
+      "gap_oracle": 0.00156549572944642,
+      "auroc": 0.9657190476190477,
+      "acc50": 1.659000018119812,
+      "rej50": 2.1705233759880067,
+      "all_pearson": 0.9898643240421033,
+      "anti_expert_other": 1.0
+    }
+  ],
+  "note": "Only holdout_libero_spatial completed. Remaining extra splits were stopped because each multiseed extraction takes about 16 minutes."
+}

@@ -1,0 +1,48 @@
+{
+  "baseline_id": "v2_018_transformer_k16",
+  "created": "2026-05-28",
+  "model": {
+    "mode": "supervised",
+    "model": "seq_transformer",
+    "history_steps": 16,
+    "width": 128,
+    "layers": 3,
+    "heads": 4,
+    "include_action": true,
+    "action_repr": "stats",
+    "include_ace": true,
+    "include_ace_history": true,
+    "include_proprio": true,
+    "include_objects": false,
+    "batch_size": 384,
+    "max_epochs": 120,
+    "patience": 18,
+    "seed": 42
+  },
+  "policy": {
+    "name": "score_q95_mass_conformal",
+    "row_threshold_source": "success_calib_seen",
+    "episode_threshold_source": "success_val_seen",
+    "alpha": 0.15,
+    "online_inputs": ["current_score", "past_scores", "current_timestep"]
+  },
+  "canonical_dataset": {
+    "frozen_data": "data/frozen/fiper_sweep_eternal_20260527_combined",
+    "manifests": "data/manifests/fiper_sweep_eternal_20260527_combined",
+    "prepared_splits": "experiments/prepared_20260527"
+  },
+  "current_artifacts": {
+    "nextgen_all_results": "experiments/clean_temporal_nextgen_v2_full_all_20260527",
+    "online_policy_sweep": "experiments/transformer_k16_online_policy_sweep_20260528",
+    "dynamic_policy_sweep": "experiments/transformer_k16_dynamic_threshold_policy_sweep_20260528",
+    "capacity_big_sweep": "experiments/transformer_capacity_history_sweep_fold00_v1_20260528",
+    "capacity_small_sweep": "experiments/transformer_capacity_history_small_sweep_fold00_v1_20260528"
+  },
+  "decision": {
+    "selected_as_current_baseline": true,
+    "scale_capacity_sweep_to_all_folds": false,
+    "use_official_libero_expert_data": false,
+    "use_dynamic_threshold_as_replacement": false
+  }
+}
+

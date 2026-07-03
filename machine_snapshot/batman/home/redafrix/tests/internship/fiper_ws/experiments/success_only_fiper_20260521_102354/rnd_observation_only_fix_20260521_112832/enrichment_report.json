@@ -1,0 +1,65 @@
+{
+  "timestamp": "20260521_112832",
+  "output_dir": "/home/rootalkhatib/test/reda_ws/fiper_ws/experiments/success_only_fiper_20260521_102354/rnd_observation_only_fix_20260521_112832",
+  "enrichment_stats": {
+    "train_success_id.jsonl": {
+      "total": 11199,
+      "enriched": 11199,
+      "failed": 0
+    },
+    "calib_success_id.jsonl": {
+      "total": 3574,
+      "enriched": 3574,
+      "failed": 0
+    },
+    "test_success_id.jsonl": {
+      "total": 3944,
+      "enriched": 3944,
+      "failed": 0
+    },
+    "test_success_ood_task.jsonl": {
+      "total": 386,
+      "enriched": 386,
+      "failed": 0
+    },
+    "test_success_ood_suite.jsonl": {
+      "total": 2351,
+      "enriched": 2351,
+      "failed": 0
+    }
+  },
+  "ood_object_report": {
+    "ood_object_count": 2110,
+    "holdout_tasks": {
+      "libero_object": [
+        "pick up the cream cheese and place it in the basket",
+        "pick up the salad dressing and place it in the basket"
+      ],
+      "libero_goal": [
+        "put the bowl on the plate",
+        "put the cream cheese in the bowl"
+      ],
+      "libero_10": [
+        "put the yellow and white mug in the microwave and close it",
+        "put the black bowl in the bottom drawer of the cabinet and close it"
+      ],
+      "libero_90": [
+        "pick up the alphabet soup and place it in the basket",
+        "turn on the stove"
+      ]
+    },
+    "movement_stats": {
+      "moved_from_train_success_id_enriched.jsonl": 1117,
+      "moved_from_calib_success_id_enriched.jsonl": 523,
+      "moved_from_test_success_id_enriched.jsonl": 470,
+      "leakage_train_success_id_enriched.jsonl": 0,
+      "leakage_calib_success_id_enriched.jsonl": 0,
+      "leakage_test_success_id_enriched.jsonl": 0
+    },
+    "updated_split_sizes": {
+      "train_success_id_enriched.jsonl": 10082,
+      "calib_success_id_enriched.jsonl": 3051,
+      "test_success_id_enriched.jsonl": 3474
+    }
+  }
+}

@@ -1,0 +1,46 @@
+task: pick_place
+output_dir: /home/redafrix/tests/internship/franka_wrist_camera_isaaclab-test/outputs/robust_12_kiwi00_into_bowl10_seed303
+start_episode_id: 0
+num_episodes: 1
+max_steps: 4800
+settle_time_s: 1.0
+
+record_cameras: true
+camera_fps: 30
+record_depth: true
+
+seed: 303
+top_grasp_depth_m: 0.025
+
+target_object:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: kiwi
+  variant_id: kiwi00
+  split: train
+  role: target
+  required_affordances: [pickable]
+  required_grasp_strategy: center_top
+
+placement_target:
+  catalog_config: object_catalog.generated.yaml
+  geometry_config: object_geometry.generated.yaml
+  category_id: bowl
+  variant_id: bowl10
+  split: train
+  role: target
+  required_affordances: [container]
+  required_grasp_strategy: unsupported
+
+pose_randomization:
+  object_xy_range:
+    x: [-0.01, -0.01]
+    y: [0.025, 0.025]
+  place_xy_range:
+    x: [0.02, 0.02]
+    y: [-0.035, -0.035]
+
+lighting_randomization:
+  dome_light_intensity_range: [800.0, 800.0]
+  dome_light_color_options:
+    - [1.0, 1.0, 1.0]

@@ -1,0 +1,72 @@
+{
+  "training_split_exists": true,
+  "training_split_info": {
+    "failure_eval_ood": 0,
+    "failure_test_seen": 0,
+    "failure_train_seen": 2724,
+    "failure_val_seen": 680,
+    "success_calib_seen": 1400,
+    "success_test_ood": 0,
+    "success_test_seen": 0,
+    "success_train_seen": 11205,
+    "success_val_seen": 1400
+  },
+  "10ep_run": {
+    "exists": true,
+    "tasks_count": 18,
+    "log_errors": [],
+    "total_episodes": 540,
+    "policy_counts": {
+      "original_simvla": 180,
+      "modified_simvla": 180,
+      "modified_h10_risk_topk8": 180
+    },
+    "successes": {
+      "original_simvla": 169,
+      "modified_simvla": 168,
+      "modified_h10_risk_topk8": 172
+    },
+    "mean_steps": {
+      "original_simvla": 127.16111111111111,
+      "modified_simvla": 122.40555555555555,
+      "modified_h10_risk_topk8": 118.4888888888889
+    },
+    "paired": {
+      "mod_vs_orig": {
+        "rescues": 8,
+        "regressions": 9,
+        "rescued_seeds": [[0, 2], [11, 9], [12, 8], [13, 3], [13, 5], [17, 2], [2, 6], [7, 6]],
+        "regressed_seeds": [[0, 5], [1, 6], [14, 4], [16, 9], [17, 6], [2, 2], [2, 7], [7, 1], [9, 1]]
+      },
+      "risk_vs_mod": {
+        "rescues": 6,
+        "regressions": 2,
+        "rescued_seeds": [[0, 5], [0, 7], [13, 6], [14, 4], [17, 6], [2, 7]],
+        "regressed_seeds": [[0, 2], [0, 8]]
+      },
+      "risk_vs_orig": {
+        "rescues": 9,
+        "regressions": 6,
+        "rescued_seeds": [[0, 7], [11, 9], [12, 8], [13, 3], [13, 5], [13, 6], [17, 2], [2, 6], [7, 6]],
+        "regressed_seeds": [[0, 8], [1, 6], [16, 9], [2, 2], [7, 1], [9, 1]]
+      }
+    },
+    "query_stats": {
+      "total_queries": 2213,
+      "modified_queries": 254,
+      "query_modification_rate": 0.11477632173520108
+    }
+  },
+  "100ep_run": {
+    "exists": true,
+    "configs_count": 54,
+    "log_errors": [],
+    "completed_episodes": 30,
+    "completed_jobs": 0
+  },
+  "checkpoint_identity": {
+    "original_simvla": "9d3b1767773da86906d771b1eca2c2911087371bf8b3890a7336b6773270f6be",
+    "modified_simvla": "3fab12d94c963f530ddce9f66aed4bf2623b2a2bbd527c85918fce2fcf8aec71",
+    "detector": "687b5d35eed65abfe63b5ff600e52c2228318ad94209e379e73fbaad981dbb2d"
+  }
+}

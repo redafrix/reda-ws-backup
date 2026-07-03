@@ -1,0 +1,1502 @@
+[
+  {
+    "best_epoch": 1,
+    "feature_notes": "TCN k8 positive class weighted",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.8571428571428571,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.15838095238095237,
+      "failure_eval_ood_score_q95_K3_det25": 0.7142857142857143,
+      "success_test_ood_or_q95_K3_fa": 0.7923497267759563,
+      "success_test_ood_score_q95_K3_fa": 0.26229508196721313,
+      "success_test_seen_or_q95_K3_fa": 0.46551724137931033
+    },
+    "mode": "supervised",
+    "model": "seq_tcn",
+    "name": "050_sup_seq_tcn_k8_pos2",
+    "objective": 1.2930025034321249,
+    "runtime_seconds": 30.454404592514038,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.4596098065376282,
+        "q95": 0.6363895535469055,
+        "q99": 0.8616951704025269
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "LSTM history k8",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.8285714285714286,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.1998095238095238,
+      "failure_eval_ood_score_q95_K3_det25": 0.6571428571428571,
+      "success_test_ood_or_q95_K3_fa": 0.7650273224043715,
+      "success_test_ood_score_q95_K3_fa": 0.16939890710382513,
+      "success_test_seen_or_q95_K3_fa": 0.45689655172413796
+    },
+    "mode": "supervised",
+    "model": "seq_lstm",
+    "name": "044_sup_seq_lstm_k8",
+    "objective": 1.2811535976742312,
+    "runtime_seconds": 34.794270753860474,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.30075332522392273,
+        "q95": 0.47771966457366943,
+        "q99": 0.7508082985877991
+      }
+    }
+  },
+  {
+    "best_epoch": 160,
+    "feature_notes": "autoencoder no-object ablation",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.1720952380952381,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 0.9890710382513661,
+      "success_test_seen_or_q95_K3_fa": 0.5258620689655172
+    },
+    "mode": "ae",
+    "model": "mlp",
+    "name": "022_ae_no_objects_k8",
+    "objective": 1.2370689655172413,
+    "runtime_seconds": 49.28237533569336,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.02544599026441574,
+        "q95": 0.03314454108476639,
+        "q99": 0.053156133741140366
+      }
+    }
+  },
+  {
+    "best_epoch": 158,
+    "feature_notes": "RND with 4-step history",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.006666666666666666,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.5431034482758621
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "009_rnd_full_k4",
+    "objective": 1.228448275862069,
+    "runtime_seconds": 45.12259888648987,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 2.8400394512573257e-05,
+        "q95": 3.63777216989547e-05,
+        "q99": 6.648191629210487e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 158,
+    "feature_notes": "RND ablation without current proprio",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.008571428571428572,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.5431034482758621
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "013_rnd_no_proprio_k8",
+    "objective": 1.228448275862069,
+    "runtime_seconds": 45.584803104400635,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 3.7486803194042295e-05,
+        "q95": 4.838848326471634e-05,
+        "q99": 8.87991554918699e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "full no-history supervised MLP",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.8,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.16580952380952382,
+      "failure_eval_ood_score_q95_K3_det25": 0.6285714285714286,
+      "success_test_ood_or_q95_K3_fa": 0.7595628415300546,
+      "success_test_ood_score_q95_K3_fa": 0.18032786885245902,
+      "success_test_seen_or_q95_K3_fa": 0.46551724137931033
+    },
+    "mode": "supervised",
+    "model": "mlp",
+    "name": "028_sup_full_nohist_mlp",
+    "objective": 1.2278971170152628,
+    "runtime_seconds": 15.580511093139648,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.28527534008026123,
+        "q95": 0.42068105936050415,
+        "q99": 0.6966549754142761
+      }
+    }
+  },
+  {
+    "best_epoch": 160,
+    "feature_notes": "RND with 16-step history",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.006666666666666666,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.5517241379310345
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "011_rnd_full_k16",
+    "objective": 1.2241379310344827,
+    "runtime_seconds": 47.66712141036987,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 1.6266667444142513e-05,
+        "q95": 2.079543082800228e-05,
+        "q99": 3.777457095566206e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 160,
+    "feature_notes": "RND ablation without object position set",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.1285714285714286,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 0.994535519125683,
+      "success_test_seen_or_q95_K3_fa": 0.5517241379310345
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "012_rnd_no_objects_k8",
+    "objective": 1.2241379310344827,
+    "runtime_seconds": 45.01048994064331,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 2.92866061499808e-05,
+        "q95": 3.862783341901377e-05,
+        "q99": 7.184514834079891e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 159,
+    "feature_notes": "autoencoder with 8-step history",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.032857142857142856,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.5517241379310345
+    },
+    "mode": "ae",
+    "model": "mlp",
+    "name": "020_ae_full_k8",
+    "objective": 1.2241379310344827,
+    "runtime_seconds": 50.38670635223389,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.01717066764831543,
+        "q95": 0.022126933559775352,
+        "q99": 0.03495398536324501
+      }
+    }
+  },
+  {
+    "best_epoch": 160,
+    "feature_notes": "denoising autoencoder with 8-step history",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.0420952380952381,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.5517241379310345
+    },
+    "mode": "ae",
+    "model": "mlp",
+    "name": "021_dae_full_k8",
+    "objective": 1.2241379310344827,
+    "runtime_seconds": 55.643670082092285,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.01786624826490879,
+        "q95": 0.02267681434750557,
+        "q99": 0.036776673048734665
+      }
+    }
+  },
+  {
+    "best_epoch": 159,
+    "feature_notes": "larger no-history conditional RND",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.006666666666666666,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.5603448275862069
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "008_rnd_full_nohist",
+    "objective": 1.2198275862068966,
+    "runtime_seconds": 43.225889921188354,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 2.39064174820669e-05,
+        "q95": 3.1472736736759543e-05,
+        "q99": 5.9418860473670065e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 155,
+    "feature_notes": "RND with 8-step history",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.006666666666666666,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.5603448275862069
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "010_rnd_full_k8",
+    "objective": 1.2198275862068966,
+    "runtime_seconds": 44.75102782249451,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 3.067803481826559e-05,
+        "q95": 3.917443609680049e-05,
+        "q99": 7.267136970767751e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 159,
+    "feature_notes": "success-only RND with ACE metrics as context",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.08038095238095239,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 0.9836065573770492,
+      "success_test_seen_or_q95_K3_fa": 0.5689655172413793
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "005_rnd_action_ace",
+    "objective": 1.2155172413793103,
+    "runtime_seconds": 41.97345542907715,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 1.7270358512178063e-05,
+        "q95": 2.3518066882388666e-05,
+        "q99": 4.9213249440072104e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 158,
+    "feature_notes": "RND on flat chunk plus action summaries",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.08295238095238094,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 0.9890710382513661,
+      "success_test_seen_or_q95_K3_fa": 0.5775862068965517
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "004_rnd_action_seqstats",
+    "objective": 1.2112068965517242,
+    "runtime_seconds": 41.74408507347107,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 1.560280543344561e-05,
+        "q95": 2.143891470041126e-05,
+        "q99": 4.3077678128611296e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 160,
+    "feature_notes": "conditional RND with ACE metrics",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.006761904761904761,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.5775862068965517
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "007_rnd_context_action_ace",
+    "objective": 1.2112068965517242,
+    "runtime_seconds": 43.606297731399536,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 2.7807607693830505e-05,
+        "q95": 3.7060035538161173e-05,
+        "q99": 6.972588744247332e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 158,
+    "feature_notes": "conditional RND using action plus proprio plus object distance set",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.006666666666666666,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.5862068965517241
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "006_rnd_context_action",
+    "objective": 1.206896551724138,
+    "runtime_seconds": 43.91296911239624,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 2.542229776736349e-05,
+        "q95": 3.372855644556694e-05,
+        "q99": 6.235359614947811e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 160,
+    "feature_notes": "RND on first/mean/std/delta action summary",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.08466666666666667,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 0.9836065573770492,
+      "success_test_seen_or_q95_K3_fa": 0.603448275862069
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "003_rnd_action_stats",
+    "objective": 1.1982758620689655,
+    "runtime_seconds": 38.53255486488342,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 2.314943958481308e-05,
+        "q95": 3.2850777643034235e-05,
+        "q99": 6.958614540053532e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 160,
+    "feature_notes": "large no-history autoencoder",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.007619047619047619,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.6206896551724138
+    },
+    "mode": "ae",
+    "model": "mlp",
+    "name": "019_ae_full_nohist",
+    "objective": 1.1896551724137931,
+    "runtime_seconds": 49.16129231452942,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.007708983961492777,
+        "q95": 0.009909658692777157,
+        "q99": 0.017336199060082436
+      }
+    }
+  },
+  {
+    "best_epoch": 158,
+    "feature_notes": "conditional autoencoder",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 1.0,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.006952380952380952,
+      "failure_eval_ood_score_q95_K3_det25": 1.0,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.6293103448275862
+    },
+    "mode": "ae",
+    "model": "mlp",
+    "name": "018_ae_context_action",
+    "objective": 1.1853448275862069,
+    "runtime_seconds": 48.45311760902405,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.012426674365997314,
+        "q95": 0.015932027250528336,
+        "q99": 0.02647496573626995
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "TCN history k16",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7714285714285715,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.1953333333333333,
+      "failure_eval_ood_score_q95_K3_det25": 0.6285714285714286,
+      "success_test_ood_or_q95_K3_fa": 0.7759562841530054,
+      "success_test_ood_score_q95_K3_fa": 0.20218579234972678,
+      "success_test_seen_or_q95_K3_fa": 0.45689655172413796
+    },
+    "mode": "supervised",
+    "model": "seq_tcn",
+    "name": "039_sup_seq_tcn_k16",
+    "objective": 1.1504744407655656,
+    "runtime_seconds": 33.587326526641846,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.2501409649848938,
+        "q95": 0.3853972554206848,
+        "q99": 0.6783623099327087
+      }
+    }
+  },
+  {
+    "best_epoch": 2,
+    "feature_notes": "context plus action supervised",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7714285714285715,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.18933333333333335,
+      "failure_eval_ood_score_q95_K3_det25": 0.5428571428571428,
+      "success_test_ood_or_q95_K3_fa": 0.7814207650273224,
+      "success_test_ood_score_q95_K3_fa": 0.16393442622950818,
+      "success_test_seen_or_q95_K3_fa": 0.46551724137931033
+    },
+    "mode": "supervised",
+    "model": "mlp",
+    "name": "026_sup_context_action_mlp",
+    "objective": 1.1379673746265038,
+    "runtime_seconds": 15.82228422164917,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3388769328594208,
+        "q95": 0.5055769085884094,
+        "q99": 0.8205086588859558
+      }
+    }
+  },
+  {
+    "best_epoch": 2,
+    "feature_notes": "transformer no object-position ablation",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.8571428571428571,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.12219047619047621,
+      "failure_eval_ood_score_q95_K3_det25": 0.8285714285714286,
+      "success_test_ood_or_q95_K3_fa": 0.8852459016393442,
+      "success_test_ood_score_q95_K3_fa": 0.639344262295082,
+      "success_test_seen_or_q95_K3_fa": 0.5086206896551724
+    },
+    "mode": "supervised",
+    "model": "seq_transformer",
+    "name": "048_sup_seq_transformer_no_objects_k8",
+    "objective": 1.1321065169991118,
+    "runtime_seconds": 62.15014958381653,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3031403422355652,
+        "q95": 0.49099087715148926,
+        "q99": 0.9872477650642395
+      }
+    }
+  },
+  {
+    "best_epoch": 159,
+    "feature_notes": "success-only action chunk RND small baseline",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.9428571428571428,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.1143809523809524,
+      "failure_eval_ood_score_q95_K3_det25": 0.9428571428571428,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 0.9672131147540983,
+      "success_test_seen_or_q95_K3_fa": 0.5948275862068966
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "001_rnd_action_flat_small",
+    "objective": 1.0883004926108373,
+    "runtime_seconds": 41.70132493972778,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 1.9672015696414746e-05,
+        "q95": 2.7270065402262844e-05,
+        "q99": 5.124914605403319e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 152,
+    "feature_notes": "wider action chunk RND",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.9428571428571428,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.10580952380952381,
+      "failure_eval_ood_score_q95_K3_det25": 0.9428571428571428,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 0.994535519125683,
+      "success_test_seen_or_q95_K3_fa": 0.603448275862069
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "002_rnd_action_flat_wide",
+    "objective": 1.0839901477832512,
+    "runtime_seconds": 40.64241051673889,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 7.1643271439825185e-06,
+        "q95": 9.944516932591796e-06,
+        "q99": 2.0009387299069203e-05
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "TCN k8 without object position set",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7714285714285715,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.19876190476190475,
+      "failure_eval_ood_score_q95_K3_det25": 0.6571428571428571,
+      "success_test_ood_or_q95_K3_fa": 0.819672131147541,
+      "success_test_ood_score_q95_K3_fa": 0.4262295081967213,
+      "success_test_seen_or_q95_K3_fa": 0.47413793103448276
+    },
+    "mode": "supervised",
+    "model": "seq_tcn",
+    "name": "040_sup_seq_tcn_k8_no_objects",
+    "objective": 1.0762799806185899,
+    "runtime_seconds": 32.54231095314026,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3330690562725067,
+        "q95": 0.49115169048309326,
+        "q99": 0.7826517820358276
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "TCN k8 without current proprio",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7428571428571429,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.23438095238095238,
+      "failure_eval_ood_score_q95_K3_det25": 0.7142857142857143,
+      "success_test_ood_or_q95_K3_fa": 0.7759562841530054,
+      "success_test_ood_score_q95_K3_fa": 0.18032786885245902,
+      "success_test_seen_or_q95_K3_fa": 0.49137931034482757
+    },
+    "mode": "supervised",
+    "model": "seq_tcn",
+    "name": "041_sup_seq_tcn_k8_no_proprio",
+    "objective": 1.076090204312364,
+    "runtime_seconds": 33.337470293045044,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3295607268810272,
+        "q95": 0.5147693157196045,
+        "q99": 0.8251290321350098
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "residual MLP inspired by old residual_mlp_large",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7428571428571429,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.19142857142857142,
+      "failure_eval_ood_score_q95_K3_det25": 0.5142857142857142,
+      "success_test_ood_or_q95_K3_fa": 0.8032786885245902,
+      "success_test_ood_score_q95_K3_fa": 0.22404371584699453,
+      "success_test_seen_or_q95_K3_fa": 0.45689655172413796
+    },
+    "mode": "supervised",
+    "model": "residual_mlp",
+    "name": "027_sup_context_action_residual",
+    "objective": 1.0523479770653315,
+    "runtime_seconds": 18.62136220932007,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.2534288465976715,
+        "q95": 0.44261276721954346,
+        "q99": 0.9062856435775757
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "TCN history k4",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7142857142857143,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.238,
+      "failure_eval_ood_score_q95_K3_det25": 0.4857142857142857,
+      "success_test_ood_or_q95_K3_fa": 0.7595628415300546,
+      "success_test_ood_score_q95_K3_fa": 0.1366120218579235,
+      "success_test_seen_or_q95_K3_fa": 0.4827586206896552
+    },
+    "mode": "supervised",
+    "model": "seq_tcn",
+    "name": "037_sup_seq_tcn_k4",
+    "objective": 1.0478478559315192,
+    "runtime_seconds": 32.456239223480225,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3358725309371948,
+        "q95": 0.506690263748169,
+        "q99": 0.8409087657928467
+      }
+    }
+  },
+  {
+    "best_epoch": 20,
+    "feature_notes": "supervised action plus ACE metrics",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.8571428571428571,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.13552380952380955,
+      "failure_eval_ood_score_q95_K3_det25": 0.8285714285714286,
+      "success_test_ood_or_q95_K3_fa": 0.9617486338797814,
+      "success_test_ood_score_q95_K3_fa": 0.7540983606557377,
+      "success_test_seen_or_q95_K3_fa": 0.45689655172413796
+    },
+    "mode": "supervised",
+    "model": "mlp",
+    "name": "025_sup_action_ace_mlp",
+    "objective": 1.0432144876039735,
+    "runtime_seconds": 25.230188608169556,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.29251959919929504,
+        "q95": 0.47387292981147766,
+        "q99": 0.8768252730369568
+      }
+    }
+  },
+  {
+    "best_epoch": 159,
+    "feature_notes": "autoencoder on action chunk plus action summaries",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.9142857142857143,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.1495238095238095,
+      "failure_eval_ood_score_q95_K3_det25": 0.9142857142857143,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 0.9890710382513661,
+      "success_test_seen_or_q95_K3_fa": 0.5862068965517241
+    },
+    "mode": "ae",
+    "model": "mlp",
+    "name": "016_ae_action_seqstats",
+    "objective": 1.0354679802955662,
+    "runtime_seconds": 45.92872619628906,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.0098434928804636,
+        "q95": 0.013021344318985939,
+        "q99": 0.022530674934387207
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "GRU history k16",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7142857142857143,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.2591428571428572,
+      "failure_eval_ood_score_q95_K3_det25": 0.4,
+      "success_test_ood_or_q95_K3_fa": 0.7814207650273224,
+      "success_test_ood_score_q95_K3_fa": 0.2185792349726776,
+      "success_test_seen_or_q95_K3_fa": 0.45689655172413796
+    },
+    "mode": "supervised",
+    "model": "seq_gru",
+    "name": "043_sup_seq_gru_k16",
+    "objective": 1.0279920051683762,
+    "runtime_seconds": 35.17307782173157,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.32269078493118286,
+        "q95": 0.5218582153320312,
+        "q99": 0.8637917637825012
+      }
+    }
+  },
+  {
+    "best_epoch": 159,
+    "feature_notes": "success-only autoencoder on action chunk",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.9142857142857143,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.15333333333333335,
+      "failure_eval_ood_score_q95_K3_det25": 0.9142857142857143,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 0.994535519125683,
+      "success_test_seen_or_q95_K3_fa": 0.6293103448275862
+    },
+    "mode": "ae",
+    "model": "mlp",
+    "name": "015_ae_action_flat",
+    "objective": 1.0139162561576351,
+    "runtime_seconds": 45.367924213409424,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.017498154193162918,
+        "q95": 0.023270895704627037,
+        "q99": 0.03965580835938454
+      }
+    }
+  },
+  {
+    "best_epoch": 61,
+    "feature_notes": "supervised ACE metrics only",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7714285714285715,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.23476190476190475,
+      "failure_eval_ood_score_q95_K3_det25": 0.6857142857142857,
+      "success_test_ood_or_q95_K3_fa": 0.8743169398907104,
+      "success_test_ood_score_q95_K3_fa": 0.6229508196721312,
+      "success_test_seen_or_q95_K3_fa": 0.45689655172413796
+    },
+    "mode": "supervised",
+    "model": "mlp",
+    "name": "036_sup_ace_only",
+    "objective": 1.0029334571590083,
+    "runtime_seconds": 42.143678426742554,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3805162012577057,
+        "q95": 0.5336004495620728,
+        "q99": 0.6859216690063477
+      }
+    }
+  },
+  {
+    "best_epoch": 117,
+    "feature_notes": "sanity: RND over ACE metrics only",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7714285714285715,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.2277142857142857,
+      "failure_eval_ood_score_q95_K3_det25": 0.6,
+      "success_test_ood_or_q95_K3_fa": 0.8743169398907104,
+      "success_test_ood_score_q95_K3_fa": 0.5519125683060109,
+      "success_test_seen_or_q95_K3_fa": 0.5344827586206896
+    },
+    "mode": "rnd",
+    "model": "mlp",
+    "name": "014_rnd_ace_only",
+    "objective": 0.9641403537107325,
+    "runtime_seconds": 29.076366424560547,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 5.698940981346823e-07,
+        "q95": 1.0113814141732291e-06,
+        "q99": 3.4979932479473064e-06
+      }
+    }
+  },
+  {
+    "best_epoch": 160,
+    "feature_notes": "autoencoder with ACE metrics",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.8857142857142857,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.17238095238095238,
+      "failure_eval_ood_score_q95_K3_det25": 0.8857142857142857,
+      "success_test_ood_or_q95_K3_fa": 1.0,
+      "success_test_ood_score_q95_K3_fa": 1.0,
+      "success_test_seen_or_q95_K3_fa": 0.6293103448275862
+    },
+    "mode": "ae",
+    "model": "mlp",
+    "name": "017_ae_action_ace",
+    "objective": 0.9567733990147782,
+    "runtime_seconds": 46.37009119987488,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.010815256275236607,
+        "q95": 0.014281005598604679,
+        "q99": 0.02521766722202301
+      }
+    }
+  },
+  {
+    "best_epoch": 32,
+    "feature_notes": "supervised action with sequence summaries",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.8285714285714286,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.16076190476190474,
+      "failure_eval_ood_score_q95_K3_det25": 0.7428571428571429,
+      "success_test_ood_or_q95_K3_fa": 0.9726775956284153,
+      "success_test_ood_score_q95_K3_fa": 0.7923497267759563,
+      "success_test_seen_or_q95_K3_fa": 0.49137931034482757
+    },
+    "mode": "supervised",
+    "model": "mlp",
+    "name": "024_sup_action_seqstats_mlp",
+    "objective": 0.9524368085278206,
+    "runtime_seconds": 32.266788721084595,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3260764479637146,
+        "q95": 0.4954245984554291,
+        "q99": 0.8709944486618042
+      }
+    }
+  },
+  {
+    "best_epoch": 4,
+    "feature_notes": "LSTM history k16",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6857142857142857,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.22847619047619047,
+      "failure_eval_ood_score_q95_K3_det25": 0.34285714285714286,
+      "success_test_ood_or_q95_K3_fa": 0.7923497267759563,
+      "success_test_ood_score_q95_K3_fa": 0.20218579234972678,
+      "success_test_seen_or_q95_K3_fa": 0.46551724137931033
+    },
+    "mode": "supervised",
+    "model": "seq_lstm",
+    "name": "045_sup_seq_lstm_k16",
+    "objective": 0.950145360574982,
+    "runtime_seconds": 43.02288889884949,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.28257277607917786,
+        "q95": 0.49511367082595825,
+        "q99": 0.9886336326599121
+      }
+    }
+  },
+  {
+    "best_epoch": 2,
+    "feature_notes": "history k4 supervised MLP",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6571428571428571,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.2638095238095238,
+      "failure_eval_ood_score_q95_K3_det25": 0.2857142857142857,
+      "success_test_ood_or_q95_K3_fa": 0.7704918032786885,
+      "success_test_ood_score_q95_K3_fa": 0.12021857923497267,
+      "success_test_seen_or_q95_K3_fa": 0.46551724137931033
+    },
+    "mode": "supervised",
+    "model": "mlp",
+    "name": "029_sup_full_k4_mlp",
+    "objective": 0.9257893886780263,
+    "runtime_seconds": 16.317707538604736,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.29845482110977173,
+        "q95": 0.5193886756896973,
+        "q99": 0.9451059103012085
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "GRU history k8",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6571428571428571,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.25171428571428567,
+      "failure_eval_ood_score_q95_K3_det25": 0.45714285714285713,
+      "success_test_ood_or_q95_K3_fa": 0.7650273224043715,
+      "success_test_ood_score_q95_K3_fa": 0.12021857923497267,
+      "success_test_seen_or_q95_K3_fa": 0.49137931034482757
+    },
+    "mode": "supervised",
+    "model": "seq_gru",
+    "name": "042_sup_seq_gru_k8",
+    "objective": 0.9210550755067429,
+    "runtime_seconds": 34.344812631607056,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3182107210159302,
+        "q95": 0.48038163781166077,
+        "q99": 0.7883923053741455
+      }
+    }
+  },
+  {
+    "best_epoch": 31,
+    "feature_notes": "small transformer history/action",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7714285714285715,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.20933333333333332,
+      "failure_eval_ood_score_q95_K3_det25": 0.5142857142857142,
+      "success_test_ood_or_q95_K3_fa": 0.9344262295081968,
+      "success_test_ood_score_q95_K3_fa": 0.6338797814207651,
+      "success_test_seen_or_q95_K3_fa": 0.4827586206896552
+    },
+    "mode": "supervised",
+    "model": "seq_transformer",
+    "name": "046_sup_seq_transformer_small_k8",
+    "objective": 0.8998384882500199,
+    "runtime_seconds": 113.27481245994568,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.25132063031196594,
+        "q95": 0.6338586807250977,
+        "q99": 0.9999909996986389
+      }
+    }
+  },
+  {
+    "best_epoch": 32,
+    "feature_notes": "residual MLP full k16",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7142857142857143,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.2239047619047619,
+      "failure_eval_ood_score_q95_K3_det25": 0.4,
+      "success_test_ood_or_q95_K3_fa": 0.8688524590163934,
+      "success_test_ood_score_q95_K3_fa": 0.28415300546448086,
+      "success_test_seen_or_q95_K3_fa": 0.4827586206896552
+    },
+    "mode": "supervised",
+    "model": "residual_mlp",
+    "name": "031_sup_full_k16_residual",
+    "objective": 0.883913429702011,
+    "runtime_seconds": 50.79907035827637,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.24547918140888214,
+        "q95": 0.8485037088394165,
+        "q99": 0.9997868537902832
+      }
+    }
+  },
+  {
+    "best_epoch": 4,
+    "feature_notes": "TCN history k8 reusable old idea",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.27276190476190476,
+      "failure_eval_ood_score_q95_K3_det25": 0.2857142857142857,
+      "success_test_ood_or_q95_K3_fa": 0.7595628415300546,
+      "success_test_ood_score_q95_K3_fa": 0.060109289617486336,
+      "success_test_seen_or_q95_K3_fa": 0.45689655172413796
+    },
+    "mode": "supervised",
+    "model": "seq_tcn",
+    "name": "038_sup_seq_tcn_k8",
+    "objective": 0.8322074618428492,
+    "runtime_seconds": 37.796573877334595,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.32892289757728577,
+        "q95": 0.5350963473320007,
+        "q99": 0.983796238899231
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "supervised ablation without current proprio",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.2773333333333333,
+      "failure_eval_ood_score_q95_K3_det25": 0.2,
+      "success_test_ood_or_q95_K3_fa": 0.8032786885245902,
+      "success_test_ood_score_q95_K3_fa": 0.15300546448087432,
+      "success_test_seen_or_q95_K3_fa": 0.47413793103448276
+    },
+    "mode": "supervised",
+    "model": "residual_mlp",
+    "name": "035_sup_no_proprio_k8",
+    "objective": 0.7580130016958735,
+    "runtime_seconds": 18.9294273853302,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.4199594259262085,
+        "q95": 0.692676305770874,
+        "q99": 0.9873616099357605
+      }
+    }
+  },
+  {
+    "best_epoch": 1,
+    "feature_notes": "positive-weighted seen-failure risk",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.7142857142857143,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.20857142857142857,
+      "failure_eval_ood_score_q95_K3_det25": 0.42857142857142855,
+      "success_test_ood_or_q95_K3_fa": 0.9781420765027322,
+      "success_test_ood_score_q95_K3_fa": 0.7377049180327869,
+      "success_test_seen_or_q95_K3_fa": 0.43103448275862066
+    },
+    "mode": "supervised",
+    "model": "residual_mlp",
+    "name": "033_sup_full_k8_pos2",
+    "objective": 0.7458410724380202,
+    "runtime_seconds": 22.863489866256714,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.4093150794506073,
+        "q95": 0.6490347385406494,
+        "q99": 0.9560397863388062
+      }
+    }
+  },
+  {
+    "best_epoch": 15,
+    "feature_notes": "supervised ablation without object positions",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6857142857142857,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.26257142857142857,
+      "failure_eval_ood_score_q95_K3_det25": 0.6571428571428571,
+      "success_test_ood_or_q95_K3_fa": 0.9453551912568307,
+      "success_test_ood_score_q95_K3_fa": 0.7377049180327869,
+      "success_test_seen_or_q95_K3_fa": 0.45689655172413796
+    },
+    "mode": "supervised",
+    "model": "residual_mlp",
+    "name": "034_sup_no_objects_k8",
+    "objective": 0.7249475086812565,
+    "runtime_seconds": 29.52361750602722,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3208596408367157,
+        "q95": 0.7742377519607544,
+        "q99": 0.9999823570251465
+      }
+    }
+  },
+  {
+    "best_epoch": 27,
+    "feature_notes": "TCN k8 focal loss",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6285714285714286,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.25771428571428573,
+      "failure_eval_ood_score_q95_K3_det25": 0.2,
+      "success_test_ood_or_q95_K3_fa": 0.8852459016393442,
+      "success_test_ood_score_q95_K3_fa": 0.4098360655737705,
+      "success_test_seen_or_q95_K3_fa": 0.4827586206896552
+    },
+    "mode": "supervised",
+    "model": "seq_tcn",
+    "name": "049_sup_seq_tcn_k8_focal",
+    "objective": 0.6878946943390132,
+    "runtime_seconds": 63.13192415237427,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.41622087359428406,
+        "q95": 0.5722094178199768,
+        "q99": 0.968378484249115
+      }
+    }
+  },
+  {
+    "best_epoch": 7,
+    "feature_notes": "focal loss full k8",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6571428571428571,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.2648571428571429,
+      "failure_eval_ood_score_q95_K3_det25": 0.2571428571428571,
+      "success_test_ood_or_q95_K3_fa": 0.9289617486338798,
+      "success_test_ood_score_q95_K3_fa": 0.37158469945355194,
+      "success_test_seen_or_q95_K3_fa": 0.4827586206896552
+    },
+    "mode": "supervised",
+    "model": "residual_mlp",
+    "name": "032_sup_full_k8_focal",
+    "objective": 0.6794637809900668,
+    "runtime_seconds": 28.28371286392212,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.4073469638824463,
+        "q95": 0.5424379110336304,
+        "q99": 0.966058611869812
+      }
+    }
+  },
+  {
+    "best_epoch": 7,
+    "feature_notes": "medium transformer history/action",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.2944761904761905,
+      "failure_eval_ood_score_q95_K3_det25": 0.2571428571428571,
+      "success_test_ood_or_q95_K3_fa": 0.8961748633879781,
+      "success_test_ood_score_q95_K3_fa": 0.40437158469945356,
+      "success_test_seen_or_q95_K3_fa": 0.49137931034482757
+    },
+    "mode": "supervised",
+    "model": "seq_transformer",
+    "name": "047_sup_seq_transformer_medium_k8",
+    "objective": 0.6100480497456192,
+    "runtime_seconds": 102.20997309684753,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.2951658070087433,
+        "q95": 0.6000963449478149,
+        "q99": 0.9990401268005371
+      }
+    }
+  },
+  {
+    "best_epoch": 3,
+    "feature_notes": "residual MLP full k8",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.5428571428571428,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.30609523809523814,
+      "failure_eval_ood_score_q95_K3_det25": 0.0,
+      "success_test_ood_or_q95_K3_fa": 0.8360655737704918,
+      "success_test_ood_score_q95_K3_fa": 0.21311475409836064,
+      "success_test_seen_or_q95_K3_fa": 0.4482758620689655
+    },
+    "mode": "supervised",
+    "model": "residual_mlp",
+    "name": "030_sup_full_k8_residual",
+    "objective": 0.607477994024065,
+    "runtime_seconds": 24.418009281158447,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.3057186007499695,
+        "q95": 0.5612407326698303,
+        "q99": 0.995038628578186
+      }
+    }
+  },
+  {
+    "best_epoch": 26,
+    "feature_notes": "supervised seen-failure action baseline",
+    "key_metrics": {
+      "failure_eval_ood_or_q95_K3_det": 1.0,
+      "failure_eval_ood_or_q95_K3_det25": 0.6285714285714286,
+      "failure_eval_ood_or_q95_K3_mean_time": 0.28209523809523807,
+      "failure_eval_ood_score_q95_K3_det25": 0.4,
+      "success_test_ood_or_q95_K3_fa": 0.9562841530054644,
+      "success_test_ood_score_q95_K3_fa": 0.4972677595628415,
+      "success_test_seen_or_q95_K3_fa": 0.4827586206896552
+    },
+    "mode": "supervised",
+    "model": "mlp",
+    "name": "023_sup_action_flat_mlp",
+    "objective": 0.5813373172898328,
+    "runtime_seconds": 28.076586484909058,
+    "thresholds": {
+      "ace": {
+        "q90": -343.2600402832031,
+        "q95": -342.3268737792969,
+        "q99": -340.95281982421875
+      },
+      "score": {
+        "q90": 0.32876020669937134,
+        "q95": 0.49812474846839905,
+        "q99": 0.792963981628418
+      }
+    }
+  }
+]

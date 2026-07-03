@@ -1,0 +1,27 @@
+{
+  "alpha": 0.15,
+  "batch_size": 512,
+  "dropout": 0.1,
+  "heads": 4,
+  "history_steps": 16,
+  "layers": 3,
+  "lr": 0.0002,
+  "max_epochs": 35,
+  "min_conformal_mass": 0.15,
+  "output_dir": "/home/dean/fiper_uncertainty_collection/experiments/dean_uncertainty_static_arch_sweep_v1_20260602",
+  "patience": 8,
+  "run_root": "/home/dean/fiper_uncertainty_collection/runs/dean_object_uncertainty_20260529",
+  "seed": 20260602,
+  "splits": [
+    "all_tasks_full",
+    "ood_last2_taskids_full"
+  ],
+  "topk": 8,
+  "variants": [
+    "unc_topk8_deep_static_v1",
+    "unc_topk8_gated_static_v1",
+    "unc_topk8_grouped_static_v1"
+  ],
+  "weight_decay": 0.0001,
+  "width": 128
+}
