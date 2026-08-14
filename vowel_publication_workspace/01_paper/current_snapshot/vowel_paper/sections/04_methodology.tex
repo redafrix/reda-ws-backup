@@ -1,0 +1,338 @@
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{System overview}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{../vowel_framework/vowel_framework.pdf}
+  \caption{U-VOWEL execution loop. The VLA supplies the default action chunk
+  and a branch-specific failure score. A VLA alarm makes the predictive branch
+  compute a fresh video-conditioned context and decode an alternative action
+  chunk from the current state. The visual frames represent the V2W training
+  target; the deployed branch passes an intermediate representation to W2A
+  without decoding a pixel-space rollout. The two scores are evaluated against
+  separate thresholds and are never compared numerically.}
+  \label{fig:vowel-framework}
+\end{figure*}
+
+U-VOWEL connects two independently trained action-generating policies through
+the interface in Eq.~\eqref{eq:policy-query}. Both branches receive the same
+language instruction from a synchronized decision state, but retain their
+native observations, action representations and generative processes. The
+direct VLA forms the default path. The video-world-model policy is queried only
+when the VLA monitor raises an alarm. Figure~\ref{fig:vowel-framework} follows
+one such decision from observation to execution.
+
+Each policy first produces an action proposal and uncertainty measurements tied
+to its own prediction process. A branch-specific temporal model converts those
+measurements into a failure score. The controller then accepts one proposal,
+shortens VLA execution or temporarily suppresses repeated calls to the
+predictive branch. This separation prevents predicted variance and sample
+disagreement from being treated as calibrated probabilities of task failure.
+
+\subsection{Direct VLA policy}
+
+\subsubsection{Action generation}
+
+The direct branch modifies SimVLA~\cite{simvla}. A frozen SmolVLM-500M encoder
+processes the language instruction and current agent and wrist RGB views. A
+flow-matching action transformer combines this representation with an
+eight-dimensional proprioceptive state and generates a normalized chunk of
+\(H=10\) seven-dimensional Cartesian actions. For an expert chunk
+\(A^\star\), Gaussian noise \(\epsilon\) and flow time
+\(\gamma=0.001+0.999\tilde{\gamma}\), with
+\(\tilde{\gamma}\sim\operatorname{Beta}(1.5,1)\), training constructs
+\begin{equation}
+  X_\gamma=(1-\gamma)A^\star+\gamma\epsilon,
+  \qquad
+  V^\star_\gamma=\epsilon-A^\star .
+  \label{eq:vla-flow}
+\end{equation}
+The action transformer predicts the velocity field from
+\((X_\gamma,\gamma)\), then inference integrates that field from noise to an
+action chunk. The vision-language encoder remains frozen during uncertainty
+fine-tuning; the action transformer and its output heads are trainable.
+
+\subsubsection{Heteroscedastic velocity uncertainty}
+
+We replace the original velocity output with parallel velocity and variance
+heads. For action index \(i\), the second head emits \(r_{\theta,i}\), which is
+mapped to a positive conditional variance,
+\begin{equation}
+  \sigma^2_{\theta,i}
+  =\operatorname{softplus}(r_{\theta,i})+\varepsilon_{\mathrm{n}},
+  \qquad \varepsilon_{\mathrm{n}}=10^{-6}.
+  \label{eq:vla-variance}
+\end{equation}
+The modified policy is fine-tuned with an element-wise Beta-NLL objective
+\cite{betanll}:
+\begin{equation}
+  \begin{aligned}
+    \mathcal{L}_{\vla}
+    &=
+    \frac{1}{|\mathcal I|}
+    \sum_{i\in\mathcal I}
+    \operatorname{sg}\!\left[
+      \left(\sigma^2_{\theta,i}\right)^\beta
+    \right] \\
+    &\quad{}\times
+    \left[
+      \frac{(V_{\theta,i}-V^\star_{\gamma,i})^2}
+           {2\sigma^2_{\theta,i}}
+      +\frac{1}{2}\log\sigma^2_{\theta,i}
+      +\kappa
+    \right],
+    \qquad \beta=0.5 .
+  \end{aligned}
+  \label{eq:vla-beta-nll}
+\end{equation}
+Here \(\operatorname{sg}\) stops gradients through the Beta-NLL weight,
+\(\mathcal I\) spans action timesteps and dimensions and
+\(\kappa=-\tfrac{1}{2}\log\varepsilon_{\mathrm{n}}\). This constant keeps the
+bracketed term nonnegative for
+\(\sigma^2_{\theta,i}\geq\varepsilon_{\mathrm{n}}\). The residual term weights
+velocity error by predicted precision, while the logarithmic term penalizes
+indiscriminate variance inflation. The detached Beta-NLL factor reduces the
+attenuation of high-variance examples without adding another gradient path
+through the variance weight.
+
+At inference, variance is retained along the Euler trajectory. A diagonal
+first-order approximation accumulates
+\begin{equation}
+  P_{\gamma+\Delta\gamma}
+  =P_\gamma+(\Delta\gamma)^2\sigma_\theta^2(X_\gamma,\gamma).
+  \label{eq:vla-path-variance}
+\end{equation}
+Each query draws nine independently seeded \(H=10\) chunks from one encoded
+observation. Candidate zero is the main proposal; eight alternatives provide
+uncertainty evidence. A 49-dimensional record combines the main candidate's
+last-step and path-integrated variance, denoising dynamics, chunk geometry and
+dispersion across all nine samples. Separately, a seven-dimensional candidate-
+disagreement descriptor is computed from the eight normalized alternatives:
+centered and pairwise chunk distances, overall dispersion and translation,
+rotation, gripper and flattened-coordinate dispersion. This descriptor is not
+FIPER's entropy-based ACE. The deployed monitor retains eight of the 49
+dimensions through a ranking performed on seen train/validation data, covering
+initial denoising magnitude, update-direction flips, path variance and action-
+sample dispersion. None of these inputs contains a task identifier, reward or
+future observation.
+
+\subsection{Predictive video--action policy}
+
+\subsubsection{V2W--W2A generation}
+
+The predictive branch separates a video-trained representation from action
+decoding. Its video-to-world component (V2W) adapts a Cosmos Predict2 backbone
+through rank-256 LoRA and trainable adaptive-normalization parameters
+\cite{lora,cosmospolicy}. V2W is trained to predict future video from five
+\(480\times640\) agent-view frames sampled from recent observation history and
+the language embedding. The deployed policy does not complete or decode that
+visual rollout. It stops at the first V2W denoising evaluation and extracts a
+hidden representation after transformer block 20 as the predictive context
+\(C_t\). The world-to-action component (W2A) is a separate diffusion
+transformer trained while V2W remains frozen. It conditions on \(C_t\), the
+ten-dimensional robot state and the video noise level, then generates 60
+ten-dimensional tokens. Translation, six-dimensional rotation and gripper
+outputs are decoded to the seven-dimensional environment action.
+
+W2A uses the interpolation and velocity target in
+Eq.~\eqref{eq:vla-flow}, with
+\(\gamma=0.001+0.999\tilde{\gamma}\) and
+\(\tilde{\gamma}\sim\operatorname{Beta}(1,1)\), and minimizes
+\begin{equation}
+  \mathcal{L}_{\mathrm{W2A}}
+  =
+  10\,\mathbb{E}_{\gamma,\epsilon}
+  \left[
+    \left\|
+      V_\omega(X_\gamma,\gamma;q_t,C_t,\sigma)
+      -V^\star_\gamma
+    \right\|_2^2
+  \right],
+  \label{eq:w2a-loss}
+\end{equation}
+where \(\sigma\) is the V2W noise level. During training, the observation
+condition is dropped with probability \(0.2\). This follows the flow-matching
+formulation~\cite{flowmatching}. Although W2A predicts a long sequence, the
+controller executes at most ten actions before observing the environment
+again.
+
+Repeated W2A samples expose action uncertainty without repeating the expensive
+video pass. In the K1 configuration, one V2W context produces eight W2A
+candidates. Their per-step and per-dimension variance, pairwise mean-squared
+distance, receding-plan disagreement and denoising dynamics form the K1
+uncertainty vector. Candidate zero remains the executable proposal; the other
+samples provide evidence and do not compete for control. K3 instead generates
+three V2W contexts. The main context produces eight W2A candidates and each
+additional context produces one fixed-seed candidate, giving ten action chunks
+for measuring sensitivity to the sampled V2W representation. Thus K1 and K3
+name the number of V2W contexts, not the number of executed chunks or the
+monitor history.
+
+\subsubsection{Residual uncertainty in V2W}
+
+Separately, we train a lightweight residual-variance head on the frozen V2W
+backbone. Let \(h_{20,i}\) be a future token at block 20 and let
+\(\rho_i^2\) be the mean squared clean-latent residual over its 16 channels. A
+calibration table supplies a positive base variance
+\(b_{q(\sigma)}\) for the current video-noise bin. The head predicts a
+token-wise correction from \(h_{20,i}\) and an embedding of \(\log\sigma\):
+\begin{equation}
+  \begin{aligned}
+    \ell_i &=
+    \operatorname{clip}\!\left(
+      \log b_{q(\sigma)}
+      +\Delta_\phi(h_{20,i},\log\sigma),-8,5
+    \right),\\
+    v_i&=\exp(\ell_i).
+  \end{aligned}
+  \label{eq:v2w-variance}
+\end{equation}
+Only the variance head and noise embedding are optimized. With \(w_i=1\) for
+future tokens and zero for observed conditioning tokens, the loss is
+\begin{equation}
+  \mathcal{L}_{\mathrm{V2W\mbox{-}NLL}}
+  =
+  \frac{1}{2}
+  \frac{\sum_i w_i\left(\rho_i^2/v_i+\ell_i\right)}
+       {\sum_i w_i+\varepsilon_{\mathrm{n}}}.
+  \label{eq:v2w-nll}
+\end{equation}
+This head estimates conditional latent-residual scale. It does not by itself
+measure task failure or complete epistemic uncertainty. Its summaries enter
+the uncertainty-feature ablations. The selected K1 controller uses the
+action-uncertainty profile described above and therefore does not depend on
+V2W variance-head features.
+
+\subsection{Branch-specific temporal risk}
+
+Let \(R_t^b\) denote the normalized query record built for branch \(b\). The
+record may contain sequential action or uncertainty tokens, a bounded history
+and current summary features. Each monitor computes
+\begin{equation}
+  s_t^b=\operatorname{sigmoid}\!\left(f_b(R_t^b)\right),
+  \qquad b\in\{\vla,\wm\}.
+  \label{eq:risk-score}
+\end{equation}
+The records and functions are branch-specific because the two generative
+models expose different evidence.
+
+The VLA monitor uses a late-fusion Transformer. Its sequence path combines a
+16-query execution history with the current \(10\times7\) proposed action.
+Each history token contains proprioception, the previous executed action and
+six candidate-disagreement statistics. A static path receives 28 action
+statistics, seven candidate-set summaries, current proprioception and the
+eight selected uncertainty features. Both paths have width 128; a three-layer,
+four-head Transformer encodes the sequence before fusion with the static
+embedding.
+
+The selected K1 world-model monitor uses an eight-query history and a
+two-layer GRU. At each query it receives 74 scalar W2A uncertainty features,
+including candidate variance, pairwise disagreement, plan overlap and
+denoising summaries. Sixteen temporal action-uncertainty tokens preserve the
+per-step structure of those statistics. The GRU and static branch have width
+128 and their fused representation passes through a 64-dimensional latent
+layer to the risk logit. V2W residuals, multi-context disagreement and
+candidate centrality define richer profiles used in the ablations, but are
+absent from this K1 feature contract.
+
+The monitors are trained as binary classifiers from rollout outcomes. A query
+in a failed rollout receives a failure target even when that query did not
+cause the eventual failure. Writing \(F_e=1-Y_e\) for episode failure, their
+classification objective has the form
+\begin{equation}
+  \begin{aligned}
+    W_b&=\sum_{e,t}w_{e,t}^b,\\
+    \mathcal{L}_{\mathrm{risk}}^b
+    &=-\frac{1}{W_b}\sum_{e,t} w_{e,t}^b
+    \left[
+      F_e\log s_{e,t}^b \right.\\
+    &\hspace{28mm}\left.
+      +(1-F_e)\log(1-s_{e,t}^b)
+    \right].
+  \end{aligned}
+  \label{eq:risk-loss}
+\end{equation}
+where \(w_{e,t}^b\) accounts for the sampling and class balancing used by each
+training set. Consequently, \(s_t^b\) is an empirical warning score for the
+observed episode prefix, not a causal probability that executing \(A_t^b\)
+will fail.
+
+Each score is compared only with its branch threshold. The VLA uses the stored
+95th-percentile operating point from its successful calibration split. The
+world-model threshold is calibrated from the episode maximum score on
+successful held-out rollouts. For \(n\) calibration episodes with maxima
+\(g_e=\max_t s_{e,t}^{\wm}\), its level-\(\alpha\) threshold is the corrected
+empirical quantile
+\begin{equation}
+  \tau_\wm(\alpha)
+  =
+  g_{(\min\{n,\lceil(n+1)(1-\alpha)\rceil\})},
+  \label{eq:wm-conformal-threshold}
+\end{equation}
+where \(g_{(k)}\) is the \(k\)-th order statistic. This controls the marginal
+episode-level false-alarm rate under the usual exchangeability assumption
+\cite{conformal}; it does not guarantee calibration after arbitrary sequential
+distribution shift. The selected controller fixes
+\(\tau_\vla=0.6155\) and uses \(\alpha=0.20\), which gives
+\(\tau_\wm=0.6968\).
+
+\subsection{Selective execution}
+
+Algorithm~\ref{alg:uvowel} combines the two monitors without comparing their
+score magnitudes. The state variable \(c\) is the number of environment actions
+remaining before the world-model branch becomes eligible after a rejected
+proposal. When \(c=0\), a VLA alarm triggers a fresh V2W--W2A query from the
+same evidence \(E_t\). An accepted world-model proposal supplies the next
+action prefix. If its own monitor also alarms, the proposal is discarded, the
+controller executes a shorter prefix of the already available VLA chunk and
+starts the latch. The selected K1 controller uses \(H=10\), \(h=5\) and
+\(C=50\).
+
+\begin{algorithm}[t]
+  \caption{\method{} selective execution for one episode}
+  \label{alg:uvowel}
+  \footnotesize
+  \begin{algorithmic}[1]
+    \Require policies \(\pi_\vla,\pi_\wm\), monitors \(f_\vla,f_\wm\),
+      thresholds \(\tau_\vla,\tau_\wm\), horizons \(H>h\), latch span \(C\)
+    \State \(c\gets0\) \Comment{remaining ineligible environment actions}
+    \While{episode active and action budget remains}
+      \State acquire current evidence \(E_t\)
+      \State \((A^\vla,u^\vla)\gets\pi_\vla(E_t)\);
+        \(s^\vla\gets f_\vla(R_t^\vla)\)
+      \If{\(s^\vla\leq\tau_\vla\)}
+        \State \(m\gets H\) if \(c=0\), else \(\min(H,c)\)
+        \State \(n\gets\Call{ExecutePrefix}{A^\vla,m}\);
+          \(c\gets\max(c-n,0)\)
+      \ElsIf{\(c>0\)}
+        \State \(n\gets\Call{ExecutePrefix}{A^\vla,\min(h,c)}\);
+          \(c\gets\max(c-n,0)\)
+      \Else
+        \State \((A^\wm,u^\wm)\gets\pi_\wm(E_t)\)
+          \Comment{fresh query from the current state}
+        \State \(s^\wm\gets f_\wm(R_t^\wm)\)
+        \If{\(s^\wm\leq\tau_\wm\)}
+          \State \(\Call{ExecutePrefix}{A^\wm,H}\)
+        \Else
+          \State \(\Call{DiscardProposal}{A^\wm}\)
+          \State \(c\gets C\)
+          \State \(n\gets\Call{ExecutePrefix}{A^\vla,\min(h,c)}\);
+            \(c\gets\max(c-n,0)\)
+        \EndIf
+      \EndIf
+    \EndWhile
+  \end{algorithmic}
+\end{algorithm}
+
+While the latch is active, the VLA is still queried and scored at every
+decision point. A high VLA score no longer invokes V2W--W2A and receives the
+short horizon \(h\). A low score may use the ordinary horizon \(H\), capped at
+latch expiry so that eligibility is reconsidered at the next state. The latch
+is decremented by actions actually applied, including early termination within
+a chunk. Once it expires, the next VLA alarm runs new world-model inference.
+The rejected action buffer is never reused; its score remains only in the
+monitor history and audit log.
+
+\FloatBarrier
