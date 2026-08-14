@@ -79,11 +79,11 @@ before online evaluation and remain frozen on the matched test episodes.
 
   \item Offline monitor metrics include AUROC, AUPRC, risk--coverage behavior,
   failure detection, success false alarms, detection time and warning lead time
-  where the labels support it. A success false alarm is a successful episode
-  with at least one alarm; failure detection is the corresponding fraction of
-  failed episodes with an alarm. Det@10, Det@25 and Det@50 measure failures
-  first detected within 10\%, 25\% and 50\% of the evaluated horizon, while
-  Never is the fraction of failed episodes with no alarm.
+  where the labels support it. A success false alarm is any alarm in a successful
+  episode; failure detection is the fraction of failed episodes containing an
+  alarm. Det@10, Det@25 and Det@50 measure failures first detected within 10\%,
+  25\% and 50\% of the evaluated horizon. Never is the fraction of failed
+  episodes with no alarm.
 
   \item Controller metrics include branch-query counts, escalation rate,
   world-model acceptance, mutual rejection, useful and harmful outcome
