@@ -218,14 +218,21 @@ and current summary features. Each monitor computes
 The records and functions are branch-specific because the two generative
 models expose different evidence.
 
-The VLA monitor uses a late-fusion Transformer. Its sequence path combines a
-16-query execution history with the current \(10\times7\) proposed action.
-Each history token contains proprioception, the previous executed action and
-six candidate-disagreement statistics. A static path receives 28 action
-statistics, seven candidate-set summaries, current proprioception and the
-eight selected uncertainty features. Both paths have width 128; a three-layer,
-four-head Transformer encodes the sequence before fusion with the static
-embedding.
+The VLA monitor uses a late-fusion Transformer. Inputs are standardized using
+statistics fitted only on the training split. Its sequence path contains 16
+history tokens of dimension 21---proprioception (8), the previous executed
+action (7) and six candidate-disagreement values---followed by ten 7D tokens
+from the normalized main proposal. Separate linear projections map both token
+types to width 128. A learned CLS token and positional embeddings precede a
+three-layer, four-head Transformer with 512-dimensional feed-forward blocks.
+Startup histories are zero-padded and processed without an attention mask.
+
+The static 51D path concatenates 28 main-chunk statistics (first, mean,
+standard deviation and endpoint change), the seven candidate-disagreement
+values, current 8D proprioception and the selected eight uncertainty features.
+A linear--GELU projection maps it to width 128. Its output is concatenated with
+the Transformer CLS output, normalized and passed through a 128D hidden layer
+to the risk logit. Neither task identity nor timestep is an input.
 
 The selected K1 world-model monitor uses an eight-query history and a
 two-layer GRU. At each query it receives 74 scalar W2A uncertainty features,
@@ -239,29 +246,31 @@ absent from this K1 feature contract.
 
 The monitors are trained as binary classifiers from rollout outcomes. A query
 in a failed rollout receives a failure target even when that query did not
-cause the eventual failure. Writing \(F_e=1-Y_e\) for episode failure, their
-classification objective has the form
+cause the eventual failure. For the VLA monitor, let \(F_e=1-Y_e\) denote
+episode failure, and let \(N_0\) and \(N_1\) be the numbers of successful and
+failed training rows. Its positive-class weight is
+\(p=\max(1,N_0/\max(1,N_1))\), and the implemented objective is
 \begin{equation}
-  \begin{aligned}
-    W_b&=\sum_{e,t}w_{e,t}^b,\\
-    \mathcal{L}_{\mathrm{risk}}^b
-    &=-\frac{1}{W_b}\sum_{e,t} w_{e,t}^b
-    \left[
-      F_e\log s_{e,t}^b \right.\\
-    &\hspace{28mm}\left.
-      +(1-F_e)\log(1-s_{e,t}^b)
-    \right].
-  \end{aligned}
+  \mathcal{L}_{\mathrm{risk}}^{\vla}
+  =-\frac{1}{N}\sum_{e,t}
+  \left[
+    pF_e\log s_{e,t}^{\vla}
+    +(1-F_e)\log(1-s_{e,t}^{\vla})
+  \right].
   \label{eq:risk-loss}
 \end{equation}
-where \(w_{e,t}^b\) accounts for the sampling and class balancing used by each
-training set. Consequently, \(s_t^b\) is an empirical warning score for the
-observed episode prefix, not a causal probability that executing \(A_t^b\)
-will fail.
+Consequently, \(s_t^b\) is an empirical warning score for the observed episode
+prefix, not a causal probability that executing \(A_t^b\) will fail.
 
-Each score is compared only with its branch threshold. The VLA uses the stored
-95th-percentile operating point from its successful calibration split. The
-world-model threshold is calibrated from the episode maximum score on
+Each score is compared only with its branch threshold. VLA operating points are
+computed on a held-out seen validation split: one maximizes row-level F1 using
+both classes, while success-only alternatives use empirical quantiles of
+successful row scores. The operating point is selected according to the desired
+seen false-alarm/detection trade-off and frozen before unseen evaluation. An
+episode alarms if any query crosses it. This is empirical row-score calibration,
+not an episode-level conformal guarantee.
+
+The world-model threshold is calibrated from the episode maximum score on
 successful held-out rollouts. For \(n\) calibration episodes with maxima
 \(g_e=\max_t s_{e,t}^{\wm}\), its level-\(\alpha\) threshold is the corrected
 empirical quantile
@@ -274,9 +283,7 @@ empirical quantile
 where \(g_{(k)}\) is the \(k\)-th order statistic. This controls the marginal
 episode-level false-alarm rate under the usual exchangeability assumption
 \cite{conformal}; it does not guarantee calibration after arbitrary sequential
-distribution shift. The selected controller fixes
-\(\tau_\vla=0.6155\) and uses \(\alpha=0.20\), which gives
-\(\tau_\wm=0.6968\).
+distribution shift.
 
 \subsection{Selective execution}
 
