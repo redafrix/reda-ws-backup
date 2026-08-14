@@ -207,16 +207,6 @@ V2W variance-head features.
 
 \subsection{Branch-specific temporal risk}
 
-FIPER~\cite{fiper} provides the methodological starting point for runtime
-monitoring: RND-OE measures novelty in the policy observation embedding, while
-grid-based action-chunk entropy (ACE) measures dispersion among repeated action
-samples. The two scores are accumulated over short windows, calibrated from
-successful rollouts and combined by a logical AND. Our monitors instead learn a
-single branch-specific score from seen successful and failed rollouts, using
-the generated action evidence and its recent history. The VLA candidate-
-disagreement descriptor above is a seven-value feature vector, not FIPER ACE;
-the VLA monitor also uses neither RND nor direct observation embeddings.
-
 Let \(R_t^b\) denote the normalized query record built for branch \(b\). The
 record may contain sequential action or uncertainty tokens, a bounded history
 and current summary features. Each monitor computes
@@ -227,6 +217,17 @@ and current summary features. Each monitor computes
 \end{equation}
 The records and functions are branch-specific because the two generative
 models expose different evidence.
+
+\subsubsection{VLA temporal risk monitor}
+
+The VLA monitor takes FIPER~\cite{fiper} as a methodological starting point.
+FIPER accumulates RND-OE observation-embedding novelty and grid-based
+action-chunk entropy (ACE) over short windows, calibrates both signals from
+successful rollouts and combines their alarms by a logical AND. Our VLA monitor
+instead learns one supervised score from seen successful and failed rollouts,
+using candidate-action evidence and its recent history. Its seven-value
+candidate-disagreement descriptor is not FIPER ACE, and it uses neither RND nor
+direct observation embeddings.
 
 The VLA monitor uses a late-fusion Transformer. Inputs are standardized using
 statistics fitted only on the training split. Its sequence path contains 16
@@ -244,21 +245,11 @@ A linear--GELU projection maps it to width 128. Its output is concatenated with
 the Transformer CLS output, normalized and passed through a 128D hidden layer
 to the risk logit. Neither task identity nor timestep is an input.
 
-The selected K1 world-model monitor uses an eight-query history and a
-two-layer GRU. At each query it receives 74 scalar W2A uncertainty features,
-including candidate variance, pairwise disagreement, plan overlap and
-denoising summaries. Sixteen temporal action-uncertainty tokens preserve the
-per-step structure of those statistics. The GRU and static branch have width
-128 and their fused representation passes through a 64-dimensional latent
-layer to the risk logit. V2W residuals, multi-context disagreement and
-candidate centrality define richer profiles used in the ablations, but are
-absent from this K1 feature contract.
-
-The monitors are trained as binary classifiers from rollout outcomes. A query
+The VLA monitor is trained as a binary classifier from rollout outcomes. A query
 in a failed rollout receives a failure target even when that query did not
-cause the eventual failure. For the VLA monitor, let \(F_e=1-Y_e\) denote
-episode failure, and let \(N_0\) and \(N_1\) be the numbers of successful and
-failed training rows. Its positive-class weight is
+cause the eventual failure. Let \(F_e=1-Y_e\) denote episode failure, and let
+\(N_0\) and \(N_1\) be the numbers of successful and failed training rows. Its
+positive-class weight is
 \(p=\max(1,N_0/\max(1,N_1))\), and the implemented objective is
 \begin{equation}
   \mathcal{L}_{\mathrm{risk}}^{\vla}
@@ -269,16 +260,27 @@ failed training rows. Its positive-class weight is
   \right].
   \label{eq:risk-loss}
 \end{equation}
-Consequently, \(s_t^b\) is an empirical warning score for the observed episode
-prefix, not a causal probability that executing \(A_t^b\) will fail.
+Consequently, \(s_t^\vla\) is an empirical warning score for the observed
+episode prefix, not a causal probability that executing \(A_t^\vla\) will fail.
 
-Each score is compared only with its branch threshold. VLA operating points are
-computed on a held-out seen validation split: one maximizes row-level F1 using
-both classes, while success-only alternatives use empirical quantiles of
-successful row scores. The operating point is selected according to the desired
-seen false-alarm/detection trade-off and frozen before unseen evaluation. An
-episode alarms if any query crosses it. This is empirical row-score calibration,
-not an episode-level conformal guarantee.
+VLA operating points are computed on a held-out seen validation split: one
+maximizes row-level F1 using both classes, while success-only alternatives use
+empirical quantiles of successful row scores. The operating point is selected
+according to the desired seen false-alarm/detection trade-off and frozen before
+unseen evaluation. An episode alarms if any query crosses it. This is empirical
+row-score calibration, not an episode-level conformal guarantee.
+
+\subsubsection{World-model temporal risk monitor}
+
+The selected K1 world-model monitor uses an eight-query history and a
+two-layer GRU. At each query it receives 74 scalar W2A uncertainty features,
+including candidate variance, pairwise disagreement, plan overlap and
+denoising summaries. Sixteen temporal action-uncertainty tokens preserve the
+per-step structure of those statistics. The GRU and static branch have width
+128 and their fused representation passes through a 64-dimensional latent
+layer to the risk logit. V2W residuals, multi-context disagreement and
+candidate centrality define richer profiles used in the ablations, but are
+absent from this K1 feature contract.
 
 The world-model threshold is calibrated from the episode maximum score on
 successful held-out rollouts. For \(n\) calibration episodes with maxima
