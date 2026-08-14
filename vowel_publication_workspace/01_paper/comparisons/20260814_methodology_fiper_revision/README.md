@@ -25,11 +25,13 @@ conclusion and experimental protocol were not marked as changed.
 - `4178b2bf`: exact VLA risk-head, loss and calibration description.
 - `2a96f36a`: FIPER positioning in methodology and related work.
 - `be9d9a75`: clean updated PDF compilation.
+- `7d35aff6`: VLA and world-model risk-monitor separation.
+- `8236ff6e`: clean PDF compilation after the section split.
 
 ## SHA-256
 
 ```text
 c077c23f54f4d0f919dbb66a779125b70e0f55e8bac210b596a7473295daefbd  01_original_from_paper_zip.pdf
-9c64c2537e5b0ec8c94758c914fbc00c0c8b2b2b6a4e3722bd2729a0fef62194  02_updated_paper.pdf
-55d0d58e30fcff836b3617c8332a99a2743e1d862fa6a21047ca4de1c1cd4f84  03_changes_highlighted.pdf
+0849e7a996a02235f6cf23476c6dee2c949c8e7d9a38c1b2ef0a6f5852d0c474  02_updated_paper.pdf
+7360819f5827cdeabce0df90e4a1add17cf547daae0d535b658ca91090bf9153  03_changes_highlighted.pdf
 ```
