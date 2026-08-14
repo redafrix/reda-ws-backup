@@ -1,0 +1,120 @@
+\section{Experimental Protocol}
+\label{sec:experiments}
+
+\subsection{Evaluation suites}
+
+\begin{itemize}
+  \item \textbf{LIBERO in-distribution evaluation:} standard LIBERO suites will
+  measure task competence before perturbation. Unperturbed LIBERO-Goal episodes
+  will also provide the in-distribution reference for the corresponding
+  LIBERO-PRO tasks.
+
+  \item \textbf{LIBERO-PRO evaluation:} the official Goal-Language,
+  Goal-Object, Goal-Swap and Goal-Task suites contain ten tasks with 50 initial
+  states per task. Their matched evaluation comprises 2,000 episode identities
+  per policy: four suites, ten tasks per suite and 50 initial states per task.
+
+  \item \textbf{Project-specific Goal-Object-OOD evaluation:} a separate
+  18-task suite contributes 50 initial states per task, for 900 matched episode
+  identities per policy. We report it separately and do not present it as an
+  official LIBERO-PRO suite.
+
+  \item \textbf{IsaacLab evaluation:} the Franka environment will separate
+  in-distribution trials from controlled changes in object identity, category,
+  geometry, material, pose, lighting, background, camera and combinations of
+  these factors. Asset-family-disjoint splits will support the unknown-object
+  analysis.
+
+  \item \textbf{Physical evaluation:} frozen simulation-selected checkpoints,
+  monitors and thresholds will be transferred to the real Franka setup. Trial
+  blocks will cover familiar objects, novel identities within known categories
+  and held-out object categories.
+\end{itemize}
+
+Within each completed LIBERO protocol, an episode identity is the tuple of
+suite, task, initial-state index and evaluation seed. Compared policies share
+the complete identity set and instruction, and the campaigns use one evaluation
+seed with 50 initial states per task. Observations are rendered at
+\(480\!\times\!640\) and passed through each model's configured preprocessing.
+The action budget is 250 environment actions; success is the environment task-
+completion signal and exhausting the budget without completion is a failure.
+Normal execution uses ten-action prefixes. The selected controller uses
+\(H=10\), a five-action VLA prefix after mutual rejection and a 50-action
+world-model eligibility latch. Branch thresholds are calibrated independently
+before online evaluation and remain frozen on the matched test episodes.
+
+\subsection{Baselines and comparison policy}
+
+\begin{itemize}
+  \item The matched LIBERO comparison comprises standalone HF SimVLA H10,
+  standalone base world-model H10, fresh re-query U-VOWEL and the selected K1
+  latch-50 U-VOWEL controller.
+
+  \item Historical cached K1/K3 controllers and the CUDA legacy-cache
+  reproduction are retained only as diagnostic ablations. Because they may
+  retain rejected world-model state, they are excluded from the headline
+  controller claim.
+
+  \item Branch-specific ablations compare base and uncertainty-instrumented
+  policies, monitor architectures and K1/K3 predictive-context variants under
+  their corresponding matched manifests.
+
+  \item Reproduced state-of-the-art policy baselines will use the same
+  observations, prompts, action interface and episode manifests whenever their
+  implementations permit. Published results obtained under different protocols
+  will be reported in a separate comparison block and excluded from matched
+  significance tests.
+
+  \item The IsaacLab environment is project-specific. Its comparison will use
+  strong policy families adapted to the same data and control interface rather
+  than presenting an unmatched public-leaderboard claim.
+\end{itemize}
+
+\subsection{Metrics and statistical analysis}
+
+\begin{itemize}
+  \item Primary task metrics are episode success, per-task success and
+  suite-level success. Paired outcome tables will count shared successes,
+  shared failures and one-policy-only successes on identical episodes.
+
+  \item Offline monitor metrics include AUROC, AUPRC, risk--coverage behavior,
+  failure detection, success false alarms, detection time and warning lead time
+  where the labels support it. A success false alarm is a successful episode
+  with at least one alarm; failure detection is the corresponding fraction of
+  failed episodes with an alarm. Det@10, Det@25 and Det@50 measure failures
+  first detected within 10\%, 25\% and 50\% of the evaluated horizon, while
+  Never is the fraction of failed episodes with no alarm.
+
+  \item Controller metrics include branch-query counts, escalation rate,
+  world-model acceptance, mutual rejection, useful and harmful outcome
+  reversals and latch activity.
+
+  \item Efficiency metrics include branch inference time, monitor overhead,
+  all-episode wall time, successful-episode wall time, throughput and peak GPU
+  memory. Success-conditioned time will always be reported beside the
+  all-episode statistic. Episode timing is runner wall time and excludes
+  one-time model loading.
+
+  \item The completed LIBERO campaigns contain one evaluation seed and repeated
+  initial states nested within tasks. Exact McNemar tests describe paired
+  episode differences but do not account for task clustering or model-selection
+  history. We therefore report task-level results and do not treat episodes as
+  independent task samples.
+\end{itemize}
+
+\subsection{Sim-to-real protocol and safety}
+
+\begin{itemize}
+  \item Simulation and hardware interfaces will be checked for camera geometry,
+  color conversion, state representation, control frequency, workspace frame
+  and action scaling.
+
+  \item Policy order will be randomized within object and condition blocks. The
+  VLA, world-model and fused controller will use the same trial manifest.
+  Checkpoints, prompts, thresholds and stopping rules will remain frozen during
+  the reported evaluation.
+
+  \item Outcomes will distinguish success, drop, collision, timeout, automatic
+  stop and human intervention. Independent workspace, velocity, force,
+  watchdog and emergency-stop limits remain outside the learned controller.
+\end{itemize}
