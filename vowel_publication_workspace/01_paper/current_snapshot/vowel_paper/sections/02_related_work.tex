@@ -1,0 +1,86 @@
+\section{Related Work}
+\label{sec:related-work}
+
+\subsection{Manipulation learning and generalist policies}
+
+Imitation learning addresses sequential distribution mismatch primarily during
+training. DAgger collects expert labels on states induced by the learner and
+adds them to the training set \cite{dagger}. This exposes the policy to recovery
+states that are absent from the original demonstrations, but requires
+interactive expert supervision. It does not provide a confidence signal for a
+frozen policy at deployment.
+
+Action-sequence policies address a different aspect of closed-loop behavior:
+the temporal granularity of prediction and execution. ACT uses a conditional
+variational autoencoder to generate action chunks and temporally ensembles
+overlapping predictions \cite{act}. Diffusion Policy represents multimodal
+action sequences through conditional denoising and executes them in a
+receding-horizon loop \cite{diffusionpolicy}. Chunking moves the unit of
+prediction from one action to a sequence and can smooth local behavior, while
+making the whole proposed sequence the relevant unit of reliability.
+
+Generalist VLA policies place semantic task interpretation and continuous
+control within one learned pipeline \cite{kawaharazuka2025vla}. Their episode
+outcomes consequently combine several capabilities, including visual
+grounding, instruction interpretation and action generation. LIBERO evaluates
+transfer across lifelong manipulation tasks, while LIBERO-PRO applies
+controlled distribution shifts to the benchmark \cite{libero,liberopro}.
+Task-level success measures the combined capability. Query-level analysis
+provides a different resolution by following how policy evidence evolves as
+successive action chunks alter the scene.
+
+\subsection{World models and action-generating video models}
+
+World-model policies introduce predicted consequences into action generation,
+but differ in how prediction is connected to control. RoboDreamer treats a
+generated video as an intermediate plan and recovers actions through inverse
+dynamics \cite{robodreamer}. Unified World Models instead couples action and
+future-observation diffusion, while Cosmos Policy jointly produces action
+chunks, future observations and predicted returns
+\cite{unifiedwm,cosmospolicy}. The first design separates visual planning from
+action decoding; the latter designs place both outputs in one generative
+process.
+
+This distinction determines where uncertainty can enter. A staged video policy
+can accumulate error in the predicted trajectory and in its action decoder,
+whereas a joint model links action quality to a shared generative
+representation. Both incur predictive computation that a direct VLA does not
+require. At the same time, their predicted futures expose intermediate
+structure that can be checked for consistency. Prior systems establish
+video-conditioned action generation as a viable policy family. Pairing such a
+policy with a separately trained direct policy additionally requires deciding
+when its predictive process is likely to be useful.
+
+\subsection{Uncertainty and runtime failure prediction}
+
+That decision depends on uncertainty evidence whose interpretation matches the
+generating process. Heteroscedastic likelihood learns input-dependent residual
+variance and represents conditional, or aleatoric, dispersion under the fitted
+model \cite{kendallgal}. Gaussian NLL induces inverse-variance weighting that
+can progressively underweight poorly fitted regions; Beta-NLL modifies this
+weighting to reduce the imbalance \cite{betanll}. Model uncertainty is commonly
+approximated through disagreement among independently trained predictors
+\cite{deepensembles}. For large robot policies, however, maintaining several
+models adds training, memory and inference cost. Structured action outputs also
+make a single global confidence value difficult to interpret: VLA studies
+report that informative uncertainty varies across action dimensions and over
+time \cite{criticaluq,vlacalibration}.
+
+A related line of work converts such evidence into temporal failure scores.
+FAIL-Detect learns a scalar score from successful trajectories and applies
+time-varying calibrated thresholds \cite{faildetect}. FIPER requires only
+successful rollouts: it aggregates observation-embedding novelty from RND-OE
+and grid-based action-chunk entropy over short windows, calibrates both signals
+and raises an alarm through their logical conjunction \cite{fiper}. SAFE instead
+learns failure prediction from temporal VLA features and studies transfer to
+held-out tasks \cite{safevla}. Our VLA monitor follows the latter supervised
+setting but combines physical history, generated chunks, internal flow
+uncertainty and candidate disagreement in one learned risk score.
+
+Calibration also determines what can be claimed about a detector. Conformal
+prediction provides finite-sample marginal coverage under exchangeability
+\cite{conformal}; FIPER's bound concerns alarms on successful in-distribution
+rollouts, not failure recall or coverage under arbitrary shift. Moreover, prior
+VLA detectors monitor one policy distribution. They do not establish that
+features or thresholds calibrated for a direct action model transfer to a
+predictive policy with different outputs and error mechanisms.

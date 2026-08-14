@@ -207,6 +207,16 @@ V2W variance-head features.
 
 \subsection{Branch-specific temporal risk}
 
+FIPER~\cite{fiper} provides the methodological starting point for runtime
+monitoring: RND-OE measures novelty in the policy observation embedding, while
+grid-based action-chunk entropy (ACE) measures dispersion among repeated action
+samples. The two scores are accumulated over short windows, calibrated from
+successful rollouts and combined by a logical AND. Our monitors instead learn a
+single branch-specific score from seen successful and failed rollouts, using
+the generated action evidence and its recent history. The VLA candidate-
+disagreement descriptor above is a seven-value feature vector, not FIPER ACE;
+the VLA monitor also uses neither RND nor direct observation embeddings.
+
 Let \(R_t^b\) denote the normalized query record built for branch \(b\). The
 record may contain sequential action or uncertainty tokens, a bounded history
 and current summary features. Each monitor computes
