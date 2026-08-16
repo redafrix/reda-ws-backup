@@ -1,0 +1,64 @@
+simvla_isaac_risk_collection_H10_EXECUTION_20260813/
+├── AGENTS.md
+├── README.md
+├── audits/
+├── automation/
+│   ├── generated/
+│   │   ├── locked_ood150/
+│   │   │   ├── manifest.json
+│   │   │   ├── preparation_report.json
+│   │   │   └── run_config.yaml
+├── configs/
+│   ├── final_seen_h10_round_000_seed20260730.yaml
+├── evaluations/
+├── frozen_datasets/
+├── logs/
+├── manifests/
+│   └── seen_4000_master.json
+├── models/
+├── outputs/
+│   └── final_seen_h10_round_000_seed20260730/
+│       ├── .staging/
+│       ├── episode_summaries.jsonl (3,737 lines)
+│       ├── episodes/ (3,737 directories)
+│       │   └── r000_sXXXXXX/
+│       │       ├── COMMITTED
+│       │       ├── risk_rows.jsonl (~9MB per episode)
+│       │       ├── summary.json
+│       │       └── validation.json
+│       ├── live_status.json
+│       ├── reports/
+│       │   └── stage_status.json
+│       └── run_manifest.json
+├── reports/
+│   ├── FINAL_SEEN_H10_ROUND_000_LAUNCH_HEALTH.json
+│   ├── FINAL_SEEN_ROUND_000_PREFLIGHT.json
+│   ├── H10_COMPLETE_PIPELINE_SCHEDULE_20260813.md
+│   ├── H10_LIVE_CORRECTNESS_AUDIT_20260814.md
+│   ├── H10_PREPRODUCTION_GATES_PASS.json
+│   ├── H1_TO_H10_EXECUTION_MIGRATION_AND_LAUNCH_20260813.md
+│   └── REVIEWER_FINDINGS_REMEDIATION_20260814.md
+├── risk_head_pipeline/
+│   ├── audit_ood150.py
+│   ├── build_frozen_dataset.py
+│   ├── common.py
+│   ├── evaluate_isaac_topk8.py
+│   ├── generate_final_reports.py
+│   ├── model.py
+│   └── train_isaac_topk8.py
+├── schemas/
+│   └── risk_collection_row.schema.json
+├── scripts/
+│   ├── audit_corrected_collection.py
+│   ├── build_dual_threshold_labels.py
+│   ├── check_round_health.py
+│   ├── collect_isaac_risk.py
+│   ├── cpu_preflight.py
+│   ├── generate_seen_manifests.py
+│   ├── summarize_production_round.py
+│   └── validate_collection_output.py
+├── smokes/
+├── smokes_timeout2400/
+├── src/
+│   └── risk_collection/
+└── tests/

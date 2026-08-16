@@ -1,70 +1,35 @@
-# Heavy experiment artifacts
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches
+.pytest_cache/
+.coverage
+.cache/
+
+# Binary media and large models
+*.mp4
+*.mkv
 *.pt
 *.pth
 *.ckpt
 *.safetensors
-*.npz
-*.zarr
-*.tar
+*.bin
 *.tar.gz
-*.tgz
+*.tar.zst
 *.zip
-*.7z
-*.mp4
-*.avi
-*.mkv
-*.jsonl
-*.log
-*.bak
+*.hdf5
+*.npy
 
-# Credentials / local SSH material
-id_*
-*.pem
+# Temporary files
+*.tmp
+.goutputstream-*
+.DS_Store
+
+# SSH keys and credentials
+id_dean*
+id_rsa*
 *.key
-
-# Temporary/generated local chunks
-fiper_ws/tmp_checkpoint/
-
-# Python/runtime
-__pycache__/
-*.pyc
-.venv/
-env/
-conda/
-
-# External cloned repos and package caches
-external/
-repos/
-node_modules/
-
-# Large generated outputs
-outputs/
-videos/
-wandb/
-
-# Raw/generated experiment workspaces kept out of this lightweight catalog repo.
-# The durable paths and checksums for these artifacts are recorded in
-# fiper_ws/experiment_catalog/BIG_ARTIFACTS_NOT_IN_GIT_20260703.md.
-archive/
-checks/
-cross_suite_official_ood_20260630/
-fiper_ws/campaigns/
-fiper_ws/collection/
-fiper_ws/current_baseline/
-fiper_ws/data/
-fiper_ws/experiments/
-fiper_ws/obsidian_reports/
-fiper_ws/realtime_deployment/
-fiper_ws/reports/
-fiper_ws/scratch/
-fiper_ws/stage9_fiper_bridge/
-fiper_ws/stage9_training_experiments/
-fiper_ws/stage9_v2_tools/
-isaac_pi05_work/
-realtime_deployment/
-vids/
-
-# Branch-specific lightweight machine snapshots are intentionally tracked.
-# Snapshot builders exclude large/binary/env artifacts before files enter here.
-!machine_snapshot/
-!machine_snapshot/**
+*.pem
+.env

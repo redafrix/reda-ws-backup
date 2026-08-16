@@ -1,0 +1,27 @@
+{
+  "checkpoint_sha256": "68b3e8dc73b0e0ee19e9b7e8d12d2d6ab24a341e824722ffeaebd1091ea2ebcd",
+  "collector_process": "1777611 /mnt/ai/isaac/envs/env_isaaclab_6_0/bin/python -u scripts/collect_isaac_risk.py --run-config /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/configs/final_seen_h10_round_000_seed20260730.yaml --manifest /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/manifests/seen_4000_master.json --output-dir /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_000_seed20260730 --offset 0 --count 4000 --round-id 0 --round-kind broad --round-master-seed 20260730 --balanced-order --execution-mode chunk_h10 --viz none --device cuda:0",
+  "execution_mode": "chunk_h10",
+  "first_committed_episode": "r000_s001807",
+  "first_episode_decision_rows": 15,
+  "first_episode_outcome": "success",
+  "first_episode_source_id": 1807,
+  "gpu_compute_processes": "1777611, /mnt/ai/isaac/envs/env_isaaclab_6_0/bin/python, 17417",
+  "live_status": {
+    "completed_episodes": 3,
+    "current_global_episode_id": "r000_s003905",
+    "current_source_episode_id": 3905,
+    "execution_mode": "chunk_h10",
+    "remaining_in_shard": 3997,
+    "round_id": 0,
+    "state": "running"
+  },
+  "max_control_ticks": 600,
+  "max_decision_rows": 60,
+  "max_sim_steps": 2400,
+  "output_dir": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_000_seed20260730",
+  "pass": true,
+  "round_id": 0,
+  "round_schedule_sha256": "5857a137162a5ca1a576e03a4eed8d7927bc5462ff8c362c124f4118b32c9378",
+  "traceback_present": false
+}

@@ -1,0 +1,6 @@
+logical_name,path,size_bytes,status,description
+Round0_Exhaustive_Audit,outputs/final_seen_round_000_seed20260730/reports/exhaustive_audit.json,200782,AUDITED_PASS,Verification of all 4000 episodes
+Round0_Audit_Summary,outputs/final_seen_round_000_seed20260730/reports/round_audit_summary.json,2835,AUDITED_PASS,Official summary: 3922 success 78 failure
+Dual_Threshold_Report,reports/SUCCESS_LABEL_ROOT_CAUSE_AND_DUAL_THRESHOLD_FIX_20260804.md,6682,COMMITTED,2cm vs 4cm root cause analysis
+Round0_TopK8_Model,models/isaac_topk8_temporal_v1/best_model.pt,42000000,TRAINED,Trained TopK8 SeqRiskModel
+Locked_OOD150_Eval,evaluations/locked_ood150_topk8_v1/evaluation_summary.json,1200,EVALUATED,OOD Step AUROC: 0.8194 AUPRC: 0.9612

@@ -1,0 +1,245 @@
+{
+  "cameras": {
+    "dataset_mapping": [
+      "agent_rgb",
+      "wrist_rgb",
+      "absent"
+    ],
+    "order": [
+      "agent_camera",
+      "wrist_camera",
+      "padded_third_camera"
+    ],
+    "padded_camera_policy": "third camera is zeros and invalid/masked"
+  },
+  "checkpoint": {
+    "architecture_identity": {
+      "action_dim": 7,
+      "action_mode": "isaaclab_reaching_pose_increment",
+      "architectures": [
+        "SmolVLMVLA"
+      ],
+      "model_type": "smolvlm_vla",
+      "num_actions": 10
+    },
+    "config_path": "/mnt/ai/projects/simvla_reaching_inference_package_20260730/checkpoints/softplus_110k/config.json",
+    "config_sha256": "19ba6c6f7aac931a11600d13ef6c650c7b998858048ad9b5461469744dd99adf",
+    "model_path": "/mnt/ai/projects/simvla_reaching_inference_package_20260730/checkpoints/softplus_110k/model.safetensors",
+    "model_sha256": "68b3e8dc73b0e0ee19e9b7e8d12d2d6ab24a341e824722ffeaebd1091ea2ebcd",
+    "path": "/mnt/ai/projects/simvla_reaching_inference_package_20260730/checkpoints/softplus_110k",
+    "recorded_model_sha256": "68b3e8dc73b0e0ee19e9b7e8d12d2d6ab24a341e824722ffeaebd1091ea2ebcd",
+    "uncertainty_mode": "softplus_raw_variance"
+  },
+  "codebases": {
+    "isaac": {
+      "commit": "9ae798c143fcb2a20e324aea06c0d10b159af502",
+      "dirty": false,
+      "dirty_state_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab"
+    },
+    "isolated_workspace_source_sha256": {
+      "configs/final_seen_h10_round_000_seed20260730.yaml": "f30b025ae2013e432895c8a3cb5e8cea3a89f4623fee82bb11b98f1d52c5e768",
+      "configs/ood_schema_smoke.yaml": "358696b9377109cf7bff14c744ceb2509913737a5d1cecf03c983bc68f7445cf",
+      "configs/seen_chunk_h10_4000.yaml": "eb2b4d69cc6a2a61e446c884e84225e2b38483ca2803b198a1117bdaaed05ef1",
+      "configs/seen_chunk_h10_4000_timeout2400.yaml": "1a62bd2f8f180c05ecf6686e8ddec9b4d895076285041fce255bd56c8a8d910a",
+      "configs/seen_smoke.yaml": "7db586b283a72d98f38bc725b08d6d9a0d93b7708b34e43b44dac19d2e07fe39",
+      "schemas/risk_collection_row.schema.json": "81dac9e54ff40c0bbd44f653c17ab42f4c54d2ca6d67e3f0ebb32ab53918b9a0",
+      "scripts/collect_isaac_risk.py": "a53fb3c3da9ea6a066ebff1cb791bcfe5bbb530cc645e3b1c6b9eea5fd6edb9b",
+      "src/json_numpy.py": "5cda5684fe21e8bd9ed85dba677aa5e51dee473469fa4273d9cf0711f7c29667",
+      "src/risk_collection/__init__.py": "c227e2f8fb5ccb09c78fee374a4d3721a229471ebe6a7798e944ce0169c2108a",
+      "src/risk_collection/ace.py": "1dc63e54f1e87688d4862c432a23511a21d89d5007ae867a5d26f0923292b89e",
+      "src/risk_collection/adapter.py": "278ae24ae63c37c8b71fa6e083c2f0f213fb8e107e747dec27590f18e613af4e",
+      "src/risk_collection/constants.py": "2957151a8faec79ec11964d08ae114f103ba38072b9c0ac1fda8fe1b409be9c5",
+      "src/risk_collection/features.py": "08dc5a342deb125e5f5dfb4b79bb307f80f92a37d025adab46b151dd73a051d1",
+      "src/risk_collection/history.py": "d4ca2e952cfcb2d711928deb24f8163ba7c6a6491bfb8f80a94f5751afb0fd97",
+      "src/risk_collection/manifests.py": "48c2334977e1b2d38877d2b8a7a7f00b352c0ca616e9f02b388d7bdc4f051a76",
+      "src/risk_collection/parity_audit.py": "9d6bddc6632bb25aaeb36c55992a10029d542c1b2f9c03f93e60ca3e2e740a8e",
+      "src/risk_collection/rounds.py": "92e4a3b7de89615ae23231b90bf9ec3246735cab65c71fe39dc758a3e3dece56",
+      "src/risk_collection/runtime_policy.py": "dcb2c1d77de2896ac3ec4ea7d0c06f9d02b951deec06f55ac2d7c322b99d9b5d",
+      "src/risk_collection/schema.py": "c52030f902535dd497cdf40f2dc01daa57ade8a6f8fb6f0c0b78c2df6e4ed307",
+      "src/risk_collection/seeds.py": "02319ea6dc2f0f3236897cc87a313c2d30af208eef1e1cc7fab1d1e3bb971689",
+      "src/risk_collection/smoke_safety.py": "6d561adece2f32648db548f783ba008a5f7f85375b80d90cd0cf2e7d2de51616",
+      "src/risk_collection/storage.py": "cafcdd4a044eda5a250f20a9e2cfc51d7862496070a83becdce64bd1f4f7c763"
+    },
+    "simvla": {
+      "commit": "ee1294a17e723b21051f4f4434508ead30a69044",
+      "dirty": false,
+      "dirty_state_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "/mnt/ai/projects/simvla_reproduction_workspace/SimVLA"
+    }
+  },
+  "collection_config_path": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab/configs/collect_reaching_pose_v1_4400.yaml",
+  "collection_config_sha256": "88b1e2ed98989445742eadef0dc80d4f70f8452b8031b4b8b388ed9d3766e4e8",
+  "collector_source_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/scripts/collect_isaac_risk.py",
+  "collector_source_sha256": "a53fb3c3da9ea6a066ebff1cb791bcfe5bbb530cc645e3b1c6b9eea5fd6edb9b",
+  "episode_cap": 4000,
+  "evaluation_config_path": "/mnt/ai/projects/simvla_reproduction_workspace/generated_simvla_configs/eval_softplus_110k.yaml",
+  "evaluation_config_sha256": "e6650a7a38b6440ec11dfb2b7902c1f1be08815325a40e9a57219e75d49201c9",
+  "execution": {
+    "applied_actions_per_replan": 10,
+    "mode": "chunk_h10",
+    "prediction": "H10",
+    "replan_steps": 10,
+    "terminal_success_may_end_final_chunk_early": true
+  },
+  "execution_mode": "chunk_h10",
+  "infrastructure": {
+    "errors_are_training_labels": false,
+    "retries_after_first_attempt": 2,
+    "stop_marker": "STOP_AFTER_CURRENT_EPISODE"
+  },
+  "manifest_fingerprint_sha256": "6ec731aa085f4cd737e93dfe23ab189293e76cc90d2ee540e91c38a8d39f3b34",
+  "manifest_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/manifests/seen_4000_master.json",
+  "manifest_sha256": "d704db4ec37610a2231541abecf817f5b094ceabdf1c47ef791a01c7058211a2",
+  "normalization": {
+    "path": "/mnt/ai/projects/simvla_reaching_inference_package_20260730/dataset_contract/train/norm_stats/reaching_pose_v1_train_norm.json",
+    "sha256": "27159b91cb9c3b6dbb3eb8c997c8438804d48ace05dea0dfa347e7a29a9ec410"
+  },
+  "ood150_used_for_calibration": false,
+  "ood150_used_for_training": false,
+  "policy": {
+    "ace_alternative_count": 8,
+    "ace_feature_names": [
+      "log_mean_centered_candidate_l2",
+      "mean_pairwise_candidate_l2",
+      "mean_action_std",
+      "mean_translation_std",
+      "mean_rotation_std",
+      "mean_gripper_std",
+      "mean_flat_action_std"
+    ],
+    "ace_metric_style": "new_training",
+    "action_dim": 7,
+    "action_horizon": 10,
+    "candidate_seed_rule": "sha256('simvla-isaac-risk-v1|global_seed|source_episode_id|decision_index|candidate_index')[:16] modulo (2**31-1)",
+    "main_candidate_count": 1,
+    "policy_sampling_seed": 20260730
+  },
+  "risk_features": {
+    "feature_49d_key_order": [
+      "path_step_mean",
+      "last_step_mean",
+      "mean_path_var",
+      "mean_last_var",
+      "max_path_var",
+      "max_last_var",
+      "denoise_initial_mean",
+      "denoise_final_mean",
+      "denoise_delta",
+      "denoise_slope",
+      "denoise_final_max",
+      "denoise_spike",
+      "denoise_final_gripper",
+      "denoise_final_rotation_mean",
+      "denoise_velocity_norm_mean",
+      "denoise_velocity_norm_max",
+      "denoise_update_norm_mean",
+      "denoise_update_norm_max",
+      "denoise_update_norm_final",
+      "denoise_update_spike",
+      "denoise_update_oscillation_mean",
+      "denoise_update_direction_flip_mean",
+      "denoise_final_initial_action_l2",
+      "sample_action_var_mean",
+      "sample_action_var_max",
+      "sample_action_l2_mean",
+      "sample_action_l2_max",
+      "sample_action_translation_var",
+      "sample_action_rotation_var",
+      "sample_action_gripper_var",
+      "action_norm",
+      "action_max_abs",
+      "action_translation_norm",
+      "action_rotation_norm",
+      "action_gripper_abs",
+      "action_delta_prev_norm",
+      "action_delta_prev_max_abs",
+      "plan_drift_l2",
+      "plan_drift_mean_l2",
+      "plan_drift_max_l2",
+      "state_mahalanobis",
+      "state_mahalanobis_eef",
+      "state_mahalanobis_rotation",
+      "state_mahalanobis_gripper",
+      "state_eef_norm",
+      "state_rotation_norm",
+      "state_gripper_norm",
+      "state_gripper_width",
+      "state_delta_prev_norm"
+    ],
+    "history_executed_action_semantics": "first action of the previously executed H10 chunk",
+    "history_layout": "16 x (proprio_8 + first_executed_env_action_7 + ace_first6) = 16 x 21",
+    "history_snapshot_timing": "pre-action",
+    "static_layout": "action_stats_28 + ace_7 + proprio_8 + topk_8 = 51",
+    "topk8_indices": [
+      6,
+      21,
+      25,
+      27,
+      23,
+      2,
+      26,
+      24
+    ]
+  },
+  "round": {
+    "enabled": true,
+    "global_episode_id_format": "r{round_id:03d}_s{source_episode_id:06d}",
+    "master_seed": 20260730,
+    "round_id": 0,
+    "round_kind": "broad",
+    "scene_family_key": "scene_fingerprint_sha256",
+    "schedule": {
+      "balanced_round_robin": true,
+      "benchmark_episode_ids_sha256": "5857a137162a5ca1a576e03a4eed8d7927bc5462ff8c362c124f4118b32c9378",
+      "episode_count": 4000,
+      "version": "seen_balanced_round_robin_v2"
+    }
+  },
+  "run_config_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/configs/final_seen_h10_round_000_seed20260730.yaml",
+  "run_config_sha256": "f30b025ae2013e432895c8a3cb5e8cea3a89f4623fee82bb11b98f1d52c5e768",
+  "schema_version": "simvla_isaac_risk_run_v3_h10_timeout2400",
+  "source_manifest_path": "/media/redafrix/My Passport/reaching_pose_v1_4400/train/manifest.json",
+  "source_manifest_sha256": "32261a82df8e015b13931afaf3b9f8de2f59b30980fc5e57833166fad0a3ffd6",
+  "splits": {
+    "collection_manifest_partition_counts": {
+      "calibration": 407,
+      "test": 404,
+      "train": 3189
+    },
+    "collection_manifest_partition_seed": 123,
+    "collection_manifest_partition_semantics": "non-authoritative category-balanced collection partition only",
+    "final_risk_split_group_key": "scene_family_id",
+    "final_risk_split_group_key_fallback": "scene_fingerprint_sha256",
+    "final_risk_split_ratios": {
+      "calibration": 0.15,
+      "test": 0.15,
+      "train": 0.7
+    },
+    "final_risk_split_seed": 20260622,
+    "final_risk_split_stratification": "episode success/failure outcome",
+    "ood150_semantics": "final test only",
+    "saved_row_scientific_split": "unassigned_seen"
+  },
+  "success": {
+    "dwell_settle_time_s": 0.2,
+    "threshold_m": 0.02
+  },
+  "synthetic_smoke": {
+    "allowed_output_root": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/smokes_timeout2400",
+    "forced_timeout_enabled": false,
+    "success_termination_suppressed": false,
+    "training_eligible": null
+  },
+  "timing": {
+    "camera_hz": 30,
+    "control_hz": 30,
+    "control_ticks_per_replan": 10,
+    "decimation": 4,
+    "max_control_ticks": 600,
+    "max_decision_rows": 60,
+    "max_sim_steps": 2400,
+    "physics_hz": 120,
+    "state_hz": 30
+  }
+}
