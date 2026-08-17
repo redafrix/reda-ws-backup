@@ -1,0 +1,33 @@
+{
+  "schema_version": "isaac_offline_selected_controller_v1",
+  "main_threshold_name": "fixed_0.5",
+  "selected_cap_name": "q90_success",
+  "selection_source": "seen4000 shortlist then locked OOD150 offline balanced ranking",
+  "historical_baseline_successes": 72,
+  "historical_baseline_failures": 78,
+  "seen_test_metrics": {
+    "threshold_value": 0.5,
+    "successful_episodes": 586,
+    "failed_episodes": 14,
+    "episode_false_alarm_rate": 0.08532423208191127,
+    "failure_detection_rate": 1.0,
+    "det_at_10": 0.35714285714285715,
+    "det_at_25": 0.5714285714285714,
+    "det_at_50": 1.0,
+    "never_detected": 0,
+    "mean_normalized_detection_time": 0.20595238095238097
+  },
+  "ood_offline_metrics": {
+    "threshold_value": 0.5,
+    "successful_episodes": 72,
+    "failed_episodes": 78,
+    "episode_false_alarm_rate": 0.125,
+    "failure_detection_rate": 1.0,
+    "det_at_10": 0.20512820512820512,
+    "det_at_25": 0.5384615384615384,
+    "det_at_50": 1.0,
+    "never_detected": 0,
+    "mean_normalized_detection_time": 0.22521367521367516
+  },
+  "selection_reason": "Deterministic balanced rule"
+}
