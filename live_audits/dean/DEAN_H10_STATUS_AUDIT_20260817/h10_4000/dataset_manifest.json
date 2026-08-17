@@ -1,0 +1,167 @@
+{
+  "created_at_unix_s": 1786891601.673042,
+  "elapsed_seconds": 62.47230076789856,
+  "excluded": {
+    "infrastructure_errors": true,
+    "ood150": true,
+    "synthetic_smokes": true,
+    "timeout3600_quarantine": true
+  },
+  "feature_schema_version": "simvla_isaac_topk8_h10_v1",
+  "label_contract": "strict_2cm",
+  "limited_failure_override": {
+    "enabled": true,
+    "evidence_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/automation/PROCEED_WITH_AUDITED_ROUND0_LIMITED_FAILURES",
+    "minimum_holdout_failures": 10,
+    "minimum_total_failures": 1,
+    "observed_total_failures": 92,
+    "reason": "Explicit user decision on 2026-08-13: after the fresh 4,000-episode H10 Round 0 is exhaustively audited, train and evaluate the first H10 temporal-risk model before collecting the separate H10 hard-1000 enrichment round. Preserve the promoted 10-failure-per-holdout minimum; do not substitute H1 data or add another broad round to satisfy the 300-failure preference."
+  },
+  "normalization": {
+    "fit_split": "train",
+    "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/isaac_seen_h10_topk8_v1/normalization.json",
+    "sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050"
+  },
+  "schema_version": "simvla_isaac_topk8_frozen_dataset_v1",
+  "source_rounds": [
+    {
+      "dual_threshold_labels_sha256": null,
+      "exhaustive_audit_sha256": "ced0cec94dce1b5e3f969e4cfb068d1e9a8d7e5f45e7e4f2dd4643ff84e172e2",
+      "output": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_000_seed20260730",
+      "round_summary_sha256": "e62f747e2f7893a52966fc4e0f2b84c63ce3d17a0cd88f4a0537bdf352e9e668",
+      "run_manifest_sha256": "a59e96eafa48ea94ee5ac7495935490a0500b1e0b319c9d0b2ea951798300237"
+    }
+  ],
+  "split_contract": {
+    "episode_counts": {
+      "test": 600,
+      "train": 2800,
+      "validation": 600
+    },
+    "failure_episode_counts": {
+      "test": 14,
+      "train": 64,
+      "validation": 14
+    },
+    "group_count": 4000,
+    "group_key": "scene_family_id (scene fingerprint fallback)",
+    "group_stratum_counts": {
+      "0": {
+        "test": 586,
+        "train": 2736,
+        "validation": 586
+      },
+      "1": {
+        "test": 14,
+        "train": 64,
+        "validation": 14
+      }
+    },
+    "minimum_holdout_failures_required": 10,
+    "ratios": {
+      "test": 0.15,
+      "train": 0.7,
+      "validation": 0.15
+    },
+    "seed": 20260622,
+    "stratification": "group-level any-failure outcome"
+  },
+  "splits": {
+    "test": {
+      "episodes": 600,
+      "failures": 14,
+      "files": {
+        "action.npy": {
+          "bytes": 3183168,
+          "sha256": "f7c7bcaf773270e1d5cf17fe8c6a10b63679e09e1cca64c1af99d3f5d1261876"
+        },
+        "decision_index.npy": {
+          "bytes": 45600,
+          "sha256": "add759020660b3ca755fc305807e89e83658609f99878afc13557cc761e06fc1"
+        },
+        "episode_index.npy": {
+          "bytes": 45600,
+          "sha256": "d4697bfb83647d16c4e7e365515ea6f6ddd0b94c60cdbf8b20c96080a07c5109"
+        },
+        "history.npy": {
+          "bytes": 15278720,
+          "sha256": "db46500d76c88f30a8974557c0f49f63bb0d148f5e2e1bb24a5bafc05f005dde"
+        },
+        "label.npy": {
+          "bytes": 45600,
+          "sha256": "750f78d020ba9c3cbff833039b57c45245513d2cf52078dd4bb9b1ceca7689c8"
+        },
+        "static.npy": {
+          "bytes": 2319200,
+          "sha256": "2419e8a2b6f8cf2dcbce089b506f14d8343fa1fe32f1f344db2ad9357ec500e3"
+        }
+      },
+      "rows": 11368,
+      "successes": 586
+    },
+    "train": {
+      "episodes": 2800,
+      "failures": 64,
+      "files": {
+        "action.npy": {
+          "bytes": 14791128,
+          "sha256": "09faeb5a85f87eca47a38220a2a0f35e89ea39b5fa11b9b2471600254a5e5dc0"
+        },
+        "decision_index.npy": {
+          "bytes": 211428,
+          "sha256": "0dd0e57ea47d91742edc27f13223be2e2366eee2ca8ec2ee00e0947075732aaf"
+        },
+        "episode_index.npy": {
+          "bytes": 211428,
+          "sha256": "0e974d19c90b92e0c60347f272792f1123ed868090fa561b0babab7cf1e380de"
+        },
+        "history.npy": {
+          "bytes": 70996928,
+          "sha256": "8373b2762ea2d6910139e92d605ab81bbf5b3ed7d7c64b32b535629296ebf537"
+        },
+        "label.npy": {
+          "bytes": 211428,
+          "sha256": "42734b96ad8d38acbfcc6bd7f455c58549c75474a6d0b0da7c8f21d0ec81f575"
+        },
+        "static.npy": {
+          "bytes": 10776428,
+          "sha256": "61078566347621ff8f805fb9873e5d482bc14918edaae11260d2c8dd0c8c517a"
+        }
+      },
+      "rows": 52825,
+      "successes": 2736
+    },
+    "validation": {
+      "episodes": 600,
+      "failures": 14,
+      "files": {
+        "action.npy": {
+          "bytes": 3194928,
+          "sha256": "156284d24915b73d41eb3a9fbbe1ee76c229a858b6ef19765e5c643bee9ed9cb"
+        },
+        "decision_index.npy": {
+          "bytes": 45768,
+          "sha256": "54c81e4293caa03f6f0fd1ce21c544653485ed4156620634c932ca2c75f7df6d"
+        },
+        "episode_index.npy": {
+          "bytes": 45768,
+          "sha256": "fbe737d64101912d62c23c2abf5a6cb18fafbce4c97db0b7fe8926f52ee34ab7"
+        },
+        "history.npy": {
+          "bytes": 15335168,
+          "sha256": "b65e097303db092513c0cd955c786fe66a44b51b0174011ef3f259d71d3907ad"
+        },
+        "label.npy": {
+          "bytes": 45768,
+          "sha256": "f827adf9f59fec49de4a44103f0c446d1bb48a8de6813f347e1179c8190ce6e5"
+        },
+        "static.npy": {
+          "bytes": 2327768,
+          "sha256": "e5dc8738953a17a593e7e1e271a6abfda5e04742f79ccafe09a926b4fee3a692"
+        }
+      },
+      "rows": 11410,
+      "successes": 586
+    }
+  }
+}

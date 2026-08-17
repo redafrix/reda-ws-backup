@@ -1,0 +1,175 @@
+_reaching_pose_v1_common: &reaching_pose_v1_common
+  task: reaching
+  num_envs: 16
+  env_spacing: 5.0
+  asset_bank_episode_batch_size: 16
+  max_steps: 3600
+  settle_time_s: 0.2
+  success_threshold_m: 0.02
+  max_success_target_displacement_m: 0.02
+  direct_reach_max_speed_m_s: 0.12
+  reach_surface_clearance_m: 0.03
+  camera_width: 640
+  camera_height: 480
+  agent_camera_width: 640
+  agent_camera_height: 480
+  wrist_camera_width: 384
+  wrist_camera_height: 384
+  robot_ready_height_offset_m: 0.1
+  record_cameras: true
+  save_rgb_videos: false
+  save_training_rgb_arrays: true
+  camera_fps: 30
+  control_fps: 30
+  state_record_fps: 30
+  record_depth: false
+  seed: 20260801
+  pose_controller:
+    version: reaching_pose_command_increment_30hz_v1
+    canonical_ee_quat_base_wxyz: [0.0, 0.2190067, 0.9757234, 0.0]
+    dls_lambda: 0.005
+    singular_value_threshold: 0.05
+    singularity_dls_lambda: 0.05
+    max_joint_step_rad: 0.04
+    joint_step_gain: 4.0
+    minimum_joint_limit_margin_rad: 0.01
+    pose_error_weights: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    posture_joint_targets_rad:
+      panda_joint1: 0.0
+      panda_joint2: -0.569
+      panda_joint3: 0.0
+      panda_joint4: -2.810
+      panda_joint5: 0.0
+      panda_joint6: 3.14159
+      panda_joint7: -2.2751
+    posture_gain: 0.2
+    posture_damping: 0.05
+    ready_duration_s: 3.0
+    initial_orientation_tolerance_rad: 0.005
+    tracking_orientation_tolerance_rad: 0.02
+    tracking_position_tolerance_m: 0.01
+  export_targets:
+    mimic_video:
+      rgb_shape_hwc: [480, 640, 3]
+    simvla:
+      source_crop_hwc: [480, 480, 3]
+      resize_hwc: [384, 384, 3]
+      resize_interpolation: bicubic
+  target_sources:
+  - name: pickable_targets
+    weight: 3
+    catalog_config: object_catalog.generated.yaml
+    geometry_config: object_geometry.generated.yaml
+    category_id: sample
+    variant_id: sample
+    split: train
+    role: target
+    required_affordances: [pickable, reachable]
+    required_grasp_strategy: center_top
+  - name: receptacle_targets
+    weight: 2
+    catalog_config: object_catalog.generated.yaml
+    geometry_config: object_geometry.generated.yaml
+    category_id: sample
+    variant_id: sample
+    split: train
+    role: target
+    required_affordances: [container, physical_container]
+    required_grasp_strategy: unsupported
+  clutter:
+    catalog_config: object_catalog.generated.yaml
+    geometry_config: object_geometry.generated.yaml
+    slot_count: 12
+    unique_labels: true
+    count_options: [4, 5, 6]
+    position_set:
+      enabled: true
+      total_positions: 80
+      train_positions: 64
+      validation_positions: 16
+    exclude_target_variant: true
+    exclude_target_label: true
+    sources:
+    - name: pickable_distractors
+      min_count: 3
+      weight: 3
+      category_id: sample
+      variant_id: sample
+      split: train
+      role: target
+      required_affordances: [pickable, reachable]
+      required_grasp_strategy: center_top
+    - name: support_distractors
+      min_count: 0
+      max_count: 2
+      weight: 1
+      category_id: sample
+      variant_id: sample
+      split: train
+      role: any
+      required_affordances: [reachable, support]
+      required_grasp_strategy: unsupported
+    - name: receptacle_distractors
+      min_count: 0
+      max_count: 0
+      weight: 1
+      category_id: sample
+      variant_id: sample
+      split: train
+      role: target
+      required_affordances: [container, physical_container]
+      required_grasp_strategy: unsupported
+    xy_range:
+      x: [0.2, 0.95]
+      y: [-0.55, 0.55]
+    object_margin_m: 0.045
+    clutter_margin_m: 0.025
+    container_exclusion_extra_margin_m: 0.05
+    max_footprint_radius_m: 0.18
+    max_asset_sampling_attempts: 192
+    max_layout_sampling_attempts: 256
+    grid_step_m: 0.015
+  pose_randomization:
+    target_position_set:
+      enabled: true
+      total_positions: 80
+      train_positions: 64
+      test_positions: 16
+      minimum_separation_m: 0.018
+      minimum_axis_coverage_ratio: 0.9
+    object_xy_range:
+      x: [-0.08, 0.10]
+      y: [-0.14, 0.46]
+    workspace:
+      robot_base_xy: [0.1, 0.0]
+      max_distance_m: 0.65
+      max_sampling_attempts: 128
+  lighting_randomization:
+    dome_light_intensity_range: [650.0, 1200.0]
+    dome_light_color_options:
+    - [0.9, 0.9, 0.9]
+    - [1.0, 0.92, 0.84]
+    - [0.82, 0.88, 1.0]
+
+collections:
+- <<: *reaching_pose_v1_common
+  suite:
+    name: reaching_pose_v1_train
+    split: train
+    difficulty: dense_clutter
+    tags: [reaching, train, pose_ik, canonical_orientation, 30hz]
+    description: Pose-controlled reaching with explicit canonical orientation and fixed train layouts.
+  output_dir: /media/utilisateur/2b351f25-b528-421d-9bed-b554fd5e32c4/data_storage/reaching_pose_v1_4400/train
+  start_episode_id: 0
+  num_episodes: 4000
+
+- <<: *reaching_pose_v1_common
+  suite:
+    name: reaching_pose_v1_id_val
+    split: id_val
+    difficulty: dense_clutter
+    tags: [reaching, id_val, pose_ik, canonical_orientation, 30hz]
+    description: Pose-controlled reaching with train objects and disjoint fixed validation layouts.
+  output_dir: /media/utilisateur/2b351f25-b528-421d-9bed-b554fd5e32c4/data_storage/reaching_pose_v1_4400/id_val
+  start_episode_id: 0
+  num_episodes: 400

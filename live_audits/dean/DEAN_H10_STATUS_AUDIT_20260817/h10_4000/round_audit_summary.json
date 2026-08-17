@@ -1,0 +1,83 @@
+{
+  "adaptive_collection": {
+    "audited_round_count": 1,
+    "hard_cap_episodes": 16000,
+    "minimum_3000_successes_met": true,
+    "minimum_300_failures_met": false,
+    "minimum_40_failures_per_15pct_split_feasible": false,
+    "minimum_complete_broad_round_met": true,
+    "next_action": "prepare_second_official_seen_broad_round",
+    "preferred_500_failures_met": false,
+    "target_met": false,
+    "total_genuine_failures": 92,
+    "total_successes": 3908,
+    "total_valid_episodes": 4000
+  },
+  "aggregate_rows_sha256": "59a33bdd201de0f107bcad287171c94f6ea4f410af5de6691710d637c8bf75ee",
+  "aggregate_summaries_sha256": "38bf37cba739ed49893b8a1768b361b6ea94988b94902fba3f63a3e4e838fa08",
+  "audit_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_000_seed20260730/reports/exhaustive_audit.json",
+  "audit_sha256": "ced0cec94dce1b5e3f969e4cfb068d1e9a8d7e5f45e7e4f2dd4643ff84e172e2",
+  "clutter_cardinality_coverage": {
+    "4": 1356,
+    "5": 1326,
+    "6": 1318
+  },
+  "completion_span_seconds": 241463.26151800156,
+  "decision_rows": 75603,
+  "duplicate_scene_fingerprint_groups": 0,
+  "episodes_per_hour": 59.62149235247831,
+  "exhaustive_audit_pass": true,
+  "generated_at_unix_s": 1786890644.2741523,
+  "genuine_failures": 92,
+  "infrastructure_error_attempts": 0,
+  "infrastructure_excluded_episodes": 0,
+  "maximum_scene_fingerprint_multiplicity": 1,
+  "no_ood150": true,
+  "no_synthetic_rows": true,
+  "output_bytes": 8899761348,
+  "output_dir": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_000_seed20260730",
+  "round": {
+    "enabled": true,
+    "global_episode_id_format": "r{round_id:03d}_s{source_episode_id:06d}",
+    "master_seed": 20260730,
+    "round_id": 0,
+    "round_kind": "broad",
+    "scene_family_key": "scene_fingerprint_sha256",
+    "schedule": {
+      "balanced_round_robin": true,
+      "benchmark_episode_ids_sha256": "5857a137162a5ca1a576e03a4eed8d7927bc5462ff8c362c124f4118b32c9378",
+      "episode_count": 4000,
+      "version": "seen_balanced_round_robin_v2"
+    }
+  },
+  "rows_per_second": 0.31310353187772066,
+  "run_manifest_sha256": "a59e96eafa48ea94ee5ac7495935490a0500b1e0b319c9d0b2ea951798300237",
+  "schema_version": "simvla_isaac_risk_round_summary_v1",
+  "ssd_free_bytes": 324163694592,
+  "successes": 3908,
+  "target_category_coverage": {
+    "apple": 177,
+    "avocado": 205,
+    "beer": 204,
+    "bottle": 180,
+    "bowl": 412,
+    "box": 357,
+    "can": 194,
+    "egg": 179,
+    "kiwi": 194,
+    "lemon": 201,
+    "onion": 198,
+    "orange": 179,
+    "peach": 201,
+    "plate": 371,
+    "potato": 180,
+    "tomato": 184,
+    "tray": 384
+  },
+  "target_source_coverage": {
+    "pickable_targets": 2476,
+    "receptacle_targets": 1524
+  },
+  "unique_scene_fingerprints": 4000,
+  "valid_episodes": 4000
+}

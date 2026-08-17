@@ -1,0 +1,22 @@
+collection_config: /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/automation/generated/hard_round_002/collection_config.yaml
+collection_index: 0
+expected_split: train
+output_dir: /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_002_seed20260804
+num_envs: 1
+max_steps: 2400
+success_threshold_m: 0.02
+settle_time_s: 0.2
+record_cameras: true
+record_depth: false
+save_training_rgb_arrays: false
+save_rgb_videos: false
+camera_fps: 30
+state_record_fps: 30
+control_fps: 30
+use_fabric: true
+policy_sampling_seed: 20260804
+infrastructure_retry_count: 2
+
+simvla:
+  eval_config: /mnt/ai/projects/simvla_reproduction_workspace/generated_simvla_configs/eval_softplus_110k.yaml
+  stop_on_success: true

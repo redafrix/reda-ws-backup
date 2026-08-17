@@ -1,0 +1,130 @@
+{
+  "schema_version": "dean_h10_live_audit_status_v1",
+  "audit_timestamp_utc": "2026-08-17T09:27:34.778883+00:00",
+  "host": "dean (Batman)",
+  "remote_workspace": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813",
+  "executive_verification": {
+    "1_corrected_true_h10_4000_episodes_completed": {
+      "verified": true,
+      "total_expected": 4000,
+      "total_found": 4000,
+      "success_episodes": 3908,
+      "failure_episodes": 92,
+      "unique_episode_ids": 4000,
+      "duplicates": 0,
+      "missing_ids": 0,
+      "corrupt_or_empty_rows": 0,
+      "audit_passed": true,
+      "output_dir": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_000_seed20260730",
+      "frozen_dataset": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/isaac_seen_h10_topk8_v1"
+    },
+    "2_risk_head_training_completed": {
+      "verified": true,
+      "training_run_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_h10_topk8_temporal_v1",
+      "best_checkpoint_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_h10_topk8_temporal_v1/model.pt",
+      "best_checkpoint_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38",
+      "best_epoch": 6,
+      "selection_metric": "highest seen-validation AUPRC",
+      "best_validation_auprc": 0.8494462695568447,
+      "best_validation_auroc": 0.9344901338018652,
+      "train_count": 2800,
+      "train_rows": 52825,
+      "val_count": 600,
+      "val_rows": 11410,
+      "test_count": 600,
+      "test_rows": 11368,
+      "training_command": "/home/redafrix/miniconda3/bin/python /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/risk_head_pipeline/train_isaac_topk8.py --dataset-root /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/isaac_seen_h10_topk8_v1 --output-root /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_h10_topk8_temporal_v1 --workers 8",
+      "training_seed": 20260622
+    },
+    "3_evaluation_finished": {
+      "verified": true,
+      "evaluation_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/evaluations/locked_h10_ood150_topk8_v1",
+      "checkpoint_used": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_h10_topk8_temporal_v1/model.pt",
+      "eval_dataset_split": "locked_h10_ood150_eval",
+      "episode_count": 150,
+      "success_count": 72,
+      "failure_count": 78,
+      "step_auroc": 0.9165517741946905,
+      "step_auprc": 0.9800307261831581,
+      "thresholds": {
+        "best_val_f1": 0.7990124225616455,
+        "fixed_0.5": 0.5,
+        "q90_success": 0.2370966076850891,
+        "q95_success": 0.3443679213523865,
+        "q99_success": 0.7373747229576111
+      },
+      "ood150_metrics_summary": {
+        "row_q95": {
+          "failure_detection_rate": 1.0,
+          "episode_success_false_alarm_rate": 0.2638888888888889,
+          "det_at_10": 0.32051282051282054,
+          "det_at_25": 0.5897435897435898,
+          "det_at_50": 1.0,
+          "never_count": 0,
+          "mean_detection_fraction": 0.19679487179487176
+        },
+        "temporal_hysteresis_q95": {
+          "failure_detection_rate": 1.0,
+          "episode_success_false_alarm_rate": 0.041666666666666664,
+          "det_at_10": 0.1282051282051282,
+          "det_at_25": 0.5256410256410257,
+          "det_at_50": 1.0,
+          "never_count": 0,
+          "mean_detection_fraction": 0.26260683760683756
+        },
+        "temporal_mass_q95": {
+          "failure_detection_rate": 1.0,
+          "episode_success_false_alarm_rate": 0.041666666666666664,
+          "det_at_10": 0.07692307692307693,
+          "det_at_25": 0.47435897435897434,
+          "det_at_50": 1.0,
+          "never_count": 0,
+          "mean_detection_fraction": 0.25384615384615383
+        }
+      },
+      "seen_test_metrics_summary": {
+        "episodes": 600,
+        "rows": 11368,
+        "success_episodes": 586,
+        "failure_episodes": 14,
+        "step_auroc": 0.9310794796642061,
+        "step_auprc": 0.818629985131437,
+        "row_q95": {
+          "failure_detection_rate": 1.0,
+          "episode_success_false_alarm_rate": 0.1757679180887372,
+          "det_at_10": 0.5,
+          "det_at_25": 0.6428571428571429,
+          "det_at_50": 1.0,
+          "never_count": 0,
+          "mean_detection_fraction": 0.1571428571428571
+        }
+      }
+    },
+    "4_hard1000_collection_live": {
+      "verified_running": true,
+      "hard_root": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_002_seed20260804",
+      "manifest": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/automation/generated/hard_round_002/manifest.json",
+      "target_episodes": 1000,
+      "completed_episodes": 107,
+      "success_episodes_so_far": 57,
+      "failure_episodes_so_far": 50,
+      "last_completed_episode": "r002_s003690",
+      "last_completed_source_episode_id": 3690,
+      "last_completed_outcome_success": true,
+      "running_collector_pid": 2112067,
+      "running_pipeline_pid": 2111944,
+      "running_watchdog_pid": 2112066,
+      "run_command": "/mnt/ai/isaac/envs/env_isaaclab_6_0/bin/python -u scripts/collect_isaac_risk.py --run-config /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/automation/generated/hard_round_002/run_config.yaml --manifest /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/automation/generated/hard_round_002/manifest.json --output-dir /mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_002_seed20260804 --offset 0 --count 1000 --round-id 2 --round-kind enrichment --round-master-seed 20260803 --balanced-order --execution-mode chunk_h10 --viz none --device cuda:0",
+      "log_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/logs/final_seen_h10_round_002_seed20260804.log",
+      "enrichment_definition": {
+        "strategy": "hard_scene_metadata_selection",
+        "model_type": "balanced logistic regression",
+        "training_data": "round 0 seen outcomes only (92 failures / 3908 successes)",
+        "selection_pool": "4000 seen candidate scenes generated with scene_sampler_seed 20260801",
+        "selected_count": 1000,
+        "overlap_with_committed_data": 0,
+        "overlap_with_ood150": 0
+      }
+    }
+  }
+}

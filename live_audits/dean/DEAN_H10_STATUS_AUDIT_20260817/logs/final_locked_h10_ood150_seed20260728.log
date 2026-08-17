@@ -1,0 +1,221 @@
+Loading user config located at: '/mnt/ai/isaac/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-08-16T14:47:06Z [Info] [carb] Logging to file: /mnt/ai/isaac/envs/env_isaaclab_6_0/lib/python3.12/site-packages/isaacsim/kit/logs/Kit/IsaacLab/3.0/kit_20260816_164706.log
+2026-08-16T14:47:06Z [5ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/mnt/ai/isaac/IsaacLab-6.0/source/isaaclab_visualizers' or '/mnt/ai/isaac/IsaacLab-6.0/source/isaaclab_visualizers/config'
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1786891626.838568 2058643 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1786891626.838600 2058643 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+2026-08-16T14:47:08Z [1,643ms] [Warning] [omni.rtx] Skipping unsupported non-NVIDIA GPU: AMD Unknown (RADV RAPHAEL_MENDOCINO)
+2026-08-16T14:47:08Z [1,643ms] [Warning] [omni.rtx] Skipping unsupported non-NVIDIA GPU: AMD Unknown (RADV RAPHAEL_MENDOCINO)
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.95.05     | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 5090          | Yes: 0 |     | 32607   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2b85      | b00c3042.. |
+|     |                                  |        |     |            | 1         |            |
+|---------------------------------------------------------------------------------------------|
+| 1   | AMD Unknown (RADV RAPHAEL_MEND.. |        |     | 10670   MB | 1002      | 0          |
+|     |                                  |        |     |            | 13c0      | 00000000.. |
+|     |                                  |        |     |            | 7a        |            |
+|=============================================================================================|
+| OS: 22.04.5 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.5, Kernel: 6.8.0-134-generic
+| XServer Vendor: The X.Org Foundation, XServer Version: 12101004 (1.21.1.4)
+| Processor: AMD Ryzen 9 9950X 16-Core Processor
+| Cores: 16 | Logical Cores: 32
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 30986 | Free Memory: 23996
+| Total Page/Swap (MB): 34815 | Free Page/Swap: 31295
+|---------------------------------------------------------------------------------------------|
+2026-08-16T14:47:09Z [2,386ms] [Warning] [omni.rtx] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+2026-08-16T14:47:09Z [2,397ms] [Warning] [omni.rtx] IOMMU is enabled.
+2026-08-16T14:47:11Z [4,315ms] [Warning] [omni.log] Source: omni.hydra was already registered.
+2026-08-16T14:47:12Z [5,723ms] [Warning] [pxr.Semantics] pxr.Semantics is deprecated - please use Semantics instead
+2026-08-16T14:47:12Z [5,863ms] [Warning] [omni.replicator.core.scripts.extension] No material configuration file, adding configuration to material settings directly.
+[ISAACLAB] AppLauncher initialization complete
+FRANKA_ASSET_RELOCATION_FIX=https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/6.0/Isaac/IsaacLab/Robots/FrankaEmika/Legacy/panda_instanceable.usd
+`torch_dtype` is deprecated! Use `dtype` instead!
+[LiberoJointActionSpace] Loaded state norm stats, dim=8
+[LiberoJointActionSpace] Loaded actions norm stats, dim=7
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO]: Registered backend 'physx' for factory FrameView.
+[INFO]: Registered backend 'physx' for factory RigidObject.
+[INFO]: Physics scene prim path: /physicsScene
+2026-08-16T14:47:34Z [27,558ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                     Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                    |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+| Index | Name                | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction | Position Limits  | Velocity Limits | Effort Limits |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+|   0   | panda_joint1        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.175      |     87.000    |
+|   1   | panda_joint2        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-1.763, 1.763]  |      2.175      |     87.000    |
+|   2   | panda_joint3        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.175      |     87.000    |
+|   3   | panda_joint4        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-3.072, -0.070] |      2.175      |     87.000    |
+|   4   | panda_joint5        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.610      |     12.000    |
+|   5   | panda_joint6        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-0.018, 3.753]  |      2.610      |     12.000    |
+|   6   | panda_joint7        |  400.000  |  80.000 |  0.001   |      0.000      |      0.000       |      0.000       | [-2.897, 2.897]  |      2.610      |     12.000    |
+|   7   | panda_finger_joint1 |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       |  [0.000, 0.040]  |      0.200      |    200.000    |
+|   8   | panda_finger_joint2 |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       |  [0.000, 0.040]  |      0.200      |    200.000    |
++-------+---------------------+-----------+---------+----------+-----------------+------------------+------------------+------------------+-----------------+---------------+
+[INFO]: Registered backend 'physx' for factory Renderer.
+[INFO]: Created new renderer for simulation: IsaacRtxRenderer
+[INFO]: Using renderer: IsaacRtxRenderer
+[INFO]: Using renderer: IsaacRtxRenderer
+2026-08-16T14:47:35Z [29,138ms] [Warning] [omni.rtx] DLSS increasing input dimensions: Render resolution of (192, 192) is below minimal input resolution of 300.
+[INFO]: RTX streaming completed in 0.01 s.
+2026-08-16T14:47:42Z [36,184ms] [Warning] [omni.kit.material.library.material_extensions] Could not initialize context menu integration: No module named 'omni.kit.context_menu'
+[INFO]: RTX streaming completed in 0.05 s.
+RISK_EPISODE_FINALIZED source_episode_id=0 global_episode_id=000000 success=True decision_rows=19
+RISK_EPISODE_FINALIZED source_episode_id=1 global_episode_id=000001 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=2 global_episode_id=000002 success=True decision_rows=15
+RISK_EPISODE_FINALIZED source_episode_id=3 global_episode_id=000003 success=True decision_rows=15
+RISK_EPISODE_FINALIZED source_episode_id=4 global_episode_id=000004 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=5 global_episode_id=000005 success=True decision_rows=15
+RISK_EPISODE_FINALIZED source_episode_id=6 global_episode_id=000006 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=7 global_episode_id=000007 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=8 global_episode_id=000008 success=True decision_rows=20
+RISK_EPISODE_FINALIZED source_episode_id=9 global_episode_id=000009 success=True decision_rows=19
+RISK_EPISODE_FINALIZED source_episode_id=10 global_episode_id=000010 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=11 global_episode_id=000011 success=True decision_rows=14
+RISK_EPISODE_FINALIZED source_episode_id=12 global_episode_id=000012 success=True decision_rows=19
+RISK_EPISODE_FINALIZED source_episode_id=13 global_episode_id=000013 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=14 global_episode_id=000014 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=15 global_episode_id=000015 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=16 global_episode_id=000016 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=18 global_episode_id=000018 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=19 global_episode_id=000019 success=True decision_rows=14
+RISK_EPISODE_FINALIZED source_episode_id=20 global_episode_id=000020 success=True decision_rows=20
+RISK_EPISODE_FINALIZED source_episode_id=22 global_episode_id=000022 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=23 global_episode_id=000023 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=25 global_episode_id=000025 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=26 global_episode_id=000026 success=True decision_rows=15
+RISK_EPISODE_FINALIZED source_episode_id=27 global_episode_id=000027 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=28 global_episode_id=000028 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=29 global_episode_id=000029 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=30 global_episode_id=000030 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=31 global_episode_id=000031 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=32 global_episode_id=000032 success=True decision_rows=19
+RISK_EPISODE_FINALIZED source_episode_id=33 global_episode_id=000033 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=34 global_episode_id=000034 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=36 global_episode_id=000036 success=True decision_rows=14
+RISK_EPISODE_FINALIZED source_episode_id=37 global_episode_id=000037 success=True decision_rows=21
+RISK_EPISODE_FINALIZED source_episode_id=38 global_episode_id=000038 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=39 global_episode_id=000039 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=40 global_episode_id=000040 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=42 global_episode_id=000042 success=True decision_rows=9
+RISK_EPISODE_FINALIZED source_episode_id=43 global_episode_id=000043 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=44 global_episode_id=000044 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=45 global_episode_id=000045 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=46 global_episode_id=000046 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=47 global_episode_id=000047 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=48 global_episode_id=000048 success=True decision_rows=14
+RISK_EPISODE_FINALIZED source_episode_id=49 global_episode_id=000049 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=50 global_episode_id=000050 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=51 global_episode_id=000051 success=True decision_rows=9
+RISK_EPISODE_FINALIZED source_episode_id=52 global_episode_id=000052 success=True decision_rows=21
+RISK_EPISODE_FINALIZED source_episode_id=55 global_episode_id=000055 success=True decision_rows=20
+RISK_EPISODE_FINALIZED source_episode_id=56 global_episode_id=000056 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=57 global_episode_id=000057 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=59 global_episode_id=000059 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=61 global_episode_id=000061 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=62 global_episode_id=000062 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=63 global_episode_id=000063 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=64 global_episode_id=000064 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=68 global_episode_id=000068 success=True decision_rows=15
+RISK_EPISODE_FINALIZED source_episode_id=69 global_episode_id=000069 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=70 global_episode_id=000070 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=72 global_episode_id=000072 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=73 global_episode_id=000073 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=77 global_episode_id=000077 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=79 global_episode_id=000079 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=80 global_episode_id=000080 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=81 global_episode_id=000081 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=82 global_episode_id=000082 success=True decision_rows=16
+RISK_EPISODE_FINALIZED source_episode_id=83 global_episode_id=000083 success=True decision_rows=15
+RISK_EPISODE_FINALIZED source_episode_id=84 global_episode_id=000084 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=87 global_episode_id=000087 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=88 global_episode_id=000088 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=89 global_episode_id=000089 success=True decision_rows=15
+RISK_EPISODE_FINALIZED source_episode_id=90 global_episode_id=000090 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=92 global_episode_id=000092 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=93 global_episode_id=000093 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=94 global_episode_id=000094 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=97 global_episode_id=000097 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=98 global_episode_id=000098 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=99 global_episode_id=000099 success=True decision_rows=8
+RISK_EPISODE_FINALIZED source_episode_id=102 global_episode_id=000102 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=103 global_episode_id=000103 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=104 global_episode_id=000104 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=106 global_episode_id=000106 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=111 global_episode_id=000111 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=112 global_episode_id=000112 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=114 global_episode_id=000114 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=119 global_episode_id=000119 success=True decision_rows=15
+RISK_EPISODE_FINALIZED source_episode_id=120 global_episode_id=000120 success=True decision_rows=14
+RISK_EPISODE_FINALIZED source_episode_id=122 global_episode_id=000122 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=123 global_episode_id=000123 success=True decision_rows=19
+RISK_EPISODE_FINALIZED source_episode_id=124 global_episode_id=000124 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=126 global_episode_id=000126 success=True decision_rows=14
+RISK_EPISODE_FINALIZED source_episode_id=128 global_episode_id=000128 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=129 global_episode_id=000129 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=130 global_episode_id=000130 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=131 global_episode_id=000131 success=True decision_rows=16
+RISK_EPISODE_FINALIZED source_episode_id=136 global_episode_id=000136 success=True decision_rows=20
+RISK_EPISODE_FINALIZED source_episode_id=138 global_episode_id=000138 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=139 global_episode_id=000139 success=True decision_rows=19
+RISK_EPISODE_FINALIZED source_episode_id=140 global_episode_id=000140 success=True decision_rows=20
+RISK_EPISODE_FINALIZED source_episode_id=141 global_episode_id=000141 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=144 global_episode_id=000144 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=145 global_episode_id=000145 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=147 global_episode_id=000147 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=154 global_episode_id=000154 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=159 global_episode_id=000159 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=161 global_episode_id=000161 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=163 global_episode_id=000163 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=164 global_episode_id=000164 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=165 global_episode_id=000165 success=True decision_rows=20
+RISK_EPISODE_FINALIZED source_episode_id=170 global_episode_id=000170 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=177 global_episode_id=000177 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=184 global_episode_id=000184 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=185 global_episode_id=000185 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=195 global_episode_id=000195 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=198 global_episode_id=000198 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=201 global_episode_id=000201 success=True decision_rows=16
+RISK_EPISODE_FINALIZED source_episode_id=204 global_episode_id=000204 success=True decision_rows=19
+RISK_EPISODE_FINALIZED source_episode_id=207 global_episode_id=000207 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=211 global_episode_id=000211 success=True decision_rows=16
+RISK_EPISODE_FINALIZED source_episode_id=212 global_episode_id=000212 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=213 global_episode_id=000213 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=217 global_episode_id=000217 success=True decision_rows=12
+RISK_EPISODE_FINALIZED source_episode_id=218 global_episode_id=000218 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=221 global_episode_id=000221 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=222 global_episode_id=000222 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=225 global_episode_id=000225 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=226 global_episode_id=000226 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=228 global_episode_id=000228 success=True decision_rows=19
+RISK_EPISODE_FINALIZED source_episode_id=232 global_episode_id=000232 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=235 global_episode_id=000235 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=251 global_episode_id=000251 success=True decision_rows=17
+RISK_EPISODE_FINALIZED source_episode_id=254 global_episode_id=000254 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=265 global_episode_id=000265 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=266 global_episode_id=000266 success=True decision_rows=16
+RISK_EPISODE_FINALIZED source_episode_id=271 global_episode_id=000271 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=275 global_episode_id=000275 success=True decision_rows=15
+RISK_EPISODE_FINALIZED source_episode_id=279 global_episode_id=000279 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=283 global_episode_id=000283 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=284 global_episode_id=000284 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=299 global_episode_id=000299 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=309 global_episode_id=000309 success=True decision_rows=22
+RISK_EPISODE_FINALIZED source_episode_id=322 global_episode_id=000322 success=True decision_rows=10
+RISK_EPISODE_FINALIZED source_episode_id=325 global_episode_id=000325 success=True decision_rows=20
+RISK_EPISODE_FINALIZED source_episode_id=337 global_episode_id=000337 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=352 global_episode_id=000352 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=364 global_episode_id=000364 success=True decision_rows=18
+RISK_EPISODE_FINALIZED source_episode_id=431 global_episode_id=000431 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=433 global_episode_id=000433 success=False decision_rows=60
+RISK_EPISODE_FINALIZED source_episode_id=522 global_episode_id=000522 success=True decision_rows=16
+RISK_EPISODE_FINALIZED source_episode_id=589 global_episode_id=000589 success=False decision_rows=60

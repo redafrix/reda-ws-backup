@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SimVLA Isaac risk-collection decision row",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "episode_id",
+    "decision_index",
+    "execution_mode",
+    "main_seed",
+    "ace_candidate_seeds",
+    "main_candidate_action_chunk_normalized",
+    "main_candidate_action_chunk_env",
+    "ace_candidate_chunks_normalized",
+    "ace_candidate_chunks_env",
+    "ace_features_7d",
+    "executed_action",
+    "executed_action_sequence",
+    "simvla_uncertainty_49d",
+    "simvla_uncertainty_delta_49d",
+    "simvla_uncertainty_raw",
+    "history",
+    "current",
+    "parent_episode_outcome",
+    "parent_episode_risk_label",
+    "metadata"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "simvla_isaac_risk_collection_v1"
+    },
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "execution_mode": {
+      "const": "chunk_h10"
+    },
+    "main_seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ace_candidate_seeds": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "main_candidate_action_chunk_normalized": {
+      "$ref": "#/$defs/chunk"
+    },
+    "main_candidate_action_chunk_env": {
+      "$ref": "#/$defs/chunk"
+    },
+    "ace_candidate_chunks_normalized": {
+      "$ref": "#/$defs/candidates"
+    },
+    "ace_candidate_chunks_env": {
+      "$ref": "#/$defs/candidates"
+    },
+    "ace_features_7d": {
+      "$ref": "#/$defs/action"
+    },
+    "executed_action": {
+      "$ref": "#/$defs/action"
+    },
+    "executed_action_sequence": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": {"$ref": "#/$defs/action"}
+    },
+    "simvla_uncertainty_49d": {
+      "$ref": "#/$defs/features49"
+    },
+    "simvla_uncertainty_delta_49d": {
+      "$ref": "#/$defs/features49"
+    },
+    "simvla_uncertainty_raw": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "history": {
+      "type": "array",
+      "minItems": 16,
+      "maxItems": 16,
+      "items": {
+        "type": "array",
+        "minItems": 21,
+        "maxItems": 21,
+        "items": {"type": "number"}
+      }
+    },
+    "current": {
+      "type": "object",
+      "required": ["proprio"],
+      "properties": {
+        "proprio": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {"type": "number"}
+        }
+      }
+    },
+    "parent_episode_outcome": {
+      "enum": ["success", "failure_or_timeout", "error"]
+    },
+    "parent_episode_risk_label": {
+      "type": ["integer", "null"],
+      "enum": [0, 1, null]
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "checkpoint_model_sha256",
+        "uncertainty_parameterization",
+        "manifest_fingerprint_sha256",
+        "policy_sampling_seed"
+      ]
+    }
+  },
+  "$defs": {
+    "action": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {"type": "number"}
+    },
+    "chunk": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {"$ref": "#/$defs/action"}
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {"$ref": "#/$defs/chunk"}
+    },
+    "features49": {
+      "type": "array",
+      "minItems": 49,
+      "maxItems": 49,
+      "items": {"type": "number"}
+    }
+  }
+}
