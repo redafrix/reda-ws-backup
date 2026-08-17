@@ -80,7 +80,7 @@ def main():
             "test": test_metrics[th]
         }
         
-    (out_dir / 'SEEN4000_THRESHOLD_SWEEP.json').write_text(json.dumps(sweep_results, indent=2))
+    (out_dir / 'HELD_OUT_SEEN_THRESHOLD_SWEEP.json').write_text(json.dumps(sweep_results, indent=2))
     
     # Shortlist logic
     # 1. aggressive: highest test Det@25 among thresholds with test success false-alarm <= 20% and total failure detection >= 95%
@@ -97,7 +97,7 @@ def main():
             "det25": m["det_at_25"]
         })
         
-    def find_best(fa_limit, require_det=0.95, maximize="det25", minimize=None):
+    def find_best(fa_limit, require_det=0.95, maximize=None, minimize=None):
         valid = [c for c in candidates if c["fa"] <= fa_limit and c["det"] >= require_det]
         if not valid:
             valid = [c for c in candidates if c["det"] >= require_det] # fallback
