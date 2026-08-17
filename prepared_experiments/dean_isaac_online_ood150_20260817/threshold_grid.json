@@ -1,0 +1,42 @@
+{
+  "schema_version": "isaac_online_threshold_grid_v1",
+  "description": "Predeclared 6-variant threshold grid for Isaac OOD150 online risk intervention",
+  "variants": [
+    {
+      "id": "f1_cap90",
+      "main_threshold": "best_val_f1",
+      "selected_cap": "q90_success",
+      "description": "Primary Goal-Object configuration: best_val_f1 alarm threshold with q90_success selected risk cap"
+    },
+    {
+      "id": "f1_cap95",
+      "main_threshold": "best_val_f1",
+      "selected_cap": "q95_success",
+      "description": "best_val_f1 alarm threshold with q95_success selected risk cap"
+    },
+    {
+      "id": "f1_capf1",
+      "main_threshold": "best_val_f1",
+      "selected_cap": "best_val_f1",
+      "description": "best_val_f1 alarm threshold with best_val_f1 selected risk cap"
+    },
+    {
+      "id": "q95_cap90",
+      "main_threshold": "q95_success",
+      "selected_cap": "q90_success",
+      "description": "q95_success alarm threshold with q90_success selected risk cap"
+    },
+    {
+      "id": "q95_cap95",
+      "main_threshold": "q95_success",
+      "selected_cap": "q95_success",
+      "description": "q95_success alarm threshold with q95_success selected risk cap"
+    },
+    {
+      "id": "q90_cap90",
+      "main_threshold": "q90_success",
+      "selected_cap": "q90_success",
+      "description": "q90_success alarm threshold with q90_success selected risk cap"
+    }
+  ]
+}
