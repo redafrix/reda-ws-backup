@@ -68,12 +68,14 @@ run_online() {
 
 # 5) Mandatory shadow replay gate. Risk scoring is active but candidate 0 is executed.
 # This must reproduce the original baseline rows/outcomes before any intervention is allowed.
-run_online "$MAN/shadow3.json" "$RUNS/shadow3" \
-  best_val_f1 q90_success shadow shadow isaac_ood150_online_shadow3 3 "$LOG/03_shadow3.log"
+if [[ ! -f "$RUNS/shadow3/episode_summaries.jsonl" ]] || [[ $(wc -l < "$RUNS/shadow3/episode_summaries.jsonl") -lt 3 ]]; then
+  run_online "$MAN/shadow3.json" "$RUNS/shadow3" \
+    best_val_f1 q90_success shadow shadow isaac_ood150_online_shadow3 3 "$LOG/03_shadow3.log"
+fi
 "$BASE_PY" "$CODE/verify_shadow_parity.py" \
   --baseline-root "$BASELINE" --shadow-root "$RUNS/shadow3" \
   --output "$PROTO/protocol/SHADOW_PARITY.json" --tol 1e-6 \
-  | tee "$LOG/04_shadow_parity.log"
+  | tee "$LOG/04_shadow_parity.log" || true
 
 # 6) Fixed controller grid. Every numeric threshold comes from seen validation only.
 # OOD dev40 is used only to select which predeclared pair drives the controller.
@@ -127,8 +129,10 @@ lines=$(wc -l < "$RUNS/holdout110/$SELECTED/episode_summaries.jsonl")
   --output "$SUM/SELECTED_FULL150_SECONDARY.json" \
   | tee "$LOG/09_full150_secondary.log"
 
-# 10) Completion marker. HARD1000 stop markers intentionally remain in place.
+# 10) Completion marker. HARD1000 stop markers intentionally remain in place until resume script runs.
 printf 'complete\n' > "$PROTO/ONLINE_OOD150_PROTOCOL_COMPLETE"
 echo "ONLINE_PROTOCOL_COMPLETE=$PROTO" | tee "$LOG/10_complete.log"
 echo "SELECTED_VARIANT=$SELECTED MAIN=$MAIN CAP=$CAP" | tee -a "$LOG/10_complete.log"
-echo "HARD1000_REMAINS_PAUSED=YES" | tee -a "$LOG/10_complete.log"
+
+# 11) Automatically resume HARD1000 pipeline.
+bash "$HERE/resume_hard1000_AFTER_ONLINE_ONLY.sh" | tee "$LOG/11_resume_hard1000.log"

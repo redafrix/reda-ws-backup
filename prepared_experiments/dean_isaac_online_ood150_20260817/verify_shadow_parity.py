@@ -58,16 +58,16 @@ def main() -> int:
             sp = np.asarray(sr['current']['proprio'], dtype=np.float32)
             max_proprio_diff = max(max_proprio_diff, float(np.max(np.abs(bp - sp))))
 
-            bc = np.asarray(br['policy']['main_candidate_action_chunk_env'], dtype=np.float32)
-            sc = np.asarray(sr['policy']['main_candidate_action_chunk_env'], dtype=np.float32)
+            bc = np.asarray(br['main_candidate_action_chunk_env'], dtype=np.float32)
+            sc = np.asarray(sr['main_candidate_action_chunk_env'], dtype=np.float32)
             max_chunk_diff = max(max_chunk_diff, float(np.max(np.abs(bc - sc))))
 
-            bace = np.asarray(br['policy']['ace'], dtype=np.float32)
-            sace = np.asarray(sr['policy']['ace'], dtype=np.float32)
+            bace = np.asarray(br['ace_features_7d'], dtype=np.float32)
+            sace = np.asarray(sr['ace_features_7d'], dtype=np.float32)
             max_ace_diff = max(max_ace_diff, float(np.max(np.abs(bace - sace))))
 
-            ba = np.asarray(br['policy']['executed_action_sequence'], dtype=np.float32)
-            sa = np.asarray(sr['policy']['executed_action_sequence'], dtype=np.float32)
+            ba = np.asarray(br['executed_action_sequence'], dtype=np.float32)
+            sa = np.asarray(sr['executed_action_sequence'], dtype=np.float32)
             max_action_diff = max(max_action_diff, float(np.max(np.abs(ba - sa))))
 
         checks.append({'episode': sid, 'check': 'proprio_parity', 'max_abs_diff': max_proprio_diff, 'pass': max_proprio_diff <= args.tol})
