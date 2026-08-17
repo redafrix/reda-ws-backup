@@ -20,6 +20,7 @@ Therefore, the corrected protocol-selected MAIN ALARM THRESHOLD is `best_val_f1 
 
 The selected alternative risk cap remains `q90_success = 0.2370966076850891`.
 
-## Ablation Preservation
-Before this bug was discovered, the Isaac Sim online campaign was already launched using the incorrectly selected `fixed_0.5` threshold.
-Following scientific integrity, this running simulation is completely preserved and allowed to finish undisturbed. Its outputs will be reported exclusively as an additional online ablation, rather than the definitive protocol-selected run. The definitive active run will use the corrected controller (`best_val_f1`).
+## Aborted Run and Definitive Campaign
+Before the bug was discovered, an initial run was briefly attempted with `fixed_0.5`. That process was stopped cleanly during initialization (0 completed full-campaign episodes logged) to prevent waste of compute on an unverified controller. 
+
+The single definitive active online campaign for all 150 locked OOD scenes was then launched using the verified, corrected controller (`best_val_f1 = 0.7990124225616455` and `q90_success = 0.2370966076850891` alternative safety cap).
