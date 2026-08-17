@@ -1,0 +1,1442 @@
+{
+  "q50_val_success_max": {
+    "main_threshold": {
+      "name": "q50_val_success_max",
+      "value": 0.15868693590164185,
+      "derivation": "Empirical 50th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 2401,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.15188737213611603,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.16169370710849762,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.18059995770454407,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.19283616542816162,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.20599904656410217,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.24038831889629364,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.2962348461151123,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.38029563426971436,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.6181602478027344,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.8473169207572937,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.997849702835083,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9995805621147156,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9996597766876221,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.1587 and best_alt < main",
+        "calibration_decisions_count": 2401
+      }
+    ]
+  },
+  "q60_val_success_max": {
+    "main_threshold": {
+      "name": "q60_val_success_max",
+      "value": 0.19312059879302979,
+      "derivation": "Empirical 60th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 1962,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.1835560493171215,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.1965284898877144,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.21999354660511017,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.23530571907758713,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.2531704097986221,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.30043366551399237,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.368828147649765,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.5143282413482666,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.865324372053146,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.997310608625412,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9993082046508789,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996055722236633,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9996704518795013,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.1931 and best_alt < main",
+        "calibration_decisions_count": 1962
+      }
+    ]
+  },
+  "legacy_q90_success": {
+    "main_threshold": {
+      "name": "legacy_q90_success",
+      "value": 0.2370966076850891,
+      "derivation": "Historical baseline threshold q90_success",
+      "source_split": "validation",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 1614,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.2171454317867756,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.23789390176534653,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.27039923667907717,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.29396383464336395,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.3150724619626999,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.3760600030422211,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.48762354254722595,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.7543403267860412,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9977379620075226,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9992633163928986,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9995174169540405,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996266841888428,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9996783435344696,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.2371 and best_alt < main",
+        "calibration_decisions_count": 1614
+      }
+    ]
+  },
+  "q70_val_success_max": {
+    "main_threshold": {
+      "name": "q70_val_success_max",
+      "value": 0.25379790365695953,
+      "derivation": "Empirical 70th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 1511,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.23169370740652084,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.2560230493545532,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.29404014348983765,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.31442105770111084,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.33566850423812866,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.4107734262943268,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.5503731369972229,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.8350750803947449,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9989744424819946,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.999357283115387,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9995362758636475,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996324777603149,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9996811151504517,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.2538 and best_alt < main",
+        "calibration_decisions_count": 1511
+      }
+    ]
+  },
+  "q75_val_success_max": {
+    "main_threshold": {
+      "name": "q75_val_success_max",
+      "value": 0.28500863909721375,
+      "derivation": "Empirical 75th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 1351,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.2637791335582733,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.29220935702323914,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.3298206031322479,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.3516056686639786,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.38702982664108276,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.48198574781417847,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.7004543542861938,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9675630331039429,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9992571473121643,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9995107650756836,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9995619654655457,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996465444564819,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9996856451034546,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.2850 and best_alt < main",
+        "calibration_decisions_count": 1351
+      }
+    ]
+  },
+  "q80_val_success_max": {
+    "main_threshold": {
+      "name": "q80_val_success_max",
+      "value": 0.3332529366016388,
+      "derivation": "Empirical 80th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 1160,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.31761990040540694,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.34135840833187103,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.397803270816803,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.4376930445432663,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.48160858154296876,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.659354603290558,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.8904716968536377,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9988785147666931,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9994935512542724,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9995488524436951,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9995851874351501,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996616959571838,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9996899724006653,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.3333 and best_alt < main",
+        "calibration_decisions_count": 1160
+      }
+    ]
+  },
+  "legacy_q95_success": {
+    "main_threshold": {
+      "name": "legacy_q95_success",
+      "value": 0.3443679213523865,
+      "derivation": "Historical baseline threshold q95_success",
+      "source_split": "validation",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 1122,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.3274201348423958,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.3522490859031677,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.4155444085597992,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.46471691876649857,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.5142071843147278,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.7020856976509094,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.9384962618350983,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9990310192108154,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9995117306709289,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9995568990707397,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9995909810066224,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996632695198059,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9996914446353913,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.3444 and best_alt < main",
+        "calibration_decisions_count": 1122
+      }
+    ]
+  },
+  "q85_val_success_max": {
+    "main_threshold": {
+      "name": "q85_val_success_max",
+      "value": 0.39633870124816895,
+      "derivation": "Empirical 85th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 996,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.3845709338784218,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.4166409373283386,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.49922943115234375,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.5654833167791367,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.6576411128044128,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.8499529361724854,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.9968385100364685,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9992871880531311,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9995414614677429,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9995753467082977,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9996048808097839,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996688365936279,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9996951222419739,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.3963 and best_alt < main",
+        "calibration_decisions_count": 996
+      }
+    ]
+  },
+  "q90_val_success_max": {
+    "main_threshold": {
+      "name": "q90_val_success_max",
+      "value": 0.48126205801963806,
+      "derivation": "Empirical 90th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 866,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.4752451255917549,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.5237129926681519,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.6666733622550964,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.7514272034168243,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.8306954503059387,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.9881018400192261,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.9991515874862671,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9994950294494629,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9995697736740112,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9995943903923035,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.999619722366333,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996762871742249,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9996993243694305,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.4813 and best_alt < main",
+        "calibration_decisions_count": 866
+      }
+    ]
+  },
+  "legacy_fixed_0.5": {
+    "main_threshold": {
+      "name": "legacy_fixed_0.5",
+      "value": 0.5,
+      "derivation": "Historical baseline threshold fixed_0.5",
+      "source_split": "validation",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 849,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.4815475881099701,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.5406543374061584,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.6911055207252502,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.7676718235015869,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.8557058215141297,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.9939092874526978,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.9991851449012756,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9995070934295655,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9995735287666321,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9995965361595154,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9996223449707031,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996774435043335,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.999699592590332,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.5000 and best_alt < main",
+        "calibration_decisions_count": 849
+      }
+    ]
+  },
+  "q92.5_val_success_max": {
+    "main_threshold": {
+      "name": "q92.5_val_success_max",
+      "value": 0.5694464817643166,
+      "derivation": "Empirical 92.5th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 795,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.5521291434764862,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.6259371757507324,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.7715338230133058,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.8524686694145203,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.9488422036170959,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.9980963230133056,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.9992889165878296,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9995216131210327,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9995818734169006,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9996050000190735,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9996275186538697,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996787309646606,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9997006893157959,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.5694 and best_alt < main",
+        "calibration_decisions_count": 795
+      }
+    ]
+  },
+  "q95_val_success_max": {
+    "main_threshold": {
+      "name": "q95_val_success_max",
+      "value": 0.7123059034347534,
+      "derivation": "Empirical 95th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 704,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.7085133194923401,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.7783682405948639,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.9350077509880066,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.9826516509056091,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.997093015909195,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.9991992831230163,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.9994869232177734,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9995555281639099,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9995969295501709,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9996194839477539,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9996414661407471,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996850967407227,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9997052013874054,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.7123 and best_alt < main",
+        "calibration_decisions_count": 704
+      }
+    ]
+  },
+  "legacy_q99_success": {
+    "main_threshold": {
+      "name": "legacy_q99_success",
+      "value": 0.7373747229576111,
+      "derivation": "Historical baseline threshold q99_success",
+      "source_split": "validation",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 683,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.7517248630523682,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.8132934451103211,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.9597124695777893,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.9931893944740295,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.9980204343795777,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.9992487668991089,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.9995056390762329,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9995606780052185,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9995997071266174,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9996216297149658,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9996449470520019,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996855020523071,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.999705684185028,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.7374 and best_alt < main",
+        "calibration_decisions_count": 683
+      }
+    ]
+  },
+  "legacy_best_val_f1": {
+    "main_threshold": {
+      "name": "legacy_best_val_f1",
+      "value": 0.7990124225616455,
+      "derivation": "Historical baseline threshold best_val_f1",
+      "source_split": "validation",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 642,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.8230879485607148,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.9022785902023316,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.9927317500114441,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.9978387504816055,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.9990293741226196,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.9993278503417968,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.999518871307373,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9995713353157043,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9996076941490173,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9996269345283508,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9996514081954956,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996864438056946,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9997070074081421,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.7990 and best_alt < main",
+        "calibration_decisions_count": 642
+      }
+    ]
+  },
+  "q97.5_val_success_max": {
+    "main_threshold": {
+      "name": "q97.5_val_success_max",
+      "value": 0.8149159327149391,
+      "derivation": "Empirical 97.5th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 635,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.8402854800224304,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.9204851269721985,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.9941456556320191,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.998158872127533,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.9990650534629821,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.9993509173393249,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.9995216131210327,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.999573576450348,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9996103405952453,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9996275901794434,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9996533632278443,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996871232986451,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9997073292732239,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.8149 and best_alt < main",
+        "calibration_decisions_count": 635
+      }
+    ]
+  },
+  "q99_val_success_max": {
+    "main_threshold": {
+      "name": "q99_val_success_max",
+      "value": 0.920784246921539,
+      "derivation": "Empirical 99th percentile of episode-max main scores on successful validation episodes",
+      "source_split": "validation_successful_episodes",
+      "calibration_episodes_count": 586
+    },
+    "conditional_decisions_count": 578,
+    "caps": [
+      {
+        "cap_quantile": 5,
+        "cap_value": 0.9575556218624115,
+        "derivation": "Conditional 5th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 10,
+        "cap_value": 0.9879842877388001,
+        "derivation": "Conditional 10th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 20,
+        "cap_value": 0.9989008665084839,
+        "derivation": "Conditional 20th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 25,
+        "cap_value": 0.9991501569747925,
+        "derivation": "Conditional 25th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 30,
+        "cap_value": 0.9992604494094849,
+        "derivation": "Conditional 30th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 40,
+        "cap_value": 0.9994947671890259,
+        "derivation": "Conditional 40th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 50,
+        "cap_value": 0.9995493292808533,
+        "derivation": "Conditional 50th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 60,
+        "cap_value": 0.9995858073234558,
+        "derivation": "Conditional 60th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 70,
+        "cap_value": 0.9996197104454041,
+        "derivation": "Conditional 70th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 75,
+        "cap_value": 0.9996392726898193,
+        "derivation": "Conditional 75th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 80,
+        "cap_value": 0.9996617555618286,
+        "derivation": "Conditional 80th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 90,
+        "cap_value": 0.9996901512145996,
+        "derivation": "Conditional 90th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      },
+      {
+        "cap_quantile": 95,
+        "cap_value": 0.9997087478637695,
+        "derivation": "Conditional 95th percentile of best_alt scores on validation decisions with main >= 0.9208 and best_alt < main",
+        "calibration_decisions_count": 578
+      }
+    ]
+  }
+}

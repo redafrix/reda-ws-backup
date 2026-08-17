@@ -1,0 +1,49 @@
+{
+  "train": {
+    "episodes": 2800,
+    "successes": 2736,
+    "failures": 64,
+    "rows": 52825
+  },
+  "validation": {
+    "episodes": 600,
+    "successes": 586,
+    "failures": 14,
+    "rows": 11410
+  },
+  "test": {
+    "episodes": 600,
+    "successes": 586,
+    "failures": 14,
+    "rows": 11368
+  },
+  "all": {
+    "episodes": 4000,
+    "successes": 3908,
+    "failures": 92,
+    "rows": 75603
+  },
+  "missing_episodes": 0,
+  "duplicate_source_episode_ids": 0,
+  "nonfinite_scores": 0,
+  "candidate_score_shape_errors": 0,
+  "candidate0_parity": {
+    "validation": {
+      "rows": 11410,
+      "max_diff": 5.364418029785156e-07,
+      "mean_diff": 1.7678926766961922e-08,
+      "p99_diff": 1.1920928955078125e-07,
+      "count_gt_1e5": 0,
+      "count_gt_1e4": 0
+    },
+    "test": {
+      "rows": 11368,
+      "max_diff": 4.76837158203125e-07,
+      "mean_diff": 1.8291961723093664e-08,
+      "p99_diff": 1.341104507446289e-07,
+      "count_gt_1e5": 0,
+      "count_gt_1e4": 0
+    },
+    "train_reference_scores": "TRAIN REFERENCE SCORES UNAVAILABLE"
+  }
+}
