@@ -1,0 +1,33 @@
+{
+  "schema_version": "simvla_isaac_online_intervention_audit_v1",
+  "audit_timestamp_utc": "2026-08-17T10:03:44.955780+00:00",
+  "host": "dean (Batman)",
+  "workspace": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813",
+  "online_isaac_test_exists": false,
+  "verdict": "NO_VERIFIED_CLOSED_LOOP_ISAAC_RISK_INTERVENTION_RESULT_EXISTS",
+  "findings": {
+    "offline_evaluation_only": {
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/evaluations/locked_h10_ood150_topk8_v1",
+      "evaluates": "Offline scoring of static .npy arrays from locked OOD-150 dataset (5,887 decision rows across 150 episodes)",
+      "changes_control_decisions": false,
+      "reports_task_success_improvements": false
+    },
+    "collector_execution_mode": {
+      "script": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/scripts/collect_isaac_risk.py",
+      "lines_773_780": "Always executes unguided main chunk: current_actions = current_plan.main_chunk_env; current_action_index = 0",
+      "changes_executed_action": false,
+      "evaluates_risk_intervention": false
+    },
+    "workspace_documentation_record": {
+      "file": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/reports/REVIEWER_FINDINGS_REMEDIATION_20260814.md",
+      "line_83": "No Isaac selected-candidate online deployment has been claimed."
+    },
+    "closed_loop_intervention_evidence": {
+      "candidate_selection_run": false,
+      "argmin_filtering_run": false,
+      "horizon_shortening_intervention_run": false,
+      "paired_baseline_risk_aware_comparison_run": false,
+      "paired_rescues_and_regressions_recorded": false
+    }
+  }
+}
