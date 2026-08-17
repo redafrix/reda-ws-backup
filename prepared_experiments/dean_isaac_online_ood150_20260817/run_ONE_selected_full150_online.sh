@@ -64,7 +64,7 @@ export PYTHONPATH="$W:$W/src:${PYTHONPATH:-}"
   2>&1 | tee "$LOG/03_selected_full150_online.log"
 lines=$(wc -l < "$OUT/episode_summaries.jsonl")
 [[ "$lines" -eq 150 ]] || { echo "REFUSING completion: online run incomplete $lines/150" >&2; exit 7; }
-"$BASE_PY" "$CODE/summarize_online.py" --baseline "$BASELINE/episode_summaries.jsonl" --online "$OUT/episode_summaries.jsonl" --output "$SUM/FINAL_SELECTED_FULL150.json" --variant "$MAIN__cap_q90_success" | tee "$LOG/04_final_summary.log"
+"$BASE_PY" "$CODE/summarize_online.py" --baseline "$BASELINE/episode_summaries.jsonl" --online "$OUT/episode_summaries.jsonl" --output "$SUM/FINAL_SELECTED_FULL150.json" --variant "${MAIN}__cap_q90_success" | tee "$LOG/04_final_summary.log"
 "$BASE_PY" - "$SUM/FINAL_SELECTED_FULL150.json" <<'PY'
 import json,sys
 x=json.load(open(sys.argv[1])); assert x['episodes']==150; assert x['baseline_successes']==72
