@@ -41,7 +41,7 @@ done
   --source "$W/scripts/collect_isaac_risk.py" --output "$CODE/run_isaac_online_risk.py" \
   | tee "$LOG/00b_build_online_runner.log"
 "$BASE_PY" -m py_compile "$CODE"/*.py
-sha256sum "$CODE"/* > "$PROTO/protocol/CODE_SHA256SUMS.txt"
+find "$CODE" -maxdepth 1 -type f -exec sha256sum {} + | sort > "$PROTO/protocol/CODE_SHA256SUMS.txt"
 
 # 3) Immutable provenance / identity preflight.
 "$BASE_PY" "$CODE/preflight_online.py" --output "$PROTO/protocol/PREFLIGHT.json" \
