@@ -1,0 +1,12 @@
+{
+  "status": "PREPARATION_COMPLETE",
+  "trainer_source": "train_isaac_topk8_v2_episode_balanced.py",
+  "weighting_preflight": "validate_v2_weighting.py",
+  "ood150_comparison": "compare_v1_v2_ood150.py",
+  "final_rules": "FINAL_IMPLEMENTATION_RULES.md",
+  "gpu_gate": "PREFLIGHT_THRESHOLDS.json",
+  "expected_return": "EXPECTED_AGY_RETURN.txt",
+  "hard1000_must_continue": true,
+  "ood400_forbidden": true,
+  "checkpoint_commit_to_git": false
+}
