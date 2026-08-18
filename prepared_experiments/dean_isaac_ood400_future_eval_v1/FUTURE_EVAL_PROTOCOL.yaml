@@ -49,11 +49,11 @@ comparison:
     - baseline_failure_active_failure
   note: paired categories are descriptive because Isaac closed-loop execution can be nondeterministic
 
-prohibitions:
-  run_before_hard1000_complete: true
-  use_for_training: true
-  use_for_normalization: true
-  use_for_model_selection: true
-  use_for_threshold_calibration: true
-  use_for_controller_tuning: true
-  inspect_partial_outcomes_to_change_protocol: true
+forbidden_actions:
+  forbidden_run_before_hard1000_complete: true
+  forbidden_use_for_training: true
+  forbidden_use_for_normalization: true
+  forbidden_use_for_model_selection: true
+  forbidden_use_for_threshold_calibration: true
+  forbidden_use_for_controller_tuning: true
+  forbidden_partial_outcome_inspection_to_change_protocol: true
