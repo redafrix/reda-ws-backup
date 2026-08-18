@@ -1,0 +1,49 @@
+{
+  "schema_version": "isaac_ood400_dean_runtime_bindings_v1",
+  "status": "BOUND_AND_VERIFIED",
+  "workspace": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813",
+  "manifest": {
+    "path": "automation/generated/locked_ood400_v1/manifest.json",
+    "sha256": "264dae5a7de872e5aee0a9554f88adfe7af3d38b5a7e29fd7f9b3e0d1c10da41"
+  },
+  "validated_ood150_runtime_reference": {
+    "run_isaac_online_risk_py": {
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/online_evals/isaac_ood150_engineering_cap090_v1/run_isaac_online_risk.py",
+      "sha256": "165392d73d7e5dfe2ff314e8056e68816283d75ddd67f28a1dbe74c3e63cfa13"
+    },
+    "online_isaac_runtime_py": {
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/online_evals/isaac_ood150_engineering_cap090_v1/online_isaac_runtime.py",
+      "sha256": "a85e6c59713395eb51b61dd79f4790c9030532a26446d994433b350eaaaa2dc9"
+    },
+    "controller_json": {
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/online_evals/isaac_ood150_engineering_cap090_v1/SELECTED_ENGINEERING_CONTROLLER.json",
+      "sha256": "4485faee04b28a9c94f671f3aee4d05944069283521cf8cae9bb27ad2c1f3734"
+    },
+    "final_ood150_run_manifest": {
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/online_evals/isaac_ood150_engineering_cap090_v1/runs/definitive_full150/run_manifest.json",
+      "sha256": "d85f5ee93ae583ae19f183fa5a336afd3b4b1d214423b42694d3b1490e68f66c"
+    }
+  },
+  "frozen_model": {
+    "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_h10_topk8_temporal_v1/model.pt",
+    "sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38",
+    "expected_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38"
+  },
+  "frozen_normalization": {
+    "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/isaac_seen_h10_topk8_v1/normalization.json",
+    "sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050",
+    "expected_sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050"
+  },
+  "scene_loader": {
+    "path": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab/src/franka_wrist_camera_scene/simvla/ood_benchmark.py",
+    "sha256": "a63d2c79987cf4cc8ded3395183b533209f7a29c4f3f56028b14869cc66f4dec",
+    "static_compatibility_checked": true
+  },
+  "asset_registry": {
+    "path": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab/configs/object_geometry.generated.yaml",
+    "sha256": "db1a0d35ddd81147f785254232b85a3f38e9c3dd8c700704b0fce7bf57f71c28",
+    "all_manifest_variants_resolve": true
+  },
+  "future_protocol_file": "prepared_experiments/dean_isaac_ood400_future_eval_v1/FUTURE_EVAL_PROTOCOL.yaml",
+  "no_rollout_launched": true
+}

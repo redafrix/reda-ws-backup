@@ -1,0 +1,46 @@
+{
+  "schema_version": "isaac_ood400_setup_audit_v1",
+  "status": "PASSED",
+  "manifest": {
+    "path": "automation/generated/locked_ood400_v1/manifest.json",
+    "sha256": "264dae5a7de872e5aee0a9554f88adfe7af3d38b5a7e29fd7f9b3e0d1c10da41",
+    "sha256_matches_expected": true,
+    "episode_count": 400,
+    "benchmark_ids_exact_0_399": true,
+    "risk_split_all_ood_test": true,
+    "unique_source_episode_ids": 400,
+    "unique_scene_fingerprints": 400,
+    "target_positions_exact_100_499_once_each": true,
+    "clutter_positions_exact_100_499_once_each": true,
+    "target_variant_count": 31
+  },
+  "ood150_overlap": {
+    "locked_ood150_source_id_count": 150,
+    "ood400_source_id_count": 400,
+    "intersection_count": 0,
+    "intersection_ids": []
+  },
+  "asset_resolution": {
+    "referenced_unique_variants": 33,
+    "resolved_unique_variants": 33,
+    "missing_variants": []
+  },
+  "loader_compatibility": {
+    "loader_identification": "franka_wrist_camera_scene.simvla.ood_benchmark.load_benchmark_manifest",
+    "parsed_episode_count": 400,
+    "materializable_scene_count_without_simulation": 400,
+    "failed_benchmark_episode_ids": []
+  },
+  "hard1000_safety": {
+    "before_completed": 310,
+    "after_completed": 311,
+    "pipeline_alive_before": true,
+    "pipeline_alive_after": true,
+    "collector_alive_before": true,
+    "collector_alive_after": true,
+    "active_output_files_modified_by_setup": false
+  },
+  "rollout_launched": false,
+  "ood400_outcomes_generated": false,
+  "ready_for_future_eval": true
+}
