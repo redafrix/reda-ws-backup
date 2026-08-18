@@ -1,0 +1,22 @@
+{
+  "schema_version": "isaac_online_engineering_controller_v1",
+  "main_threshold_name": "best_val_f1",
+  "main_threshold_value": 0.7990124225616455,
+  "main_threshold_provenance": "Seen-calibrated V1 best_val_f1 decision boundary on seen validation split",
+  "alternative_cap_name": "engineering_live_cap_090",
+  "alternative_cap_value": 0.9,
+  "alternative_cap_provenance": "Engineering controller operating point chosen from preserved real live 9-candidate development decisions (dev40/shadow3)",
+  "min_delta": 0.0,
+  "model_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38",
+  "normalization_sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050",
+  "controller_semantics": "if main_score < 0.7990124225616455: return 0; elif best_alt_score >= main_score: return 0; elif best_alt_score > 0.9000000000000000: return 0; else: return best_alt_idx",
+  "development_viability_metrics": {
+    "historical_live_decisions_evaluated": 1660,
+    "historical_live_alarms": 928,
+    "predicted_replacements": 20,
+    "replacement_rate_on_alarms_pct": 2.1551724137931036,
+    "affected_episodes": 11,
+    "total_episodes_evaluated": 46,
+    "median_delta": 0.019708752632141113
+  }
+}

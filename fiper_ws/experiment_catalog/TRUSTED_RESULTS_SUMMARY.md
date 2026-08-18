@@ -301,3 +301,22 @@ The confusion arose because the synthesis report equated "queries where `main_sc
 | H10 TopK8 distinct-OOD calibration on OOD180 | **TRUST negative calibration audit, not deployment** (Dean, 2026-06-29; no retrain. Thresholds calibrated on separate `selected_cap_t03_c04_100ep_20260610` OOD risk-step scores, then tested on OOD180. Even this non-test OOD calibration remains high-FA: best actual-max800 low-FA row in report is about 53.7% Success FA / 100.0% Failure Det / Det@25 90.3%; cap-300 about 53.1% FA / 89.2% Det. Distinct OOD calibration helps versus saved 96% FA, but not enough for a strong paper claim.) |
 | Official FIPER seen goal-object baseline | **TRUST seen-only baseline** (Bob, 2026-07-02 audit; official repo commit `13d79c5c3069def843e454787ff128defc249838`, method classes unchanged, dataset adapter only. RND-OE trained on successful seen calibration rollouts for seeds 0,1,2,42,43; held-out seen test only. This is the threshold source for cross-suite OOD. Output: `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/official_fiper_original_bob_20260701/official_fiper_seen_train_eval_20260701`.) |
 | Official FIPER seen-threshold cross-suite OOD application | **TRUST strict no-OOD-calibration ablation** (Bob, complete 2026-07-02. Applies exact seen-selected q95 operating points to `goal_object_ood_180`, `goal_swap_100`, `goal_task_100`, `spatial_object_100`, `object_object_100`, and `libero10_object_100`. Combined datasets contain 150 seen calibration successes and OOD test rollouts only; no calibration/test overlap, no OOD calibration, no OOD threshold tuning. Result: FIPER transfers unevenly; RND-OE often saturates to 100% OOD success false alarms, while entropy/fusion can have low FA but weak failure detection on several suites. Report: `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/official_fiper_original_bob_20260701/official_fiper_seen_thresholds_cross_suite_ood_20260702/OFFICIAL_FIPER_SEEN_THRESHOLDS_CROSS_SUITE_OOD_20260702.md`.) |
+
+
+## Corrected True-H10 Isaac Sim Result (2026-08-18)
+
+Canonical record: [`ISAAC_RESULTS_20260818.md`](ISAAC_RESULTS_20260818.md) and [`../../isaac_experiment_map/FINAL_ISAAC_RESULTS_20260818.md`](../../isaac_experiment_map/FINAL_ISAAC_RESULTS_20260818.md).
+
+- Seen4000: **4000 episodes**, **3908 success / 92 failure**, **75,603 decision rows**.
+- V1 validation AUROC/AUPRC: **0.9344901338 / 0.8494462696**.
+- Locked historical true-H10 OOD150 detector: **72 success / 78 failure**, **5,887 rows**, step **AUROC 0.9165517742 / AUPRC 0.9800307262**.
+- Main detector threshold: `best_val_f1 = 0.7990124225616455`, calibrated on Seen validation.
+- Definitive active controller: `A=0.7990124225616455`, `C=0.9`, `M=0.0`.
+- Active result: **75/150 (50.0%)** versus historical same-membership **72/150 (48.0%)**, net **+3 episodes / +2.0 percentage points**.
+- Paired: **11 rescues / 8 regressions / 64 persisted successes / 67 persisted failures**.
+- Controller audit: **57 accepted replacements** across **36/150 episodes**, **0 selection mismatches**, **0 execution mismatches**, max selected-vs-executed action difference **0.0**.
+- Exact membership: 150 expected / 150 actual / 150 unique, no missing, extra, or duplicate IDs; historical membership exact.
+- `A` is Seen-calibrated. `C=0.9` is engineering-development-informed from preserved live nine-candidate OOD-development decisions, so the final 150 is **not** a pristine untouched holdout for controller hyperparameter selection.
+- V1 is a current/main H10 proposal failure detector with multi-sample ACE/disagreement context; it was **not** trained on nine independently supervised counterfactual candidate outcomes.
+- HARD1000 resumed safely from the preserved 249-episode state and is ongoing; intermediate HARD1000 counts are **not** final results.
+- Commit `70327b4b31bde35c01fda29a807f9100b5295a62` is **invalid for historical candidate-wise alternative scores** because candidates 1–8 diffusion traces were not archived. Correction commit: `86f5baf3281596df2305409499fc9e0c21d119ed`.

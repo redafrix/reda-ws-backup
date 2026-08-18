@@ -1,0 +1,16 @@
+{
+  "schema_version": "isaac_controller_provenance_correction_v1",
+  "timestamp": "2026-08-18T07:28:08.924526+00:00",
+  "main_threshold": 0.7990124225616455,
+  "main_threshold_source": "Seen validation best_val_f1",
+  "alternative_cap": 0.9,
+  "alternative_cap_source": "Preserved real live 9-candidate OOD development decisions",
+  "ood_development_used_for_alternative_cap_selection": true,
+  "definitive_ood150_is_not_pristine_untouched_for_controller_selection": true,
+  "raw_run_manifest_known_metadata_issue": "ood_dev_used_for_controller_pair_selection was derived from current run role and is false for full150 despite development-informed cap",
+  "scientific_interpretation": {
+    "main_detector_threshold": "Seen-calibrated V1 best_val_f1 decision boundary",
+    "alternative_cap": "Engineering controller operating point chosen from preserved real live 9-candidate development decisions",
+    "definitive_ood150_status": "Active engineering evaluation on locked OOD150 membership; NOT a pristine untouched OOD holdout for controller hyperparameter selection"
+  }
+}

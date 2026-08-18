@@ -1,0 +1,108 @@
+{
+  "checks": [
+    {
+      "actual_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38",
+      "expected_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38",
+      "name": "model.pt",
+      "pass": true,
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_h10_topk8_temporal_v1/model.pt"
+    },
+    {
+      "actual_sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050",
+      "expected_sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050",
+      "name": "normalization.json",
+      "pass": true,
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/isaac_seen_h10_topk8_v1/normalization.json"
+    },
+    {
+      "actual_sha256": "7ff10101f7d61966ef85246850aa4b08f158da3ef1c8867217d1e2a4a9fc8829",
+      "expected_sha256": "7ff10101f7d61966ef85246850aa4b08f158da3ef1c8867217d1e2a4a9fc8829",
+      "name": "locked_manifest",
+      "pass": true,
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/automation/generated/locked_ood150/manifest.json"
+    },
+    {
+      "actual_sha256": "0df8c2df4d6c23b03487afdf9b525b2db0b4898fdc287639b667323b37e0c582",
+      "expected_sha256": "0df8c2df4d6c23b03487afdf9b525b2db0b4898fdc287639b667323b37e0c582",
+      "name": "locked_run_config",
+      "pass": true,
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/automation/generated/locked_ood150/run_config.yaml"
+    },
+    {
+      "actual_sha256": "0651da79baeabb3e90f0d4f1cde955751947d78dc228472261f5c61081362a84",
+      "expected_sha256": "0651da79baeabb3e90f0d4f1cde955751947d78dc228472261f5c61081362a84",
+      "name": "baseline_rows",
+      "pass": true,
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_locked_h10_ood150_seed20260728/risk_receding_samples.jsonl"
+    },
+    {
+      "actual_sha256": "161f1911fb12d4781c8459f6b1d1c8e18cc62c0e59f0f648befe9cd9aedd0785",
+      "expected_sha256": "161f1911fb12d4781c8459f6b1d1c8e18cc62c0e59f0f648befe9cd9aedd0785",
+      "name": "baseline_summaries",
+      "pass": true,
+      "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_locked_h10_ood150_seed20260728/episode_summaries.jsonl"
+    },
+    {
+      "actual": 0.7990124225616455,
+      "expected": 0.7990124225616455,
+      "name": "threshold:best_val_f1",
+      "pass": true
+    },
+    {
+      "actual": 0.2370966076850891,
+      "expected": 0.2370966076850891,
+      "name": "threshold:q90_success",
+      "pass": true
+    },
+    {
+      "actual": 0.3443679213523865,
+      "expected": 0.3443679213523865,
+      "name": "threshold:q95_success",
+      "pass": true
+    },
+    {
+      "actual": 0.7373747229576111,
+      "expected": 0.7373747229576111,
+      "name": "threshold:q99_success",
+      "pass": true
+    },
+    {
+      "name": "strict_2cm",
+      "pass": true
+    },
+    {
+      "name": "h10_timeout_2400",
+      "pass": true
+    },
+    {
+      "name": "policy_seed_20260728",
+      "pass": true
+    },
+    {
+      "actual": 150,
+      "name": "baseline_150",
+      "pass": true
+    },
+    {
+      "actual": 72,
+      "name": "baseline_72_success",
+      "pass": true
+    },
+    {
+      "actual": 78,
+      "name": "baseline_78_failure",
+      "pass": true
+    },
+    {
+      "name": "baseline_all_strict_2cm",
+      "pass": true
+    },
+    {
+      "active": [],
+      "name": "gpu_experiment_processes_absent",
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "schema_version": "isaac_online_preflight_v1"
+}
