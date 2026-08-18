@@ -1,0 +1,42 @@
+{
+  "architecture": {
+    "action_shape": [
+      10,
+      7
+    ],
+    "dropout": 0.1,
+    "ffn": 512,
+    "heads": 4,
+    "history_shape": [
+      16,
+      21
+    ],
+    "layers": 3,
+    "model": "SeqRiskModel",
+    "static_dim": 51,
+    "width": 128
+  },
+  "cuda_memory_fraction_cap": 0.1,
+  "dataset_manifest_sha256": "8e3b7f4929fce4a648f174735ec9c0530966cf4e8a93a66a3e793432a5be4859",
+  "device": "cuda:0",
+  "hard1000_used_for_training": false,
+  "normalization_sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050",
+  "ood150_used_for_training_or_selection": false,
+  "ood400_used": false,
+  "optimization": {
+    "batch_size": 512,
+    "epochs": 10,
+    "gradient_clip_norm": 1.0,
+    "loss": "episode-balanced class-balanced BCE",
+    "lr": 0.0002,
+    "old_v1_pos_weight_used": false,
+    "optimizer": "AdamW",
+    "seed": 20260622,
+    "weight_decay": 0.0001
+  },
+  "pipeline_common_py_sha256": "e89a69592ed75b8bb52850019780f6c8d4309e9a82186c59d3e01afbc2822c46",
+  "pipeline_model_py_sha256": "4fb86a0995ac236c8e9564bbbb1a4627ad33bc658958f1eae4ec4e8d0512d333",
+  "schema_version": "isaac_h10_topk8_v2_training_config_v1",
+  "scientific_delta": "episode-balanced/class-balanced BCE and episode-balanced Seen-validation checkpoint selection only",
+  "v1_model_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38"
+}

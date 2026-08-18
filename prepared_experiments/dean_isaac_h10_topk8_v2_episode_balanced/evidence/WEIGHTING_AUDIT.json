@@ -1,0 +1,48 @@
+{
+  "audit_pass": true,
+  "checks": {
+    "all_failure_episode_weights_equal": true,
+    "all_success_episode_weights_equal": true,
+    "failure_class_weight_sum_half": true,
+    "failure_raw_weight_sum": 0.49999999999999994,
+    "multiplier_mean_one": true,
+    "success_class_weight_sum_half": true,
+    "success_raw_weight_sum": 0.5
+  },
+  "failure_episodes": 64,
+  "failure_raw_weight_sum": 0.49999999999999994,
+  "failure_rows": 3840,
+  "failure_rows_per_episode": {
+    "max": 60,
+    "mean": 60.0,
+    "min": 60
+  },
+  "per_failure_episode_raw_weight": {
+    "expected": 0.0078125,
+    "max": 0.00781250000000001,
+    "mean": 0.007812500000000012,
+    "min": 0.00781250000000001
+  },
+  "per_success_episode_raw_weight": {
+    "expected": 0.0001827485380116959,
+    "max": 0.00018274853801169595,
+    "mean": 0.0001827485380116959,
+    "min": 0.0001827485380116958
+  },
+  "row_multiplier": {
+    "formula": "N_train_rows * 0.5 / (N_class_episodes * T_i)",
+    "max": 6.878255208333333,
+    "mean": 1.0,
+    "min": 0.34477469715956555
+  },
+  "schema_version": "isaac_h10_topk8_v2_weighting_audit_v1",
+  "success_episodes": 2736,
+  "success_raw_weight_sum": 0.5,
+  "success_rows": 48985,
+  "success_rows_per_episode": {
+    "max": 28,
+    "mean": 17.903874269005847,
+    "min": 6
+  },
+  "train_rows": 52825
+}

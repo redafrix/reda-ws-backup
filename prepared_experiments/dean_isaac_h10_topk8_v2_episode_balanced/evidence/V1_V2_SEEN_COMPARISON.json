@@ -1,0 +1,84 @@
+{
+  "identical_frozen_dataset_manifest_sha256": "8e3b7f4929fce4a648f174735ec9c0530966cf4e8a93a66a3e793432a5be4859",
+  "identical_normalization_sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050",
+  "ood150_used_for_training_selection_or_thresholding": false,
+  "ood400_touched": false,
+  "schema_version": "isaac_h10_topk8_v1_v2_seen_comparison_v1",
+  "seen_test": {
+    "delta_v2_minus_v1": {
+      "episode_balanced_auprc": 0.0017029304033538972,
+      "episode_balanced_auroc": -0.00042548806684483687,
+      "query_auprc": -0.005876037584253924,
+      "query_auroc": -0.002911397271674665
+    },
+    "v1": {
+      "episode_balanced_auprc": 0.7593178281885892,
+      "episode_balanced_auroc": 0.9326255376394207,
+      "query_auprc": 0.818629985131437,
+      "query_auroc": 0.9310794796642061
+    },
+    "v2": {
+      "episode_balanced_auprc": 0.7610207585919431,
+      "episode_balanced_auroc": 0.9322000495725759,
+      "query_auprc": 0.8127539475471831,
+      "query_auroc": 0.9281680823925315
+    }
+  },
+  "seen_validation": {
+    "delta_v2_minus_v1": {
+      "episode_balanced_auprc": -0.008543144337393782,
+      "episode_balanced_auroc": -0.006433563599819836,
+      "query_auprc": -0.00969227279878182,
+      "query_auroc": -0.00798886110735697
+    },
+    "v1": {
+      "episode_balanced_auprc": 0.796284569089588,
+      "episode_balanced_auroc": 0.9361194325931452,
+      "query_auprc": 0.8494462695568447,
+      "query_auroc": 0.9344901338018652
+    },
+    "v2": {
+      "episode_balanced_auprc": 0.7877414247521942,
+      "episode_balanced_auroc": 0.9296858689933254,
+      "query_auprc": 0.8397539967580628,
+      "query_auroc": 0.9265012726945082
+    }
+  },
+  "v1": {
+    "model_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38",
+    "recomputed_episode_balanced_seen_thresholds_for_analysis_only": {
+      "best_val_f1": 0.9939010143280029,
+      "fixed_0.5": 0.5,
+      "q90_success": 0.23500482738018036,
+      "q95_success": 0.3415960967540741,
+      "q99_success": 0.7150999307632446
+    },
+    "saved_seen_thresholds": {
+      "best_val_f1": 0.7990124225616455,
+      "fixed_0.5": 0.5,
+      "q90_success": 0.2370966076850891,
+      "q95_success": 0.3443679213523865,
+      "q99_success": 0.7373747229576111
+    },
+    "training_objective": "query-row-weighted BCE with row-derived pos_weight"
+  },
+  "v2": {
+    "legacy_query_seen_thresholds": {
+      "best_val_f1": 0.9163771271705627,
+      "fixed_0.5": 0.5,
+      "q90_success": 0.3409189283847809,
+      "q95_success": 0.47565600275993347,
+      "q99_success": 0.8298590183258057
+    },
+    "model_sha256": "e445a96d9f02abb9e87cf2cb69b8524aa4c24fe9941eebf86e85f88c8565a3e8",
+    "primary_seen_thresholds": {
+      "best_val_f1": 0.9961548447608948,
+      "fixed_0.5": 0.5,
+      "q90_success": 0.3233642876148224,
+      "q95_success": 0.4615826904773712,
+      "q99_success": 0.8065387010574341
+    },
+    "training_objective": "episode-balanced class-balanced BCE"
+  },
+  "v2_checkpoint_selection": "highest Seen-validation episode-balanced AUPRC"
+}
