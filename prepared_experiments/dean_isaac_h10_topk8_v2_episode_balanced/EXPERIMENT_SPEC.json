@@ -1,0 +1,87 @@
+{
+  "schema_version": "isaac_h10_topk8_v2_episode_balanced_spec_v1",
+  "status": "PREPARED_NOT_RUN",
+  "experiment_id": "isaac_h10_topk8_temporal_v2_episode_balanced",
+  "parent_model": {
+    "name": "isaac_h10_topk8_temporal_v1",
+    "model_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38",
+    "normalization_sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050",
+    "best_validation_query_auprc": 0.8494462695568447,
+    "best_validation_query_auroc": 0.9344901338018652,
+    "old_row_pos_weight": 12.756510416666666
+  },
+  "dataset": {
+    "root": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/isaac_seen_h10_topk8_v1",
+    "dataset_manifest_sha256": "8e3b7f4929fce4a648f174735ec9c0530966cf4e8a93a66a3e793432a5be4859",
+    "train_episodes": 2800,
+    "train_failure_episodes": 64,
+    "validation_episodes": 600,
+    "validation_failure_episodes": 14,
+    "test_episodes": 600,
+    "test_failure_episodes": 14,
+    "train_rows": 52825,
+    "validation_rows": 11410,
+    "test_rows": 11368
+  },
+  "architecture": {
+    "model": "SeqRiskModel",
+    "static_dim": 51,
+    "history_shape": [16, 21],
+    "action_shape": [10, 7],
+    "width": 128,
+    "layers": 3,
+    "heads": 4,
+    "ffn": 512,
+    "dropout": 0.1
+  },
+  "optimization": {
+    "optimizer": "AdamW",
+    "lr": 0.0002,
+    "weight_decay": 0.0001,
+    "batch_size": 512,
+    "epochs": 10,
+    "gradient_clip_norm": 1.0,
+    "training_seed": 20260622,
+    "loss": "episode-balanced class-balanced BCE",
+    "old_pos_weight_forbidden": true
+  },
+  "objective": {
+    "train_success_episode_count": 2736,
+    "train_failure_episode_count": 64,
+    "success_row_weight_formula": "0.5 / (2736 * T_i)",
+    "failure_row_weight_formula": "0.5 / (64 * T_i)",
+    "equivalent_description": "half the loss mass to success episodes and half to failure episodes; equal total contribution per episode within each class",
+    "batch_estimator": "sum(query_bce * row_weight) / sum(row_weight) within each shuffled minibatch",
+    "episode_index_required": true
+  },
+  "model_selection": {
+    "split": "validation",
+    "primary": "episode_balanced_auprc",
+    "validation_row_sample_weight": "1 / T_i",
+    "secondary": [
+      "query_auprc",
+      "query_auroc",
+      "episode_balanced_auroc"
+    ],
+    "ood150_forbidden": true,
+    "ood400_forbidden": true
+  },
+  "threshold_selection": {
+    "source": "Seen validation only",
+    "ood150_forbidden": true,
+    "ood400_forbidden": true
+  },
+  "comparison": {
+    "required_models": ["V1", "V2"],
+    "required_splits": ["Seen validation", "Seen test"],
+    "ood150_after_freeze": true,
+    "ood400_in_this_task": false
+  },
+  "hard1000": {
+    "must_continue": true,
+    "must_not_pause": true,
+    "must_not_restart": true,
+    "must_not_modify": true,
+    "second_isaac_process_forbidden": true
+  }
+}
