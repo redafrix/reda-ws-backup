@@ -1,0 +1,64 @@
+{
+  "schema_version": "isaac_true_h10_final_results_v1",
+  "date": "2026-08-18",
+  "workspace": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813",
+  "seen4000": {
+    "episodes": 4000,
+    "successes": 3908,
+    "failures": 92,
+    "decision_rows": 75603,
+    "train": {"episodes": 2800, "successes": 2736, "failures": 64, "decision_rows": 52825},
+    "validation": {"episodes": 600, "successes": 586, "failures": 14, "decision_rows": 11410},
+    "test": {"episodes": 600, "successes": 586, "failures": 14, "decision_rows": 11368}
+  },
+  "detector_v1": {
+    "model_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38",
+    "normalization_sha256": "78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050",
+    "best_epoch": 6,
+    "validation_auroc": 0.9344901338018652,
+    "validation_auprc": 0.8494462695568447,
+    "best_val_f1_threshold": 0.7990124225616455,
+    "interpretation": "current/main H10 proposal risk detector with multi-sample ACE/disagreement context; not nine independently supervised candidate outcomes"
+  },
+  "historical_locked_ood150_detector": {
+    "episodes": 150,
+    "successes": 72,
+    "failures": 78,
+    "decision_rows": 5887,
+    "step_auroc": 0.9165517741946905,
+    "step_auprc": 0.9800307261831581
+  },
+  "definitive_active_ood150": {
+    "controller": {"A": 0.7990124225616455, "C": 0.9, "M": 0.0},
+    "baseline_successes": 72,
+    "active_successes": 75,
+    "delta_episodes": 3,
+    "delta_percentage_points": 2.0,
+    "rescues": 11,
+    "regressions": 8,
+    "persisted_success": 64,
+    "persisted_failure": 67,
+    "decisions": 5757,
+    "alarms": 3327,
+    "accepted_replacements": 57,
+    "episodes_with_replacements": 36,
+    "selection_mismatches": 0,
+    "execution_mismatches": 0,
+    "max_action_diff": 0.0,
+    "membership_exact": true,
+    "alternative_cap_provenance": "preserved real live nine-candidate OOD-development decisions",
+    "pristine_untouched_holdout_for_controller_selection": false
+  },
+  "hard1000": {
+    "status": "ACTIVE_NOT_FINAL",
+    "resume_from": 249,
+    "first_verified_after_resume": 250,
+    "later_sanity_count": 255,
+    "pre_resume_249_snapshot_sha256": "12dcd6f6c3d24b0bb271879f3f75deb04774cc727252b9ba31dd120d75197bc9"
+  },
+  "invalidated": {
+    "commit": "70327b4b31bde35c01fda29a807f9100b5295a62",
+    "correction_commit": "86f5baf3281596df2305409499fc9e0c21d119ed",
+    "reason": "alternative diffusion traces were not archived; candidate-0 trace-dependent features were reused for candidates 1-8"
+  }
+}
