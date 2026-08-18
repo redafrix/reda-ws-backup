@@ -1,0 +1,33 @@
+{
+  "schema_version": "isaac_h10_topk8_v1_v2_comparison_v1",
+  "v1": {
+    "model_sha256": "ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38",
+    "training_objective": "query-row-weighted BCEWithLogitsLoss with row-derived pos_weight",
+    "selection_metric": "unweighted Seen-validation query AUPRC"
+  },
+  "v2": {
+    "model_sha256": null,
+    "training_objective": "episode-balanced class-balanced BCE",
+    "selection_metric": "episode-balanced Seen-validation AUPRC"
+  },
+  "seen_validation": {
+    "v1": {},
+    "v2": {},
+    "delta_v2_minus_v1": {}
+  },
+  "seen_test": {
+    "v1": {},
+    "v2": {},
+    "delta_v2_minus_v1": {}
+  },
+  "ood150": {
+    "status": "NOT_RUN_UNTIL_V2_SEEN_FROZEN",
+    "v1": {},
+    "v2": {},
+    "delta_v2_minus_v1": {},
+    "development_evidence_only": true
+  },
+  "ood400": {
+    "status": "FORBIDDEN_IN_THIS_EXPERIMENT"
+  }
+}
