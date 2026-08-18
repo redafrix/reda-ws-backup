@@ -1,0 +1,1 @@
+Preparation is complete. Do not add or change scientific design files before the first V2 run. Execute only through the frozen preflight, trainer, Seen comparison, and post-freeze OOD150 comparison path.
