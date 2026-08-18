@@ -1,0 +1,59 @@
+status: SETUP_ONLY_DO_NOT_RUN
+protocol_id: isaac_ood400_future_confirmation_v1
+benchmark_manifest: automation/generated/locked_ood400_v1/manifest.json
+expected_manifest_sha256: 264dae5a7de872e5aee0a9554f88adfe7af3d38b5a7e29fd7f9b3e0d1c10da41
+expected_split: ood
+start_episode_id: 0
+num_episodes: 400
+num_envs: 1
+
+# Use the current validated true-H10 SimVLA runtime, not the friend's Mimic execution protocol.
+execution_horizon: 10
+max_steps: 2400
+success_threshold_m: 0.02
+settle_time_s: 0.2
+control_fps: 30
+state_record_fps: 30
+use_fabric: true
+
+# Frozen before any OOD400 outcome is observed.
+policy_sampling_seed: 20260818
+candidate_count: 9
+controller:
+  main_alarm_threshold_A: 0.7990124225616455
+  alternative_acceptance_cap_C: 0.9
+  min_delta_M: 0.0
+  selection: argmin_on_alarm
+
+model:
+  name: isaac_h10_topk8_temporal_v1
+  model_sha256: ad049519746913c4c2ce1a0b57fb32ad5c3395f5bce6841648c68cc94f862b38
+  normalization_sha256: 78c934b33e0536bd7cb6b7e5b1962da32305729f602d8269d3a38422841ce050
+
+future_arms:
+  - id: baseline_shadow_c0
+    description: same nine-candidate generation and scoring stack; always execute candidate0
+    may_tune_on_ood400: false
+  - id: active_cap090
+    description: same stack; execute frozen selected candidate under A/C/M controller
+    may_tune_on_ood400: false
+
+comparison:
+  exact_same_manifest_membership: true
+  exact_same_policy_sampling_seed: true
+  primary_metric: success_count_out_of_400
+  paired_categories:
+    - baseline_success_active_success
+    - baseline_success_active_failure
+    - baseline_failure_active_success
+    - baseline_failure_active_failure
+  note: paired categories are descriptive because Isaac closed-loop execution can be nondeterministic
+
+prohibitions:
+  run_before_hard1000_complete: true
+  use_for_training: true
+  use_for_normalization: true
+  use_for_model_selection: true
+  use_for_threshold_calibration: true
+  use_for_controller_tuning: true
+  inspect_partial_outcomes_to_change_protocol: true
