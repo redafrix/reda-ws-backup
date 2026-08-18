@@ -1,0 +1,35 @@
+# REFERENCE ONLY — DO NOT RUN AS OUR SIMVLA OOD400 PROTOCOL.
+# Preserved from the configuration supplied with the OOD400 manifest.
+
+collection_config: collect_reaching_pose_v1_mimic_risk_ood400.yaml
+collection_index: 0
+expected_split: ood
+benchmark_manifest: benchmarks/reaching_mimic_risk_ood400/full_ood400.json
+start_episode_id: 0
+num_episodes: 400
+num_envs: 1
+max_control_ticks: 350
+success_threshold_m: 0.02
+counterfactual_success_threshold_m: 0.04
+settle_time_s: 0.2
+record_cameras: false
+record_depth: false
+save_training_rgb_arrays: false
+save_rgb_videos: false
+camera_fps: 30
+state_record_fps: 30
+control_fps: 30
+use_fabric: true
+policy_sampling_seed: 20260812
+
+mimic_video:
+  eval_config: eval_mimic_video_h60_mse_v2w3375_w2a10000_stop1_exec56.yaml
+  model_python: /home/utilisateur/worldmodel/mimic-video/model/.venv/bin/python
+  server_script: ../scripts/mimic_video_inference_server.py
+  action_data_dir: /home/utilisateur/worldmodel/mimic-video-reaching/data/reaching_pose_v1_4400_mimic/action_safetensors/train
+  conditioning_mode: prompt_index
+  conditioning_split: train
+  expected_conditioning_files: 4000
+  expected_prompt_count: 17
+  startup_timeout_s: 900
+  inference_timeout_s: 900
