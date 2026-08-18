@@ -1,5 +1,14 @@
 # Bob Experiment Index
 
+> **Current topology override, 2026-07-30:** the external 2 TB `My Passport`
+> SSD experiment disk has been moved from Bob to the replacement Dean workstation.
+> `/media/rootalkhatib/My Passport/reda_ws` is currently absent on Bob. The
+> entries below remain valid historical provenance, but their payloads are now
+> physically on Dean under `/media/redafrix/My Passport1/reda_ws` unless another
+> copy is explicitly documented.
+
+> 2026-07-03 coverage note: this generated host index is historical and does not enumerate every newer Bob root. For the complete deep-audit additions, read `../DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md` and `../manifests/deep_audit_summary_20260703.json`. Important newer Bob families include Pi0.5 OOD/swap/no-task9/40ep roots, OpenVLA smokes and H1 completion, `bob_risk_matrix_campaign_20260605`, `re_run_v2_018_audit_20260624`, and cross-suite per-dataset train/eval roots.
+
 | Status | Kind | Experiment | Original path |
 |---|---|---|---|
 | `archived` | `archive_bundle` | [bob_pre_dean_canonical_sync_20260604_100528](../entries/bob/bob__archive__bob_pre_dean_canonical_sync_20260604_100528/README.md) | `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/archive/bob_pre_dean_canonical_sync_20260604_100528` |

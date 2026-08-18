@@ -1,5 +1,24 @@
 # Dean Experiment Index
 
+> **Current topology override, 2026-07-30:** `dean` now reaches a replacement
+> workstation named `Batman` with an RTX 5090 32 GB. SSH enters as `dean`, while
+> AI workloads run as `redafrix`. Active work is under `/mnt/ai/pi05`,
+> `/mnt/ai/isaac`, and `/mnt/ai/projects/SimVLA_Gontary`. The 2 TB external
+> SSD experiment disk formerly attached to Bob is mounted here at
+> `/media/redafrix/My Passport1`. Dean also has a separate 4 TB HDD at
+> `/media/redafrix/My Passport`. The generated historical index below describes
+> the old Dean experiment roots and remains provenance, not current hardware
+> state.
+>
+> Current active experiment: stock pi0.5 Franka v3 fine-tune, 30,000-update
+> target, effective batch 256. Live audit on 2026-07-30 reached step 24,500 with
+> finite loss/gradients and finalized checkpoint 24,000.
+>
+> Current discovery report:
+> `/mnt/ai/isaac/SIMVLA_OOD150_EVALUATION_DISCOVERY_REPORT.md`.
+
+> 2026-07-03 coverage note: this generated host index is historical and does not enumerate every newer Dean root. For the complete deep-audit additions, read `../DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md` and `../manifests/deep_audit_summary_20260703.json`. Important recovered Dean families include `/home/dean/fiper_goal_object_collection_20260605` production/smoke/benchmark runs and `/home/redafrix/SimVLA_modified/folderu` TDQC/legacy SimVLA roots.
+
 | Status | Kind | Experiment | Original path |
 |---|---|---|---|
 | `artifacts_only_or_unknown` | `offline_experiment` | [archive](../entries/dean/dean__experiments__archive/README.md) | `/home/dean/fiper_uncertainty_collection/experiments/archive` |

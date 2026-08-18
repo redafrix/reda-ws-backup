@@ -1,5 +1,22 @@
 # Distributed Workspace Map
 
+## 2026-07-30 Topology Override
+
+- The 2 TB external `My Passport` SSD previously attached to Bob is now attached
+  to the replacement Dean workstation at `/media/redafrix/My Passport1`.
+- Dean also has a separate 4 TB HDD mounted at
+  `/media/redafrix/My Passport`; it is not the former Bob disk.
+- Bob's historical `/media/rootalkhatib/My Passport/reda_ws` paths are currently
+  absent on Bob.
+- Replacement Dean is reached directly with alias `dean`, hostname `Batman`,
+  SSH user `dean`; active workloads run as `redafrix`.
+- Current Dean AI roots are `/mnt/ai/pi05`, `/mnt/ai/isaac`, and
+  `/mnt/ai/projects/SimVLA_Gontary`.
+- The former Bob workspace tree is now physically under
+  `/media/redafrix/My Passport1/reda_ws` on Dean.
+- Do not interpret the older Bob and Dean sections below as current mount or
+  hardware status; they remain historical path provenance.
+
 ## Batman
 
 - Root: `/home/redafrix/tests/internship`
@@ -13,7 +30,9 @@ Batman should not be treated as the canonical location for large remote JSONL fi
 
 - Host alias: `pcrobot`
 - Root: `/media/rootalkhatib/My Passport/reda_ws/fiper_ws`
+- OpenVLA-OFT root: `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616`
 - Role: historical FIPER datasets and detector experiments, old four-task deployments, chunk-execution experiments, and current online replications.
+- OpenVLA role: isolated OpenVLA-OFT setup, OpenVLA-specific datasets, offline risk experiments, and the active OpenVLA OOD basic-vs-risk run.
 - Raw online runs: `realtime_deployment/runs/`
 - Deployment configs: `realtime_deployment/configs/`
 - Historical offline experiments: `experiments/`
@@ -56,3 +75,20 @@ Bob's May 29 to June 1 folders use several misleading `baseline` or `vanilla` la
 - H10 Campaign: `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_risk_proof_20260608`
 - Aggressive Ablation: `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_topk8_aggressive_task3_20260608`
 - Old Detector Comparison: `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/trash/h10_goal_object_task6_old_topk8_aggressive_20260608`
+
+### Bob OpenVLA Roots (2026-06-16 to 2026-06-19)
+
+- OpenVLA workspace: `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616`
+- Final OpenVLA goal-object dataset: `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616/datasets/openvla_goal_object_final_1890_complete_rounds_20260618`
+- Final OpenVLA goal-object risk experiment: `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616/offline_risk_experiments/openvla_final1890_risk_20260618`
+- OpenVLA old-goal to goal-object OOD offline tests: `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616/offline_risk_experiments/openvla_old6000_to_goal_object_ood_20260619` and `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616/offline_risk_experiments/openvla_old6000_cut300_to_goal_object_ood_20260619`
+- Active OpenVLA online OOD eval: `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616/online_evals/libero_goal_object_ood_openvla_basic_vs_risk_100ep_20260618`
+- OpenVLA focused rescue-seed diagnostic: `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616/online_evals/focused_ood_task2_task8_rescue_seeds_10ep_20260619`
+- OpenVLA basic H=1 diagnostic: `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616/online_evals/focused_ood_task2_task8_basic_h1_seeds_10ep_20260619`
+- OpenVLA H=1 diagnostic script: `/media/rootalkhatib/My Passport/reda_ws/openvla_oft_ws_20260616/src/run_focused_diagnostic_basic_h1_20260619.py`
+
+### Sam SimVLA Roots (2026-06-19)
+
+- Active SimVLA plain-goal uncertainty collection: `/home/rootalkhatib/test/reda_ws/fiper_ws/trash/simvla_goal_uncertainty_2000ep_20260619`
+- Active tmux session: `simvla_goal_uncertainty_10000ep_20260619`
+- Purpose: collect 10,000 modified-SimVLA `libero_goal` receding episodes with H10 action chunks, 8 ACE candidates, 49D uncertainty, and 800-step failure timeout for the SimVLA goal-to-goal-object offline OOD test.
