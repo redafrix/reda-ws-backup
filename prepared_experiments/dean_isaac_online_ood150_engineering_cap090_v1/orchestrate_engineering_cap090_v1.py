@@ -543,6 +543,32 @@ def run_stage_5_health_gate(definitive_pid: int | None) -> bool:
     return True
 
 
+def load_locked_source_episode_ids(manifest_path: Path = OOD_MANIFEST) -> list[int]:
+    """Canonical loader for locked OOD150 source episode IDs matching runner semantics."""
+    resolved_path = Path(manifest_path).resolve()
+    if not resolved_path.is_file():
+        raise FileNotFoundError(f"Locked manifest not found: {resolved_path}")
+    payload = json.loads(resolved_path.read_text(encoding="utf-8"))
+    raw_episodes = payload.get("episodes", [])
+    if len(raw_episodes) != 150:
+        raise ValueError(f"Expected 150 episodes in manifest, got {len(raw_episodes)}")
+    source_ids: list[int] = []
+    for ep in raw_episodes:
+        if "scene" in ep and "source_episode_id" in ep["scene"]:
+            source_ids.append(int(ep["scene"]["source_episode_id"]))
+        elif "source_episode_id" in ep:
+            source_ids.append(int(ep["source_episode_id"]))
+        elif "benchmark_episode_id" in ep:
+            source_ids.append(int(ep["benchmark_episode_id"]))
+        else:
+            raise KeyError(f"Unable to extract source_episode_id from manifest episode entry: {list(ep.keys())}")
+    if len(source_ids) != 150:
+        raise ValueError(f"Expected 150 extracted source IDs, got {len(source_ids)}")
+    if len(set(source_ids)) != 150:
+        raise ValueError(f"Duplicate source IDs in manifest: {len(set(source_ids))} != 150")
+    return source_ids
+
+
 # ==============================================================================
 # STAGE 6: RESUMABLE TOP-LEVEL COMPLETION & MEMBERSHIP AUDIT (Bugs 1 & 4)
 # ==============================================================================
@@ -560,6 +586,11 @@ def run_stage_6_complete_150(state: dict[str, Any]) -> dict[str, Any]:
 
         if completed_count >= 150:
             print(f"All 150 episodes committed (count: {completed_count}). Proceeding to final audit.")
+            # Verify no running Isaac processes remain
+            active_isaac = check_active_processes(["run_isaac_online_risk.py"])
+            if active_isaac:
+                print(f"Waiting for Isaac runner to exit cleanly: {active_isaac}")
+                time.sleep(5)
             break
 
         # Check if child is alive
@@ -572,14 +603,12 @@ def run_stage_6_complete_150(state: dict[str, Any]) -> dict[str, Any]:
 
         time.sleep(15)
 
-    # 1. Strict Fail-Closed Membership Validation (Bug 4)
-    summaries = get_committed_summaries(DEFINITIVE_RUN_DIR)
-    new_source_ids = [s["source_episode_id"] for s in summaries]
-
-    locked_mdata = json.loads(OOD_MANIFEST.read_text())
-    expected_source_ids = [int(ep["source_episode_id"]) for ep in locked_mdata["episodes"]]
-
+    # 1. Strict Fail-Closed Membership Validation against canonical locked manifest
+    expected_source_ids = load_locked_source_episode_ids(OOD_MANIFEST)
     expected_set = set(expected_source_ids)
+
+    summaries = get_committed_summaries(DEFINITIVE_RUN_DIR)
+    new_source_ids = [int(s["source_episode_id"]) for s in summaries]
     actual_set = set(new_source_ids)
 
     missing_ids = sorted(list(expected_set - actual_set))
@@ -593,8 +622,24 @@ def run_stage_6_complete_150(state: dict[str, Any]) -> dict[str, Any]:
         and len(duplicate_ids) == 0
     )
 
+    # 2. Strict Historical Baseline Membership Validation
+    if not HISTORICAL_OOD150_SUMMARIES.exists():
+        raise RuntimeError(f"Historical OOD150 summaries not found at {HISTORICAL_OOD150_SUMMARIES}")
+    ood_hist_summaries = [json.loads(l) for l in HISTORICAL_OOD150_SUMMARIES.read_text().splitlines() if l.strip()]
+    hist_source_ids = [int(s["source_episode_id"]) for s in ood_hist_summaries]
+    hist_set = set(hist_source_ids)
+
+    hist_missing = sorted(list(expected_set - hist_set))
+    hist_extra = sorted(list(hist_set - expected_set))
+    hist_exact_match = (
+        len(hist_source_ids) == 150
+        and len(hist_set) == 150
+        and len(hist_missing) == 0
+        and len(hist_extra) == 0
+    )
+
     membership_audit = {
-        "schema_version": "isaac_online_final_membership_audit_v1",
+        "schema_version": "isaac_online_final_membership_audit_v2",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "expected_count": len(expected_source_ids),
         "actual_count": len(new_source_ids),
@@ -603,35 +648,41 @@ def run_stage_6_complete_150(state: dict[str, Any]) -> dict[str, Any]:
         "extra_ids": extra_ids,
         "duplicate_ids": duplicate_ids,
         "exact_match": exact_match,
+        "historical_count": len(hist_source_ids),
+        "historical_unique": len(hist_set),
+        "historical_missing": hist_missing,
+        "historical_extra": hist_extra,
+        "historical_exact_match": hist_exact_match,
+        "extraction_method": "canonical locked manifest scene.source_episode_id parser matching runner semantics",
     }
     (PROTOCOL_DIR / "FINAL_MEMBERSHIP_AUDIT.json").write_text(json.dumps(membership_audit, indent=2))
 
     if not exact_match:
-        raise RuntimeError(f"Strict final membership gate FAILED: {membership_audit}")
+        raise RuntimeError(f"Strict final active membership gate FAILED: {membership_audit}")
+    if not hist_exact_match:
+        raise RuntimeError(f"Strict final historical membership gate FAILED: {membership_audit}")
 
-    # 2. Paired Comparison with Historical OOD150 (Direct explicit lookup)
-    if not HISTORICAL_OOD150_SUMMARIES.exists():
-        raise RuntimeError(f"Historical OOD150 summaries not found at {HISTORICAL_OOD150_SUMMARIES}")
-    ood_hist_summaries = [json.loads(l) for l in HISTORICAL_OOD150_SUMMARIES.read_text().splitlines() if l.strip()]
-    hist_by_src = {s["source_episode_id"]: bool(s["success"]) for s in ood_hist_summaries}
+    # 3. Paired Comparison with Historical OOD150 (Direct explicit assertion & lookup)
+    hist_succ_by_src = {int(s["source_episode_id"]): bool(s["success"]) for s in ood_hist_summaries}
+    active_succ_by_src = {int(s["source_episode_id"]): bool(s.get("success", False)) for s in summaries}
 
-    # Direct assertion: every new source ID MUST exist in historical baseline
-    for src_id in new_source_ids:
-        if src_id not in hist_by_src:
+    for src_id in expected_source_ids:
+        if src_id not in hist_succ_by_src:
             raise RuntimeError(f"Source episode ID {src_id} not found in historical OOD150 baseline!")
+        if src_id not in active_succ_by_src:
+            raise RuntimeError(f"Source episode ID {src_id} not found in active OOD150 run!")
 
-    new_successes = sum(1 for s in summaries if bool(s.get("success", False)))
-    historical_successes = sum(1 for src_id, succ in hist_by_src.items() if succ)
+    historical_successes = sum(1 for src_id in expected_source_ids if hist_succ_by_src[src_id])
+    active_successes = sum(1 for src_id in expected_source_ids if active_succ_by_src[src_id])
 
     rescues = 0
     regressions = 0
     persisted_success = 0
     persisted_failure = 0
 
-    for s in summaries:
-        src_id = s["source_episode_id"]
-        h_succ = hist_by_src[src_id]
-        n_succ = bool(s.get("success", False))
+    for src_id in expected_source_ids:
+        h_succ = hist_succ_by_src[src_id]
+        n_succ = active_succ_by_src[src_id]
         if not h_succ and n_succ:
             rescues += 1
         elif h_succ and not n_succ:
@@ -641,6 +692,18 @@ def run_stage_6_complete_150(state: dict[str, Any]) -> dict[str, Any]:
         else:
             persisted_failure += 1
 
+    # 4. Assert Paired Arithmetic
+    arithmetic_ok = (active_successes == historical_successes + rescues - regressions)
+    if not arithmetic_ok:
+        raise RuntimeError(
+            f"Arithmetic invariant failed: active ({active_successes}) != "
+            f"historical ({historical_successes}) + rescues ({rescues}) - regressions ({regressions})"
+        )
+
+    net_delta = rescues - regressions
+    if net_delta != (active_successes - historical_successes):
+        raise RuntimeError(f"Net delta mismatch: {net_delta} != {active_successes - historical_successes}")
+
     audit_metrics = audit_definitive_progress()
 
     comparison = {
@@ -649,13 +712,14 @@ def run_stage_6_complete_150(state: dict[str, Any]) -> dict[str, Any]:
         "protocol_id": "isaac_ood150_definitive_active_cap090_v1",
         "total_episodes": 150,
         "historical_baseline_successes": historical_successes,
-        "active_new_successes": new_successes,
-        "success_delta_absolute": new_successes - historical_successes,
-        "success_delta_percentage_points": (new_successes - historical_successes) / 150.0 * 100.0,
+        "active_new_successes": active_successes,
+        "success_delta_absolute": active_successes - historical_successes,
+        "success_delta_percentage_points": (active_successes - historical_successes) / 150.0 * 100.0,
         "rescues_baseline_fail_to_new_succ": rescues,
         "regressions_baseline_succ_to_new_fail": regressions,
         "persisted_success": persisted_success,
         "persisted_failure": persisted_failure,
+        "paired_arithmetic_verified": True,
         "controller_parameters": {
             "main_alarm_threshold": FROZEN_A,
             "alternative_safe_cap": FROZEN_C,
@@ -758,6 +822,8 @@ def run_stage_7_freeze_evidence() -> dict[str, Any]:
     files_to_sync = [
         "SELECTED_ENGINEERING_CONTROLLER.json",
         "CONTROLLER_PROVENANCE_CORRECTION.json",
+        "STAGE6_RECOVERY_NOTE.json",
+        "STAGE_6_COMPLETE_150_FAILED.json",
         "FINAL_RESULT.json",
         "FINAL_CONTROLLER_AUDIT.json",
         "FINAL_PAIRED_COMPARISON.json",
@@ -927,6 +993,46 @@ def run_stage_8_resume_hard1000() -> dict[str, Any]:
     }
     (PROTOCOL_DIR / "STAGE8_HARD1000_RESUMED.json").write_text(json.dumps(stage8_record, indent=2))
     log_event("STAGE_COMPLETE", {"stage": "STAGE_8_RESUME_HARD1000", "result": stage8_record})
+
+    # 4. Final Follow-Up Evidence Commit (Item 9)
+    try:
+        files_to_sync_final = [
+            "STAGE7_FINAL_EVIDENCE_FREEZE.json",
+            "STAGE8_HARD1000_RESUMED.json",
+            "STAGE6_RECOVERY_NOTE.json",
+            "STAGE_6_COMPLETE_150_FAILED.json",
+            "ORCHESTRATOR_STATE.json",
+            "ORCHESTRATOR_EVENTS.jsonl",
+            "FINAL_SHA256SUMS.txt",
+        ]
+        for fname in files_to_sync_final:
+            src = PROTOCOL_DIR / fname
+            if src.exists():
+                shutil.copy2(src, GIT_EXPERIMENT_SUBDIR / fname)
+
+        subprocess.run(["git", "-C", str(GIT_REPO_DIR), "add", str(GIT_EXPERIMENT_SUBDIR.relative_to(GIT_REPO_DIR))], check=True)
+        subprocess.run(
+            ["git", "-C", str(GIT_REPO_DIR), "commit", "-m", "feat(ood150): add final post-resume execution evidence and recovery records"],
+            capture_output=True,
+            text=True,
+        )
+        subprocess.run(
+            ["git", "-C", str(GIT_REPO_DIR), "push", "origin", GIT_BRANCH],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        final_head = subprocess.run(
+            ["git", "-C", str(GIT_REPO_DIR), "rev-parse", "HEAD"],
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.strip()
+        stage8_record["FINAL_FOLLOWUP_GIT_COMMIT"] = final_head
+        (PROTOCOL_DIR / "STAGE8_HARD1000_RESUMED.json").write_text(json.dumps(stage8_record, indent=2))
+    except Exception as e:
+        print(f"Warning: follow-up evidence git commit failed: {e}")
+
     return stage8_record
 
 

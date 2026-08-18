@@ -80,6 +80,15 @@ class TestEngineeringController(unittest.TestCase):
         with self.assertRaises(ValueError):
             select_candidate_argmin_on_alarm(scores[:5], main_threshold=A, selected_score_cap=C)
 
+    def test_08_locked_manifest_source_ids(self):
+        from orchestrate_engineering_cap090_v1 import load_locked_source_episode_ids
+        manifest_p = Path("/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/automation/generated/locked_ood150/manifest.json")
+        if manifest_p.exists():
+            ids = load_locked_source_episode_ids(manifest_p)
+            self.assertEqual(len(ids), 150)
+            self.assertEqual(len(set(ids)), 150)
+
 
 if __name__ == "__main__":
     unittest.main()
+
