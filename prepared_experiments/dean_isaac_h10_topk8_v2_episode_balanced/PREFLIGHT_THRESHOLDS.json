@@ -1,0 +1,15 @@
+{
+  "schema_version": "isaac_h10_topk8_v2_live_hard1000_preflight_v1",
+  "hard1000_required_alive": true,
+  "second_isaac_forbidden": true,
+  "cuda_training_allowed_only_if": {
+    "free_vram_gib_minimum": 4.0,
+    "hard1000_pipeline_alive": true,
+    "hard1000_collector_alive": true,
+    "existing_cuda_error_state": false
+  },
+  "v2_cuda_allocator_cap_fraction": 0.10,
+  "reason": "V2 is a small standalone risk-head training job; cap its PyTorch allocator and require substantial free VRAM so it cannot consume HARD1000 headroom.",
+  "on_failed_gate": "DO_NOT_TRAIN; return WAIT_FOR_HARD1000",
+  "on_v2_oom_or_hard_health_change": "terminate only V2 and stop; never restart HARD1000 automatically"
+}
