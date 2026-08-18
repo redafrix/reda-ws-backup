@@ -1,0 +1,1 @@
+Agy role for this experiment is mechanical only: locate/copy exact V1 trainer, implement the frozen weighting contract exactly, execute the standalone PyTorch risk-head training/evaluation, emit raw machine-readable outputs, and push them. Agy must not change the scientific objective, architecture, dataset membership, thresholds source, or evaluation interpretation.
