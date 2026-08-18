@@ -1,0 +1,66 @@
+COMMIT:
+<sha>
+
+HARD1000:
+before_completed:
+after_completed:
+pipeline_alive_after:
+collector_alive_after:
+
+GPU_PREFLIGHT:
+model:
+total_vram_mib:
+used_vram_mib_before:
+free_vram_mib_before:
+train_gate: PASS/WAIT_FOR_HARD1000
+
+V2_CODE:
+trainer_path:
+trainer_sha256:
+v1_trainer_unchanged: YES/NO
+
+WEIGHTING:
+train_rows:
+success_rows:
+failure_rows:
+success_episodes:
+failure_episodes:
+success_rows_per_episode_min_mean_max:
+failure_rows_per_episode_min_mean_max:
+success_raw_weight_sum:
+failure_raw_weight_sum:
+per_success_episode_weight_min_mean_max:
+per_failure_episode_weight_min_mean_max:
+audit_pass: YES/NO
+
+V2_TRAINING:
+best_epoch:
+best_seen_val_episode_balanced_auprc:
+best_seen_val_episode_balanced_auroc:
+best_seen_val_query_auprc:
+best_seen_val_query_auroc:
+model_sha256:
+normalization_sha_match: YES/NO
+dataset_manifest_sha_match: YES/NO
+
+SEEN_V1_V2:
+<v1-v2 raw comparison JSON path and exact metrics>
+
+V2_THRESHOLDS:
+<threshold JSON path and exact values>
+
+OOD150_V1_V2:
+<comparison path and exact metrics, or NOT_RUN if Seen freeze failed>
+
+OOD400_TOUCHED:
+NO
+
+SECOND_ISAAC_LAUNCHED:
+NO
+
+GIT_DIFF_CHECK:
+PASS/FAIL
+
+No summary.
+No interpretation.
+No recommendation.
