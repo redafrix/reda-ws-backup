@@ -1,0 +1,7 @@
+{
+  "status": "FAILED",
+  "stage": "STAGE_6_COMPLETE_150",
+  "timestamp": "2026-08-17T21:45:39.676772+00:00",
+  "exception": "'source_episode_id'",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/online_evals/isaac_ood150_engineering_cap090_v1/orchestrate_engineering_cap090_v1.py\", line 1014, in main\n    run_stage_6_complete_150(state)\n    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^\n  File \"/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/online_evals/isaac_ood150_engineering_cap090_v1/orchestrate_engineering_cap090_v1.py\", line 580, in run_stage_6_complete_150\n    expected_source_ids = [int(ep[\"source_episode_id\"]) for ep in locked_mdata[\"episodes\"]]\n                               ~~^^^^^^^^^^^^^^^^^^^^^\nKeyError: 'source_episode_id'\n"
+}

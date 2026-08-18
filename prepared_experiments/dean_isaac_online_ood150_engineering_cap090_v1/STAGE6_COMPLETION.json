@@ -1,0 +1,60 @@
+{
+  "schema_version": "isaac_online_definitive_final_result_v1",
+  "timestamp": "2026-08-18T07:26:26.502020+00:00",
+  "protocol_id": "isaac_ood150_definitive_active_cap090_v1",
+  "total_episodes": 150,
+  "historical_baseline_successes": 72,
+  "active_new_successes": 75,
+  "success_delta_absolute": 3,
+  "success_delta_percentage_points": 2.0,
+  "rescues_baseline_fail_to_new_succ": 11,
+  "regressions_baseline_succ_to_new_fail": 8,
+  "persisted_success": 64,
+  "persisted_failure": 67,
+  "paired_arithmetic_verified": true,
+  "controller_parameters": {
+    "main_alarm_threshold": 0.7990124225616455,
+    "alternative_safe_cap": 0.9,
+    "min_delta": 0.0
+  },
+  "audit_metrics": {
+    "completed_episodes": 150,
+    "unique_source_ids_count": 150,
+    "total_decisions": 5757,
+    "alarms": 3327,
+    "best_alt_lower_than_main": 2952,
+    "cap_passes": 57,
+    "accepted_replacements": 57,
+    "episodes_with_replacement": 36,
+    "candidate_histogram": {
+      "1": 9,
+      "4": 9,
+      "6": 12,
+      "7": 7,
+      "3": 6,
+      "5": 6,
+      "2": 6,
+      "8": 2
+    },
+    "selection_mismatches": 0,
+    "execution_mismatches": 0,
+    "max_action_diff": 0.0
+  },
+  "membership_audit": {
+    "schema_version": "isaac_online_final_membership_audit_v2",
+    "timestamp": "2026-08-18T07:26:22.140464+00:00",
+    "expected_count": 150,
+    "actual_count": 150,
+    "unique_actual_count": 150,
+    "missing_ids": [],
+    "extra_ids": [],
+    "duplicate_ids": [],
+    "exact_match": true,
+    "historical_count": 150,
+    "historical_unique": 150,
+    "historical_missing": [],
+    "historical_extra": [],
+    "historical_exact_match": true,
+    "extraction_method": "canonical locked manifest scene.source_episode_id parser matching runner semantics"
+  }
+}
