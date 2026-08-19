@@ -1,0 +1,72 @@
+{
+  "threshold_independent_status": "VALID",
+  "auroc_comparison": {
+    "topk8": 0.9407651224665466,
+    "mimic_seed0": 0.8012386392854348,
+    "delta_mimic_minus_topk8": -0.13952648318111183
+  },
+  "auprc_comparison": {
+    "topk8": 0.874846604284548,
+    "mimic_seed0": 0.6697971252864523,
+    "delta_mimic_minus_topk8": -0.20504947899809567
+  },
+  "matched_row_best_f1_status": "VALID",
+  "matched_row_best_f1": {
+    "topk8": {
+      "threshold": 0.579133152961731,
+      "success_false_alarms": 50,
+      "success_episodes": 658,
+      "false_alarm_rate": 0.07598784194528875,
+      "failure_detected": 78,
+      "failure_episodes": 78,
+      "detection_rate": 1.0,
+      "det_at_25_count": 47,
+      "det_at_25_rate": 0.6025641025641025,
+      "det_at_50_count": 67,
+      "det_at_50_rate": 0.858974358974359,
+      "never_count": 0,
+      "mean_first_alarm_fraction": 0.2487179487179487
+    },
+    "mimic_seed0": {
+      "threshold": 0.6724033355712891,
+      "success_false_alarms": 243,
+      "success_episodes": 658,
+      "false_alarm_rate": 0.36930091185410335,
+      "failure_detected": 78,
+      "failure_episodes": 78,
+      "detection_rate": 1.0,
+      "det_at_10_count": 0,
+      "det_at_10_rate": 0.0,
+      "det_at_25_count": 3,
+      "det_at_25_rate": 0.038461538461538464,
+      "det_at_50_count": 60,
+      "det_at_50_rate": 0.7692307692307693,
+      "never_count": 0,
+      "mean_first_alarm_fraction": 0.39340659340659334
+    },
+    "deltas_mimic_minus_topk8": {
+      "fa_delta_count": 193,
+      "fa_delta_percentage_points": 29.331306990881462,
+      "failure_detection_delta_count": 0,
+      "det25_delta_count": -44,
+      "det50_delta_count": -7
+    }
+  },
+  "mimic_primary_alpha010": {
+    "threshold": 0.8907762169837952,
+    "success_false_alarms": 66,
+    "success_episodes": 658,
+    "false_alarm_rate": 0.10030395136778116,
+    "failure_detected": 77,
+    "failure_episodes": 78,
+    "detection_rate": 0.9871794871794872,
+    "det_at_10_count": 0,
+    "det_at_10_rate": 0.0,
+    "det_at_25_count": 0,
+    "det_at_25_rate": 0.0,
+    "det_at_50_count": 27,
+    "det_at_50_rate": 0.34615384615384615,
+    "never_count": 1,
+    "mean_first_alarm_fraction": 0.520964749536178
+  }
+}
