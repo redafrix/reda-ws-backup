@@ -1,0 +1,57 @@
+{
+  "episodes": {
+    "test": 736,
+    "total": 4904,
+    "train": 3433,
+    "validation": 735
+  },
+  "labels_by_split": {
+    "test": {
+      "failure": 78,
+      "success": 658,
+      "total": 736
+    },
+    "train": {
+      "failure": 362,
+      "success": 3071,
+      "total": 3433
+    },
+    "validation": {
+      "failure": 77,
+      "success": 658,
+      "total": 735
+    }
+  },
+  "overlap_checks": {
+    "train_test_episode_overlap": 0,
+    "train_test_fingerprint_overlap": 0,
+    "train_val_episode_overlap": 0,
+    "train_val_fingerprint_overlap": 0,
+    "val_test_episode_overlap": 0,
+    "val_test_fingerprint_overlap": 0
+  },
+  "provenance_diagnostics": {
+    "description": "NON-CANONICAL DIAGNOSTIC ONLY: breakdown of source origins within the unified split",
+    "test": {
+      "hard1000_round2": 144,
+      "seen4000_round0": 592
+    },
+    "train": {
+      "hard1000_round2": 657,
+      "seen4000_round0": 2776
+    },
+    "validation": {
+      "hard1000_round2": 148,
+      "seen4000_round0": 587
+    }
+  },
+  "provenance_used_for_assignment": false,
+  "rows": {
+    "test": 14526,
+    "total": 96813,
+    "train": 67725,
+    "validation": 14562
+  },
+  "seed": 20260819,
+  "stratification": "binary_episode_label_only"
+}

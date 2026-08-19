@@ -1,0 +1,45 @@
+{
+  "schema_version": "simvla_isaac_seen4904_unified_training_config_v2",
+  "dataset_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/isaac_seen4904_h10_3cm350_exact_v1",
+  "model_architecture": {
+    "name": "SeqRiskModel",
+    "hist_dim": 21,
+    "action_dim": 7,
+    "static_dim": 51,
+    "history_len": 16,
+    "action_horizon": 10,
+    "width": 128,
+    "layers": 3,
+    "heads": 4,
+    "ffn": 512,
+    "dropout": 0.1
+  },
+  "split_philosophy": {
+    "seed": 20260819,
+    "stratification": "binary_episode_label_only",
+    "provenance_used_for_assignment": false,
+    "train_episodes": 3433,
+    "val_episodes": 735,
+    "test_episodes": 736
+  },
+  "optimization": {
+    "seed": 20260819,
+    "epochs": 10,
+    "batch_size": 512,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "loss": "BCEWithLogitsLoss",
+    "positive_weight": 4.345303867403315,
+    "loss_reduction": "mean (query-level unweighted per episode)"
+  },
+  "model_selection": {
+    "primary_metric": "validation query-level AUPRC",
+    "best_epoch": 9,
+    "best_val_query_auprc": 0.9020032094908842,
+    "best_val_query_auroc": 0.9509926421674487,
+    "best_val_episode_balanced_auprc": 1.0,
+    "best_val_episode_balanced_auroc": 1.0
+  }
+}
