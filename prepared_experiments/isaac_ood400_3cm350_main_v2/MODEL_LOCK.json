@@ -1,0 +1,25 @@
+{
+  "schema_version": "isaac_main_risk_model_lock_v2",
+  "model_name": "isaac_seen4904_h10_topk8_temporal_3cm350_main_v2",
+  "model_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/model.pt",
+  "model_sha256": "00ad096a9ca38577366e992e1d7f8aa25b6f56f2f2bd7354abce1790baf890f1",
+  "normalization_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/norm.npz",
+  "normalization_sha256": "6fbd2b221c4490c975e3e1492c96a9e879a586f0b3a4c4eaf97ea05920960341",
+  "calibration_scope": {
+    "validation_episodes_total": 735,
+    "validation_successful_episodes": 658,
+    "calibration_object": "SUCCESS_EPISODE_MAXIMUM_RISK"
+  },
+  "frozen_seen_operating_points": {
+    "Best F1": 0.579133152961731,
+    "Fixed 0.5": 0.5,
+    "q90 success": 0.5631080269813538,
+    "q95 success": 0.6643207669258118,
+    "q99 success": 0.8792325258255005
+  },
+  "prohibited_actions": [
+    "DO NOT fine-tune or re-train model on OOD data",
+    "DO NOT fit conformal or F1 thresholds on OOD data",
+    "DO NOT change architecture or normalization"
+  ]
+}
