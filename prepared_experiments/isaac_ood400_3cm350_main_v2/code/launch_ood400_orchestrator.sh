@@ -18,7 +18,8 @@ if [[ -f "${PID_FILE}" ]] && kill -0 "$(cat "${PID_FILE}")" 2>/dev/null; then
 fi
 
 echo "Launching OOD400 Orchestrator in background..."
-nohup python3 "${SCRIPT_DIR}/orchestrate_ood400_pipeline.py" --exp-dir "${EXP_DIR}" > "${LOG_FILE}" 2>&1 &
+ISAAC_PY="${ISAAC_PYTHON:-/mnt/ai/isaac/envs/env_isaaclab_6_0/bin/python}"
+nohup "${ISAAC_PY}" "${SCRIPT_DIR}/orchestrate_ood400_pipeline.py" --exp-dir "${EXP_DIR}" > "${LOG_FILE}" 2>&1 &
 ORCH_PID=$!
 echo "${ORCH_PID}" > "${PID_FILE}"
 echo "OOD400 Orchestrator successfully launched with PID ${ORCH_PID}"
