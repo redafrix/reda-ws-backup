@@ -1,0 +1,18 @@
+{
+  "membership_exact_match": true,
+  "topk8_results_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/evaluations/locked_h10_ood150_topk8_v1/results.json",
+  "topk8_results_sha256": "1676b8d88559f68ec5f1abb43f4412f467db353152cc68363672b03d8df2069e",
+  "topk8_step_auroc": 0.9165517741946905,
+  "topk8_step_auprc": 0.9800307261831581,
+  "mimic_seed0_row_auroc": 0.9284076505286116,
+  "mimic_seed0_row_auprc": 0.9824945593128274,
+  "threshold_independent_comparison": {
+    "topk8_auroc": 0.9165517741946905,
+    "mimic_auroc": 0.9284076505286116,
+    "delta_auroc": 0.011855876333921156,
+    "topk8_auprc": 0.9800307261831581,
+    "mimic_auprc": 0.9824945593128274,
+    "delta_auprc": 0.002463833129669246
+  },
+  "thresholded_comparison_note": "Calibration rules: TopK8 uses best_val_f1 / fixed_0.5 while Mimic primary uses conformal_alpha_0.10. Both models tested on exact same 150 OOD episodes."
+}
