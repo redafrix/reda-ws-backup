@@ -1,0 +1,23 @@
+{
+  "train_source_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/risk_head_pipeline/train_isaac_topk8.py",
+  "train_source_sha256": "adc0f368c5f277df83590540d3a2bd656ca19ba5228648ef8e4d19a0f640a660",
+  "train_source_expected_sha_match": true,
+  "common_source_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/risk_head_pipeline/common.py",
+  "common_source_sha256": "e89a69592ed75b8bb52850019780f6c8d4309e9a82186c59d3e01afbc2822c46",
+  "common_source_expected_sha_match": true,
+  "threshold_table_line_range": "131-148",
+  "train_validation_threshold_test_order_line_range": "285-361",
+  "threshold_table_snippet_sha256": "09cac3cb9d8063142a983a3651ed50a5f721077762211c217db91c2374a41ce7",
+  "train_order_snippet_sha256": "fd65a35beb6ddcf2ffc71913d9b21345992fa09211a7631f1a813c87c0f51259",
+  "source_semantics": {
+    "validation_only_selection": true,
+    "row_level_f1_argmax": true,
+    "test_independent_selection": true,
+    "matched_rule_equivalent_to_mimic_row_best_f1": true
+  },
+  "final_ablation_comparison_disposition": {
+    "threshold_independent_comparison": "FINAL",
+    "matched_row_best_f1_comparison": "FINAL",
+    "reason": "Verified verbatim from risk_head_pipeline/common.py lines 131-148 and risk_head_pipeline/train_isaac_topk8.py lines 285-361 that threshold_table is called exclusively with validation.label and validation_scores, computes precision_recall_curve and argmax F1, and freezes thresholds.json before applying unchanged to test."
+  }
+}
