@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Master OOD400 Pipeline Orchestrator (Hardened V2).
+"""Master OOD400 Pipeline Orchestrator (Hardened TMUX & Persistence V3).
 
 State Machine:
   WAIT_BASELINE
@@ -231,29 +231,30 @@ class OOD400Orchestrator:
             )
 
             if not pids:
-                print(f"[WAIT_BASELINE] Baseline process died at {completed_cnt}/400 episodes. Initiating recovery...", flush=True)
+                print(f"[WAIT_BASELINE] Baseline process died at {completed_cnt}/400 episodes. Initiating recovery in TMUX...", flush=True)
                 self.verify_recovery_hashes()
                 if retries >= 2:
                     raise RuntimeError(f"Baseline collection died twice before completion. Completed: {completed_cnt}/400")
                 retries += 1
                 self.log_event("BASELINE_CRASH_RECOVERY", {"completed_before_recovery": completed_cnt, "attempt": retries})
 
-                cmd = [
-                    str(ISAAC_PY),
-                    str(self.runner_script),
-                    "--run-config", str(self.run_config_path),
-                    "--manifest", str(self.manifest_path),
-                    "--output-dir", str(self.baseline_output_dir),
-                    "--mode", "baseline",
-                    "--offset", "0",
-                    "--count", "400",
-                    "--execution-mode", "chunk_h10",
-                    "--risk-model-path", str(self.model_path),
-                    "--risk-normalization", str(self.norm_path),
-                    "--headless",
-                ]
-                env = {**os.environ, "PYTHONPATH": f"{WORKSPACE}:{WORKSPACE}/src:{self.code_dir}"}
-                subprocess.Popen(cmd, env=env)
+                recovery_log_p = self.orch_dir / "BASELINE_RECOVERY.log"
+                recovery_cmd = (
+                    f"cd {WORKSPACE} && export PYTHONPATH={WORKSPACE}:{WORKSPACE}/src:{self.code_dir} && "
+                    f"'{ISAAC_PY}' '{self.runner_script}' "
+                    f"--run-config '{self.run_config_path}' "
+                    f"--manifest '{self.manifest_path}' "
+                    f"--output-dir '{self.baseline_output_dir}' "
+                    f"--mode baseline --offset 0 --count 400 --execution-mode chunk_h10 "
+                    f"--risk-model-path '{self.model_path}' "
+                    f"--risk-normalization '{self.norm_path}' --headless "
+                    f">> '{recovery_log_p}' 2>&1"
+                )
+
+                # Kill stale session if exists
+                subprocess.run(["tmux", "kill-session", "-t", "ood400_baseline_resume"], capture_output=True)
+                subprocess.run(["tmux", "new-session", "-d", "-s", "ood400_baseline_resume", recovery_cmd], check=True)
+                subprocess.run(["tmux", "set-option", "-t", "ood400_baseline_resume", "remain-on-exit", "on"], check=True)
                 time.sleep(10)
             else:
                 time.sleep(60)
@@ -409,6 +410,7 @@ class OOD400Orchestrator:
 
         active_output_dir = Path(state_data.get("metadata", {}).get("active_output_dir", WORKSPACE / f"online_evals/isaac_ood400_topk_main_v2_{rule_slug}_C090_v1"))
         active_output_dir.mkdir(parents=True, exist_ok=True)
+        active_log_p = self.orch_dir / "ACTIVE400.log"
 
         retries = 0
         while True:
@@ -434,25 +436,22 @@ class OOD400Orchestrator:
                 retries += 1
                 self.log_event("ACTIVE_CRASH_RECOVERY", {"completed": completed_cnt, "attempt": retries})
 
-                cmd = [
-                    str(ISAAC_PY),
-                    str(self.runner_script),
-                    "--run-config", str(self.run_config_path),
-                    "--manifest", str(self.manifest_path),
-                    "--output-dir", str(active_output_dir),
-                    "--mode", "online",
-                    "--offset", "0",
-                    "--count", "400",
-                    "--execution-mode", "chunk_h10",
-                    "--risk-model-path", str(self.model_path),
-                    "--risk-normalization", str(self.norm_path),
-                    "--main-threshold", str(a_val),
-                    "--main-threshold-name", a_rule,
-                    "--selected-cap", "0.90",
-                    "--headless",
-                ]
-                env = {**os.environ, "PYTHONPATH": f"{WORKSPACE}:{WORKSPACE}/src:{self.code_dir}"}
-                subprocess.Popen(cmd, env=env)
+                active_cmd = (
+                    f"cd {WORKSPACE} && export PYTHONPATH={WORKSPACE}:{WORKSPACE}/src:{self.code_dir} && "
+                    f"'{ISAAC_PY}' '{self.runner_script}' "
+                    f"--run-config '{self.run_config_path}' "
+                    f"--manifest '{self.manifest_path}' "
+                    f"--output-dir '{active_output_dir}' "
+                    f"--mode online --offset 0 --count 400 --execution-mode chunk_h10 "
+                    f"--risk-model-path '{self.model_path}' "
+                    f"--risk-normalization '{self.norm_path}' "
+                    f"--main-threshold '{a_val}' --main-threshold-name '{a_rule}' --selected-cap 0.90 --headless "
+                    f">> '{active_log_p}' 2>&1"
+                )
+
+                subprocess.run(["tmux", "kill-session", "-t", "ood400_topk_active"], capture_output=True)
+                subprocess.run(["tmux", "new-session", "-d", "-s", "ood400_topk_active", active_cmd], check=True)
+                subprocess.run(["tmux", "set-option", "-t", "ood400_topk_active", "remain-on-exit", "on"], check=True)
                 time.sleep(10)
             else:
                 time.sleep(60)
