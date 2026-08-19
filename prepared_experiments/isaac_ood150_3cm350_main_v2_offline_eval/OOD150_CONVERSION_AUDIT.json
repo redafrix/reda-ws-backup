@@ -1,0 +1,40 @@
+{
+  "schema_version": "simvla_ood150_conversion_audit_v1",
+  "conversion_mode": "EXACT_ONLY",
+  "scope": "EXACT-ONLY NEW-PROTOCOL OOD150 SUBSET",
+  "protocol": {
+    "distance_threshold_m": 0.03,
+    "max_control_ticks": 350,
+    "max_physics_steps": 1400,
+    "control_rate_hz": 30,
+    "execution": "H10",
+    "dwell_required": false
+  },
+  "source_episodes": 150,
+  "old_success": 72,
+  "old_failure": 78,
+  "included_episodes": 136,
+  "included_success": 72,
+  "included_failure": 64,
+  "excluded_episodes": 14,
+  "excluded_ids": [
+    "000007",
+    "000022",
+    "000023",
+    "000038",
+    "000044",
+    "000084",
+    "000090",
+    "000103",
+    "000114",
+    "000170",
+    "000195",
+    "000226",
+    "000232",
+    "000284"
+  ],
+  "retained_rows": 3447,
+  "success_rows": 1207,
+  "failure_rows": 2240,
+  "max_decision_index": 34
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "simvla_ood150_feature_audit_v1",
+  "status": "PASS",
+  "feature_shapes": {
+    "history": [
+      5887,
+      16,
+      21
+    ],
+    "action": [
+      5887,
+      10,
+      7
+    ],
+    "static": [
+      5887,
+      51
+    ],
+    "decision_index": [
+      5887
+    ],
+    "episode_index": [
+      5887
+    ]
+  },
+  "expected_contract": {
+    "history_tokens": 16,
+    "history_dim": 21,
+    "action_tokens": 10,
+    "action_dim": 7,
+    "static_dim": 51
+  },
+  "normalization_params": {
+    "history_mean_shape": [
+      1,
+      1,
+      21
+    ],
+    "action_mean_shape": [
+      1,
+      1,
+      7
+    ],
+    "static_mean_shape": [
+      1,
+      51
+    ]
+  }
+}

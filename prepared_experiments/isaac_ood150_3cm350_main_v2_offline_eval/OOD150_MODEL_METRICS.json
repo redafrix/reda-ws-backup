@@ -1,0 +1,25 @@
+{
+  "schema_version": "simvla_ood150_model_metrics_v1",
+  "dataset": "converted_exact_only_ood150_subset",
+  "model_name": "isaac_seen4904_h10_topk8_temporal_3cm350_main_v2",
+  "episodes": 136,
+  "success_episodes": 72,
+  "failure_episodes": 64,
+  "retained_rows": 3447,
+  "success_rows": 1207,
+  "failure_rows": 2240,
+  "query_auroc": 0.9200878062492603,
+  "query_auprc": 0.9621235135144359,
+  "episode_balanced_auroc": 0.9954427083333334,
+  "episode_balanced_auprc": 0.9939601620974798,
+  "success_length_stats": {
+    "mean_retained_success_query_length_ood": 16.76388888888889,
+    "median": 17.0,
+    "min": 8,
+    "max": 22,
+    "ood_mean_success_cutoff_queries": 17,
+    "ood_mean_success_cutoff_control_ticks": 170,
+    "canonical_mean_success_cutoff_queries": 18,
+    "canonical_mean_success_cutoff_control_ticks": 180
+  }
+}
