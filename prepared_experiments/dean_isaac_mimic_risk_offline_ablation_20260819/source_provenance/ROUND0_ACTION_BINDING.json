@@ -1,0 +1,38 @@
+{
+  "binding_version": "v1",
+  "status": "BYTE_IDENTICAL_TO_ROUND0_SOURCE",
+  "evidence_relationship": "RECORDED_HASH_OR_COMMIT_EQUIVALENT",
+  "round0_manifest": {
+    "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_seen_h10_round_000_seed20260730/run_manifest.json",
+    "sha256": "a59e96eafa48ea94ee5ac7495935490a0500b1e0b319c9d0b2ea951798300237"
+  },
+  "runtime_collector": {
+    "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/scripts/collect_isaac_risk.py",
+    "sha256": "a53fb3c3da9ea6a066ebff1cb791bcfe5bbb530cc645e3b1c6b9eea5fd6edb9b"
+  },
+  "runtime_policy_adapter": {
+    "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/src/risk_collection/adapter.py",
+    "sha256": "278ae24ae63c37c8b71fa6e083c2f0f213fb8e107e747dec27590f18e613af4e"
+  },
+  "isaac_codebase": {
+    "path": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab",
+    "recorded_commit_in_manifest": "9ae798c143fcb2a20e324aea06c0d10b159af502",
+    "live_commit": "9ae798c143fcb2a20e324aea06c0d10b159af502",
+    "matches": true
+  },
+  "controller_source": {
+    "path": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab/src/franka_wrist_camera_scene/control/reaching_pose_actions.py",
+    "sha256": "8c0acff1bc1a1d3d78341f15d5e5ba6b7d7aae92a17e6aeb93dd59b43d4914f9",
+    "functions": ["encode_command_increment_sequence", "decode_command_increment"]
+  },
+  "exact_7d_semantics": {
+    "layout": ["translation_x", "translation_y", "translation_z", "rotvec_x", "rotvec_y", "rotvec_z", "gripper"],
+    "translation_meaning": "displacement increment per control tick in robot-base coordinate frame",
+    "translation_units": "meters (max step 0.01 m)",
+    "rotation_meaning": "axis-angle rotation vector increment in robot-base frame",
+    "rotation_units": "radians (magnitude is rotation angle in radians, direction is unit axis, max step 0.01 rad)",
+    "gripper_meaning": "discrete gripper binary command (+1.0 closed for finger opening <= 0.02m, -1.0 open)",
+    "env_action_timing": "retained environment action after policy postprocessing"
+  },
+  "evidence_chain": "Round0 run_manifest.json records isaac codebase commit 9ae798c143fcb2a20e324aea06c0d10b159af502 and collection config collect_reaching_pose_v1_4400.yaml. The live repository at that path is at that exact commit, and reaching_pose_actions.py SHA256 8c0acff1bc1a1d3d78341f15d5e5ba6b7d7aae92a17e6aeb93dd59b43d4914f9 defines the exact 7D axis-angle action semantics."
+}

@@ -1,0 +1,25 @@
+{
+  "parity_version": "v1",
+  "status": "PARITY_REPAIRED_AND_VERIFIED",
+  "previous_evaluator": {
+    "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/risk_head_pipeline/evaluate_isaac_topk8.py",
+    "sha256": "40c82d6fcb0bbf763556414572123bbf279383530beaad3c78f66d7822cc0e99",
+    "function": "evaluate_predictions"
+  },
+  "previous_convention": {
+    "first_alarm_index": "first index t (0-indexed) where alarm triggered",
+    "normalized_timing_formula": "fraction = (first + 1) / len(episode_rows)",
+    "det_10_condition": "fraction <= 0.10",
+    "det_25_condition": "fraction <= 0.25",
+    "det_50_condition": "fraction <= 0.50"
+  },
+  "current_implementation": {
+    "path": "implementation/metrics.py",
+    "function": "compute_episode_evaluation",
+    "normalized_timing_formula": "fraction = float((first_t + 1) / len(ep_scores))",
+    "det_10_condition": "fraction <= 0.10",
+    "det_25_condition": "fraction <= 0.25",
+    "det_50_condition": "fraction <= 0.50"
+  },
+  "parity": "YES"
+}

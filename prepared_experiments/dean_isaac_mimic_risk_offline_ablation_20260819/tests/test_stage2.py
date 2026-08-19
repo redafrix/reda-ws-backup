@@ -1,10 +1,11 @@
-"""Comprehensive Stage 2 unit test suite (20 tests)."""
+"""Comprehensive Stage 2 & 2B unit test suite."""
 
 import json
 import math
 import os
 from pathlib import Path
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import torch
@@ -18,6 +19,7 @@ from prepared_experiments.dean_isaac_mimic_risk_offline_ablation_20260819.implem
     reconstruct_c0_trajectory,
 )
 from prepared_experiments.dean_isaac_mimic_risk_offline_ablation_20260819.implementation.calibration import (
+    compute_best_f1_threshold,
     compute_calibration_thresholds,
     compute_conformal_threshold,
     compute_successful_episode_maxima,
@@ -51,9 +53,12 @@ from prepared_experiments.dean_isaac_mimic_risk_offline_ablation_20260819.implem
 from prepared_experiments.dean_isaac_mimic_risk_offline_ablation_20260819.implementation.model import (
     MimicH10RiskMonitor,
 )
+from prepared_experiments.dean_isaac_mimic_risk_offline_ablation_20260819.implementation.train import (
+    main as train_main,
+)
 
 
-class TestStage2(unittest.TestCase):
+class TestStage2B(unittest.TestCase):
     def test_01_no_stub_scan(self):
         """1. No-stub scan over implementation directory."""
         impl_dir = Path(__file__).resolve().parent.parent / "implementation"
@@ -276,6 +281,57 @@ class TestStage2(unittest.TestCase):
         with self.assertRaises(RuntimeError) as ctx:
             run_held_out_test("/tmp", "/tmp/model.pt", non_existent_freeze, "/tmp/out", torch.device("cpu"))
         self.assertIn("LEAKAGE GUARD ACTIVE", str(ctx.exception))
+
+    def test_21_trainer_cli_no_crash(self):
+        """21. Trainer CLI execution path doesn't crash on dictionary formatting."""
+        with patch(
+            "prepared_experiments.dean_isaac_mimic_risk_offline_ablation_20260819.implementation.train.train_single_seed"
+        ) as mock_train:
+            mock_train.return_value = {
+                "seed": 0,
+                "best_epoch": 12,
+                "best_val_auprc": 0.8542,
+            }
+            with patch(
+                "sys.argv",
+                ["train.py", "--derived_dir", "/tmp", "--output_dir", "/tmp", "--seeds", "0", "1"],
+            ):
+                train_main()
+            self.assertEqual(mock_train.call_count, 2)
+
+    def test_22_row_best_f1_calculation_and_tie_breaking(self):
+        """22. Row best-F1 calculation and deterministic tie-breaking (highest threshold)."""
+        y_true = np.array([0, 0, 1, 1], dtype=np.int64)
+        y_scores = np.array([0.1, 0.4, 0.7, 0.9], dtype=np.float64)
+
+        res = compute_best_f1_threshold(y_true, y_scores)
+        self.assertEqual(res["threshold"], 0.7)
+        self.assertAlmostEqual(res["f1"], 1.0)
+
+        # Tie breaking: thresholds 0.1 and 0.8 both give F1 = 2/3 = 0.6667
+        yt_tie = np.array([1, 0, 0, 1])
+        ys_tie = np.array([0.1, 0.3, 0.5, 0.8])
+        res_tie = compute_best_f1_threshold(yt_tie, ys_tie)
+        self.assertEqual(res_tie["threshold"], 0.8)
+        self.assertAlmostEqual(res_tie["f1"], 2.0 / 3.0)
+
+    def test_23_timing_metric_parity_with_canonical_isaac(self):
+        """23. Timing metric parity: fraction = (first_t + 1) / len(ep_scores)."""
+        scores = np.array([0.1, 0.2, 0.9, 0.1])
+        labels = np.array([1, 1, 1, 1])
+        ep_idx = np.array([0, 0, 0, 0])
+        eval_res = compute_episode_evaluation(scores, labels, ep_idx, threshold=0.5)
+
+        self.assertEqual(eval_res["failure_detected"], 1)
+        self.assertAlmostEqual(eval_res["mean_first_alarm_fraction"], 0.75)
+        self.assertEqual(eval_res["det_25_count"], 0)
+        self.assertEqual(eval_res["det_50_count"], 0)
+
+        scores_early = np.array([0.9, 0.1, 0.1, 0.1])
+        eval_res_early = compute_episode_evaluation(scores_early, labels, ep_idx, threshold=0.5)
+        self.assertAlmostEqual(eval_res_early["mean_first_alarm_fraction"], 0.25)
+        self.assertEqual(eval_res_early["det_25_count"], 1)
+        self.assertEqual(eval_res_early["det_50_count"], 1)
 
 
 if __name__ == "__main__":
