@@ -1,0 +1,229 @@
+{
+  "all_test": {
+    "episode_balanced_auprc": 0.9999999999999999,
+    "episode_balanced_auroc": 1.0,
+    "episodes": 736,
+    "failure_episodes": 78,
+    "name": "ALL_TEST",
+    "query_auprc": 0.9216688364724143,
+    "query_auroc": 0.962258683929834,
+    "rows": 14626,
+    "success_episodes": 658,
+    "threshold_operating_points": {
+      "best_val_f1": {
+        "FN": 580,
+        "FP": 127,
+        "TN": 11769,
+        "TP": 2150,
+        "f1": 0.8587976832434592,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.9442248572683355,
+        "recall": 0.7875457875457875,
+        "success_episode_false_alarm_rate": 0.0729483282674772,
+        "threshold": 0.8412240743637085
+      },
+      "fixed_0.5": {
+        "FN": 309,
+        "FP": 1121,
+        "TN": 10775,
+        "TP": 2421,
+        "f1": 0.7720025510204082,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.6835121400338792,
+        "recall": 0.8868131868131868,
+        "success_episode_false_alarm_rate": 0.4027355623100304,
+        "threshold": 0.5
+      },
+      "q90": {
+        "FN": 311,
+        "FP": 1095,
+        "TN": 10801,
+        "TP": 2419,
+        "f1": 0.7748238308776424,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.6883892999430848,
+        "recall": 0.886080586080586,
+        "success_episode_false_alarm_rate": 0.39361702127659576,
+        "threshold": 0.5038588047027588
+      },
+      "q95": {
+        "FN": 406,
+        "FP": 527,
+        "TN": 11369,
+        "TP": 2324,
+        "f1": 0.8328256584841426,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.815152578042792,
+        "recall": 0.8512820512820513,
+        "success_episode_false_alarm_rate": 0.21428571428571427,
+        "threshold": 0.6352721452713013
+      },
+      "q99": {
+        "FN": 616,
+        "FP": 80,
+        "TN": 11816,
+        "TP": 2114,
+        "f1": 0.8586515028432169,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.9635369188696444,
+        "recall": 0.7743589743589744,
+        "success_episode_false_alarm_rate": 0.05319148936170213,
+        "threshold": 0.8790629506111145
+      }
+    }
+  },
+  "hard_test": {
+    "episode_balanced_auprc": 0.9999999999999998,
+    "episode_balanced_auroc": 1.0,
+    "episodes": 143,
+    "failure_episodes": 71,
+    "name": "HARD_TEST",
+    "query_auprc": 0.9782694481141815,
+    "query_auroc": 0.9535004074792002,
+    "rows": 3796,
+    "success_episodes": 72,
+    "threshold_operating_points": {
+      "best_val_f1": {
+        "FN": 483,
+        "FP": 31,
+        "TN": 1280,
+        "TP": 2002,
+        "f1": 0.8862328463922089,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.984751598622725,
+        "recall": 0.8056338028169014,
+        "success_episode_false_alarm_rate": 0.1527777777777778,
+        "threshold": 0.8412240743637085
+      },
+      "fixed_0.5": {
+        "FN": 250,
+        "FP": 212,
+        "TN": 1099,
+        "TP": 2235,
+        "f1": 0.9063260340632604,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.913363302002452,
+        "recall": 0.8993963782696177,
+        "success_episode_false_alarm_rate": 0.5138888888888888,
+        "threshold": 0.5
+      },
+      "q90": {
+        "FN": 251,
+        "FP": 208,
+        "TN": 1103,
+        "TP": 2234,
+        "f1": 0.9068398619849807,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.9148239148239148,
+        "recall": 0.8989939637826961,
+        "success_episode_false_alarm_rate": 0.5138888888888888,
+        "threshold": 0.5038588047027588
+      },
+      "q95": {
+        "FN": 333,
+        "FP": 109,
+        "TN": 1202,
+        "TP": 2152,
+        "f1": 0.9068689422671723,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.9517912428129146,
+        "recall": 0.8659959758551308,
+        "success_episode_false_alarm_rate": 0.3333333333333333,
+        "threshold": 0.6352721452713013
+      },
+      "q99": {
+        "FN": 517,
+        "FP": 28,
+        "TN": 1283,
+        "TP": 1968,
+        "f1": 0.8783753626422673,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.9859719438877755,
+        "recall": 0.7919517102615694,
+        "success_episode_false_alarm_rate": 0.125,
+        "threshold": 0.8790629506111145
+      }
+    }
+  },
+  "schema_version": "simvla_isaac_seen4904_test_results_v1",
+  "seen_test": {
+    "episode_balanced_auprc": 1.0,
+    "episode_balanced_auroc": 1.0,
+    "episodes": 593,
+    "failure_episodes": 7,
+    "name": "SEEN_TEST",
+    "query_auprc": 0.6666158344167109,
+    "query_auroc": 0.9276515670037501,
+    "rows": 10830,
+    "success_episodes": 586,
+    "threshold_operating_points": {
+      "best_val_f1": {
+        "FN": 97,
+        "FP": 96,
+        "TN": 10489,
+        "TP": 148,
+        "f1": 0.6053169734151329,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.6065573770491803,
+        "recall": 0.6040816326530613,
+        "success_episode_false_alarm_rate": 0.06313993174061433,
+        "threshold": 0.8412240743637085
+      },
+      "fixed_0.5": {
+        "FN": 59,
+        "FP": 909,
+        "TN": 9676,
+        "TP": 186,
+        "f1": 0.2776119402985075,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.16986301369863013,
+        "recall": 0.7591836734693878,
+        "success_episode_false_alarm_rate": 0.3890784982935154,
+        "threshold": 0.5
+      },
+      "q90": {
+        "FN": 60,
+        "FP": 887,
+        "TN": 9698,
+        "TP": 185,
+        "f1": 0.28094153378891423,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.17257462686567165,
+        "recall": 0.7551020408163265,
+        "success_episode_false_alarm_rate": 0.378839590443686,
+        "threshold": 0.5038588047027588
+      },
+      "q95": {
+        "FN": 73,
+        "FP": 418,
+        "TN": 10167,
+        "TP": 172,
+        "f1": 0.4119760479041916,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.29152542372881357,
+        "recall": 0.7020408163265306,
+        "success_episode_false_alarm_rate": 0.19965870307167236,
+        "threshold": 0.6352721452713013
+      },
+      "q99": {
+        "FN": 99,
+        "FP": 52,
+        "TN": 10533,
+        "TP": 146,
+        "f1": 0.6591422121896162,
+        "failure_episode_detection_rate": 1.0,
+        "precision": 0.7373737373737373,
+        "recall": 0.5959183673469388,
+        "success_episode_false_alarm_rate": 0.04436860068259386,
+        "threshold": 0.8790629506111145
+      }
+    }
+  },
+  "thresholds": {
+    "best_val_f1": 0.8412240743637085,
+    "fixed_0.5": 0.5,
+    "q90": 0.5038588047027588,
+    "q95": 0.6352721452713013,
+    "q99": 0.8790629506111145
+  }
+}
