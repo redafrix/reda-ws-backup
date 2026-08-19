@@ -1,0 +1,61 @@
+{
+  "provenance_version": "v1",
+  "isaac_7d_semantics": {
+    "description": "Isaac reaching-pose action space in robot base frame",
+    "layout": [
+      "translation_x_m",
+      "translation_y_m",
+      "translation_z_m",
+      "rotvec_x_rad",
+      "rotvec_y_rad",
+      "rotvec_z_rad",
+      "gripper_binary"
+    ],
+    "translation_units": "meters (increment per control tick in robot base frame)",
+    "rotation_representation": "axis-angle rotation vector (radians, magnitude=angle, direction=axis)",
+    "gripper_representation": "binary discrete state (+1.0 closed <= 0.02m finger opening, -1.0 open)",
+    "source_file": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab/src/franka_wrist_camera_scene/control/reaching_pose_actions.py",
+    "source_sha256": "8c0acff1bc1a1d3d78341f15d5e5ba6b7d7aae92a17e6aeb93dd59b43d4914f9",
+    "simvla_reaching_pose_source": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab/src/franka_wrist_camera_scene/simvla/reaching_pose_v1.py",
+    "simvla_reaching_pose_sha256": "455702cf0c4d8589f045a114dd987686caa0eef5480747f59e06f1add3d5ff21"
+  },
+  "mimic_10d_semantics": {
+    "description": "Mimic/W2A 10D monitor action representation",
+    "layout": [
+      "translation_x_m",
+      "translation_y_m",
+      "translation_z_m",
+      "rot6_r00",
+      "rot6_r01",
+      "rot6_r02",
+      "rot6_r10",
+      "rot6_r11",
+      "rot6_r12",
+      "gripper"
+    ],
+    "translation_units": "meters (retained unchanged from Isaac translation)",
+    "rotation_representation": "6D continuous rotation representation (first two rows of 3x3 rotation matrix, flattened row-major)",
+    "gripper_representation": "retained unchanged from Isaac gripper",
+    "source_file": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab/src/franka_wrist_camera_scene/mimic_video/geometry.py",
+    "source_sha256": "167608d28fb99af48ee4293e19945a32cc7c61ecd70df5c35075cdf594be0253",
+    "functions": [
+      "rotation_matrix_to_training_6d",
+      "training_6d_to_rotation_matrix"
+    ]
+  },
+  "mapping_formulas": {
+    "7d_to_10d": "rot_matrix = Rotation.from_rotvec(action_7d[..., 3:6]).as_matrix(); rot6 = rot_matrix[..., :2, :].reshape(..., 6); action_10d = concat([action_7d[..., :3], rot6, action_7d[..., 6:7]], axis=-1)",
+    "10d_to_7d": "first = normalize(rot6[..., 0:3]); second = normalize(rot6[..., 3:6] - first * dot(first, rot6[..., 3:6])); third = cross(first, second); rot_matrix = stack([first, second, third], axis=-2); rotvec = Rotation.from_matrix(rot_matrix).as_rotvec(); action_7d = concat([action_10d[..., :3], rotvec, action_10d[..., 9:10]], axis=-1)"
+  },
+  "roundtrip_verification": {
+    "identity_error": 0.0,
+    "random_cases_count": 2000,
+    "random_cases_max_abs_error": 1.862645149230957e-09,
+    "tested_range": {
+      "translation_max_m": 0.01,
+      "rotation_max_rad": 0.01
+    },
+    "tolerance": 1e-06,
+    "passed": true
+  }
+}
