@@ -1,0 +1,39 @@
+{
+  "total_episodes": 5000,
+  "seen_episodes": 4000,
+  "hard_episodes": 1000,
+  "exact_labels": {
+    "success": 4387,
+    "failure": 517,
+    "ambiguous": 96
+  },
+  "heuristic_labels": {
+    "success": 4482,
+    "failure": 518
+  },
+  "seen_breakdown": {
+    "total": 4000,
+    "exact_success": 3908,
+    "exact_failure": 47,
+    "ambiguous": 45,
+    "heuristic_success": 3953,
+    "heuristic_failure": 47
+  },
+  "hard_breakdown": {
+    "total": 1000,
+    "exact_success": 479,
+    "exact_failure": 470,
+    "ambiguous": 51,
+    "heuristic_success": 529,
+    "heuristic_failure": 471
+  },
+  "ambiguous_summary": {
+    "total": 96,
+    "seen_count": 45,
+    "hard_count": 51,
+    "reason_breakdown": {
+      "old_failure_full_episode_minimum_le_3cm_time_unknown": 95,
+      "old_success_after_350_3cm_entry_time_unknown": 1
+    }
+  }
+}
