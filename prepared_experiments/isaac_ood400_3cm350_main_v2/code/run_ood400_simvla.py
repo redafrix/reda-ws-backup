@@ -2,6 +2,7 @@
 """Unified OOD400 SimVLA Baseline & TopK Active Controller Runner for IsaacLab.
 
 Features:
+- DIRECT MANIFEST RECONSTRUCTION: 100% exact match to canonical full_ood400.json
 - Strict 3cm / 350 control tick (1400 simulation steps @ 120Hz/30Hz/decimation 4)
 - Immediate success termination on first substep with distance <= 0.030m (NO DWELL, settle_time_s=0.0)
 - Policy sampling seed: 20260812
@@ -10,6 +11,7 @@ Features:
 - Low-storage agent camera RGB video recording (320x240 @ 5 FPS, H264 CRF 30)
 - Full summary logging with exact <=3cm crossing fields
 - Decision row logging with 16x21 history, 10x7 action, 51 static features
+- Explicit schema distinction between executed candidate (0 in baseline) and shadow selection
 """
 
 from __future__ import annotations
@@ -45,8 +47,8 @@ sys.path.insert(0, str(PINNED_ISAAC / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from ood400_runtime import (  # noqa: E402
-    OnlineRiskDecisionPlan,
     OOD400EpisodeStore,
+    OnlineRiskDecisionPlan,
     OnlineRiskPlanner,
     OnlineRiskSelector,
     sha256_file,
@@ -58,7 +60,6 @@ from risk_collection.rounds import (  # noqa: E402
     scene_family_id,
     schedule_sha256,
 )
-# from risk_collection.storage import EpisodeStore
 from risk_collection.constants import (  # noqa: E402
     ACE_7D_KEYS,
     TOPK8_INDICES,
@@ -182,6 +183,84 @@ def load_manifest_scene_assets(
     return resolved
 
 
+def build_direct_manifest_plan(
+    *,
+    base: Any,
+    collection_cfg: dict[str, Any],
+    base_spec: Any,
+    sampling_options: Any,
+    scene_assets: Any,
+    asset_names: Any,
+    raw_manifest_entry: dict[str, Any],
+) -> Any:
+    from franka_wrist_camera_scene.collection.reaching import ReachingEpisodePlan
+    from franka_wrist_camera_scene.scene.clutter import (
+        ClutterObjectSpec,
+        layout_footprint_for_context,
+    )
+    from franka_wrist_camera_scene.tasks.reaching import make_reaching_episode_spec
+    from franka_wrist_camera_scene.tasks.sampling import ReachingSample
+
+    raw_scene = raw_manifest_entry["scene"]
+    clutter_cfg = collection_cfg["clutter"]
+
+    sample = ReachingSample(
+        object_xy_offset=tuple(float(v) for v in raw_scene["object_xy_offset"]),
+        light_intensity=float(raw_scene["lighting"]["intensity"]),
+        light_color=tuple(float(v) for v in raw_scene["lighting"]["color"]),
+        target_position_index=int(raw_scene["target_position_index"]),
+    )
+    spec = make_reaching_episode_spec(
+        base_spec=base_spec,
+        object_xy_offset=sample.object_xy_offset,
+        object_label=scene_assets.object_context.label,
+        object_local_bbox_min=scene_assets.object_context.geometry.local_bbox_min,
+        object_local_bbox_max=scene_assets.object_context.geometry.local_bbox_max,
+        object_category_id=scene_assets.object_context.category_id,
+        object_affordances=scene_assets.object_context.affordances,
+        robot_base_xy=sampling_options.workspace.robot_base_xy,
+    )
+    spec = replace(spec, object_name=asset_names.object_name)
+
+    clutter_specs = []
+    for slot_idx, (c_source, c_context) in enumerate(scene_assets.clutter_contexts):
+        c_raw = raw_scene["clutter"][slot_idx]
+        clutter_specs.append(
+            ClutterObjectSpec(
+                prim_name=asset_names.clutter_names[slot_idx],
+                context=c_context,
+                pos_local=tuple(float(v) for v in c_raw["pos_local"]),
+                footprint_radius_m=layout_footprint_for_context(
+                    c_context,
+                    float(clutter_cfg.get("clutter_margin_m", 0.025)),
+                    clutter_cfg,
+                ),
+                source_name=c_source,
+            )
+        )
+    clutter_specs = tuple(clutter_specs)
+
+    clutter_metadata = [
+        {
+            "slot_index": slot_idx,
+            "category_id": c_spec.context.category_id,
+            "variant_id": c_spec.context.variant_id,
+            "label": c_spec.context.label,
+            "pos_local": list(c_spec.pos_local),
+            "source_name": c_spec.source_name,
+        }
+        for slot_idx, c_spec in enumerate(clutter_specs)
+    ]
+
+    return ReachingEpisodePlan(
+        sample=sample,
+        spec=spec,
+        clutter_specs=clutter_specs,
+        clutter_metadata=clutter_metadata,
+        clutter_position_index=int(raw_scene["clutter_position_index"]),
+    )
+
+
 def make_agent_video_writer(path: Path, width: int = 320, height: int = 240):
     path.parent.mkdir(parents=True, exist_ok=True)
     command = [
@@ -248,12 +327,25 @@ def decision_to_row(
     outcome: str,
     label: int | None,
     metadata: dict[str, Any],
+    mode: str = "baseline",
 ) -> dict[str, Any]:
+    if mode == "baseline":
+        executed_idx = 0
+        intervention_acc = False
+    else:
+        executed_idx = int(plan.selection.selected_index)
+        intervention_acc = bool(plan.selection.proposed_modification)
+
     return {
-        "schema_version": "simvla_isaac_risk_collection_v1",
+        "schema_version": "simvla_isaac_risk_collection_v2",
         "episode_id": episode_id,
         "decision_index": plan.decision_index,
         "execution_mode": execution_mode,
+        "controller_mode": mode,
+        "executed_candidate_index": executed_idx,
+        "intervention_accepted": intervention_acc,
+        "shadow_selected_candidate_index": int(plan.selection.selected_index),
+        "shadow_selection_reason": plan.selection.reason,
         "main_seed": int(plan.main_seed),
         "ace_candidate_seeds": [int(value) for value in plan.ace_seeds],
         "main_candidate_action_chunk_normalized": plan.main_chunk_normalized.tolist(),
@@ -271,15 +363,15 @@ def decision_to_row(
         "online_risk": {
             "candidate_scores": plan.candidate_scores.tolist(),
             "candidate_uncertainty_49d": plan.candidate_uncertainty_49d.tolist(),
-            "selected_candidate_index": int(plan.selection.selected_index),
-            "selection_reason": plan.selection.reason,
+            "shadow_selected_candidate_index": int(plan.selection.selected_index),
+            "shadow_selection_reason": plan.selection.reason,
             "main_score": float(plan.selection.main_score),
-            "selected_score": float(plan.selection.selected_score),
+            "shadow_selected_score": float(plan.selection.selected_score),
             "best_alternative_index": int(plan.selection.best_alternative_index),
             "best_alternative_score": float(plan.selection.best_alternative_score),
             "proposed_modification": bool(plan.selection.proposed_modification),
-            "selected_candidate_action_chunk_normalized": plan.selected_chunk_normalized.tolist(),
-            "selected_candidate_action_chunk_env": plan.selected_chunk_env.tolist(),
+            "shadow_selected_candidate_action_chunk_normalized": plan.selected_chunk_normalized.tolist(),
+            "shadow_selected_candidate_action_chunk_env": plan.selected_chunk_env.tolist(),
         },
         "parent_episode_outcome": outcome,
         "parent_episode_risk_label": label,
@@ -664,6 +756,7 @@ def run_episode(
             outcome=outcome,
             label=label,
             metadata=metadata,
+            mode=mode,
         )
         for plan, sequence in decisions
     ]
@@ -679,7 +772,18 @@ def run_episode(
 def run_collection(args: argparse.Namespace, simulation_app: Any) -> None:
     base = load_pinned_rollout()
     import yaml
-    from franka_wrist_camera_scene.simvla.ood_benchmark import load_benchmark_manifest
+    from franka_wrist_camera_scene.simvla.ood_benchmark import (
+        load_benchmark_manifest,
+        require_scene_matches_manifest,
+    )
+    from franka_wrist_camera_scene.tasks.sampling import (
+        ReachingSamplingOptions,
+        WorkspaceConstraint,
+        parse_lighting_options,
+        parse_target_position_set,
+        parse_xy_range,
+    )
+    from franka_wrist_camera_scene.tasks.reaching import ReachingTaskSpec
     from franka_wrist_camera_scene.utils.paths import load_yaml_config
 
     run_cfg = load_yaml_config(args.run_config)
@@ -721,16 +825,45 @@ def run_collection(args: argparse.Namespace, simulation_app: Any) -> None:
     first_id = int(selected[0].source_episode_id)
     first_assets = scene_assets_map[first_id]
     first_names = base._episode_asset_names(asset_bank, first_assets)
-    base_spec, sampling_options = base.make_sampling_options(collection_cfg)
-    first_plan = base._make_episode_plan(
-        collection_cfg,
-        base_spec,
-        first_assets,
-        int(collection_cfg["seed"]),
-        first_id,
-        sampling_options,
-        first_names,
+
+    pose_randomization = collection_cfg["pose_randomization"]
+    base_spec_kwargs = {}
+    for key in (
+        "success_threshold_m",
+        "max_success_target_displacement_m",
+        "reach_dwell_s",
+        "direct_reach_max_speed_m_s",
+        "reach_surface_clearance_m",
+    ):
+        if key in collection_cfg:
+            base_spec_kwargs[key] = float(collection_cfg[key])
+    base_spec = ReachingTaskSpec(**base_spec_kwargs)
+    workspace_cfg = pose_randomization["workspace"]
+    sampling_options = ReachingSamplingOptions(
+        object_xy_range=parse_xy_range(pose_randomization["object_xy_range"]),
+        object_origin_xy=base_spec.object_pos_local[:2],
+        workspace=WorkspaceConstraint(
+            robot_base_xy=tuple(float(v) for v in workspace_cfg["robot_base_xy"]),
+            max_distance_m=float(workspace_cfg["max_distance_m"]),
+            max_sampling_attempts=int(workspace_cfg["max_sampling_attempts"]),
+        ),
+        lighting=parse_lighting_options(collection_cfg["lighting_randomization"]),
+        target_position_set=parse_target_position_set(
+            pose_randomization.get("target_position_set"),
+            split=collection_cfg["suite"]["split"],
+        ),
     )
+
+    first_plan = build_direct_manifest_plan(
+        base=base,
+        collection_cfg=collection_cfg,
+        base_spec=base_spec,
+        sampling_options=sampling_options,
+        scene_assets=first_assets,
+        asset_names=first_names,
+        raw_manifest_entry=raw_manifest_entries[int(selected[0].benchmark_episode_id)],
+    )
+    require_scene_matches_manifest(selected[0], first_assets, first_plan)
 
     scene_cfg = base.make_reaching_asset_bank_scene_cfg(
         target_usd_paths=asset_bank.target_usd_paths,
@@ -792,44 +925,34 @@ def run_collection(args: argparse.Namespace, simulation_app: Any) -> None:
     print(f"  A = {selector.main_threshold:.6f} ({selector.main_threshold_name}), C = {selector.selected_score_cap:.4f}", flush=True)
     print(f"  Output: {output_dir}", flush=True)
 
-    existing_summaries = set()
-    if (output_dir / "episode_summaries.jsonl").exists():
-        for line in (output_dir / "episode_summaries.jsonl").read_text().splitlines():
-            if line.strip():
-                try:
-                    d = json.loads(line)
-                    existing_summaries.add(d["episode_id"])
-                except Exception:
-                    pass
-    print(f"  Already completed in output_dir: {len(existing_summaries)} episodes", flush=True)
+    completed_set = run_store.completed_episode_ids()
+    print(f"  Already completed in output_dir: {len(completed_set)} episodes", flush=True)
 
     successes = 0
     failures = 0
     total_rows = 0
-    plans = {first_id: first_plan}
 
     for ep_idx, ep in enumerate(selected):
         bench_id = int(ep.benchmark_episode_id)
         global_id_str = f"{bench_id:06d}"
-        if global_id_str in existing_summaries:
+        if global_id_str in completed_set:
             print(f"[{ep_idx+1}/{len(selected)}] Skipping already-complete episode {global_id_str}", flush=True)
             continue
 
         raw_entry = raw_manifest_entries[bench_id]
         scene_assets = scene_assets_map[ep.source_episode_id]
+        names = base._episode_asset_names(asset_bank, scene_assets)
 
-        plan = plans.get(ep.source_episode_id)
-        if plan is None:
-            names = base._episode_asset_names(asset_bank, scene_assets)
-            plan = base._make_episode_plan(
-                collection_cfg,
-                base_spec,
-                scene_assets,
-                int(collection_cfg["seed"]),
-                ep.source_episode_id,
-                sampling_options,
-                names,
-            )
+        plan = build_direct_manifest_plan(
+            base=base,
+            collection_cfg=collection_cfg,
+            base_spec=base_spec,
+            sampling_options=sampling_options,
+            scene_assets=scene_assets,
+            asset_names=names,
+            raw_manifest_entry=raw_entry,
+        )
+        require_scene_matches_manifest(ep, scene_assets, plan)
 
         t0 = time.time()
         succ, rows = run_episode(

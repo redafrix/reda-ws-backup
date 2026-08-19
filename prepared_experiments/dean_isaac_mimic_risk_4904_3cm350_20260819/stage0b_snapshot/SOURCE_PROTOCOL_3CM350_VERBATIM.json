@@ -1,0 +1,20 @@
+{
+  "control_rate_hz": 30,
+  "decision_index_range": [
+    0,
+    34
+  ],
+  "distance_threshold_m": 0.03,
+  "dwell_time_s": 0.0,
+  "execution_mode": "chunk_h10",
+  "failure_rule": "Tick 350 reached without prior <= 0.030 entry terminates as FAILURE (1)",
+  "labels": {
+    "0": "SUCCESS",
+    "1": "FAILURE"
+  },
+  "max_control_ticks": 350,
+  "max_decision_rows": 35,
+  "max_duration_s": 11.6666666667,
+  "protocol_name": "isaac_reaching_3cm_350tick_no_dwell_binary",
+  "success_rule": "First control tick with tcp_target_distance_m <= 0.030 terminates immediately as SUCCESS (0)"
+}

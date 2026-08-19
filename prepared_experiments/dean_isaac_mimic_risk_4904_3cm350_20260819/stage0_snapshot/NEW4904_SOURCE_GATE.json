@@ -1,0 +1,38 @@
+{
+  "status": "PASSED",
+  "dataset_root": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/isaac_seen4904_h10_3cm350_exact_v1",
+  "source_manifest_sha256": "61462ceead4a79d6d44a0ae80ee9ff25b958c4c1afbd67142c4df276801a0a3c",
+  "split_artifact_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/split_manifest.json",
+  "split_artifact_sha256": "34db754f88cc9f77ca72dc358a51235f7059278e561e662103451ec4ef8095b8",
+  "protocol": "first <= 0.030m within 350 control ticks at 30Hz, no dwell",
+  "episodes": 4904,
+  "success_episodes": 4387,
+  "failure_episodes": 517,
+  "rows": 96813,
+  "split_counts": {
+    "train": {
+      "episodes": 3433,
+      "success_episodes": 3071,
+      "failure_episodes": 362,
+      "rows": 67725,
+      "positive_rows": 12670,
+      "negative_rows": 55055
+    },
+    "validation": {
+      "episodes": 735,
+      "success_episodes": 658,
+      "failure_episodes": 77,
+      "rows": 14562,
+      "positive_rows": 2695,
+      "negative_rows": 11867
+    },
+    "test": {
+      "episodes": 736,
+      "success_episodes": 658,
+      "failure_episodes": 78,
+      "rows": 14526,
+      "positive_rows": 2730,
+      "negative_rows": 11796
+    }
+  }
+}
