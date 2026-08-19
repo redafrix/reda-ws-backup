@@ -1,0 +1,47 @@
+{
+  "search_roots": [
+    "/media/redafrix/My Passport1/reda_ws",
+    "/media/redafrix/My Passport/reda_ws",
+    "/mnt/ai/projects",
+    "/home/redafrix/worldmodel",
+    "/home/redafrix/tests/internship"
+  ],
+  "search_terms": [
+    "74",
+    "16",
+    "RiskHead",
+    "risk_head",
+    "GRU",
+    "w2a",
+    "W2A",
+    "candidate_centrality",
+    "plan_overlap",
+    "sample_pairwise_mse_mean",
+    "sample_variance_mean",
+    "sample_velocity_mse_mean",
+    "vector_field_l2_mean",
+    "conformal"
+  ],
+  "original_friend_source_found": false,
+  "inspected_files": [
+    {
+      "path": "/home/redafrix/tests/internship/machine_snapshot/dean/home/dean/fiper_goal_object_collection_20260605/libero_goal_object_reproduction_bundle_20260605/source_code/evaluator/run.py",
+      "sha256": "b466149c19effd3806831d3a102637fd9575056acb86d78646f071b09256d8c6",
+      "kind": "executable_policy_evaluator",
+      "finding": "Contains Video2World2Action/World2Action policy runner and V2WUncertaintyModel calibration, but not the standalone K1 neural risk-head architecture"
+    },
+    {
+      "path": "/media/redafrix/My Passport1/reda_ws/pi05_libero_risk_ws_20260623/src/train_pi05_risk_no_task9_20260625.py",
+      "sha256": "19a785de11bba09fd663f4ed78d221642709d31bd259ed3fe8175e0c72014eab",
+      "kind": "executable_trainer",
+      "finding": "Trains SeqRiskModel (Transformer Encoder), not the friend SingleHead GRU risk monitor"
+    },
+    {
+      "path": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab/src/franka_wrist_camera_scene/mimic_video/geometry.py",
+      "sha256": "167608d28fb99af48ee4293e19945a32cc7c61ecd70df5c35075cdf594be0253",
+      "kind": "executable_geometry_module",
+      "finding": "Contains Mimic 10D <-> 7D rotation matrix conversions, but not the neural risk-head training pipeline"
+    }
+  ],
+  "fallback_contract": "prepared_experiments/dean_isaac_mimic_risk_offline_ablation_20260819/MIMIC_H10_HANDOFF_CONTRACT.md"
+}
