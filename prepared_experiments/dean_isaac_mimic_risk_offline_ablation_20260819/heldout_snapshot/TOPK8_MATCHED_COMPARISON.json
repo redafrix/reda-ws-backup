@@ -1,0 +1,98 @@
+{
+  "provenance_reference": "TOPK8_MATCHED_SPLIT_PROVENANCE.json",
+  "topk8_source": {
+    "results_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_h10_topk8_temporal_v1/results.json",
+    "model_type": "SeqRiskModel (TopK8)",
+    "dataset_manifest_sha256": "8e3b7f4929fce4a648f174735ec9c0530966cf4e8a93a66a3e793432a5be4859"
+  },
+  "mimic_source": {
+    "experiment_name": "isaac_mimic_h10_c0dyn_v1",
+    "primary_seed": 0,
+    "model_type": "MimicH10RiskMonitor (C0 dynamics)"
+  },
+  "threshold_independent": {
+    "topk8_auroc": 0.9310794796642061,
+    "mimic_auroc": 0.9170925151975684,
+    "delta_auroc": -0.013986964466637719,
+    "topk8_auprc": 0.818629985131437,
+    "mimic_auprc": 0.808009034339266,
+    "delta_auprc": -0.010620950792171069
+  },
+  "row_best_f1_matched_calibration": {
+    "topk8": {
+      "threshold": 0.7990124225616455,
+      "success_false_alarms": 12,
+      "success_episodes": 586,
+      "false_alarm_rate": 0.020477815699658702,
+      "failure_detected": 14,
+      "failure_episodes": 14,
+      "detection_rate": 1.0,
+      "det_at_10_count": 2,
+      "det_at_10_rate": 0.14285714285714285,
+      "det_at_25_count": 5,
+      "det_at_25_rate": 0.35714285714285715,
+      "det_at_50_count": 14,
+      "det_at_50_rate": 1.0,
+      "mean_first_alarm_fraction": 0.2726190476190476
+    },
+    "mimic": {
+      "threshold": 0.9380214810371399,
+      "success_false_alarms": 17,
+      "success_episodes": 586,
+      "false_alarm_rate": 0.02901023890784983,
+      "failure_detected": 14,
+      "failure_episodes": 14,
+      "detection_rate": 1.0,
+      "det_at_10_count": 1,
+      "det_at_10_rate": 0.07142857142857142,
+      "det_at_25_count": 5,
+      "det_at_25_rate": 0.35714285714285715,
+      "det_at_50_count": 14,
+      "det_at_50_rate": 1.0,
+      "mean_first_alarm_fraction": 0.2773809523809524
+    },
+    "deltas_mimic_minus_topk8": {
+      "fa_delta_percentage_points": 0.8532423208191129,
+      "failure_detection_delta_count": 0,
+      "det_at_10_delta_count": -1,
+      "det_at_25_delta_count": 0,
+      "det_at_50_delta_count": 0
+    }
+  },
+  "fixed_05_supplemental": {
+    "topk8": {
+      "threshold": 0.5,
+      "success_false_alarms": 50,
+      "false_alarm_rate": 0.08532423208191127,
+      "failure_detected": 14,
+      "det_at_10_count": 5,
+      "det_at_25_count": 8,
+      "det_at_50_count": 14
+    },
+    "mimic": {
+      "threshold": 0.5,
+      "success_false_alarms": 94,
+      "false_alarm_rate": 0.16040955631399317,
+      "failure_detected": 14,
+      "det_at_10_count": 6,
+      "det_at_25_count": 10,
+      "det_at_50_count": 14
+    }
+  },
+  "mimic_primary_conformal_alpha010": {
+    "threshold": 0.736110270023346,
+    "success_false_alarms": 43,
+    "false_alarm_rate": 0.07337883959044368,
+    "failure_detected": 14,
+    "det_at_10_count": 4,
+    "det_at_25_count": 8,
+    "det_at_50_count": 14,
+    "descriptive_comparison_with_topk8_fixed05": {
+      "note": "DESCRIPTIVE_SIMILAR_OBSERVED_FA: TopK8 fixed0.5 has 8.53% FA while Mimic alpha=0.10 has 7.34% FA.",
+      "topk8_fixed05_FA": "50/586 (8.53%)",
+      "mimic_alpha010_FA": "43/586 (7.34%)",
+      "topk8_fixed05_Det25": "8/14 (57.14%)",
+      "mimic_alpha010_Det25": "8/14 (57.14%)"
+    }
+  }
+}
