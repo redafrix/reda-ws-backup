@@ -1,0 +1,37 @@
+{
+  "initial_noise_shape": [
+    "[10, 7]"
+  ],
+  "final_action_normalized_shape": [
+    "[10, 7]"
+  ],
+  "denoise_mean_trace_shape": [
+    "[10]"
+  ],
+  "velocity_norm_trace_shape": [
+    "[10]"
+  ],
+  "update_norm_trace_shape": [
+    "[10]"
+  ],
+  "update_vector_trace_shape": [
+    "[10, 70]"
+  ],
+  "path_variance_shape": [
+    "[10, 7]"
+  ],
+  "last_step_variance_shape": [
+    "[10, 7]"
+  ],
+  "uncertainty_parameterization": [
+    "softplus_raw_variance"
+  ],
+  "dt": -0.1,
+  "dt_source_backed_and_constant": true,
+  "Xd_exactly_reconstructible": true,
+  "Xd_recurrence": "X_0 = initial_noise; X_d = initial_noise + sum_{i=0}^{d-1} update_vector_trace[i].reshape(10, 7) for d=1..9; X_10 = final_action_normalized",
+  "Vd_exactly_reconstructible": true,
+  "Vd_formula": "V_d = update_vector_trace[d].reshape(10, 7) / dt = -10.0 * update_vector_trace[d].reshape(10, 7) for d=0..9",
+  "source_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/src/risk_collection/adapter.py",
+  "function": "TorchSimVLABackend.sample_one"
+}

@@ -1,0 +1,15 @@
+{
+  "exactly_regenerable_from_seed": true,
+  "generator": "torch.Generator(device=device).manual_seed(int(seed))",
+  "shape": [
+    1,
+    10,
+    7
+  ],
+  "dtype": "torch.float32",
+  "device_dependence": "torch.Generator(device=device) with device matching policy runtime (e.g. cuda:0)",
+  "seed_derivation": "deterministic_candidate_seed: int(hashlib.sha256(key).hexdigest()[:16], 16) % (2**31 - 1)",
+  "source_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/src/risk_collection/adapter.py",
+  "function": "TorchSimVLABackend.sample_one",
+  "deterministic_regeneration_possible_on_dean": true
+}
