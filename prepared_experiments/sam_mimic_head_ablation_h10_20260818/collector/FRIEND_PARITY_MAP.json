@@ -1,0 +1,21 @@
+{
+    "10d_rotation_6d_serialization_order": "row0_row1_flattened_6d",
+    "10d_to_7d_converter": "gram_schmidt_orthonormalize_rows_cross_product_r_from_matrix_as_rotvec",
+    "candidate_disagreement_formulas": "variance_across_candidates_ddof_0_pairwise_mse_excluding_diagonals",
+    "pairwise_metrics_diagonal": "excluded_strictly_i_less_than_j",
+    "horizon_channels": [
+        "position_variance_mean",
+        "position_variance_max",
+        "rotation_variance_mean",
+        "gripper_variance",
+        "cumulative_position_spread_mean",
+        "cumulative_position_spread_max"
+    ],
+    "scalar_feature_ordering": [
+        "9_action_candidate_disagreements",
+        "25_denoising_summaries_5traces_x_first_last_mean_max_diff",
+        "3_temporal_changes_history_avail_d_var_d_spread"
+    ],
+    "denoising_metric_space": "simvla_native_normalized_7d_preupdate",
+    "deviations_from_inferred": []
+}

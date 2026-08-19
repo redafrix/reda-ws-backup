@@ -1,0 +1,13 @@
+{
+    "simvla_env_rotation_representation": "Axis-Angle",
+    "simvla_controller_source_path": "/home/rootalkhatib/envs/simvla/lib/python3.10/site-packages/robosuite/controllers/osc.py",
+    "simvla_controller_sha256": "cfa62a0e719bc53ef0c701efa66f7b3e2272d4fca2150ec73c05bb145eba85cb",
+    "simvla_controller_function": "set_goal_orientation",
+    "friend_10d_rotation_representation": "6D rotation (first two rows of 3x3 rotation matrix flattened)",
+    "friend_converter_source_path": "/mnt/ai/projects/simvla_reproduction_workspace/franka_wrist_camera_isaaclab/src/franka_wrist_camera_scene/mimic_video/geometry.py",
+    "friend_converter_sha256": "167608d28fb99af48ee4293e19945a32cc7c61ecd70df5c35075cdf594be0253",
+    "friend_converter_function": "rotation_matrix_to_training_6d / training_6d_to_rotation_matrix",
+    "exact_forward_7d_to_10d_mapping": "trans_xyz = a7[:3]; rot6d = R.from_rotvec(a7[3:6]).as_matrix()[:2].reshape(6); gripper = a7[6:]",
+    "exact_inverse_parity_mapping": "trans_xyz = a10[:3]; rotvec = R.from_matrix(training_6d_to_rotation_matrix(a10[3:9])).as_rotvec(); gripper = a10[9:]",
+    "provenance_complete": true
+}
