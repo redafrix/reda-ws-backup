@@ -1,0 +1,17 @@
+{
+  "status": "PROVEN",
+  "protocol_file_sha256": "0ab7f78bed8fa2df92bab2b9b6944d8b98c196497bb06bf01dbc6a7b9a4a9b7a",
+  "manifest_sha256": "61462ceead4a79d6d44a0ae80ee9ff25b958c4c1afbd67142c4df276801a0a3c",
+  "threshold_key_path": "PROTOCOL_3CM350.json:distance_threshold_m",
+  "threshold_value": "0.03 m",
+  "horizon_ticks_key_path": "PROTOCOL_3CM350.json:max_control_ticks",
+  "horizon_ticks_value": "350 ticks",
+  "hz_key_path": "PROTOCOL_3CM350.json:control_rate_hz",
+  "hz_value": "30 Hz",
+  "success_semantics_key_path": "PROTOCOL_3CM350.json:success_rule",
+  "success_semantics_value": "First control tick with tcp_target_distance_m <= 0.030 terminates immediately as SUCCESS (0)",
+  "dwell_key_path": "PROTOCOL_3CM350.json:dwell_time_s",
+  "dwell_value": "0.0 s",
+  "action_horizon_key_path": "PROTOCOL_3CM350.json:execution_mode & manifest.json:feature_shapes.action",
+  "action_horizon_value": "chunk_h10 / [10, 7]"
+}
