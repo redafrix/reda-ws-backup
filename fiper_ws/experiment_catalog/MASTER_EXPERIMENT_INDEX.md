@@ -588,7 +588,19 @@ This addendum records experiment families recovered by the 2026-07-03 deep cross
 - Heavy raw scan outputs from this audit remain in `/tmp/internship_deep_audit_20260703` and were not committed. The durable substitute is `DEEP_EXPERIMENT_COVERAGE_AUDIT_20260703.md` plus `manifests/deep_audit_summary_20260703.json`.
 
 
-## Corrected True-H10 Isaac Sim Result (2026-08-18)
+## Current Main Isaac 3cm350 Risk Model & Conformal Results (2026-08-19)
+
+Canonical record: [`ISAAC_MAIN_3CM350_20260819.md`](ISAAC_MAIN_3CM350_20260819.md) and [`../../isaac_experiment_map/CURRENT_MAIN_ISAAC_RESULTS_20260819.md`](../../isaac_experiment_map/CURRENT_MAIN_ISAAC_RESULTS_20260819.md).
+
+- Protocol: 3 cm threshold, 350 control ticks, 30 Hz, H10 execution, **NO DWELL**.
+- Dataset: `isaac_seen4904_h10_3cm350_exact_v1` (4,904 episodes: 4,387 success, 517 failure, 96,813 rows; 96 timing-unresolvable episodes excluded).
+- Split: Unified label-stratified 70/15/15 (Train: 3,433 eps; Val: 735 eps; Test: 736 eps; seed 20260819).
+- Model: `isaac_seen4904_h10_topk8_temporal_3cm350_main_v2` (SeqRiskModel, 128 width, 3 layers, 4 heads, pos_weight=4.3453).
+- Locked internal TEST (736 eps / 14,526 rows): query AUROC **0.9408** / AUPRC **0.8748**, episode-balanced AUROC **0.9987** / AUPRC **0.9782**.
+- Conformal Best Val F1 Threshold (`0.5791`): **100.0% Failure Detection**, **7.60% Success False Alarm**.
+- Scope: Locked internal TEST split. New-protocol OOD evaluation is pending.
+
+## Historical Corrected True-H10 Isaac Sim Result (2026-08-18)
 
 Canonical record: [`ISAAC_RESULTS_20260818.md`](ISAAC_RESULTS_20260818.md) and [`../../isaac_experiment_map/FINAL_ISAAC_RESULTS_20260818.md`](../../isaac_experiment_map/FINAL_ISAAC_RESULTS_20260818.md).
 

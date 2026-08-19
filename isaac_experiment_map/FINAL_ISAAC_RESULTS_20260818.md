@@ -1,5 +1,9 @@
 # Final Corrected True-H10 Isaac Results — 2026-08-18
 
+> [!IMPORTANT]
+> **HISTORICAL 2026-08-18 LOCK**
+> For the current 3cm/350/no-dwell main dataset/model/results, see [CURRENT_MAIN_ISAAC_RESULTS_20260819.md](CURRENT_MAIN_ISAAC_RESULTS_20260819.md).
+
 Canonical workspace: `/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813`.
 
 ## Seen4000 and V1 detector

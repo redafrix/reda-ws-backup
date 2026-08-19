@@ -303,7 +303,19 @@ The confusion arose because the synthesis report equated "queries where `main_sc
 | Official FIPER seen-threshold cross-suite OOD application | **TRUST strict no-OOD-calibration ablation** (Bob, complete 2026-07-02. Applies exact seen-selected q95 operating points to `goal_object_ood_180`, `goal_swap_100`, `goal_task_100`, `spatial_object_100`, `object_object_100`, and `libero10_object_100`. Combined datasets contain 150 seen calibration successes and OOD test rollouts only; no calibration/test overlap, no OOD calibration, no OOD threshold tuning. Result: FIPER transfers unevenly; RND-OE often saturates to 100% OOD success false alarms, while entropy/fusion can have low FA but weak failure detection on several suites. Report: `/media/rootalkhatib/My Passport/reda_ws/fiper_ws/official_fiper_original_bob_20260701/official_fiper_seen_thresholds_cross_suite_ood_20260702/OFFICIAL_FIPER_SEEN_THRESHOLDS_CROSS_SUITE_OOD_20260702.md`.) |
 
 
-## Corrected True-H10 Isaac Sim Result (2026-08-18)
+## Current Main Isaac 3cm350 Risk Model & Conformal Results (2026-08-19)
+
+Canonical record: [`ISAAC_MAIN_3CM350_20260819.md`](ISAAC_MAIN_3CM350_20260819.md) and [`../../isaac_experiment_map/CURRENT_MAIN_ISAAC_RESULTS_20260819.md`](../../isaac_experiment_map/CURRENT_MAIN_ISAAC_RESULTS_20260819.md).
+
+- Protocol: 3 cm threshold, 350 control ticks, 30 Hz, H10 execution, **NO DWELL**.
+- Dataset: `isaac_seen4904_h10_3cm350_exact_v1` (4,904 episodes: 4,387 success, 517 failure, 96,813 rows; 96 timing-unresolvable episodes excluded).
+- Split: Unified label-stratified 70/15/15 (Train: 3,433 eps; Val: 735 eps; Test: 736 eps; seed 20260819).
+- Model: `isaac_seen4904_h10_topk8_temporal_3cm350_main_v2` (SeqRiskModel, 128 width, 3 layers, 4 heads, pos_weight=4.3453).
+- Locked internal TEST (736 eps / 14,526 rows): query AUROC **0.9408** / AUPRC **0.8748**, episode-balanced AUROC **0.9987** / AUPRC **0.9782**.
+- Conformal Best Val F1 Threshold (`0.5791`): **100.0% Failure Detection**, **7.60% Success False Alarm**.
+- Scope: Locked internal TEST split. New-protocol OOD evaluation is pending.
+
+## Historical Corrected True-H10 Isaac Sim Result (2026-08-18)
 
 Canonical record: [`ISAAC_RESULTS_20260818.md`](ISAAC_RESULTS_20260818.md) and [`../../isaac_experiment_map/FINAL_ISAAC_RESULTS_20260818.md`](../../isaac_experiment_map/FINAL_ISAAC_RESULTS_20260818.md).
 

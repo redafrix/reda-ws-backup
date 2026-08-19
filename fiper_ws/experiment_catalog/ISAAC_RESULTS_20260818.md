@@ -1,5 +1,9 @@
 # Corrected True-H10 Isaac Sim Results — 2026-08-18
 
+> [!IMPORTANT]
+> **HISTORICAL 2026-08-18 LOCK**
+> For the current 3cm/350/no-dwell main dataset/model/results, see [ISAAC_MAIN_3CM350_20260819.md](ISAAC_MAIN_3CM350_20260819.md) and [`../../isaac_experiment_map/CURRENT_MAIN_ISAAC_RESULTS_20260819.md`](../../isaac_experiment_map/CURRENT_MAIN_ISAAC_RESULTS_20260819.md).
+
 Canonical detailed record: [`../../isaac_experiment_map/FINAL_ISAAC_RESULTS_20260818.md`](../../isaac_experiment_map/FINAL_ISAAC_RESULTS_20260818.md).
 
 Machine-readable record: [`../../isaac_experiment_map/final_isaac_results_20260818.json`](../../isaac_experiment_map/final_isaac_results_20260818.json).

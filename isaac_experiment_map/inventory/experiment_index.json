@@ -1,5 +1,6 @@
 {
   "created": "2026-07-03",
+  "updated": "2026-08-19",
   "workspace": "/home/redafrix/tests/internship",
   "purpose": "Documentation-only map of recent Isaac Sim / IsaacLab experiments without moving or modifying raw experiment folders.",
   "shared_decisions": {
@@ -9,6 +10,21 @@
     "pick_place_failure_max_steps": 3800
   },
   "experiments": [
+    {
+      "id": "005_seen4904_3cm350_main_v2",
+      "name": "Seen4904 3cm350 True-H10 Main Risk Model and Conformal Sweep",
+      "status": "completed_audited_current_main",
+      "protocol": "3cm_350ticks_30Hz_H10_no_dwell",
+      "dataset": "isaac_seen4904_h10_3cm350_exact_v1",
+      "model": "isaac_seen4904_h10_topk8_temporal_3cm350_main_v2",
+      "local_evidence": [
+        "prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/PAPER_EVIDENCE_INDEX.md",
+        "prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/CONFORMAL_THRESHOLD_SWEEP.json",
+        "prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/CONFORMAL_THRESHOLD_SWEEP.md",
+        "prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/test_results.json"
+      ],
+      "details": "experiments/005_seen4904_3cm350_main_v2.md"
+    },
     {
       "id": "001",
       "name": "SimVLA basic Isaac no-rotation tests",
