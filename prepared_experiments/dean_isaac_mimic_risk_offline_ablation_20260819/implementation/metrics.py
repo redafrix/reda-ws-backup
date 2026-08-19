@@ -59,7 +59,11 @@ def compute_episode_evaluation(
     threshold: float,
 ) -> Dict[str, Any]:
     """
-    Compute detailed episode-level evaluation for a given threshold.
+    Compute detailed episode-level evaluation matching the canonical Isaac evaluator:
+    fraction = (first_alarm_index + 1) / len(episode_rows)
+    det10: fraction <= 0.10
+    det25: fraction <= 0.25
+    det50: fraction <= 0.50
     """
     scores_arr = np.asarray(scores, dtype=np.float64)
     labels_arr = np.asarray(labels, dtype=np.int64)
@@ -72,6 +76,7 @@ def compute_episode_evaluation(
 
     failure_total = 0
     failure_detected = 0
+    det_10_count = 0
     det_25_count = 0
     det_50_count = 0
     first_alarm_fractions = []
@@ -93,17 +98,21 @@ def compute_episode_evaluation(
             failure_total += 1
             if has_alarm:
                 failure_detected += 1
-                first_t = alarm_indices[0]
-                frac = float(first_t / max(1, ep_len - 1))
+                first_t = int(alarm_indices[0])
+                # Exact parity with evaluate_isaac_topk8.py
+                frac = float((first_t + 1) / max(1, ep_len))
                 first_alarm_fractions.append(frac)
-                if first_t <= 0.25 * (ep_len - 1):
+                if frac <= 0.10:
+                    det_10_count += 1
+                if frac <= 0.25:
                     det_25_count += 1
-                if first_t <= 0.50 * (ep_len - 1):
+                if frac <= 0.50:
                     det_50_count += 1
 
     never_detected = failure_total - failure_detected
     fpr = float(success_false_alarms / success_total) if success_total > 0 else 0.0
     recall = float(failure_detected / failure_total) if failure_total > 0 else 0.0
+    det_10_rate = float(det_10_count / failure_total) if failure_total > 0 else 0.0
     det_25_rate = float(det_25_count / failure_total) if failure_total > 0 else 0.0
     det_50_rate = float(det_50_count / failure_total) if failure_total > 0 else 0.0
 
@@ -117,6 +126,8 @@ def compute_episode_evaluation(
         "failure_total": failure_total,
         "failure_detected": failure_detected,
         "recall": recall,
+        "det_10_count": det_10_count,
+        "det_10_rate": det_10_rate,
         "det_25_count": det_25_count,
         "det_25_rate": det_25_rate,
         "det_50_count": det_50_count,
