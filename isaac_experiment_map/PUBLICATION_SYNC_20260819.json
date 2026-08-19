@@ -1,39 +1,45 @@
 {
-  "schema_version": "simvla_isaac_cross_repo_sync_v1",
+  "schema_version": "simvla_isaac_cross_repo_sync_v2",
   "sync_date": "2026-08-19",
   "publication_repository": {
     "repo": "redafrix/u-vowel-publication",
     "branch": "main",
-    "sync_commit": "612264609bc832005b48f0e4beef9a3c78c36877"
+    "main_results_sync_commit": "612264609bc832005b48f0e4beef9a3c78c36877",
+    "ood_transfer_sync_commit": "c7e6632b90bddcc66110f38de8c9a588e0192371"
   },
   "experiment_repository": {
     "repo": "redafrix/reda-ws-backup",
     "branch": "experiment/dean-isaac-online-ood150-20260817",
-    "experiment_map_sync_commit": "02d47b839a4da2dbb0b7dd6bd240ce2218651425"
+    "experiment_map_sync_commit": "02d47b839a4da2dbb0b7dd6bd240ce2218651425",
+    "ood_eval_commit": "cdd55fbd6958264322b3bc53aea8c63b4edeff33",
+    "ood_experiment_map_sync_commit": "d2f85a303d03efc06e5463d9503a2484fb249e40"
   },
-  "mirrored_evidence_directory": "03_shared/evidence/isaac/current_main_3cm350_20260819/",
-  "mirrored_files": [
+  "mirrored_evidence_directories": {
+    "main_internal_test": "03_shared/evidence/isaac/current_main_3cm350_20260819/",
+    "ood_transfer": "03_shared/evidence/isaac/current_main_3cm350_20260819/ood150_exact_only/"
+  },
+  "ood_mirrored_files": [
     "PAPER_EVIDENCE_INDEX.md",
     "PAPER_EVIDENCE_INDEX.json",
-    "CONFORMAL_THRESHOLD_SWEEP.json",
-    "CONFORMAL_THRESHOLD_SWEEP.csv",
-    "CONFORMAL_THRESHOLD_SWEEP.md",
-    "test_results.json",
-    "thresholds.json",
-    "training_history.json",
-    "MODEL_MANIFEST.json",
-    "SPLIT_AUDIT.json",
-    "SOURCE_PROVENANCE.md"
+    "OOD150_SOURCE_AUDIT.json",
+    "OOD150_CONVERSION_AUDIT.json",
+    "OOD150_INCLUDED_EPISODES.jsonl",
+    "OOD150_EXCLUDED_EPISODES.jsonl",
+    "OOD150_FEATURE_AUDIT.json",
+    "OOD150_MODEL_METRICS.json",
+    "OOD150_THRESHOLD_SWEEP.json",
+    "OOD150_THRESHOLD_SWEEP.csv",
+    "OOD150_THRESHOLD_SWEEP.md",
+    "OOD150_PAPER_STYLE_TABLE.md",
+    "SEEN_VS_OOD_PAPER_TABLE.md",
+    "OOD150_SCORES.jsonl",
+    "README.md",
+    "LOCAL_SOURCE_PATHS.txt",
+    "SHA256SUMS.txt"
   ],
   "publication_locks_updated": [
     "00_project_control/RESULTS_EVIDENCE_LOCK_20260819.md",
     "03_shared/evidence/isaac/isaac_results_ledger.json",
-    "03_shared/evidence/isaac/README.md",
-    "README.md",
-    "00_project_control/SOURCE_REGISTER.md",
-    "00_project_control/PROJECT_STATUS.md",
-    "01_paper/working/README.md",
-    "02_report/working/README.md",
-    "03_shared/evidence/README.md"
+    "03_shared/evidence/isaac/current_main_3cm350_20260819/ood150_exact_only/"
   ]
 }
