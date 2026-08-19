@@ -1,0 +1,17 @@
+{
+  "status": "NOT_PRACTICALLY_RECONSTRUCTIBLE",
+  "missing": [
+    "full simulator state snapshot at each query",
+    "exact target/clutter object USD prim poses and velocities",
+    "RGB visual observations (images not saved to save disk)",
+    "camera extrinsic/intrinsic live state"
+  ],
+  "present": [
+    "robot proprioception (8-D)",
+    "policy sampling seeds (main_seed + ace_seeds)",
+    "instruction string",
+    "scene_family_id and scene_reset_seed",
+    "decision index and action timestep"
+  ],
+  "conclusion": "Exact offline reinference without stepping simulator from saved observations is not possible because RGB observations and full simulation snapshots were not stored."
+}

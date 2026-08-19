@@ -1,0 +1,13 @@
+{
+  "authoritative_source_kind": "paper_level_k1_contract",
+  "path": "prepared_experiments/dean_isaac_mimic_risk_offline_ablation_20260819/PROTOCOL.md",
+  "sha256": "0c49b84254f2fd6caf8d478b76f4e28ee8c36b9d23f2c16781c942babdcf5a71",
+  "architecture": "Two-layer GRU (hidden_dim=128, static_branch=128, fused_latent=64, risk_logit)",
+  "history_length": 8,
+  "static_features": "37 scalars (9 candidate disagreement + 25 denoising summaries + 3 temporal changes)",
+  "temporal_tokens": "[10, 6] (10 proposal steps x 6 channels)",
+  "candidate_count": 8,
+  "target_semantics": "eventual episode failure (0=success, 1=failure/timeout)",
+  "loss_weighting": "binary cross-entropy with positive class weighting fit on train split",
+  "calibration": "episode-max risk calibration on successful calibration episodes (conformal alpha 0.05/0.10/0.15 + q90/q95/q99)"
+}
