@@ -1,0 +1,32 @@
+{
+  "topk8_ood_manifest": {
+    "path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/locked_h10_ood150_eval/manifest.json",
+    "sha256": "e5b6cf816d9c10d346f62516d9770258512686b1aefa80c14b432fab5c3bc86a",
+    "schema_version": "simvla_locked_evaluation_arrays_v1",
+    "source_collection": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_locked_h10_ood150_seed20260728",
+    "source_audit": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_locked_h10_ood150_seed20260728/reports/exhaustive_audit.json",
+    "source_audit_sha256": "44f3bd850f25344ba6c445e82af72bcd45c9d063e8920cbe4cf42d90fc0ac289",
+    "rows": 5887,
+    "episodes": 150
+  },
+  "membership": {
+    "mimic_unique": 150,
+    "topk8_unique": 150,
+    "intersection": 150,
+    "mimic_only": 0,
+    "topk8_only": 0,
+    "exact_set_equal": true,
+    "exact_order_equal": true,
+    "mimic_sorted_set_sha256": "93dc36305b692c9ab48125bb26a5c17c808e69183cd9b03014b2bc4cda59ee4f",
+    "topk8_sorted_set_sha256": "93dc36305b692c9ab48125bb26a5c17c808e69183cd9b03014b2bc4cda59ee4f"
+  },
+  "row_label_parity": {
+    "mimic_rows": 5887,
+    "topk8_rows": 5887,
+    "mimic_success_eps": 72,
+    "mimic_failure_eps": 78,
+    "topk8_success_eps": 72,
+    "topk8_failure_eps": 78,
+    "query_key_equality": "EXACT_MATCH (5887/5887 episode_id, decision_index pairs)"
+  }
+}
