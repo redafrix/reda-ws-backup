@@ -43,7 +43,7 @@ from audit_freeze_ood400_baseline import audit_baseline_run, freeze_baseline_dat
 from offline_eval_ood400 import run_offline_evaluation
 from build_ood400_review_video import build_review_videos
 from select_ood400_online_threshold import select_online_threshold
-from prepare_topk_controller import prepare_topk_controller if False else None  # will import directly below
+from prepare_ood400_topk import prepare_topk_controller
 from audit_ood400_active import audit_active_run
 from sync_ood400_evidence import sync_evidence
 
