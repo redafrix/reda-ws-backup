@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Master OOD400 Pipeline Orchestrator.
+"""Master OOD400 Pipeline Orchestrator (Hardened V2).
 
 State Machine:
   WAIT_BASELINE
@@ -28,11 +28,14 @@ import fcntl
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import time
 import traceback
 from typing import Any
+
+import numpy as np
 
 WORKSPACE = Path(os.environ.get("SIMVLA_ISAAC_H10_WORKSPACE", "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813"))
 sys.path.insert(0, str(WORKSPACE / "src"))
@@ -48,6 +51,44 @@ from audit_ood400_active import audit_active_run
 from sync_ood400_evidence import sync_evidence
 
 ISAAC_PY = Path(os.environ.get("ISAAC_PYTHON", "/mnt/ai/isaac/envs/env_isaaclab_6_0/bin/python"))
+
+
+def find_matching_runner(
+    *,
+    output_dir: Path,
+    mode: str,
+    manifest_path: Path,
+    exclude_pid: int | None = None,
+) -> list[int]:
+    """Find running Isaac runner processes matching exact command line arguments."""
+    output_dir_str = str(Path(output_dir).resolve())
+    manifest_str = str(Path(manifest_path).resolve())
+    matched_pids = []
+
+    proc_dir = Path("/proc")
+    if not proc_dir.exists():
+        return []
+
+    for p in proc_dir.iterdir():
+        if p.is_dir() and p.name.isdigit():
+            pid = int(p.name)
+            if exclude_pid and pid == exclude_pid:
+                continue
+            cmdline_p = p / "cmdline"
+            if not cmdline_p.exists():
+                continue
+            try:
+                cmdline = cmdline_p.read_bytes().replace(b"\x00", b" ").decode("utf-8", errors="ignore")
+            except (IOError, PermissionError):
+                continue
+
+            if "run_ood400_simvla.py" in cmdline:
+                if f"--output-dir {output_dir_str}" in cmdline or f"--output-dir={output_dir_str}" in cmdline:
+                    if f"--mode {mode}" in cmdline or f"--mode={mode}" in cmdline:
+                        if manifest_str in cmdline:
+                            matched_pids.append(pid)
+
+    return matched_pids
 
 
 class OOD400Orchestrator:
@@ -77,6 +118,14 @@ class OOD400Orchestrator:
         self.offline_evidence_dir = self.exp_dir / "offline_eval"
         self.active_evidence_dir = self.exp_dir / "active_eval"
 
+        self.expected_hashes = {
+            "manifest_sha256": "264dae5a7de872e5aee0a9554f88adfe7af3d38b5a7e29fd7f9b3e0d1c10da41",
+            "runner_sha256": "a383960df348dc04b677c8cfd1c6984cacf7a1ddf50dc99a825ba6a73deea6d8",
+            "runtime_sha256": "eee913f5137d46783bc5854bbaad55661a739b5b407aedd98c186bd48437b9fb",
+            "model_sha256": "00ad096a9ca38577366e992e1d7f8aa25b6f56f2f2bd7354abce1790baf890f1",
+            "norm_sha256": "6fbd2b221c4490c975e3e1492c96a9e879a586f0b3a4c4eaf97ea05920960341",
+        }
+
         self._lock_file: Any = None
 
     def acquire_lock(self) -> None:
@@ -91,8 +140,21 @@ class OOD400Orchestrator:
             "pid": os.getpid(),
             "start_time": datetime.now(timezone.utc).isoformat(),
             "exp_dir": str(self.exp_dir),
+            "locked_hashes": self.expected_hashes,
         }
         self.lock_path.write_text(json.dumps(lock_data, indent=2) + "\n")
+
+    def verify_recovery_hashes(self) -> None:
+        current_hashes = {
+            "manifest_sha256": sha256_file(self.manifest_path),
+            "runner_sha256": sha256_file(self.runner_script),
+            "runtime_sha256": sha256_file(self.runtime_script),
+            "model_sha256": sha256_file(self.model_path),
+            "norm_sha256": sha256_file(self.norm_path),
+        }
+        for k, expected_v in self.expected_hashes.items():
+            if current_hashes[k] != expected_v:
+                raise RuntimeError(f"Recovery hash gate failure for {k}: expected {expected_v}, got {current_hashes[k]}")
 
     def log_event(self, event_type: str, details: dict[str, Any]) -> None:
         payload = {
@@ -122,13 +184,29 @@ class OOD400Orchestrator:
         temp_p.replace(self.state_path)
         self.log_event("STATE_TRANSITION", {"new_state": state, "metadata": metadata})
 
-    def count_completed_baseline(self) -> set[str]:
-        episodes_dir = self.baseline_output_dir / "episodes"
+    def is_episode_complete(self, ep_id: str, out_dir: Path) -> bool:
+        ep_dir = out_dir / "episodes" / ep_id
+        summary_p = ep_dir / "summary.json"
+        decisions_p = ep_dir / "decisions.jsonl"
+        vid_p = out_dir / "videos" / f"{ep_id}.mp4"
+
+        if not summary_p.exists() or not decisions_p.exists() or not vid_p.exists():
+            return False
+        if vid_p.stat().st_size < 1000:
+            return False
+        try:
+            json.loads(summary_p.read_text(encoding="utf-8"))
+            return True
+        except Exception:
+            return False
+
+    def count_completed_episodes(self, out_dir: Path) -> set[str]:
+        episodes_dir = out_dir / "episodes"
         if not episodes_dir.exists():
             return set()
         completed = set()
         for p in episodes_dir.iterdir():
-            if p.is_dir() and (p / "summary.json").exists():
+            if p.is_dir() and self.is_episode_complete(p.name, out_dir):
                 completed.add(p.name)
         return completed
 
@@ -136,26 +214,30 @@ class OOD400Orchestrator:
         print("=== STAGE: WAIT_BASELINE ===", flush=True)
         retries = 0
         while True:
-            completed_set = self.count_completed_baseline()
+            completed_set = self.count_completed_episodes(self.baseline_output_dir)
             completed_cnt = len(completed_set)
-            print(f"[WAIT_BASELINE] Completed {completed_cnt}/400 episodes in {self.baseline_output_dir}", flush=True)
+            print(f"[WAIT_BASELINE] Completed {completed_cnt}/400 verified episodes in {self.baseline_output_dir}", flush=True)
 
             if completed_cnt >= 400:
-                print("All 400 baseline episodes detected!", flush=True)
+                print("All 400 baseline episodes verified complete!", flush=True)
                 break
 
-            # Check process liveness
-            res = subprocess.run(["pgrep", "-f", "run_ood400_simvla.py"], capture_output=True, text=True)
-            pids = [p.strip() for p in res.stdout.splitlines() if p.strip() and int(p.strip()) != os.getpid()]
+            # Exact process liveness check
+            pids = find_matching_runner(
+                output_dir=self.baseline_output_dir,
+                mode="baseline",
+                manifest_path=self.manifest_path,
+                exclude_pid=os.getpid(),
+            )
 
             if not pids:
                 print(f"[WAIT_BASELINE] Baseline process died at {completed_cnt}/400 episodes. Initiating recovery...", flush=True)
+                self.verify_recovery_hashes()
                 if retries >= 2:
                     raise RuntimeError(f"Baseline collection died twice before completion. Completed: {completed_cnt}/400")
                 retries += 1
                 self.log_event("BASELINE_CRASH_RECOVERY", {"completed_before_recovery": completed_cnt, "attempt": retries})
 
-                # Launch recovery for remaining episodes
                 cmd = [
                     str(ISAAC_PY),
                     str(self.runner_script),
@@ -214,6 +296,7 @@ class OOD400Orchestrator:
             videos_dir=self.baseline_output_dir / "videos",
             output_dir=self.baseline_evidence_dir,
             mode="baseline",
+            decisions_jsonl_path=self.baseline_output_dir / "canonical_decisions.jsonl",
         )
         self.set_state("SELECT_ONLINE_A", {"video_manifest": vid_manifest})
 
@@ -227,7 +310,11 @@ class OOD400Orchestrator:
 
     def run_stage_freeze_controller(self) -> None:
         print("=== STAGE: FREEZE_CONTROLLER ===", flush=True)
-        from prepare_ood400_topk import prepare_topk_controller
+        sel = json.loads((self.offline_evidence_dir / "ONLINE_A_SELECTION.json").read_text(encoding="utf-8"))
+        a_rule = str(sel["selected_rule_name"])
+        rule_slug = a_rule.replace(" ", "_")
+        active_output_dir = WORKSPACE / f"online_evals/isaac_ood400_topk_main_v2_{rule_slug}_C090_v1"
+
         controller_spec = prepare_topk_controller(
             selection_json_path=self.offline_evidence_dir / "ONLINE_A_SELECTION.json",
             baseline_decisions_path=self.baseline_output_dir / "canonical_decisions.jsonl",
@@ -237,14 +324,14 @@ class OOD400Orchestrator:
             manifest_path=self.manifest_path,
             runner_path=self.runner_script,
             runtime_path=self.runtime_script,
+            active_output_dir=active_output_dir,
         )
-        self.set_state("ACTIVE_SMOKE", {"controller_spec": controller_spec})
+        self.set_state("ACTIVE_SMOKE", {"controller_spec": controller_spec, "active_output_dir": str(active_output_dir)})
 
     def run_stage_active_smoke(self) -> None:
         print("=== STAGE: ACTIVE_SMOKE ===", flush=True)
         smoke_dir = WORKSPACE / "smokes/ood400_active_smoke3"
         if smoke_dir.exists():
-            import shutil
             shutil.rmtree(smoke_dir)
         smoke_dir.mkdir(parents=True, exist_ok=True)
 
@@ -272,39 +359,76 @@ class OOD400Orchestrator:
         env = {**os.environ, "PYTHONPATH": f"{WORKSPACE}:{WORKSPACE}/src:{self.code_dir}"}
         subprocess.run(cmd, env=env, check=True)
 
-        # Audit smoke
+        # Full smoke decision audit
         smoke_summaries = [json.loads(l) for l in (smoke_dir / "episode_summaries.jsonl").read_text().splitlines() if l.strip()]
+        smoke_decisions = [json.loads(l) for l in (smoke_dir / "decisions.jsonl").read_text().splitlines() if l.strip()]
+
         if len(smoke_summaries) != 3:
             raise RuntimeError(f"Active smoke failed: expected 3 summaries, got {len(smoke_summaries)}")
 
-        print("Active 3-episode smoke PASSED!", flush=True)
+        for d in smoke_decisions:
+            scores = [float(s) for s in d["online_risk"]["candidate_scores"]]
+            main_s = scores[0]
+            alt_scores = scores[1:]
+            best_alt_idx = 1 + int(np.argmin(alt_scores))
+            best_alt_s = scores[best_alt_idx]
+
+            if main_s < a_val:
+                exp_idx = 0
+            elif best_alt_s >= main_s:
+                exp_idx = 0
+            elif best_alt_s > 0.90:
+                exp_idx = 0
+            else:
+                exp_idx = best_alt_idx
+
+            act_idx = int(d.get("executed_candidate_index", d["online_risk"]["selected_candidate_index"]))
+            if act_idx != exp_idx:
+                raise RuntimeError(f"Active smoke selection mismatch: expected {exp_idx}, got {act_idx}")
+
+            seq = np.asarray(d["executed_action_sequence"], dtype=np.float32)
+            if act_idx == 0:
+                expected_chunk = np.asarray(d["main_candidate_action_chunk_env"], dtype=np.float32)
+            else:
+                expected_chunk = np.asarray(d["ace_candidate_chunks_env"][act_idx - 1], dtype=np.float32)
+
+            diff = float(np.max(np.abs(seq - expected_chunk[:len(seq)])))
+            if diff > 1e-6:
+                raise RuntimeError(f"Active smoke execution action mismatch: max diff = {diff}")
+
+        print("Active 3-episode smoke fully audited and PASSED!", flush=True)
         self.set_state("ACTIVE400_RUN")
 
     def run_stage_active400_run(self) -> None:
         print("=== STAGE: ACTIVE400_RUN ===", flush=True)
+        state_data = json.loads(self.state_path.read_text(encoding="utf-8"))
         sel = json.loads((self.offline_evidence_dir / "ONLINE_A_SELECTION.json").read_text(encoding="utf-8"))
         a_val = float(sel["selected_threshold_a"])
         a_rule = str(sel["selected_rule_name"])
         rule_slug = a_rule.replace(" ", "_")
 
-        active_output_dir = WORKSPACE / f"online_evals/isaac_ood400_topk_main_v2_{rule_slug}_C090_v1"
+        active_output_dir = Path(state_data.get("metadata", {}).get("active_output_dir", WORKSPACE / f"online_evals/isaac_ood400_topk_main_v2_{rule_slug}_C090_v1"))
         active_output_dir.mkdir(parents=True, exist_ok=True)
 
         retries = 0
         while True:
-            episodes_dir = active_output_dir / "episodes"
-            completed_cnt = len(list(episodes_dir.glob("*/summary.json"))) if episodes_dir.exists() else 0
-            print(f"[ACTIVE400_RUN] Progress: {completed_cnt}/400 episodes in {active_output_dir}", flush=True)
+            completed_set = self.count_completed_episodes(active_output_dir)
+            completed_cnt = len(completed_set)
+            print(f"[ACTIVE400_RUN] Progress: {completed_cnt}/400 verified episodes in {active_output_dir}", flush=True)
 
             if completed_cnt >= 400:
                 print("All 400 active episodes completed!", flush=True)
                 break
 
-            # Check if runner is alive
-            res = subprocess.run(["pgrep", "-f", "run_ood400_simvla.py"], capture_output=True, text=True)
-            pids = [p.strip() for p in res.stdout.splitlines() if p.strip() and int(p.strip()) != os.getpid()]
+            pids = find_matching_runner(
+                output_dir=active_output_dir,
+                mode="online",
+                manifest_path=self.manifest_path,
+                exclude_pid=os.getpid(),
+            )
 
             if not pids:
+                self.verify_recovery_hashes()
                 if retries >= 2:
                     raise RuntimeError(f"Active run died twice before completion. Completed: {completed_cnt}/400")
                 retries += 1
@@ -338,9 +462,7 @@ class OOD400Orchestrator:
     def run_stage_final_active_audit(self) -> None:
         print("=== STAGE: FINAL_ACTIVE_AUDIT ===", flush=True)
         state_data = json.loads(self.state_path.read_text(encoding="utf-8"))
-        sel = json.loads((self.offline_evidence_dir / "ONLINE_A_SELECTION.json").read_text(encoding="utf-8"))
-        rule_slug = sel["selected_rule_name"].replace(" ", "_")
-        active_output_dir = Path(state_data.get("metadata", {}).get("active_output_dir", WORKSPACE / f"online_evals/isaac_ood400_topk_main_v2_{rule_slug}_C090_v1"))
+        active_output_dir = Path(state_data["metadata"]["active_output_dir"])
 
         paired_res = audit_active_run(
             active_output_dir=active_output_dir,
@@ -361,12 +483,13 @@ class OOD400Orchestrator:
             videos_dir=active_output_dir / "videos",
             output_dir=self.active_evidence_dir,
             mode="topk",
+            decisions_jsonl_path=active_output_dir / "canonical_decisions.jsonl",
+            controller_info=json.loads((self.active_evidence_dir / "FROZEN_CONTROLLER.json").read_text(encoding="utf-8")),
         )
         self.set_state("PAIRED_COMPARISON", {"active_video_manifest": vid_manifest})
 
     def run_stage_paired_comparison(self) -> None:
         print("=== STAGE: PAIRED_COMPARISON ===", flush=True)
-        # Already computed in audit_active_run, verify existence
         if not (self.active_evidence_dir / "PAIRED_COMPARISON.json").exists():
             raise FileNotFoundError("PAIRED_COMPARISON.json missing")
         self.set_state("PAPER_EVIDENCE_PACKAGE")

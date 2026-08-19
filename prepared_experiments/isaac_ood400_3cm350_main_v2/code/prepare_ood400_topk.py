@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Prepare OOD400 TopK Active Controller Configuration & Shadow Intervention Forecast.
+"""Prepare OOD400 TopK Active Controller Configuration, Shadow Intervention Forecast & Run Lock.
 
-Freezes A, C=0.90, M=0.0 and computes diagnostic shadow intervention forecast
-from baseline decision logs.
+Freezes A, C=0.90, M=0.0, generates diagnostic shadow intervention forecast,
+and writes RUN_LOCK.json into the active output directory.
 """
 
 from __future__ import annotations
@@ -32,6 +32,7 @@ def prepare_topk_controller(
     manifest_path: Path,
     runner_path: Path,
     runtime_path: Path,
+    active_output_dir: Path | None = None,
 ) -> dict[str, Any]:
     selection_json_path = Path(selection_json_path).resolve()
     baseline_decisions_path = Path(baseline_decisions_path).resolve()
@@ -55,7 +56,7 @@ def prepare_topk_controller(
         "min_delta": m_val,
         "candidate_count": 9,
         "provenance": {
-            "A_source": "Seen-validation-derived operating point",
+            "A_source": "Selected among a predeclared set of Seen-validation-derived operating points after evaluating their transfer on the OOD400 baseline.",
             "C_source": "Historical fixed engineering alternative-acceptance cap from OOD150",
             "M_source": "Zero min-delta invariant",
         },
@@ -109,6 +110,31 @@ def prepare_topk_controller(
     }
     (output_dir / "BASELINE_SHADOW_INTERVENTION_FORECAST.json").write_text(json.dumps(forecast, indent=2) + "\n")
 
+    # 3. Create RUN_LOCK in active output directory if specified
+    if active_output_dir:
+        active_output_dir = Path(active_output_dir).resolve()
+        active_output_dir.mkdir(parents=True, exist_ok=True)
+        run_lock_p = active_output_dir / "RUN_LOCK.json"
+        
+        run_lock_doc = {
+            "schema_version": "ood400_active_run_lock_v1",
+            "mode": "online",
+            "protocol": "3cm350_no_dwell",
+            "threshold_a": a_val,
+            "threshold_a_rule": a_rule,
+            "threshold_c": c_val,
+            "threshold_m": m_val,
+            "locked_hashes": controller_spec["locked_hashes"],
+            "created_timestamp": datetime.now(timezone.utc).isoformat(),
+        }
+        
+        if run_lock_p.exists():
+            existing_lock = json.loads(run_lock_p.read_text(encoding="utf-8"))
+            if existing_lock["locked_hashes"] != run_lock_doc["locked_hashes"] or existing_lock["threshold_a"] != a_val:
+                raise RuntimeError(f"RUN_LOCK.json mismatch in active dir {active_output_dir}! Refusing to mix controller data.")
+        else:
+            run_lock_p.write_text(json.dumps(run_lock_doc, indent=2) + "\n")
+
     print(f"=== Controller Frozen: A = {a_val:.6f} ({a_rule}), C = {c_val:.2f}, Forecast Replacements = {full_pass_queries}/{total_queries} queries ===")
     return controller_spec
 
@@ -123,6 +149,7 @@ def main() -> int:
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--runner", type=Path, required=True)
     parser.add_argument("--runtime", type=Path, required=True)
+    parser.add_argument("--active-output-dir", type=Path, default=None)
     args = parser.parse_args()
 
     prepare_topk_controller(
@@ -134,6 +161,7 @@ def main() -> int:
         manifest_path=args.manifest,
         runner_path=args.runner,
         runtime_path=args.runtime,
+        active_output_dir=args.active_output_dir,
     )
     return 0
 

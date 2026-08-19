@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Offline Risk Model Evaluation on Frozen OOD400 Baseline Dataset.
 
-Applies frozen Seen-derived operating points, verifies score parity,
-computes AUROC/AUPRC and early-detection metrics (Det@25, Det@50, Det@100, Det@MeanSucc100, Never).
+Applies frozen Seen-derived operating points to evaluate transfer on OOD400.
+Enforces exact model call contract (dict input + sigmoid probability),
+exact (episode_id, decision_index) row-key parity audit against shadow online scores,
+and computes early detection metrics (Det@25, Det@50, Det@100, Det@MeanSucc100, Never).
 """
 
 from __future__ import annotations
@@ -74,7 +76,7 @@ def run_offline_evaluation(
 
     print(f"=== Running Offline OOD400 Evaluation in {output_dir} ===")
 
-    # Load frozen arrays
+    # 1. Load and verify frozen arrays
     history = np.load(frozen_dir / "history.npy")
     action = np.load(frozen_dir / "action.npy")
     static = np.load(frozen_dir / "static.npy")
@@ -82,10 +84,21 @@ def run_offline_evaluation(
     ep_indices = np.load(frozen_dir / "episode_index.npy")
     dec_indices = np.load(frozen_dir / "decision_index.npy")
 
+    N = len(labels)
+    if not (len(history) == len(action) == len(static) == len(labels) == len(ep_indices) == len(dec_indices) == N):
+        raise ValueError("Frozen array row count mismatch across feature/label files")
+
+    unique_labels = set(np.unique(labels))
+    if not unique_labels.issubset({0, 1}):
+        raise ValueError(f"Labels must only contain {{0, 1}}, found {unique_labels}")
+
     episodes = [json.loads(line) for line in (frozen_dir / "episodes.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
     decisions = [json.loads(line) for line in (frozen_dir / "decisions.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
 
     total_episodes = len(episodes)
+    if total_episodes != 400:
+        raise ValueError(f"Expected 400 episodes in frozen dataset, found {total_episodes}")
+
     success_episodes = [s for s in episodes if s["success"]]
     failure_episodes = [s for s in episodes if not s["success"]]
     num_success = len(success_episodes)
@@ -93,13 +106,13 @@ def run_offline_evaluation(
 
     # Success episode query lengths
     succ_lengths = [int(s["decision_rows"]) for s in success_episodes]
-    mean_succ_len = float(np.mean(succ_lengths))
-    median_succ_len = float(np.median(succ_lengths))
-    min_succ_len = int(np.min(succ_lengths))
-    max_succ_len = int(np.max(succ_lengths))
+    mean_succ_len = float(np.mean(succ_lengths)) if succ_lengths else 0.0
+    median_succ_len = float(np.median(succ_lengths)) if succ_lengths else 0.0
+    min_succ_len = int(np.min(succ_lengths)) if succ_lengths else 0
+    max_succ_len = int(np.max(succ_lengths)) if succ_lengths else 0
     mean_succ_cutoff = int(math.ceil(mean_succ_len))
 
-    # Model inference
+    # 2. Model inference using exact dictionary contract and sigmoid activation
     device = torch.device(device_str if torch.cuda.is_available() else "cpu")
     stats = load_stats(norm_path)
     h_norm, a_norm, s_norm = normalize(history, action, static, stats)
@@ -110,47 +123,83 @@ def run_offline_evaluation(
     model.eval()
 
     batch_size = 256
-    N = len(labels)
-    scores = np.zeros(N, dtype=np.float32)
+    offline_probs = np.zeros(N, dtype=np.float32)
 
-    with torch.no_grad():
+    with torch.inference_mode():
         for i in range(0, N, batch_size):
             end_idx = min(i + batch_size, N)
             h_t = torch.as_tensor(h_norm[i:end_idx], device=device)
             a_t = torch.as_tensor(a_norm[i:end_idx], device=device)
             s_t = torch.as_tensor(s_norm[i:end_idx], device=device)
-            out = model(h_t, a_t, s_t).view(-1)
-            scores[i:end_idx] = out.detach().cpu().numpy()
+            logits = model({"history": h_t, "action": a_t, "static": s_t}).view(-1)
+            probs = torch.sigmoid(logits)
+            offline_probs[i:end_idx] = probs.detach().cpu().numpy()
 
-    # Verify score parity with shadow online scores
-    shadow_c0_scores = np.array([float(d["online_risk"]["main_score"]) for d in decisions], dtype=np.float32)
-    score_diffs = np.abs(scores - shadow_c0_scores)
-    max_score_diff = float(np.max(score_diffs))
-    mean_score_diff = float(np.mean(score_diffs))
+    # 3. Exact row binding and score parity audit against shadow online scores
+    offline_score_map: dict[tuple[str, int], float] = {}
+    for ep_id_int, dec_idx, p in zip(ep_indices, dec_indices, offline_probs):
+        key = (f"{ep_id_int:06d}", int(dec_idx))
+        if key in offline_score_map:
+            raise ValueError(f"Duplicate decision key in offline evaluation: {key}")
+        offline_score_map[key] = float(p)
 
-    if max_score_diff > 1e-4:
-        raise RuntimeError(f"Offline score discrepancy too high: max_diff={max_score_diff}")
+    shadow_score_map: dict[tuple[str, int], float] = {}
+    for d in decisions:
+        key = (str(d["episode_id"]), int(d["decision_index"]))
+        if key in shadow_score_map:
+            raise ValueError(f"Duplicate decision key in shadow decisions: {key}")
+        shadow_score_map[key] = float(d["online_risk"]["main_score"])
 
-    # Query metrics
-    query_auroc, query_auprc = compute_binary_metrics(labels, scores)
+    if set(offline_score_map.keys()) != set(shadow_score_map.keys()):
+        raise RuntimeError("Decision key mismatch between offline evaluation and shadow online logs")
 
-    # Episode metrics (max query risk per episode)
-    ep_scores = {}
-    ep_labels = {}
-    ep_query_scores = {}
+    diffs = []
+    for k in offline_score_map:
+        diffs.append(abs(offline_score_map[k] - shadow_score_map[k]))
+    diffs_arr = np.array(diffs, dtype=np.float64)
 
-    for ep_id_int, dec_idx, score, label in zip(ep_indices, dec_indices, scores, labels):
+    max_score_diff = float(np.max(diffs_arr))
+    mean_score_diff = float(np.mean(diffs_arr))
+    p50_score_diff = float(np.percentile(diffs_arr, 50))
+    p95_score_diff = float(np.percentile(diffs_arr, 95))
+    p99_score_diff = float(np.percentile(diffs_arr, 99))
+
+    score_parity_doc = {
+        "schema_version": "ood400_offline_score_parity_v1",
+        "total_rows_verified": len(diffs),
+        "key_match": True,
+        "max_abs": max_score_diff,
+        "mean_abs": mean_score_diff,
+        "p50": p50_score_diff,
+        "p95": p95_score_diff,
+        "p99": p99_score_diff,
+        "tolerance": 1e-5,
+        "status": "PASS" if max_score_diff <= 1e-5 else "FAIL",
+    }
+    (output_dir / "OFFLINE_SCORE_PARITY.json").write_text(json.dumps(score_parity_doc, indent=2) + "\n")
+
+    if max_score_diff > 1e-5:
+        raise RuntimeError(f"Offline score discrepancy exceeded tolerance: max_abs={max_score_diff} > 1e-5")
+
+    # 4. Compute query and episode metrics
+    query_auroc, query_auprc = compute_binary_metrics(labels, offline_probs)
+
+    ep_scores: dict[str, float] = {}
+    ep_labels: dict[str, int] = {}
+    ep_query_scores: dict[str, list[tuple[int, float]]] = {}
+
+    for ep_id_int, dec_idx, p, label in zip(ep_indices, dec_indices, offline_probs, labels):
         ep_id_str = f"{ep_id_int:06d}"
-        ep_scores[ep_id_str] = max(ep_scores.get(ep_id_str, -1.0), float(score))
+        ep_scores[ep_id_str] = max(ep_scores.get(ep_id_str, -1.0), float(p))
         ep_labels[ep_id_str] = int(label)
-        ep_query_scores.setdefault(ep_id_str, []).append((int(dec_idx), float(score)))
+        ep_query_scores.setdefault(ep_id_str, []).append((int(dec_idx), float(p)))
 
     ep_score_arr = np.array([ep_scores[f"{i:06d}"] for i in range(total_episodes)], dtype=np.float32)
     ep_label_arr = np.array([ep_labels[f"{i:06d}"] for i in range(total_episodes)], dtype=np.int64)
 
     ep_auroc, ep_auprc = compute_binary_metrics(ep_label_arr, ep_score_arr)
 
-    # Threshold sweep
+    # 5. Threshold sweep over frozen Seen operating points
     sweep_results: list[dict[str, Any]] = []
 
     for rule_name, tau in FROZEN_SEEN_OPERATING_POINTS.items():
@@ -231,9 +280,12 @@ def run_offline_evaluation(
             "never_pct": never_rate * 100.0,
         })
 
-    # Save outputs
+    # 6. Save outputs
     metrics_summary = {
         "schema_version": "ood400_model_metrics_v1",
+        "benchmark_name": "reaching_mimic_risk_ood400",
+        "provenance_statement": "Transfer evaluation of frozen Seen-derived operating points on OOD400",
+        "new_ood_numerical_threshold_fit": False,
         "benchmark_episodes_total": total_episodes,
         "success_episodes": num_success,
         "failure_episodes": num_failure,
@@ -246,11 +298,7 @@ def run_offline_evaluation(
             "auroc": ep_auroc,
             "auprc": ep_auprc,
         },
-        "score_parity": {
-            "max_abs_diff": max_score_diff,
-            "mean_abs_diff": mean_score_diff,
-            "status": "PASS",
-        },
+        "score_parity": score_parity_doc,
         "success_query_length": {
             "mean": mean_succ_len,
             "median": median_succ_len,
@@ -262,7 +310,6 @@ def run_offline_evaluation(
     }
     (output_dir / "OOD400_MODEL_METRICS.json").write_text(json.dumps(metrics_summary, indent=2) + "\n")
     (output_dir / "OOD400_EXACT_SUCCESS_LENGTH.json").write_text(json.dumps(metrics_summary["success_query_length"], indent=2) + "\n")
-    (output_dir / "OFFLINE_SCORE_PARITY.json").write_text(json.dumps(metrics_summary["score_parity"], indent=2) + "\n")
     (output_dir / "OOD400_THRESHOLD_SWEEP.json").write_text(json.dumps(sweep_results, indent=2) + "\n")
 
     # CSV output
@@ -273,7 +320,7 @@ def run_offline_evaluation(
 
     # Full Markdown sweep table
     sweep_md_lines = [
-        "# OOD400 Offline Conformal & Operating Point Threshold Sweep",
+        "# Transfer evaluation of frozen Seen-derived operating points on OOD400",
         "",
         "| Rule | tau | Succ FA % | Fail Det % | Det@25 % | Det@50 % | Det@100 % | Det@MeanSucc100 % | Never % |",
         "|---|---|---|---|---|---|---|---|---|",
@@ -309,7 +356,7 @@ def run_offline_evaluation(
             sha_lines.append(f"{sha256_file(f)}  {f.name}")
     (output_dir / "SHA256SUMS.txt").write_text("\n".join(sha_lines) + "\n")
 
-    print(f"=== Offline Evaluation COMPLETE: Query AUROC={query_auroc:.4f}, Episode AUROC={ep_auroc:.4f} ===")
+    print(f"=== Offline Evaluation COMPLETE: Query AUROC={query_auroc:.4f}, Episode AUROC={ep_auroc:.4f}, Score Parity max_diff={max_score_diff:.2e} ===")
     return metrics_summary
 
 
