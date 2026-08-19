@@ -26,6 +26,22 @@
       "details": "experiments/005_seen4904_3cm350_main_v2.md"
     },
     {
+      "id": "006_ood150_3cm350_exact_only_main_v2",
+      "name": "Current Main Model Evaluation on Converted Exact-Only OOD150 Subset",
+      "status": "completed_audited_current_ood_transfer",
+      "protocol": "3cm_350ticks_30Hz_H10_no_dwell",
+      "scope": "exact-only converted historical OOD150 subset (136/150 episodes)",
+      "model": "isaac_seen4904_h10_topk8_temporal_3cm350_main_v2",
+      "local_evidence": [
+        "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/PAPER_EVIDENCE_INDEX.md",
+        "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_MODEL_METRICS.json",
+        "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_THRESHOLD_SWEEP.json",
+        "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_PAPER_STYLE_TABLE.md",
+        "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/SEEN_VS_OOD_PAPER_TABLE.md"
+      ],
+      "details": "experiments/006_ood150_3cm350_exact_only_main_v2.md"
+    },
+    {
       "id": "001",
       "name": "SimVLA basic Isaac no-rotation tests",
       "status": "completed_all_failed",

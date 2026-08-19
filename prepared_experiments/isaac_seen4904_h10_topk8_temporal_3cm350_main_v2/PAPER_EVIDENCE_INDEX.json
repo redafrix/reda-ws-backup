@@ -59,5 +59,21 @@
     "csv_sha256": "cd74bd64737240a09d5898b858ac7376ea91a85909d190ad47c0bce34fa0ccdb",
     "md_path": "prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/CONFORMAL_THRESHOLD_SWEEP.md",
     "md_sha256": "dfbaa67a7e46941e9a7803eaad2b238fa2a514d2a9a72275d8bc833c5c10fa1b"
+  },
+  "current_external_ood_transfer": {
+    "evidence_index_path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/PAPER_EVIDENCE_INDEX.json",
+    "commit": "cdd55fbd6958264322b3bc53aea8c63b4edeff33",
+    "conversion_mode": "EXACT_ONLY",
+    "scope_statement": "exact-only converted historical OOD150 subset (136/150 episodes)",
+    "source_episodes": 150,
+    "included_episodes": 136,
+    "success_episodes": 72,
+    "failure_episodes": 64,
+    "excluded_episodes": 14,
+    "retained_rows": 3447,
+    "query_auroc": 0.9200878062492603,
+    "query_auprc": 0.9621235135144359,
+    "episode_balanced_auroc": 0.9954427083333334,
+    "episode_balanced_auprc": 0.9939601620974798
   }
 }

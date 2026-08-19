@@ -24,6 +24,29 @@ This inventory lists known local artifacts for the recent Isaac work. Paths are 
 
 ---
 
+## Current External / Converted OOD150 Transfer Evidence (Audited 2026-08-19)
+
+| Path | Meaning |
+|:---|:---|
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/PAPER_EVIDENCE_INDEX.md` | Master index pointing to all primary OOD evaluation evidence |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/PAPER_EVIDENCE_INDEX.json` | Machine-readable OOD evidence index |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_SOURCE_AUDIT.json` | Audit of raw baseline vs active controller paths |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_CONVERSION_AUDIT.json` | Relabeling proof and 136 included / 14 excluded audit |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_INCLUDED_EPISODES.jsonl` | Complete metadata for all 136 included episodes |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_EXCLUDED_EPISODES.jsonl` | Exact audit of 14 excluded timing-unresolvable episodes |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_FEATURE_AUDIT.json` | Verification of feature tensor compatibility |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_MODEL_METRICS.json` | OOD discrimination AUROC/AUPRC and success length stats |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_THRESHOLD_SWEEP.json` | Full 13-row conformal threshold transfer sweep on OOD |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_THRESHOLD_SWEEP.csv` | Full threshold sweep in CSV format |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_THRESHOLD_SWEEP.md` | Full threshold sweep markdown table |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_PAPER_STYLE_TABLE.md` | Compact paper table (Best F1, Fixed 0.5, q90, q95, q99) |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/SEEN_VS_OOD_PAPER_TABLE.md` | Side-by-side Seen internal TEST vs OOD150 transfer table |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_SCORES.jsonl` | Step-by-step risk predictions for all 3,447 retained rows |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/SHA256SUMS.txt` | Checksums of all files in OOD evidence directory |
+| `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/LOCAL_SOURCE_PATHS.txt` | Provenance paths on Dean and local filesystem |
+
+---
+
 ## Historical True-H10 Artifacts (2026-08-18)
 
 | Path | Meaning |

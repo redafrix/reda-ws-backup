@@ -1,0 +1,104 @@
+{
+  "schema_version": "simvla_isaac_ood150_paper_evidence_index_v1",
+  "provenance": {
+    "repository": "redafrix/reda-ws-backup",
+    "branch": "experiment/dean-isaac-online-ood150-20260817",
+    "local_root": "/home/redafrix/tests/internship",
+    "authoritative_commit": "cdd55fbd6958264322b3bc53aea8c63b4edeff33"
+  },
+  "dataset_scope": {
+    "name": "converted_exact_only_ood150_subset",
+    "conversion_mode": "EXACT_ONLY",
+    "scope_statement": "exact-only converted historical OOD150 subset (136/150 episodes)",
+    "source_episodes": 150,
+    "included_episodes": 136,
+    "success_episodes": 72,
+    "failure_episodes": 64,
+    "excluded_episodes": 14,
+    "retained_decision_rows": 3447,
+    "success_rows": 1207,
+    "failure_rows": 2240,
+    "max_decision_index": 34,
+    "raw_baseline_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_locked_h10_ood150_seed20260728",
+    "frozen_arrays_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/frozen_datasets/locked_h10_ood150_eval",
+    "active_controller_path_distinct": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/online_evals/isaac_ood150_engineering_cap090_v1"
+  },
+  "model": {
+    "name": "isaac_seen4904_h10_topk8_temporal_3cm350_main_v2",
+    "model_checkpoint_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/model.pt",
+    "model_checkpoint_sha256": "00ad096a9ca38577366e992e1d7f8aa25b6f56f2f2bd7354abce1790baf890f1",
+    "norm_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/norm.npz",
+    "norm_sha256": "6fbd2b221c4490c975e3e1492c96a9e879a586f0b3a4c4eaf97ea05920960341"
+  },
+  "metrics": {
+    "query_auprc": 0.9621235135144359,
+    "query_auroc": 0.9200878062492603,
+    "episode_balanced_auprc": 0.9939601620974798,
+    "episode_balanced_auroc": 0.9954427083333334,
+    "mean_retained_success_query_length_ood": 16.76388888888889,
+    "ood_mean_success_cutoff_queries": 17,
+    "canonical_seen_test_cutoff_queries": 18
+  },
+  "evidence_files": {
+    "OOD150_SOURCE_AUDIT.json": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_SOURCE_AUDIT.json",
+      "sha256": "01191abc19ce03fabe98b72a8d6e85b8100eb54d33d7dec11eb6459cd1568b6f"
+    },
+    "OOD150_CONVERSION_AUDIT.json": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_CONVERSION_AUDIT.json",
+      "sha256": "c44fd5f8b60407d05d077a94a61ad9a81dc7df2a30c95d68ce897f525dfe1a30"
+    },
+    "OOD150_INCLUDED_EPISODES.jsonl": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_INCLUDED_EPISODES.jsonl",
+      "sha256": "b97f5a8cbbdf9055665d2bebb193888219d68f157cbf2da4107bac243f974187"
+    },
+    "OOD150_EXCLUDED_EPISODES.jsonl": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_EXCLUDED_EPISODES.jsonl",
+      "sha256": "c43e0162ddd4310a31a3e4d86d47be3baf93b06ae1603e06f9b7c3384694c30b"
+    },
+    "OOD150_FEATURE_AUDIT.json": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_FEATURE_AUDIT.json",
+      "sha256": "75d2e2cf1c4dc34c1664c464175b78f9737a8f9e7046fbcb9a4c632d8c961587"
+    },
+    "OOD150_MODEL_METRICS.json": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_MODEL_METRICS.json",
+      "sha256": "9a6494fffba5ae843fdb0e9a6d0baa78cbe18ec6aba0e3d18f8ce5e7c636f0f1"
+    },
+    "OOD150_THRESHOLD_SWEEP.json": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_THRESHOLD_SWEEP.json",
+      "sha256": "924fbdd9540b22c04f3e13b65774b90e22cc6b2b635ad6957a245c8a87176c8e"
+    },
+    "OOD150_THRESHOLD_SWEEP.csv": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_THRESHOLD_SWEEP.csv",
+      "sha256": "62ba36b0c225d9806107286bbc4cf6d578916989c40a5bfd1bfd98d82bc3defa"
+    },
+    "OOD150_THRESHOLD_SWEEP.md": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_THRESHOLD_SWEEP.md",
+      "sha256": "04dd9b8fe855044ad0b6417a858bba6d881aa003c3ef65a40af358a8fd49775d"
+    },
+    "OOD150_PAPER_STYLE_TABLE.md": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_PAPER_STYLE_TABLE.md",
+      "sha256": "e2988d803f9404fb4f3d5df3400e83e1137a8a20cf8ed8d721935109340fb7aa"
+    },
+    "SEEN_VS_OOD_PAPER_TABLE.md": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/SEEN_VS_OOD_PAPER_TABLE.md",
+      "sha256": "5265a31b191c0376bd6a874ffbf555269364d077971070c0c5b5ce2e1d70f19f"
+    },
+    "OOD150_SCORES.jsonl": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/OOD150_SCORES.jsonl",
+      "sha256": "04d0bb6f3fea62871b7cedc576e63ee220deadd2942240b2a8b7da4937aba229"
+    },
+    "README.md": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/README.md",
+      "sha256": "477697bd6b70ca6d74e4a72a2a0b693574ca89465a683fb1e298117e0f33860d"
+    },
+    "LOCAL_SOURCE_PATHS.txt": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/LOCAL_SOURCE_PATHS.txt",
+      "sha256": "9ee0963ed74f8b94661bbbe434088cfa0c1d687e59e121761ec65191c4b7fbad"
+    },
+    "SHA256SUMS.txt": {
+      "path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/SHA256SUMS.txt",
+      "sha256": "13426723baebc383ad56037daec063f272a5a5bb7960351ce7aeec21c1f7b0ce"
+    }
+  }
+}

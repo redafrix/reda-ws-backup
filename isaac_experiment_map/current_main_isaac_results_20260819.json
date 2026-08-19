@@ -68,5 +68,36 @@
     {"rule": "q90 success", "tau": 0.5631080269813538, "succ_fa_pct": 8.966565349544073, "fail_det_pct": 100.0, "det25_pct": 61.53846153846154, "det50_pct": 85.8974358974359, "det100_pct": 100.0, "det_mean_succ_pct": 85.8974358974359, "never_pct": 0.0},
     {"rule": "q95 success", "tau": 0.6643207669258118, "succ_fa_pct": 3.64741641337386, "fail_det_pct": 100.0, "det25_pct": 55.12820512820513, "det50_pct": 83.33333333333334, "det100_pct": 100.0, "det_mean_succ_pct": 83.33333333333334, "never_pct": 0.0},
     {"rule": "q99 success", "tau": 0.8792325258255005, "succ_fa_pct": 1.21580547112462, "fail_det_pct": 100.0, "det25_pct": 38.46153846153847, "det50_pct": 74.35897435897436, "det100_pct": 100.0, "det_mean_succ_pct": 74.35897435897436, "never_pct": 0.0}
-  ]
+  ],
+  "ood150_exact_only_transfer": {
+    "status": "AUDITED_CURRENT_EXTERNAL_TRANSFER",
+    "scope": "EXACT_ONLY_NEW_PROTOCOL_OOD150_SUBSET",
+    "source_episodes": 150,
+    "included_episodes": 136,
+    "success_episodes": 72,
+    "failure_episodes": 64,
+    "excluded_episodes": 14,
+    "retained_rows": 3447,
+    "success_rows": 1207,
+    "failure_rows": 2240,
+    "max_decision_index": 34,
+    "metrics": {
+      "query_auprc": 0.9621235135144359,
+      "query_auroc": 0.9200878062492603,
+      "episode_balanced_auprc": 0.9939601620974798,
+      "episode_balanced_auroc": 0.9954427083333334,
+      "mean_retained_success_query_length_ood": 16.76388888888889,
+      "ood_mean_success_cutoff_queries": 17,
+      "canonical_mean_success_cutoff_queries": 18
+    },
+    "paper_style_table": [
+      {"rule": "Best F1", "tau": 0.579133152961731, "succ_fa_pct": 18.055555555555557, "fail_det_pct": 100.0, "det25_pct": 70.3125, "det50_pct": 85.9375, "det100_pct": 100.0, "det_ood_mean_succ_pct": 82.8125, "det_canonical18q_pct": 85.9375, "never_pct": 0.0},
+      {"rule": "Fixed 0.5", "tau": 0.5, "succ_fa_pct": 25.0, "fail_det_pct": 100.0, "det25_pct": 75.0, "det50_pct": 89.0625, "det100_pct": 100.0, "det_ood_mean_succ_pct": 89.0625, "det_canonical18q_pct": 89.0625, "never_pct": 0.0},
+      {"rule": "q90 success", "tau": 0.5631080269813538, "succ_fa_pct": 19.444444444444443, "fail_det_pct": 100.0, "det25_pct": 70.3125, "det50_pct": 85.9375, "det100_pct": 100.0, "det_ood_mean_succ_pct": 84.375, "det_canonical18q_pct": 85.9375, "never_pct": 0.0},
+      {"rule": "q95 success", "tau": 0.6643207669258118, "succ_fa_pct": 13.88888888888889, "fail_det_pct": 100.0, "det25_pct": 59.375, "det50_pct": 81.25, "det100_pct": 100.0, "det_ood_mean_succ_pct": 78.125, "det_canonical18q_pct": 81.25, "never_pct": 0.0},
+      {"rule": "q99 success", "tau": 0.8792325258255005, "succ_fa_pct": 5.555555555555555, "fail_det_pct": 100.0, "det25_pct": 42.1875, "det50_pct": 75.0, "det100_pct": 100.0, "det_ood_mean_succ_pct": 67.1875, "det_canonical18q_pct": 75.0, "never_pct": 0.0}
+    ],
+    "evidence_path": "prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/",
+    "source_commit": "cdd55fbd6958264322b3bc53aea8c63b4edeff33"
+  }
 }

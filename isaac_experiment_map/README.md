@@ -9,7 +9,7 @@ This folder is a documentation map for the Isaac Sim / IsaacLab experiments run 
 
 ## Result Hierarchy
 
-### CURRENT MAIN (Audited 2026-08-19)
+### CURRENT MAIN INTERNAL (Audited 2026-08-19)
 - **Protocol**: 3 cm distance threshold, 350 max control ticks (11.67 s), 30 Hz, H10 execution, **NO DWELL**.
 - **Dataset**: `isaac_seen4904_h10_3cm350_exact_v1` (4,904 exact episodes: 4,387 success, 517 failure; 96,813 decision rows; 96 unresolvable episodes excluded).
 - **Model**: `isaac_seen4904_h10_topk8_temporal_3cm350_main_v2` (SeqRiskModel, 128 width, 3 layers, 4 heads, pos_weight=4.3453).
@@ -19,6 +19,15 @@ This folder is a documentation map for the Isaac Sim / IsaacLab experiments run 
   - Episode-Balanced AUROC: **0.9987** | Episode-Balanced AUPRC: **0.9782**
   - Conformal Best Val F1 Threshold (`0.5791`): **100.0% Failure Detection**, **7.60% Success False Alarm**.
 - **Full Current Results**: [CURRENT_MAIN_ISAAC_RESULTS_20260819.md](CURRENT_MAIN_ISAAC_RESULTS_20260819.md) | [current_main_isaac_results_20260819.json](current_main_isaac_results_20260819.json)
+
+### CURRENT EXTERNAL / OOD TRANSFER (Audited 2026-08-19)
+- **Scope**: Exact-only converted historical OOD150 subset (**136/150 episodes**: 72 success, 64 failure; 14 unresolvable episodes excluded; 3,447 decision rows).
+- **Threshold Calibration**: Frozen from Seen validation (no calibration on OOD).
+- **Performance (Zero-Shot OOD Transfer)**:
+  - Query AUROC: **0.9201** | Query AUPRC: **0.9621**
+  - Episode-Balanced AUROC: **0.9954** | Episode-Balanced AUPRC: **0.9940**
+  - Conformal Best Val F1 Threshold (`0.5791`): **100.0% Failure Detection**, **18.06% Success False Alarm**, **70.31% Det@25%**, **85.94% Det@50%**.
+- **Evidence Path**: [prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/](prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/PAPER_EVIDENCE_INDEX.md) | [experiments/006_ood150_3cm350_exact_only_main_v2.md](experiments/006_ood150_3cm350_exact_only_main_v2.md)
 
 ### HISTORICAL (Preserved 2026-08-18)
 - **Protocol**: 2 cm distance threshold, 600 max control ticks (20.0 s), 30 Hz, H10 execution, 0.2 s dwell settling requirement.
@@ -33,7 +42,8 @@ This folder is a documentation map for the Isaac Sim / IsaacLab experiments run 
 
 | Experiment | Status | Main Local Evidence | Details |
 |:---|:---|:---|:---|
-| **CURRENT MAIN — 3cm350 exact4904 risk model** | **Audited Current Main** | `prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/` | [CURRENT_MAIN_ISAAC_RESULTS_20260819.md](CURRENT_MAIN_ISAAC_RESULTS_20260819.md) |
+| **CURRENT MAIN — 3cm350 exact4904 risk model (Internal Test)** | **Audited Current Main** | `prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/` | [CURRENT_MAIN_ISAAC_RESULTS_20260819.md](CURRENT_MAIN_ISAAC_RESULTS_20260819.md) |
+| **CURRENT MAIN — Converted exact-only OOD150 transfer** | **Audited Current OOD** | `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/` | [experiments/006_ood150_3cm350_exact_only_main_v2.md](experiments/006_ood150_3cm350_exact_only_main_v2.md) |
 | Corrected true-H10 SimVLA risk campaign (Historical) | Historical 2026-08-18 | `prepared_experiments/dean_isaac_online_ood150_engineering_cap090_v1/FINAL_RESULT.json` | [FINAL_ISAAC_RESULTS_20260818.md](FINAL_ISAAC_RESULTS_20260818.md) |
 | SimVLA basic, Isaac no-rotation 10 tests | Completed, all failed | `vids/old/simvla_basic_10_tests_agent_view_2x_no_rotation.mp4` | [experiments/001_simvla_basic_no_rotation.md](experiments/001_simvla_basic_no_rotation.md) |
 | Pi0.5 LIBERO, Isaac 5 reaching + 5 pick-place | Completed, all failed | `vids/pi05_libero_10_tests_agent_view_4x_labeled.mp4` | [experiments/002_pi05_libero_isaac.md](experiments/002_pi05_libero_isaac.md) |
@@ -53,6 +63,7 @@ This folder is a documentation map for the Isaac Sim / IsaacLab experiments run 
 - [experiments/003_pi05_droid_isaac.md](experiments/003_pi05_droid_isaac.md)
 - [experiments/004_video_outputs_and_labels.md](experiments/004_video_outputs_and_labels.md)
 - [experiments/005_seen4904_3cm350_main_v2.md](experiments/005_seen4904_3cm350_main_v2.md)
+- [experiments/006_ood150_3cm350_exact_only_main_v2.md](experiments/006_ood150_3cm350_exact_only_main_v2.md)
 - [inventory/artifacts.md](inventory/artifacts.md)
 - [inventory/experiment_index.json](inventory/experiment_index.json)
 - [rerun_notes.md](rerun_notes.md)

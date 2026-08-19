@@ -107,7 +107,56 @@
 
 ---
 
-## 5. Primary Evidence Artifacts & Commits
-- **Primary Evidence Directory**: `prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/`
-- **Master Evidence Index**: `prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/PAPER_EVIDENCE_INDEX.md`
+---
+
+## 5. Current External / OOD Transfer — Exact-Only Converted Historical OOD150
+
+> [!NOTE]
+> **Scope Statement**: This evaluation tests zero-shot operating threshold transfer on the **exact-only converted historical OOD150 subset (136/150 episodes)**. All thresholds were calibrated strictly on Seen VALIDATION data; **no threshold calibration or tuning was performed on OOD data**. Success query lengths are retained legacy query lengths, not exact reconstructed first-3cm termination lengths.
+
+### OOD Scope & Dataset
+- **Source Baseline**: Historical 150-episode candidate-0 collection (`/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_locked_h10_ood150_seed20260728`).
+- **Conversion Mode**: `EXACT_ONLY`.
+- **Included Exact Episodes**: **136 episodes** (72 success, 64 failure).
+- **Excluded Unresolvable Episodes**: **14 episodes** (`000007`, `000022`, `000023`, `000038`, `000044`, `000084`, `000090`, `000103`, `000114`, `000170`, `000195`, `000226`, `000232`, `000284`) where trajectory entered $(0.020\text{ m}, 0.030\text{ m}]$ after tick 350 without continuous distance logging.
+- **Retained Decision Rows (`decision_index <= 34`)**: **3,447 rows** (1,207 success rows, 2,240 failure rows; max decision index: 34).
+
+### Discrimination Performance
+- **Query AUROC / AUPRC**: **0.9201 / 0.9621** (AUROC: `0.9200878062492603`, AUPRC: `0.9621235135144359`)
+- **Episode-Balanced AUROC / AUPRC**: **0.9954 / 0.9940** (AUROC: `0.9954427083333334`, AUPRC: `0.9939601620974798`)
+- **Mean Retained Success Query Length**: `16.76` queries (OOD cutoff: 17 queries / $\approx 170$ control ticks; Canonical Seen cutoff: 18 queries / $\approx 180$ control ticks).
+
+### Conformal & Paper-Style OOD Table (136 episodes / 3,447 rows)
+
+| Rule | tau | Succ FA % | Fail Det % | Det@25 % | Det@50 % | Det@100 % | Det@OODMeanSucc100 % | Det@Canonical18Q % | Never % |
+|:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Best F1 | 0.5791 | 18.06% | 100.00% | 70.31% | 85.94% | 100.00% | 82.81% | 85.94% | 0.00% |
+| Fixed 0.5 | 0.5000 | 25.00% | 100.00% | 75.00% | 89.06% | 100.00% | 89.06% | 89.06% | 0.00% |
+| q90 success | 0.5631 | 19.44% | 100.00% | 70.31% | 85.94% | 100.00% | 84.38% | 85.94% | 0.00% |
+| q95 success | 0.6643 | 13.89% | 100.00% | 59.38% | 81.25% | 100.00% | 78.12% | 81.25% | 0.00% |
+| q99 success | 0.8792 | 5.56% | 100.00% | 42.19% | 75.00% | 100.00% | 67.19% | 75.00% | 0.00% |
+
+### Side-by-Side Comparison: Seen Internal TEST vs Converted OOD150
+
+| Rule | Split | tau | Succ FA % | Fail Det % | Det@25 % | Det@50 % | Det@100 % | Never % |
+|:---|:---|---:|---:|---:|---:|---:|---:|---:|
+| **Best F1** | **Seen internal TEST** | 0.5791 | 7.60% | 100.00% | 60.26% | 85.90% | 100.00% | 0.00% |
+| | **OOD150 converted exact** | 0.5791 | 18.06% | 100.00% | 70.31% | 85.94% | 100.00% | 0.00% |
+| **Fixed 0.5** | **Seen internal TEST** | 0.5000 | 17.48% | 100.00% | 69.23% | 91.03% | 100.00% | 0.00% |
+| | **OOD150 converted exact** | 0.5000 | 25.00% | 100.00% | 75.00% | 89.06% | 100.00% | 0.00% |
+| **q90 success** | **Seen internal TEST** | 0.5631 | 8.97% | 100.00% | 61.54% | 85.90% | 100.00% | 0.00% |
+| | **OOD150 converted exact** | 0.5631 | 19.44% | 100.00% | 70.31% | 85.94% | 100.00% | 0.00% |
+| **q95 success** | **Seen internal TEST** | 0.6643 | 3.65% | 100.00% | 55.13% | 83.33% | 100.00% | 0.00% |
+| | **OOD150 converted exact** | 0.6643 | 13.89% | 100.00% | 59.38% | 81.25% | 100.00% | 0.00% |
+| **q99 success** | **Seen internal TEST** | 0.8792 | 1.22% | 100.00% | 38.46% | 74.36% | 100.00% | 0.00% |
+| | **OOD150 converted exact** | 0.8792 | 5.56% | 100.00% | 42.19% | 75.00% | 100.00% | 0.00% |
+
+---
+
+## 6. Primary Evidence Artifacts & Commits
+- **Primary Seen Evidence Directory**: `prepared_experiments/isaac_seen4904_h10_topk8_temporal_3cm350_main_v2/`
+- **Primary OOD Evidence Directory**: `prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/`
+- **Dataset Freeze Commit**: [`e9f5276f4901adebea8e2d6aa8feeee817046456`](https://github.com/redafrix/reda-ws-backup/commit/e9f5276f4901adebea8e2d6aa8feeee817046456)
+- **Model Training Commit**: [`bc2ed0c7ad50e388ae918d46162628c310827971`](https://github.com/redafrix/reda-ws-backup/commit/bc2ed0c7ad50e388ae918d46162628c310827971)
 - **Conformal Sweep Commit**: [`e053ae6e119b1fceff149cd575f9429636b0cc64`](https://github.com/redafrix/reda-ws-backup/commit/e053ae6e119b1fceff149cd575f9429636b0cc64)
+- **OOD Evaluation Commit**: [`cdd55fbd6958264322b3bc53aea8c63b4edeff33`](https://github.com/redafrix/reda-ws-backup/commit/cdd55fbd6958264322b3bc53aea8c63b4edeff33)

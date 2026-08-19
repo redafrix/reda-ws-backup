@@ -46,3 +46,15 @@ This document is the single authoritative index pointing to all primary artifact
 - **JSON Full Sweep**: `CONFORMAL_THRESHOLD_SWEEP.json` (SHA256: `de7226b1af317cc12af9974aac5b5cc7ca33bc8e5343446eb3b075700d387841`)
 - **CSV Full Sweep**: `CONFORMAL_THRESHOLD_SWEEP.csv` (SHA256: `cd74bd64737240a09d5898b858ac7376ea91a85909d190ad47c0bce34fa0ccdb`)
 - **Markdown Full Sweep**: `CONFORMAL_THRESHOLD_SWEEP.md` (SHA256: `dfbaa67a7e46941e9a7803eaad2b238fa2a514d2a9a72275d8bc833c5c10fa1b`)
+
+---
+
+## 5. Current External / OOD Transfer Evidence
+- **Repo Evidence Path**: [`prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/`](file:///home/redafrix/tests/internship/prepared_experiments/isaac_ood150_3cm350_main_v2_offline_eval/PAPER_EVIDENCE_INDEX.md)
+- **Authoritative OOD Commit**: [`cdd55fbd6958264322b3bc53aea8c63b4edeff33`](https://github.com/redafrix/reda-ws-backup/commit/cdd55fbd6958264322b3bc53aea8c63b4edeff33)
+- **Conversion Mode**: `EXACT_ONLY`
+- **Scope Statement**: exact-only converted historical OOD150 subset (136/150 episodes)
+- **Included Exact Episodes**: **136 episodes** (72 success, 64 failure)
+- **Excluded Unresolvable Episodes**: **14 episodes**
+- **Retained Rows (`decision_index <= 34`)**: **3,447 rows** (1,207 success, 2,240 failure)
+- **OOD Performance**: Query AUROC: **0.9201** | Query AUPRC: **0.9621** | Episode-Balanced AUROC: **0.9954** | Episode-Balanced AUPRC: **0.9940**
