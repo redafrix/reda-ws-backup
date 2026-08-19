@@ -1,0 +1,22 @@
+{
+  "schema_version": "ood400_manifest_audit_v1",
+  "manifest_path": "benchmarks/reaching_mimic_risk_ood400/full_ood400.json",
+  "manifest_fingerprint_sha256": "264dae5a7de872e5aee0a9554f88adfe7af3d38b5a7e29fd7f9b3e0d1c10da41",
+  "total_episodes": 400,
+  "episode_id_min": 0,
+  "episode_id_max": 399,
+  "unique_source_episode_ids": 400,
+  "unique_scene_fingerprints": 400,
+  "risk_splits": [
+    "ood_test"
+  ],
+  "target_splits": [
+    "receptacle_targets",
+    "pickable_targets"
+  ],
+  "clutter_count_range": [
+    4,
+    8
+  ],
+  "verification_status": "VERIFIED_CANONICAL_UNSPLIT_400"
+}

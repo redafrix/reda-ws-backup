@@ -1,0 +1,18 @@
+{
+  "schema_version": "ood400_visual_recording_config_v1",
+  "camera_source": "agent_camera",
+  "resolution": [
+    320,
+    240
+  ],
+  "fps": 5,
+  "codec": "libx264",
+  "crf": 30,
+  "preset": "veryfast",
+  "pixel_format": "yuv420p",
+  "storage_mode": "individual_mp4_per_episode",
+  "storage_path_template": "videos/{episode_id}.mp4",
+  "approximate_size_per_episode_bytes": 10000,
+  "total_estimated_storage_mb": 4.5,
+  "mimic_video_used": false
+}

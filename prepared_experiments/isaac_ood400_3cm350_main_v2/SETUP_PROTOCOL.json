@@ -1,0 +1,20 @@
+{
+  "schema_version": "isaac_ood400_setup_protocol_v1",
+  "protocol_name": "isaac_reaching_h10_3cm350_no_dwell",
+  "task": "Franka reaching in IsaacLab",
+  "distance_threshold_m": 0.03,
+  "max_control_ticks": 350,
+  "max_simulation_steps": 1400,
+  "control_hz": 30,
+  "physics_hz": 120,
+  "decimation": 4,
+  "execution_horizon": 10,
+  "dwell_required": false,
+  "settle_time_s": 0.0,
+  "policy_sampling_seed": 20260812,
+  "benchmark_manifest": "benchmarks/reaching_mimic_risk_ood400/full_ood400.json",
+  "manifest_fingerprint_sha256": "264dae5a7de872e5aee0a9554f88adfe7af3d38b5a7e29fd7f9b3e0d1c10da41",
+  "expected_episodes": 400,
+  "risk_split": "ood_test",
+  "status": "baseline_collection_ready"
+}
