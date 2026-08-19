@@ -1,0 +1,76 @@
+{
+  "provenance_reference": "PRETEST_GATE.json",
+  "topk8_source": {
+    "results_path": "/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/models/isaac_h10_topk8_temporal_v1/results.json",
+    "model_type": "SeqRiskModel (TopK8)",
+    "dataset_manifest_sha256": "8e3b7f4929fce4a648f174735ec9c0530966cf4e8a93a66a3e793432a5be4859"
+  },
+  "strict_v2_source": {
+    "experiment_name": "isaac_mimic_h10_strict_missingdyn_v2",
+    "primary_seed": 0,
+    "model_type": "MimicH10RiskMonitor (Strict Missing Dynamics V2)"
+  },
+  "threshold_independent": {
+    "topk8_auroc": 0.9310794796642061,
+    "strict_v2_seed0_auroc": 0.8738685500796063,
+    "delta_auroc": -0.057210929584599834,
+    "topk8_auprc": 0.818629985131437,
+    "strict_v2_seed0_auprc": 0.7303644236706875,
+    "delta_auprc": -0.08826556146074949
+  },
+  "row_best_f1_matched_calibration": {
+    "topk8": {
+      "threshold": 0.7990124225616455,
+      "success_false_alarms": 12,
+      "success_episodes": 586,
+      "false_alarm_rate": 0.020477815699658702,
+      "failure_detected": 14,
+      "failure_episodes": 14,
+      "detection_rate": 1.0,
+      "det_at_10_count": 2,
+      "det_at_10_rate": 0.14285714285714285,
+      "det_at_25_count": 5,
+      "det_at_25_rate": 0.35714285714285715,
+      "det_at_50_count": 14,
+      "det_at_50_rate": 1.0
+    },
+    "strict_v2": {
+      "threshold": 0.9642555713653564,
+      "success_false_alarms": 5,
+      "success_episodes": 586,
+      "false_alarm_rate": 0.008532423208191127,
+      "failure_detected": 13,
+      "failure_episodes": 14,
+      "detection_rate": 0.9285714285714286,
+      "det_at_10_count": 0,
+      "det_at_10_rate": 0.0,
+      "det_at_25_count": 0,
+      "det_at_25_rate": 0.0,
+      "det_at_50_count": 12,
+      "det_at_50_rate": 0.8571428571428571
+    },
+    "deltas_strict_v2_minus_topk8": {
+      "fa_delta_percentage_points": -1.1945392491467577,
+      "fa_delta_count": -7,
+      "failure_detection_delta_count": -1,
+      "det_at_10_delta_count": -2,
+      "det_at_25_delta_count": -5,
+      "det_at_50_delta_count": -2
+    }
+  },
+  "strict_v2_primary_conformal_alpha010": {
+    "threshold": 0.6284286379814148,
+    "success_false_alarms": 51,
+    "success_episodes": 586,
+    "false_alarm_rate": 0.08703071672354949,
+    "failure_detected": 14,
+    "failure_episodes": 14,
+    "detection_rate": 1.0,
+    "det_at_10_count": 0,
+    "det_at_10_rate": 0.0,
+    "det_at_25_count": 3,
+    "det_at_25_rate": 0.21428571428571427,
+    "det_at_50_count": 14,
+    "det_at_50_rate": 1.0
+  }
+}
