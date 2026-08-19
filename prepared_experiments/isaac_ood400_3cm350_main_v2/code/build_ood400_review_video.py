@@ -102,12 +102,8 @@ def build_review_videos(
         })
 
     # Write concat lists
-    all_concat_list_p.write_text("
-".join(all_lines) + "
-")
-    fail_concat_list_p.write_text("
-".join(fail_lines) + "
-")
+    all_concat_list_p.write_text("\n".join(all_lines) + "\n")
+    fail_concat_list_p.write_text("\n".join(fail_lines) + "\n")
 
     # Run ffmpeg concat
     subprocess.run([
@@ -146,8 +142,7 @@ def build_review_videos(
     }
 
     manifest_json_p = output_dir / f"{prefix}_VIDEO_MANIFEST.json"
-    manifest_json_p.write_text(json.dumps(manifest, indent=2) + "
-")
+    manifest_json_p.write_text(json.dumps(manifest, indent=2) + "\n")
 
     print(f"=== Review videos complete: {all_video_p} ({manifest['all_video_size_bytes']/1024/1024:.2f} MB) ===")
     return manifest

@@ -66,9 +66,7 @@ def sync_evidence(
             f"{r['fail_detection_pct']:.2f}% | {r['det_at_25_pct']:.2f}% | {r['det_at_50_pct']:.2f}% | "
             f"{r['det_at_100_pct']:.2f}% | {r['det_at_mean_succ_100_pct']:.2f}% | {r['never_pct']:.2f}% |"
         )
-    (exp_dir / "OOD400_OFFLINE_PAPER_TABLE.md").write_text("
-".join(offline_table_lines) + "
-")
+    (exp_dir / "OOD400_OFFLINE_PAPER_TABLE.md").write_text("\n".join(offline_table_lines) + "\n")
 
     # 2. Generate OOD400_BASELINE_VS_TOPK_TABLE.md
     paired_table_lines = [
@@ -85,9 +83,7 @@ def sync_evidence(
         f"{paired_comp['matrix']['rescues']} | {paired_comp['matrix']['regressions']} | "
         f"{paired_comp['matrix']['persisted_success']} | {paired_comp['matrix']['persisted_failure']} |",
     ]
-    (exp_dir / "OOD400_BASELINE_VS_TOPK_TABLE.md").write_text("
-".join(paired_table_lines) + "
-")
+    (exp_dir / "OOD400_BASELINE_VS_TOPK_TABLE.md").write_text("\n".join(paired_table_lines) + "\n")
 
     # 3. Generate Master PAPER_EVIDENCE_INDEX.md
     index_md_lines = [
@@ -114,9 +110,7 @@ def sync_evidence(
         f"- Paired Comparison: `active_eval/PAIRED_COMPARISON.json`",
         f"- Controller Audit: `active_eval/CONTROLLER_AUDIT.json`",
     ]
-    (exp_dir / "PAPER_EVIDENCE_INDEX.md").write_text("
-".join(index_md_lines) + "
-")
+    (exp_dir / "PAPER_EVIDENCE_INDEX.md").write_text("\n".join(index_md_lines) + "\n")
 
     index_json = {
         "schema_version": "ood400_master_paper_evidence_index_v1",
@@ -136,8 +130,7 @@ def sync_evidence(
         "paired_comparison": paired_comp,
         "created_timestamp": datetime.now(timezone.utc).isoformat(),
     }
-    (exp_dir / "PAPER_EVIDENCE_INDEX.json").write_text(json.dumps(index_json, indent=2) + "
-")
+    (exp_dir / "PAPER_EVIDENCE_INDEX.json").write_text(json.dumps(index_json, indent=2) + "\n")
 
     # 4. Mirror to publication repository if accessible
     if publication_repo.exists() and (publication_repo / ".git").exists():
