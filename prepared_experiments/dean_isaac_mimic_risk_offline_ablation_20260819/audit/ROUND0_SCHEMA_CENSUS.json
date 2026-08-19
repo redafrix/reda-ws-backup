@@ -1,0 +1,750 @@
+{
+  "total_episodes": 4000,
+  "total_rows": 75603,
+  "streamed_rows": 75603,
+  "leaf_census": {
+    "ace_candidate_chunks_env": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[8, 10, 7]"
+      ],
+      "min_len": 8,
+      "max_len": 8,
+      "nan_inf_count": 0
+    },
+    "ace_candidate_chunks_normalized": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[8, 10, 7]"
+      ],
+      "min_len": 8,
+      "max_len": 8,
+      "nan_inf_count": 0
+    },
+    "ace_candidate_seeds": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[8]"
+      ],
+      "min_len": 8,
+      "max_len": 8,
+      "nan_inf_count": 0
+    },
+    "ace_features_7d": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[7]"
+      ],
+      "min_len": 7,
+      "max_len": 7,
+      "nan_inf_count": 0
+    },
+    "current.proprio": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[8]"
+      ],
+      "min_len": 8,
+      "max_len": 8,
+      "nan_inf_count": 0
+    },
+    "decision_index": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "episode_id": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "executed_action": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[7]"
+      ],
+      "min_len": 7,
+      "max_len": 7,
+      "nan_inf_count": 0
+    },
+    "executed_action_sequence": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[9, 7]",
+        "[6, 7]",
+        "[5, 7]",
+        "[4, 7]",
+        "[10, 7]",
+        "[2, 7]",
+        "[7, 7]",
+        "[8, 7]",
+        "[1, 7]",
+        "[3, 7]"
+      ],
+      "min_len": 1,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "execution_mode": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "history": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[16, 21]"
+      ],
+      "min_len": 16,
+      "max_len": 16,
+      "nan_inf_count": 0
+    },
+    "main_candidate_action_chunk_env": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10, 7]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "main_candidate_action_chunk_normalized": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10, 7]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "main_seed": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.agent_camera_shape": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[3]"
+      ],
+      "min_len": 3,
+      "max_len": 3,
+      "nan_inf_count": 0
+    },
+    "metadata.camera_mapping.agent_camera": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.camera_mapping.padded_third_camera": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.camera_mapping.wrist_camera": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.checkpoint_model_sha256": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.clutter_cardinality": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.clutter_description": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[5]",
+        "[6]",
+        "[4]"
+      ],
+      "min_len": 4,
+      "max_len": 6,
+      "nan_inf_count": 0
+    },
+    "metadata.clutter_position_index": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.collection_manifest_partition": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.contract_fingerprint_sha256": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.controller_contract_fingerprint_sha256": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.deployable_inputs_exclude_outcome": {
+      "rows_present": 1876,
+      "types": [
+        "bool"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.deployable_inputs_exclude_task_id_seed_timestep_reward": {
+      "rows_present": 1876,
+      "types": [
+        "bool"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.global_episode_id": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.instruction": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.manifest_fingerprint_sha256": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.official_scene_sampler_seed": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.ood_excluded_from_training": {
+      "rows_present": 1876,
+      "types": [
+        "bool"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.policy_sampling_seed": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.risk_split": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.round_id": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.round_kind": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.round_master_seed": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.scene_family_id": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.scene_fingerprint_sha256": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.scene_reset_seed": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.scene_seed_inputs": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[2]"
+      ],
+      "min_len": 2,
+      "max_len": 2,
+      "nan_inf_count": 0
+    },
+    "metadata.source_benchmark_episode_id": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.source_episode_id": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.synthetic_smoke": {
+      "rows_present": 1876,
+      "types": [
+        "bool"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.target_category_id": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.target_label": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.target_position_index": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.target_source_name": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.target_variant_id": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.training_eligible": {
+      "rows_present": 1876,
+      "types": [
+        "bool"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.uncertainty_parameterization": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.vlm_encoding_count": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "metadata.wrist_camera_shape": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[3]"
+      ],
+      "min_len": 3,
+      "max_len": 3,
+      "nan_inf_count": 0
+    },
+    "parent_episode_outcome": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "parent_episode_risk_label": {
+      "rows_present": 1876,
+      "types": [
+        "int"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "schema_version": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_49d": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[49]"
+      ],
+      "min_len": 49,
+      "max_len": 49,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_delta_49d": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[49]"
+      ],
+      "min_len": 49,
+      "max_len": 49,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_raw.denoise_mean_trace": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_raw.final_action_normalized": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10, 7]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_raw.initial_noise": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10, 7]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_raw.last_step_variance": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10, 7]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_raw.path_variance": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10, 7]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_raw.uncertainty_parameterization": {
+      "rows_present": 1876,
+      "types": [
+        "str"
+      ],
+      "shapes": [],
+      "min_len": 1,
+      "max_len": 1,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_raw.update_norm_trace": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_raw.update_vector_trace": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10, 70]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    },
+    "simvla_uncertainty_raw.velocity_norm_trace": {
+      "rows_present": 1876,
+      "types": [
+        "list"
+      ],
+      "shapes": [
+        "[10]"
+      ],
+      "min_len": 10,
+      "max_len": 10,
+      "nan_inf_count": 0
+    }
+  },
+  "candidate_contract": {
+    "main_shape": [
+      10,
+      7
+    ],
+    "alternative_count": 8,
+    "alternative_shape": [
+      10,
+      7
+    ],
+    "total_candidates": 9,
+    "candidate_violations": 0,
+    "seed_violations": 0
+  }
+}

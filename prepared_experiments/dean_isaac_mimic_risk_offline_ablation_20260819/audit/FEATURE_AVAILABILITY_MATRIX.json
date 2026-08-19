@@ -1,0 +1,100 @@
+{
+  "EXACT_SAVED": [
+    {
+      "name": "simvla_uncertainty_49d",
+      "source": "row.simvla_uncertainty_49d",
+      "description": "Candidate0 49-D summary vector directly saved"
+    },
+    {
+      "name": "simvla_uncertainty_delta_49d",
+      "source": "row.simvla_uncertainty_delta_49d",
+      "description": "Candidate0 delta 49-D summary vector directly saved"
+    },
+    {
+      "name": "parent_episode_risk_label",
+      "source": "row.parent_episode_risk_label",
+      "description": "Episode outcome label directly saved"
+    },
+    {
+      "name": "current_proprio",
+      "source": "row.current.proprio",
+      "description": "8-D robot proprioception state directly saved"
+    }
+  ],
+  "EXACT_RECONSTRUCTIBLE": [
+    {
+      "name": "w2a_action_variance_mean",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "np.mean(np.var(c, axis=0, ddof=0)) across candidates"
+    },
+    {
+      "name": "w2a_action_variance_max",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "np.max(np.var(c, axis=0, ddof=0)) across candidates"
+    },
+    {
+      "name": "w2a_pairwise_mse_mean",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "mean over all 28 unordered off-diagonal candidate pairs of MSE"
+    },
+    {
+      "name": "w2a_first_candidate_vs_mean_mse",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "MSE between candidate0 and candidate-mean chunk"
+    },
+    {
+      "name": "w2a_endpoint_position_spread_mean_m",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "mean pairwise L2 distance of cumulative position endpoint"
+    },
+    {
+      "name": "w2a_endpoint_position_spread_max_m",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "max pairwise L2 distance of cumulative position endpoint"
+    },
+    {
+      "name": "w2a_position_variance_mean",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "mean variance of translation channels across candidates"
+    },
+    {
+      "name": "w2a_rotation_variance_mean",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "mean variance of rotation channels across candidates"
+    },
+    {
+      "name": "w2a_gripper_variance_mean",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "mean variance of gripper channel across candidates"
+    },
+    {
+      "name": "horizon_features_10x6",
+      "source": "main_candidate_action_chunk_env + ace_candidate_chunks_env",
+      "formula": "10-step horizon features: pos_var_mean, pos_var_max, rot_var_mean, grip_var, cum_spread_mean, cum_spread_max"
+    },
+    {
+      "name": "temporal_changes",
+      "source": "reconstructed disagreement scalars across sequential query rows",
+      "formula": "history_available, d_action_variance_mean, d_endpoint_spread_mean"
+    }
+  ],
+  "PROXY_FROM_CANDIDATE0": [
+    {
+      "name": "denoising_traces_proxy",
+      "source": "row.simvla_uncertainty_raw",
+      "approximated": "5 denoising traces x 5 stats = 25 scalars",
+      "proxy_source": "Candidate0 velocity_norm_trace, update_norm_trace, denoise_mean_trace, path_variance, last_step_variance",
+      "reason": "True multi-candidate cross-sample X_d/V_d traces for alternatives were not archived, but candidate0 genuine flow traces exist"
+    }
+  ],
+  "UNAVAILABLE": [
+    {
+      "name": "cross_candidate_intermediate_flow_states_Xd",
+      "missing": "Alternative candidates 1..8 pre-update intermediate states X_d at steps 0..9 were not archived"
+    },
+    {
+      "name": "cross_candidate_velocity_fields_Vd",
+      "missing": "Alternative candidates 1..8 vector fields V_d at steps 0..9 were not archived"
+    }
+  ]
+}
