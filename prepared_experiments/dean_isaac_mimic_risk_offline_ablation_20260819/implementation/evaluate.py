@@ -27,10 +27,10 @@ from .model import MimicH10RiskMonitor
 def sha256_file(path: Path | str) -> str:
     p = Path(path)
     if not p.exists() or not p.is_file():
-        return "N/A"
+        return 'N/A'
     hasher = hashlib.sha256()
-    with open(p, "rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024 * 4), b""):
+    with open(p, 'rb') as f:
+        for chunk in iter(lambda: f.read(1024 * 1024 * 4), b''):
             hasher.update(chunk)
     return hasher.hexdigest()
 
@@ -74,17 +74,17 @@ def run_validation_and_calibrate(
     out_dir = Path(output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    raw_scalars = np.load(derived_dir / "raw/scalar37.npy")
-    raw_horizon = np.load(derived_dir / "raw/horizon10x6.npy")
-    labels = np.load(derived_dir / "labels.npy")
-    episode_indices = np.load(derived_dir / "episode_index.npy")
-    decision_indices = np.load(derived_dir / "decision_index.npy")
-    split_indices = np.load(derived_dir / "split_index.npy")
+    raw_scalars = np.load(derived_dir / 'raw/scalar37.npy')
+    raw_horizon = np.load(derived_dir / 'raw/horizon10x6.npy')
+    labels = np.load(derived_dir / 'labels.npy')
+    episode_indices = np.load(derived_dir / 'episode_index.npy')
+    decision_indices = np.load(derived_dir / 'decision_index.npy')
+    split_indices = np.load(derived_dir / 'split_index.npy')
 
-    norm_file = derived_dir / "normalization.json"
-    manifest_file = derived_dir / "dataset_manifest_v2.json"
+    norm_file = derived_dir / 'normalization.json'
+    manifest_file = derived_dir / 'dataset_manifest_v2.json'
     if not manifest_file.exists():
-        manifest_file = derived_dir / "dataset_manifest.json"
+        manifest_file = derived_dir / 'dataset_manifest.json'
 
     with open(norm_file) as f:
         norm_params = json.load(f)
@@ -96,9 +96,9 @@ def run_validation_and_calibrate(
 
     model = MimicH10RiskMonitor().to(device)
     ckpt = torch.load(ckpt_path, map_location=device)
-    model.load_state_dict(ckpt["model_state_dict"])
-    seed = ckpt.get("seed", 0)
-    selected_epoch = ckpt.get("epoch", -1)
+    model.load_state_dict(ckpt['model_state_dict'])
+    seed = ckpt.get('seed', 0)
+    selected_epoch = ckpt.get('epoch', -1)
 
     val_scores, val_targets = score_split(model, val_dataset, device)
     val_episodes = episode_indices[val_row_idx]
@@ -116,28 +116,28 @@ def run_validation_and_calibrate(
     val_fail_eps = [ep for ep in val_unique_eps if labels[np.where(episode_indices == ep)[0][0]] == 1]
 
     val_package = {
-        "model_checkpoint_path": str(ckpt_path.resolve()),
-        "model_checkpoint_sha256": sha256_file(ckpt_path),
-        "seed": seed,
-        "selected_epoch": selected_epoch,
-        "training_summary_sha256": sha256_file(summary_path),
-        "dataset_manifest_v2_sha256": sha256_file(manifest_file),
-        "normalization_sha256": sha256_file(norm_file),
-        "spec_sha256": sha256_file(s_path),
-        "validation_rows_count": len(val_row_idx),
-        "validation_episodes_count": len(val_unique_eps),
-        "validation_failure_episodes_count": len(val_fail_eps),
-        "row_metrics": row_metrics,
-        "row_best_f1_summary": f1_res,
-        "calibrated_thresholds": thresholds,
-        "episode_evaluations": episode_evals,
+        'model_checkpoint_path': str(ckpt_path.resolve()),
+        'model_checkpoint_sha256': sha256_file(ckpt_path),
+        'seed': seed,
+        'selected_epoch': selected_epoch,
+        'training_summary_sha256': sha256_file(summary_path),
+        'dataset_manifest_v2_sha256': sha256_file(manifest_file),
+        'normalization_sha256': sha256_file(norm_file),
+        'spec_sha256': sha256_file(s_path),
+        'validation_rows_count': len(val_row_idx),
+        'validation_episodes_count': len(val_unique_eps),
+        'validation_failure_episodes_count': len(val_fail_eps),
+        'row_metrics': row_metrics,
+        'row_best_f1_summary': f1_res,
+        'calibrated_thresholds': thresholds,
+        'episode_evaluations': episode_evals,
     }
 
-    freeze_file = out_dir / "FROZEN_VALIDATION_SELECTION.json"
-    with open(freeze_file, "w") as f:
+    freeze_file = out_dir / 'FROZEN_VALIDATION_SELECTION.json'
+    with open(freeze_file, 'w') as f:
         json.dump(val_package, f, indent=2)
 
-    print(f"Validation calibration saved and frozen at: {freeze_file}")
+    print(f'Validation calibration saved and frozen at: {freeze_file}')
     return val_package
 
 
@@ -156,8 +156,8 @@ def run_held_out_test(
     freeze_path = Path(validation_freeze_path)
     if not freeze_path.exists():
         raise RuntimeError(
-            f"LEAKAGE GUARD ACTIVE: Held-out test evaluation refused because "
-            f"FROZEN_VALIDATION_SELECTION.json was not found at {freeze_path}."
+            f'LEAKAGE GUARD ACTIVE: Held-out test evaluation refused because '
+            f'FROZEN_VALIDATION_SELECTION.json was not found at {freeze_path}.'
         )
 
     with open(freeze_path) as f:
@@ -170,38 +170,38 @@ def run_held_out_test(
 
     # Verify cryptographic binding
     current_ckpt_sha = sha256_file(ckpt_path)
-    if current_ckpt_sha != val_freeze["model_checkpoint_sha256"]:
+    if current_ckpt_sha != val_freeze['model_checkpoint_sha256']:
         raise RuntimeError(
-            f"LEAKAGE GUARD ACTIVE: Checkpoint SHA256 mismatch! "
-            f"Current: {current_ckpt_sha}, Frozen: {val_freeze[model_checkpoint_sha256]}"
+            f'LEAKAGE GUARD ACTIVE: Checkpoint SHA256 mismatch! '
+            f'Current: {current_ckpt_sha}, Frozen: {val_freeze["model_checkpoint_sha256"]}'
         )
 
-    norm_file = derived_dir / "normalization.json"
+    norm_file = derived_dir / 'normalization.json'
     current_norm_sha = sha256_file(norm_file)
-    if current_norm_sha != val_freeze["normalization_sha256"]:
+    if current_norm_sha != val_freeze['normalization_sha256']:
         raise RuntimeError(
-            f"LEAKAGE GUARD ACTIVE: Normalization SHA256 mismatch! "
-            f"Current: {current_norm_sha}, Frozen: {val_freeze[normalization_sha256]}"
+            f'LEAKAGE GUARD ACTIVE: Normalization SHA256 mismatch! '
+            f'Current: {current_norm_sha}, Frozen: {val_freeze["normalization_sha256"]}'
         )
 
-    manifest_file = derived_dir / "dataset_manifest_v2.json"
+    manifest_file = derived_dir / 'dataset_manifest_v2.json'
     if not manifest_file.exists():
-        manifest_file = derived_dir / "dataset_manifest.json"
+        manifest_file = derived_dir / 'dataset_manifest.json'
     current_manifest_sha = sha256_file(manifest_file)
-    if current_manifest_sha != val_freeze["dataset_manifest_v2_sha256"]:
+    if current_manifest_sha != val_freeze['dataset_manifest_v2_sha256']:
         raise RuntimeError(
-            f"LEAKAGE GUARD ACTIVE: Dataset Manifest SHA256 mismatch! "
-            f"Current: {current_manifest_sha}, Frozen: {val_freeze[dataset_manifest_v2_sha256]}"
+            f'LEAKAGE GUARD ACTIVE: Dataset Manifest SHA256 mismatch! '
+            f'Current: {current_manifest_sha}, Frozen: {val_freeze["dataset_manifest_v2_sha256"]}'
         )
 
-    thresholds = val_freeze["calibrated_thresholds"]
+    thresholds = val_freeze['calibrated_thresholds']
 
-    raw_scalars = np.load(derived_dir / "raw/scalar37.npy")
-    raw_horizon = np.load(derived_dir / "raw/horizon10x6.npy")
-    labels = np.load(derived_dir / "labels.npy")
-    episode_indices = np.load(derived_dir / "episode_index.npy")
-    decision_indices = np.load(derived_dir / "decision_index.npy")
-    split_indices = np.load(derived_dir / "split_index.npy")
+    raw_scalars = np.load(derived_dir / 'raw/scalar37.npy')
+    raw_horizon = np.load(derived_dir / 'raw/horizon10x6.npy')
+    labels = np.load(derived_dir / 'labels.npy')
+    episode_indices = np.load(derived_dir / 'episode_index.npy')
+    decision_indices = np.load(derived_dir / 'decision_index.npy')
+    split_indices = np.load(derived_dir / 'split_index.npy')
 
     with open(norm_file) as f:
         norm_params = json.load(f)
@@ -213,7 +213,7 @@ def run_held_out_test(
 
     model = MimicH10RiskMonitor().to(device)
     ckpt = torch.load(ckpt_path, map_location=device)
-    model.load_state_dict(ckpt["model_state_dict"])
+    model.load_state_dict(ckpt['model_state_dict'])
 
     test_scores, test_targets = score_split(model, test_dataset, device)
     test_episodes = episode_indices[test_row_idx]
@@ -224,14 +224,14 @@ def run_held_out_test(
         episode_evals[t_name] = compute_episode_evaluation(test_scores, test_targets, test_episodes, t_val)
 
     test_package = {
-        "checkpoint": str(ckpt_path.resolve()),
-        "frozen_validation_reference": str(freeze_path.resolve()),
-        "test_row_metrics": row_metrics,
-        "applied_thresholds": thresholds,
-        "test_episode_evaluations": episode_evals,
+        'checkpoint': str(ckpt_path.resolve()),
+        'frozen_validation_reference': str(freeze_path.resolve()),
+        'test_row_metrics': row_metrics,
+        'applied_thresholds': thresholds,
+        'test_episode_evaluations': episode_evals,
     }
 
-    with open(out_dir / "HELD_OUT_TEST_RESULTS.json", "w") as f:
+    with open(out_dir / 'HELD_OUT_TEST_RESULTS.json', 'w') as f:
         json.dump(test_package, f, indent=2)
 
     return test_package
