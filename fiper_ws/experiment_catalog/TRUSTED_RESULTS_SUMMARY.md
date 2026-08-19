@@ -313,7 +313,7 @@ Canonical record: [`ISAAC_MAIN_3CM350_20260819.md`](ISAAC_MAIN_3CM350_20260819.m
 - Model: `isaac_seen4904_h10_topk8_temporal_3cm350_main_v2` (SeqRiskModel, 128 width, 3 layers, 4 heads, pos_weight=4.3453).
 - Locked internal TEST (736 eps / 14,526 rows): query AUROC **0.9408** / AUPRC **0.8748**, episode-balanced AUROC **0.9987** / AUPRC **0.9782**.
 - Conformal Best Val F1 Threshold (`0.5791`): **100.0% Failure Detection**, **7.60% Success False Alarm**.
-- Scope: Locked internal TEST split. New-protocol OOD evaluation is pending.
+- Scope: Locked internal TEST split plus exact-only converted historical OOD150 external transfer (136/150 episodes).
 
 ## Historical Corrected True-H10 Isaac Sim Result (2026-08-18)
 

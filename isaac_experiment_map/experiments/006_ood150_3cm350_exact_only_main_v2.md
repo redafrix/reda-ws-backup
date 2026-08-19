@@ -36,7 +36,7 @@ This experiment evaluates the zero-shot transfer of the canonical main Isaac tem
 ### Why Conversion is Exact-Only
 1. **72 Proven Successes (Label 0)**: All 72 historical successes under the strict 2cm/dwell protocol completed in $\le 863$ physics steps ($\le 216$ control ticks), mathematically proving they crossed $\le 3$ cm prior to tick 350.
 2. **64 Proven Failures (Label 1)**: 64 historical failures had full-trajectory minimum distance $> 0.030$ m, mathematically proving they never reached $\le 3$ cm.
-3. **14 Excluded Episodes**: 14 historical failures entered $(0.020\text{ m}, 0.030\text{ m}]$ after tick 350 without continuous tick-by-tick distance logs. Their exact first crossing timing relative to tick 350 cannot be proven with 100% mathematical certainty without simulation rerun.
+3. **14 Excluded Episodes**: 14 historical failure episodes reached $\le 3\text{ cm}$ at some unknown point during the full legacy trajectory, but the first crossing time relative to tick 350 cannot be reconstructed from the saved evidence. Their new-protocol outcome is therefore unresolved and they are excluded.
    - **Excluded IDs**: `000007`, `000022`, `000023`, `000038`, `000044`, `000084`, `000090`, `000103`, `000114`, `000170`, `000195`, `000226`, `000232`, `000284`.
 - **Included Exact Subset**: **136 episodes** (72 success, 64 failure).
 - **Retained Rows (`decision_index <= 34`)**: **3,447 rows** (1,207 success rows, 2,240 failure rows; max decision index: 34).

@@ -1,7 +1,7 @@
 # Current Main Isaac Results & Conformal Detection Evidence — 2026-08-19
 
 > [!NOTE]
-> **Scope Statement**: This document defines the CURRENT canonical Isaac main model, exact dataset, and locked internal test split results. All results reported herein are on the **locked internal TEST split** under the current 3cm / 350-tick / no-dwell reaching protocol. A new-protocol OOD evaluation is pending. Older 2cm / 600-tick / dwell results and V1 models remain preserved as historical benchmarks.
+> **Scope Statement**: This document defines the CURRENT canonical Isaac main model, exact dataset, locked internal test split results, and zero-shot external transfer evaluation on the exact-only converted historical OOD150 subset (136/150 episodes). Older 2cm / 600-tick / dwell results and V1 models remain preserved as historical benchmarks.
 
 ---
 
@@ -118,7 +118,7 @@
 - **Source Baseline**: Historical 150-episode candidate-0 collection (`/mnt/ai/projects/simvla_isaac_risk_collection_H10_EXECUTION_20260813/outputs/final_locked_h10_ood150_seed20260728`).
 - **Conversion Mode**: `EXACT_ONLY`.
 - **Included Exact Episodes**: **136 episodes** (72 success, 64 failure).
-- **Excluded Unresolvable Episodes**: **14 episodes** (`000007`, `000022`, `000023`, `000038`, `000044`, `000084`, `000090`, `000103`, `000114`, `000170`, `000195`, `000226`, `000232`, `000284`) where trajectory entered $(0.020\text{ m}, 0.030\text{ m}]$ after tick 350 without continuous distance logging.
+- **Excluded Unresolvable Episodes**: **14 episodes** (`000007`, `000022`, `000023`, `000038`, `000044`, `000084`, `000090`, `000103`, `000114`, `000170`, `000195`, `000226`, `000232`, `000284`) reached $\le 3\text{ cm}$ at some unknown point during the full legacy trajectory, but the first crossing time relative to tick 350 cannot be reconstructed from the saved evidence; their new-protocol outcome is unresolved and they are excluded.
 - **Retained Decision Rows (`decision_index <= 34`)**: **3,447 rows** (1,207 success rows, 2,240 failure rows; max decision index: 34).
 
 ### Discrimination Performance
