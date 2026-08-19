@@ -4,6 +4,7 @@ import json
 import math
 import os
 from pathlib import Path
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -332,6 +333,66 @@ class TestStage2B(unittest.TestCase):
         self.assertAlmostEqual(eval_res_early["mean_first_alarm_fraction"], 0.25)
         self.assertEqual(eval_res_early["det_25_count"], 1)
         self.assertEqual(eval_res_early["det_50_count"], 1)
+
+    def test_24_evaluator_refuses_wrong_checkpoint_hash(self):
+        """24. Evaluator cleanly raises RuntimeError on checkpoint SHA mismatch."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            freeze_file = Path(tmpdir) / "FROZEN_VALIDATION_SELECTION.json"
+            ckpt_file = Path(tmpdir) / "model.pt"
+            ckpt_file.write_text("model-content")
+            with open(freeze_file, "w") as f:
+                json.dump({
+                    "model_checkpoint_sha256": "wrong-hash",
+                    "normalization_sha256": "norm-hash",
+                    "dataset_manifest_v2_sha256": "manifest-hash",
+                    "calibrated_thresholds": {"fixed_0.5": 0.5},
+                }, f)
+            with self.assertRaises(RuntimeError) as ctx:
+                run_held_out_test(tmpdir, ckpt_file, freeze_file, tmpdir, torch.device("cpu"))
+            self.assertIn("Checkpoint SHA256 mismatch", str(ctx.exception))
+
+    def test_25_evaluator_refuses_wrong_normalization_hash(self):
+        """25. Evaluator cleanly raises RuntimeError on normalization SHA mismatch."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            freeze_file = Path(tmpdir) / "FROZEN_VALIDATION_SELECTION.json"
+            ckpt_file = Path(tmpdir) / "model.pt"
+            ckpt_file.write_text("model-content")
+            from prepared_experiments.dean_isaac_mimic_risk_offline_ablation_20260819.implementation.evaluate import sha256_file
+            ckpt_sha = sha256_file(ckpt_file)
+            norm_file = Path(tmpdir) / "normalization.json"
+            norm_file.write_text("norm-content")
+            with open(freeze_file, "w") as f:
+                json.dump({
+                    "model_checkpoint_sha256": ckpt_sha,
+                    "normalization_sha256": "wrong-norm-hash",
+                    "dataset_manifest_v2_sha256": "manifest-hash",
+                    "calibrated_thresholds": {"fixed_0.5": 0.5},
+                }, f)
+            with self.assertRaises(RuntimeError) as ctx:
+                run_held_out_test(tmpdir, ckpt_file, freeze_file, tmpdir, torch.device("cpu"))
+            self.assertIn("Normalization SHA256 mismatch", str(ctx.exception))
+
+    def test_26_evaluator_refuses_wrong_manifest_hash(self):
+        """26. Evaluator cleanly raises RuntimeError on dataset manifest SHA mismatch."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            freeze_file = Path(tmpdir) / "FROZEN_VALIDATION_SELECTION.json"
+            ckpt_file = Path(tmpdir) / "model.pt"
+            ckpt_file.write_text("model-content")
+            norm_file = Path(tmpdir) / "normalization.json"
+            norm_file.write_text("norm-content")
+            manifest_file = Path(tmpdir) / "dataset_manifest_v2.json"
+            manifest_file.write_text("manifest-content")
+            from prepared_experiments.dean_isaac_mimic_risk_offline_ablation_20260819.implementation.evaluate import sha256_file
+            with open(freeze_file, "w") as f:
+                json.dump({
+                    "model_checkpoint_sha256": sha256_file(ckpt_file),
+                    "normalization_sha256": sha256_file(norm_file),
+                    "dataset_manifest_v2_sha256": "wrong-manifest-hash",
+                    "calibrated_thresholds": {"fixed_0.5": 0.5},
+                }, f)
+            with self.assertRaises(RuntimeError) as ctx:
+                run_held_out_test(tmpdir, ckpt_file, freeze_file, tmpdir, torch.device("cpu"))
+            self.assertIn("Dataset Manifest SHA256 mismatch", str(ctx.exception))
 
 
 if __name__ == "__main__":
