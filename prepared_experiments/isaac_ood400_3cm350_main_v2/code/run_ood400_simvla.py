@@ -799,6 +799,7 @@ def run_collection(args: argparse.Namespace, simulation_app: Any) -> None:
     collection_cfg["clutter"]["count_options"] = [4, 5, 6, 7, 8, 9, 10, 11, 12]
 
     eval_cfg = base.load_yaml_config(run_cfg["simvla"]["eval_config"])
+    eval_cfg["simvla"]["checkpoint_model_sha256"] = "3f55dac970b9108dd54dc917fb5bbb12eae02e4843b1016cc69cf11ac2077c8e"
     manifest = load_benchmark_manifest(args.manifest)
     raw_manifest = json.loads(args.manifest.read_text())
     raw_manifest_entries = {
