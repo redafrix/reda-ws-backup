@@ -120,7 +120,7 @@ class OOD400Orchestrator:
 
         self.expected_hashes = {
             "manifest_sha256": "264dae5a7de872e5aee0a9554f88adfe7af3d38b5a7e29fd7f9b3e0d1c10da41",
-            "runner_sha256": "91814182da381e48bd049d411b1aed0f3cd2d6045dd1799769027e9ad239974a",
+            "runner_sha256": "a383960df348dc04b677c8cfd1c6984cacf7a1ddf50dc99a825ba6a73deea6d8",
             "runtime_sha256": "eee913f5137d46783bc5854bbaad55661a739b5b407aedd98c186bd48437b9fb",
             "model_sha256": "00ad096a9ca38577366e992e1d7f8aa25b6f56f2f2bd7354abce1790baf890f1",
             "norm_sha256": "6fbd2b221c4490c975e3e1492c96a9e879a586f0b3a4c4eaf97ea05920960341",
