@@ -124,7 +124,8 @@ def audit_active_run(
         summary = json.loads(summary_p.read_text(encoding="utf-8"))
         ep_decisions = [json.loads(l) for l in decisions_p.read_text(encoding="utf-8").splitlines() if l.strip()]
 
-        if summary["episode_id"] != ep_id or int(summary["benchmark_episode_id"]) != bench_id:
+        bench_id_val = int(summary.get("source_benchmark_episode_id", summary.get("benchmark_episode_id", bench_id)))
+        if summary["episode_id"] != ep_id or bench_id_val != bench_id:
             raise ValueError(f"Episode ID mismatch in active summary for {ep_id}")
 
         if len(ep_decisions) != int(summary["decision_rows"]):
