@@ -103,29 +103,18 @@ def run_offline_evaluation(
     N = len(labels)
     print(f"Loaded {N} decision rows from {frozen_dir}")
 
-    # Load Normalization
-    norm_data = np.load(norm_path)
-    h_mean = norm_data["history_mean"].astype(np.float32)
-    h_std = np.maximum(norm_data["history_std"].astype(np.float32), 1e-4)
-    a_mean = norm_data["action_mean"].astype(np.float32)
-    a_std = np.maximum(norm_data["action_std"].astype(np.float32), 1e-4)
-    s_mean = norm_data["static_mean"].astype(np.float32)
-    s_std = np.maximum(norm_data["static_std"].astype(np.float32), 1e-4)
-
-    # Normalize inputs
-    h_norm = (history - h_mean) / h_std
-    a_norm = (action - a_mean) / a_std
-    s_norm = (static - s_mean) / s_std
+    from ood400_runtime import load_stats, normalize
+    stats = load_stats(norm_path)
+    h_norm, a_norm, s_norm = normalize(history, action, static, stats)
 
     # Load model
     device = torch.device(device_str if torch.cuda.is_available() and "cuda" in device_str else "cpu")
-    model = make_seq_risk_model()
-    checkpoint = torch.load(model_path, map_location="cpu")
-    if "model_state_dict" in checkpoint:
-        model.load_state_dict(checkpoint["model_state_dict"])
+    model = make_seq_risk_model().to(device)
+    state = torch.load(model_path, map_location="cpu", weights_only=True)
+    if "model_state_dict" in state:
+        model.load_state_dict(state["model_state_dict"])
     else:
-        model.load_state_dict(checkpoint)
-    model.to(device)
+        model.load_state_dict(state)
     model.eval()
 
     # 2. Run batch inference
