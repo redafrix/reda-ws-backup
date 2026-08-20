@@ -383,7 +383,7 @@ class OOD400Orchestrator:
             else:
                 exp_idx = best_alt_idx
 
-            act_idx = int(d.get("executed_candidate_index", d["online_risk"]["selected_candidate_index"]))
+            act_idx = int(d.get("executed_candidate_index", d.get("online_risk", {}).get("shadow_selected_candidate_index", d.get("online_risk", {}).get("selected_candidate_index", 0))))
             if act_idx != exp_idx:
                 raise RuntimeError(f"Active smoke selection mismatch: expected {exp_idx}, got {act_idx}")
 

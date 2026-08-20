@@ -224,7 +224,7 @@ def audit_active_run(
                     if best_alt_s <= c_val:
                         full_cap_passes += 1
 
-            act_exec_idx = int(d.get("executed_candidate_index", d["online_risk"]["selected_candidate_index"]))
+            act_exec_idx = int(d.get("executed_candidate_index", d.get("online_risk", {}).get("shadow_selected_candidate_index", d.get("online_risk", {}).get("selected_candidate_index", 0))))
             if act_exec_idx != exp_idx:
                 selection_mismatches += 1
 
