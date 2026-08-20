@@ -381,6 +381,7 @@ def freeze_baseline_dataset(
     labels_arr = np.zeros(N, dtype=np.int64)
     ep_idx_arr = np.zeros(N, dtype=np.int64)
     dec_idx_arr = np.zeros(N, dtype=np.int64)
+    candidate_scores_arr = np.zeros((N, 9), dtype=np.float32)
 
     for i, d in enumerate(decisions):
         h = np.asarray(d["history"], dtype=np.float32)
@@ -391,6 +392,7 @@ def freeze_baseline_dataset(
         act_stats = action_statistics(a)
         topk8_feats = u49[list(TOPK8_INDICES)]
         static = np.concatenate([act_stats, ace, proprio, topk8_feats]).astype(np.float32)
+        scores = np.asarray(d["online_risk"]["candidate_scores"], dtype=np.float32)
 
         history_arr[i] = h
         action_arr[i] = a
@@ -398,6 +400,7 @@ def freeze_baseline_dataset(
         labels_arr[i] = int(d["parent_episode_risk_label"])
         ep_idx_arr[i] = int(d["episode_id"])
         dec_idx_arr[i] = int(d["decision_index"])
+        candidate_scores_arr[i] = scores
 
     np.save(frozen_dir / "history.npy", history_arr)
     np.save(frozen_dir / "action.npy", action_arr)
@@ -405,6 +408,7 @@ def freeze_baseline_dataset(
     np.save(frozen_dir / "labels.npy", labels_arr)
     np.save(frozen_dir / "episode_index.npy", ep_idx_arr)
     np.save(frozen_dir / "decision_index.npy", dec_idx_arr)
+    np.save(frozen_dir / "candidate_scores.npy", candidate_scores_arr)
 
     episode_ids = [s["episode_id"] for s in summaries]
     source_ep_ids = [int(s["source_episode_id"]) for s in summaries]
@@ -438,6 +442,7 @@ def freeze_baseline_dataset(
             "labels.npy": sha256_file(frozen_dir / "labels.npy"),
             "episode_index.npy": sha256_file(frozen_dir / "episode_index.npy"),
             "decision_index.npy": sha256_file(frozen_dir / "decision_index.npy"),
+            "candidate_scores.npy": sha256_file(frozen_dir / "candidate_scores.npy"),
             "episodes.jsonl": sha256_file(frozen_dir / "episodes.jsonl"),
             "decisions.jsonl": sha256_file(frozen_dir / "decisions.jsonl"),
             "manifest.json": sha256_file(frozen_dir / "manifest.json"),
