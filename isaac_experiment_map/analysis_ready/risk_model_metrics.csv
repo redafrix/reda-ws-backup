@@ -1,4 +1,4 @@
-model_id,split,query_auprc,query_auroc,episode_auprc,episode_auroc,fpr_at_q95,fpr_at_q99
-MODEL-SEEN4904-MAINV2,seen4904_val,0.902,0.9124,0.932,0.941,0.0512,0.0102
-MODEL-SEEN4904-MAINV2,seen4904_test,0.8985,0.909,0.928,0.9385,0.052,0.011
-MODEL-SEEN4904-MAINV2,ood150_transfer,0.842,0.865,0.885,0.892,0.071,0.018
+model_id,split,query_auprc,query_auroc,episode_auprc,episode_auroc,q95_success_false_alarm_rate,q99_success_false_alarm_rate,source
+MODEL-SEEN4904-MAINV2,seen4904_validation,0.9020032094908842,0.9509926421674487,1.0,1.0,,,canonical training metrics
+MODEL-SEEN4904-MAINV2,seen4904_locked_test,0.874846604284548,0.9407651224665466,0.9781869621489335,0.9987335359675785,0.0364741641337386,0.0121580547112462,locked test + Seen threshold sweep
+MODEL-SEEN4904-MAINV2,ood150_exact_only_transfer,0.9621235135144359,0.9200878062492603,0.9939601620974798,0.9954427083333334,0.1388888888888889,0.05555555555555556,OOD150 exact-only external transfer
