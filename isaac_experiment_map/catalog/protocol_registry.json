@@ -1,5 +1,5 @@
 {
-  "schema_version": "isaac_protocol_registry_v1",
+  "schema_version": "isaac_protocol_registry_v2",
   "protocols": {
     "PROTO-ISAAC-3CM350-H10-V1": {
       "protocol_id": "PROTO-ISAAC-3CM350-H10-V1",
@@ -7,28 +7,50 @@
       "canonical_status": "canonical_active_protocol",
       "distance_threshold_m": 0.03,
       "termination_rule": "immediate_termination_on_first_crossing_under_threshold",
+      "dwell_required": false,
       "dwell_steps_required": 0,
+      "settle_required": false,
       "settle_steps_required": 0,
       "control_fps_hz": 30.0,
-      "physics_dt_s": 0.008333333333333333,
       "physics_fps_hz": 120.0,
       "control_decimation": 4,
       "max_control_ticks": 350,
       "max_physics_steps": 1400,
       "execution_horizon": 10,
-      "action_dim": 7,
-      "state_dim": 8,
       "command_351_forbidden": true
+    },
+    "PROTO-HISTORICAL-ISAAC-2CM600-DWELL-H10": {
+      "protocol_id": "PROTO-HISTORICAL-ISAAC-2CM600-DWELL-H10",
+      "name": "Historical True-H10 Isaac Reaching 2cm/600-tick Dwell Protocol",
+      "canonical_status": "historical_reference",
+      "distance_threshold_m": 0.02,
+      "termination_rule": "historical_success_rule_with_dwell",
+      "dwell_required": true,
+      "control_fps_hz": 30.0,
+      "physics_fps_hz": 120.0,
+      "control_decimation": 4,
+      "max_control_ticks": 600,
+      "max_physics_steps": 2400,
+      "execution_horizon": 10,
+      "notes": "Superseded historical protocol used by Seen4000 V1 and locked OOD150 baseline/active controller. Exact dwell duration is intentionally left to source run configs rather than guessed."
+    },
+    "PROTO-EXPLORATORY-PER-EXPERIMENT": {
+      "protocol_id": "PROTO-EXPLORATORY-PER-EXPERIMENT",
+      "name": "Exploratory Isaac integration protocol; parameters defined by experiment record",
+      "canonical_status": "noncanonical",
+      "notes": "Early SimVLA/Pi0.5/xVLA tests do not share a common benchmark protocol and must not be compared as a leaderboard."
+    },
+    "PROTO-INFRASTRUCTURE-NO-SCIENTIFIC-ROLLOUT": {
+      "protocol_id": "PROTO-INFRASTRUCTURE-NO-SCIENTIFIC-ROLLOUT",
+      "name": "Video/postprocessing infrastructure only",
+      "canonical_status": "development_only",
+      "notes": "No independent scientific rollout outcome should be inferred."
     },
     "PROTO-HISTORICAL-OOD150-LEGACY": {
       "protocol_id": "PROTO-HISTORICAL-OOD150-LEGACY",
-      "name": "Historical OOD150 Legacy Evaluation Protocol",
-      "canonical_status": "historical_reference",
-      "distance_threshold_m": 0.03,
-      "max_control_ticks": 350,
-      "max_physics_steps": 1400,
-      "execution_horizon": 10,
-      "notes": "Historical OOD150 run convention prior to formal main_v2 manifest locking."
+      "deprecated_alias_for": "PROTO-HISTORICAL-ISAAC-2CM600-DWELL-H10",
+      "canonical_status": "deprecated_alias",
+      "notes": "Retained so older references resolve. This alias must not be interpreted as 3cm/350."
     }
   }
 }
