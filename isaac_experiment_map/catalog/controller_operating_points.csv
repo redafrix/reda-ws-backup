@@ -1,7 +1,8 @@
 controller_id,source_split,threshold_name,threshold_a,threshold_c,threshold_m,executed,role,canonicality,notes
-CTRL-SEEN-BESTF1,seen4904_val,Best F1,0.5791,0.9,0.0,False,offline_calibration_reference,historical_reference,Seen4904 offline validation Best-F1 calibration point.
-CTRL-SEEN-FIXED05,seen4904_val,Fixed 0.5,0.5,0.9,0.0,False,offline_calibration_reference,historical_reference,Fixed 0.5 probability operating point.
-CTRL-SEEN-Q90,seen4904_val,Seen q90,0.4285,0.9,0.0,False,offline_calibration_reference,historical_reference,Seen4904 90th percentile risk threshold.
-CTRL-SEEN-Q95,seen4904_val,Seen q95,0.6643207669258118,0.6643207669258118,0.0,True,secondary_controller_ablation,canonical_ablation,Evaluated in OOD400 as symmetric one-threshold secondary ablation.
-CTRL-SEEN-Q99,seen4904_val,q99 success,0.8792325258255005,0.9,0.0,True,primary_online_controller,canonical_primary,Evaluated in OOD400 as primary online risk replacement controller.
-CTRL-PREDEC-C100,seen4904_val,q99 success (C=1.00),0.8792325258255005,1.0,0.0,False,secondary_controller_ablation,noncanonical,Predeclared but superseded before execution; 0 GPU episodes run.
+CTRL-SEEN-BESTF1,seen4904_val,Best F1,0.579133152961731,,,False,offline_calibration_reference,canonical_primary,Seen-validation-derived operating point; C/M are not intrinsic to the offline threshold.
+CTRL-SEEN-FIXED05,seen4904_val,Fixed 0.5,0.5,,,False,offline_calibration_reference,canonical_primary,Fixed probability operating point; C/M are not intrinsic to the offline threshold.
+CTRL-SEEN-Q90,seen4904_val,q90 success,0.5631080269813538,,,False,offline_calibration_reference,canonical_primary,Seen-validation-derived q90 success operating point.
+CTRL-SEEN-Q95,seen4904_val,q95 success,0.6643207669258118,0.6643207669258118,0.0,True,secondary_controller_ablation,canonical_ablation,Executed in OOD400 as symmetric A=C q95 secondary ablation.
+CTRL-SEEN-Q99-C090,seen4904_val,q99 success,0.8792325258255005,0.9,0.0,True,primary_online_controller,canonical_primary,Executed in OOD400 as primary q99/C090 controller.
+CTRL-HIST-OOD150-C090,seen4000_val,Historical Best F1,0.7990124225616455,0.9,0.0,True,historical_online_controller,historical_reference,Historical 2cm/600-tick OOD150 engineering controller; 75/150 active vs 72/150 baseline.
+CTRL-PREDEC-C100,seen4904_val,q99 success (C=1.00),0.8792325258255005,1.0,0.0,False,predeclared_not_executed,noncanonical,Predeclared then superseded before execution; 0 GPU episodes.
