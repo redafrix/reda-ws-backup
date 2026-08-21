@@ -1,0 +1,51 @@
+{
+  "schema_version": "current_main_isaac_results_20260821_v1",
+  "updated_at": "2026-08-21T07:56:33Z",
+  "benchmark": "reaching_mimic_risk_ood400",
+  "protocol": "PROTO-ISAAC-3CM350-H10-V1",
+  "canonical_experiments": {
+    "baseline": {
+      "experiment_id": "EXP-008",
+      "episodes": 400,
+      "successes": 215,
+      "failures": 185,
+      "success_rate": 0.5375,
+      "total_decisions": 9913
+    },
+    "primary_c090": {
+      "experiment_id": "EXP-009",
+      "threshold_a": 0.8792325258255005,
+      "threshold_c": 0.9,
+      "threshold_m": 0.0,
+      "episodes": 400,
+      "successes": 225,
+      "failures": 175,
+      "success_rate": 0.5625,
+      "delta_pp": 2.5,
+      "rescues": 17,
+      "regressions": 7,
+      "net_rescues": 10,
+      "total_decisions": 9724,
+      "interventions": 87,
+      "episodes_touched": 67
+    },
+    "secondary_q95_symmetric": {
+      "experiment_id": "EXP-010",
+      "threshold_a": 0.6643207669258118,
+      "threshold_c": 0.6643207669258118,
+      "threshold_m": 0.0,
+      "episodes": 400,
+      "successes": 224,
+      "failures": 176,
+      "success_rate": 0.56,
+      "delta_pp": 2.25,
+      "rescues": 16,
+      "regressions": 7,
+      "net_rescues": 9,
+      "total_decisions": 9790,
+      "interventions": 30,
+      "episodes_touched": 28,
+      "interventions_per_net_rescue": 3.33
+    }
+  }
+}

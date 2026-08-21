@@ -1,0 +1,34 @@
+{
+  "schema_version": "isaac_protocol_registry_v1",
+  "protocols": {
+    "PROTO-ISAAC-3CM350-H10-V1": {
+      "protocol_id": "PROTO-ISAAC-3CM350-H10-V1",
+      "name": "IsaacLab Franka Reaching 3cm/350-tick H10 No-Dwell Protocol",
+      "canonical_status": "canonical_active_protocol",
+      "distance_threshold_m": 0.03,
+      "termination_rule": "immediate_termination_on_first_crossing_under_threshold",
+      "dwell_steps_required": 0,
+      "settle_steps_required": 0,
+      "control_fps_hz": 30.0,
+      "physics_dt_s": 0.008333333333333333,
+      "physics_fps_hz": 120.0,
+      "control_decimation": 4,
+      "max_control_ticks": 350,
+      "max_physics_steps": 1400,
+      "execution_horizon": 10,
+      "action_dim": 7,
+      "state_dim": 8,
+      "command_351_forbidden": true
+    },
+    "PROTO-HISTORICAL-OOD150-LEGACY": {
+      "protocol_id": "PROTO-HISTORICAL-OOD150-LEGACY",
+      "name": "Historical OOD150 Legacy Evaluation Protocol",
+      "canonical_status": "historical_reference",
+      "distance_threshold_m": 0.03,
+      "max_control_ticks": 350,
+      "max_physics_steps": 1400,
+      "execution_horizon": 10,
+      "notes": "Historical OOD150 run convention prior to formal main_v2 manifest locking."
+    }
+  }
+}

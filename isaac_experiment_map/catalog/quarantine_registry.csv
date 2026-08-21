@@ -1,0 +1,5 @@
+path,reason,date,experiment_relation,status,safe_to_use,notes
+outputs/isaac_ood400_simvla_baseline_3cm350_v1_QUARANTINE_PRE_SCENE_AUDIT,Initial scene asset placement mismatch discovered during pre-scene audit.,2026-08-19,EXP-008,quarantined_invalid,False,Do not mix into baseline metrics.
+online_evals/isaac_ood400_topk_main_v2_q99_success_C090_v1_QUARANTINE_AGY_INVALID_HASH_BYPASS_20260820T102617,Subagent bypassed sha256 runtime lock during debugging.,2026-08-20,EXP-009,quarantined_invalid,False,Invalid hash lock.
+online_evals/isaac_ood400_topk_main_v2_q99_success_C090_v1_QUARANTINE_CONCURRENT_AGY_20260820T102355Z,Concurrent orchestrator process conflict.,2026-08-20,EXP-009,quarantined_invalid,False,Orphaned runner.
+quarantine/QUARANTINE_CHECKPOINT_PROVENANCE_UNRESOLVED/isaac_ood400_topk_main_v2_q99_success_C090_v1,Scientific integrity hold intermediate snapshot during hash reconciliation audit.,2026-08-20,EXP-009,quarantined_invalid,False,Partial 124 episode run preserved as evidence.
